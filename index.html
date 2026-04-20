@@ -2733,6 +2733,10 @@ const DICTIONARY_RAW = [
   {lw:"ma", en:"but", pos:"conj"},
   {lw:"mai", en:"not (negation)", pos:"particle"},
   {lw:"mai yauwi", en:"not yet", pos:"phrase", note:"From mai (not) + yauwi (still)"},
+  {lw:"maihe", en:"message", pos:"n"},
+  {lw:"maihi", en:"sent (as a message)", pos:"adj"},
+  {lw:"maihu", en:"to send a message (or text, write to)", pos:"v"},
+  {lw:"maihupue", en:"messenger", pos:"n", note:"From maihu + -pue (agent)"},
   {lw:"maivi", en:"unless", pos:"conj", note:"From mai (not) + vi (if)"},
   {lw:"mashe", en:"medicine", pos:"n"},
   {lw:"mashepue", en:"doctor", pos:"n", note:"From mashe + -pue (agent)"},
@@ -2787,6 +2791,8 @@ const DICTIONARY_RAW = [
   {lw:"miehe", en:"brain (or mind)", pos:"n"},
   {lw:"miehi", en:"mental", pos:"adj"},
   {lw:"miehu", en:"to contemplate", pos:"v"},
+  {lw:"miehupauwe", en:"computer", pos:"n", note:"From miehu (to think) + -pauwe (device) \u2014 thinking machine"},
+  {lw:"miehupauwi", en:"computer-related (or computational)", pos:"adj"},
   {lw:"mihe", en:"need", pos:"n"},
   {lw:"mihi", en:"needed", pos:"adj"},
   {lw:"mihu", en:"to need (or must)", pos:"v"},
@@ -3435,6 +3441,8 @@ const DICTIONARY_RAW = [
   {lw:"shire", en:"creation", pos:"n"},
   {lw:"shiri", en:"creative (or creatively)", pos:"adj"},
   {lw:"shiru", en:"to make (or create)", pos:"v"},
+  {lw:"shirimiehe", en:"AI (artificial intelligence)", pos:"n", note:"From shiri (created) + miehe (mind) \u2014 created mind"},
+  {lw:"shirimiehi", en:"AI-related", pos:"adj"},
   {lw:"shiwane", en:"meat (or flesh)", pos:"n"},
   {lw:"shiwani", en:"meaty", pos:"adj"},
   {lw:"shiwe", en:"smoothness", pos:"n"},
@@ -3640,6 +3648,8 @@ const DICTIONARY_RAW = [
   {lw:"waimo", en:"hello (meeting)", pos:"expr"},
   {lw:"waine", en:"belt", pos:"n"},
   {lw:"waini", en:"belt-like", pos:"adj"},
+  {lw:"wainoe", en:"internet", pos:"n"},
+  {lw:"wainoi", en:"online (or internet-related)", pos:"adj"},
   {lw:"waiye", en:"protection", pos:"n"},
   {lw:"waiyi", en:"protective", pos:"adj"},
   {lw:"waiyu", en:"to protect", pos:"v"},
@@ -4105,7 +4115,7 @@ function showContactSuccess() {
   el.innerHTML = `
     <div class="contact-success">
       <div class="contact-success-icon">🌊</div>
-      <div class="contact-success-title">Reiwa na teo mesahe!</div>
+      <div class="contact-success-title">Reiwa na teo maihe!</div>
       <div class="contact-success-desc">(Thank you for your message!)<br><br>I'll read it soon and get back to you if you shared your email.</div>
       <button id="cBack" class="btn-primary" style="max-width:280px;margin:0 auto">Send another message</button>
     </div>
