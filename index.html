@@ -698,13 +698,13 @@ function showView(name) {
 //   3. Project settings (gear icon) → Your apps → Add web app → Register
 //   4. Copy the config values from the generated snippet and paste below
 const FIREBASE_CONFIG = {
-  apiKey: "AIzaSyDadyHknaEiKIT9zSF1DnzXAkI6TBuPte0",
-  authDomain: "liru-app-9aef5.firebaseapp.com",
-  databaseURL: "https://liru-app-9aef5-default-rtdb.firebaseio.com",
-  projectId: "liru-app-9aef5",
-  storageBucket: "liru-app-9aef5.firebasestorage.app",
-  messagingSenderId: "361553228536",
-  appId: "1:361553228536:web:6954014bdd4b68348f410d"
+  apiKey: "YOUR_API_KEY",
+  authDomain: "YOUR_PROJECT.firebaseapp.com",
+  databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
+  projectId: "YOUR_PROJECT",
+  storageBucket: "YOUR_PROJECT.firebasestorage.app",
+  messagingSenderId: "YOUR_SENDER_ID",
+  appId: "YOUR_APP_ID"
 };
 
 let db = null;
@@ -726,9 +726,9 @@ try {
 //   2. Create an Email Service (Gmail recommended) → copy your Service ID
 //   3. Create an Email Template with variables: {{from_name}}, {{from_email}}, {{category}}, {{message}}
 //   4. Copy your Template ID and Public Key below
-const EMAILJS_PUBLIC_KEY  = "5Zl8cU30xSzqTUKCr";
-const EMAILJS_SERVICE_ID  = "service_z82mm6p";
-const EMAILJS_TEMPLATE_ID = "template_nx5gfso";
+const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
+const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
+const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
 const EMAILJS_TO_EMAIL    = "njprentiss@gmail.com";
 
 let emailJSReady = false;
@@ -2134,10 +2134,11 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-sub-header">Handy time adverbs</div>
     <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Word</th><th>Meaning</th></tr></thead><tbody>
     <tr><td><em>ouhi</em></td><td>already</td></tr>
-    <tr><td><em>yauwi</em></td><td>still / yet</td></tr>
+    <tr><td><em>yauwi</em></td><td>still</td></tr>
     <tr><td><em>nohili</em></td><td>just (recently)</td></tr>
     <tr><td><em>wauhi</em></td><td>soon</td></tr>
     <tr><td><em>feuhi</em></td><td>eventually</td></tr>
+    <tr><td><em>oihi</em></td><td>expected</td></tr>
     <tr><td><em>taiweli</em></td><td>always</td></tr>
     <tr><td><em>naiweli</em></td><td>often</td></tr>
     <tr><td><em>saiweli</em></td><td>sometimes</td></tr>
@@ -2145,7 +2146,8 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>noihi</em></td><td>almost</td></tr>
     <tr><td><em>ori</em></td><td>very / really</td></tr>
     </tbody></table></div>
-    <p>"Rarely" is just <em>mai naiweli</em> (not often).</p>`
+    <p>"Rarely" is just <em>mai naiweli</em> (not often). "Not yet" is <em>mai yauwi</em>.</p>
+    <p>"Early" and "late" are compositional: <em>wale oihi</em> (before expected) and <em>wule oihi</em> (after expected).</p>`
   },
   {
     icon:"🧭", title:"Direction & Space",
@@ -2269,8 +2271,8 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-callout"><strong>⚙️ <em>-pauwe</em> — "machine that does it"</strong><br>
     Always use the <em>-u</em> (verb) form. A washing machine washes things, so take <em>sayu</em> (to wash) and stick <em>-pauwe</em> on the end:<br>
     <em>sayu</em> (to wash) + <em>-pauwe</em> → <em>sayupauwe</em> (washing machine)<br>
-    <em>luhu</em> (to be cold) + <em>-pauwe</em> → <em>luhupauwe</em> (refrigerator)<br>
-    <em>hauhu</em> (to be hot) + <em>-pauwe</em> → <em>hauhupauwe</em> (oven)</div>
+    <em>luhu</em> (to make cold) + <em>-pauwe</em> → <em>luhupauwe</em> (refrigerator)<br>
+    <em>hauhu</em> (to heat up) + <em>-pauwe</em> → <em>hauhupauwe</em> (oven)</div>
     <p style="margin-top:14px"><strong>Why these three are easy:</strong> For <em>-pue</em> and <em>-pauwe</em>, both are about doing something — a person does it, or a machine does it — so the verb form (<em>-u</em>) always fits. For <em>-tieme</em>, a store is about the stuff it sells, so the noun form (<em>-e</em>) always fits. No guessing needed!</p>
     <p>You can build words with these three endings any time — you don't have to wait for them to appear in the dictionary.</p>`
   },
@@ -2297,7 +2299,7 @@ const GRAMMAR_SECTIONS = [
       <li><em>Ne mai senu kipue wa liru.</em> — I don't know who sang.</li>
     </ul>
     <div class="grammar-sub-header">Stopping an action — <em>mowashu</em></div>
-    <p>There's no dedicated "stop" verb. <em>mowashu</em> (literally "not-flow") covers both physical cessation and action cessation, and it chains like a modal.</p>
+    <p><em>mowashu</em> is the verb for "to stop" — it covers both physical cessation and action cessation, and it chains like a modal.</p>
     <ul>
       <li><em>Ne mowashu.</em> — I stop.</li>
       <li><em>Ne mowashu tahu.</em> — I stop eating.</li>
@@ -2376,7 +2378,7 @@ const DICTIONARY_RAW = [
   {lw:"fa", en:"from", pos:"prep"},
   {lw:"faile", en:"excitement", pos:"n"},
   {lw:"faili", en:"excited (or eagerly)", pos:"adj"},
-  {lw:"failu", en:"to be excited", pos:"v"},
+  {lw:"failu", en:"to excite", pos:"v"},
   {lw:"faire", en:"dance", pos:"n"},
   {lw:"fairi", en:"danced", pos:"adj"},
   {lw:"fairu", en:"to dance", pos:"v"},
@@ -2459,8 +2461,8 @@ const DICTIONARY_RAW = [
   {lw:"haniruniluone", en:"December", pos:"n", note:"From hani (10) + runi (2) + luone (month) \u2014 December"},
   {lw:"hauhe", en:"heat", pos:"n"},
   {lw:"hauhi", en:"hot (or hotly)", pos:"adj"},
-  {lw:"hauhu", en:"to be hot (or heat up)", pos:"v"},
-  {lw:"hauhupauwe", en:"oven", pos:"n", note:"From hauhu (to be hot) + -pauwe (device) \u2014 oven"},
+  {lw:"hauhu", en:"to heat up", pos:"v"},
+  {lw:"hauhupauwe", en:"oven", pos:"n", note:"From hauhu (to heat up) + -pauwe (device) \u2014 oven"},
   {lw:"haule", en:"sun", pos:"n"},
   {lw:"hauli", en:"sunlit", pos:"adj"},
   {lw:"haumale", en:"yellow (the color)", pos:"n"},
@@ -2665,7 +2667,7 @@ const DICTIONARY_RAW = [
   {lw:"liohu", en:"to step up", pos:"v"},
   {lw:"lire", en:"song (or speech)", pos:"n"},
   {lw:"liri", en:"vocal", pos:"adj"},
-  {lw:"liru", en:"to speak (or sing, say)", pos:"v"},
+  {lw:"liru", en:"to speak (or sing, say, talk)", pos:"v"},
   {lw:"lirupue", en:"singer (or speaker)", pos:"n", note:"From liru + -pue (agent)"},
   {lw:"liume", en:"plant", pos:"n"},
   {lw:"liumi", en:"plant-like", pos:"adj"},
@@ -2717,8 +2719,8 @@ const DICTIONARY_RAW = [
   {lw:"luhime", en:"music", pos:"n"},
   {lw:"luhimi", en:"musical", pos:"adj"},
   {lw:"luhimu", en:"to play music (or make music)", pos:"v"},
-  {lw:"luhu", en:"to be cold", pos:"v"},
-  {lw:"luhupauwe", en:"refrigerator", pos:"n", note:"From luhu (to be cold) + -pauwe (device) \u2014 refrigerator"},
+  {lw:"luhu", en:"to make cold", pos:"v"},
+  {lw:"luhupauwe", en:"refrigerator", pos:"n", note:"From luhu (to make cold) + -pauwe (device) \u2014 refrigerator"},
   {lw:"lune", en:"light", pos:"n"},
   {lw:"luni", en:"bright (or brightly)", pos:"adj"},
   {lw:"lunu", en:"to shine", pos:"v"},
@@ -2727,6 +2729,7 @@ const DICTIONARY_RAW = [
   {lw:"luonu", en:"to pass a month", pos:"v"},
   {lw:"ma", en:"but", pos:"conj"},
   {lw:"mai", en:"not (negation)", pos:"particle"},
+  {lw:"mai yauwi", en:"not yet", pos:"phrase", note:"From mai (not) + yauwi (still)"},
   {lw:"maivi", en:"unless", pos:"conj", note:"From mai (not) + vi (if)"},
   {lw:"mashe", en:"medicine", pos:"n"},
   {lw:"mashepue", en:"doctor", pos:"n", note:"From mashe + -pue (agent)"},
@@ -3166,6 +3169,9 @@ const DICTIONARY_RAW = [
   {lw:"nuve", en:"nose", pos:"n"},
   {lw:"nuvi", en:"nasal", pos:"adj"},
   {lw:"nuvu", en:"to smell (or sniff)", pos:"v"},
+  {lw:"oihe", en:"expectation", pos:"n"},
+  {lw:"oihi", en:"expected", pos:"adj"},
+  {lw:"oihu", en:"to expect", pos:"v"},
   {lw:"oke", en:"life", pos:"n"},
   {lw:"oki", en:"alive", pos:"adj"},
   {lw:"oku", en:"to live (or be alive)", pos:"v"},
@@ -3301,7 +3307,7 @@ const DICTIONARY_RAW = [
   {lw:"riwu", en:"to search (or seek)", pos:"v"},
   {lw:"rohe", en:"certainty", pos:"n"},
   {lw:"rohi", en:"certain (or certainly)", pos:"adj"},
-  {lw:"rohu", en:"to be certain", pos:"v"},
+  {lw:"rohu", en:"to confirm (or make certain)", pos:"v"},
   {lw:"roine", en:"rice", pos:"n"},
   {lw:"roini", en:"rice-like", pos:"adj"},
   {lw:"rouhe", en:"week", pos:"n"},
@@ -3329,14 +3335,13 @@ const DICTIONARY_RAW = [
   {lw:"saihue", en:"something", pos:"n", note:"From sai (some) + hue (thing) \u2014 something"},
   {lw:"saire", en:"speed (or suddenness)", pos:"n"},
   {lw:"sairi", en:"fast (or quickly, sudden, suddenly)", pos:"adj"},
-  {lw:"sairu", en:"to be fast", pos:"v"},
+  {lw:"sairu", en:"to speed up (or accelerate)", pos:"v"},
   {lw:"saiweli", en:"sometimes", pos:"adj", note:"From sai (some) + weli \u2014 sometimes"},
   {lw:"saone", en:"salt", pos:"n"},
   {lw:"saoni", en:"salty", pos:"adj"},
   {lw:"saonu", en:"to salt", pos:"v"},
-  {lw:"sauwe", en:"bathroom", pos:"n"},
-  {lw:"sauwi", en:"for washing", pos:"adj"},
-  {lw:"sauwu", en:"to wash oneself (or freshen up)", pos:"v"},
+  {lw:"sauwe", en:"toilet", pos:"n"},
+  {lw:"sauwi", en:"toilet-related", pos:"adj"},
   {lw:"saye", en:"cleanliness", pos:"n"},
   {lw:"sayi", en:"clean", pos:"adj"},
   {lw:"sayu", en:"to clean (or wash)", pos:"v"},
@@ -3379,7 +3384,7 @@ const DICTIONARY_RAW = [
   {lw:"shani", en:"four", pos:"num"},
   {lw:"shanilawe", en:"Wednesday", pos:"n", note:"From shani (4) + lawe (day)"},
   {lw:"shaniluone", en:"April", pos:"n", note:"From shani (4) + luone (month)"},
-  {lw:"shauhe", en:"bathroom (or toilet)", pos:"n"},
+  {lw:"shauhe", en:"bathroom (or restroom)", pos:"n"},
   {lw:"shauhi", en:"of the bathroom", pos:"adj"},
   {lw:"shauhu", en:"to use the bathroom", pos:"v"},
   {lw:"shauke", en:"bush (or shrub)", pos:"n"},
@@ -3490,7 +3495,7 @@ const DICTIONARY_RAW = [
   {lw:"tauhi", en:"arid", pos:"adj"},
   {lw:"tauke", en:"anger", pos:"n"},
   {lw:"tauki", en:"angry (or angrily)", pos:"adj"},
-  {lw:"tauku", en:"to be angry", pos:"v"},
+  {lw:"tauku", en:"to anger (or make angry)", pos:"v"},
   {lw:"taume", en:"passage", pos:"n"},
   {lw:"taumi", en:"through", pos:"adj"},
   {lw:"taumu", en:"to pass through", pos:"v"},
@@ -3515,7 +3520,7 @@ const DICTIONARY_RAW = [
   {lw:"teuhe", en:"difficulty", pos:"n"},
   {lw:"teuhi", en:"difficult (or hard)", pos:"adj"},
   {lw:"teuhile", en:"problem", pos:"n", note:"From teuhe (difficulty) + -ile (diminutive)"},
-  {lw:"teuhu", en:"to be difficult", pos:"v"},
+  {lw:"teuhu", en:"to make difficult (or complicate)", pos:"v"},
   {lw:"tieme", en:"store (or shop)", pos:"n"},
   {lw:"tiemi", en:"commercial", pos:"adj"},
   {lw:"tiemu", en:"to sell commercially (or run a store)", pos:"v"},
@@ -3625,6 +3630,7 @@ const DICTIONARY_RAW = [
   {lw:"waiyi", en:"protective", pos:"adj"},
   {lw:"waiyu", en:"to protect", pos:"v"},
   {lw:"wale", en:"before", pos:"conj", note:"From wa (past) + -le \u2014 before"},
+  {lw:"wale oihi", en:"early (before expected)", pos:"phrase", note:"From wale (before) + oihi (expected)"},
   {lw:"wali", en:"previous", pos:"adj"},
   {lw:"wame", en:"friend", pos:"n"},
   {lw:"wami", en:"likeable", pos:"adj"},
@@ -3634,12 +3640,12 @@ const DICTIONARY_RAW = [
   {lw:"wanu", en:"to want", pos:"v"},
   {lw:"washe", en:"movement (or flow)", pos:"n"},
   {lw:"washi", en:"flowing (or mobile)", pos:"adj"},
-  {lw:"washu", en:"to flow (or move)", pos:"v"},
+  {lw:"washu", en:"to move (or flow)", pos:"v"},
   {lw:"wauhe", en:"near-future", pos:"n"},
   {lw:"wauhi", en:"soon (or imminent)", pos:"adj"},
   {lw:"waule", en:"beauty", pos:"n"},
   {lw:"wauli", en:"beautiful (or beautifully)", pos:"adj"},
-  {lw:"waulu", en:"to be beautiful", pos:"v"},
+  {lw:"waulu", en:"to make beautiful (or beautify)", pos:"v"},
   {lw:"waume", en:"freedom", pos:"n"},
   {lw:"waumi", en:"free (or freely)", pos:"adj"},
   {lw:"waumu", en:"to free", pos:"v"},
@@ -3652,7 +3658,7 @@ const DICTIONARY_RAW = [
   {lw:"weriko", en:"goodbye (parting)", pos:"expr"},
   {lw:"wesire", en:"truth", pos:"n"},
   {lw:"wesiri", en:"true", pos:"adj"},
-  {lw:"wesiru", en:"to be true", pos:"v"},
+  {lw:"wesiru", en:"to tell the truth", pos:"v"},
   {lw:"weye", en:"clock (or timepiece)", pos:"n"},
   {lw:"weyi", en:"of a clock", pos:"adj"},
   {lw:"weyile", en:"wristwatch", pos:"n", note:"From weye (clock) + -ile (diminutive) \u2014 wristwatch"},
@@ -3679,6 +3685,7 @@ const DICTIONARY_RAW = [
   {lw:"wounu", en:"to lift (or raise)", pos:"v"},
   {lw:"wu", en:"future tense marker", pos:"particle"},
   {lw:"wule", en:"after", pos:"conj", note:"From wu (future) + -le \u2014 after"},
+  {lw:"wule oihi", en:"late (after expected)", pos:"phrase", note:"From wule (after) + oihi (expected)"},
   {lw:"wuli", en:"next", pos:"adj"},
   {lw:"ya", en:"at", pos:"prep"},
   {lw:"yahe", en:"place (or location)", pos:"n"},
@@ -3699,7 +3706,8 @@ const DICTIONARY_RAW = [
   {lw:"yaure", en:"woman (adult female)", pos:"n"},
   {lw:"yauri", en:"womanly", pos:"adj"},
   {lw:"yauwe", en:"continuing-state", pos:"n"},
-  {lw:"yauwi", en:"still (or yet)", pos:"adj"},
+  {lw:"yauwi", en:"still", pos:"adj"},
+  {lw:"yauwu", en:"to continue", pos:"v"},
   {lw:"yeihe", en:"understanding", pos:"n"},
   {lw:"yeihi", en:"understood", pos:"adj"},
   {lw:"yeihu", en:"to understand", pos:"v"},
@@ -3708,7 +3716,7 @@ const DICTIONARY_RAW = [
   {lw:"yeru", en:"to be brave", pos:"v"},
   {lw:"yohe", en:"safety", pos:"n"},
   {lw:"yohi", en:"safe (or secure)", pos:"adj"},
-  {lw:"yohu", en:"to be safe", pos:"v"},
+  {lw:"yohu", en:"to make safe (or secure)", pos:"v"},
   {lw:"yoihe", en:"idea", pos:"n"},
   {lw:"yoihi", en:"idea-like", pos:"adj"},
   {lw:"yoihu", en:"to conceive (come up with an idea)", pos:"v"},
