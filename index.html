@@ -162,9 +162,9 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 }
 .landing-content {
   position:relative; z-index:1;
-  display:flex; flex-direction:column; align-items:center;
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
   min-height:100vh; min-height:100dvh;
-  padding:0 20px 20px;
+  padding:40px 20px;
 }
 .landing-hero {
   display:flex; flex-direction:column; align-items:center;
@@ -535,7 +535,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   <div class="landing-stars" id="starfield"></div>
   <div class="landing-content">
     <div class="landing-hero fade-up">
-      <div class="landing-globe">🌊</div>
+      <div class="landing-globe">🌍</div>
       <div class="landing-title">Liru</div>
     </div>
 
@@ -1903,10 +1903,10 @@ const GRAMMAR_SECTIONS = [
       <li><em>Ne wa halu tiru.</em> — I went to see.</li>
     </ul>
     <div class="grammar-sub-header">Weather verbs have no subject</div>
-    <p>Unlike English, Liru doesn't use a dummy "it" with weather.</p>
+    <p>Unlike English, Liru doesn't use a dummy "it" with weather. Tense still sits right before the verb — so in subjectless sentences, the tense particle leads.</p>
     <ul>
       <li><em>Shaliru.</em> — It is raining.</li>
-      <li><em>Iroumu wa lawe.</em> — It snowed yesterday.</li>
+      <li><em>Wa iroumu lawe.</em> — It snowed yesterday.</li>
     </ul>`
   },
   {
@@ -3801,7 +3801,8 @@ function renderDict() {
 
   el.innerHTML = `
     <div class="dict-stats">
-      <span class="dict-stat-chip green">${DICTIONARY_RAW.length} forms</span>
+      <span class="dict-stat-chip green">~400 Roots</span>
+      <span class="dict-stat-chip green">${DICTIONARY_RAW.length} Words</span>
       <span class="dict-stat-chip blue">EN ↔ LW</span>
       <span class="dict-stat-chip">Tap a letter to browse</span>
     </div>
