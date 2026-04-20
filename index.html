@@ -541,7 +541,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 
     <div class="landing-stats fade-up" style="animation-delay:0.1s">
       <div class="landing-stat">
-        <div class="landing-stat-num">~425</div>
+        <div class="landing-stat-num">~440</div>
         <div class="landing-stat-label">Roots</div>
       </div>
       <div class="landing-stat">
@@ -2490,6 +2490,10 @@ const DICTIONARY_RAW = [
   {lw:"hese", en:"cut (or knife)", pos:"n"},
   {lw:"hesi", en:"sharp", pos:"adj"},
   {lw:"hesu", en:"to cut", pos:"v"},
+  {lw:"heule", en:"city", pos:"n"},
+  {lw:"heuli", en:"urban", pos:"adj"},
+  {lw:"heulile", en:"town", pos:"n", note:"Diminutive of heule \u2014 small city"},
+  {lw:"heulu", en:"to urbanize", pos:"v"},
   {lw:"hiehe", en:"joint", pos:"n"},
   {lw:"hiehi", en:"flexible", pos:"adj"},
   {lw:"hiehu", en:"to bend at a joint", pos:"v"},
@@ -2577,6 +2581,9 @@ const DICTIONARY_RAW = [
   {lw:"keuwe", en:"roof", pos:"n"},
   {lw:"keuwi", en:"roof-like", pos:"adj"},
   {lw:"keuwu", en:"to roof", pos:"v"},
+  {lw:"kewe", en:"room", pos:"n"},
+  {lw:"kewi", en:"of-a-room", pos:"adj"},
+  {lw:"kewu", en:"to enclose (or partition)", pos:"v"},
   {lw:"keye", en:"fall", pos:"n"},
   {lw:"keyi", en:"fallen", pos:"adj"},
   {lw:"keyu", en:"to fall", pos:"v"},
@@ -2982,6 +2989,8 @@ const DICTIONARY_RAW = [
   {lw:"mopiamu", en:"to enlarge", pos:"v"},
   {lw:"mopire", en:"thoughtlessness", pos:"n"},
   {lw:"mopiri", en:"thoughtless", pos:"adj"},
+  {lw:"mopome", en:"vegetable", pos:"n", note:"From mo- (balancing) + pome (fruit) \u2014 vegetable as the savory partner to fruit's sweet"},
+  {lw:"mopomi", en:"vegetable-like (or of a vegetable)", pos:"adj"},
   {lw:"mopoye", en:"closure", pos:"n"},
   {lw:"mopoyi", en:"closed", pos:"adj"},
   {lw:"mopoyu", en:"to close (or shut)", pos:"v"},
@@ -3198,7 +3207,7 @@ const DICTIONARY_RAW = [
   {lw:"nomae", en:"fullness", pos:"n"},
   {lw:"nomai", en:"full", pos:"adj"},
   {lw:"nomau", en:"to fill", pos:"v"},
-  {lw:"nome", en:"box (or container)", pos:"n"},
+  {lw:"nome", en:"box", pos:"n"},
   {lw:"nomi", en:"contained", pos:"adj"},
   {lw:"nomu", en:"to contain", pos:"v"},
   {lw:"nore", en:"birth", pos:"n"},
@@ -3322,6 +3331,9 @@ const DICTIONARY_RAW = [
   {lw:"pohe", en:"face", pos:"n"},
   {lw:"pohi", en:"forward-facing", pos:"adj"},
   {lw:"pohu", en:"to face (turn toward)", pos:"v"},
+  {lw:"poime", en:"wheel", pos:"n", note:"Shortened from poiwi (rotating) + leume (roundness) \u2014 a rotating round thing"},
+  {lw:"poimi", en:"wheel-like", pos:"adj"},
+  {lw:"poimu", en:"to wheel (roll on wheels)", pos:"v"},
   {lw:"poiwe", en:"turn (or rotation)", pos:"n"},
   {lw:"poiwi", en:"rotated", pos:"adj"},
   {lw:"poiwu", en:"to turn (or spin, rotate)", pos:"v"},
@@ -3331,6 +3343,9 @@ const DICTIONARY_RAW = [
   {lw:"poke", en:"back (body part)", pos:"n"},
   {lw:"poki", en:"back-related", pos:"adj"},
   {lw:"pokihiwe", en:"backyard", pos:"n", note:"From poki (back) + hiwe (house) \u2014 backyard"},
+  {lw:"pome", en:"fruit", pos:"n"},
+  {lw:"pometieme", en:"fruit store", pos:"n", note:"From pome (fruit) + -tieme (store) \u2014 fruit store"},
+  {lw:"pomi", en:"ripe", pos:"adj"},
   {lw:"poni", en:"eight", pos:"num"},
   {lw:"poniluone", en:"August", pos:"n", note:"From poni (8) + luone (month)"},
   {lw:"pouhe", en:"evening", pos:"n"},
@@ -3338,6 +3353,9 @@ const DICTIONARY_RAW = [
   {lw:"poule", en:"invitation", pos:"n"},
   {lw:"pouli", en:"invited", pos:"adj"},
   {lw:"poulu", en:"to invite", pos:"v"},
+  {lw:"poume", en:"bag", pos:"n"},
+  {lw:"poumi", en:"bag-like (or of a bag)", pos:"adj"},
+  {lw:"poumu", en:"to bag (put in a bag)", pos:"v"},
   {lw:"pouwe", en:"cave", pos:"n"},
   {lw:"pouwi", en:"cavernous", pos:"adj"},
   {lw:"powe", en:"father", pos:"n"},
@@ -3436,6 +3454,8 @@ const DICTIONARY_RAW = [
   {lw:"seuwe", en:"allowance", pos:"n"},
   {lw:"seuwi", en:"allowed (or permitted)", pos:"adj"},
   {lw:"seuwu", en:"to allow (or permit)", pos:"v"},
+  {lw:"shae", en:"tea", pos:"n"},
+  {lw:"shai", en:"tea-flavored (or of tea)", pos:"adj"},
   {lw:"shafane", en:"river", pos:"n"},
   {lw:"shafani", en:"riverine", pos:"adj"},
   {lw:"shafanile", en:"stream", pos:"n", note:"From shafane (river) + -ile \u2014 little river"},
@@ -3512,6 +3532,8 @@ const DICTIONARY_RAW = [
   {lw:"shoine", en:"change", pos:"n"},
   {lw:"shoini", en:"changed (or instead)", pos:"adj"},
   {lw:"shoinu", en:"to change (or transform)", pos:"v"},
+  {lw:"shome", en:"bottle", pos:"n"},
+  {lw:"shomi", en:"bottle-like (or of a bottle)", pos:"adj"},
   {lw:"shouhe", en:"depth", pos:"n"},
   {lw:"shouhi", en:"deep", pos:"adj"},
   {lw:"shouhifole", en:"bowl", pos:"n", note:"From shouhi (deep) + fole (plate) — bowl"},
@@ -3712,9 +3734,6 @@ const DICTIONARY_RAW = [
   {lw:"waihe", en:"hope", pos:"n"},
   {lw:"waihi", en:"hopeful (or hopefully)", pos:"adj"},
   {lw:"waihu", en:"to hope", pos:"v"},
-  {lw:"waime", en:"fruit", pos:"n"},
-  {lw:"waimetieme", en:"fruit store", pos:"n", note:"From waime (fruit) + -tieme (store) \u2014 fruit store"},
-  {lw:"waimi", en:"ripe", pos:"adj"},
   {lw:"waimo", en:"hello (meeting)", pos:"expr"},
   {lw:"waine", en:"belt", pos:"n"},
   {lw:"waini", en:"belt-like", pos:"adj"},
@@ -3874,7 +3893,7 @@ function renderDict() {
 
   el.innerHTML = `
     <div class="dict-stats">
-      <span class="dict-stat-chip green">~425 Roots</span>
+      <span class="dict-stat-chip green">~440 Roots</span>
       <span class="dict-stat-chip green">${DICTIONARY_RAW.length} Words</span>
       <span class="dict-stat-chip blue">EN ↔ LW</span>
       <span class="dict-stat-chip">Tap a letter to browse</span>
