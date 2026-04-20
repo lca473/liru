@@ -541,7 +541,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 
     <div class="landing-stats fade-up" style="animation-delay:0.1s">
       <div class="landing-stat">
-        <div class="landing-stat-num">~400</div>
+        <div class="landing-stat-num">~425</div>
         <div class="landing-stat-label">Roots</div>
       </div>
       <div class="landing-stat">
@@ -1971,6 +1971,8 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>ya</em></td><td>at</td><td><em>Ne su ya hiwe.</em> — I am at the house.</td></tr>
     <tr><td><em>leu</em></td><td>above / over</td><td><em>yaihe leu moule</em> — bird above the tree</td></tr>
     <tr><td><em>moleu</em></td><td>below / under</td><td><em>loiwe moleu pahe</em> — book below the table</td></tr>
+    <tr><td><em>niwa</em></td><td>between</td><td><em>Ve su niwa moule sho hiwe.</em> — She is between the tree and the house.</td></tr>
+    <tr><td><em>voi</em></td><td>around</td><td><em>Ve halu voi moule.</em> — She walks around the tree.</td></tr>
     </tbody></table></div>
     <div class="grammar-sub-header"><em>mo-</em> variants</div>
     <ul>
@@ -2048,7 +2050,7 @@ const GRAMMAR_SECTIONS = [
     <p>The <em>mo-</em> prefix inverts: <em>moata</em> (less than), <em>moapa</em> (least).</p>
     <ul>
       <li><em>Foihe su wauli ata kaihe.</em> — Spring is more beautiful than winter.</li>
-      <li><em>Shafane su moliani ala shawome.</em> — The river is as deep as the sea.</li>
+      <li><em>Moule su liani ala wouhe.</em> — The tree is as tall as the mountain.</li>
       <li><em>Waihe su apa wohimi hue.</em> — Hope is the most important thing.</li>
       <li><em>Kaihe su wauli moata foihe.</em> — Winter is less beautiful than spring.</li>
     </ul>
@@ -2162,7 +2164,7 @@ const GRAMMAR_SECTIONS = [
     <tr><td>front / forward</td><td><em>pohi</em> (from <em>pohe</em>, face)</td></tr>
     <tr><td>back / behind</td><td><em>poki</em> (from <em>poke</em>, back-of-body)</td></tr>
     <tr><td>high / tall</td><td><em>liani</em></td></tr>
-    <tr><td>low / short / deep</td><td><em>moliani</em></td></tr>
+    <tr><td>low</td><td><em>moliani</em></td></tr>
     <tr><td>here / there</td><td><em>loya</em> / <em>faloya</em></td></tr>
     </tbody></table></div>
     <ul>
@@ -2236,7 +2238,7 @@ const GRAMMAR_SECTIONS = [
     <p>Use when the first describes the second. Read "X-kind-of Y."</p>
     <ul>
       <li><em>luni kome</em> → <em>lunikome</em> (bright-stone → crystal / gem)</li>
-      <li><em>moluni shawe</em> → <em>molunishawe</em> (dark-water → deep sea / abyss)</li>
+      <li><em>moluni shawe</em> → <em>molunishawe</em> (dark-water → abyss)</li>
     </ul>
     <div class="grammar-sub-header">Noun form <em>-e</em> — material / target</div>
     <p>Use when the first is what the second is made of or acts on.</p>
@@ -2369,6 +2371,9 @@ const DICTIONARY_RAW = [
   {lw:"apa", en:"most (superlative)", pos:"particle"},
   {lw:"ata", en:"than (comparative)", pos:"particle"},
   {lw:"au", en:"or", pos:"conj"},
+  {lw:"eire", en:"flight", pos:"n"},
+  {lw:"eiri", en:"in flight (or flying)", pos:"adj"},
+  {lw:"eiru", en:"to fly", pos:"v"},
   {lw:"ele", en:"feeling", pos:"n"},
   {lw:"eli", en:"emotional", pos:"adj"},
   {lw:"elore", en:"urge-to-squeeze", pos:"n"},
@@ -2390,6 +2395,7 @@ const DICTIONARY_RAW = [
   {lw:"fanilawe", en:"Sunday", pos:"n", note:"From fani (1) + lawe (day)"},
   {lw:"faniluone", en:"January", pos:"n", note:"From fani (1) + luone (month)"},
   {lw:"fanini", en:"first", pos:"adj", note:"From fani + -ni (ordinal) \u2014 first"},
+  {lw:"faniwime", en:"thumb", pos:"n", note:"From fani (one) + wime (finger) \u2014 one-finger / first finger"},
   {lw:"fase", en:"work", pos:"n"},
   {lw:"fasi", en:"laborious", pos:"adj"},
   {lw:"fasu", en:"to work", pos:"v"},
@@ -2519,12 +2525,20 @@ const DICTIONARY_RAW = [
   {lw:"hune", en:"right (side)", pos:"n"},
   {lw:"huni", en:"right (or to the right)", pos:"adj"},
   {lw:"hunu", en:"to go right", pos:"v"},
+  {lw:"hunitowe", en:"east", pos:"n", note:"From huni (right) + towe (map) \u2014 right-of-map"},
+  {lw:"hunitowi", en:"eastern", pos:"adj"},
   {lw:"huyale", en:"orange (the color)", pos:"n"},
   {lw:"huyali", en:"orange", pos:"adj"},
   {lw:"huyalu", en:"to turn orange", pos:"v"},
+  {lw:"iluhe", en:"language", pos:"n"},
+  {lw:"iluhi", en:"linguistic", pos:"adj"},
+  {lw:"iluhu", en:"to speak (a language)", pos:"v"},
   {lw:"iroume", en:"snow", pos:"n"},
   {lw:"iroumi", en:"snowy", pos:"adj"},
   {lw:"iroumu", en:"to snow", pos:"v"},
+  {lw:"iruhe", en:"word", pos:"n"},
+  {lw:"iruhi", en:"worded", pos:"adj"},
+  {lw:"iruhu", en:"to word (phrase)", pos:"v"},
   {lw:"kahe", en:"hold", pos:"n"},
   {lw:"kahi", en:"held", pos:"adj"},
   {lw:"kahime", en:"metal", pos:"n"},
@@ -2539,6 +2553,7 @@ const DICTIONARY_RAW = [
   {lw:"kani", en:"five", pos:"num"},
   {lw:"kanilawe", en:"Thursday", pos:"n", note:"From kani (5) + lawe (day)"},
   {lw:"kaniluone", en:"May", pos:"n", note:"From kani (5) + luone (month)"},
+  {lw:"kaniwime", en:"pinky (or little finger)", pos:"n", note:"From kani (five) + wime (finger) \u2014 five-finger / fifth finger"},
   {lw:"karuhe", en:"war", pos:"n"},
   {lw:"karuhi", en:"warlike", pos:"adj"},
   {lw:"karuhu", en:"to wage war", pos:"v"},
@@ -2584,6 +2599,9 @@ const DICTIONARY_RAW = [
   {lw:"koire", en:"car", pos:"n"},
   {lw:"koiri", en:"of a car", pos:"adj"},
   {lw:"koiru", en:"to drive", pos:"v"},
+  {lw:"koiwe", en:"corner", pos:"n"},
+  {lw:"koiwi", en:"cornered (or angular)", pos:"adj"},
+  {lw:"koiwu", en:"to corner (or meet at a point)", pos:"v"},
   {lw:"kole", en:"bone", pos:"n"},
   {lw:"koli", en:"bony", pos:"adj"},
   {lw:"kome", en:"stone", pos:"n"},
@@ -2594,6 +2612,9 @@ const DICTIONARY_RAW = [
   {lw:"kose", en:"acquisition", pos:"n"},
   {lw:"kosi", en:"obtained", pos:"adj"},
   {lw:"kosu", en:"to get (or obtain)", pos:"v"},
+  {lw:"kouhe", en:"thickness", pos:"n"},
+  {lw:"kouhi", en:"thick", pos:"adj"},
+  {lw:"kouhu", en:"to thicken", pos:"v"},
   {lw:"koule", en:"visit", pos:"n"},
   {lw:"kouli", en:"visited", pos:"adj"},
   {lw:"koulu", en:"to visit", pos:"v"},
@@ -2647,6 +2668,9 @@ const DICTIONARY_RAW = [
   {lw:"leshe", en:"snake", pos:"n"},
   {lw:"leshi", en:"snake-like", pos:"adj"},
   {lw:"leu", en:"above", pos:"prep"},
+  {lw:"leume", en:"roundness", pos:"n"},
+  {lw:"leumi", en:"round", pos:"adj"},
+  {lw:"leumu", en:"to round (make round)", pos:"v"},
   {lw:"lewale", en:"white (the color)", pos:"n"},
   {lw:"lewali", en:"white", pos:"adj"},
   {lw:"lewalu", en:"to turn white", pos:"v"},
@@ -2659,6 +2683,8 @@ const DICTIONARY_RAW = [
   {lw:"liane", en:"height", pos:"n"},
   {lw:"liani", en:"tall (or highly)", pos:"adj"},
   {lw:"lianu", en:"to rise", pos:"v"},
+  {lw:"lianitowe", en:"north", pos:"n", note:"From liani (high) + towe (map) \u2014 high-of-map"},
+  {lw:"lianitowi", en:"northern", pos:"adj"},
   {lw:"lime", en:"growth", pos:"n"},
   {lw:"limi", en:"mature", pos:"adj"},
   {lw:"limu", en:"to grow", pos:"v"},
@@ -2757,7 +2783,7 @@ const DICTIONARY_RAW = [
   {lw:"meiwe", en:"body", pos:"n"},
   {lw:"meiwi", en:"bodily", pos:"adj"},
   {lw:"meiwu", en:"to embody", pos:"v"},
-  {lw:"meuhe", en:"group (or meeting)", pos:"n"},
+  {lw:"meuhe", en:"group (or team, meeting)", pos:"n"},
   {lw:"meuhi", en:"grouped (or together)", pos:"adj"},
   {lw:"meuhu", en:"to gather (or assemble)", pos:"v"},
   {lw:"mele", en:"goodness", pos:"n"},
@@ -2791,8 +2817,6 @@ const DICTIONARY_RAW = [
   {lw:"miehe", en:"brain (or mind)", pos:"n"},
   {lw:"miehi", en:"mental", pos:"adj"},
   {lw:"miehu", en:"to contemplate", pos:"v"},
-  {lw:"miehupauwe", en:"computer", pos:"n", note:"From miehu (to think) + -pauwe (device) \u2014 thinking machine"},
-  {lw:"miehupauwi", en:"computer-related (or computational)", pos:"adj"},
   {lw:"mihe", en:"need", pos:"n"},
   {lw:"mihi", en:"needed", pos:"adj"},
   {lw:"mihu", en:"to need (or must)", pos:"v"},
@@ -2818,7 +2842,7 @@ const DICTIONARY_RAW = [
   {lw:"mohawe", en:"suffocation", pos:"n"},
   {lw:"mohawi", en:"breathless", pos:"adj"},
   {lw:"mohawu", en:"to suffocate", pos:"v"},
-  {lw:"mohe", en:"cup (or bowl)", pos:"n"},
+  {lw:"mohe", en:"cup", pos:"n"},
   {lw:"mohese", en:"bond (or connection)", pos:"n"},
   {lw:"mohesi", en:"joined", pos:"adj"},
   {lw:"mohesu", en:"to join (or connect)", pos:"v"},
@@ -2834,6 +2858,8 @@ const DICTIONARY_RAW = [
   {lw:"mohune", en:"left (side)", pos:"n"},
   {lw:"mohuni", en:"left (or to the left)", pos:"adj"},
   {lw:"mohunu", en:"to go left", pos:"v"},
+  {lw:"mohunitowe", en:"west", pos:"n", note:"From mohuni (left) + towe (map) \u2014 left-of-map"},
+  {lw:"mohunitowi", en:"western", pos:"adj"},
   {lw:"moi", en:"balanced", pos:"adj"},
   {lw:"moihe", en:"opinion", pos:"n"},
   {lw:"moihi", en:"of one's opinion", pos:"adj"},
@@ -2859,6 +2885,9 @@ const DICTIONARY_RAW = [
   {lw:"mokose", en:"release", pos:"n"},
   {lw:"mokosi", en:"let-go", pos:"adj"},
   {lw:"mokosu", en:"to let go", pos:"v"},
+  {lw:"mokouhe", en:"thinness", pos:"n"},
+  {lw:"mokouhi", en:"thin", pos:"adj"},
+  {lw:"mokouhu", en:"to thin", pos:"v"},
   {lw:"moku", en:"to die", pos:"v"},
   {lw:"mokufe", en:"relief", pos:"n"},
   {lw:"mokufi", en:"comforted", pos:"adj"},
@@ -2874,12 +2903,17 @@ const DICTIONARY_RAW = [
   {lw:"moleni", en:"untrustworthy", pos:"adj"},
   {lw:"molenu", en:"to betray (or distrust)", pos:"v"},
   {lw:"moleu", en:"below", pos:"prep"},
+  {lw:"moleume", en:"flatness", pos:"n"},
+  {lw:"moleumi", en:"flat", pos:"adj"},
+  {lw:"moleumu", en:"to flatten", pos:"v"},
   {lw:"molewe", en:"tears", pos:"n"},
   {lw:"molewi", en:"crying", pos:"adj"},
   {lw:"molewu", en:"to cry (or weep)", pos:"v"},
-  {lw:"moliane", en:"lowness (or depth)", pos:"n"},
-  {lw:"moliani", en:"low (or short, deep)", pos:"adj"},
+  {lw:"moliane", en:"lowness", pos:"n"},
+  {lw:"moliani", en:"low", pos:"adj"},
   {lw:"molianu", en:"to lower (or descend)", pos:"v"},
+  {lw:"molianitowe", en:"south", pos:"n", note:"From moliani (low) + towe (map) \u2014 low-of-map"},
+  {lw:"molianitowi", en:"southern", pos:"adj"},
   {lw:"molime", en:"decay", pos:"n"},
   {lw:"molimi", en:"withered", pos:"adj"},
   {lw:"molimu", en:"to wither", pos:"v"},
@@ -2921,6 +2955,9 @@ const DICTIONARY_RAW = [
   {lw:"moniohe", en:"disagreement", pos:"n"},
   {lw:"moniohi", en:"disagreed", pos:"adj"},
   {lw:"moniohu", en:"to disagree", pos:"v"},
+  {lw:"moniuwe", en:"loudness", pos:"n"},
+  {lw:"moniuwi", en:"loud", pos:"adj"},
+  {lw:"moniuwu", en:"to grow loud", pos:"v"},
   {lw:"monohe", en:"age (or oldness)", pos:"n"},
   {lw:"monohi", en:"old (or aged)", pos:"adj"},
   {lw:"monohipaure", en:"old man", pos:"n", note:"From mo- + nohipaure"},
@@ -2972,6 +3009,9 @@ const DICTIONARY_RAW = [
   {lw:"mosene", en:"ignorance", pos:"n"},
   {lw:"moseni", en:"unknown", pos:"adj"},
   {lw:"mosenu", en:"to not know", pos:"v"},
+  {lw:"moseuwe", en:"forbiddance", pos:"n"},
+  {lw:"moseuwi", en:"forbidden", pos:"adj"},
+  {lw:"moseuwu", en:"to forbid", pos:"v"},
   {lw:"mosheye", en:"sickness", pos:"n"},
   {lw:"mosheyi", en:"sick", pos:"adj"},
   {lw:"mosheyu", en:"to fall ill", pos:"v"},
@@ -2984,9 +3024,12 @@ const DICTIONARY_RAW = [
   {lw:"moshiwe", en:"roughness", pos:"n"},
   {lw:"moshiwi", en:"rough", pos:"adj"},
   {lw:"moshiwu", en:"to roughen", pos:"v"},
+  {lw:"moshouhe", en:"shallowness", pos:"n"},
+  {lw:"moshouhi", en:"shallow", pos:"adj"},
+  {lw:"moshouhu", en:"to become shallow", pos:"v"},
   {lw:"moso", en:"away from", pos:"prep"},
   {lw:"mosoune", en:"shortness", pos:"n"},
-  {lw:"mosouni", en:"short (or briefly)", pos:"adj"},
+  {lw:"mosouni", en:"short", pos:"adj"},
   {lw:"mosounu", en:"to shorten", pos:"v"},
   {lw:"mosove", en:"hindrance", pos:"n"},
   {lw:"mosovi", en:"unhelpful", pos:"adj"},
@@ -3045,6 +3088,9 @@ const DICTIONARY_RAW = [
   {lw:"mowaule", en:"ugliness", pos:"n"},
   {lw:"mowauli", en:"ugly", pos:"adj"},
   {lw:"mowaulu", en:"to make ugly (or disfigure)", pos:"v"},
+  {lw:"mowaune", en:"narrowness", pos:"n"},
+  {lw:"mowauni", en:"narrow", pos:"adj"},
+  {lw:"mowaunu", en:"to narrow", pos:"v"},
   {lw:"mowesire", en:"lie", pos:"n"},
   {lw:"mowesiri", en:"false", pos:"adj"},
   {lw:"mowesiru", en:"to lie (or deceive)", pos:"v"},
@@ -3126,6 +3172,10 @@ const DICTIONARY_RAW = [
   {lw:"niohe", en:"agreement", pos:"n"},
   {lw:"niohi", en:"agreed", pos:"adj"},
   {lw:"niohu", en:"to agree", pos:"v"},
+  {lw:"niuwe", en:"quietness", pos:"n"},
+  {lw:"niuwi", en:"quiet", pos:"adj"},
+  {lw:"niuwu", en:"to quiet (become quiet)", pos:"v"},
+  {lw:"niwa", en:"between", pos:"prep"},
   {lw:"niwale", en:"pink (the color)", pos:"n"},
   {lw:"niwali", en:"pink", pos:"adj"},
   {lw:"niwalu", en:"to turn pink", pos:"v"},
@@ -3214,6 +3264,9 @@ const DICTIONARY_RAW = [
   {lw:"pauhe", en:"disappointment", pos:"n"},
   {lw:"pauhi", en:"disappointed", pos:"adj"},
   {lw:"pauhu", en:"to disappoint", pos:"v"},
+  {lw:"paume", en:"hit (strike)", pos:"n"},
+  {lw:"paumi", en:"struck", pos:"adj"},
+  {lw:"paumu", en:"to hit (or strike)", pos:"v"},
   {lw:"paure", en:"man (adult male)", pos:"n"},
   {lw:"pauri", en:"manly", pos:"adj"},
   {lw:"pauwe", en:"machine", pos:"n"},
@@ -3342,6 +3395,7 @@ const DICTIONARY_RAW = [
   {lw:"runilawe", en:"Monday", pos:"n", note:"From runi (2) + lawe (day)"},
   {lw:"runiluone", en:"February", pos:"n", note:"From runi (2) + luone (month)"},
   {lw:"runini", en:"second", pos:"adj", note:"From runi + -ni (ordinal) \u2014 second"},
+  {lw:"runiwime", en:"index finger", pos:"n", note:"From runi (two) + wime (finger) \u2014 two-finger / second finger"},
   {lw:"sahe", en:"ability (or possibility)", pos:"n"},
   {lw:"sahi", en:"possible (or maybe)", pos:"adj"},
   {lw:"sahu", en:"to can (or be able to)", pos:"v"},
@@ -3379,6 +3433,9 @@ const DICTIONARY_RAW = [
   {lw:"seuhu", en:"to decide (or choose)", pos:"v"},
   {lw:"seure", en:"insect", pos:"n"},
   {lw:"seuri", en:"insect-like", pos:"adj"},
+  {lw:"seuwe", en:"allowance", pos:"n"},
+  {lw:"seuwi", en:"allowed (or permitted)", pos:"adj"},
+  {lw:"seuwu", en:"to allow (or permit)", pos:"v"},
   {lw:"shafane", en:"river", pos:"n"},
   {lw:"shafani", en:"riverine", pos:"adj"},
   {lw:"shafanile", en:"stream", pos:"n", note:"From shafane (river) + -ile \u2014 little river"},
@@ -3399,6 +3456,7 @@ const DICTIONARY_RAW = [
   {lw:"shani", en:"four", pos:"num"},
   {lw:"shanilawe", en:"Wednesday", pos:"n", note:"From shani (4) + lawe (day)"},
   {lw:"shaniluone", en:"April", pos:"n", note:"From shani (4) + luone (month)"},
+  {lw:"shaniwime", en:"ring finger", pos:"n", note:"From shani (four) + wime (finger) \u2014 four-finger / fourth finger"},
   {lw:"shauhe", en:"bathroom (or restroom)", pos:"n"},
   {lw:"shauhi", en:"of the bathroom", pos:"adj"},
   {lw:"shauhu", en:"to use the bathroom", pos:"v"},
@@ -3454,6 +3512,10 @@ const DICTIONARY_RAW = [
   {lw:"shoine", en:"change", pos:"n"},
   {lw:"shoini", en:"changed (or instead)", pos:"adj"},
   {lw:"shoinu", en:"to change (or transform)", pos:"v"},
+  {lw:"shouhe", en:"depth", pos:"n"},
+  {lw:"shouhi", en:"deep", pos:"adj"},
+  {lw:"shouhifole", en:"bowl", pos:"n", note:"From shouhi (deep) + fole (plate) — bowl"},
+  {lw:"shouhu", en:"to deepen", pos:"v"},
   {lw:"shoule", en:"fish", pos:"n"},
   {lw:"shouli", en:"fish-like", pos:"adj"},
   {lw:"shoume", en:"shirt", pos:"n"},
@@ -3530,6 +3592,7 @@ const DICTIONARY_RAW = [
   {lw:"tenilawe", en:"Tuesday", pos:"n", note:"From teni (3) + lawe (day)"},
   {lw:"teniluone", en:"March", pos:"n", note:"From teni (3) + luone (month)"},
   {lw:"tenini", en:"third", pos:"adj", note:"From teni + -ni (ordinal) \u2014 third"},
+  {lw:"teniwime", en:"middle finger", pos:"n", note:"From teni (three) + wime (finger) \u2014 three-finger / third finger"},
   {lw:"teo", en:"your", pos:"pron"},
   {lw:"teoa", en:"your", pos:"pron"},
   {lw:"tere", en:"touch (or contact)", pos:"n"},
@@ -3592,9 +3655,12 @@ const DICTIONARY_RAW = [
   {lw:"toulimonauyi", en:"of jiu-jitsu", pos:"adj"},
   {lw:"toulimonauyu", en:"to do jiu-jitsu", pos:"v"},
   {lw:"toulimonauyupue", en:"jiu-jitsu practitioner", pos:"n", note:"From toulimonauyu + pue (agent) \u2014 one who practices jiu-jitsu"},
-  {lw:"touraime", en:"map", pos:"n", note:"From toule (ground) + raime (picture) \u2014 map (stem-shortened)"},
-  {lw:"touraimi", en:"mapped", pos:"adj"},
-  {lw:"touraimu", en:"to map", pos:"v"},
+  {lw:"toure", en:"edge (or border)", pos:"n"},
+  {lw:"touri", en:"bordering (or at the edge)", pos:"adj"},
+  {lw:"touru", en:"to border (or skirt)", pos:"v"},
+  {lw:"towe", en:"map", pos:"n", note:"From toule (ground) + raime (picture) \u2014 aggressive stem-shortening"},
+  {lw:"towi", en:"mapped", pos:"adj"},
+  {lw:"towu", en:"to map", pos:"v"},
   {lw:"touwe", en:"floor", pos:"n"},
   {lw:"touwi", en:"underfoot", pos:"adj"},
   {lw:"toye", en:"end", pos:"n"},
@@ -3611,6 +3677,9 @@ const DICTIONARY_RAW = [
   {lw:"tuwe", en:"strength", pos:"n"},
   {lw:"tuwi", en:"strong", pos:"adj"},
   {lw:"tuwu", en:"to strengthen", pos:"v"},
+  {lw:"vaihe", en:"side (face, aspect)", pos:"n"},
+  {lw:"vaihi", en:"sided (facing)", pos:"adj"},
+  {lw:"vaihu", en:"to face (present a side)", pos:"v"},
   {lw:"vane", en:"arrival", pos:"n"},
   {lw:"vani", en:"arriving", pos:"adj"},
   {lw:"vanu", en:"to come", pos:"v"},
@@ -3633,6 +3702,7 @@ const DICTIONARY_RAW = [
   {lw:"vihu", en:"to share", pos:"v"},
   {lw:"vine", en:"addition", pos:"n"},
   {lw:"vini", en:"also (or too, in-addition)", pos:"adj"},
+  {lw:"voi", en:"around", pos:"prep"},
   {lw:"voure", en:"phone", pos:"n"},
   {lw:"vouri", en:"phone-related", pos:"adj"},
   {lw:"vouru", en:"to call (or phone someone)", pos:"v"},
@@ -3673,6 +3743,9 @@ const DICTIONARY_RAW = [
   {lw:"waume", en:"freedom", pos:"n"},
   {lw:"waumi", en:"free (or freely)", pos:"adj"},
   {lw:"waumu", en:"to free", pos:"v"},
+  {lw:"waune", en:"width", pos:"n"},
+  {lw:"wauni", en:"wide", pos:"adj"},
+  {lw:"waunu", en:"to widen", pos:"v"},
   {lw:"weihe", en:"repetition", pos:"n"},
   {lw:"weihi", en:"again", pos:"adv"},
   {lw:"weihu", en:"to redo", pos:"v"},
@@ -3801,7 +3874,7 @@ function renderDict() {
 
   el.innerHTML = `
     <div class="dict-stats">
-      <span class="dict-stat-chip green">~400 Roots</span>
+      <span class="dict-stat-chip green">~425 Roots</span>
       <span class="dict-stat-chip green">${DICTIONARY_RAW.length} Words</span>
       <span class="dict-stat-chip blue">EN ↔ LW</span>
       <span class="dict-stat-chip">Tap a letter to browse</span>
