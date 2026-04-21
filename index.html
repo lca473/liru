@@ -4096,14 +4096,31 @@ function renderDictEnResults() {
   // Rank each entry. Lower rank = better match.
   //   0 — the full gloss piece equals q (e.g. "read" matches gloss "read")
   //   1 — one of the WORDS inside the gloss equals q (e.g. "read" matches "to read")
-  //       Common function words ("to", "a", "the", "or") don't count as matches here.
+  //       Common function words don't count as matches here, so searching "of"
+  //       doesn't flood results — but an entry whose gloss is literally "of"
+  //       still matches at rank 0 above.
   //   2 — a word inside the gloss starts with q (e.g. "read" matches "reader")
-  //   3 — the gloss contains q anywhere as a substring (e.g. "read" matches "bread")
+  // We deliberately do NOT fall back to raw substring matching — that would
+  // make "ready" match "bready" and "already", which is pure noise.
   const STOPWORDS = new Set(['to','a','an','the','of','or','and','be','is']);
   const matches = [];
   DICTIONARY_RAW.forEach(e => {
-    // Split on slash or comma to get gloss pieces, then strip parentheticals
-    const pieces = e.en.split(/\s*\/\s*|,\s*/).map(g => g.trim());
+    // Split on slash or comma to get gloss pieces. Parentheticals are treated
+    // as separate alternate-sense pieces so "from (or of)" yields two pieces:
+    // "from" and "of" (with the leading "or"/"also" stripped). This lets a
+    // search for "of" rank-0 match fa's "(or of)" sense, while glosses that
+    // merely contain "of" as a connector ("afraid of") don't.
+    const rawPieces = e.en.split(/\s*\/\s*|,\s*/).map(g => g.trim());
+    const pieces = [];
+    for (const raw of rawPieces) {
+      const parenMatches = [...raw.matchAll(/\(([^)]*)\)/g)];
+      const outside = raw.replace(/\s*\([^)]*\)\s*/g, ' ').trim();
+      if (outside) pieces.push(outside);
+      for (const m of parenMatches) {
+        const inner = m[1].trim().replace(/^(or|also)\s+/i, '').trim();
+        if (inner) pieces.push(inner);
+      }
+    }
     let bestRank = Infinity;
     for (const piece of pieces) {
       const clean = piece.toLowerCase().replace(/[()]/g, '').trim();
@@ -4122,10 +4139,6 @@ function renderDictEnResults() {
       for (const w of words) {
         if (w.startsWith(q)) { bestRank = Math.min(bestRank, 2); break; }
       }
-      if (bestRank === 2) continue;
-
-      // Substring match anywhere in the gloss piece
-      if (clean.includes(q)) { bestRank = Math.min(bestRank, 3); }
     }
     if (bestRank !== Infinity) matches.push({ e, rank: bestRank });
   });
@@ -4151,12 +4164,13 @@ function renderDictLwResults() {
   const q = dictState.lwInput.trim().toLowerCase();
   if (!q) { el.innerHTML = ''; return; }
 
+  // Liru roots are short, so substring-anywhere matching ("ru" hitting every
+  // word containing -ru-) is pure noise. Exact match and prefix only.
   const matches = [];
   DICTIONARY_RAW.forEach(e => {
     const lw = e.lw.toLowerCase();
     if (lw === q) { matches.push({e, rank:0}); return; }
     if (lw.startsWith(q)) { matches.push({e, rank:1}); return; }
-    if (lw.includes(q)) { matches.push({e, rank:2}); return; }
   });
   matches.sort((a,b) => a.rank - b.rank || a.e.lw.localeCompare(b.e.lw));
   const shown = matches.slice(0, 30);
