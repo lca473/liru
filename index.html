@@ -541,7 +541,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 
     <div class="landing-stats fade-up" style="animation-delay:0.1s">
       <div class="landing-stat">
-        <div class="landing-stat-num">~440</div>
+        <div class="landing-stat-num">~452</div>
         <div class="landing-stat-label">Roots</div>
       </div>
       <div class="landing-stat">
@@ -1793,7 +1793,7 @@ const GRAMMAR_SECTIONS = [
   {
     icon:"🌊", title:"Introduction",
     body:`<p>Liru (full name <strong>LiruWaihe</strong> — "song of hope") is a constructed language designed for a Pacific-island sound: flowing, song-like, reminiscent of water.</p>
-    <p>It has around <strong>400 root words</strong> and a small set of very consistent rules. There are no irregular verbs, no gendered articles, and no exceptions in the conjugation system.</p>
+    <p>It has around <strong>450 root words</strong> and a small set of very consistent rules. There are no irregular verbs, no gendered articles, and no exceptions in the conjugation system.</p>
     <div class="grammar-callout"><strong>Core principle:</strong> The final vowel of a word tells you what kind of word it is. Change the vowel — change the word class. <em>lune</em> (light, noun) → <em>luni</em> (bright, adj.) → <em>lunu</em> (to shine, verb).</div>
     <p>This guide covers the essentials. Once you've completed the lessons, you'll be ready to dive into the finer points in the <em>Advanced Topics</em> section at the bottom.</p>`
   },
@@ -2081,11 +2081,19 @@ const GRAMMAR_SECTIONS = [
       <li>For compound ordinals, <em>-ni</em> attaches to the last piece: <em>runi-hani-fanini</em> (21st)</li>
     </ul>
     <div class="grammar-sub-header">Quantifiers</div>
+    <p>The first four share the <em>-ai</em> rhyme and measure set-count (how much of a set is involved).</p>
     <ul>
       <li><em>tai</em> — all · <em>Tai moulea su liani.</em> (All trees are tall.)</li>
       <li><em>sai</em> — some · <em>Sai puea wa halu.</em> (Some people went.)</li>
       <li><em>nai</em> — many</li>
       <li><em>nuli</em> — none / zero · <em>Nuli pue su waihi.</em> (No one is hopeful.)</li>
+    </ul>
+    <p>Two further roots measure quantity along different axes — increase/decrease and sufficiency. These are full canvas roots, not bare adjectives.</p>
+    <ul>
+      <li><em>awi</em> — more · <em>Nea wanu awi houme.</em> (We want more bread.)</li>
+      <li><em>moawi</em> — less · <em>Ve wa tahu moawi ata ne.</em> (She ate less than me.)</li>
+      <li><em>ahimi</em> — enough · <em>Lo mohe su ahimi.</em> (This cup is enough.)</li>
+      <li><em>moahimi</em> — not enough</li>
     </ul>
     <div class="grammar-sub-header">"Something / nothing / everything / someone / no one / everyone"</div>
     <p>Quantifier + <em>hue</em> (thing) or <em>pue</em> (person), written as one word:</p>
@@ -2366,11 +2374,17 @@ const DICTIONARY_RAW = [
   {lw:"ahe", en:"possession", pos:"n"},
   {lw:"ahi", en:"possessed", pos:"adj"},
   {lw:"ahu", en:"to have", pos:"v"},
+  {lw:"ahime", en:"sufficiency", pos:"n"},
+  {lw:"ahimi", en:"enough", pos:"adj"},
+  {lw:"ahimu", en:"to suffice", pos:"v"},
   {lw:"ai", en:"yes", pos:"particle"},
   {lw:"ala", en:"equally-as (equality comparative)", pos:"particle"},
   {lw:"apa", en:"most (superlative)", pos:"particle"},
   {lw:"ata", en:"than (comparative)", pos:"particle"},
   {lw:"au", en:"or", pos:"conj"},
+  {lw:"awe", en:"increase", pos:"n"},
+  {lw:"awi", en:"more", pos:"adj"},
+  {lw:"awu", en:"to increase", pos:"v"},
   {lw:"eire", en:"flight", pos:"n"},
   {lw:"eiri", en:"in flight (or flying)", pos:"adj"},
   {lw:"eiru", en:"to fly", pos:"v"},
@@ -2554,6 +2568,8 @@ const DICTIONARY_RAW = [
   {lw:"kaisi", en:"taught", pos:"adj"},
   {lw:"kaisu", en:"to teach", pos:"v"},
   {lw:"kaisupue", en:"teacher", pos:"n", note:"From kaisu + -pue (agent)"},
+  {lw:"kakepe", en:"crab", pos:"n"},
+  {lw:"kakepi", en:"crab-like", pos:"adj"},
   {lw:"kani", en:"five", pos:"num"},
   {lw:"kanilawe", en:"Thursday", pos:"n", note:"From kani (5) + lawe (day)"},
   {lw:"kaniluone", en:"May", pos:"n", note:"From kani (5) + luone (month)"},
@@ -2625,8 +2641,12 @@ const DICTIONARY_RAW = [
   {lw:"koule", en:"visit", pos:"n"},
   {lw:"kouli", en:"visited", pos:"adj"},
   {lw:"koulu", en:"to visit", pos:"v"},
+  {lw:"kouwe", en:"goat", pos:"n"},
+  {lw:"kouwi", en:"goat-like", pos:"adj"},
   {lw:"kowe", en:"skin", pos:"n"},
   {lw:"kowi", en:"skin-related", pos:"adj"},
+  {lw:"kuake", en:"duck", pos:"n"},
+  {lw:"kuaki", en:"duck-like", pos:"adj"},
   {lw:"kufe", en:"pain", pos:"n"},
   {lw:"kufi", en:"painful (or painfully)", pos:"adj"},
   {lw:"kufu", en:"to hurt (or feel pain)", pos:"v"},
@@ -2771,6 +2791,8 @@ const DICTIONARY_RAW = [
   {lw:"maihu", en:"to send a message (or text, write to)", pos:"v"},
   {lw:"maihupue", en:"messenger", pos:"n", note:"From maihu + -pue (agent)"},
   {lw:"maivi", en:"unless", pos:"conj", note:"From mai (not) + vi (if)"},
+  {lw:"maluwe", en:"cow", pos:"n"},
+  {lw:"maluwi", en:"cow-like", pos:"adj"},
   {lw:"mashe", en:"medicine", pos:"n"},
   {lw:"mashepue", en:"doctor", pos:"n", note:"From mashe + -pue (agent)"},
   {lw:"mashetieme", en:"pharmacy", pos:"n", note:"From mashe (medicine) + -tieme (store) \u2014 pharmacy"},
@@ -2836,8 +2858,14 @@ const DICTIONARY_RAW = [
   {lw:"misi", en:"ocular", pos:"adj"},
   {lw:"misu", en:"to look", pos:"v"},
   {lw:"moa", en:"please", pos:"expr"},
+  {lw:"moahime", en:"insufficiency", pos:"n"},
+  {lw:"moahimi", en:"not enough", pos:"adj"},
+  {lw:"moahimu", en:"to fall short", pos:"v"},
   {lw:"moapa", en:"least (superlative of inferiority)", pos:"particle"},
   {lw:"moata", en:"less than (comparative of inferiority)", pos:"particle"},
+  {lw:"moawe", en:"decrease", pos:"n"},
+  {lw:"moawi", en:"less", pos:"adj"},
+  {lw:"moawu", en:"to decrease", pos:"v"},
   {lw:"moe", en:"balance", pos:"n"},
   {lw:"moele", en:"numbness", pos:"n"},
   {lw:"moeli", en:"numb", pos:"adj"},
@@ -3009,6 +3037,9 @@ const DICTIONARY_RAW = [
   {lw:"mosaire", en:"slowness", pos:"n"},
   {lw:"mosairi", en:"slow (or slowly)", pos:"adj"},
   {lw:"mosairu", en:"to slow down", pos:"v"},
+  {lw:"mosaye", en:"dirt", pos:"n"},
+  {lw:"mosayi", en:"dirty", pos:"adj"},
+  {lw:"mosayu", en:"to dirty (or soil)", pos:"v"},
   {lw:"moseiwe", en:"frown", pos:"n"},
   {lw:"moseiwi", en:"frowning", pos:"adj"},
   {lw:"moseiwu", en:"to frown", pos:"v"},
@@ -3260,6 +3291,8 @@ const DICTIONARY_RAW = [
   {lw:"owu", en:"to lay eggs", pos:"v"},
   {lw:"pahe", en:"table", pos:"n"},
   {lw:"pahi", en:"table-like", pos:"adj"},
+  {lw:"pahule", en:"chicken", pos:"n"},
+  {lw:"pahuli", en:"chicken-like", pos:"adj"},
   {lw:"paihe", en:"spider", pos:"n"},
   {lw:"paihi", en:"spider-like", pos:"adj"},
   {lw:"paile", en:"clarity", pos:"n"},
@@ -3328,6 +3361,8 @@ const DICTIONARY_RAW = [
   {lw:"piwe", en:"child", pos:"n"},
   {lw:"piwi", en:"childlike", pos:"adj"},
   {lw:"piwile", en:"baby", pos:"n", note:"From piwe (child) + -ile \u2014 little child"},
+  {lw:"poake", en:"pig", pos:"n"},
+  {lw:"poaki", en:"pig-like", pos:"adj"},
   {lw:"pohe", en:"face", pos:"n"},
   {lw:"pohi", en:"forward-facing", pos:"adj"},
   {lw:"pohu", en:"to face (turn toward)", pos:"v"},
@@ -3464,6 +3499,8 @@ const DICTIONARY_RAW = [
   {lw:"shaihile", en:"canoe", pos:"n", note:"From shaihe (boat) + -ile \u2014 little boat"},
   {lw:"shaihu", en:"to sail", pos:"v"},
   {lw:"shaihupue", en:"sailor", pos:"n", note:"From shaihu + -pue (agent)"},
+  {lw:"shakume", en:"shark", pos:"n"},
+  {lw:"shakumi", en:"shark-like", pos:"adj"},
   {lw:"shalire", en:"rain", pos:"n"},
   {lw:"shaliri", en:"rainy", pos:"adj"},
   {lw:"shaliru", en:"to rain", pos:"v"},
@@ -3490,6 +3527,8 @@ const DICTIONARY_RAW = [
   {lw:"shaune", en:"lake", pos:"n"},
   {lw:"shauni", en:"lake-like", pos:"adj"},
   {lw:"shaunu", en:"to pool (or collect as a lake)", pos:"v"},
+  {lw:"shaupe", en:"whale", pos:"n"},
+  {lw:"shaupi", en:"whale-like", pos:"adj"},
   {lw:"shauwe", en:"swim", pos:"n"},
   {lw:"shauwi", en:"swimming", pos:"adj"},
   {lw:"shauwu", en:"to swim", pos:"v"},
@@ -3499,6 +3538,8 @@ const DICTIONARY_RAW = [
   {lw:"shawome", en:"ocean (or sea)", pos:"n"},
   {lw:"shawomi", en:"oceanic", pos:"adj"},
   {lw:"shawu", en:"to get wet (or make wet)", pos:"v"},
+  {lw:"shemahe", en:"octopus", pos:"n"},
+  {lw:"shemahi", en:"octopus-like", pos:"adj"},
   {lw:"sheure", en:"justice (or fairness)", pos:"n"},
   {lw:"sheuri", en:"just (or fair, justly)", pos:"adj"},
   {lw:"sheuru", en:"to do justice", pos:"v"},
@@ -3510,6 +3551,8 @@ const DICTIONARY_RAW = [
   {lw:"sheyepue", en:"nurse", pos:"n", note:"From sheye + -pue (agent)"},
   {lw:"sheyi", en:"healthy (or healed)", pos:"adj"},
   {lw:"sheyu", en:"to heal (or recover)", pos:"v"},
+  {lw:"shiawe", en:"dolphin", pos:"n"},
+  {lw:"shiawi", en:"dolphin-like", pos:"adj"},
   {lw:"shife", en:"throw", pos:"n"},
   {lw:"shifi", en:"thrown", pos:"adj"},
   {lw:"shifu", en:"to throw", pos:"v"},
@@ -3893,7 +3936,7 @@ function renderDict() {
 
   el.innerHTML = `
     <div class="dict-stats">
-      <span class="dict-stat-chip green">~440 Roots</span>
+      <span class="dict-stat-chip green">~452 Roots</span>
       <span class="dict-stat-chip green">${DICTIONARY_RAW.length} Words</span>
       <span class="dict-stat-chip blue">EN ↔ LW</span>
       <span class="dict-stat-chip">Tap a letter to browse</span>
