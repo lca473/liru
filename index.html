@@ -541,7 +541,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 
     <div class="landing-stats fade-up" style="animation-delay:0.1s">
       <div class="landing-stat">
-        <div class="landing-stat-num">~466</div>
+        <div class="landing-stat-num">~468</div>
         <div class="landing-stat-label">Roots</div>
       </div>
       <div class="landing-stat">
@@ -1962,7 +1962,7 @@ const GRAMMAR_SECTIONS = [
     icon:"🔗", title:"Relational Particles (Prepositions)",
     body:`<p>Small, mostly single-syllable words that show the relationship between things.</p>
     <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Particle</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
-    <tr><td><em>fa</em></td><td>from</td><td><em>loshe fa kauhe</em> — flower from the forest</td></tr>
+    <tr><td><em>fa</em></td><td>from (or of)</td><td><em>loshe fa kauhe</em> — flower from the forest</td></tr>
     <tr><td><em>na</em></td><td>for</td><td><em>lire na neo mawe</em> — song for my mother</td></tr>
     <tr><td><em>la</em></td><td>like / as</td><td><em>shawe la lune</em> — water like light</td></tr>
     <tr><td><em>ko</em></td><td>with</td><td><em>Ne halu ko te.</em> — I go with you.</td></tr>
@@ -2008,7 +2008,7 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-sub-header">Discourse adverbs</div>
     <ul>
       <li><em>vini</em> — also / too · <em>Ve vini wa liru.</em> (She also sang.)</li>
-      <li><em>fani</em> — only · <em>Ne fani wanu saihue.</em> (I want only one thing.)</li>
+      <li><em>fani</em> — only · <em>Ne fani wanu saihue.</em> (I just want something.)</li>
       <li><em>shoini</em> — instead · <em>Ne tahu shoini houme.</em> (I eat bread instead.)</li>
     </ul>`
   },
@@ -2081,13 +2081,15 @@ const GRAMMAR_SECTIONS = [
       <li>For compound ordinals, <em>-ni</em> attaches to the last piece: <em>runi-hani-fanini</em> (21st)</li>
     </ul>
     <div class="grammar-sub-header">Quantifiers</div>
-    <p>The first four share the <em>-ai</em> rhyme and measure set-count (how much of a set is involved).</p>
+    <p>The first five share the <em>-ai</em> rhyme and measure set-count (how much of a set is involved).</p>
     <ul>
       <li><em>tai</em> — all · <em>Tai moulea su liani.</em> (All trees are tall.)</li>
       <li><em>sai</em> — some · <em>Sai puea wa halu.</em> (Some people went.)</li>
       <li><em>nai</em> — many</li>
+      <li><em>fai</em> — any (free-choice) · <em>Fai pue sahu puhu lo.</em> (Anyone can do this.)</li>
       <li><em>nuli</em> — none / zero · <em>Nuli pue su waihi.</em> (No one is hopeful.)</li>
     </ul>
+    <div class="grammar-callout"><strong><em>sai</em> vs <em>fai</em>:</strong> <em>sai</em> means "some" — a specific-but-unnamed amount or referent the speaker has in mind. <em>fai</em> means "any" in the free-choice sense — no specific referent, whichever will do. <em>Sai loiwe</em> = "some book (a particular one)"; <em>fai loiwe</em> = "any book (doesn't matter which)."</div>
     <p>Two further roots measure quantity along different axes — increase/decrease and sufficiency. These are full canvas roots, not bare adjectives.</p>
     <ul>
       <li><em>awi</em> — more · <em>Nea wanu awi houme.</em> (We want more bread.)</li>
@@ -2095,13 +2097,15 @@ const GRAMMAR_SECTIONS = [
       <li><em>ahimi</em> — enough · <em>Lo mohe su ahimi.</em> (This cup is enough.)</li>
       <li><em>moahimi</em> — not enough</li>
     </ul>
-    <div class="grammar-sub-header">"Something / nothing / everything / someone / no one / everyone"</div>
+    <div class="grammar-sub-header">"Something / anything / nothing / everything / someone / anyone / no one / everyone"</div>
     <p>Quantifier + <em>hue</em> (thing) or <em>pue</em> (person), written as one word:</p>
     <ul>
       <li><em>taihue</em> — everything · <em>taipue</em> — everyone</li>
       <li><em>saihue</em> — something · <em>saipue</em> — someone</li>
+      <li><em>faihue</em> — anything · <em>faipue</em> — anyone</li>
       <li><em>nulihue</em> — nothing · <em>nulipue</em> — no one</li>
-    </ul>`
+    </ul>
+    <p>The <em>sai-</em> / <em>fai-</em> split carries through: <em>Ne wa tiru saihue</em> (I saw something specific) vs <em>Ki te wa tiru faihue?</em> (Did you see anything at all?). Negation with <em>fai-</em> gives emphatic "not any": <em>Ne mai wa tiru faihue</em> (I didn't see anything).</p>`
   },
   {
     icon:"🕐", title:"Time",
@@ -2152,11 +2156,12 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>taiweli</em></td><td>always</td></tr>
     <tr><td><em>naiweli</em></td><td>often</td></tr>
     <tr><td><em>saiweli</em></td><td>sometimes</td></tr>
+    <tr><td><em>faiweli</em></td><td>ever / at any time</td></tr>
     <tr><td><em>nuliweli</em></td><td>never</td></tr>
     <tr><td><em>noihi</em></td><td>almost</td></tr>
     <tr><td><em>ori</em></td><td>very / really</td></tr>
     </tbody></table></div>
-    <p>"Rarely" is just <em>mai naiweli</em> (not often). "Not yet" is <em>mai yauwi</em>.</p>
+    <p>"Rarely" is just <em>mai naiweli</em> (not often). "Not yet" is <em>mai yauwi</em>. Emphatic "never" can also be <em>mai faiweli</em> (not ever).</p>
     <p>"Early" and "late" are compositional: <em>wale oihi</em> (before expected) and <em>wule oihi</em> (after expected).</p>`
   },
   {
@@ -2396,7 +2401,11 @@ const DICTIONARY_RAW = [
   {lw:"elori", en:"cute-squeezy", pos:"adj"},
   {lw:"eloru", en:"to feel the urge to squeeze", pos:"v"},
   {lw:"elu", en:"to feel", pos:"v"},
-  {lw:"fa", en:"from", pos:"prep"},
+  {lw:"fa", en:"from (or of)", pos:"prep"},
+  {lw:"fai", en:"any (free-choice)", pos:"adj", note:"Quantifier \u2014 joins tai/sai/nai/nuli in the -ai rhyme family. Distinct from sai (specific-but-unnamed): fai is free-choice."},
+  {lw:"faihue", en:"anything (free-choice)", pos:"n", note:"From fai (any) + hue (thing) \u2014 free-choice anything"},
+  {lw:"faipue", en:"anyone (free-choice)", pos:"n", note:"From fai (any) + pue (person) \u2014 free-choice anyone"},
+  {lw:"faiweli", en:"ever / at any time (free-choice)", pos:"adj", note:"From fai (any) + weli \u2014 at any time"},
   {lw:"faile", en:"excitement", pos:"n"},
   {lw:"faili", en:"excited (or eagerly)", pos:"adj"},
   {lw:"failu", en:"to excite", pos:"v"},
@@ -2929,6 +2938,8 @@ const DICTIONARY_RAW = [
   {lw:"mokiliri", en:"answered", pos:"adj"},
   {lw:"mokiliru", en:"to answer (or reply)", pos:"v", note:"From mo- + ki- + liru \u2014 to answer"},
   {lw:"moko", en:"without", pos:"prep"},
+  {lw:"moko pue", en:"alone (by oneself)", pos:"phrase", note:"From moko (without) + pue (person) \u2014 without another person, by oneself"},
+  {lw:"moko puea", en:"alone (in solitude)", pos:"phrase", note:"From moko (without) + puea (people) \u2014 without people around, in solitude"},
   {lw:"mokose", en:"release", pos:"n"},
   {lw:"mokosi", en:"let-go", pos:"adj"},
   {lw:"mokosu", en:"to let go", pos:"v"},
@@ -3212,7 +3223,7 @@ const DICTIONARY_RAW = [
   {lw:"nemui", en:"honeyed", pos:"adj"},
   {lw:"neo", en:"my", pos:"pron"},
   {lw:"neoa", en:"our", pos:"pron"},
-  {lw:"neule", en:"television", pos:"n"},
+  {lw:"neule", en:"television (or TV)", pos:"n"},
   {lw:"neuli", en:"of a TV", pos:"adj"},
   {lw:"neulu", en:"to watch TV", pos:"v"},
   {lw:"niahe", en:"carefulness", pos:"n"},
@@ -3318,6 +3329,8 @@ const DICTIONARY_RAW = [
   {lw:"paile", en:"clarity", pos:"n"},
   {lw:"paili", en:"clear", pos:"adj"},
   {lw:"pailu", en:"to clarify (or explain)", pos:"v"},
+  {lw:"paime", en:"glass", pos:"n"},
+  {lw:"paimi", en:"glassy", pos:"adj"},
   {lw:"paipe", en:"dog", pos:"n"},
   {lw:"paipi", en:"dog-like", pos:"adj"},
   {lw:"paipile", en:"puppy", pos:"n", note:"From paipe (dog) + -ile \u2014 little dog"},
@@ -3387,8 +3400,8 @@ const DICTIONARY_RAW = [
   {lw:"piwile", en:"baby", pos:"n", note:"From piwe (child) + -ile \u2014 little child"},
   {lw:"poake", en:"pig", pos:"n"},
   {lw:"poaki", en:"pig-like", pos:"adj"},
-  {lw:"pohe", en:"face", pos:"n"},
-  {lw:"pohi", en:"forward-facing", pos:"adj"},
+  {lw:"pohe", en:"face (or screen)", pos:"n"},
+  {lw:"pohi", en:"forward-facing (or on-screen)", pos:"adj"},
   {lw:"pohu", en:"to face (turn toward)", pos:"v"},
   {lw:"poime", en:"wheel", pos:"n", note:"Shortened from poiwi (rotating) + leume (roundness) \u2014 a rotating round thing"},
   {lw:"poimi", en:"wheel-like", pos:"adj"},
@@ -3480,8 +3493,8 @@ const DICTIONARY_RAW = [
   {lw:"sahi", en:"possible (or maybe)", pos:"adj"},
   {lw:"sahu", en:"to can (or be able to)", pos:"v"},
   {lw:"sai", en:"some", pos:"adj"},
-  {lw:"saihue", en:"something", pos:"n", note:"From sai (some) + hue (thing) \u2014 something"},
-  {lw:"saipue", en:"someone", pos:"n", note:"From sai (some) + pue (person) \u2014 someone"},
+  {lw:"saihue", en:"something", pos:"n", note:"From sai (some) + hue (thing) \u2014 specific-but-unnamed thing; for free-choice \"anything\" use faihue"},
+  {lw:"saipue", en:"someone", pos:"n", note:"From sai (some) + pue (person) \u2014 specific-but-unnamed person; for free-choice \"anyone\" use faipue"},
   {lw:"saire", en:"speed", pos:"n"},
   {lw:"sairi", en:"fast (or quickly)", pos:"adj"},
   {lw:"sairu", en:"to speed up (or accelerate)", pos:"v"},
@@ -3783,6 +3796,10 @@ const DICTIONARY_RAW = [
   {lw:"tuwe", en:"strength", pos:"n"},
   {lw:"tuwi", en:"strong", pos:"adj"},
   {lw:"tuwu", en:"to strengthen", pos:"v"},
+  {lw:"une", en:"movie", pos:"n", note:"First u-initial root in the lexicon"},
+  {lw:"uni", en:"cinematic (or of a movie)", pos:"adj"},
+  {lw:"unile", en:"TV show", pos:"n", note:"From une (movie) + -ile (diminutive) \u2014 a bounded/episodic movie"},
+  {lw:"unili", en:"of a TV show", pos:"adj"},
   {lw:"vaihe", en:"side (face, aspect)", pos:"n"},
   {lw:"vaihi", en:"sided (facing)", pos:"adj"},
   {lw:"vaihu", en:"to face (present a side)", pos:"v"},
@@ -3982,7 +3999,7 @@ function renderDict() {
 
   el.innerHTML = `
     <div class="dict-stats">
-      <span class="dict-stat-chip green">~466 Roots</span>
+      <span class="dict-stat-chip green">~468 Roots</span>
       <span class="dict-stat-chip green">${DICTIONARY_RAW.length} Words</span>
       <span class="dict-stat-chip blue">EN ↔ LW</span>
       <span class="dict-stat-chip">Tap a letter to browse</span>
