@@ -541,7 +541,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 
     <div class="landing-stats fade-up" style="animation-delay:0.1s">
       <div class="landing-stat">
-        <div class="landing-stat-num">~452</div>
+        <div class="landing-stat-num">~455</div>
         <div class="landing-stat-label">Roots</div>
       </div>
       <div class="landing-stat">
@@ -2282,7 +2282,8 @@ const GRAMMAR_SECTIONS = [
     Always use the <em>-u</em> (verb) form. A washing machine washes things, so take <em>sayu</em> (to wash) and stick <em>-pauwe</em> on the end:<br>
     <em>sayu</em> (to wash) + <em>-pauwe</em> → <em>sayupauwe</em> (washing machine)<br>
     <em>luhu</em> (to make cold) + <em>-pauwe</em> → <em>luhupauwe</em> (refrigerator)<br>
-    <em>hauhu</em> (to heat up) + <em>-pauwe</em> → <em>hauhupauwe</em> (oven)</div>
+    <em>hauhu</em> (to heat up) + <em>-pauwe</em> → <em>hauhupauwe</em> (oven)<br>
+    <em>eiru</em> (to fly) + <em>-pauwe</em> → <em>eirupauwe</em> (airplane)</div>
     <p style="margin-top:14px"><strong>Why these three are easy:</strong> For <em>-pue</em> and <em>-pauwe</em>, both are about doing something — a person does it, or a machine does it — so the verb form (<em>-u</em>) always fits. For <em>-tieme</em>, a store is about the stuff it sells, so the noun form (<em>-e</em>) always fits. No guessing needed!</p>
     <p>You can build words with these three endings any time — you don't have to wait for them to appear in the dictionary.</p>`
   },
@@ -2388,6 +2389,7 @@ const DICTIONARY_RAW = [
   {lw:"eire", en:"flight", pos:"n"},
   {lw:"eiri", en:"in flight (or flying)", pos:"adj"},
   {lw:"eiru", en:"to fly", pos:"v"},
+  {lw:"eirupauwe", en:"airplane", pos:"n", note:"From eiru (to fly) + -pauwe (device) \u2014 flying machine"},
   {lw:"ele", en:"feeling", pos:"n"},
   {lw:"eli", en:"emotional", pos:"adj"},
   {lw:"elore", en:"urge-to-squeeze", pos:"n"},
@@ -2834,6 +2836,7 @@ const DICTIONARY_RAW = [
   {lw:"meshilawe", en:"noon", pos:"n", note:"From meshi (middle) + lawe \u2014 noon"},
   {lw:"meshimolawe", en:"midnight", pos:"n", note:"From meshi (middle) + molawe \u2014 midnight"},
   {lw:"meshu", en:"to center", pos:"v"},
+  {lw:"meuhekoire", en:"bus", pos:"n", note:"From meuhe (group) + koire (car) \u2014 group car"},
   {lw:"meve", en:"shoulder", pos:"n"},
   {lw:"mevi", en:"shoulder-related", pos:"adj"},
   {lw:"mewe", en:"cat", pos:"n"},
@@ -3175,6 +3178,8 @@ const DICTIONARY_RAW = [
   {lw:"nalae", en:"reason (or cause, purpose)", pos:"n", note:"From na + lai \u2014 reason/cause"},
   {lw:"nalai", en:"causal (or \"because\" as particle)", pos:"conj", note:"From na (for) + lai \u2014 because/since"},
   {lw:"nalau", en:"to cause", pos:"v"},
+  {lw:"naohe", en:"bridge", pos:"n"},
+  {lw:"naohi", en:"bridge-like", pos:"adj"},
   {lw:"nau", en:"to abound", pos:"v"},
   {lw:"nauhe", en:"guilt (or remorse)", pos:"n"},
   {lw:"nauhi", en:"guilty (or remorsefully)", pos:"adj"},
@@ -3428,6 +3433,8 @@ const DICTIONARY_RAW = [
   {lw:"rohe", en:"certainty", pos:"n"},
   {lw:"rohi", en:"certain (or certainly)", pos:"adj"},
   {lw:"rohu", en:"to confirm (or make certain)", pos:"v"},
+  {lw:"roheme", en:"train", pos:"n"},
+  {lw:"rohemi", en:"train-like", pos:"adj"},
   {lw:"roine", en:"rice", pos:"n"},
   {lw:"roini", en:"rice-like", pos:"adj"},
   {lw:"rouhe", en:"week", pos:"n"},
@@ -3448,6 +3455,7 @@ const DICTIONARY_RAW = [
   {lw:"runilawe", en:"Monday", pos:"n", note:"From runi (2) + lawe (day)"},
   {lw:"runiluone", en:"February", pos:"n", note:"From runi (2) + luone (month)"},
   {lw:"runini", en:"second", pos:"adj", note:"From runi + -ni (ordinal) \u2014 second"},
+  {lw:"runipoime", en:"bicycle", pos:"n", note:"From runi (two) + poime (wheel) \u2014 two-wheel"},
   {lw:"runiwime", en:"index finger", pos:"n", note:"From runi (two) + wime (finger) \u2014 two-finger / second finger"},
   {lw:"sahe", en:"ability (or possibility)", pos:"n"},
   {lw:"sahi", en:"possible (or maybe)", pos:"adj"},
@@ -3782,6 +3790,9 @@ const DICTIONARY_RAW = [
   {lw:"waini", en:"belt-like", pos:"adj"},
   {lw:"wainoe", en:"internet", pos:"n"},
   {lw:"wainoi", en:"online (or internet-related)", pos:"adj"},
+  {lw:"waire", en:"ride", pos:"n"},
+  {lw:"wairi", en:"riding", pos:"adj"},
+  {lw:"wairu", en:"to ride", pos:"v"},
   {lw:"waiye", en:"protection", pos:"n"},
   {lw:"waiyi", en:"protective", pos:"adj"},
   {lw:"waiyu", en:"to protect", pos:"v"},
@@ -3936,7 +3947,7 @@ function renderDict() {
 
   el.innerHTML = `
     <div class="dict-stats">
-      <span class="dict-stat-chip green">~452 Roots</span>
+      <span class="dict-stat-chip green">~455 Roots</span>
       <span class="dict-stat-chip green">${DICTIONARY_RAW.length} Words</span>
       <span class="dict-stat-chip blue">EN ↔ LW</span>
       <span class="dict-stat-chip">Tap a letter to browse</span>
