@@ -1753,6 +1753,112 @@ const V = {
     {lw:"oihe",   en:"expectation",      pos:"n", canvas:{adj:"oihi", adj_en:"expected", v:"oihu", v_en:"to expect"}},
     {lw:"nohile", en:"recentness",       pos:"n", canvas:{adj:"nohili", adj_en:"recent"}},
   ],
+
+  // L88 — Conjunctions II: Time & Cause (sentence-based)
+  // Eight subordinators: wale, wule, wole, file, nalai, vi, mavi, maivi.
+  // Budget-validated per /mnt/user-data/outputs/l88_draft.md
+  conjunctions2: [
+    {lw:["Ne","loisu","wale","rau"],                              en:"I read before sleeping."},
+    {lw:["Nea","tahu","wule","fase"],                             en:"We eat after work."},
+    {lw:["Ve","liru","wole","fase"],                              en:"She sings while working."},
+    {lw:["Ne","wu","loimu","file","te","vanu"],                   en:"I will wait until you come."},
+    {lw:["Ne","wa","rau","nalai","ne","wa","tuhi"],               en:"I slept because I was bored."},
+    {lw:["Vi","te","vanu","ne","wu","houli"],                     en:"If you come, I will be happy."},
+    {lw:["Mavi","ve","su","piami","ve","su","tuwi"],              en:"Although she is small, she is strong."},
+    {lw:["Maivi","te","loimu","ne","wu","movanu"],                en:"Unless you wait, I will leave."},
+  ],
+
+  // L89 — Intensifiers & Near-States
+  // Two canvas roots.
+  intensifiers: [
+    {lw:"ore",    en:"intensity",  pos:"n", canvas:{adj:"ori", adj_en:"very", v:"oru", v_en:"to intensify"}},
+    {lw:"noihe",  en:"almostness", pos:"n", canvas:{adj:"noihi", adj_en:"almost", v:"noihu", v_en:"to come close to"}},
+  ],
+
+  // L90 — Ordinals & Positional Adjectives
+  // Three ordinal digits + two positional adjectives.
+  // poiyi/toyi (starting/final) are reinforced from L41 verbs1 — not re-declared.
+  ordinals: [
+    {lw:"fanini",  en:"first",    pos:"adv", note:"fani + -ni ordinal suffix"},
+    {lw:"runini",  en:"second",   pos:"adv", note:"runi + -ni"},
+    {lw:"tenini",  en:"third",    pos:"adv", note:"teni + -ni"},
+    {lw:"wali",    en:"previous", pos:"adv"},
+    {lw:"wuli",    en:"next",     pos:"adv"},
+  ],
+
+  // L91 — Abstract I (Life)
+  // oke/moke, nore/monore are balancing pairs.
+  abstract1: [
+    {lw:"oke",     en:"life",     pos:"n", canvas:{adj:"oki", adj_en:"alive", v:"oku", v_en:"to live"},  pair:{mo:"moke", mo_en:"death"}},
+    {lw:"moke",    en:"death",    pos:"n", canvas:{adj:"moki", adj_en:"dead", v:"moku", v_en:"to die"},   pair:{base:"oke", base_en:"life"}},
+    {lw:"nore",    en:"birth",    pos:"n", canvas:{adj:"nori", adj_en:"born", v:"noru", v_en:"to give birth"}, pair:{mo:"monore", mo_en:"killing"}},
+    {lw:"monore",  en:"killing",  pos:"n", canvas:{adj:"monori", adj_en:"killed", v:"monoru", v_en:"to kill"}, pair:{base:"nore", base_en:"birth"}},
+    {lw:"mouhe",   en:"world",    pos:"n", canvas:{adj:"mouhi", adj_en:"worldly"}},
+    {lw:"waume",   en:"freedom",  pos:"n", canvas:{adj:"waumi", adj_en:"free", v:"waumu", v_en:"to free"}},
+  ],
+
+  // L92 — Abstract II (Mind)
+  // mere/momere balancing pair (memory/forgetting).
+  // iruhe, iwuhe, foile added per coverage_notes.
+  abstract2: [
+    {lw:"yoihe",     en:"idea",         pos:"n", canvas:{adj:"yoihi", adj_en:"idea-like", v:"yoihu", v_en:"to conceive"}},
+    {lw:"yuhime",    en:"meaning",      pos:"n", canvas:{adj:"yuhimi", adj_en:"meaningful", v:"yuhimu", v_en:"to mean"}},
+    {lw:"fele",      en:"belief",       pos:"n", canvas:{adj:"feli", adj_en:"believed", v:"felu", v_en:"to believe"}},
+    {lw:"piore",     en:"curiosity",    pos:"n", canvas:{adj:"piori", adj_en:"curious", v:"pioru", v_en:"to wonder"}},
+    {lw:"mere",      en:"memory",       pos:"n", canvas:{adj:"meri", adj_en:"memorable", v:"meru", v_en:"to remember"}, pair:{mo:"momere", mo_en:"forgetting"}},
+    {lw:"momere",    en:"forgetting",   pos:"n", canvas:{adj:"momeri", adj_en:"forgotten", v:"momeru", v_en:"to forget"}, pair:{base:"mere", base_en:"memory"}},
+    {lw:"piretire",  en:"imagination",  pos:"n", canvas:{adj:"piretiri", adj_en:"imagined", v:"piretiru", v_en:"to imagine"}, note:"From pire (thought) + tire (sight) — 'seeing-in-thought'"},
+    {lw:"iruhe",     en:"word",         pos:"n", canvas:{adj:"iruhi", adj_en:"worded", v:"iruhu", v_en:"to phrase"}},
+    {lw:"iwuhe",     en:"language",     pos:"n", canvas:{adj:"iwuhi", adj_en:"linguistic", v:"iwuhu", v_en:"to speak a language"}},
+    {lw:"foile",     en:"joke",         pos:"n", canvas:{adj:"foili", adj_en:"funny", v:"foilu", v_en:"to joke"}},
+  ],
+
+  // L93 — Abstract III (Challenge)
+  // teuhe/moteuhe balancing pair. teuhile is diminutive-style noun.
+  abstract3: [
+    {lw:"teuhe",    en:"difficulty", pos:"n", canvas:{adj:"teuhi", adj_en:"difficult", v:"teuhu", v_en:"to complicate"}, pair:{mo:"moteuhe", mo_en:"ease"}},
+    {lw:"moteuhe",  en:"ease",       pos:"n", canvas:{adj:"moteuhi", adj_en:"easy", v:"moteuhu", v_en:"to ease"}, pair:{base:"teuhe", base_en:"difficulty"}},
+    {lw:"soile",    en:"solution",   pos:"n", canvas:{adj:"soili", adj_en:"solved", v:"soilu", v_en:"to solve"}},
+    {lw:"rouwe",    en:"harm",       pos:"n", canvas:{adj:"rouwi", adj_en:"harmful", v:"rouwu", v_en:"to harm"}},
+    {lw:"nauke",    en:"warning",    pos:"n", canvas:{adj:"nauki", adj_en:"warned", v:"nauku", v_en:"to warn"}},
+    {lw:"raihe",    en:"result",     pos:"n", canvas:{adj:"raihi", adj_en:"resultant", v:"raihu", v_en:"to result in"}},
+    {lw:"teuhile",  en:"problem",    pos:"n", note:"Diminutive of teuhe — a small-but-specific difficulty"},
+  ],
+
+  // L94 — Abstract IV (Social Concepts)
+  // rohe/morohe is a pair (certainty/doubt).
+  // niohe/moniohe, niuwe/moniuwe, nove/monove pairs from coverage_notes.
+  // movehisene, shoinulire are lexicalized compounds.
+  abstract4: [
+    {lw:"sheure",       en:"justice",    pos:"n", canvas:{adj:"sheuri", adj_en:"just", v:"sheuru", v_en:"to do justice"}},
+    {lw:"wohime",       en:"importance", pos:"n", canvas:{adj:"wohimi", adj_en:"important", v:"wohimu", v_en:"to matter"}},
+    {lw:"nile",         en:"name",       pos:"n", canvas:{adj:"nili", adj_en:"named", v:"nilu", v_en:"to name"}},
+    {lw:"rohe",         en:"certainty",  pos:"n", canvas:{adj:"rohi", adj_en:"certain", v:"rohu", v_en:"to confirm"}, pair:{mo:"morohe", mo_en:"doubt"}},
+    {lw:"morohe",       en:"doubt",      pos:"n", canvas:{adj:"morohi", adj_en:"doubtful", v:"morohu", v_en:"to doubt"}, pair:{base:"rohe", base_en:"certainty"}},
+    {lw:"feihe",        en:"promise",    pos:"n", canvas:{adj:"feihi", adj_en:"promised", v:"feihu", v_en:"to promise"}},
+    {lw:"luhime",       en:"music",      pos:"n", canvas:{adj:"luhimi", adj_en:"musical", v:"luhimu", v_en:"to play music"}},
+    {lw:"niohe",        en:"agreement",  pos:"n", canvas:{adj:"niohi", adj_en:"agreed", v:"niohu", v_en:"to agree"}, pair:{mo:"moniohe", mo_en:"disagreement"}},
+    {lw:"moniohe",      en:"disagreement", pos:"n", canvas:{adj:"moniohi", adj_en:"disagreed", v:"moniohu", v_en:"to disagree"}, pair:{base:"niohe", base_en:"agreement"}},
+    {lw:"niuwe",        en:"quietness",  pos:"n", canvas:{adj:"niuwi", adj_en:"quiet", v:"niuwu", v_en:"to quiet"}, pair:{mo:"moniuwe", mo_en:"loudness"}},
+    {lw:"moniuwe",      en:"loudness",   pos:"n", canvas:{adj:"moniuwi", adj_en:"loud", v:"moniuwu", v_en:"to grow loud"}, pair:{base:"niuwe", base_en:"quietness"}},
+    {lw:"nove",         en:"correctness",pos:"n", canvas:{adj:"novi", adj_en:"correct", v:"novu", v_en:"to correct"}, pair:{mo:"monove", mo_en:"mistake"}},
+    {lw:"monove",       en:"mistake",    pos:"n", canvas:{adj:"monovi", adj_en:"incorrect", v:"monovu", v_en:"to err"}, pair:{base:"nove", base_en:"correctness"}},
+    {lw:"movehisene",   en:"secret",     pos:"n", note:"Lexicalized compound — 'hidden knowledge'"},
+    {lw:"shoinulire",   en:"translation",pos:"n", canvas:{adj:"shoinuliri", adj_en:"translated", v:"shoinuliru", v_en:"to translate"}, note:"Lexicalized — 'changed speech'"},
+  ],
+
+  // L95 — Relative Clauses (sentence-based)
+  // Introduces lai for both relative and complement clauses.
+  // Budget-validated per /mnt/user-data/outputs/l95_draft.md
+  relclauses: [
+    {lw:["Ne","tiru","pue","lai","wa","vanu"],                           en:"I see the person who came."},
+    {lw:["Lo","loiwe","lai","ne","wa","loisu","su","wauli"],             en:"The book that I read is beautiful."},
+    {lw:["Yaihe","lai","wa","keyu","su","piami"],                        en:"The bird that fell is small."},
+    {lw:["Shawome","lai","nea","wa","halu","so","su","wauli"],           en:"The ocean that we went to is beautiful."},
+    {lw:["Pue","lai","ne","wa","tiru","su","neo","wame"],                en:"The person that I saw is my friend."},
+    {lw:["Loiwe","lai","ve","wa","loisu","su","apa","meli"],             en:"The book that she read is the best."},
+    {lw:["Ne","piru","lai","ve","wa","liru"],                            en:"I think that she sang."},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1876,6 +1982,15 @@ const LESSONS = [
   {id:"frequency",             title:"Frequency Adverbs",           desc:"Always, often, sometimes, never",           icon:"🔁",  vocabKey:"frequency",             xp:22, unit:4},
   {id:"temporaladv",           title:"Temporal Adverbs",            desc:"Already, still, soon, eventually",          icon:"⏱️", vocabKey:"temporaladv",           xp:22, unit:4},
   {id:"unit5review1",          title:"Unit 5 Review (part 1)",      desc:"Review the first wave of Unit 5",           icon:"🔁",  vocabKey:"_review",               xp:26, unit:4, isReview:true, reviewPool:["agentpue","compoundpauwe","vehicles","discourseadv","frequency","temporaladv"]},
+  {id:"conjunctions2",         title:"Conjunctions II: Time & Cause", desc:"Before, after, while, until, if, because", icon:"⏳",  vocabKey:"conjunctions2",         xp:26, unit:4, isSentence:true},
+  {id:"intensifiers",          title:"Intensifiers & Near-States",  desc:"Very, really, almost, nearly",              icon:"💥",  vocabKey:"intensifiers",          xp:20, unit:4},
+  {id:"ordinals",              title:"Ordinals & Positions",        desc:"First, second, third, next, previous",      icon:"🥇",  vocabKey:"ordinals",              xp:22, unit:4},
+  {id:"abstract1",             title:"Abstract I: Life",            desc:"Life, death, birth, world, freedom",        icon:"🌍",  vocabKey:"abstract1",             xp:24, unit:4},
+  {id:"abstract2",             title:"Abstract II: Mind",           desc:"Idea, meaning, belief, memory, imagination",icon:"🧠",  vocabKey:"abstract2",             xp:26, unit:4},
+  {id:"abstract3",             title:"Abstract III: Challenge",     desc:"Difficulty, solution, harm, warning, result",icon:"⚠️", vocabKey:"abstract3",             xp:24, unit:4},
+  {id:"abstract4",             title:"Abstract IV: Social",         desc:"Justice, importance, name, promise, music", icon:"⚖️", vocabKey:"abstract4",             xp:28, unit:4},
+  {id:"relclauses",            title:"Relative Clauses",            desc:"Using lai to build 'the X that...'",        icon:"🔗",  vocabKey:"relclauses",            xp:26, unit:4, isSentence:true},
+  {id:"unit5review2",          title:"Unit 5 Review (part 2)",      desc:"Review the second wave of Unit 5",          icon:"🔁",  vocabKey:"_review",               xp:28, unit:4, isReview:true, reviewPool:["intensifiers","ordinals","abstract1","abstract2","abstract3","abstract4"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
