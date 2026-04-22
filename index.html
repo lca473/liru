@@ -1693,24 +1693,22 @@ function renderMatch(ex){
   const rights=state.matchShuffledRight.length?state.matchShuffledRight:ex.pairs.map(p=>p.right);
   const matchedLeft=new Set(state.matchMatched.map(m=>m.left));
   const matchedRight=new Set(state.matchMatched.map(m=>m.right));
-  const leftHTML=lefts.map(l=>{
-    let cls="match-btn";
-    if(matchedLeft.has(l))cls+=" matched";
-    else if(state.matchSelectedLeft===l)cls+=" selected";
-    if(state.matchWrong&&state.matchWrong.left===l)cls+=" wrong-match";
-    return `<button class="${cls}" data-left="${escapeHTML(l)}" ${matchedLeft.has(l)?'disabled':''}>${escapeHTML(l)}</button>`;
-  }).join("");
-  const rightHTML=rights.map(r=>{
-    let cls="match-btn";
-    if(matchedRight.has(r))cls+=" matched";
-    if(state.matchWrong&&state.matchWrong.right===r)cls+=" wrong-match";
-    return `<button class="${cls}" data-right="${escapeHTML(r)}" ${matchedRight.has(r)?'disabled':''}>${escapeHTML(r)}</button>`;
+  // Interleave: row 1 = left[0] + right[0], row 2 = left[1] + right[1], ... so grid rows
+  // share height across both columns and stay aligned even when one side wraps.
+  const rowsHTML=lefts.map((l,i)=>{
+    const r=rights[i];
+    let leftCls="match-btn";
+    if(matchedLeft.has(l))leftCls+=" matched";
+    else if(state.matchSelectedLeft===l)leftCls+=" selected";
+    if(state.matchWrong&&state.matchWrong.left===l)leftCls+=" wrong-match";
+    let rightCls="match-btn";
+    if(matchedRight.has(r))rightCls+=" matched";
+    if(state.matchWrong&&state.matchWrong.right===r)rightCls+=" wrong-match";
+    return `<button class="${leftCls}" data-left="${escapeHTML(l)}" ${matchedLeft.has(l)?'disabled':''}>${escapeHTML(l)}</button>
+      <button class="${rightCls}" data-right="${escapeHTML(r)}" ${matchedRight.has(r)?'disabled':''}>${escapeHTML(r)}</button>`;
   }).join("");
   return `<div style="font-family:var(--display);font-size:20px;font-weight:800;margin-bottom:22px">Match the pairs</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
-      <div style="display:flex;flex-direction:column;gap:8px">${leftHTML}</div>
-      <div style="display:flex;flex-direction:column;gap:8px">${rightHTML}</div>
-    </div>`;
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch">${rowsHTML}</div>`;
 }
 function bindMatch(ex){
   document.querySelectorAll(".match-btn[data-left]").forEach(b=>b.addEventListener("click",()=>{
