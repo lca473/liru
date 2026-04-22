@@ -769,7 +769,7 @@ const V = {
   pronouns: [
     {lw:"ne",  en:"I",                   pos:"pronoun", plural:"nea",  plural_en:"we"},
     {lw:"te",  en:"you",                 pos:"pronoun", plural:"tea",  plural_en:"you all"},
-    {lw:"ve",  en:"he / she / it / they (sg.)", pos:"pronoun", plural:"vea", plural_en:"they (pl.)"},
+    {lw:"ve",  en:"he / she / it", pos:"pronoun", plural:"vea", plural_en:"they"},
     {lw:"su",  en:"to be (copula)",      pos:"particle"},
   ],
 
@@ -777,7 +777,7 @@ const V = {
   possessives: [
     {lw:"neo",   en:"my",           pos:"pronoun", plural:"neoa",  plural_en:"our"},
     {lw:"teo",   en:"your",         pos:"pronoun", plural:"teoa",  plural_en:"your (pl.)"},
-    {lw:"veo",   en:"his / her / its / their (sg.)", pos:"pronoun", plural:"veoa", plural_en:"their (pl.)"},
+    {lw:"veo",   en:"his / her / its", pos:"pronoun", plural:"veoa", plural_en:"their"},
   ],
 
   // L4 — The Vowel Canvas
@@ -850,11 +850,17 @@ const V = {
     {lw:"laupehiehe", en:"ankle",  pos:"n", note:"laupe (foot) + hiehe (joint)"},
   ],
 
-  // L10 — The mo- Prefix (grammar-only; demonstrates derivation on known roots)
-  // Introduces the concept using molune and mowaihe as explicit instances.
+  // L10 — The mo- Prefix (sentence-based — demonstrates derivation by contrast)
+  // Learner sees base + mo-partner in parallel sentences to internalize the pattern.
+  // All words drawn from L1-L9 + the two mo-pairs introduced here.
   moprefix: [
-    {lw:"molune",   en:"darkness",  pos:"n", canvas:{adj:"moluni", adj_en:"dark", v:"molunu", v_en:"to darken"}, pair:{base:"lune", base_en:"light"}},
-    {lw:"mowaihe",  en:"despair",   pos:"n", canvas:{adj:"mowaihi", adj_en:"hopeless", v:"mowaihu", v_en:"to despair"}, pair:{base:"waihe", base_en:"hope"}},
+    {lw:["Lune","su","luni"],                   en:"Light is bright."},
+    {lw:["Molune","su","moluni"],               en:"Darkness is dark."},
+    {lw:["Waihe","su","luni"],                  en:"Hope is bright."},
+    {lw:["Mowaihe","su","moluni"],              en:"Despair is dark."},
+    {lw:["Neo","waihe","lunu"],                 en:"My hope shines."},
+    {lw:["Teo","mowaihe","molunu"],             en:"Your despair darkens."},
+    {lw:["Neo","loye","waihu"],                 en:"My brother hopes."},
   ],
 
   // L11 — Basic Adjectives I (Size, Goodness, Newness)
@@ -891,28 +897,278 @@ const V = {
     {lw:"mowame", en:"enemy",     pos:"n", canvas:{adj:"mowami", adj_en:"dislikable", v:"mowamu", v_en:"to dislike"}, pair:{base:"wame", base_en:"friend"}},
   ],
 
-  // L16 — Yes/No Questions (grammar-only; introduces ki particle)
+  // L16 — Yes/No Questions (sentence-based lesson — uses ki particle)
+  // All words drawn from L1–L15 only. isSentence:true on the lesson entry.
   yesno: [
-    {lw:"ki",  en:"yes/no question particle",  pos:"particle", note:"Put at the front of a statement to make a yes/no question."},
+    {lw:["Ki","te","nawu","ne"],            en:"Do you love me?"},
+    {lw:["Ki","ve","su","teo","mawe"],      en:"Is she your mother?"},
+    {lw:["Ki","vea","tiru","te"],           en:"Do they see you?"},
+    {lw:["Ki","teo","wahe","su","mopiami"], en:"Is your family big?"},
+    {lw:["Ki","nea","su","wami"],           en:"Are we friendly?"},
+    {lw:["Ki","te","senu","ne"],            en:"Do you know me?"},
+    {lw:["Ki","ve","liru","wauli"],         en:"Does she sing beautifully?"},
   ],
 
   // L17 — Checkpoint 1 sentences
   // All words in these sentences are drawn from L1–L16 only.
   checkpoint1: [
-    {lw:["Ne","su","teo","loye"],                  en:"I am your brother"},
-    {lw:["Ve","liru","wauli"],                     en:"She sings beautifully"},
-    {lw:["Ki","nea","su","wami"],                  en:"Are we friends?"},
-    {lw:["Teo","powe","su","tuwi"],                en:"Your father is strong"},
-    {lw:["Vea","tiru","neo","wahe"],               en:"They see my family"},
-    {lw:["Waihe","su","luni"],                     en:"Hope is bright"},
-    {lw:["Ne","mai","nawu","momeli","mowame"],     en:"I don't love a bad enemy"},
+    {lw:["Ne","su","teo","loye"],                  en:"I am your brother."},
+    {lw:["Ve","liru","wauli"],                     en:"She sings beautifully."},
+    {lw:["Ki","nea","su","wami"],                  en:"Are we friendly?"},
+    {lw:["Teo","powe","su","tuwi"],                en:"Your father is strong."},
+    {lw:["Vea","tiru","neo","wahe"],               en:"They see my family."},
+    {lw:["Waihe","su","luni"],                     en:"Hope is bright."},
+    {lw:["Ne","mai","nawu","momeli","mowame"],     en:"I don't love a bad enemy."},
     {lw:["Ki","ve","senu","ne"],                   en:"Does she know me?"},
-    {lw:["Molune","su","moluni"],                  en:"Darkness is dark"},
-    {lw:["Teo","mawe","su","wauli","yaure"],       en:"Your mother is a beautiful woman"},
-    {lw:["Nea","nawu","tea"],                      en:"We love you all"},
-    {lw:["Ve","mai","liru"],                       en:"She is not speaking"},
-    {lw:["Neo","loye","su","teo","wame"],          en:"My brother is your friend"},
+    {lw:["Molune","su","moluni"],                  en:"Darkness is dark."},
+    {lw:["Teo","mawe","su","wauli","yaure"],       en:"Your mother is a beautiful woman."},
+    {lw:["Nea","nawu","tea"],                      en:"We love you all."},
+    {lw:["Ve","mai","liru"],                       en:"She is not speaking."},
+    {lw:["Neo","loye","su","teo","wame"],          en:"My brother is your friend."},
     {lw:["Ki","te","tiru","ne"],                   en:"Do you see me?"},
+  ],
+
+  // ═══════════════════════════════════════════════════════════════
+  // UNIT 2 — DAILY WORLD (L18–L37)
+  // ═══════════════════════════════════════════════════════════════
+
+  // L18 — Home I (Rooms & Furniture)
+  home1: [
+    {lw:"hiwe",  en:"house / home", pos:"n", canvas:{adj:"hiwi", adj_en:"home-like", v:"hiwu", v_en:"to dwell / live (somewhere)"}},
+    {lw:"kewe",  en:"room",     pos:"n"},
+    {lw:"pahe",  en:"table",    pos:"n"},
+    {lw:"seme",  en:"chair",    pos:"n", canvas:{adj:"semi", adj_en:"seated", v:"semu", v_en:"to sit"}},
+    {lw:"rahe",  en:"bed",      pos:"n", canvas:{adj:"rahi", adj_en:"of a bed", v:"rahu", v_en:"to lie down"}},
+    {lw:"soime", en:"shelf",    pos:"n", canvas:{adj:"soimi", adj_en:"shelf-like", v:"soimu", v_en:"to shelve / put away"}},
+    {lw:"tauwe", en:"wall",     pos:"n"},
+    {lw:"touwe", en:"floor",    pos:"n"},
+    {lw:"taupoye", en:"window", pos:"n", note:"From tauwe (wall) + poye (opening)"},
+    {lw:"keuwe", en:"roof",     pos:"n"},
+    {lw:"raule", en:"pillow",   pos:"n"},
+    {lw:"loiwe", en:"book",     pos:"n"},
+  ],
+
+  // L19 — Home II (Kitchen & Dining)
+  home2: [
+    {lw:"nahe",  en:"kitchen",  pos:"n", canvas:{adj:"nahi", adj_en:"of cooking", v:"nahu", v_en:"to cook"}},
+    {lw:"sauwe", en:"toilet",   pos:"n"},
+    {lw:"fole",  en:"plate",    pos:"n"},
+    {lw:"mohe",  en:"cup",      pos:"n"},
+    {lw:"shome", en:"bottle",   pos:"n"},
+    {lw:"shohe", en:"spoon",    pos:"n"},
+    {lw:"tishe", en:"fork",     pos:"n"},
+  ],
+
+  // L20 — Noun Plurals & Possession (sentence-based — teaches -ea / -eo / -eoa pattern)
+  // All sentences use only L1-L19 vocabulary. Location particles arrive in L24,
+  // so the examples use only the copula (su), adjectives, and pronoun-possession.
+  nouninflection: [
+    {lw:["Neoa","hiwe","su","piami"],          en:"Our house is small."},
+    {lw:["Veo","loiwe","su","wauli"],          en:"His book is beautiful."},
+    {lw:["Nea","tiru","veoa","loiwea"],        en:"We see their books."},
+    {lw:["Neo","piwea","su","piami"],          en:"My children are small."},
+    {lw:["Teoa","mawea","nawu","tea"],         en:"Your mothers love you all."},
+    {lw:["Neo","loyea","su","tuwi"],           en:"My brothers are strong."},
+    {lw:["Piweo","mawe","su","wauli"],         en:"The child's mother is beautiful."},
+  ],
+
+  // L21 — Demonstratives
+  demonstratives: [
+    {lw:"lo",    en:"this",     pos:"demonstrative", plural:"loa",   plural_en:"these"},
+    {lw:"falo",  en:"that",     pos:"demonstrative", plural:"faloa", plural_en:"those"},
+  ],
+
+  // L22 — Tense (sentence-based — teaches wa / wu particles and lo lawe / wa lawe / wu lawe)
+  // All sentences use only L1-L21 vocabulary. Negation arrives in L23, so
+  // these examples use only positive statements.
+  tense: [
+    {lw:["Ne","wa","tiru","teo","mawe"],         en:"I saw your mother."},
+    {lw:["Ne","wa","nawu","te"],                 en:"I loved you."},
+    {lw:["Te","wu","liru","wauli"],              en:"You will sing beautifully."},
+    {lw:["Nea","wa","senu","lo","paure"],        en:"We knew this man."},
+    {lw:["Wa","lawe","ne","wa","tiru","te"],     en:"Yesterday I saw you."},
+    {lw:["Wu","lawe","nea","wu","liru"],         en:"Tomorrow we will speak."},
+    {lw:["Lo","lawe","ne","waihu"],              en:"Today I hope."},
+  ],
+
+  // L23 — Negation (sentence-based — teaches mai as a verb negator)
+  // Mai goes before the verb, or before the tense particle.
+  // All sentences use only L1-L22 vocabulary.
+  negation: [
+    {lw:["Ne","mai","tiru","te"],                en:"I don't see you."},
+    {lw:["Ve","mai","su","teo","mawe"],          en:"She is not your mother."},
+    {lw:["Nea","mai","wa","liru"],               en:"We did not speak."},
+    {lw:["Vea","mai","wu","nawu","ne"],          en:"They will not love me."},
+    {lw:["Lo","paure","mai","su","teo","powe"],  en:"This man is not your father."},
+    {lw:["Ne","mai","wa","senu","falo","yaure"], en:"I did not know that woman."},
+    {lw:["Te","mai","liru","wauli"],             en:"You are not singing beautifully."},
+  ],
+
+  // L24 — Relational Particles I (Location)
+  relational1: [
+    {lw:"wo",     en:"in / inside",    pos:"particle"},
+    {lw:"ya",     en:"at",             pos:"particle"},
+    {lw:"leu",    en:"above / over",   pos:"particle"},
+    {lw:"moleu",  en:"below / under",  pos:"particle", pair:{base:"leu", base_en:"above / over"}},
+  ],
+
+  // L25 — Relational Particles II (Movement & Association) + hale (to go)
+  relational2: [
+    {lw:"so",     en:"to / toward",    pos:"particle"},
+    {lw:"fa",     en:"from",           pos:"particle"},
+    {lw:"ko",     en:"with",           pos:"particle"},
+    {lw:"moko",   en:"without",        pos:"particle", pair:{base:"ko", base_en:"with"}},
+    {lw:"na",     en:"for",            pos:"particle"},
+    {lw:"la",     en:"like / as",      pos:"particle"},
+    {lw:"mowo",   en:"outside",        pos:"particle"},
+    {lw:"moso",   en:"away from",      pos:"particle", pair:{base:"so", base_en:"to / toward"}},
+    {lw:"hale",   en:"journey",        pos:"n", canvas:{adj:"hali", adj_en:"traveling", v:"halu", v_en:"to go"}},
+  ],
+
+  // L26 — Food I (Staples)
+  food1: [
+    {lw:"houme",   en:"bread",      pos:"n"},
+    {lw:"pome",    en:"fruit",      pos:"n", pair:{mo:"mopome", mo_en:"vegetable"}},
+    {lw:"mopome",  en:"vegetable",  pos:"n", pair:{base:"pome", base_en:"fruit"}},
+    {lw:"tahe",    en:"food / meal", pos:"n", canvas:{adj:"tahi", adj_en:"edible", v:"tahu", v_en:"to eat"}},
+    {lw:"noke",    en:"drink",      pos:"n", canvas:{adj:"noki", adj_en:"drinkable", v:"noku", v_en:"to drink"}},
+    {lw:"owe",     en:"egg",        pos:"n"},
+    {lw:"miawe",   en:"milk",       pos:"n"},
+  ],
+
+  // L27 — Food II (Flavors & Ingredients)
+  food2: [
+    {lw:"saone",   en:"salt",       pos:"n"},
+    {lw:"milale",  en:"sugar",      pos:"n", canvas:{adj:"milali", adj_en:"sweet", v:"milalu", v_en:"to sweeten"}},
+    {lw:"pike",    en:"pepper",     pos:"n"},
+    {lw:"yaume",   en:"flavor",     pos:"n", canvas:{adj:"yaumi", adj_en:"flavorful", v:"yaumu", v_en:"to flavor"}},
+    {lw:"hoile",   en:"oil",        pos:"n"},
+    {lw:"miafe",   en:"cheese",     pos:"n"},
+  ],
+
+  // L28 — Food III (Meals & Drinks)
+  food3: [
+    {lw:"kupe",        en:"coffee",  pos:"n"},
+    {lw:"shae",        en:"tea",     pos:"n"},
+    {lw:"nemue",       en:"honey",   pos:"n"},
+    {lw:"shiwane",     en:"meat",    pos:"n"},
+    {lw:"maune",       en:"grain",   pos:"n"},
+    {lw:"roine",       en:"rice",    pos:"n"},
+    {lw:"tahishawe",   en:"soup",    pos:"n", note:"From tahe (food) + shawe (water) — a lexicalized compound"},
+  ],
+
+  // L29 — Animals I (Domestic)
+  animals1: [
+    {lw:"paipe",   en:"dog",      pos:"n"},
+    {lw:"mewe",    en:"cat",      pos:"n"},
+    {lw:"shaule",  en:"horse",    pos:"n"},
+    {lw:"maluwe",  en:"cow",      pos:"n"},
+    {lw:"pahule",  en:"chicken",  pos:"n"},
+    {lw:"kouwe",   en:"goat",     pos:"n"},
+    {lw:"poake",   en:"pig",      pos:"n"},
+    {lw:"louwe",   en:"sheep",    pos:"n"},
+  ],
+
+  // L30 — Animals II (Wild & Water)
+  animals2: [
+    {lw:"yaihe",     en:"bird",      pos:"n"},
+    {lw:"shoule",    en:"fish",      pos:"n"},
+    {lw:"kakepe",    en:"crab",      pos:"n"},
+    {lw:"niwe",      en:"rabbit",    pos:"n"},
+    {lw:"yuhe",      en:"deer",      pos:"n"},
+    {lw:"haupe",     en:"bear",      pos:"n"},
+    {lw:"loume",     en:"wolf",      pos:"n"},
+    {lw:"leshe",     en:"snake",     pos:"n"},
+    {lw:"shaupe",    en:"whale",     pos:"n"},
+    {lw:"shiawe",    en:"dolphin",   pos:"n"},
+    {lw:"shakume",   en:"shark",     pos:"n"},
+    {lw:"shemahe",   en:"octopus",   pos:"n"},
+    {lw:"wilare",    en:"turtle",    pos:"n"},
+  ],
+
+  // L31 — Animals III (Small)
+  animals3: [
+    {lw:"oure",      en:"animal",    pos:"n"},
+    {lw:"seure",     en:"insect",    pos:"n"},
+    {lw:"niliwe",    en:"ant",       pos:"n"},
+    {lw:"ninuwe",    en:"bee",       pos:"n"},
+    {lw:"paihe",     en:"spider",    pos:"n"},
+    {lw:"paiweme",   en:"butterfly", pos:"n"},
+    {lw:"kuake",     en:"duck",      pos:"n"},
+  ],
+
+  // L32 — Nature I (Sky & Weather)
+  // shalire, iroume, shupe, fiwe, felume are all canvas — their verbs are weather verbs.
+  nature1: [
+    {lw:"haule",    en:"sun",       pos:"n"},
+    {lw:"laime",    en:"sky",       pos:"n"},
+    {lw:"fiwe",     en:"wind",      pos:"n", canvas:{adj:"fiwi", adj_en:"windy", v:"fiwu", v_en:"to blow (as wind)"}},
+    {lw:"felume",   en:"cloud",     pos:"n", canvas:{adj:"felumi", adj_en:"cloudy", v:"felumu", v_en:"to cloud over"}},
+    {lw:"shalire",  en:"rain",      pos:"n", canvas:{adj:"shaliri", adj_en:"rainy", v:"shaliru", v_en:"to rain"}},
+    {lw:"iroume",   en:"snow",      pos:"n", canvas:{adj:"iroumi", adj_en:"snowy", v:"iroumu", v_en:"to snow"}},
+    {lw:"shupe",    en:"storm",     pos:"n", canvas:{adj:"shupi", adj_en:"stormy", v:"shupu", v_en:"to storm"}},
+    {lw:"melume",   en:"fog",       pos:"n", canvas:{adj:"melumi", adj_en:"foggy", v:"melumu", v_en:"to grow foggy"}},
+    {lw:"helume",   en:"mist",      pos:"n", canvas:{adj:"helumi", adj_en:"misty", v:"helumu", v_en:"to form mist"}},
+    {lw:"laimele",  en:"weather",   pos:"n"},
+  ],
+
+  // L33 — Nature II (Land)
+  nature2: [
+    {lw:"wouhe",    en:"mountain",  pos:"n"},
+    {lw:"kauhe",    en:"forest",    pos:"n"},
+    {lw:"pieme",    en:"valley",    pos:"n"},
+    {lw:"wouhile",  en:"hill",      pos:"n", note:"Diminutive of wouhe (mountain)"},
+    {lw:"foule",    en:"field",     pos:"n"},
+    {lw:"touhe",    en:"shore",     pos:"n"},
+    {lw:"nouwe",    en:"island",    pos:"n"},
+    {lw:"tauhe",    en:"desert",    pos:"n"},
+    {lw:"pouwe",    en:"cave",      pos:"n"},
+    {lw:"toule",    en:"ground",    pos:"n"},
+  ],
+
+  // L34 — Nature III (Water)
+  nature3: [
+    {lw:"shafane",   en:"river",     pos:"n"},
+    {lw:"shaune",    en:"lake",      pos:"n", canvas:{adj:"shauni", adj_en:"lake-like", v:"shaunu", v_en:"to pool (as a lake)"}},
+    {lw:"shawome",   en:"ocean",     pos:"n"},
+    {lw:"shaume",    en:"wave",      pos:"n", canvas:{adj:"shaumi", adj_en:"wave-like", v:"shaumu", v_en:"to surge"}},
+    {lw:"shalome",   en:"puddle",    pos:"n", canvas:{adj:"shalomi", adj_en:"puddled", v:"shalomu", v_en:"to pool into a puddle"}},
+    {lw:"pishe",     en:"drop",      pos:"n", canvas:{adj:"pishi", adj_en:"droplet-sized", v:"pishu", v_en:"to drip"}},
+    {lw:"pishawe",   en:"splash",    pos:"n", canvas:{adj:"pishawi", adj_en:"splashed", v:"pishawu", v_en:"to splash"}},
+  ],
+
+  // L36 — Modals (sentence-based — teaches sahu/wanu/mihu/shihu as verb-chain modals)
+  // All sentences use only L1-L35 vocabulary.
+  // Budget-validated per /mnt/user-data/outputs/modals_draft.md
+  modals: [
+    {lw:["Ne","sahu","liru"],                   en:"I can speak."},
+    {lw:["Te","wanu","tahu","houme"],           en:"You want to eat bread."},
+    {lw:["Ne","mihu","tahu"],                   en:"I must eat."},
+    {lw:["Ve","shihu","liru","wauli"],          en:"She should sing beautifully."},
+    {lw:["Ne","wa","sahu","tiru","te"],         en:"I could see you."},
+    {lw:["Nea","mai","wanu","halu"],            en:"We don't want to go."},
+    {lw:["Ki","te","sahu","nahu"],              en:"Can you cook?"},
+  ],
+
+  // L37 — Checkpoint 2 sentences
+  // All words drawn from L1-L36. Tests Unit 2 concepts: tense, negation,
+  // location/motion, food, animals, nature, modals.
+  // Budget-validated per /mnt/user-data/outputs/checkpoint2_draft.md
+  checkpoint2: [
+    {lw:["Ne","wa","tahu","houme"],              en:"I ate bread."},
+    {lw:["Ki","te","noku","kupe"],               en:"Do you drink coffee?"},
+    {lw:["Nea","halu","so","kauhe"],             en:"We go to the forest."},
+    {lw:["Paipe","su","wo","hiwe"],              en:"The dog is in the house."},
+    {lw:["Ve","mai","wa","tiru","shoulea"],      en:"She didn't see the fish."},
+    {lw:["Lo","hiwe","su","piami"],              en:"This house is small."},
+    {lw:["Nea","wanu","tahu","shiwane"],         en:"We want to eat meat."},
+    {lw:["Ne","wu","halu","so","shawome"],       en:"I will go to the ocean."},
+    {lw:["Teo","mewe","su","wo","kewe"],         en:"Your cat is in the room."},
+    {lw:["Vea","mihu","noku","shawe"],           en:"They must drink water."},
+    {lw:["Lo","lawe","ne","mai","tahu"],         en:"Today I don't eat."},
+    {lw:["Wu","shaliru"],                        en:"It will rain."},
+    {lw:["Neo","paipe","su","meli"],             en:"My dog is good."},
+    {lw:["Ne","mai","sahu","liwu","teo","mawe"], en:"I can't hear your mother."},
   ],
 };
 
@@ -929,7 +1185,8 @@ const FREETEXT_PROMPTS = [
 // Each unit's `start` index points into the LESSONS array.
 const UNITS = [
   {name:"Unit 1 — Foundations", start:0},
-  // Unit 2+ added as lessons are built.
+  {name:"Unit 2 — Daily World", start:17},
+  // Unit 3+ added as lessons are built.
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -947,14 +1204,36 @@ const LESSONS = [
   {id:"body1",        title:"Body I: Head & Face",       desc:"Head, face, eyes, nose, mouth, mind",        icon:"😊",  vocabKey:"body1",        xp:20, unit:0},
   {id:"body2",        title:"Body II: Torso",            desc:"Neck, chest, stomach, back, skin, blood",    icon:"🫁",  vocabKey:"body2",        xp:20, unit:0},
   {id:"body3",        title:"Body III: Limbs",           desc:"Arms, legs, hands, feet, joints",            icon:"💪",  vocabKey:"body3",        xp:22, unit:0},
-  {id:"moprefix",     title:"The mo- Prefix",            desc:"Every thing has its balancing partner",      icon:"☯️", vocabKey:"moprefix",     xp:20, unit:0},
+  {id:"moprefix",     title:"The mo- Prefix",            desc:"Every thing has its balancing partner",      icon:"☯️", vocabKey:"moprefix",     xp:20, unit:0, isSentence:true},
   {id:"adjectives1",  title:"Basic Adjectives I",        desc:"Small, big, good, bad, new, old",            icon:"📏",  vocabKey:"adjectives1",  xp:20, unit:0},
   {id:"adjectives2",  title:"Basic Adjectives II",       desc:"Beautiful, ugly, strong, weak",              icon:"✨",  vocabKey:"adjectives2",  xp:18, unit:0},
   {id:"simpleverbs",  title:"Simple Verbs",              desc:"See, hear, speak, know",                     icon:"👀",  vocabKey:"simpleverbs",  xp:20, unit:0},
   {id:"svo",          title:"SVO + Love & Hate",         desc:"Subject-verb-object sentences",              icon:"💗",  vocabKey:"svo",          xp:22, unit:0},
+  {id:"yesno",        title:"Yes/No Questions",          desc:"Asking 'is it?' with ki",                    icon:"❓",  vocabKey:"yesno",        xp:22, unit:0, isSentence:true},
   {id:"unit1review",  title:"Unit 1 Review",             desc:"Review everything from Unit 1 so far",       icon:"🔁",  vocabKey:"_review",      xp:18, unit:0, isReview:true, reviewPool:["greetings","pronouns","possessives","canvas","family1","family2","body1","body2","body3","moprefix","adjectives1","adjectives2","simpleverbs","svo"]},
-  {id:"yesno",        title:"Yes/No Questions",          desc:"Asking 'is it?' with ki",                    icon:"❓",  vocabKey:"yesno",        xp:18, unit:0},
   {id:"checkpoint1",  title:"Checkpoint 1",              desc:"Unit 1 sentence challenge",                  icon:"🏆",  vocabKey:"checkpoint1",  xp:35, unit:0, isSentence:true, isCheckpoint:true},
+
+  // ── UNIT 2: DAILY WORLD (L18–L37) ──────────────────────────────
+  {id:"home1",           title:"Home I: Rooms & Furniture",  desc:"Rooms, tables, chairs, beds, walls",           icon:"🏠",  vocabKey:"home1",           xp:22, unit:1},
+  {id:"home2",           title:"Home II: Kitchen & Dining",  desc:"Kitchen, plates, cups, forks, spoons",         icon:"🍽️", vocabKey:"home2",           xp:20, unit:1},
+  {id:"nouninflection",  title:"Noun Plurals & Possession",  desc:"The -ea, -eo, -eoa suffixes on nouns",         icon:"📐",  vocabKey:"nouninflection",  xp:20, unit:1, isSentence:true},
+  {id:"demonstratives",  title:"Demonstratives",             desc:"This, these, that, those",                     icon:"👉",  vocabKey:"demonstratives",  xp:18, unit:1},
+  {id:"tense",           title:"Past & Future Tense",        desc:"Saying what happened and what will happen",    icon:"⏳",  vocabKey:"tense",           xp:22, unit:1, isSentence:true},
+  {id:"negation",        title:"Negation",                   desc:"Saying no — mai with verbs",                   icon:"🚫",  vocabKey:"negation",        xp:20, unit:1, isSentence:true},
+  {id:"relational1",     title:"Location Particles",         desc:"In, at, above, below",                         icon:"📍",  vocabKey:"relational1",     xp:18, unit:1},
+  {id:"relational2",     title:"Motion & Association",       desc:"To, from, with, without — and 'to go'",        icon:"🚶",  vocabKey:"relational2",     xp:22, unit:1},
+  {id:"food1",           title:"Food I: Staples",            desc:"Bread, fruit, to eat, to drink",               icon:"🍞",  vocabKey:"food1",           xp:22, unit:1},
+  {id:"food2",           title:"Food II: Flavors",           desc:"Salt, sugar, pepper, oil, cheese",             icon:"🧂",  vocabKey:"food2",           xp:20, unit:1},
+  {id:"food3",           title:"Food III: Meals & Drinks",   desc:"Coffee, tea, meat, rice, soup",                icon:"☕",  vocabKey:"food3",           xp:20, unit:1},
+  {id:"animals1",        title:"Animals I: Domestic",        desc:"Dog, cat, horse, cow, pig, sheep",             icon:"🐕",  vocabKey:"animals1",        xp:20, unit:1},
+  {id:"animals2",        title:"Animals II: Wild & Water",   desc:"Wolves, bears, whales, sharks, birds",         icon:"🐺",  vocabKey:"animals2",        xp:24, unit:1},
+  {id:"animals3",        title:"Animals III: Small Creatures", desc:"Insects, ants, bees, spiders, ducks",        icon:"🦋",  vocabKey:"animals3",        xp:20, unit:1},
+  {id:"nature1",         title:"Nature I: Sky & Weather",    desc:"Sun, sky, wind, rain, snow, storms",           icon:"☀️", vocabKey:"nature1",         xp:22, unit:1},
+  {id:"nature2",         title:"Nature II: Land",            desc:"Mountains, forests, valleys, beaches",         icon:"🏔️", vocabKey:"nature2",         xp:22, unit:1},
+  {id:"nature3",         title:"Nature III: Water",          desc:"Rivers, lakes, oceans, waves, drops",          icon:"🌊",  vocabKey:"nature3",         xp:22, unit:1},
+  {id:"unit2review",     title:"Unit 2 Review",              desc:"Review everything from Unit 2 so far",         icon:"🔁",  vocabKey:"_review",         xp:22, unit:1, isReview:true, reviewPool:["home1","home2","demonstratives","relational1","relational2","food1","food2","food3","animals1","animals2","animals3","nature1","nature2","nature3"]},
+  {id:"modals",          title:"Modal Verbs",                desc:"Can, want, must, should — chaining verbs",     icon:"🗝️", vocabKey:"modals",          xp:22, unit:1, isSentence:true},
+  {id:"checkpoint2",     title:"Checkpoint 2",               desc:"Unit 2 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint2",     xp:40, unit:1, isSentence:true, isCheckpoint:true},
 ];
 
 // ═══════════════════════════════════════════════════════════════
@@ -1031,13 +1310,20 @@ function generateVocabExercises(lesson){
   });
 
   // ─── STAGE 3: Production (EN → LW) ──────────────────────────
-  // One MC per item up to 4; then 2 fill-ins.
-  shuffle([...wordItems]).slice(0, 4).forEach(item=>{
+  // Skip particles and items whose gloss contains slashes / parentheticals —
+  // these don't translate cleanly as "X in Liru is:".
+  const cleanForProduction=v=>{
+    if(v.pos==="particle")return false;
+    if(v.en.includes("/") || v.en.includes("(") )return false;
+    return true;
+  };
+  const prodPool=wordItems.filter(cleanForProduction);
+  shuffle([...prodPool]).slice(0, 4).forEach(item=>{
     const wrong=wrongLw(item);
     if(wrong.length<3)return;
     exercises.push({type:"mc", prompt:`How do you say "${item.en}" in Liru?`, correct:item.lw, options:shuffle([item.lw,...wrong])});
   });
-  shuffle([...wordItems]).slice(0,2).forEach(item=>{
+  shuffle([...prodPool]).slice(0,2).forEach(item=>{
     exercises.push({type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()});
   });
 
@@ -1092,28 +1378,56 @@ function generateVocabExercises(lesson){
   }
 
   // ─── STAGE 6: TOP-UP to reach target length ──────────────────
-  // Every lesson has at least 14 total exercises. Larger lessons naturally
-  // produce more in earlier stages, so top-up fills the gap for small ones.
+  // Scale target by lesson size. Small lessons (1-3 items) target 10; larger
+  // lessons target flashcards+10, capped at 18. This avoids hammering a 1-item
+  // lesson with 13 copies of the same drill.
   const flashcardCount=wordItems.length;
-  const targetTotal=Math.max(14, flashcardCount + 10);
+  const targetTotal=Math.min(18, Math.max(10, flashcardCount + 10));
   let padNeeded=targetTotal - exercises.length;
-  let guard=40; // safety: never loop forever
+
+  // Track prompts we've already generated so top-up doesn't duplicate.
+  const promptSignatures=new Set(exercises.map(e=>{
+    if(e.type==="mc"||e.type==="canvasDrill")return e.type+"|"+e.prompt+"|"+e.correct;
+    if(e.type==="fill")return "fill|"+e.correct;
+    return e.type+"|"+(e.prompt||"");
+  }));
+
+  // Generate candidate top-up exercises, skip duplicates, stop if we run out.
+  let guard=60;
+  const topupItems=wordItems.filter(cleanForProduction); // use clean pool only
+  if(topupItems.length===0)padNeeded=0; // e.g. particles-only lesson
   while(padNeeded>0 && guard-->0){
-    // Alternate between fill and MC (LW→EN) for variety.
-    const item=wordItems[Math.floor(Math.random()*wordItems.length)];
-    if(padNeeded%2===0){
-      // MC LW→EN
-      const wrong=wrongEn(item);
-      if(wrong.length<3){
-        exercises.push({type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()});
-      } else {
-        exercises.push({type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrong]), note:item.note, lwWord:item.lw});
+    const item=topupItems[Math.floor(Math.random()*topupItems.length)];
+    // Pick an exercise type we haven't used for this item yet.
+    const tryTypes=shuffle(["mc-lw2en","mc-en2lw","fill"]);
+    let added=false;
+    for(const t of tryTypes){
+      let ex=null, sig=null;
+      if(t==="mc-lw2en"){
+        const wrong=wrongEn(item);
+        if(wrong.length<3)continue;
+        ex={type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrong]), note:item.note, lwWord:item.lw};
+        sig="mc|"+ex.prompt+"|"+ex.correct;
+      } else if(t==="mc-en2lw"){
+        const wrong=wrongLw(item);
+        if(wrong.length<3)continue;
+        ex={type:"mc", prompt:`How do you say "${item.en}" in Liru?`, correct:item.lw, options:shuffle([item.lw,...wrong])};
+        sig="mc|"+ex.prompt+"|"+ex.correct;
+      } else { // fill
+        ex={type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()};
+        sig="fill|"+ex.correct;
       }
-    } else {
-      // Fill EN→LW
-      exercises.push({type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()});
+      if(promptSignatures.has(sig))continue;
+      exercises.push(ex);
+      promptSignatures.add(sig);
+      added=true;
+      padNeeded--;
+      break;
     }
-    padNeeded--;
+    if(!added){
+      // All types for all items are already in the set — lesson is saturated.
+      break;
+    }
   }
 
   // Flashcards stay at the front in natural order; everything else shuffles.
@@ -1354,7 +1668,7 @@ let state={
   mcSelected:null,mcAnswered:false,
   matchSelectedLeft:null,matchMatched:[],matchWrong:null,matchShuffledRight:[],
   fillInput:"",fillAnswered:false,fillCorrect:false,
-  woSelected:[],woAvailable:[],woAnswered:false,woCorrect:false,
+  woSelected:[],woAvailable:[],woAnswered:false,woCorrect:false,woOrderHint:false,
   tfAnswered:false,tfSelected:null,
   revfillSelected:null,revfillAnswered:false,
   errcorrectSelected:null,errcorrectAnswered:false,
@@ -1618,7 +1932,7 @@ function startLesson(idx){
     matchSelectedLeft:null,matchMatched:[],matchWrong:null,
     matchShuffledRight:ex.type==="match"?shuffle(ex.pairs.map(p=>p.right)):[],
     fillInput:"",fillAnswered:false,fillCorrect:false,
-    woSelected:[],woAvailable:ex.type==="wordOrder"?[...ex.shuffled]:[],woAnswered:false,woCorrect:false,
+    woSelected:[],woAvailable:ex.type==="wordOrder"?[...ex.shuffled]:[],woAnswered:false,woCorrect:false,woOrderHint:false,
     tfAnswered:false,tfSelected:null,
     revfillSelected:null,revfillAnswered:false,
     errcorrectSelected:null,errcorrectAnswered:false,
@@ -1831,7 +2145,14 @@ function renderWordOrder(ex){
   const placedHTML=state.woSelected.map((w,i)=>`<button class="word-chip placed" data-placed="${i}">${escapeHTML(w)}</button>`).join("");
   const availHTML=state.woAvailable.map((w,i)=>`<button class="word-chip" data-avail="${i}">${escapeHTML(w)}</button>`).join("");
   const correctStr=ex.correctOrder.join(" ");
-  const resultHTML=state.woAnswered?renderResultBanner(state.woCorrect,correctStr):"";
+  let resultHTML="";
+  if(state.woAnswered){
+    resultHTML=renderResultBanner(state.woCorrect, correctStr);
+    // If the user had the right words in the wrong order, add a gentle hint below.
+    if(state.woCorrect && state.woOrderHint){
+      resultHTML+=`<div style="margin-top:10px;padding:12px 14px;background:rgba(28,176,246,0.06);border:1.5px solid var(--blue);border-radius:12px;color:var(--blue);font-size:13px;font-weight:700" class="fade-in">📝 Right words! The natural order is: <strong>${escapeHTML(correctStr)}</strong></div>`;
+    }
+  }
   const checkHTML=!state.woAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.woSelected.length>0?'':'disabled'}>CHECK</button></div>`:"";
   return `<div style="font-family:var(--display);font-size:20px;font-weight:800;margin-bottom:22px;line-height:1.4">${escapeHTML(ex.prompt)}</div>
     <div style="min-height:60px;padding:12px;background:var(--input);border:2px dashed var(--border);border-radius:var(--radius);margin-bottom:16px;display:flex;flex-wrap:wrap;gap:8px;align-content:flex-start">${placedHTML||'<span style="color:var(--dim);font-size:13px">Tap words below to build your answer</span>'}</div>
@@ -1856,9 +2177,26 @@ function bindWordOrder(ex){
     const userStr=state.woSelected.join(" ").toLowerCase();
     const correctStr=ex.correctOrder.join(" ").toLowerCase();
     const alts=(ex.correctOrderAlts||[]).map(a=>a.join(" ").toLowerCase());
-    const isCorrect=userStr===correctStr||alts.includes(userStr);
+    const exactMatch=userStr===correctStr||alts.includes(userStr);
+    // Leniency: if words match as a multiset (same words, different order), accept
+    // and show a hint about the natural ordering.
+    let lenientMatch=false;
+    if(!exactMatch){
+      const norm=arr=>arr.map(s=>s.toLowerCase()).sort().join("|");
+      const userMultiset=norm(state.woSelected);
+      const correctMultiset=norm(ex.correctOrder);
+      if(userMultiset===correctMultiset){
+        lenientMatch=true;
+      } else {
+        // Also check alt orderings' multisets
+        for(const alt of (ex.correctOrderAlts||[])){
+          if(norm(alt)===userMultiset){lenientMatch=true;break;}
+        }
+      }
+    }
+    const isCorrect=exactMatch||lenientMatch;
     handleAnswer(isCorrect);
-    setState({woAnswered:true,woCorrect:isCorrect});
+    setState({woAnswered:true, woCorrect:isCorrect, woOrderHint:lenientMatch});
   });
 }
 
@@ -2114,7 +2452,7 @@ function advanceAfterAnswer(){
     matchSelectedLeft:null,matchMatched:[],matchWrong:null,
     matchShuffledRight:nextEx.type==="match"?shuffle(nextEx.pairs.map(p=>p.right)):[],
     fillInput:"",fillAnswered:false,fillCorrect:false,
-    woSelected:[],woAvailable:nextEx.type==="wordOrder"?[...nextEx.shuffled]:[],woAnswered:false,woCorrect:false,
+    woSelected:[],woAvailable:nextEx.type==="wordOrder"?[...nextEx.shuffled]:[],woAnswered:false,woCorrect:false,woOrderHint:false,
     tfAnswered:false,tfSelected:null,
     revfillSelected:null,revfillAnswered:false,
     errcorrectSelected:null,errcorrectAnswered:false,
