@@ -2719,7 +2719,7 @@ let state={
   user:{username:"",xp:0,streak:0,lessonsCompleted:[],lastActiveDate:null},
   tab:"learn",lesson:null,exercises:[],exIdx:0,correct:0,hearts:3,accXP:0,leaderboard:[],
   mcSelected:null,mcAnswered:false,
-  matchSelectedLeft:null,matchMatched:[],matchWrong:null,matchShuffledRight:[],
+  matchSelectedLeft:null,matchMatched:[],matchWrong:null,matchShuffledRight:[],matchShuffledLeft:[],
   fillInput:"",fillAnswered:false,fillCorrect:false,
   woSelected:[],woAvailable:[],woAnswered:false,woCorrect:false,woOrderHint:false,
   tfAnswered:false,tfSelected:null,
@@ -2984,6 +2984,7 @@ function startLesson(idx){
     mcSelected:null,mcAnswered:false,
     matchSelectedLeft:null,matchMatched:[],matchWrong:null,
     matchShuffledRight:ex.type==="match"?shuffle(ex.pairs.map(p=>p.right)):[],
+    matchShuffledLeft:ex.type==="match"?shuffle(ex.pairs.map(p=>p.left)):[],
     fillInput:"",fillAnswered:false,fillCorrect:false,
     woSelected:[],woAvailable:ex.type==="wordOrder"?[...ex.shuffled]:[],woAnswered:false,woCorrect:false,woOrderHint:false,
     tfAnswered:false,tfSelected:null,
@@ -3007,7 +3008,9 @@ function renderLesson(){
     heartsHTML=[...Array(3)].map((_,i)=>`<span style="font-size:20px;opacity:${i<state.hearts?1:0.2}">❤️</span>`).join("");
   } else {
     // Regular lesson — no hearts, retry-until-right mode.
-    heartsHTML=`<span style="color:var(--dim);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em">Practice</span>`;
+    // Show running XP tally once > 0; before that, stay blank.
+    const xpLabel = state.accXP > 0 ? `+${state.accXP} XP` : "";
+    heartsHTML=`<span style="color:var(--dim);font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em">${xpLabel}</span>`;
   }
 
   let exHTML="";
@@ -3110,26 +3113,33 @@ function bindTF(ex){
 
 // ─── Match pairs ─────────────────────────────────────────────
 function renderMatch(ex){
-  const lefts=ex.pairs.map(p=>p.left);
+  const lefts=state.matchShuffledLeft.length?state.matchShuffledLeft:ex.pairs.map(p=>p.left);
   const rights=state.matchShuffledRight.length?state.matchShuffledRight:ex.pairs.map(p=>p.right);
   const matchedLeft=new Set(state.matchMatched.map(m=>m.left));
   const matchedRight=new Set(state.matchMatched.map(m=>m.right));
-  // Interleave: row 1 = left[0] + right[0], row 2 = left[1] + right[1], ... so grid rows
-  // share height across both columns and stay aligned even when one side wraps.
-  const rowsHTML=lefts.map((l,i)=>{
-    const r=rights[i];
-    let leftCls="match-btn";
-    if(matchedLeft.has(l))leftCls+=" matched";
-    else if(state.matchSelectedLeft===l)leftCls+=" selected";
-    if(state.matchWrong&&state.matchWrong.left===l)leftCls+=" wrong-match";
-    let rightCls="match-btn";
-    if(matchedRight.has(r))rightCls+=" matched";
-    if(state.matchWrong&&state.matchWrong.right===r)rightCls+=" wrong-match";
-    return `<button class="${leftCls}" data-left="${escapeHTML(l)}" ${matchedLeft.has(l)?'disabled':''}>${escapeHTML(l)}</button>
-      <button class="${rightCls}" data-right="${escapeHTML(r)}" ${matchedRight.has(r)?'disabled':''}>${escapeHTML(r)}</button>`;
+  // All tiles share a fixed min-height sized for 2 lines of wrapped text.
+  // This prevents any tile from being taller than the others, which would
+  // otherwise leak the pairing (a long English translation making its Liru
+  // match tile taller too).
+  const tileStyle = "min-height:64px;display:flex;align-items:center;justify-content:center;text-align:center;padding:10px 14px";
+  const leftColHTML=lefts.map(l=>{
+    let cls="match-btn";
+    if(matchedLeft.has(l))cls+=" matched";
+    else if(state.matchSelectedLeft===l)cls+=" selected";
+    if(state.matchWrong&&state.matchWrong.left===l)cls+=" wrong-match";
+    return `<button class="${cls}" style="${tileStyle}" data-left="${escapeHTML(l)}" ${matchedLeft.has(l)?'disabled':''}>${escapeHTML(l)}</button>`;
+  }).join("");
+  const rightColHTML=rights.map(r=>{
+    let cls="match-btn";
+    if(matchedRight.has(r))cls+=" matched";
+    if(state.matchWrong&&state.matchWrong.right===r)cls+=" wrong-match";
+    return `<button class="${cls}" style="${tileStyle}" data-right="${escapeHTML(r)}" ${matchedRight.has(r)?'disabled':''}>${escapeHTML(r)}</button>`;
   }).join("");
   return `<div style="font-family:var(--display);font-size:20px;font-weight:800;margin-bottom:22px">Match the pairs</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch">${rowsHTML}</div>`;
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start">
+      <div style="display:flex;flex-direction:column;gap:10px">${leftColHTML}</div>
+      <div style="display:flex;flex-direction:column;gap:10px">${rightColHTML}</div>
+    </div>`;
 }
 function bindMatch(ex){
   document.querySelectorAll(".match-btn[data-left]").forEach(b=>b.addEventListener("click",()=>{
@@ -3504,6 +3514,7 @@ function advanceAfterAnswer(){
     mcSelected:null,mcAnswered:false,
     matchSelectedLeft:null,matchMatched:[],matchWrong:null,
     matchShuffledRight:nextEx.type==="match"?shuffle(nextEx.pairs.map(p=>p.right)):[],
+    matchShuffledLeft:nextEx.type==="match"?shuffle(nextEx.pairs.map(p=>p.left)):[],
     fillInput:"",fillAnswered:false,fillCorrect:false,
     woSelected:[],woAvailable:nextEx.type==="wordOrder"?[...nextEx.shuffled]:[],woAnswered:false,woCorrect:false,woOrderHint:false,
     tfAnswered:false,tfSelected:null,
