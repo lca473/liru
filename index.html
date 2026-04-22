@@ -112,6 +112,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 .badge-lessons { background:var(--blue-glow); border:1.5px solid var(--blue); color:var(--blue); }
 .opt-btn { width:100%; padding:15px 18px; background:var(--card); border:2.5px solid var(--border); border-radius:var(--radius); color:var(--text); font-size:16px; font-weight:700; text-align:left; transition:all 0.15s; position:relative; overflow:hidden; }
 .opt-btn:active { transform:scale(0.97); }
+.opt-btn.selected { background:var(--blue-glow); border-color:var(--blue); color:var(--text); box-shadow:0 0 16px var(--blue-glow); }
 .opt-btn.correct { background:var(--ok); border-color:var(--green); box-shadow:0 0 24px var(--green-glow); }
 .opt-btn.wrong { background:var(--bad); border-color:var(--red); box-shadow:0 0 24px var(--red-glow); }
 .opt-btn.faded { opacity:0.35; }
@@ -1612,8 +1613,8 @@ function renderLesson(){
       <div style="flex:1" class="progress-track"><div class="progress-fill" style="width:${pct}%;background:${isFinal?'var(--gold)':'var(--green)'}"></div></div>
       <div style="display:flex;gap:2px">${heartsHTML}</div>
     </div>
-    <div class="lesson-body"><div style="max-width:480px;margin:0 auto" class="fade-up">${exHTML}</div></div>
-  </div>${continueHTML}`;
+    <div class="lesson-body"><div style="max-width:480px;margin:0 auto" class="fade-up">${exHTML}${continueHTML}</div></div>
+  </div>`;
 
   document.getElementById("closeBtn").addEventListener("click",()=>setState({screen:"home",scrollToLessonId:state.lesson.id}));
   const contBtn=document.getElementById("continueBtn");if(contBtn)contBtn.addEventListener("click",()=>advanceAfterAnswer());
@@ -1745,10 +1746,10 @@ function renderFill(ex){
   const inputStyle=state.fillAnswered?(isCorrect?"border-color:var(--green);background:rgba(88,204,2,0.08)":"border-color:var(--red);background:rgba(255,75,75,0.08)"):"";
   const isParagraph=ex.isParagraph;
   return `<div style="font-family:var(--display);font-size:20px;font-weight:800;margin-bottom:22px;line-height:1.4;white-space:pre-wrap">${escapeHTML(ex.prompt)}</div>
-    ${isParagraph
-      ?`<textarea id="fillInput" rows="4" placeholder="Type your translation..." ${state.fillAnswered?'disabled':''} style="width:100%;padding:14px 16px;background:var(--input);border:2.5px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:16px;font-weight:600;line-height:1.6;resize:vertical;min-height:100px;${inputStyle}">${escapeHTML(state.fillInput)}</textarea>`
-      :`<input id="fillInput" type="text" placeholder="Type here..." ${state.fillAnswered?'disabled':''} value="${escapeHTML(state.fillInput)}" style="width:100%;padding:16px;background:var(--input);border:2.5px solid var(--border);border-radius:var(--radius);color:var(--text);font-size:18px;font-weight:700;${inputStyle}" autocomplete="off" autocapitalize="off" spellcheck="false">`
-    }
+    <div style="margin-bottom:16px">${isParagraph
+      ?`<textarea id="fillInput" rows="4" placeholder="Type your translation..." ${state.fillAnswered?'disabled':''} style="display:block;width:100%;padding:14px 16px;background:var(--bg2);border:2.5px solid var(--blue);border-radius:var(--radius);color:var(--text);font-size:16px;font-weight:600;line-height:1.6;resize:vertical;min-height:100px;box-sizing:border-box;${inputStyle}">${escapeHTML(state.fillInput)}</textarea>`
+      :`<input id="fillInput" type="text" placeholder="Type here..." ${state.fillAnswered?'disabled':''} value="${escapeHTML(state.fillInput)}" style="display:block;width:100%;padding:16px;background:var(--bg2);border:2.5px solid var(--blue);border-radius:var(--radius);color:var(--text);font-size:18px;font-weight:700;box-sizing:border-box;${inputStyle}" autocomplete="off" autocapitalize="off" spellcheck="false">`
+    }</div>
     ${resultHTML}${checkHTML}`;
 }
 function bindFill(ex){
