@@ -1656,6 +1656,103 @@ const V = {
     {lw:["Paipe","wa","taiku","voi","hiwe"],                        en:"The dog jumped around the house."},
     {lw:["Nuli","pue","su","loya","lole"],                          en:"No one is here now."},
   ],
+
+  // ── UNIT 5: GRAMMAR CORE (L79–L103) ────────────────────────────
+
+  // L79 — The -pue Agent Suffix
+  // Productive *-pue* makes "one who does X"; first element in verb form.
+  // Two new base canvas roots (kaise, mauhe); ten common agents.
+  agentpue: [
+    {lw:"kaise",      en:"lesson",    pos:"n", canvas:{adj:"kaisi", adj_en:"taught", v:"kaisu", v_en:"to teach"}},
+    {lw:"mauhe",      en:"learning",  pos:"n", canvas:{adj:"mauhi", adj_en:"learned", v:"mauhu", v_en:"to learn"}},
+    {lw:"lirupue",    en:"singer",    pos:"n", note:"From liru (speak/sing) + -pue. Also 'speaker.'"},
+    {lw:"kaisupue",   en:"teacher",   pos:"n", note:"From kaisu + -pue"},
+    {lw:"mauhupue",   en:"student",   pos:"n", note:"From mauhu + -pue"},
+    {lw:"mashepue",   en:"doctor",    pos:"n", note:"Exception: built on noun mashe (medicine)"},
+    {lw:"sheyepue",   en:"nurse",     pos:"n", note:"From sheye (healing) + -pue"},
+    {lw:"shauwupue",  en:"swimmer",   pos:"n", note:"From shauwu + -pue"},
+    {lw:"shaihupue",  en:"sailor",    pos:"n", note:"From shaihe (boat) + -pue"},
+    {lw:"hiwipue",    en:"neighbor",  pos:"n", note:"From hiwi (dwelling-adj) + -pue"},
+    {lw:"nohipue",    en:"stranger",  pos:"n", note:"From nohi (new) + -pue — 'new-person'"},
+    {lw:"maihupue",   en:"messenger", pos:"n", note:"From maihu + -pue"},
+  ],
+
+  // L80 — The -ile Diminutive (sentence-based)
+  // Budget-validated per /mnt/user-data/outputs/l80_draft.md
+  diminutive: [
+    {lw:["Ne","tiru","komilele"],                                en:"I see a grain of sand."},
+    {lw:["Lo","shafanile","su","wauli"],                         en:"This stream is beautiful."},
+    {lw:["Neo","piwile","su","rai"],                             en:"My baby is sleepy."},
+    {lw:["Ki","te","ahu","loiwile"],                             en:"Do you have a booklet?"},
+    {lw:["Ne","tiru","shaihile","ya","shafane"],                 en:"I see a canoe on the river."},
+    {lw:["Teo","komile","su","piami"],                           en:"Your pebble is small."},
+    {lw:["Lo","shaihe","su","mopiami","ata","shaihile"],         en:"This boat is bigger than a canoe."},
+  ],
+
+  // L81 — The we- Repetition Prefix (sentence-based)
+  // Budget-validated per /mnt/user-data/outputs/l81_draft.md
+  weprefix: [
+    {lw:["Ve","wa","wevanu","so","hiwe"],                        en:"She came back to the house."},
+    {lw:["Ne","wanu","wetiru","teo","mawe"],                     en:"I want to see your mother again."},
+    {lw:["Ve","wa","weliru"],                                    en:"She spoke again."},
+    {lw:["Ne","mai","wanu","weloisu"],                           en:"I don't want to read again."},
+    {lw:["Neo","loye","weihi","wa","vanu"],                      en:"My brother came again."},
+    {lw:["Ki","te","wu","wehoyu","houme"],                       en:"Will you buy bread again?"},
+    {lw:["Ne","wu","weihu","neo","fase"],                        en:"I will redo my work."},
+  ],
+
+  // L82 — Productive Compound: -pauwe (Devices)
+  // Three new base canvas roots (saye, luhe, hauhe) + mosaye pair + 5 devices.
+  compoundpauwe: [
+    {lw:"saye",         en:"cleanliness",     pos:"n", canvas:{adj:"sayi", adj_en:"clean", v:"sayu", v_en:"to wash"}, pair:{mo:"mosaye", mo_en:"dirt"}},
+    {lw:"mosaye",       en:"dirt",            pos:"n", canvas:{adj:"mosayi", adj_en:"dirty", v:"mosayu", v_en:"to dirty"}, pair:{base:"saye", base_en:"cleanliness"}},
+    {lw:"luhe",         en:"coldness",        pos:"n", canvas:{adj:"luhi", adj_en:"cold", v:"luhu", v_en:"to make cold"}},
+    {lw:"hauhe",        en:"heat",            pos:"n", canvas:{adj:"hauhi", adj_en:"hot", v:"hauhu", v_en:"to heat"}},
+    {lw:"sayupauwe",    en:"washing machine", pos:"n", note:"sayu (to wash) + pauwe (device)"},
+    {lw:"luhupauwe",    en:"refrigerator",    pos:"n", note:"luhu (to make cold) + pauwe"},
+    {lw:"hauhupauwe",   en:"oven",            pos:"n", note:"hauhu (to heat) + pauwe"},
+    {lw:"nahupauwe",    en:"stove",           pos:"n", note:"nahu (to cook, from L19) + pauwe"},
+    {lw:"eirupauwe",    en:"airplane",        pos:"n", note:"eiru (to fly) + pauwe"},
+  ],
+
+  // L83 — Vehicles & Transport
+  vehicles: [
+    {lw:"koire",         en:"car",      pos:"n", canvas:{adj:"koiri", adj_en:"of a car", v:"koiru", v_en:"to drive"}},
+    {lw:"waire",         en:"ride",     pos:"n", canvas:{adj:"wairi", adj_en:"riding", v:"wairu", v_en:"to ride"}},
+    {lw:"roheme",        en:"train",    pos:"n", canvas:{adj:"rohemi", adj_en:"train-like"}},
+    {lw:"meuhekoire",    en:"bus",      pos:"n", note:"From meuhe (group) + koire (car)"},
+    {lw:"runipoime",     en:"bicycle",  pos:"n", note:"From runi (two) + poime (wheels)"},
+  ],
+
+  // L84 — Discourse Adverbs
+  // Three adverbs that flavor a sentence. fani (only) is from L44 — context
+  // disambiguates the digit from the adverb.
+  discourseadv: [
+    {lw:"vine",    en:"addition", pos:"n", canvas:{adj:"vini", adj_en:"also"}},
+    {lw:"shoine",  en:"change",   pos:"n", canvas:{adj:"shoini", adj_en:"instead", v:"shoinu", v_en:"to change"}},
+  ],
+
+  // L85 — Frequency Adverbs
+  // Quantifier + weli frequency adverbs. wele is the base canvas root.
+  frequency: [
+    {lw:"wele",      en:"time",      pos:"n", canvas:{adj:"weli", adj_en:"timely", v:"welu", v_en:"to time"}},
+    {lw:"taiweli",   en:"always",    pos:"adv", note:"tai (all) + weli (times)"},
+    {lw:"naiweli",   en:"often",     pos:"adv", note:"nai (many) + weli"},
+    {lw:"saiweli",   en:"sometimes", pos:"adv", note:"sai (some) + weli"},
+    {lw:"faiweli",   en:"ever",      pos:"adv", note:"fai (any, free-choice) + weli"},
+    {lw:"nuliweli",  en:"never",     pos:"adv", note:"nuli (zero) + weli"},
+  ],
+
+  // L86 — Temporal Adverbs
+  // Six canvas roots + one short noun-form (nohile).
+  temporaladv: [
+    {lw:"ouhe",   en:"prior-completion", pos:"n", canvas:{adj:"ouhi", adj_en:"already"}},
+    {lw:"yauwe",  en:"continuing-state", pos:"n", canvas:{adj:"yauwi", adj_en:"still", v:"yauwu", v_en:"to continue"}},
+    {lw:"wauhe",  en:"near-future",      pos:"n", canvas:{adj:"wauhi", adj_en:"soon"}},
+    {lw:"feuhe",  en:"eventuality",      pos:"n", canvas:{adj:"feuhi", adj_en:"eventually"}},
+    {lw:"oihe",   en:"expectation",      pos:"n", canvas:{adj:"oihi", adj_en:"expected", v:"oihu", v_en:"to expect"}},
+    {lw:"nohile", en:"recentness",       pos:"n", canvas:{adj:"nohili", adj_en:"recent"}},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1674,7 +1771,8 @@ const UNITS = [
   {name:"Unit 2 — Daily World", start:17},
   {name:"Unit 3 — Connecting Words", start:37},
   {name:"Unit 4 — Expression", start:55},
-  // Unit 5+ added as lessons are built.
+  {name:"Unit 5 — Grammar Core", start:78},
+  // Unit 6+ added as lessons are built.
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1767,6 +1865,17 @@ const LESSONS = [
   {id:"compoundtieme",         title:"Productive Compound: -tieme", desc:"Bakery, bookstore, pharmacy — build store names", icon:"🏪",  vocabKey:"compoundtieme",   xp:24, unit:3},
   {id:"unit4review2",          title:"Unit 4 Review (part 2)",      desc:"Review the second half of Unit 4",          icon:"🔁",  vocabKey:"_review",               xp:26, unit:3, isReview:true, reviewPool:["directions1","directions2","movement","actionverbs","clothing","places","tech","materials","compoundtieme"]},
   {id:"checkpoint4",           title:"Checkpoint 4",                desc:"Unit 4 sentence challenge",                 icon:"🏆",  vocabKey:"checkpoint4",           xp:50, unit:3, isSentence:true, isCheckpoint:true},
+
+  // ── UNIT 5: GRAMMAR CORE (L79–L103) ─────────────────────────────
+  {id:"agentpue",              title:"The -pue Agent Suffix",       desc:"Teacher, student, doctor — people who do",  icon:"👩‍🏫", vocabKey:"agentpue",             xp:26, unit:4},
+  {id:"diminutive",            title:"The -ile Diminutive",         desc:"Smaller versions: pebble, stream, canoe",   icon:"🔍",  vocabKey:"diminutive",            xp:22, unit:4, isSentence:true},
+  {id:"weprefix",              title:"The we- Repetition Prefix",   desc:"Again, back, redo — productive we-",        icon:"🔄",  vocabKey:"weprefix",              xp:22, unit:4, isSentence:true},
+  {id:"compoundpauwe",         title:"Compound: -pauwe (Devices)",  desc:"Washing machine, fridge, oven, airplane",   icon:"⚙️",  vocabKey:"compoundpauwe",         xp:26, unit:4},
+  {id:"vehicles",              title:"Vehicles & Transport",        desc:"Car, train, bus, bicycle",                  icon:"🚗",  vocabKey:"vehicles",              xp:22, unit:4},
+  {id:"discourseadv",          title:"Discourse Adverbs",           desc:"Also, only, instead",                       icon:"💭",  vocabKey:"discourseadv",          xp:20, unit:4},
+  {id:"frequency",             title:"Frequency Adverbs",           desc:"Always, often, sometimes, never",           icon:"🔁",  vocabKey:"frequency",             xp:22, unit:4},
+  {id:"temporaladv",           title:"Temporal Adverbs",            desc:"Already, still, soon, eventually",          icon:"⏱️", vocabKey:"temporaladv",           xp:22, unit:4},
+  {id:"unit5review1",          title:"Unit 5 Review (part 1)",      desc:"Review the first wave of Unit 5",           icon:"🔁",  vocabKey:"_review",               xp:26, unit:4, isReview:true, reviewPool:["agentpue","compoundpauwe","vehicles","discourseadv","frequency","temporaladv"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
