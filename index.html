@@ -1170,6 +1170,223 @@ const V = {
     {lw:["Neo","paipe","su","meli"],             en:"My dog is good."},
     {lw:["Ne","mai","sahu","liwu","teo","mawe"], en:"I can't hear your mother."},
   ],
+
+  // ── UNIT 3: CONNECTING WORDS (L38–L55) ─────────────────────────
+
+  // L38 — Conjunctions I (sentence-based — teaches sho/ma/au as clause and phrase joiners)
+  // All sentences use only L1-L37 vocabulary.
+  // Budget-validated per /mnt/user-data/outputs/l38_draft.md
+  conjunctions1: [
+    {lw:["Ne","tiru","paipe","sho","mewe"],                   en:"I see a dog and a cat."},
+    {lw:["Ne","nawu","houme","ma","ne","mai","nawu","pome"], en:"I love bread, but I don't love fruit."},
+    {lw:["Ki","te","wu","noku","shae","au","kupe"],           en:"Will you drink tea or coffee?"},
+    {lw:["Lo","paipe","su","piami","ma","tuwi"],              en:"This dog is small but strong."},
+    {lw:["Nea","halu","so","shawome","au","so","kauhe"],      en:"We go to the ocean or to the forest."},
+    {lw:["Teo","mawe","sho","powe","su","wauli"],             en:"Your mother and father are beautiful."},
+    {lw:["Ne","wa","halu","so","kauhe","ma","ne","mai","wa","tiru","haupe"], en:"I went to the forest, but I didn't see a bear."},
+  ],
+
+  // L39 — Content Questions (sentence-based — teaches the seven ki-words as question leaders)
+  // All sentences use only L1-L38 vocabulary.
+  // Budget-validated per /mnt/user-data/outputs/l39_draft.md
+  questions2: [
+    {lw:["Kipue","su","teo","mawe"],               en:"Who is your mother?"},
+    {lw:["Kiwa","te","wanu","tahu"],               en:"What do you want to eat?"},
+    {lw:["Kiya","te","halu"],                      en:"Where are you going?"},
+    {lw:["Kime","te","wa","tiru","teo","loye"],    en:"When did you see your brother?"},
+    {lw:["Kiwi","te","mai","wa","liru"],           en:"Why didn't you speak?"},
+    {lw:["Kishe","te","su"],                       en:"How are you?"},
+    {lw:["Kifa","paipea","te","tiru"],             en:"How many dogs do you see?"},
+  ],
+
+  // L40 — Plants & Greenery
+  plants: [
+    {lw:"liume",    en:"plant",       pos:"n"},
+    {lw:"loshe",    en:"flower",      pos:"n", canvas:{adj:"loshi", adj_en:"flowering", v:"loshu", v_en:"to bloom"}},
+    {lw:"loshile",  en:"petal",       pos:"n", note:"Diminutive of loshe (flower)"},
+    {lw:"foshe",    en:"grass",       pos:"n"},
+    {lw:"fohe",     en:"moss",        pos:"n"},
+    {lw:"meile",    en:"leaf",        pos:"n"},
+    {lw:"yole",     en:"branch",      pos:"n"},
+    {lw:"roume",    en:"root",        pos:"n", note:"Root of a plant"},
+    {lw:"niame",    en:"seed",        pos:"n", canvas:{adj:"niami", adj_en:"seed-like", v:"niamu", v_en:"to plant a seed"}},
+    {lw:"shauke",   en:"bush",        pos:"n"},
+    {lw:"keuhe",    en:"thorn",       pos:"n", canvas:{adj:"keuhi", adj_en:"thorny", v:"keuhu", v_en:"to prickle"}},
+  ],
+
+  // L41 — Daily Verbs I
+  verbs1: [
+    {lw:"vane",     en:"arrival",     pos:"n", canvas:{adj:"vani", adj_en:"arriving", v:"vanu", v_en:"to come"}},
+    {lw:"haire",    en:"run",         pos:"n", canvas:{adj:"hairi", adj_en:"running", v:"hairu", v_en:"to run"}},
+    {lw:"fase",     en:"work",        pos:"n", canvas:{adj:"fasi", adj_en:"laborious", v:"fasu", v_en:"to work"}},
+    {lw:"rae",      en:"sleep",       pos:"n", canvas:{adj:"rai", adj_en:"sleepy", v:"rau", v_en:"to sleep"}},
+    {lw:"poiye",    en:"start",       pos:"n", canvas:{adj:"poiyi", adj_en:"starting", v:"poiyu", v_en:"to begin"}},
+    {lw:"toye",     en:"end",         pos:"n", canvas:{adj:"toyi", adj_en:"finished", v:"toyu", v_en:"to finish"}},
+    {lw:"seihe",    en:"study",       pos:"n", canvas:{adj:"seihi", adj_en:"studious", v:"seihu", v_en:"to study"}},
+  ],
+
+  // L42 — Daily Verbs II
+  // hoye/mohoye is a balancing pair (buy/sell); fere is give.
+  verbs2: [
+    {lw:"fere",     en:"gift",        pos:"n", canvas:{adj:"feri", adj_en:"generous", v:"feru", v_en:"to give"}},
+    {lw:"hoye",     en:"purchase",    pos:"n", canvas:{adj:"hoyi", adj_en:"bought", v:"hoyu", v_en:"to buy"},  pair:{mo:"mohoye", mo_en:"sale"}},
+    {lw:"mohoye",   en:"sale",        pos:"n", canvas:{adj:"mohoyi", adj_en:"sold", v:"mohoyu", v_en:"to sell"}, pair:{base:"hoye", base_en:"purchase"}},
+    {lw:"loise",    en:"reading",     pos:"n", canvas:{adj:"loisi", adj_en:"read", v:"loisu", v_en:"to read"}},
+    {lw:"loike",    en:"writing",     pos:"n", canvas:{adj:"loiki", adj_en:"written", v:"loiku", v_en:"to write"}},
+    {lw:"shire",    en:"creation",    pos:"n", canvas:{adj:"shiri", adj_en:"creative", v:"shiru", v_en:"to make"}},
+    {lw:"sove",     en:"help",        pos:"n", canvas:{adj:"sovi", adj_en:"helpful", v:"sovu", v_en:"to help"}},
+  ],
+
+  // L43 — Daily Verbs III
+  // toihe/motoihe (pick up / drop off) and lame/molame (same / different) are balancing pairs.
+  verbs3: [
+    {lw:"kahe",     en:"hold",        pos:"n", canvas:{adj:"kahi", adj_en:"held", v:"kahu", v_en:"to hold"}},
+    {lw:"kose",     en:"acquisition", pos:"n", canvas:{adj:"kosi", adj_en:"obtained", v:"kosu", v_en:"to get"}},
+    {lw:"rike",     en:"finding",     pos:"n", canvas:{adj:"riki", adj_en:"found", v:"riku", v_en:"to find"}},
+    {lw:"riwe",     en:"search",      pos:"n", canvas:{adj:"riwi", adj_en:"sought", v:"riwu", v_en:"to search"}},
+    {lw:"loime",    en:"wait",        pos:"n", canvas:{adj:"loimi", adj_en:"waiting", v:"loimu", v_en:"to wait"}},
+    {lw:"muwe",     en:"sending",     pos:"n", canvas:{adj:"muwi", adj_en:"sent", v:"muwu", v_en:"to send"}},
+    {lw:"vehe",     en:"showing",     pos:"n", canvas:{adj:"vehi", adj_en:"shown", v:"vehu", v_en:"to show"}},
+    {lw:"vihe",     en:"sharing",     pos:"n", canvas:{adj:"vihi", adj_en:"shared", v:"vihu", v_en:"to share"}},
+    {lw:"toihe",    en:"pickup",      pos:"n", canvas:{adj:"toihi", adj_en:"picked up", v:"toihu", v_en:"to pick up"}, pair:{mo:"motoihe", mo_en:"drop-off"}},
+    {lw:"motoihe",  en:"drop-off",    pos:"n", canvas:{adj:"motoihi", adj_en:"dropped off", v:"motoihu", v_en:"to drop off"}, pair:{base:"toihe", base_en:"pickup"}},
+    {lw:"lame",     en:"sameness",    pos:"n", canvas:{adj:"lami", adj_en:"same", v:"lamu", v_en:"to copy"}, pair:{mo:"molame", mo_en:"difference"}},
+    {lw:"molame",   en:"difference",  pos:"n", canvas:{adj:"molami", adj_en:"different", v:"molamu", v_en:"to differ"}, pair:{base:"lame", base_en:"sameness"}},
+  ],
+
+  // L44 — Numbers 0–10 + "to have"
+  // Digits are invariant adjective-particles; kiame is "number/to count"; ahe is the "have" verb.
+  numbers1: [
+    {lw:"nuli",   en:"zero",   pos:"number"},
+    {lw:"fani",   en:"one",    pos:"number"},
+    {lw:"runi",   en:"two",    pos:"number"},
+    {lw:"teni",   en:"three",  pos:"number"},
+    {lw:"shani",  en:"four",   pos:"number"},
+    {lw:"kani",   en:"five",   pos:"number"},
+    {lw:"veni",   en:"six",    pos:"number"},
+    {lw:"meni",   en:"seven",  pos:"number"},
+    {lw:"poni",   en:"eight",  pos:"number"},
+    {lw:"yani",   en:"nine",   pos:"number"},
+    {lw:"hani",   en:"ten",    pos:"number"},
+    {lw:"kiame",  en:"number", pos:"n", canvas:{adj:"kiami", adj_en:"numeric", v:"kiamu", v_en:"to count"}},
+    {lw:"ahe",    en:"possession", pos:"n", canvas:{adj:"ahi", adj_en:"possessed", v:"ahu", v_en:"to have"}},
+  ],
+
+  // L45 — Numbers 11+ (hundred and thousand)
+  // Eleven through ninety-nine compose digits; woni (100), yoni (1000) for higher place values.
+  numbers2: [
+    {lw:"woni",   en:"hundred",  pos:"number"},
+    {lw:"yoni",   en:"thousand", pos:"number"},
+  ],
+
+  // L46 — Time: Larger Units
+  // lole / fale are time particles; rouhe / luone / haiwe are the noun anchors.
+  time1: [
+    {lw:"rouhe",  en:"week",   pos:"n"},
+    {lw:"luone",  en:"month",  pos:"n", note:"Also means 'moon'"},
+    {lw:"haiwe",  en:"year",   pos:"n"},
+    {lw:"lole",   en:"now",    pos:"particle"},
+    {lw:"fale",   en:"then",   pos:"particle"},
+  ],
+
+  // L47 — Days of the Week (digit + lawe, fused)
+  daysofweek: [
+    {lw:"fanilawe",   en:"Sunday",     pos:"n"},
+    {lw:"runilawe",   en:"Monday",     pos:"n"},
+    {lw:"tenilawe",   en:"Tuesday",    pos:"n"},
+    {lw:"shanilawe",  en:"Wednesday",  pos:"n"},
+    {lw:"kanilawe",   en:"Thursday",   pos:"n"},
+    {lw:"venilawe",   en:"Friday",     pos:"n"},
+    {lw:"menilawe",   en:"Saturday",   pos:"n"},
+  ],
+
+  // L48 — Months of the Year (digit + luone, fused)
+  months: [
+    {lw:"faniluone",      en:"January",    pos:"n"},
+    {lw:"runiluone",      en:"February",   pos:"n"},
+    {lw:"teniluone",      en:"March",      pos:"n"},
+    {lw:"shaniluone",     en:"April",      pos:"n"},
+    {lw:"kaniluone",      en:"May",        pos:"n"},
+    {lw:"veniluone",      en:"June",       pos:"n"},
+    {lw:"meniluone",      en:"July",       pos:"n"},
+    {lw:"poniluone",      en:"August",     pos:"n"},
+    {lw:"yaniluone",      en:"September",  pos:"n"},
+    {lw:"haniluone",      en:"October",    pos:"n"},
+    {lw:"hanifaniluone",  en:"November",   pos:"n"},
+    {lw:"haniruniluone",  en:"December",   pos:"n"},
+  ],
+
+  // L49 — Time: Hours & Parts of Day
+  // molawe = night, literally mo- + lawe ("the un-day").
+  // meshimolawe = midnight (middle-of-night); meshilawe = noon (middle-of-day).
+  time2: [
+    {lw:"tohe",         en:"hour",      pos:"n"},
+    {lw:"tohile",       en:"minute",    pos:"n", note:"Diminutive of tohe (hour)"},
+    {lw:"tohilele",     en:"second",    pos:"n", note:"Diminutive of tohile — a 'moment'"},
+    {lw:"yauhe",        en:"morning",   pos:"n"},
+    {lw:"meshilawe",    en:"noon",      pos:"n", note:"Middle of the day"},
+    {lw:"pouhe",        en:"evening",   pos:"n"},
+    {lw:"molawe",       en:"night",     pos:"n", note:"From mo- + lawe — the 'un-day'"},
+    {lw:"meshimolawe",  en:"midnight",  pos:"n", note:"Middle of the night"},
+  ],
+
+  // L50 — Seasons
+  seasons: [
+    {lw:"foihe",        en:"spring",  pos:"n"},
+    {lw:"hauwe",        en:"summer",  pos:"n"},
+    {lw:"youhe",        en:"autumn",  pos:"n"},
+    {lw:"kaihe",        en:"winter",  pos:"n"},
+    {lw:"haiwepiehe",   en:"season",  pos:"n", note:"From haiwe (year) + piehe (part)"},
+  ],
+
+  // L51 — Colors I (Primary)
+  // Every color is a full canvas root with -ale morphology.
+  colors1: [
+    {lw:"tinale",   en:"color",   pos:"n", canvas:{adj:"tinali", adj_en:"colorful", v:"tinalu", v_en:"to color"}},
+    {lw:"feyale",   en:"red",     pos:"n", canvas:{adj:"feyali", adj_en:"red", v:"feyalu", v_en:"to redden"}},
+    {lw:"laumale",  en:"blue",    pos:"n", canvas:{adj:"laumali", adj_en:"blue", v:"laumalu", v_en:"to turn blue"}},
+    {lw:"foshale",  en:"green",   pos:"n", canvas:{adj:"foshali", adj_en:"green", v:"foshalu", v_en:"to turn green"}},
+    {lw:"haumale",  en:"yellow",  pos:"n", canvas:{adj:"haumali", adj_en:"yellow", v:"haumalu", v_en:"to turn yellow"}},
+    {lw:"noumale",  en:"black",   pos:"n", canvas:{adj:"noumali", adj_en:"black", v:"noumalu", v_en:"to turn black"}},
+    {lw:"lewale",   en:"white",   pos:"n", canvas:{adj:"lewali", adj_en:"white", v:"lewalu", v_en:"to turn white"}},
+  ],
+
+  // L52 — Colors II (Secondary)
+  colors2: [
+    {lw:"felale",   en:"gray",    pos:"n", canvas:{adj:"felali", adj_en:"gray", v:"felalu", v_en:"to turn gray"}},
+    {lw:"huyale",   en:"orange",  pos:"n", canvas:{adj:"huyali", adj_en:"orange", v:"huyalu", v_en:"to turn orange"}},
+    {lw:"niwale",   en:"pink",    pos:"n", canvas:{adj:"niwali", adj_en:"pink", v:"niwalu", v_en:"to turn pink"}},
+    {lw:"roumale",  en:"purple",  pos:"n", canvas:{adj:"roumali", adj_en:"purple", v:"roumalu", v_en:"to turn purple"}},
+    {lw:"touhale",  en:"brown",   pos:"n", canvas:{adj:"touhali", adj_en:"brown", v:"touhalu", v_en:"to turn brown"}},
+  ],
+
+  // L53 — Emotions I (Core)
+  // nawe/monawe are reinforced from L14 (svo), not redeclared here.
+  emotions1: [
+    {lw:"houle",    en:"joy",      pos:"n", canvas:{adj:"houli", adj_en:"happy", v:"houlu", v_en:"to rejoice"}, pair:{mo:"mohoule", mo_en:"sadness"}},
+    {lw:"mohoule",  en:"sadness",  pos:"n", canvas:{adj:"mohouli", adj_en:"sad"}, pair:{base:"houle", base_en:"joy"}},
+    {lw:"yere",     en:"bravery",  pos:"n", canvas:{adj:"yeri", adj_en:"brave", v:"yeru", v_en:"to be brave"},  pair:{mo:"moyere", mo_en:"fear"}},
+    {lw:"moyere",   en:"fear",     pos:"n", canvas:{adj:"moyeri", adj_en:"afraid", v:"moyeru", v_en:"to fear"}, pair:{base:"yere", base_en:"bravery"}},
+  ],
+
+  // L55 — Checkpoint 3 (sentence-based — Unit 3 culminating challenge)
+  // Budget-validated per /mnt/user-data/outputs/l55_checkpoint3_draft.md
+  checkpoint3: [
+    {lw:["Ne","ahu","teni","paipea","sho","runi","mewea"],           en:"I have three dogs and two cats."},
+    {lw:["Kipue","wa","feru","teo","loiwe"],                         en:"Who gave your book?"},
+    {lw:["Lo","loshe","su","feyali","sho","wauli"],                  en:"This flower is red and beautiful."},
+    {lw:["Kiya","te","wa","halu","wa","rouhe"],                      en:"Where did you go last week?"},
+    {lw:["Ne","mai","sahu","rau","molawe"],                          en:"I can't sleep at night."},
+    {lw:["Kime","te","wu","vanu"],                                   en:"When will you come?"},
+    {lw:["Hauwe","su","luni","ma","kaihe","su","moluni"],            en:"Summer is bright but winter is dark."},
+    {lw:["Nea","fasu","lo","yauhe"],                                 en:"We work this morning."},
+    {lw:["Ne","nawu","foshali","loshea"],                            en:"I love green flowers."},
+    {lw:["Ki","te","wa","seihu","lo","rouhe","au","wa","rouhe"],     en:"Did you study this week or last week?"},
+    {lw:["Kifa","loiwea","te","ahu"],                                en:"How many books do you have?"},
+    {lw:["Ne","wa","tiru","noumali","mewe","ya","kauhe"],            en:"I saw a black cat in the forest."},
+    {lw:["Teo","loye","su","houli","ma","teo","yoye","su","mohouli"],en:"Your brother is happy, but your sister is sad."},
+    {lw:["Kiwi","te","moyeru","leshea"],                             en:"Why do you fear snakes?"},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1186,7 +1403,8 @@ const FREETEXT_PROMPTS = [
 const UNITS = [
   {name:"Unit 1 — Foundations", start:0},
   {name:"Unit 2 — Daily World", start:17},
-  // Unit 3+ added as lessons are built.
+  {name:"Unit 3 — Connecting Words", start:37},
+  // Unit 4+ added as lessons are built.
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1234,6 +1452,26 @@ const LESSONS = [
   {id:"unit2review",     title:"Unit 2 Review",              desc:"Review everything from Unit 2 so far",         icon:"🔁",  vocabKey:"_review",         xp:22, unit:1, isReview:true, reviewPool:["home1","home2","demonstratives","relational1","relational2","food1","food2","food3","animals1","animals2","animals3","nature1","nature2","nature3"]},
   {id:"modals",          title:"Modal Verbs",                desc:"Can, want, must, should — chaining verbs",     icon:"🗝️", vocabKey:"modals",          xp:22, unit:1, isSentence:true},
   {id:"checkpoint2",     title:"Checkpoint 2",               desc:"Unit 2 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint2",     xp:40, unit:1, isSentence:true, isCheckpoint:true},
+
+  // ── UNIT 3: CONNECTING WORDS (L38–L55) ──────────────────────────
+  {id:"conjunctions1",   title:"Conjunctions I",             desc:"And, but, or — joining words",                 icon:"🔗",  vocabKey:"conjunctions1",   xp:22, unit:2, isSentence:true},
+  {id:"questions2",      title:"Content Questions",          desc:"Who, what, where, when, why, how",             icon:"❓",  vocabKey:"questions2",      xp:22, unit:2, isSentence:true},
+  {id:"plants",          title:"Plants & Greenery",          desc:"Flowers, leaves, seeds, branches, roots",      icon:"🌿",  vocabKey:"plants",          xp:22, unit:2},
+  {id:"verbs1",          title:"Daily Verbs I",              desc:"Come, run, work, sleep, begin, finish, study", icon:"🏃",  vocabKey:"verbs1",          xp:22, unit:2},
+  {id:"verbs2",          title:"Daily Verbs II",             desc:"Give, buy, sell, read, write, make, help",     icon:"🎁",  vocabKey:"verbs2",          xp:22, unit:2},
+  {id:"verbs3",          title:"Daily Verbs III",            desc:"Hold, get, find, seek, wait, send, show",      icon:"✋",  vocabKey:"verbs3",          xp:24, unit:2},
+  {id:"numbers1",        title:"Numbers 0–10 & \"to have\"", desc:"Counting from zero to ten, and ahu",           icon:"🔢",  vocabKey:"numbers1",        xp:24, unit:2},
+  {id:"numbers2",        title:"Numbers 11+",                desc:"Eleven and beyond — compounds, hundred, thousand", icon:"💯",  vocabKey:"numbers2",    xp:18, unit:2},
+  {id:"time1",           title:"Time: Larger Units",         desc:"Week, month, year — now and then",             icon:"📅",  vocabKey:"time1",           xp:20, unit:2},
+  {id:"daysofweek",      title:"Days of the Week",           desc:"Sunday through Saturday",                      icon:"🗓️", vocabKey:"daysofweek",      xp:20, unit:2},
+  {id:"months",          title:"Months of the Year",         desc:"January through December",                     icon:"📆",  vocabKey:"months",          xp:22, unit:2},
+  {id:"time2",           title:"Time: Hours & Parts of Day", desc:"Hour, minute, morning, noon, night, midnight", icon:"🕐",  vocabKey:"time2",           xp:22, unit:2},
+  {id:"seasons",         title:"Seasons",                    desc:"Spring, summer, autumn, winter",               icon:"🍂",  vocabKey:"seasons",         xp:18, unit:2},
+  {id:"colors1",         title:"Colors I: Primary",          desc:"Red, blue, green, yellow, black, white",       icon:"🎨",  vocabKey:"colors1",         xp:22, unit:2},
+  {id:"colors2",         title:"Colors II: Secondary",       desc:"Gray, orange, pink, purple, brown",            icon:"🌈",  vocabKey:"colors2",         xp:20, unit:2},
+  {id:"emotions1",       title:"Emotions I: Core",           desc:"Joy, sadness, bravery, fear",                  icon:"😊",  vocabKey:"emotions1",       xp:22, unit:2},
+  {id:"unit3review",     title:"Unit 3 Review",              desc:"Review everything from Unit 3 so far",         icon:"🔁",  vocabKey:"_review",         xp:24, unit:2, isReview:true, reviewPool:["plants","verbs1","verbs2","verbs3","numbers1","numbers2","time1","daysofweek","months","time2","seasons","colors1","colors2","emotions1"]},
+  {id:"checkpoint3",     title:"Checkpoint 3",               desc:"Unit 3 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint3",     xp:45, unit:2, isSentence:true, isCheckpoint:true},
 ];
 
 // ═══════════════════════════════════════════════════════════════
