@@ -137,7 +137,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 .btn-primary:active { transform:scale(0.97); background:var(--green-dark); }
 .btn-primary:disabled { background:var(--border); box-shadow:none; cursor:default; }
 .btn-secondary { width:100%; padding:14px; background:none; border:2px solid var(--border); border-radius:var(--radius); color:var(--dim); font-size:15px; font-weight:700; }
-.check-bar { position:fixed; bottom:0; left:0; right:0; padding:16px 20px; padding-bottom:max(16px, env(safe-area-inset-bottom)); background:linear-gradient(transparent, var(--bg) 30%); }
+.check-bar { position:sticky; bottom:0; left:0; right:0; padding:16px 0 20px 0; padding-bottom:max(20px, env(safe-area-inset-bottom)); background:var(--bg); margin-top:24px; z-index:5; }
 .confetti-piece { position:fixed; width:10px; height:10px; border-radius:2px; animation:confetti 1.2s ease-out forwards; pointer-events:none; }
 .pronun { color:var(--blue); font-size:13px; font-style:italic; font-weight:600; margin-top:2px; }
 ::-webkit-scrollbar { width:6px; }
@@ -522,7 +522,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   overflow-y:auto;
   overflow-x:hidden;
   -webkit-overflow-scrolling:touch;
-  padding-bottom:120px; /* clearance for fixed check-bar */
+  padding-bottom:20px;
 }
 </style>
 </head>
@@ -746,8 +746,173 @@ try {
 // lessons are designed. Keep this object — the exercise generator pulls
 // from it by lesson.vocabKey.
 const V = {
-  // Lesson vocab groups go here, e.g.:
-  // greetings1: [{lw:"waimo", en:"hello"}, ...]
+  // ═══════════════════════════════════════════════════════════════
+  // UNIT 1 — FOUNDATIONS (L1–L17)
+  // ═══════════════════════════════════════════════════════════════
+  // Canvas roots carry three forms; show all three on the flashcard.
+  // Balancing pairs add a `pair` field; show the mo- partner after the base.
+  // Particles and social expressions are noun-only.
+
+  // L1 — Greetings
+  greetings: [
+    {lw:"waimo",   en:"hello",                   pos:"social"},
+    {lw:"weriko",  en:"goodbye",                 pos:"social"},
+    {lw:"moa",     en:"please / respectfully",   pos:"social"},
+    {lw:"reiwa",   en:"thank you / you're welcome", pos:"social"},
+    {lw:"loho",    en:"sorry / excuse me",       pos:"social"},
+    {lw:"ai",      en:"yes",                     pos:"particle"},
+    {lw:"mai",     en:"no / not",                pos:"particle"},
+  ],
+
+  // L2 — Pronouns & Copula
+  pronouns: [
+    {lw:"ne",  en:"I",                   pos:"pronoun", plural:"nea",  plural_en:"we"},
+    {lw:"te",  en:"you",                 pos:"pronoun", plural:"tea",  plural_en:"you all"},
+    {lw:"ve",  en:"he / she / it / they (sg.)", pos:"pronoun", plural:"vea", plural_en:"they (pl.)"},
+    {lw:"su",  en:"to be (copula)",      pos:"particle"},
+  ],
+
+  // L3 — Possessives
+  possessives: [
+    {lw:"neo",   en:"my",           pos:"pronoun", plural:"neoa",  plural_en:"our"},
+    {lw:"teo",   en:"your",         pos:"pronoun", plural:"teoa",  plural_en:"your (pl.)"},
+    {lw:"veo",   en:"his / her / its / their (sg.)", pos:"pronoun", plural:"veoa", plural_en:"their (pl.)"},
+  ],
+
+  // L4 — The Vowel Canvas
+  canvas: [
+    {lw:"lune",  en:"light",  pos:"n", canvas:{adj:"luni", adj_en:"bright", v:"lunu", v_en:"to shine"}},
+    {lw:"shawe", en:"water",  pos:"n", canvas:{adj:"shawi", adj_en:"wet", v:"shawu", v_en:"to get wet"}},
+    {lw:"waihe", en:"hope",   pos:"n", canvas:{adj:"waihi", adj_en:"hopeful", v:"waihu", v_en:"to hope"}},
+  ],
+
+  // L5 — Family I (Nuclear)
+  family1: [
+    {lw:"mawe",  en:"mother",    pos:"n"},
+    {lw:"powe",  en:"father",    pos:"n"},
+    {lw:"nowe",  en:"son",       pos:"n"},
+    {lw:"noye",  en:"daughter",  pos:"n"},
+    {lw:"loye",  en:"brother",   pos:"n"},
+    {lw:"yoye",  en:"sister",    pos:"n"},
+    {lw:"wahe",  en:"family",    pos:"n"},
+    {lw:"piwe",  en:"child",     pos:"n"},
+  ],
+
+  // L6 — Family II (People)
+  family2: [
+    {lw:"paure",        en:"man (adult male)",   pos:"n"},
+    {lw:"yaure",        en:"woman (adult female)", pos:"n"},
+    {lw:"piwile",       en:"baby",               pos:"n"},
+    {lw:"nohipaure",    en:"boy",                pos:"n"},
+    {lw:"nohiyaure",    en:"girl",               pos:"n"},
+    {lw:"shuwe",        en:"spouse",             pos:"n", canvas:{adj:"shuwi", adj_en:"spousal", v:"shuwu", v_en:"to marry"}},
+  ],
+
+  // L7 — Body I (Head & Face)
+  body1: [
+    {lw:"meiwe", en:"body",    pos:"n"},
+    {lw:"tune",  en:"head",    pos:"n"},
+    {lw:"pohe",  en:"face",    pos:"n", canvas:{adj:"pohi", adj_en:"forward-facing", v:"pohu", v_en:"to face"}},
+    {lw:"mise",  en:"eye",     pos:"n", canvas:{adj:"misi", adj_en:"ocular", v:"misu", v_en:"to look"}},
+    {lw:"nuve",  en:"nose",    pos:"n", canvas:{adj:"nuvi", adj_en:"nasal", v:"nuvu", v_en:"to smell"}},
+    {lw:"pawe",  en:"mouth",   pos:"n"},
+    {lw:"lauhe", en:"ear",     pos:"n", canvas:{adj:"lauhi", adj_en:"aural", v:"lauhu", v_en:"to listen"}},
+    {lw:"miehe", en:"brain / mind", pos:"n", canvas:{adj:"miehi", adj_en:"mental", v:"miehu", v_en:"to contemplate"}},
+  ],
+
+  // L8 — Body II (Torso)
+  body2: [
+    {lw:"rive",  en:"neck",    pos:"n"},
+    {lw:"sole",  en:"throat",  pos:"n", canvas:{adj:"soli", adj_en:"throat-related", v:"solu", v_en:"to swallow"}},
+    {lw:"mune",  en:"chest",   pos:"n"},
+    {lw:"tame",  en:"stomach", pos:"n"},
+    {lw:"poke",  en:"back (body part)", pos:"n"},
+    {lw:"kowe",  en:"skin",    pos:"n"},
+    {lw:"shewe", en:"blood",   pos:"n", canvas:{adj:"shewi", adj_en:"bloody", v:"shewu", v_en:"to bleed"}},
+    {lw:"kole",  en:"bone",    pos:"n"},
+    {lw:"huhe",  en:"lung",    pos:"n"},
+  ],
+
+  // L9 — Body III (Limbs)
+  body3: [
+    {lw:"heme",  en:"arm",      pos:"n"},
+    {lw:"meve",  en:"shoulder", pos:"n"},
+    {lw:"laihe", en:"hand",     pos:"n", canvas:{adj:"laihi", adj_en:"hand-related", v:"laihu", v_en:"to handle"}},
+    {lw:"wime",  en:"finger",   pos:"n", canvas:{adj:"wimi", adj_en:"finger-related", v:"wimu", v_en:"to point"}},
+    {lw:"hipe",  en:"leg",      pos:"n", canvas:{adj:"hipi", adj_en:"leg-related", v:"hipu", v_en:"to walk"}},
+    {lw:"yore",  en:"knee",     pos:"n", canvas:{adj:"yori", adj_en:"knee-related", v:"yoru", v_en:"to kneel"}},
+    {lw:"laupe", en:"foot",     pos:"n", canvas:{adj:"laupi", adj_en:"foot-related", v:"laupu", v_en:"to kick"}},
+    {lw:"tike",  en:"tooth",    pos:"n", canvas:{adj:"tiki", adj_en:"tooth-like", v:"tiku", v_en:"to bite / chew"}},
+    {lw:"hiehe", en:"joint",    pos:"n", canvas:{adj:"hiehi", adj_en:"flexible", v:"hiehu", v_en:"to bend at a joint"}},
+    {lw:"laihehiehe", en:"wrist",  pos:"n", note:"laihe (hand) + hiehe (joint)"},
+    {lw:"hemehiehe",  en:"elbow",  pos:"n", note:"heme (arm) + hiehe (joint)"},
+    {lw:"laupehiehe", en:"ankle",  pos:"n", note:"laupe (foot) + hiehe (joint)"},
+  ],
+
+  // L10 — The mo- Prefix (grammar-only; demonstrates derivation on known roots)
+  // Introduces the concept using molune and mowaihe as explicit instances.
+  moprefix: [
+    {lw:"molune",   en:"darkness",  pos:"n", canvas:{adj:"moluni", adj_en:"dark", v:"molunu", v_en:"to darken"}, pair:{base:"lune", base_en:"light"}},
+    {lw:"mowaihe",  en:"despair",   pos:"n", canvas:{adj:"mowaihi", adj_en:"hopeless", v:"mowaihu", v_en:"to despair"}, pair:{base:"waihe", base_en:"hope"}},
+  ],
+
+  // L11 — Basic Adjectives I (Size, Goodness, Newness)
+  adjectives1: [
+    {lw:"piame",   en:"smallness",  pos:"n", canvas:{adj:"piami", adj_en:"small", v:"piamu", v_en:"to shrink"},  pair:{mo:"mopiame", mo_en:"bigness"}},
+    {lw:"mopiame", en:"bigness",    pos:"n", canvas:{adj:"mopiami", adj_en:"big", v:"mopiamu", v_en:"to enlarge"}, pair:{base:"piame", base_en:"smallness"}},
+    {lw:"mele",    en:"goodness",   pos:"n", canvas:{adj:"meli", adj_en:"good", v:"melu", v_en:"to do good"},    pair:{mo:"momele", mo_en:"badness"}},
+    {lw:"momele",  en:"badness",    pos:"n", canvas:{adj:"momeli", adj_en:"bad", v:"momelu", v_en:"to do ill"},  pair:{base:"mele", base_en:"goodness"}},
+    {lw:"nohe",    en:"newness",    pos:"n", canvas:{adj:"nohi", adj_en:"new", v:"nohu", v_en:"to renew"},       pair:{mo:"monohe", mo_en:"age"}},
+    {lw:"monohe",  en:"age (oldness)", pos:"n", canvas:{adj:"monohi", adj_en:"old", v:"monohu", v_en:"to grow old"}, pair:{base:"nohe", base_en:"newness"}},
+  ],
+
+  // L12 — Basic Adjectives II (Beauty, Strength)
+  adjectives2: [
+    {lw:"waule",    en:"beauty",     pos:"n", canvas:{adj:"wauli", adj_en:"beautiful", v:"waulu", v_en:"to make beautiful"}, pair:{mo:"mowaule", mo_en:"ugliness"}},
+    {lw:"mowaule",  en:"ugliness",   pos:"n", canvas:{adj:"mowauli", adj_en:"ugly", v:"mowaulu", v_en:"to make ugly"},      pair:{base:"waule", base_en:"beauty"}},
+    {lw:"tuwe",     en:"strength",   pos:"n", canvas:{adj:"tuwi", adj_en:"strong", v:"tuwu", v_en:"to strengthen"},          pair:{mo:"motuwe", mo_en:"weakness"}},
+    {lw:"motuwe",   en:"weakness",   pos:"n", canvas:{adj:"motuwi", adj_en:"weak", v:"motuwu", v_en:"to weaken"},            pair:{base:"tuwe", base_en:"strength"}},
+  ],
+
+  // L13 — Simple Verbs (See, Hear, Speak, Know)
+  simpleverbs: [
+    {lw:"tire",  en:"sight",       pos:"n", canvas:{adj:"tiri", adj_en:"visible", v:"tiru", v_en:"to see"}},
+    {lw:"liwe",  en:"sound",       pos:"n", canvas:{adj:"liwi", adj_en:"audible", v:"liwu", v_en:"to hear"}},
+    {lw:"lire",  en:"song / speech", pos:"n", canvas:{adj:"liri", adj_en:"vocal", v:"liru", v_en:"to speak / sing"}},
+    {lw:"sene",  en:"knowledge",   pos:"n", canvas:{adj:"seni", adj_en:"known / wise", v:"senu", v_en:"to know"}},
+  ],
+
+  // L14 — SVO + Love/Hate
+  svo: [
+    {lw:"nawe",   en:"love",      pos:"n", canvas:{adj:"nawi", adj_en:"loving", v:"nawu", v_en:"to love"},    pair:{mo:"monawe", mo_en:"hate"}},
+    {lw:"monawe", en:"hate",      pos:"n", canvas:{adj:"monawi", adj_en:"hateful", v:"monawu", v_en:"to hate"}, pair:{base:"nawe", base_en:"love"}},
+    {lw:"wame",   en:"friend",    pos:"n", canvas:{adj:"wami", adj_en:"likeable", v:"wamu", v_en:"to like"},  pair:{mo:"mowame", mo_en:"enemy"}},
+    {lw:"mowame", en:"enemy",     pos:"n", canvas:{adj:"mowami", adj_en:"dislikable", v:"mowamu", v_en:"to dislike"}, pair:{base:"wame", base_en:"friend"}},
+  ],
+
+  // L16 — Yes/No Questions (grammar-only; introduces ki particle)
+  yesno: [
+    {lw:"ki",  en:"yes/no question particle",  pos:"particle", note:"Put at the front of a statement to make a yes/no question."},
+  ],
+
+  // L17 — Checkpoint 1 sentences
+  // All words in these sentences are drawn from L1–L16 only.
+  checkpoint1: [
+    {lw:["Ne","su","teo","loye"],                  en:"I am your brother"},
+    {lw:["Ve","liru","wauli"],                     en:"She sings beautifully"},
+    {lw:["Ki","nea","su","wami"],                  en:"Are we friends?"},
+    {lw:["Teo","powe","su","tuwi"],                en:"Your father is strong"},
+    {lw:["Vea","tiru","neo","wahe"],               en:"They see my family"},
+    {lw:["Waihe","su","luni"],                     en:"Hope is bright"},
+    {lw:["Ne","mai","nawu","momeli","mowame"],     en:"I don't love a bad enemy"},
+    {lw:["Ki","ve","senu","ne"],                   en:"Does she know me?"},
+    {lw:["Molune","su","moluni"],                  en:"Darkness is dark"},
+    {lw:["Teo","mawe","su","wauli","yaure"],       en:"Your mother is a beautiful woman"},
+    {lw:["Nea","nawu","tea"],                      en:"We love you all"},
+    {lw:["Ve","mai","liru"],                       en:"She is not speaking"},
+    {lw:["Neo","loye","su","teo","wame"],          en:"My brother is your friend"},
+    {lw:["Ki","te","tiru","ne"],                   en:"Do you see me?"},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -762,7 +927,8 @@ const FREETEXT_PROMPTS = [
 // UNITS = collapsible lesson groups shown on the home Learn tab.
 // Each unit's `start` index points into the LESSONS array.
 const UNITS = [
-  // {name:"Unit 1 — Basics", start:0}, ...
+  {name:"Unit 1 — Foundations", start:0},
+  // Unit 2+ added as lessons are built.
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -770,7 +936,24 @@ const UNITS = [
 // Optional flags: isReview, isSentence, isParagraph, isFreeText, isFinalTest, reviewPool
 // When empty, the Learn tab renders a "Coming soon" panel.
 const LESSONS = [
-  // Lessons will be added here once designed.
+  // ── UNIT 1: FOUNDATIONS (L1–L17) ──────────────────────────────
+  {id:"greetings",    title:"Greetings",                 desc:"Hello, goodbye, please, thank you",          icon:"👋",  vocabKey:"greetings",    xp:15, unit:0},
+  {id:"pronouns",     title:"Pronouns & the Copula",     desc:"I, you, they, and how to say 'is'",          icon:"👥",  vocabKey:"pronouns",     xp:15, unit:0},
+  {id:"possessives",  title:"Possessives",               desc:"My, your, ours, theirs",                     icon:"🫂",  vocabKey:"possessives",  xp:15, unit:0},
+  {id:"canvas",       title:"The Vowel Canvas",          desc:"Every word has three faces: -e, -i, -u",     icon:"🎨",  vocabKey:"canvas",       xp:20, unit:0},
+  {id:"family1",      title:"Family I: Nuclear",         desc:"Mother, father, brother, sister, child",     icon:"👨‍👩‍👧", vocabKey:"family1",    xp:18, unit:0},
+  {id:"family2",      title:"Family II: People",         desc:"Man, woman, boy, girl, baby, spouse",        icon:"🧑",  vocabKey:"family2",      xp:18, unit:0},
+  {id:"body1",        title:"Body I: Head & Face",       desc:"Head, face, eyes, nose, mouth, mind",        icon:"😊",  vocabKey:"body1",        xp:20, unit:0},
+  {id:"body2",        title:"Body II: Torso",            desc:"Neck, chest, stomach, back, skin, blood",    icon:"🫁",  vocabKey:"body2",        xp:20, unit:0},
+  {id:"body3",        title:"Body III: Limbs",           desc:"Arms, legs, hands, feet, joints",            icon:"💪",  vocabKey:"body3",        xp:22, unit:0},
+  {id:"moprefix",     title:"The mo- Prefix",            desc:"Every thing has its balancing partner",      icon:"☯️", vocabKey:"moprefix",     xp:20, unit:0},
+  {id:"adjectives1",  title:"Basic Adjectives I",        desc:"Small, big, good, bad, new, old",            icon:"📏",  vocabKey:"adjectives1",  xp:20, unit:0},
+  {id:"adjectives2",  title:"Basic Adjectives II",       desc:"Beautiful, ugly, strong, weak",              icon:"✨",  vocabKey:"adjectives2",  xp:18, unit:0},
+  {id:"simpleverbs",  title:"Simple Verbs",              desc:"See, hear, speak, know",                     icon:"👀",  vocabKey:"simpleverbs",  xp:20, unit:0},
+  {id:"svo",          title:"SVO + Love & Hate",         desc:"Subject-verb-object sentences",              icon:"💗",  vocabKey:"svo",          xp:22, unit:0},
+  {id:"unit1review",  title:"Unit 1 Review",             desc:"Review everything from Unit 1 so far",       icon:"🔁",  vocabKey:"_review",      xp:18, unit:0, isReview:true, reviewPool:["greetings","pronouns","possessives","canvas","family1","family2","body1","body2","body3","moprefix","adjectives1","adjectives2","simpleverbs","svo"]},
+  {id:"yesno",        title:"Yes/No Questions",          desc:"Asking 'is it?' with ki",                    icon:"❓",  vocabKey:"yesno",        xp:18, unit:0},
+  {id:"checkpoint1",  title:"Checkpoint 1",              desc:"Unit 1 sentence challenge",                  icon:"🏆",  vocabKey:"checkpoint1",  xp:35, unit:0, isSentence:true, isCheckpoint:true},
 ];
 
 // ═══════════════════════════════════════════════════════════════
@@ -793,54 +976,95 @@ function generateExercises(lessonId){
 function generateVocabExercises(lesson){
   const items=V[lesson.vocabKey];
   if(!items||items.length===0)return[];
-  const wordItems=items.map(v=>({lw:Array.isArray(v.lw)?v.lw.join(" "):v.lw,en:v.en,note:v.note||null}));
+  // Items may carry canvas and pair metadata. Normalize for drills below.
+  const wordItems=items.map(v=>({
+    lw:Array.isArray(v.lw)?v.lw.join(" "):v.lw,
+    en:v.en,
+    pos:v.pos||null,
+    note:v.note||null,
+    canvas:v.canvas||null,
+    pair:v.pair||null,
+    plural:v.plural||null, plural_en:v.plural_en||null,
+  }));
   const exercises=[];
-  const wordUsage={};
-  const canAdd=(w)=>(wordUsage[w]||0)<2;
-  const markUsed=(w)=>{wordUsage[w]=(wordUsage[w]||0)+1;};
 
-  // 1. MC: LW → EN (for each word)
-  shuffle(wordItems).forEach(item=>{
-    if(!canAdd(item.lw))return;
+  // ─── STAGE 1: Flashcard introductions ────────────────────────
+  // One flashcard per item. Shown in the lesson's natural order (no shuffle).
+  // Flashcards are instructional — they pass through with a single "Got it" tap.
+  wordItems.forEach(item=>{
+    exercises.push({type:"flashcard", item:item});
+  });
+
+  // ─── STAGE 2: Recognition (LW → EN) ─────────────────────────
+  // Easier direction first. One MC per item, up to 4 total.
+  const recogPool=wordItems.filter(v=>v.pos!=="particle"||wordItems.length<=4);
+  const recogItems=shuffle([...recogPool]).slice(0,Math.min(4, recogPool.length));
+  recogItems.forEach(item=>{
     const wrong=pickUnique(wordItems.filter(v=>v.en!==item.en),3,v=>v.en).map(v=>v.en);
     if(wrong.length<3)return;
-    exercises.push({type:"mc",prompt:`What does "${item.lw}" mean?`,correct:item.en,options:shuffle([item.en,...wrong]),note:item.note,lwWord:item.lw});
-    markUsed(item.lw);
+    exercises.push({type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrong]), note:item.note, lwWord:item.lw});
   });
 
-  // 2. MC: EN → LW (for subset)
-  shuffle(wordItems).slice(0,5).forEach(item=>{
-    if(!canAdd(item.lw))return;
+  // ─── STAGE 3: Production (EN → LW) ──────────────────────────
+  // Harder direction. 2 MC + 1 fill.
+  const prodItems=shuffle([...wordItems]).slice(0,3);
+  prodItems.slice(0,2).forEach(item=>{
     const wrong=pick(wordItems.filter(v=>v.lw!==item.lw),3).map(v=>v.lw);
     if(wrong.length<3)return;
-    exercises.push({type:"mc",prompt:`How do you say "${item.en}" in Liru?`,correct:item.lw,options:shuffle([item.lw,...wrong])});
-    markUsed(item.lw);
+    exercises.push({type:"mc", prompt:`How do you say "${item.en}" in Liru?`, correct:item.lw, options:shuffle([item.lw,...wrong])});
   });
-
-  // 3. True/False
-  shuffle(wordItems).slice(0,4).forEach(item=>{
-    if(!canAdd(item.lw))return;
-    const isTrue=Math.random()>0.5;
-    let shownEn=item.en;
-    if(!isTrue){const wrong=pick(wordItems.filter(v=>v.en!==item.en),1);if(wrong.length)shownEn=wrong[0].en;}
-    exercises.push({type:"tf",prompt:`"${item.lw}" means "${shownEn}"`,correct:isTrue,correctLabel:item.en,lwWord:item.lw});
-    markUsed(item.lw);
-  });
-
-  // 4. Match pairs
-  if(wordItems.length>=4){
-    const matchItems=pick(wordItems,Math.min(4,wordItems.length));
-    exercises.push({type:"match",pairs:matchItems.map(v=>({left:v.lw,right:v.en}))});
+  if(prodItems[2]){
+    exercises.push({type:"fill", prompt:`"${prodItems[2].en}" in Liru is:`, correct:prodItems[2].lw.toLowerCase()});
   }
 
-  // 5. Fill (type the word)
-  shuffle(wordItems).slice(0,3).forEach(item=>{
-    if(!canAdd(item.lw))return;
-    exercises.push({type:"fill",prompt:`"${item.en}" in Liru is:`,correct:item.lw.toLowerCase()});
-    markUsed(item.lw);
-  });
+  // ─── STAGE 4: Canvas drill ───────────────────────────────────
+  // For any item with a canvas field, create a "given this form, produce another form" MC.
+  const canvasItems=wordItems.filter(v=>v.canvas);
+  if(canvasItems.length>0){
+    const pick1=canvasItems[Math.floor(Math.random()*canvasItems.length)];
+    // Decide direction: noun → verb, noun → adj, adj → verb, etc.
+    const directions=[
+      {from:"n",   fromForm:pick1.lw,           fromEn:pick1.en,           to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en},
+      {from:"n",   fromForm:pick1.lw,           fromEn:pick1.en,           to:"adj", toForm:pick1.canvas.adj, toEn:pick1.canvas.adj_en},
+      {from:"adj", fromForm:pick1.canvas.adj,   fromEn:pick1.canvas.adj_en, to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en},
+      {from:"v",   fromForm:pick1.canvas.v,     fromEn:pick1.canvas.v_en,   to:"n",   toForm:pick1.lw,         toEn:pick1.en},
+    ].filter(d=>d.toForm); // some roots only have n+adj
+    if(directions.length>0){
+      const dir=directions[Math.floor(Math.random()*directions.length)];
+      // Build distractors: pick other canvas forms from other roots in this lesson
+      const distractorPool=[];
+      canvasItems.forEach(ci=>{
+        if(ci.lw===pick1.lw)return;
+        if(ci.lw)distractorPool.push(ci.lw);
+        if(ci.canvas&&ci.canvas.adj)distractorPool.push(ci.canvas.adj);
+        if(ci.canvas&&ci.canvas.v)distractorPool.push(ci.canvas.v);
+      });
+      const wrong=pick(distractorPool.filter(d=>d!==dir.toForm),3);
+      if(wrong.length>=2){
+        const posLabel={n:"noun", adj:"adjective", v:"verb"}[dir.to];
+        exercises.push({
+          type:"canvasDrill",
+          prompt:`"${dir.fromForm}" means "${dir.fromEn}". What is its ${posLabel} form?`,
+          correct:dir.toForm,
+          correctEn:dir.toEn,
+          options:shuffle([dir.toForm, ...wrong.slice(0,3)])
+        });
+      }
+    }
+  }
 
-  return shuffle(exercises).slice(0,12);
+  // ─── STAGE 5: Consolidation match ────────────────────────────
+  if(wordItems.length>=4){
+    const matchItems=pick(wordItems.filter(v=>v.pos!=="particle"),Math.min(4,wordItems.length));
+    if(matchItems.length>=3){
+      exercises.push({type:"match", pairs:matchItems.map(v=>({left:v.lw, right:v.en}))});
+    }
+  }
+
+  // Target: 14 exercises. Flashcards are at the front and not shuffled; the rest shuffles.
+  const flashcards=exercises.filter(e=>e.type==="flashcard");
+  const drills=exercises.filter(e=>e.type!=="flashcard");
+  return [...flashcards, ...shuffle(drills)].slice(0, Math.max(flashcards.length+8, 14));
 }
 
 function generateSentenceExercises(lesson){
@@ -1354,10 +1578,14 @@ function renderLesson(){
   const isFinal=state.isFinalTest;
 
   let heartsHTML="";
+  const heartsActive=(state.lesson&&state.lesson.isCheckpoint)||isFinal;
   if(isFinal){
     heartsHTML=`<span style="color:var(--gold);font-size:13px;font-weight:800">🎓 FINAL TEST</span>`;
-  } else {
+  } else if(state.lesson&&state.lesson.isCheckpoint){
     heartsHTML=[...Array(3)].map((_,i)=>`<span style="font-size:20px;opacity:${i<state.hearts?1:0.2}">❤️</span>`).join("");
+  } else {
+    // Regular lesson — no hearts, retry-until-right mode.
+    heartsHTML=`<span style="color:var(--dim);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em">Practice</span>`;
   }
 
   let exHTML="";
@@ -1370,6 +1598,8 @@ function renderLesson(){
   else if(ex.type==="errcorrect")exHTML=renderErrCorrect(ex);
   else if(ex.type==="freetext")exHTML=renderFreeText(ex);
   else if(ex.type==="paraIntro")exHTML=renderParaIntro(ex);
+  else if(ex.type==="flashcard")exHTML=renderFlashcard(ex);
+  else if(ex.type==="canvasDrill")exHTML=renderCanvasDrill(ex);
 
   let continueHTML="";
   if(state.waitingContinue){
@@ -1397,6 +1627,8 @@ function renderLesson(){
   else if(ex.type==="errcorrect")bindErrCorrect(ex);
   else if(ex.type==="freetext")bindFreeText(ex);
   else if(ex.type==="paraIntro")bindParaIntro(ex);
+  else if(ex.type==="flashcard")bindFlashcard(ex);
+  else if(ex.type==="canvasDrill")bindCanvasDrill(ex);
 }
 
 // ─── Multiple Choice ─────────────────────────────────────────
@@ -1655,6 +1887,102 @@ function bindFreeText(ex){
   if(chk)chk.addEventListener("click",()=>{handleAnswer(true);setState({freetextSubmitted:true});});
 }
 
+// ─── Flashcard (introduction stage — always passes) ──────────
+function renderFlashcard(ex){
+  const item=ex.item;
+  // Build the card based on item type.
+  let mainHTML="";
+  const lw=item.lw;
+  const en=item.en;
+
+  if(item.canvas){
+    // Full canvas root — show all three forms stacked.
+    const rows=[
+      {form:lw,              pos:"noun",       en:en},
+      item.canvas.adj ? {form:item.canvas.adj, pos:"adjective", en:item.canvas.adj_en} : null,
+      item.canvas.v   ? {form:item.canvas.v,   pos:"verb",      en:item.canvas.v_en  } : null,
+    ].filter(Boolean);
+    mainHTML=rows.map(r=>`
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--bg2);border-radius:14px;border:1.5px solid var(--border)">
+        <div>
+          <div style="font-family:var(--display);font-size:26px;font-weight:900;color:var(--text);letter-spacing:-0.02em">${escapeHTML(r.form)}</div>
+          <div style="color:var(--dim);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">${r.pos}</div>
+        </div>
+        <div style="color:var(--mid);font-size:15px;font-weight:700;text-align:right;max-width:55%">${escapeHTML(r.en)}</div>
+      </div>`).join("");
+  } else if(item.plural){
+    // Pronoun system — show singular + plural.
+    mainHTML=`
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--bg2);border-radius:14px;border:1.5px solid var(--border)">
+        <div><div style="font-family:var(--display);font-size:28px;font-weight:900;color:var(--text)">${escapeHTML(lw)}</div>
+        <div style="color:var(--dim);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">singular</div></div>
+        <div style="color:var(--mid);font-size:15px;font-weight:700;text-align:right;max-width:55%">${escapeHTML(en)}</div>
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--bg2);border-radius:14px;border:1.5px solid var(--border);margin-top:8px">
+        <div><div style="font-family:var(--display);font-size:28px;font-weight:900;color:var(--text)">${escapeHTML(item.plural)}</div>
+        <div style="color:var(--dim);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-top:2px">plural</div></div>
+        <div style="color:var(--mid);font-size:15px;font-weight:700;text-align:right;max-width:55%">${escapeHTML(item.plural_en)}</div>
+      </div>`;
+  } else {
+    // Simple noun, particle, social expression — single big card.
+    const posLabel=item.pos==="social"?"social expression":(item.pos==="particle"?"particle":(item.pos==="pronoun"?"pronoun":(item.pos==="n"?"noun":item.pos||"")));
+    mainHTML=`
+      <div style="text-align:center;padding:20px 20px;background:var(--bg2);border-radius:16px;border:1.5px solid var(--border)">
+        <div style="font-family:var(--display);font-size:36px;font-weight:900;color:var(--text);letter-spacing:-0.02em">${escapeHTML(lw)}</div>
+        ${posLabel?`<div style="color:var(--dim);font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;margin-top:4px">${posLabel}</div>`:""}
+        <div style="color:var(--mid);font-size:18px;font-weight:700;margin-top:10px">${escapeHTML(en)}</div>
+      </div>`;
+  }
+
+  // Pair preview: if this word has a balancing mo- partner, show a little hint.
+  let pairHTML="";
+  if(item.pair&&item.pair.mo){
+    pairHTML=`<div style="margin-top:14px;padding:12px 14px;background:rgba(28,176,246,0.06);border:1.5px solid var(--blue);border-radius:12px;color:var(--blue);font-size:13px;font-weight:700">☯️ Balancing partner: <strong>${escapeHTML(item.pair.mo)}</strong> (${escapeHTML(item.pair.mo_en)}) — you'll meet it next.</div>`;
+  } else if(item.pair&&item.pair.base){
+    pairHTML=`<div style="margin-top:14px;padding:12px 14px;background:rgba(28,176,246,0.06);border:1.5px solid var(--blue);border-radius:12px;color:var(--blue);font-size:13px;font-weight:700">☯️ This is the mo- partner of <strong>${escapeHTML(item.pair.base)}</strong> (${escapeHTML(item.pair.base_en)}).</div>`;
+  }
+
+  const noteHTML=item.note?`<div style="margin-top:12px;color:var(--dim);font-size:13px;font-weight:600;line-height:1.5">💡 ${escapeHTML(item.note)}</div>`:"";
+
+  return `<div style="font-family:var(--display);font-size:15px;font-weight:800;margin-bottom:12px;color:var(--mid)">📖 New word</div>
+    ${mainHTML}
+    ${pairHTML}
+    ${noteHTML}
+    <div class="check-bar"><button id="checkBtn" class="btn-primary">GOT IT</button></div>`;
+}
+function bindFlashcard(ex){
+  const chk=document.getElementById("checkBtn");
+  if(chk)chk.addEventListener("click",()=>{handleAnswer(true);});
+}
+
+// ─── Canvas drill (given one form, pick the requested form) ──
+function renderCanvasDrill(ex){
+  const optsHTML=ex.options.map(opt=>{
+    let cls="opt-btn";
+    if(state.mcAnswered){
+      if(opt===ex.correct)cls+=" correct";
+      else if(opt===state.mcSelected)cls+=" wrong";
+      else cls+=" faded";
+    } else if(state.mcSelected===opt){cls+=" selected";}
+    return `<button class="${cls}" data-opt="${escapeHTML(opt)}" ${state.mcAnswered?'disabled':''} style="font-family:var(--display);font-size:20px;font-weight:900">${escapeHTML(opt)}</button>`;
+  }).join("");
+  const checkHTML=!state.mcAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.mcSelected?'':'disabled'}>CHECK</button></div>`:"";
+  const resultLabel=`${ex.correct} — ${ex.correctEn}`;
+  const resultHTML=state.mcAnswered?renderResultBanner(state.mcSelected===ex.correct, resultLabel):"";
+  return `<div style="font-family:var(--display);font-size:14px;font-weight:800;color:var(--blue);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px">🎨 Canvas drill</div>
+    <div style="font-family:var(--display);font-size:19px;font-weight:800;margin-bottom:22px;line-height:1.4">${escapeHTML(ex.prompt)}</div>
+    <div style="display:flex;flex-direction:column;gap:10px">${optsHTML}</div>
+    ${resultHTML}${checkHTML}`;
+}
+function bindCanvasDrill(ex){
+  document.querySelectorAll(".opt-btn[data-opt]").forEach(b=>b.addEventListener("click",()=>{
+    if(state.mcAnswered)return;
+    setState({mcSelected:b.dataset.opt});
+  }));
+  const chk=document.getElementById("checkBtn");
+  if(chk)chk.addEventListener("click",()=>{if(!state.mcSelected)return;handleAnswer(state.mcSelected===ex.correct);setState({mcAnswered:true});});
+}
+
 // ─── Paragraph intro (show sentences + glosses before drills) ─
 function renderParaIntro(ex){
   const sentsHTML=(ex.sentences||[]).map(s=>`<div style="padding:10px 12px;background:var(--bg2);border-radius:10px;margin-bottom:8px"><div style="font-size:15px;font-weight:800;color:var(--text)">${escapeHTML((s.lw||[]).join(" "))}</div><div style="color:var(--mid);font-size:13px;font-weight:600;margin-top:2px">${escapeHTML(s.en||"")}</div></div>`).join("");
@@ -1677,23 +2005,47 @@ function renderResultBanner(isCorrect,correctLabel){
 }
 
 function handleAnswer(isCorrect){
+  const ex=state.exercises[state.exIdx];
+  const isFlashcard=ex && ex.type==="flashcard";
+  // Hearts are only active on checkpoints and the final test.
+  const heartsActive=(state.lesson&&state.lesson.isCheckpoint)||state.isFinalTest;
+
   if(isCorrect){
     state.correct++;
-    state.accXP+=Math.round(state.lesson.xp/state.exercises.length);
-    setTimeout(()=>advanceAfterAnswer(),900);
-  } else {
-    if(state.isFinalTest){
-      state.finalFailed=true;
+    // Flashcards don't add XP individually — the lesson's full XP is awarded at the end.
+    // For graded exercises, divide the lesson XP evenly across the graded (non-flashcard) count.
+    if(!isFlashcard){
+      const gradedCount=state.exercises.filter(e=>e.type!=="flashcard").length||1;
+      state.accXP+=Math.round(state.lesson.xp/gradedCount);
+    }
+    setTimeout(()=>advanceAfterAnswer(),isFlashcard?300:900);
+    return;
+  }
+
+  // Wrong answer.
+  if(state.isFinalTest){
+    state.finalFailed=true;
+    setTimeout(()=>setState({screen:"complete"}),1200);
+    return;
+  }
+
+  if(heartsActive){
+    // Checkpoint: deplete hearts. Same as before.
+    state.hearts--;
+    if(state.hearts<=0){
       setTimeout(()=>setState({screen:"complete"}),1200);
     } else {
-      state.hearts--;
-      if(state.hearts<=0){
-        setTimeout(()=>setState({screen:"complete"}),1200);
-      } else {
-        setState({waitingContinue:true});
-      }
+      setState({waitingContinue:true});
     }
+    return;
   }
+
+  // Regular lesson: retry-until-right. Push the current exercise to the end of the queue
+  // so the learner encounters it again. Flag waitingContinue so they can review the
+  // correct answer before moving on.
+  const reinserted={...ex, _retry:true};
+  state.exercises.push(reinserted);
+  setState({waitingContinue:true});
 }
 
 function advanceAfterAnswer(){
