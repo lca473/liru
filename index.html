@@ -1859,6 +1859,263 @@ const V = {
     {lw:["Loiwe","lai","ve","wa","loisu","su","apa","meli"],             en:"The book that she read is the best."},
     {lw:["Ne","piru","lai","ve","wa","liru"],                            en:"I think that she sang."},
   ],
+
+  // L97 — Daily Actions I
+  // morae is mo-form of rae (sleep, L41) — waking. poye/mopoye, tawe/motawe are pairs.
+  dailyactions1: [
+    {lw:"morae",    en:"wakefulness",pos:"n", canvas:{adj:"morai", adj_en:"awake", v:"morau", v_en:"to wake up"}},
+    {lw:"poye",     en:"opening",    pos:"n", canvas:{adj:"poyi", adj_en:"open", v:"poyu", v_en:"to open"}, pair:{mo:"mopoye", mo_en:"closure"}},
+    {lw:"mopoye",   en:"closure",    pos:"n", canvas:{adj:"mopoyi", adj_en:"closed", v:"mopoyu", v_en:"to close"}, pair:{base:"poye", base_en:"opening"}},
+    {lw:"tawe",     en:"push",       pos:"n", canvas:{adj:"tawi", adj_en:"pushed", v:"tawu", v_en:"to push"}, pair:{mo:"motawe", mo_en:"pull"}},
+    {lw:"motawe",   en:"pull",       pos:"n", canvas:{adj:"motawi", adj_en:"pulled", v:"motawu", v_en:"to pull"}, pair:{base:"tawe", base_en:"push"}},
+  ],
+
+  // L98 — Daily Actions II
+  // Four balancing pairs: kave/mokave, shife/moshife, lahe/molahe, hiye/mohiye.
+  dailyactions2: [
+    {lw:"kave",     en:"fracture",   pos:"n", canvas:{adj:"kavi", adj_en:"broken", v:"kavu", v_en:"to break"}, pair:{mo:"mokave", mo_en:"repair"}},
+    {lw:"mokave",   en:"repair",     pos:"n", canvas:{adj:"mokavi", adj_en:"mended", v:"mokavu", v_en:"to mend"}, pair:{base:"kave", base_en:"fracture"}},
+    {lw:"shife",    en:"throw",      pos:"n", canvas:{adj:"shifi", adj_en:"thrown", v:"shifu", v_en:"to throw"}, pair:{mo:"moshife", mo_en:"catch"}},
+    {lw:"moshife",  en:"catch",      pos:"n", canvas:{adj:"moshifi", adj_en:"caught", v:"moshifu", v_en:"to catch"}, pair:{base:"shife", base_en:"throw"}},
+    {lw:"lahe",     en:"rest",       pos:"n", canvas:{adj:"lahi", adj_en:"restful", v:"lahu", v_en:"to rest"}, pair:{mo:"molahe", mo_en:"disturbance"}},
+    {lw:"molahe",   en:"disturbance",pos:"n", canvas:{adj:"molahi", adj_en:"disturbed", v:"molahu", v_en:"to disturb"}, pair:{base:"lahe", base_en:"rest"}},
+    {lw:"hiye",     en:"dream",      pos:"n", canvas:{adj:"hiyi", adj_en:"dreamlike", v:"hiyu", v_en:"to dream"}, pair:{mo:"mohiye", mo_en:"dreamless sleep"}},
+    {lw:"mohiye",   en:"dreamless sleep", pos:"n", canvas:{adj:"mohiyi", adj_en:"dreamless", v:"mohiyu", v_en:"to sleep without dreams"}, pair:{base:"hiye", base_en:"dream"}},
+  ],
+
+  // L99 — Sensory Verbs
+  // tere/motere pair; hawe/mohawe pair.
+  // take, tuke, sheye, mosheye added per coverage_notes (body/health verbs).
+  sensory: [
+    {lw:"ele",      en:"feeling",    pos:"n", canvas:{adj:"eli", adj_en:"emotional", v:"elu", v_en:"to feel"}},
+    {lw:"tere",     en:"touch",      pos:"n", canvas:{adj:"teri", adj_en:"tangible", v:"teru", v_en:"to touch"}, pair:{mo:"motere", mo_en:"aversion"}},
+    {lw:"motere",   en:"aversion",   pos:"n", canvas:{adj:"moteri", adj_en:"avoided", v:"moteru", v_en:"to recoil"}, pair:{base:"tere", base_en:"touch"}},
+    {lw:"yame",     en:"tongue",     pos:"n", canvas:{adj:"yami", adj_en:"tongue-related", v:"yamu", v_en:"to taste"}},
+    {lw:"hawe",     en:"breath",     pos:"n", canvas:{adj:"hawi", adj_en:"breathing", v:"hawu", v_en:"to breathe"}, pair:{mo:"mohawe", mo_en:"suffocation"}},
+    {lw:"mohawe",   en:"suffocation",pos:"n", canvas:{adj:"mohawi", adj_en:"breathless", v:"mohawu", v_en:"to suffocate"}, pair:{base:"hawe", base_en:"breath"}},
+    {lw:"take",     en:"fire",       pos:"n", canvas:{adj:"taki", adj_en:"fiery", v:"taku", v_en:"to burn"}},
+    {lw:"tuke",     en:"cough",      pos:"n", canvas:{adj:"tuki", adj_en:"coughing", v:"tuku", v_en:"to cough"}},
+    {lw:"sheye",    en:"healing",    pos:"n", canvas:{adj:"sheyi", adj_en:"healthy", v:"sheyu", v_en:"to heal"}, pair:{mo:"mosheye", mo_en:"sickness"}},
+    {lw:"mosheye",  en:"sickness",   pos:"n", canvas:{adj:"mosheyi", adj_en:"sick", v:"mosheyu", v_en:"to fall ill"}, pair:{base:"sheye", base_en:"healing"}},
+  ],
+
+  // L100 — Communication Verbs
+  // kilire/mokilire is ask/answer pair. seume/moseume is whisper/shout.
+  communication: [
+    {lw:"kilire",    en:"question",  pos:"n", canvas:{adj:"kiliri", adj_en:"asked", v:"kiliru", v_en:"to ask"}, pair:{mo:"mokilire", mo_en:"answer"}},
+    {lw:"mokilire",  en:"answer",    pos:"n", canvas:{adj:"mokiliri", adj_en:"answered", v:"mokiliru", v_en:"to answer"}, pair:{base:"kilire", base_en:"question"}, note:"From mo- + kilire — the response"},
+    {lw:"seume",     en:"whisper",   pos:"n", canvas:{adj:"seumi", adj_en:"whispered", v:"seumu", v_en:"to whisper"}, pair:{mo:"moseume", mo_en:"shout"}},
+    {lw:"moseume",   en:"shout",     pos:"n", canvas:{adj:"moseumi", adj_en:"shouted", v:"moseumu", v_en:"to shout"}, pair:{base:"seume", base_en:"whisper"}},
+    {lw:"fauhe",     en:"story",     pos:"n", canvas:{adj:"fauhi", adj_en:"story-like", v:"fauhu", v_en:"to tell a story"}},
+  ],
+
+  // L101 — Verbs of Change
+  // lime/molime is a state-change pair (growth/decay).
+  verbsofchange: [
+    {lw:"lime",    en:"growth",  pos:"n", canvas:{adj:"limi", adj_en:"mature", v:"limu", v_en:"to grow"}, pair:{mo:"molime", mo_en:"decay"}},
+    {lw:"molime",  en:"decay",   pos:"n", canvas:{adj:"molimi", adj_en:"withered", v:"molimu", v_en:"to wither"}, pair:{base:"lime", base_en:"growth"}},
+  ],
+
+  // L102 — Adverbs of Manner
+  // saire/mosaire pair. This lesson makes explicit the adj/adv dual role of -i forms.
+  manneradv: [
+    {lw:"saire",    en:"speed",     pos:"n", canvas:{adj:"sairi", adj_en:"fast", v:"sairu", v_en:"to speed up"}, pair:{mo:"mosaire", mo_en:"slowness"}},
+    {lw:"mosaire",  en:"slowness",  pos:"n", canvas:{adj:"mosairi", adj_en:"slow", v:"mosairu", v_en:"to slow down"}, pair:{base:"saire", base_en:"speed"}},
+  ],
+
+  // L103 — Checkpoint 5 (sentence-based — Unit 5 culminating challenge)
+  // Budget-validated per /mnt/user-data/outputs/l103_checkpoint5_draft.md
+  checkpoint5: [
+    {lw:["Kaisupue","lai","ne","wa","tiru","su","neo","mawe"],            en:"The teacher I saw is my mother."},
+    {lw:["Vi","te","wetiru","neo","piwile","te","wu","houli"],            en:"If you see my baby again, you will be happy."},
+    {lw:["Ne","taiweli","piru","pire","wauli"],                           en:"I always think beautiful thoughts."},
+    {lw:["Luhupauwe","lai","teo","powe","wa","hoyu","su","mopiami"],      en:"The refrigerator your father bought is big."},
+    {lw:["Ne","ouhi","wa","mauhu","iwuhe"],                               en:"I already learned the language."},
+    {lw:["Shauwupue","su","ori","tuwi"],                                  en:"The swimmer is very strong."},
+    {lw:["Ne","nuliweli","wa","monoru","mewe"],                           en:"I never killed a cat."},
+    {lw:["Ve","saiweli","liru","wole","ve","fasu"],                       en:"She sometimes sings while working."},
+    {lw:["Neo","wame","wa","feihu","lai","ve","wu","vanu"],               en:"My friend promised that she would come."},
+    {lw:["Lo","teuhile","su","moteuhi","ata","falo"],                     en:"This problem is easier than that."},
+    {lw:["Mavi","ve","su","monohi","ve","hairu","sairi"],                 en:"Although she is old, she runs quickly."},
+    {lw:["Ne","fanini","wa","tiru","lo","une"],                           en:"I first saw this movie."},
+    {lw:["Neo","loye","wa","kavu","teo","mohe"],                          en:"My brother broke your cup."},
+    {lw:["Ne","loisu","nalai","ne","nawu","iruhea"],                      en:"I read because I love words."},
+  ],
+
+  // ── UNIT 6: FLUENCY (L104–L120) ─────────────────────────────────
+
+  // L104 — Complement Clauses (sentence-based)
+  // Introduces two new base roots: piruhe (plan), seuhe (decision).
+  // Builds on L95 relclauses with deeper lai-after-verb coverage.
+  // Budget-validated per /mnt/user-data/outputs/l104_draft.md
+  complementclauses: [
+    {lw:["Ne","piru","lai","te","su","meli"],                              en:"I think that you are good."},
+    {lw:["Ne","piruhu","lai","ne","wu","tahu"],                            en:"I plan to eat."},
+    {lw:["Ve","wa","seuhu","lai","ve","wu","halu"],                        en:"She decided to go."},
+    {lw:["Ne","moyeru","lai","te","wu","moku"],                            en:"I fear that you will die."},
+    {lw:["Teo","mawe","wa","liru","lai","ve","wa","kufi"],                 en:"Your mother said that she was in pain."},
+    {lw:["Ne","meru","lai","ne","loiku","teo","nile"],                     en:"I remember to write your name."},
+    {lw:["Nea","felu","lai","lo","iwuhe","su","wauli"],                    en:"We believe that this language is beautiful."},
+  ],
+
+  // L105 — Embedded Questions (sentence-based)
+  // ki-words introduce embedded questions directly — no lai needed.
+  // No new roots — pure grammar practice.
+  // Budget-validated per /mnt/user-data/outputs/l105_draft.md
+  embeddedqs: [
+    {lw:["Ne","pioru","kiya","ve","wa","halu"],                            en:"I wonder where she went."},
+    {lw:["Te","meru","kiwa","ne","wanu"],                                  en:"You remember what I want."},
+    {lw:["Ne","mai","meru","kipue","wa","liru"],                           en:"I don't remember who sang."},
+    {lw:["Ve","pioru","kime","te","wu","vanu"],                            en:"She wonders when you will come."},
+    {lw:["Nea","momeru","kiwi","ve","wa","monovu"],                        en:"We forgot why she made a mistake."},
+    {lw:["Ne","pioru","kishe","te","puhu"],                                en:"I wonder how you are doing."},
+    {lw:["Ne","mai","meru","kifa","paipea","te","ahu"],                    en:"I don't remember how many dogs you have."},
+  ],
+
+  // L106 — Proper Nouns & Loanwords (sentence-based)
+  // Teaches that names/brands/borrowed words stay in source-language form.
+  // No new Liru roots — proper nouns registered in preflight.
+  // Budget-validated per /mnt/user-data/outputs/l106_draft.md
+  propernouns: [
+    {lw:["Teo","yoye","su","wo","Tokyo"],                                  en:"Your sister is in Tokyo."},
+    {lw:["Ne","nawu","Hawaii"],                                            en:"I love Hawaii."},
+    {lw:["Maria","su","kaisupue"],                                         en:"Maria is a teacher."},
+    {lw:["Nea","halu","so","Paris"],                                       en:"We go to Paris."},
+    {lw:["John","wa","vanu","so","neo","hiwe"],                            en:"John came to my house."},
+    {lw:["Ki","te","nawu","London","au","Paris"],                          en:"Do you love London or Paris?"},
+    {lw:["Maria","sho","John","su","wami"],                                en:"Maria and John are likeable."},
+  ],
+
+  // L107 — Outcomes & Events
+  // loune/moloune and lonone/molonone are balancing pairs (success/failure, win/loss).
+  outcomes: [
+    {lw:"loune",    en:"success",     pos:"n", canvas:{adj:"louni", adj_en:"successful", v:"lounu", v_en:"to succeed"}, pair:{mo:"moloune", mo_en:"failure"}},
+    {lw:"moloune",  en:"failure",     pos:"n", canvas:{adj:"molouni", adj_en:"failed", v:"molounu", v_en:"to fail"}, pair:{base:"loune", base_en:"success"}},
+    {lw:"lonone",   en:"win",         pos:"n", canvas:{adj:"lononi", adj_en:"winning", v:"lononu", v_en:"to win"}, pair:{mo:"molonone", mo_en:"loss"}},
+    {lw:"molonone", en:"loss",        pos:"n", canvas:{adj:"molononi", adj_en:"losing", v:"molononu", v_en:"to lose"}, pair:{base:"lonone", base_en:"win"}},
+    {lw:"laohe",    en:"happening",   pos:"n", canvas:{adj:"laohi", adj_en:"eventful", v:"laohu", v_en:"to happen"}},
+    {lw:"youme",    en:"luck",        pos:"n", canvas:{adj:"youmi", adj_en:"lucky", v:"youmu", v_en:"to luck out"}},
+  ],
+
+  // L108 — Duty & Readiness
+  // miohe is n+adj only. seuwe/moseuwe is an allowed/forbidden pair.
+  duty: [
+    {lw:"miohe",    en:"duty",         pos:"n", canvas:{adj:"miohi", adj_en:"dutiful"}},
+    {lw:"peiwe",    en:"readiness",    pos:"n", canvas:{adj:"peiwi", adj_en:"ready", v:"peiwu", v_en:"to get ready"}},
+    {lw:"seuwe",    en:"allowance",    pos:"n", canvas:{adj:"seuwi", adj_en:"allowed", v:"seuwu", v_en:"to allow"}, pair:{mo:"moseuwe", mo_en:"forbiddance"}},
+    {lw:"moseuwe",  en:"forbiddance",  pos:"n", canvas:{adj:"moseuwi", adj_en:"forbidden", v:"moseuwu", v_en:"to forbid"}, pair:{base:"seuwe", base_en:"allowance"}},
+  ],
+
+  // L109 — Safety & Harm
+  // yohe/moyohe pair (safety/danger). waiye standalone.
+  // rouwe reinforced from L93 — not re-declared.
+  safety: [
+    {lw:"yohe",     en:"safety",     pos:"n", canvas:{adj:"yohi", adj_en:"safe", v:"yohu", v_en:"to make safe"}, pair:{mo:"moyohe", mo_en:"danger"}},
+    {lw:"moyohe",   en:"danger",     pos:"n", canvas:{adj:"moyohi", adj_en:"dangerous", v:"moyohu", v_en:"to endanger"}, pair:{base:"yohe", base_en:"safety"}},
+    {lw:"waiye",    en:"protection", pos:"n", canvas:{adj:"waiyi", adj_en:"protective", v:"waiyu", v_en:"to protect"}},
+  ],
+
+  // L110 — Group & Solitude
+  // nauye/monauye is a play/fight pair. meuhe for gathering.
+  group: [
+    {lw:"meuhe",    en:"group",     pos:"n", canvas:{adj:"meuhi", adj_en:"together", v:"meuhu", v_en:"to gather"}},
+    {lw:"nauye",    en:"game",      pos:"n", canvas:{adj:"nauyi", adj_en:"fun", v:"nauyu", v_en:"to play"}, pair:{mo:"monauye", mo_en:"fight"}},
+    {lw:"monauye",  en:"fight",     pos:"n", canvas:{adj:"monauyi", adj_en:"hostile", v:"monauyu", v_en:"to fight"}, pair:{base:"nauye", base_en:"game"}},
+  ],
+
+  // L112 — Secondary Verbs I
+  // Six balancing pairs extending verbs already taught.
+  // vehe/movehe (show/hide), vihe/movihe (share/keep), tole/motole (lead/follow),
+  // rume/morume (lock/unlock), hese/mohese (cut/connect), toihe/motoihe (pickup/dropoff).
+  // The base members (vehe, vihe, tole-not-yet, rume-not-yet, hese, toihe) are from earlier.
+  // motoihe was declared in L43 — don't redeclare here. Same for the others already taught.
+  // NEW in this lesson: movehe, movihe, tole, motole, rume, morume, mohese.
+  secondaryverbs1: [
+    {lw:"movehe",   en:"hiding",    pos:"n", canvas:{adj:"movehi", adj_en:"hidden", v:"movehu", v_en:"to hide"}},
+    {lw:"movihe",   en:"keeping",   pos:"n", canvas:{adj:"movihi", adj_en:"kept", v:"movihu", v_en:"to keep"}},
+    {lw:"tole",     en:"leadership",pos:"n", canvas:{adj:"toli", adj_en:"leading", v:"tolu", v_en:"to lead"}, pair:{mo:"motole", mo_en:"following"}},
+    {lw:"motole",   en:"following", pos:"n", canvas:{adj:"motoli", adj_en:"loyal", v:"motolu", v_en:"to follow"}, pair:{base:"tole", base_en:"leadership"}},
+    {lw:"rume",     en:"lock",      pos:"n", canvas:{adj:"rumi", adj_en:"locked", v:"rumu", v_en:"to lock"}, pair:{mo:"morume", mo_en:"key"}},
+    {lw:"morume",   en:"key",       pos:"n", canvas:{adj:"morumi", adj_en:"unlocked", v:"morumu", v_en:"to unlock"}, pair:{base:"rume", base_en:"lock"}},
+    {lw:"mohese",   en:"bond",      pos:"n", canvas:{adj:"mohesi", adj_en:"joined", v:"mohesu", v_en:"to connect"}},
+  ],
+
+  // L113 — Secondary Verbs II
+  // Four ordinary canvas verbs + three special mo-verbs (mokahu, mokosu — verb-only;
+  // mowashi — adj+verb only, no noun).
+  secondaryverbs2: [
+    {lw:"muye",     en:"mixture",    pos:"n", canvas:{adj:"muyi", adj_en:"mixed", v:"muyu", v_en:"to mix"}},
+    {lw:"nuhe",     en:"focus",      pos:"n", canvas:{adj:"nuhi", adj_en:"focused", v:"nuhu", v_en:"to concentrate"}},
+    {lw:"koule",    en:"visit",      pos:"n", canvas:{adj:"kouli", adj_en:"visited", v:"koulu", v_en:"to visit"}},
+    {lw:"poule",    en:"invitation", pos:"n", canvas:{adj:"pouli", adj_en:"invited", v:"poulu", v_en:"to invite"}},
+    {lw:"raime",    en:"picture",    pos:"n", canvas:{adj:"raimi", adj_en:"pictured", v:"raimu", v_en:"to depict"}},
+    {lw:"mokahu",   en:"to drop (unintentionally)", pos:"v", note:"Verb-only special mo-form"},
+    {lw:"mokosu",   en:"to let go",  pos:"v", note:"Verb-only — to give up possession"},
+    {lw:"mowashi",  en:"still",      pos:"adj", note:"Adj + verb only; mowashu leads a verb chain to stop an action"},
+  ],
+
+  // L114 — Nature Phenomena
+  // Extends L32 weather with atmospheric and astronomical vocabulary.
+  naturephenomena: [
+    {lw:"tarume",   en:"thunder",   pos:"n", canvas:{adj:"tarumi", adj_en:"thunderous", v:"tarumu", v_en:"to thunder"}},
+    {lw:"lunume",   en:"lightning", pos:"n", canvas:{adj:"lunumi", adj_en:"lightning-like", v:"lunumu", v_en:"to flash"}, note:"Literally 'sky-light'"},
+    {lw:"maiwale",  en:"rainbow",   pos:"n", canvas:{adj:"maiwali", adj_en:"rainbow-like"}},
+    {lw:"kawe",     en:"ice",       pos:"n", canvas:{adj:"kawi", adj_en:"frozen", v:"kawu", v_en:"to freeze"}},
+    {lw:"toile",    en:"star",      pos:"n", canvas:{adj:"toili", adj_en:"starry", v:"toilu", v_en:"to sparkle"}},
+  ],
+
+  // L115 — Specialized Vocabulary
+  // Range of useful concepts + three lexicalized light-compounds.
+  specialized: [
+    {lw:"karuhe",       en:"war",       pos:"n", canvas:{adj:"karuhi", adj_en:"warlike", v:"karuhu", v_en:"to wage war"}},
+    {lw:"meshe",        en:"middle",    pos:"n", canvas:{adj:"meshi", adj_en:"central", v:"meshu", v_en:"to center"}},
+    {lw:"meshifane",    en:"half",      pos:"n", canvas:{adj:"meshifani", adj_en:"half-of"}, note:"From meshe (middle) + fane (of)"},
+    {lw:"piehe",        en:"part",      pos:"n", canvas:{adj:"piehi", adj_en:"partial", v:"piehu", v_en:"to divide"}},
+    {lw:"poime",        en:"wheel",     pos:"n", canvas:{adj:"poimi", adj_en:"wheel-like", v:"poimu", v_en:"to roll on wheels"}},
+    {lw:"toure",        en:"edge",      pos:"n", canvas:{adj:"touri", adj_en:"bordering", v:"touru", v_en:"to border"}},
+    {lw:"molunilune",   en:"shadow",    pos:"n", note:"Lexicalized — 'darkness of light'"},
+    {lw:"takilune",     en:"candle",    pos:"n", note:"Lexicalized — 'fire-light'"},
+    {lw:"lunekahe",     en:"lamp",      pos:"n", note:"Lexicalized — 'light-holder'"},
+  ],
+
+  // L116 — Dictionary Phrases (sentence-based)
+  // Six multi-word idiomatic phrases. All component tokens already in budget.
+  // Budget-validated per /mnt/user-data/outputs/l116_draft.md
+  dictionaryphrases: [
+    {lw:["Nea","halu","ko","nea"],                                         en:"We go together."},
+    {lw:["Ne","su","moko","pue"],                                          en:"I am alone."},
+    {lw:["Ve","fasu","moko","puea"],                                       en:"She works in solitude."},
+    {lw:["Te","wa","vanu","wale","oihi"],                                  en:"You came early."},
+    {lw:["Neo","loye","wa","vanu","wule","oihi"],                          en:"My brother came late."},
+    {lw:["Ne","mai","yauwi","wa","tahu"],                                  en:"I have not yet eaten."},
+    {lw:["Nea","piruhu","lai","nea","wu","halu","ko","nea","so","Paris"],  en:"We plan to go to Paris together."},
+  ],
+
+  // L120 — Final Test: The Song of Hope (sentence-based, comprehensive)
+  // 20 sentences spanning all six units. Introduces waihe (hope) as capstone.
+  // Budget-validated per /mnt/user-data/outputs/l120_finaltest_draft.md
+  finaltest: [
+    {lw:["Waimo","neo","nile","su","Maria"],                                                en:"Hello, my name is Maria."},
+    {lw:["Neo","wahe","su","mopiami"],                                                      en:"My family is big."},
+    {lw:["Ne","ahu","teni","loyea","sho","runi","yoyea"],                                   en:"I have three brothers and two sisters."},
+    {lw:["Hauwe","su","apa","wauli","fa","tai","haiwepiehea"],                              en:"Summer is the most beautiful of all the seasons."},
+    {lw:["Ki","te","wa","koulu","teo","wahe","lo","rouhe"],                                 en:"Did you visit your family this week?"},
+    {lw:["Kiya","te","wa","hoyu","lo","feure"],                                             en:"Where did you buy this coat?"},
+    {lw:["Lo","kaisupue","lai","ne","wa","tiru","wa","liru","wauli"],                       en:"The teacher I saw spoke beautifully."},
+    {lw:["Nea","felu","lai","te","wu","lounu"],                                             en:"We believe that you will succeed."},
+    {lw:["Ne","mai","meru","kime","ve","wa","vanu"],                                        en:"I don't remember when she came."},
+    {lw:["Vi","te","sovu","ne","ne","wu","su","houli"],                                     en:"If you help me, I will be happy."},
+    {lw:["Nuli","pue","wa","tiru","lo","movehisene"],                                       en:"No one saw this secret."},
+    {lw:["Paipe","wa","taiku","niwa","runi","hiwea"],                                       en:"The dog jumped between two houses."},
+    {lw:["Ve","mai","sahu","liru","nalai","ve","su","mohouli"],                             en:"She cannot speak because she is sad."},
+    {lw:["Teo","piwile","su","loya","ma","neo","piwile","su","faloya"],                     en:"Your baby is here, but my baby is there."},
+    {lw:["Ne","nuliweli","wa","tiru","faihue","tuwi","ata","loune"],                        en:"I have never seen anything stronger than success."},
+    {lw:["Nea","ouhi","wa","piruhu","lai","nea","wu","halu","so","Paris","lo","haiwe"],     en:"We already planned to go to Paris this year."},
+    {lw:["Ne","wanu","feru","feyali","loshea","so","teo","mawe"],                           en:"I want to give red flowers to your mother."},
+    {lw:["Kifa","iwuhea","te","mauhu"],                                                     en:"How many languages do you learn?"},
+    {lw:["Lo","Liru","iwuhe","su","kaumi","sho","wauli"],                                   en:"This Liru language is surprising and beautiful."},
+    {lw:["Waihe","su","apa","wohimi","hue","ya","lo","mouhe"],                              en:"Hope is the most important thing in this world."},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1878,7 +2135,7 @@ const UNITS = [
   {name:"Unit 3 — Connecting Words", start:37},
   {name:"Unit 4 — Expression", start:55},
   {name:"Unit 5 — Grammar Core", start:78},
-  // Unit 6+ added as lessons are built.
+  {name:"Unit 6 — Fluency", start:103},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1991,6 +2248,32 @@ const LESSONS = [
   {id:"abstract4",             title:"Abstract IV: Social",         desc:"Justice, importance, name, promise, music", icon:"⚖️", vocabKey:"abstract4",             xp:28, unit:4},
   {id:"relclauses",            title:"Relative Clauses",            desc:"Using lai to build 'the X that...'",        icon:"🔗",  vocabKey:"relclauses",            xp:26, unit:4, isSentence:true},
   {id:"unit5review2",          title:"Unit 5 Review (part 2)",      desc:"Review the second wave of Unit 5",          icon:"🔁",  vocabKey:"_review",               xp:28, unit:4, isReview:true, reviewPool:["intensifiers","ordinals","abstract1","abstract2","abstract3","abstract4"]},
+  {id:"dailyactions1",         title:"Daily Actions I",             desc:"Wake, open, close, push, pull",             icon:"🌅",  vocabKey:"dailyactions1",         xp:22, unit:4},
+  {id:"dailyactions2",         title:"Daily Actions II",            desc:"Break, repair, throw, catch, rest, dream",  icon:"🛠️", vocabKey:"dailyactions2",         xp:24, unit:4},
+  {id:"sensory",               title:"Sensory Verbs",               desc:"Feel, touch, taste, breathe, heal, burn",   icon:"👁️", vocabKey:"sensory",               xp:26, unit:4},
+  {id:"communication",         title:"Communication Verbs",         desc:"Ask, answer, whisper, shout, tell stories", icon:"🗣️", vocabKey:"communication",         xp:22, unit:4},
+  {id:"verbsofchange",         title:"Verbs of Change",             desc:"Grow, wither — state transformations",      icon:"🌱",  vocabKey:"verbsofchange",         xp:20, unit:4},
+  {id:"manneradv",             title:"Adverbs of Manner",           desc:"Fast, slow — the adj/adv dual role",        icon:"🎯",  vocabKey:"manneradv",             xp:20, unit:4},
+  {id:"checkpoint5",           title:"Checkpoint 5",                desc:"Unit 5 sentence challenge",                 icon:"🏆",  vocabKey:"checkpoint5",           xp:55, unit:4, isSentence:true, isCheckpoint:true},
+
+  // ── UNIT 6: FLUENCY (L104–L120) ─────────────────────────────────
+  {id:"complementclauses",     title:"Complement Clauses",          desc:"Deeper lai-after-verb — think/plan/decide", icon:"💭",  vocabKey:"complementclauses",     xp:28, unit:5, isSentence:true},
+  {id:"embeddedqs",            title:"Embedded Questions",          desc:"ki-words in embedded position — no lai",    icon:"❓",  vocabKey:"embeddedqs",            xp:26, unit:5, isSentence:true},
+  {id:"propernouns",           title:"Proper Nouns & Loanwords",    desc:"Names and borrowed words stay unchanged",   icon:"🌏",  vocabKey:"propernouns",           xp:22, unit:5, isSentence:true},
+  {id:"outcomes",              title:"Outcomes & Events",           desc:"Success, failure, win, loss, luck",         icon:"🎯",  vocabKey:"outcomes",              xp:24, unit:5},
+  {id:"duty",                  title:"Duty & Readiness",            desc:"Duty, ready, allowed, forbidden",           icon:"✅",  vocabKey:"duty",                  xp:22, unit:5},
+  {id:"safety",                title:"Safety & Harm",               desc:"Safe, dangerous, protection",               icon:"🛡️", vocabKey:"safety",                xp:20, unit:5},
+  {id:"group",                 title:"Group & Solitude",            desc:"Gather, play, fight — with others",         icon:"👥",  vocabKey:"group",                 xp:22, unit:5},
+  {id:"unit6review1",          title:"Unit 6 Review (part 1)",      desc:"Review the first wave of Unit 6",           icon:"🔁",  vocabKey:"_review",               xp:28, unit:5, isReview:true, reviewPool:["outcomes","duty","safety","group"]},
+  {id:"secondaryverbs1",       title:"Secondary Verbs I",           desc:"Hide, keep, lead, follow, lock, bond",      icon:"🔒",  vocabKey:"secondaryverbs1",       xp:26, unit:5},
+  {id:"secondaryverbs2",       title:"Secondary Verbs II",          desc:"Mix, focus, visit, invite, depict, stop",   icon:"🎨",  vocabKey:"secondaryverbs2",       xp:26, unit:5},
+  {id:"naturephenomena",       title:"Nature Phenomena",            desc:"Thunder, lightning, rainbow, ice, stars",   icon:"🌩️", vocabKey:"naturephenomena",       xp:24, unit:5},
+  {id:"specialized",           title:"Specialized Vocabulary",      desc:"War, middle, half, part, wheel, edge",      icon:"🔧",  vocabKey:"specialized",           xp:26, unit:5},
+  {id:"dictionaryphrases",     title:"Dictionary Phrases",          desc:"Together, alone, early, late, not yet",     icon:"📖",  vocabKey:"dictionaryphrases",     xp:24, unit:5, isSentence:true},
+  {id:"unit6review2",          title:"Unit 6 Review (part 2)",      desc:"Review the second wave of Unit 6",          icon:"🔁",  vocabKey:"_review",               xp:30, unit:5, isReview:true, reviewPool:["secondaryverbs1","secondaryverbs2","naturephenomena","specialized"]},
+  {id:"finaldeep1",            title:"Final Deep Review 1",         desc:"Review everything — first pass",            icon:"🌟",  vocabKey:"_review",               xp:40, unit:5, isReview:true, reviewPool:["greetings","pronouns","possessives","family1","family2","body1","body2","body3","adjectives1","adjectives2","home1","home2","relational1","relational2","food1","food2","food3","animals1","animals2","animals3","nature1","nature2","nature3","plants","verbs1","verbs2","verbs3","numbers1","numbers2","time1","daysofweek","months","time2","seasons","colors1","colors2","emotions1"]},
+  {id:"finaldeep2",            title:"Final Deep Review 2",         desc:"Review everything — second pass",           icon:"🌟",  vocabKey:"_review",               xp:40, unit:5, isReview:true, reviewPool:["quantifiers2","existentials","emotions2","emotions3","expressionsoffeeling","personality","adjectives3","adjectives4","directions1","directions2","movement","actionverbs","clothing","places","tech","materials","compoundtieme","agentpue","compoundpauwe","vehicles","discourseadv","frequency","temporaladv","intensifiers","ordinals","abstract1","abstract2","abstract3","abstract4","dailyactions1","dailyactions2","sensory","communication","verbsofchange","manneradv","outcomes","duty","safety","group","secondaryverbs1","secondaryverbs2","naturephenomena","specialized"]},
+  {id:"finaltest",             title:"Final Test: The Song of Hope",desc:"Comprehensive test — everything you've learned", icon:"🎓", vocabKey:"finaltest",           xp:100, unit:5, isSentence:true, isCheckpoint:true, isFinalTest:true},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
