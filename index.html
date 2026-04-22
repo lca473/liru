@@ -542,11 +542,11 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 
     <div class="landing-stats fade-up" style="animation-delay:0.1s">
       <div class="landing-stat">
-        <div class="landing-stat-num">~468</div>
+        <div class="landing-stat-num">~450</div>
         <div class="landing-stat-label">Roots</div>
       </div>
       <div class="landing-stat">
-        <div class="landing-stat-num">TBD</div>
+        <div class="landing-stat-num" id="landing-lesson-count">—</div>
         <div class="landing-stat-label">Lessons</div>
       </div>
       <div class="landing-stat">
@@ -692,20 +692,17 @@ function showView(name) {
 // ═══════════════════════════════════════════════════════════════
 // FIREBASE CONFIG
 // ═══════════════════════════════════════════════════════════════
-// TODO: Replace these placeholders with the Firebase config for your NEW
-// Liru Firebase project. Steps are in the README / setup walkthrough.
-//   1. Go to https://console.firebase.google.com → Add project → name it e.g. "liru-app"
-//   2. In the new project: Build → Realtime Database → Create database → Start in test mode
-//   3. Project settings (gear icon) → Your apps → Add web app → Register
-//   4. Copy the config values from the generated snippet and paste below
+// Firebase web API keys are public by design — security is enforced
+// by the database rules configured in the Firebase console, not by
+// key secrecy. Safe to commit to public repos.
 const FIREBASE_CONFIG = {
-  apiKey: "YOUR_API_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  databaseURL: "https://YOUR_PROJECT-default-rtdb.firebaseio.com",
-  projectId: "YOUR_PROJECT",
-  storageBucket: "YOUR_PROJECT.firebasestorage.app",
-  messagingSenderId: "YOUR_SENDER_ID",
-  appId: "YOUR_APP_ID"
+  apiKey: "AIzaSyDadyHknaEiKIT9zSF1DnzXAkI6TBuPte0",
+  authDomain: "liru-app-9aef5.firebaseapp.com",
+  databaseURL: "https://liru-app-9aef5-default-rtdb.firebaseio.com",
+  projectId: "liru-app-9aef5",
+  storageBucket: "liru-app-9aef5.firebasestorage.app",
+  messagingSenderId: "361553228536",
+  appId: "1:361553228536:web:6954014bdd4b68348f410d"
 };
 
 let db = null;
@@ -721,15 +718,12 @@ try {
 // ═══════════════════════════════════════════════════════════════
 // EMAILJS CONFIG
 // ═══════════════════════════════════════════════════════════════
-// TODO: Replace these placeholders with your EmailJS credentials after signing up at emailjs.com
-// Steps:
-//   1. Sign up at https://www.emailjs.com
-//   2. Create an Email Service (Gmail recommended) → copy your Service ID
-//   3. Create an Email Template with variables: {{from_name}}, {{from_email}}, {{category}}, {{message}}
-//   4. Copy your Template ID and Public Key below
-const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";
-const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";
-const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";
+// EmailJS public keys are already exposed in the live page source —
+// they identify the account but do not authenticate submissions.
+// Safe to commit to public repos.
+const EMAILJS_PUBLIC_KEY  = "5Zl8cU30xSzqTUKCr";
+const EMAILJS_SERVICE_ID  = "service_z82mm6p";
+const EMAILJS_TEMPLATE_ID = "template_nx5gfso";
 const EMAILJS_TO_EMAIL    = "njprentiss@gmail.com";
 
 let emailJSReady = false;
@@ -1473,6 +1467,19 @@ const LESSONS = [
   {id:"unit3review",     title:"Unit 3 Review",              desc:"Review everything from Unit 3 so far",         icon:"🔁",  vocabKey:"_review",         xp:24, unit:2, isReview:true, reviewPool:["plants","verbs1","verbs2","verbs3","numbers1","numbers2","time1","daysofweek","months","time2","seasons","colors1","colors2","emotions1"]},
   {id:"checkpoint3",     title:"Checkpoint 3",               desc:"Unit 3 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint3",     xp:45, unit:2, isSentence:true, isCheckpoint:true},
 ];
+
+// Populate the landing-page lesson count from the actual LESSONS array.
+(function updateLandingLessonCount(){
+  const setCount = () => {
+    const el = document.getElementById('landing-lesson-count');
+    if (el) el.textContent = LESSONS.length.toString();
+  };
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setCount);
+  } else {
+    setCount();
+  }
+})();
 
 // ═══════════════════════════════════════════════════════════════
 // EXERCISE GENERATOR
@@ -4957,7 +4964,7 @@ function renderDict() {
 
   el.innerHTML = `
     <div class="dict-stats">
-      <span class="dict-stat-chip green">~468 Roots</span>
+      <span class="dict-stat-chip green">~450 Roots</span>
       <span class="dict-stat-chip green">${DICTIONARY_RAW.length} Words</span>
       <span class="dict-stat-chip blue">EN ↔ LW</span>
       <span class="dict-stat-chip">Tap a letter to browse</span>
@@ -5213,6 +5220,7 @@ function renderContact() {
         <option value="bug" ${contactState.category==='bug'?'selected':''}>🐛 Bug report</option>
         <option value="feature" ${contactState.category==='feature'?'selected':''}>✨ Feature request</option>
         <option value="language" ${contactState.category==='language'?'selected':''}>📖 Language question / correction</option>
+        <option value="newword" ${contactState.category==='newword'?'selected':''}>🌱 New word suggestion</option>
         <option value="other" ${contactState.category==='other'?'selected':''}>💭 Other</option>
       </select>
     </div>
