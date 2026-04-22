@@ -1381,6 +1381,281 @@ const V = {
     {lw:["Teo","loye","su","houli","ma","teo","yoye","su","mohouli"],en:"Your brother is happy, but your sister is sad."},
     {lw:["Kiwi","te","moyeru","leshea"],                             en:"Why do you fear snakes?"},
   ],
+
+  // ── UNIT 4: EXPRESSION (L56–L78) ────────────────────────────────
+
+  // L56 — Comparatives & Superlatives (sentence-based)
+  // Introduces ata/ala/apa/moata/moapa/fa particles and liane/moliane pair.
+  // Budget-validated per /mnt/user-data/outputs/l56_draft.md
+  comparatives: [
+    {lw:["Te","su","liani","ata","ne"],                         en:"You are taller than me."},
+    {lw:["Hauwe","su","wauli","ata","kaihe"],                   en:"Summer is more beautiful than winter."},
+    {lw:["Neo","mawe","su","wauli","ala","teo","mawe"],         en:"My mother is as beautiful as your mother."},
+    {lw:["Neo","loye","su","moapa","liani"],                    en:"My brother is the least tall."},
+    {lw:["Kaihe","su","wauli","moata","hauwe"],                 en:"Winter is less beautiful than summer."},
+    {lw:["Neo","yoye","su","apa","liani","fa","neoa","wahe"],   en:"My sister is the tallest of our family."},
+    {lw:["Shawome","su","moliani","ata","wouhe"],               en:"The ocean is lower than the mountain."},
+  ],
+
+  // L57 — Set Quantifiers (sentence-based)
+  // Introduces tai/sai/nai/fai and pue (nuli reinforced from L44).
+  // Budget-validated per /mnt/user-data/outputs/l57_draft.md
+  quantifiers1: [
+    {lw:["Tai","puea","su","wami"],                   en:"All people are likeable."},
+    {lw:["Sai","puea","wa","halu"],                   en:"Some people went."},
+    {lw:["Nai","shoulea","su","wauli"],               en:"Many fish are beautiful."},
+    {lw:["Fai","pue","sahu","tahu","houme"],          en:"Anyone can eat bread."},
+    {lw:["Nuli","pue","su","rai"],                    en:"No one is sleepy."},
+    {lw:["Ne","tiru","nai","loshea","ya","kauhe"],    en:"I see many flowers in the forest."},
+    {lw:["Sai","pue","wa","feru","ne","loiwe"],       en:"Someone gave me a book."},
+  ],
+
+  // L58 — Measure Quantifiers (vocab-based — four canvas roots)
+  quantifiers2: [
+    {lw:"awe",     en:"increase",     pos:"n", canvas:{adj:"awi", adj_en:"more", v:"awu", v_en:"to increase"},   pair:{mo:"moawe", mo_en:"decrease"}},
+    {lw:"moawe",   en:"decrease",     pos:"n", canvas:{adj:"moawi", adj_en:"less", v:"moawu", v_en:"to decrease"},pair:{base:"awe", base_en:"increase"}},
+    {lw:"ahime",   en:"sufficiency",  pos:"n", canvas:{adj:"ahimi", adj_en:"enough", v:"ahimu", v_en:"to suffice"}, pair:{mo:"moahime", mo_en:"insufficiency"}},
+    {lw:"moahime", en:"insufficiency", pos:"n", canvas:{adj:"moahimi", adj_en:"not enough", v:"moahimu", v_en:"to fall short"}, pair:{base:"ahime", base_en:"sufficiency"}},
+  ],
+
+  // L59 — Existential Pronouns (vocab-based — 8 derived pronouns + hue base)
+  existentials: [
+    {lw:"hue",       en:"thing",      pos:"n"},
+    {lw:"taihue",    en:"everything", pos:"n", note:"From tai (all) + hue (thing)"},
+    {lw:"saihue",    en:"something",  pos:"n", note:"From sai (some) + hue (thing)"},
+    {lw:"faihue",    en:"anything",   pos:"n", note:"From fai (any, free-choice) + hue"},
+    {lw:"nulihue",   en:"nothing",    pos:"n", note:"From nuli (zero) + hue"},
+    {lw:"taipue",    en:"everyone",   pos:"n", note:"From tai (all) + pue (person)"},
+    {lw:"saipue",    en:"someone",    pos:"n", note:"From sai (some) + pue"},
+    {lw:"faipue",    en:"anyone",     pos:"n", note:"From fai (any, free-choice) + pue"},
+    {lw:"nulipue",   en:"no one",     pos:"n", note:"From nuli (zero) + pue"},
+  ],
+
+  // L60 — Emotions II (Social)
+  // nouhe is n+adj only (no verb) — adj-only canvas.
+  emotions2: [
+    {lw:"nouhe",    en:"peace",     pos:"n", canvas:{adj:"nouhi", adj_en:"peaceful"}},
+    {lw:"tauke",    en:"anger",     pos:"n", canvas:{adj:"tauki", adj_en:"angry", v:"tauku", v_en:"to anger"}},
+    {lw:"muhe",     en:"worry",     pos:"n", canvas:{adj:"muhi", adj_en:"anxious", v:"muhu", v_en:"to worry"}},
+    {lw:"youle",    en:"pride",     pos:"n", canvas:{adj:"youli", adj_en:"proud", v:"youlu", v_en:"to take pride"}, pair:{mo:"moyoule", mo_en:"shame"}},
+    {lw:"moyoule",  en:"shame",     pos:"n", canvas:{adj:"moyouli", adj_en:"ashamed", v:"moyoulu", v_en:"to shame"}, pair:{base:"youle", base_en:"pride"}},
+    {lw:"lene",     en:"trust",     pos:"n", canvas:{adj:"leni", adj_en:"trustworthy", v:"lenu", v_en:"to trust"}, pair:{mo:"molene", mo_en:"betrayal"}},
+    {lw:"molene",   en:"betrayal",  pos:"n", canvas:{adj:"moleni", adj_en:"untrustworthy", v:"molenu", v_en:"to betray"}, pair:{base:"lene", base_en:"trust"}},
+  ],
+
+  // L61 — Emotions III (Deep)
+  // faune is n+adj only (no verb).
+  emotions3: [
+    {lw:"faile",    en:"excitement",     pos:"n", canvas:{adj:"faili", adj_en:"excited", v:"failu", v_en:"to excite"}},
+    {lw:"faune",    en:"loneliness",     pos:"n", canvas:{adj:"fauni", adj_en:"lonely"}},
+    {lw:"feore",    en:"jealousy",       pos:"n", canvas:{adj:"feori", adj_en:"jealous", v:"feoru", v_en:"to envy"}},
+    {lw:"kufe",     en:"pain",           pos:"n", canvas:{adj:"kufi", adj_en:"painful", v:"kufu", v_en:"to hurt"}, pair:{mo:"mokufe", mo_en:"relief"}},
+    {lw:"mokufe",   en:"relief",         pos:"n", canvas:{adj:"mokufi", adj_en:"comforted", v:"mokufu", v_en:"to soothe"}, pair:{base:"kufe", base_en:"pain"}},
+    {lw:"nauhe",    en:"guilt",          pos:"n", canvas:{adj:"nauhi", adj_en:"guilty", v:"nauhu", v_en:"to feel guilt"}},
+    {lw:"pauhe",    en:"disappointment", pos:"n", canvas:{adj:"pauhi", adj_en:"disappointed", v:"pauhu", v_en:"to disappoint"}},
+    {lw:"nouye",    en:"patience",       pos:"n", canvas:{adj:"nouyi", adj_en:"patient"}},
+  ],
+
+  // L62 — Expressions of Feeling (vocab-based — 6 canvas action-verbs)
+  // lewe/molewe (laugh/cry) are a balancing pair; seiwe/moseiwe (smile/frown) are another.
+  expressionsoffeeling: [
+    {lw:"lewe",     en:"laughter",  pos:"n", canvas:{adj:"lewi", adj_en:"laughing", v:"lewu", v_en:"to laugh"}, pair:{mo:"molewe", mo_en:"tears"}},
+    {lw:"molewe",   en:"tears",     pos:"n", canvas:{adj:"molewi", adj_en:"crying", v:"molewu", v_en:"to cry"}, pair:{base:"lewe", base_en:"laughter"}},
+    {lw:"seiwe",    en:"smile",     pos:"n", canvas:{adj:"seiwi", adj_en:"smiling", v:"seiwu", v_en:"to smile"}, pair:{mo:"moseiwe", mo_en:"frown"}},
+    {lw:"moseiwe",  en:"frown",     pos:"n", canvas:{adj:"moseiwi", adj_en:"frowning", v:"moseiwu", v_en:"to frown"}, pair:{base:"seiwe", base_en:"smile"}},
+    {lw:"soume",    en:"kiss",      pos:"n", canvas:{adj:"soumi", adj_en:"kissed", v:"soumu", v_en:"to kiss"}},
+    {lw:"kaume",    en:"surprise",  pos:"n", canvas:{adj:"kaumi", adj_en:"surprising", v:"kaumu", v_en:"to surprise"}},
+  ],
+
+  // L63 — Personality Traits
+  // niahe/moniahe and wesire/mowesire are balancing pairs.
+  // moniahe is n+adj only. sohe is n+adj only.
+  personality: [
+    {lw:"niahe",    en:"carefulness",  pos:"n", canvas:{adj:"niahi", adj_en:"careful", v:"niahu", v_en:"to be careful"}, pair:{mo:"moniahe", mo_en:"carelessness"}},
+    {lw:"moniahe",  en:"carelessness", pos:"n", canvas:{adj:"moniahi", adj_en:"careless"}, pair:{base:"niahe", base_en:"carefulness"}},
+    {lw:"wesire",   en:"truth",        pos:"n", canvas:{adj:"wesiri", adj_en:"true", v:"wesiru", v_en:"to tell the truth"}, pair:{mo:"mowesire", mo_en:"lie"}},
+    {lw:"mowesire", en:"lie",          pos:"n", canvas:{adj:"mowesiri", adj_en:"false", v:"mowesiru", v_en:"to lie"}, pair:{base:"wesire", base_en:"truth"}},
+    {lw:"pire",     en:"thought",      pos:"n", canvas:{adj:"piri", adj_en:"thoughtful", v:"piru", v_en:"to think"}},
+    {lw:"louhe",    en:"respect",      pos:"n", canvas:{adj:"louhi", adj_en:"respectful", v:"louhu", v_en:"to respect"}},
+    {lw:"peihe",    en:"honesty",      pos:"n", canvas:{adj:"peihi", adj_en:"honest", v:"peihu", v_en:"to be honest"}},
+    {lw:"sohe",     en:"other",        pos:"n", canvas:{adj:"sohi", adj_en:"another"}},
+  ],
+
+  // L64 — Descriptive Adjectives I (Texture & Shape)
+  // pere/mopere, shiwe/moshiwe, leume/moleume are all pairs. hese stands alone.
+  adjectives3: [
+    {lw:"pere",    en:"softness",  pos:"n", canvas:{adj:"peri", adj_en:"soft", v:"peru", v_en:"to soften"}, pair:{mo:"mopere", mo_en:"hardness"}},
+    {lw:"mopere",  en:"hardness",  pos:"n", canvas:{adj:"moperi", adj_en:"hard", v:"moperu", v_en:"to harden"}, pair:{base:"pere", base_en:"softness"}},
+    {lw:"shiwe",   en:"smoothness",pos:"n", canvas:{adj:"shiwi", adj_en:"smooth", v:"shiwu", v_en:"to polish"}, pair:{mo:"moshiwe", mo_en:"roughness"}},
+    {lw:"moshiwe", en:"roughness", pos:"n", canvas:{adj:"moshiwi", adj_en:"rough", v:"moshiwu", v_en:"to roughen"}, pair:{base:"shiwe", base_en:"smoothness"}},
+    {lw:"leume",   en:"roundness", pos:"n", canvas:{adj:"leumi", adj_en:"round", v:"leumu", v_en:"to round"}, pair:{mo:"moleume", mo_en:"flatness"}},
+    {lw:"moleume", en:"flatness",  pos:"n", canvas:{adj:"moleumi", adj_en:"flat", v:"moleumu", v_en:"to flatten"}, pair:{base:"leume", base_en:"roundness"}},
+    {lw:"hese",    en:"knife",     pos:"n", canvas:{adj:"hesi", adj_en:"sharp", v:"hesu", v_en:"to cut"}},
+  ],
+
+  // L65 — Descriptive Adjectives II (Taste & Feel)
+  adjectives4: [
+    {lw:"kure",    en:"bitterness", pos:"n", canvas:{adj:"kuri", adj_en:"bitter", v:"kuru", v_en:"to turn bitter"}},
+    {lw:"feule",   en:"sourness",   pos:"n", canvas:{adj:"feuli", adj_en:"sour", v:"feulu", v_en:"to turn sour"}},
+    {lw:"pikale",  en:"spiciness",  pos:"n", canvas:{adj:"pikali", adj_en:"spicy", v:"pikalu", v_en:"to make spicy"}},
+    {lw:"houwe",   en:"dryness",    pos:"n", canvas:{adj:"houwi", adj_en:"dry", v:"houwu", v_en:"to dry"}},
+    {lw:"paile",   en:"clarity",    pos:"n", canvas:{adj:"paili", adj_en:"clear", v:"pailu", v_en:"to clarify"}},
+    {lw:"tuhe",    en:"boredom",    pos:"n", canvas:{adj:"tuhi", adj_en:"bored", v:"tuhu", v_en:"to bore"}},
+  ],
+
+  // L67 — Directions I (Cardinal)
+  // All four compounds. n+adj only (no verb — they're place-names, not actions).
+  directions1: [
+    {lw:"lianitowe",   en:"north", pos:"n", canvas:{adj:"lianitowi", adj_en:"northern"}, note:"From liani (high) + towe (place)"},
+    {lw:"molianitowe", en:"south", pos:"n", canvas:{adj:"molianitowi", adj_en:"southern"}, note:"From moliani (low) + towe (place)"},
+    {lw:"hunitowe",    en:"east",  pos:"n", canvas:{adj:"hunitowi", adj_en:"eastern"}, note:"From huni (right) + towe (place) — rising-sun orientation"},
+    {lw:"mohunitowe",  en:"west",  pos:"n", canvas:{adj:"mohunitowi", adj_en:"western"}, note:"From mohuni (left) + towe (place)"},
+  ],
+
+  // L68 — Directions II (Relative Motion)
+  // hune/mohune, niane/moniane are balancing pairs. tase and taume stand alone.
+  directions2: [
+    {lw:"hune",    en:"right (side)", pos:"n", canvas:{adj:"huni", adj_en:"right", v:"hunu", v_en:"to go right"},  pair:{mo:"mohune", mo_en:"left (side)"}},
+    {lw:"mohune",  en:"left (side)",  pos:"n", canvas:{adj:"mohuni", adj_en:"left", v:"mohunu", v_en:"to go left"},pair:{base:"hune", base_en:"right (side)"}},
+    {lw:"niane",   en:"nearness",     pos:"n", canvas:{adj:"niani", adj_en:"near", v:"nianu", v_en:"to approach"}, pair:{mo:"moniane", mo_en:"distance"}},
+    {lw:"moniane", en:"distance",     pos:"n", canvas:{adj:"moniani", adj_en:"far", v:"monianu", v_en:"to recede"},pair:{base:"niane", base_en:"nearness"}},
+    {lw:"tase",    en:"crossing",     pos:"n", canvas:{adj:"tasi", adj_en:"across", v:"tasu", v_en:"to cross"}},
+    {lw:"taume",   en:"passage",      pos:"n", canvas:{adj:"taumi", adj_en:"through", v:"taumu", v_en:"to pass through"}},
+  ],
+
+  // L69 — Spatial Position (sentence-based)
+  // Teaches loya, faloya, niwa, voi as new particles.
+  // Reinforces pohi/poki (from body) and liani/moliani (from L56) as position.
+  // Budget-validated per /mnt/user-data/outputs/l69_draft.md
+  spatial: [
+    {lw:["Paipe","su","poki","pahe"],                          en:"The dog is behind the table."},
+    {lw:["Ne","su","pohi","hiwe"],                             en:"I am in front of the house."},
+    {lw:["Yaihe","su","liani","kauhe"],                        en:"The bird is above the forest."},
+    {lw:["Shoule","su","moliani","shawe"],                     en:"The fish is below the water."},
+    {lw:["Neo","loiwe","su","niwa","pahe","sho","raule"],      en:"My book is between the table and the pillow."},
+    {lw:["Paipea","halu","voi","hiwe"],                        en:"The dogs walk around the house."},
+    {lw:["Ne","su","loya","ma","teo","mawe","su","faloya"],    en:"I am here, but your mother is there."},
+  ],
+
+  // L70 — Movement Verbs
+  // movanu is verb-only (no noun/adj — mo-form of vanu).
+  // liohe (step) added per coverage_notes.
+  movement: [
+    {lw:"shauwe",  en:"swim",      pos:"n", canvas:{adj:"shauwi", adj_en:"swimming", v:"shauwu", v_en:"to swim"}},
+    {lw:"eire",    en:"flight",    pos:"n", canvas:{adj:"eiri", adj_en:"flying", v:"eiru", v_en:"to fly"}},
+    {lw:"keye",    en:"fall",      pos:"n", canvas:{adj:"keyi", adj_en:"fallen", v:"keyu", v_en:"to fall"}},
+    {lw:"woune",   en:"lifting",   pos:"n", canvas:{adj:"wouni", adj_en:"lifted", v:"wounu", v_en:"to lift"}},
+    {lw:"movanu",  en:"to leave",  pos:"v", note:"Verb-only mo-form of vanu (to come)"},
+    {lw:"taike",   en:"jump",      pos:"n", canvas:{adj:"taiki", adj_en:"jumping", v:"taiku", v_en:"to jump"}},
+    {lw:"naike",   en:"climb",     pos:"n", canvas:{adj:"naiki", adj_en:"climbing", v:"naiku", v_en:"to climb"}},
+    {lw:"washe",   en:"movement",  pos:"n", canvas:{adj:"washi", adj_en:"flowing", v:"washu", v_en:"to move"}},
+    {lw:"liohe",   en:"step",      pos:"n", canvas:{adj:"liohi", adj_en:"stepped", v:"liohu", v_en:"to step up"}},
+  ],
+
+  // L71 — Verbs of Action
+  actionverbs: [
+    {lw:"paume",  en:"hit",        pos:"n", canvas:{adj:"paumi", adj_en:"struck", v:"paumu", v_en:"to hit"}},
+    {lw:"toke",   en:"use",        pos:"n", canvas:{adj:"toki", adj_en:"useful", v:"toku", v_en:"to use"}},
+    {lw:"puhe",   en:"action",     pos:"n", canvas:{adj:"puhi", adj_en:"active", v:"puhu", v_en:"to do"}},
+    {lw:"shame",  en:"attempt",    pos:"n", canvas:{adj:"shami", adj_en:"attempted", v:"shamu", v_en:"to try"}},
+    {lw:"poiwe",  en:"turn",       pos:"n", canvas:{adj:"poiwi", adj_en:"rotated", v:"poiwu", v_en:"to turn"}},
+    {lw:"faire",  en:"dance",      pos:"n", canvas:{adj:"fairi", adj_en:"danced", v:"fairu", v_en:"to dance"}},
+    {lw:"vauhe",  en:"clothing",   pos:"n", canvas:{adj:"vauhi", adj_en:"worn", v:"vauhu", v_en:"to wear"}},
+  ],
+
+  // L72 — Clothing
+  // Most are noun-only. poume (bag) is full canvas. waine (belt) is n+adj only.
+  clothing: [
+    {lw:"feure",    en:"coat",    pos:"n"},
+    {lw:"paiwe",    en:"shoe",    pos:"n"},
+    {lw:"pime",     en:"hat",     pos:"n"},
+    {lw:"shoume",   en:"shirt",   pos:"n"},
+    {lw:"woulime",  en:"dress",   pos:"n"},
+    {lw:"poume",    en:"bag",     pos:"n", canvas:{adj:"poumi", adj_en:"of a bag", v:"poumu", v_en:"to bag"}},
+    {lw:"waine",    en:"belt",    pos:"n", canvas:{adj:"waini", adj_en:"belt-like"}},
+    {lw:"paiwile",  en:"sock",    pos:"n", note:"Diminutive of paiwe (shoe)"},
+    {lw:"laiwe",    en:"pants",   pos:"n"},
+  ],
+
+  // L73 — Places & Buildings
+  // heule canvas; heulile, senehiwe, sheyahe are noun-only lexicalized compounds.
+  // tieme, luere canvas. naohe n+adj only. shauke reinforced from L40 as landmark.
+  // shauhe (bathroom), pokihiwe (backyard) added per coverage_notes.
+  places: [
+    {lw:"heule",     en:"city",      pos:"n", canvas:{adj:"heuli", adj_en:"urban", v:"heulu", v_en:"to urbanize"}},
+    {lw:"heulile",   en:"town",      pos:"n", note:"Diminutive of heule"},
+    {lw:"senehiwe",  en:"school",    pos:"n", note:"From sene (knowledge) + hiwe (house)"},
+    {lw:"sheyahe",   en:"hospital",  pos:"n", note:"Lexicalized compound"},
+    {lw:"tieme",     en:"store",     pos:"n", canvas:{adj:"tiemi", adj_en:"commercial", v:"tiemu", v_en:"to run a store"}},
+    {lw:"luere",     en:"road",      pos:"n", canvas:{adj:"lueri", adj_en:"on a road", v:"lueru", v_en:"to pave"}},
+    {lw:"naohe",     en:"bridge",    pos:"n", canvas:{adj:"naohi", adj_en:"bridge-like"}},
+    {lw:"shauhe",    en:"bathroom",  pos:"n", canvas:{adj:"shauhi", adj_en:"of the bathroom"}},
+    {lw:"pokihiwe",  en:"backyard",  pos:"n", note:"From poki (behind) + hiwe (house)"},
+  ],
+
+  // L74 — Technology & Objects
+  // peire, voure, tiere, weye, siehe, pauwe are full canvas.
+  // neule, weyile, une, unile are noun-only (or n+adj only).
+  // wainoe, shirimiehe added per coverage_notes.
+  tech: [
+    {lw:"peire",       en:"camera",      pos:"n", canvas:{adj:"peiri", adj_en:"of a camera", v:"peiru", v_en:"to photograph"}},
+    {lw:"voure",       en:"phone",       pos:"n", canvas:{adj:"vouri", adj_en:"phone-related", v:"vouru", v_en:"to call"}},
+    {lw:"tiere",       en:"computer",    pos:"n", canvas:{adj:"tieri", adj_en:"of a computer", v:"tieru", v_en:"to compute"}},
+    {lw:"neule",       en:"television",  pos:"n", canvas:{adj:"neuli", adj_en:"of a TV"}},
+    {lw:"weye",        en:"clock",       pos:"n", canvas:{adj:"weyi", adj_en:"of a clock", v:"weyu", v_en:"to check the time"}},
+    {lw:"weyile",      en:"wristwatch",  pos:"n", note:"Diminutive of weye"},
+    {lw:"une",         en:"movie",       pos:"n", canvas:{adj:"uni", adj_en:"cinematic"}},
+    {lw:"unile",       en:"TV show",     pos:"n", canvas:{adj:"unili", adj_en:"of a TV show"}, note:"Diminutive of une"},
+    {lw:"siehe",       en:"electricity", pos:"n", canvas:{adj:"siehi", adj_en:"electric", v:"siehu", v_en:"to power on"}},
+    {lw:"pauwe",       en:"machine",     pos:"n", canvas:{adj:"pauwi", adj_en:"mechanical", v:"pauwu", v_en:"to operate"}},
+    {lw:"wainoe",      en:"internet",    pos:"n", canvas:{adj:"wainoi", adj_en:"online"}},
+    {lw:"shirimiehe",  en:"AI",          pos:"n", canvas:{adj:"shirimiehi", adj_en:"AI-related"}, note:"Artificial intelligence"},
+  ],
+
+  // L75 — Materials
+  // Most are n+adj only. koiwe (corner) added per coverage_notes as full canvas.
+  materials: [
+    {lw:"moile",   en:"wood",    pos:"n", canvas:{adj:"moili", adj_en:"wooden"}},
+    {lw:"kahime",  en:"metal",   pos:"n", canvas:{adj:"kahimi", adj_en:"metallic"}},
+    {lw:"paime",   en:"glass",   pos:"n", canvas:{adj:"paimi", adj_en:"glassy"}},
+    {lw:"shouwe",  en:"soap",    pos:"n", canvas:{adj:"shouwi", adj_en:"soapy"}},
+    {lw:"woile",   en:"cloth",   pos:"n", canvas:{adj:"woili", adj_en:"cloth-like"}},
+    {lw:"loihe",   en:"paper",   pos:"n", canvas:{adj:"loihi", adj_en:"paper-like"}},
+    {lw:"wauwe",   en:"basket",  pos:"n", canvas:{adj:"wauwi", adj_en:"basket-like"}},
+    {lw:"koiwe",   en:"corner",  pos:"n", canvas:{adj:"koiwi", adj_en:"angular", v:"koiwu", v_en:"to corner"}},
+  ],
+
+  // L76 — Productive Compound: -tieme
+  // Teaches the productive -tieme pattern. New base root mashe (medicine).
+  // leye (money) also added here per coverage_notes as payment vocab fits shopping.
+  compoundtieme: [
+    {lw:"mashe",        en:"medicine",    pos:"n", canvas:{adj:"mashi", adj_en:"medicinal", v:"mashu", v_en:"to treat"}},
+    {lw:"leye",         en:"money",       pos:"n", canvas:{adj:"leyi", adj_en:"monetary", v:"leyu", v_en:"to pay"}},
+    {lw:"houmetieme",   en:"bakery",      pos:"n", note:"houme (bread) + tieme (store)"},
+    {lw:"loiwetieme",   en:"bookstore",   pos:"n", note:"loiwe (book) + tieme"},
+    {lw:"pometieme",    en:"fruit store", pos:"n", note:"pome (fruit) + tieme"},
+    {lw:"kupetieme",    en:"café",        pos:"n", note:"kupe (coffee) + tieme"},
+    {lw:"mashetieme",   en:"pharmacy",    pos:"n", note:"mashe (medicine) + tieme"},
+  ],
+
+  // L78 — Checkpoint 4 (sentence-based — Unit 4 culminating challenge)
+  // Budget-validated per /mnt/user-data/outputs/l78_checkpoint4_draft.md
+  checkpoint4: [
+    {lw:["Ne","su","apa","houli","fa","neoa","wahe"],               en:"I am the happiest of our family."},
+    {lw:["Tai","puea","tahu","pome"],                               en:"All people eat fruit."},
+    {lw:["Ne","wa","tiru","saihue","ya","luere"],                   en:"I saw something on the road."},
+    {lw:["Yaihea","eiru","sho","shoulea","shauwu"],                 en:"Birds fly and fish swim."},
+    {lw:["Ki","te","wa","liru","faihue"],                           en:"Did you say anything?"},
+    {lw:["Neo","mawe","su","pohi","hiwe"],                          en:"My mother is in front of the house."},
+    {lw:["Lo","feure","su","apa","nohi"],                           en:"This coat is the newest."},
+    {lw:["Ne","vouru","neo","yoye","ya","yauhe"],                   en:"I call my sister in the morning."},
+    {lw:["Nea","halu","so","senehiwe","lo","yauhe"],                en:"We go to school this morning."},
+    {lw:["Veo","mewe","su","moliani","pahe"],                       en:"His cat is under the table."},
+    {lw:["Faipue","sahu","fasu"],                                   en:"Anyone can work."},
+    {lw:["Ne","wa","hoyu","loiwe","ya","loiwetieme"],               en:"I bought a book at the bookstore."},
+    {lw:["Paipe","wa","taiku","voi","hiwe"],                        en:"The dog jumped around the house."},
+    {lw:["Nuli","pue","su","loya","lole"],                          en:"No one is here now."},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1398,7 +1673,8 @@ const UNITS = [
   {name:"Unit 1 — Foundations", start:0},
   {name:"Unit 2 — Daily World", start:17},
   {name:"Unit 3 — Connecting Words", start:37},
-  // Unit 4+ added as lessons are built.
+  {name:"Unit 4 — Expression", start:55},
+  // Unit 5+ added as lessons are built.
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1466,6 +1742,31 @@ const LESSONS = [
   {id:"emotions1",       title:"Emotions I: Core",           desc:"Joy, sadness, bravery, fear",                  icon:"😊",  vocabKey:"emotions1",       xp:22, unit:2},
   {id:"unit3review",     title:"Unit 3 Review",              desc:"Review everything from Unit 3 so far",         icon:"🔁",  vocabKey:"_review",         xp:24, unit:2, isReview:true, reviewPool:["plants","verbs1","verbs2","verbs3","numbers1","numbers2","time1","daysofweek","months","time2","seasons","colors1","colors2","emotions1"]},
   {id:"checkpoint3",     title:"Checkpoint 3",               desc:"Unit 3 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint3",     xp:45, unit:2, isSentence:true, isCheckpoint:true},
+
+  // ── UNIT 4: EXPRESSION (L56–L78) ────────────────────────────────
+  {id:"comparatives",          title:"Comparatives & Superlatives", desc:"More, less, as-as, most, least",            icon:"📊",  vocabKey:"comparatives",          xp:24, unit:3, isSentence:true},
+  {id:"quantifiers1",          title:"Set Quantifiers",             desc:"All, some, many, any, none",                icon:"🔢",  vocabKey:"quantifiers1",          xp:24, unit:3, isSentence:true},
+  {id:"quantifiers2",          title:"Measure Quantifiers",         desc:"More, less, enough, not enough",            icon:"⚖️", vocabKey:"quantifiers2",          xp:22, unit:3},
+  {id:"existentials",          title:"Existential Pronouns",        desc:"Someone, anything, no one, everyone",       icon:"👤",  vocabKey:"existentials",          xp:24, unit:3},
+  {id:"emotions2",             title:"Emotions II: Social",         desc:"Calm, anger, worry, pride, trust",          icon:"😤",  vocabKey:"emotions2",             xp:24, unit:3},
+  {id:"emotions3",             title:"Emotions III: Deep",          desc:"Excitement, loneliness, jealousy, pain",    icon:"💔",  vocabKey:"emotions3",             xp:24, unit:3},
+  {id:"expressionsoffeeling",  title:"Expressions of Feeling",      desc:"Laugh, cry, smile, frown, kiss, surprise",  icon:"🥲",  vocabKey:"expressionsoffeeling",  xp:22, unit:3},
+  {id:"personality",           title:"Personality Traits",          desc:"Careful, honest, thoughtful, respectful",   icon:"🧭",  vocabKey:"personality",           xp:24, unit:3},
+  {id:"adjectives3",           title:"Adjectives: Texture & Shape", desc:"Soft, hard, smooth, rough, round, flat",    icon:"🔷",  vocabKey:"adjectives3",           xp:22, unit:3},
+  {id:"adjectives4",           title:"Adjectives: Taste & Feel",    desc:"Bitter, sour, spicy, dry, clear, boring",   icon:"🌶️", vocabKey:"adjectives4",           xp:22, unit:3},
+  {id:"unit4review1",          title:"Unit 4 Review (part 1)",      desc:"Review Unit 4 so far",                      icon:"🔁",  vocabKey:"_review",               xp:24, unit:3, isReview:true, reviewPool:["quantifiers2","existentials","emotions2","emotions3","expressionsoffeeling","personality","adjectives3","adjectives4"]},
+  {id:"directions1",           title:"Directions I: Cardinal",      desc:"North, south, east, west",                  icon:"🧭",  vocabKey:"directions1",           xp:20, unit:3},
+  {id:"directions2",           title:"Directions II: Motion",       desc:"Right, left, near, far, across, through",   icon:"↔️", vocabKey:"directions2",           xp:24, unit:3},
+  {id:"spatial",               title:"Spatial Position",            desc:"Here, there, above, below, between, around",icon:"📍",  vocabKey:"spatial",               xp:24, unit:3, isSentence:true},
+  {id:"movement",              title:"Movement Verbs",              desc:"Swim, fly, fall, jump, climb, leave, move", icon:"🏃‍♂️", vocabKey:"movement",             xp:24, unit:3},
+  {id:"actionverbs",           title:"Verbs of Action",             desc:"Hit, use, do, try, turn, dance, wear",      icon:"⚡",  vocabKey:"actionverbs",           xp:22, unit:3},
+  {id:"clothing",              title:"Clothing",                    desc:"Coat, shoe, hat, shirt, dress, pants",      icon:"👕",  vocabKey:"clothing",              xp:22, unit:3},
+  {id:"places",                title:"Places & Buildings",          desc:"City, school, hospital, store, bridge",     icon:"🏙️", vocabKey:"places",                xp:24, unit:3},
+  {id:"tech",                  title:"Technology & Objects",        desc:"Phone, computer, clock, TV, AI, internet",  icon:"📱",  vocabKey:"tech",                  xp:24, unit:3},
+  {id:"materials",             title:"Materials",                   desc:"Wood, metal, glass, cloth, paper, basket",  icon:"🪵",  vocabKey:"materials",             xp:22, unit:3},
+  {id:"compoundtieme",         title:"Productive Compound: -tieme", desc:"Bakery, bookstore, pharmacy — build store names", icon:"🏪",  vocabKey:"compoundtieme",   xp:24, unit:3},
+  {id:"unit4review2",          title:"Unit 4 Review (part 2)",      desc:"Review the second half of Unit 4",          icon:"🔁",  vocabKey:"_review",               xp:26, unit:3, isReview:true, reviewPool:["directions1","directions2","movement","actionverbs","clothing","places","tech","materials","compoundtieme"]},
+  {id:"checkpoint4",           title:"Checkpoint 4",                desc:"Unit 4 sentence challenge",                 icon:"🏆",  vocabKey:"checkpoint4",           xp:50, unit:3, isSentence:true, isCheckpoint:true},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
@@ -2561,7 +2862,7 @@ function renderFlashcard(ex){
       </div>`;
   } else {
     // Simple noun, particle, social expression — single big card.
-    const posLabel=item.pos==="social"?"social expression":(item.pos==="particle"?"particle":(item.pos==="pronoun"?"pronoun":(item.pos==="n"?"noun":item.pos||"")));
+    const posLabel=item.pos==="social"?"social expression":(item.pos==="particle"?"particle":(item.pos==="pronoun"?"pronoun":(item.pos==="n"?"noun":(item.pos==="v"?"verb":(item.pos==="number"?"number":item.pos||"")))));
     mainHTML=`
       <div style="text-align:center;padding:20px 20px;background:var(--bg2);border-radius:16px;border:1.5px solid var(--border)">
         <div style="font-family:var(--display);font-size:36px;font-weight:900;color:var(--text);letter-spacing:-0.02em">${escapeHTML(lw)}</div>
