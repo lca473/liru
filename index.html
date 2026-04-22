@@ -977,7 +977,8 @@ function generateExercises(lessonId){
 function generateVocabExercises(lesson){
   const items=V[lesson.vocabKey];
   if(!items||items.length===0)return[];
-  // Items may carry canvas and pair metadata. Normalize for drills below.
+
+  // Normalize the current lesson's items.
   const wordItems=items.map(v=>({
     lw:Array.isArray(v.lw)?v.lw.join(" "):v.lw,
     en:v.en,
@@ -987,85 +988,138 @@ function generateVocabExercises(lesson){
     pair:v.pair||null,
     plural:v.plural||null, plural_en:v.plural_en||null,
   }));
+
+  // Build a pool of words from previous lessons to use as distractors when the
+  // current lesson is small. Walk LESSONS up to (but not including) the current
+  // lesson, collecting each non-review, non-checkpoint lesson's items.
+  const distractorPool=[];
+  const seenEn=new Set(wordItems.map(w=>w.en));
+  const seenLw=new Set(wordItems.map(w=>w.lw));
+  for(const L of LESSONS){
+    if(L.id===lesson.id)break;
+    if(L.isReview||L.isCheckpoint||L.isFinalTest)continue;
+    const arr=V[L.vocabKey];
+    if(!arr)continue;
+    arr.forEach(v=>{
+      if(Array.isArray(v.lw))return; // skip multi-word sentences
+      if(seenEn.has(v.en)||seenLw.has(v.lw))return;
+      distractorPool.push({lw:v.lw, en:v.en, pos:v.pos||null});
+      seenEn.add(v.en);
+      seenLw.add(v.lw);
+    });
+  }
+  // Combined pool for distractor lookups (current + previous).
+  const fullPool=[...wordItems, ...distractorPool];
+
+  // Helper: get 3 wrong answers from fullPool that don't share the target's gloss/lw.
+  const wrongEn=(target)=>pickUnique(fullPool.filter(v=>v.en!==target.en), 3, v=>v.en).map(v=>v.en);
+  const wrongLw=(target)=>pickUnique(fullPool.filter(v=>v.lw!==target.lw), 3, v=>v.lw).map(v=>v.lw);
+
   const exercises=[];
 
   // ─── STAGE 1: Flashcard introductions ────────────────────────
-  // One flashcard per item. Shown in the lesson's natural order (no shuffle).
-  // Flashcards are instructional — they pass through with a single "Got it" tap.
   wordItems.forEach(item=>{
     exercises.push({type:"flashcard", item:item});
   });
 
   // ─── STAGE 2: Recognition (LW → EN) ─────────────────────────
-  // Easier direction first. One MC per item, up to 4 total.
-  const recogPool=wordItems.filter(v=>v.pos!=="particle"||wordItems.length<=4);
-  const recogItems=shuffle([...recogPool]).slice(0,Math.min(4, recogPool.length));
-  recogItems.forEach(item=>{
-    const wrong=pickUnique(wordItems.filter(v=>v.en!==item.en),3,v=>v.en).map(v=>v.en);
+  // One MC per item up to 5. Extra items get covered via top-up or match.
+  shuffle([...wordItems]).slice(0, 5).forEach(item=>{
+    const wrong=wrongEn(item);
     if(wrong.length<3)return;
     exercises.push({type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrong]), note:item.note, lwWord:item.lw});
   });
 
   // ─── STAGE 3: Production (EN → LW) ──────────────────────────
-  // Harder direction. 2 MC + 1 fill.
-  const prodItems=shuffle([...wordItems]).slice(0,3);
-  prodItems.slice(0,2).forEach(item=>{
-    const wrong=pick(wordItems.filter(v=>v.lw!==item.lw),3).map(v=>v.lw);
+  // One MC per item up to 4; then 2 fill-ins.
+  shuffle([...wordItems]).slice(0, 4).forEach(item=>{
+    const wrong=wrongLw(item);
     if(wrong.length<3)return;
     exercises.push({type:"mc", prompt:`How do you say "${item.en}" in Liru?`, correct:item.lw, options:shuffle([item.lw,...wrong])});
   });
-  if(prodItems[2]){
-    exercises.push({type:"fill", prompt:`"${prodItems[2].en}" in Liru is:`, correct:prodItems[2].lw.toLowerCase()});
-  }
+  shuffle([...wordItems]).slice(0,2).forEach(item=>{
+    exercises.push({type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()});
+  });
 
   // ─── STAGE 4: Canvas drill ───────────────────────────────────
-  // For any item with a canvas field, create a "given this form, produce another form" MC.
   const canvasItems=wordItems.filter(v=>v.canvas);
   if(canvasItems.length>0){
-    const pick1=canvasItems[Math.floor(Math.random()*canvasItems.length)];
-    // Decide direction: noun → verb, noun → adj, adj → verb, etc.
-    const directions=[
-      {from:"n",   fromForm:pick1.lw,           fromEn:pick1.en,           to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en},
-      {from:"n",   fromForm:pick1.lw,           fromEn:pick1.en,           to:"adj", toForm:pick1.canvas.adj, toEn:pick1.canvas.adj_en},
-      {from:"adj", fromForm:pick1.canvas.adj,   fromEn:pick1.canvas.adj_en, to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en},
-      {from:"v",   fromForm:pick1.canvas.v,     fromEn:pick1.canvas.v_en,   to:"n",   toForm:pick1.lw,         toEn:pick1.en},
-    ].filter(d=>d.toForm); // some roots only have n+adj
-    if(directions.length>0){
-      const dir=directions[Math.floor(Math.random()*directions.length)];
-      // Build distractors: pick other canvas forms from other roots in this lesson
-      const distractorPool=[];
-      canvasItems.forEach(ci=>{
-        if(ci.lw===pick1.lw)return;
-        if(ci.lw)distractorPool.push(ci.lw);
-        if(ci.canvas&&ci.canvas.adj)distractorPool.push(ci.canvas.adj);
-        if(ci.canvas&&ci.canvas.v)distractorPool.push(ci.canvas.v);
-      });
-      const wrong=pick(distractorPool.filter(d=>d!==dir.toForm),3);
-      if(wrong.length>=2){
-        const posLabel={n:"noun", adj:"adjective", v:"verb"}[dir.to];
-        exercises.push({
-          type:"canvasDrill",
-          prompt:`"${dir.fromForm}" means "${dir.fromEn}". What is its ${posLabel} form?`,
-          correct:dir.toForm,
-          correctEn:dir.toEn,
-          options:shuffle([dir.toForm, ...wrong.slice(0,3)])
-        });
+    // Build a canvas-distractor pool from current + previous canvas items.
+    const canvasDistractors=[];
+    fullPool.forEach(v=>{
+      if(v.canvas){
+        if(v.canvas.adj)canvasDistractors.push(v.canvas.adj);
+        if(v.canvas.v)canvasDistractors.push(v.canvas.v);
+        canvasDistractors.push(v.lw);
       }
-    }
+    });
+    // Generate up to 2 canvas drills (one per random current-lesson canvas item).
+    const drillSources=shuffle([...canvasItems]).slice(0,Math.min(2, canvasItems.length));
+    drillSources.forEach(pick1=>{
+      const directions=[
+        {fromForm:pick1.lw,           fromEn:pick1.en,           to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en},
+        {fromForm:pick1.lw,           fromEn:pick1.en,           to:"adj", toForm:pick1.canvas.adj, toEn:pick1.canvas.adj_en},
+        {fromForm:pick1.canvas.adj,   fromEn:pick1.canvas.adj_en, to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en},
+        {fromForm:pick1.canvas.v,     fromEn:pick1.canvas.v_en,   to:"n",   toForm:pick1.lw,         toEn:pick1.en},
+      ].filter(d=>d.toForm && d.fromForm);
+      if(directions.length===0)return;
+      const dir=directions[Math.floor(Math.random()*directions.length)];
+      const wrong=pick(canvasDistractors.filter(d=>d!==dir.toForm && d!==dir.fromForm), 3);
+      if(wrong.length<3)return;
+      const posLabel={n:"noun", adj:"adjective", v:"verb"}[dir.to];
+      exercises.push({
+        type:"canvasDrill",
+        prompt:`"${dir.fromForm}" means "${dir.fromEn}". What is its ${posLabel} form?`,
+        correct:dir.toForm,
+        correctEn:dir.toEn,
+        options:shuffle([dir.toForm, ...wrong])
+      });
+    });
   }
 
   // ─── STAGE 5: Consolidation match ────────────────────────────
-  if(wordItems.length>=4){
-    const matchItems=pick(wordItems.filter(v=>v.pos!=="particle"),Math.min(4,wordItems.length));
-    if(matchItems.length>=3){
-      exercises.push({type:"match", pairs:matchItems.map(v=>({left:v.lw, right:v.en}))});
-    }
+  // Use current lesson words if possible, but mix in previous-lesson words if
+  // the current lesson doesn't have enough to form 4 pairs.
+  const matchCandidates=[...wordItems.filter(v=>v.pos!=="particle")];
+  while(matchCandidates.length<4 && distractorPool.length>0){
+    const extra=distractorPool.filter(v=>v.pos!=="particle" && !matchCandidates.find(m=>m.lw===v.lw));
+    if(extra.length===0)break;
+    matchCandidates.push(extra[Math.floor(Math.random()*extra.length)]);
+  }
+  if(matchCandidates.length>=3){
+    const matchItems=pick(matchCandidates, Math.min(4, matchCandidates.length));
+    exercises.push({type:"match", pairs:matchItems.map(v=>({left:v.lw, right:v.en}))});
   }
 
-  // Target: 14 exercises. Flashcards are at the front and not shuffled; the rest shuffles.
+  // ─── STAGE 6: TOP-UP to reach target length ──────────────────
+  // Every lesson has at least 14 total exercises. Larger lessons naturally
+  // produce more in earlier stages, so top-up fills the gap for small ones.
+  const flashcardCount=wordItems.length;
+  const targetTotal=Math.max(14, flashcardCount + 10);
+  let padNeeded=targetTotal - exercises.length;
+  let guard=40; // safety: never loop forever
+  while(padNeeded>0 && guard-->0){
+    // Alternate between fill and MC (LW→EN) for variety.
+    const item=wordItems[Math.floor(Math.random()*wordItems.length)];
+    if(padNeeded%2===0){
+      // MC LW→EN
+      const wrong=wrongEn(item);
+      if(wrong.length<3){
+        exercises.push({type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()});
+      } else {
+        exercises.push({type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrong]), note:item.note, lwWord:item.lw});
+      }
+    } else {
+      // Fill EN→LW
+      exercises.push({type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()});
+    }
+    padNeeded--;
+  }
+
+  // Flashcards stay at the front in natural order; everything else shuffles.
   const flashcards=exercises.filter(e=>e.type==="flashcard");
   const drills=exercises.filter(e=>e.type!=="flashcard");
-  return [...flashcards, ...shuffle(drills)].slice(0, Math.max(flashcards.length+8, 14));
+  return [...flashcards, ...shuffle(drills)];
 }
 
 function generateSentenceExercises(lesson){
@@ -2017,7 +2071,7 @@ function handleAnswer(isCorrect){
       const gradedCount=state.exercises.filter(e=>e.type!=="flashcard").length||1;
       state.accXP+=Math.round(state.lesson.xp/gradedCount);
     }
-    setTimeout(()=>advanceAfterAnswer(),isFlashcard?300:900);
+    setTimeout(()=>advanceAfterAnswer(),isFlashcard?0:900);
     return;
   }
 
