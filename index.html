@@ -263,6 +263,29 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   font-size:14px; font-weight:600; color:var(--mid); line-height:1.7;
 }
 .grammar-intro strong { color:var(--text); }
+.lesson-intro-card {
+  background:linear-gradient(135deg, rgba(88,204,2,0.08), rgba(28,176,246,0.06));
+  border:1.5px solid var(--border); border-radius:var(--radius);
+  padding:20px 22px; margin-bottom:4px;
+  font-size:15px; font-weight:600; color:var(--mid); line-height:1.7;
+}
+.lesson-intro-card h3 {
+  font-family:var(--display); font-size:20px; font-weight:800; color:var(--text);
+  margin:0 0 12px 0;
+}
+.lesson-intro-card p { margin:0 0 10px 0; }
+.lesson-intro-card p:last-child { margin-bottom:0; }
+.lesson-intro-card strong { color:var(--text); }
+.lesson-intro-card em {
+  color:var(--text); font-style:italic; font-weight:700;
+  background:rgba(255,255,255,0.04); padding:1px 5px; border-radius:4px;
+}
+.lesson-intro-card .example {
+  display:block; margin:8px 0; padding:10px 14px;
+  background:var(--bg2); border-radius:10px;
+  font-size:14px; color:var(--text); font-weight:700;
+}
+.lesson-intro-card .example .gloss { color:var(--dim); font-weight:600; margin-left:8px; }
 .grammar-section {
   margin-bottom:12px;
   border:1.5px solid var(--border); border-radius:var(--radius);
@@ -863,8 +886,8 @@ const V = {
     {lw:"mopiame", en:"bigness",    pos:"n", canvas:{adj:"mopiami", adj_en:"big", v:"mopiamu", v_en:"to enlarge"}, pair:{base:"piame", base_en:"smallness"}},
     {lw:"mele",    en:"goodness",   pos:"n", canvas:{adj:"meli", adj_en:"good", v:"melu", v_en:"to do good"},    pair:{mo:"momele", mo_en:"badness"}},
     {lw:"momele",  en:"badness",    pos:"n", canvas:{adj:"momeli", adj_en:"bad", v:"momelu", v_en:"to do ill"},  pair:{base:"mele", base_en:"goodness"}},
-    {lw:"nohe",    en:"newness",    pos:"n", canvas:{adj:"nohi", adj_en:"new", v:"nohu", v_en:"to renew"},       pair:{mo:"monohe", mo_en:"age"}},
-    {lw:"monohe",  en:"age (oldness)", pos:"n", canvas:{adj:"monohi", adj_en:"old", v:"monohu", v_en:"to grow old"}, pair:{base:"nohe", base_en:"newness"}},
+    {lw:"nohe",    en:"newness (or youth)",    pos:"n", canvas:{adj:"nohi", adj_en:"new (or young)", v:"nohu", v_en:"to make young again"},       pair:{mo:"monohe", mo_en:"oldness (or age)"}},
+    {lw:"monohe",  en:"oldness (or age)", pos:"n", canvas:{adj:"monohi", adj_en:"old (or aged)", v:"monohu", v_en:"to grow old"}, pair:{base:"nohe", base_en:"newness (or youth)"}},
   ],
 
   // L12 — Basic Adjectives II (Beauty, Strength)
@@ -1736,7 +1759,7 @@ const V = {
   // Quantifier + weli frequency adverbs. wele is the base canvas root.
   frequency: [
     {lw:"wele",      en:"time",      pos:"n", canvas:{adj:"weli", adj_en:"timely", v:"welu", v_en:"to time"}},
-    {lw:"taiweli",   en:"always (or forever)",    pos:"adv", note:"tai (all) + weli (times)"},
+    {lw:"taiweli",   en:"always",    pos:"adv", note:"tai (all) + weli (times)"},
     {lw:"naiweli",   en:"often",     pos:"adv", note:"nai (many) + weli"},
     {lw:"saiweli",   en:"sometimes", pos:"adv", note:"sai (some) + weli"},
     {lw:"faiweli",   en:"ever",      pos:"adv", note:"fai (any, free-choice) + weli"},
@@ -2153,22 +2176,22 @@ const LESSONS = [
   {id:"body1",        title:"Body I: Head & Face",       desc:"Head, face, eyes, nose, mouth, mind",        icon:"😊",  vocabKey:"body1",        xp:20, unit:0},
   {id:"body2",        title:"Body II: Torso",            desc:"Neck, chest, stomach, back, skin, blood",    icon:"🫁",  vocabKey:"body2",        xp:20, unit:0},
   {id:"body3",        title:"Body III: Limbs",           desc:"Arms, legs, hands, feet, joints",            icon:"💪",  vocabKey:"body3",        xp:22, unit:0},
-  {id:"moprefix",     title:"The mo- Prefix",            desc:"Every thing has its balancing partner",      icon:"☯️", vocabKey:"moprefix",     xp:20, unit:0, isSentence:true},
+  {id:"moprefix",     title:"The mo- Prefix",            desc:"Every thing has its balancing partner",      icon:"☯️", vocabKey:"moprefix",     xp:20, unit:0, isSentence:true, intro:`<h3>☯️ The <em>mo-</em> Prefix</h3><p>In Liru, many opposites are built by adding <em>mo-</em> to the front of a word. You don't learn a separate word for the opposite — you just add <em>mo-</em>.</p><p>For example, you already know <em>lune</em> (light). To say <strong>darkness</strong>, just add <em>mo-</em>:</p><span class="example">lune <span class="gloss">light</span> → molune <span class="gloss">darkness</span></span><p>The same pattern works for the adjectives and verbs built from the root. <em>luni</em> means <strong>bright</strong>, so <em>moluni</em> means <strong>dark</strong>:</p><span class="example">luni <span class="gloss">bright</span> → moluni <span class="gloss">dark</span></span><p>This is one of the most important patterns in Liru. Once you know a word, you often already know its opposite — just add <em>mo-</em>.</p><p>In this lesson, you'll practice with <em>lune / molune</em> (light / darkness) and <em>waihe / mowaihe</em> (hope / despair).</p>`},
   {id:"adjectives1",  title:"Basic Adjectives I",        desc:"Small, big, good, bad, new, old",            icon:"📏",  vocabKey:"adjectives1",  xp:20, unit:0},
   {id:"adjectives2",  title:"Basic Adjectives II",       desc:"Beautiful, ugly, strong, weak",              icon:"✨",  vocabKey:"adjectives2",  xp:18, unit:0},
   {id:"simpleverbs",  title:"Simple Verbs",              desc:"See, hear, speak, know",                     icon:"👀",  vocabKey:"simpleverbs",  xp:20, unit:0},
   {id:"svo",          title:"SVO + Love & Hate",         desc:"Subject-verb-object sentences",              icon:"💗",  vocabKey:"svo",          xp:22, unit:0},
-  {id:"yesno",        title:"Yes/No Questions",          desc:"Asking 'is it?' with ki",                    icon:"❓",  vocabKey:"yesno",        xp:22, unit:0, isSentence:true},
+  {id:"yesno",        title:"Yes/No Questions",          desc:"Asking 'is it?' with ki",                    icon:"❓",  vocabKey:"yesno",        xp:22, unit:0, isSentence:true, intro:`<h3>❓ Yes/No Questions</h3><p>To turn a statement into a yes-or-no question in Liru, just put <em>ki</em> at the front. The rest of the sentence stays exactly the same.</p><span class="example">Te su Neal. <span class="gloss">You are Neal.</span></span><span class="example">Ki te su Neal? <span class="gloss">Are you Neal?</span></span><p>That's it. No changing the word order, no adding extra words — just <em>ki</em> at the front.</p><p>In this lesson, you'll practice asking simple yes/no questions.</p>`},
   {id:"unit1review",  title:"Unit 1 Review",             desc:"Review everything from Unit 1 so far",       icon:"🔁",  vocabKey:"_review",      xp:18, unit:0, isReview:true, reviewPool:["greetings","pronouns","possessives","canvas","family1","family2","body1","body2","body3","moprefix","adjectives1","adjectives2","simpleverbs","svo"]},
   {id:"checkpoint1",  title:"Checkpoint 1",              desc:"Unit 1 sentence challenge",                  icon:"🏆",  vocabKey:"checkpoint1",  xp:35, unit:0, isSentence:true, isCheckpoint:true},
 
   // ── UNIT 2: DAILY WORLD (L18–L37) ──────────────────────────────
   {id:"home1",           title:"Home I: Rooms & Furniture",  desc:"Rooms, tables, chairs, beds, walls",           icon:"🏠",  vocabKey:"home1",           xp:22, unit:1},
   {id:"home2",           title:"Home II: Kitchen & Dining",  desc:"Kitchen, plates, cups, forks, spoons",         icon:"🍽️", vocabKey:"home2",           xp:20, unit:1},
-  {id:"nouninflection",  title:"Noun Plurals & Possession",  desc:"The -ea, -eo, -eoa suffixes on nouns",         icon:"📐",  vocabKey:"nouninflection",  xp:20, unit:1, isSentence:true},
+  {id:"nouninflection",  title:"Noun Plurals & Possession",  desc:"The -ea, -eo, -eoa suffixes on nouns",         icon:"📐",  vocabKey:"nouninflection",  xp:20, unit:1, isSentence:true, intro:`<h3>📐 Noun Plurals & Possession</h3><p>Liru uses three short endings on nouns to show plural and "belonging to." They attach right to the end of a noun.</p><p><em>-ea</em> makes a noun <strong>plural</strong>:</p><span class="example">paipe <span class="gloss">dog</span> → paipea <span class="gloss">dogs</span></span><p><em>-eo</em> means <strong>"of" that noun</strong> (possession):</p><span class="example">paipeo houme <span class="gloss">the dog's bread</span></span><p>And <em>-eoa</em> combines both — <strong>"of those plural things"</strong>:</p><span class="example">paipeoa houme <span class="gloss">the dogs' bread</span></span><p>The endings attach only to nouns (words ending in <em>-e</em>), never to adjectives or verbs.</p>`},
   {id:"demonstratives",  title:"Demonstratives",             desc:"This, these, that, those",                     icon:"👉",  vocabKey:"demonstratives",  xp:18, unit:1},
-  {id:"tense",           title:"Past & Future Tense",        desc:"Saying what happened and what will happen",    icon:"⏳",  vocabKey:"tense",           xp:22, unit:1, isSentence:true},
-  {id:"negation",        title:"Negation",                   desc:"Saying no — mai with verbs",                   icon:"🚫",  vocabKey:"negation",        xp:20, unit:1, isSentence:true},
+  {id:"tense",           title:"Past & Future Tense",        desc:"Saying what happened and what will happen",    icon:"⏳",  vocabKey:"tense",           xp:22, unit:1, isSentence:true, intro:`<h3>⏳ Past & Future Tense</h3><p>By default, a Liru verb has no tense — it could be happening now, or it could be a general truth. To make time clear, add one of two particles right before the verb.</p><p><em>wa</em> means <strong>past</strong>:</p><span class="example">Ne wa tahu. <span class="gloss">I ate.</span></span><p><em>wu</em> means <strong>future</strong>:</p><span class="example">Ne wu tahu. <span class="gloss">I will eat.</span></span><p>Without either particle, the verb is present or timeless:</p><span class="example">Ne tahu. <span class="gloss">I eat.</span></span><p>That's the whole system — no conjugations, no irregular forms, just these two tiny words.</p>`},
+  {id:"negation",        title:"Negation",                   desc:"Saying no — mai with verbs",                   icon:"🚫",  vocabKey:"negation",        xp:20, unit:1, isSentence:true, intro:`<h3>🚫 Negation</h3><p>To negate a verb — to say <strong>not</strong> — put <em>mai</em> right before the verb.</p><span class="example">Ne tahu. <span class="gloss">I eat.</span></span><span class="example">Ne mai tahu. <span class="gloss">I don't eat.</span></span><p>It works the same way with past and future tense — <em>mai</em> comes before the tense particle:</p><span class="example">Ne mai wa tahu. <span class="gloss">I didn't eat.</span></span><span class="example">Ne mai wu tahu. <span class="gloss">I won't eat.</span></span><p>One word, always in the same spot. No "do" or "did" helpers needed.</p>`},
   {id:"relational1",     title:"Location Particles",         desc:"In, at, above, below",                         icon:"📍",  vocabKey:"relational1",     xp:18, unit:1},
   {id:"relational2",     title:"Motion & Association",       desc:"To, from, with, without — and 'to go'",        icon:"🚶",  vocabKey:"relational2",     xp:22, unit:1},
   {id:"food1",           title:"Food I: Staples",            desc:"Bread, fruit, to eat, to drink",               icon:"🍞",  vocabKey:"food1",           xp:22, unit:1},
@@ -2181,12 +2204,12 @@ const LESSONS = [
   {id:"nature2",         title:"Nature II: Land",            desc:"Mountains, forests, valleys, beaches",         icon:"🏔️", vocabKey:"nature2",         xp:22, unit:1},
   {id:"nature3",         title:"Nature III: Water",          desc:"Rivers, lakes, oceans, waves, drops",          icon:"🌊",  vocabKey:"nature3",         xp:22, unit:1},
   {id:"unit2review",     title:"Unit 2 Review",              desc:"Review everything from Unit 2 so far",         icon:"🔁",  vocabKey:"_review",         xp:22, unit:1, isReview:true, reviewPool:["home1","home2","demonstratives","relational1","relational2","food1","food2","food3","animals1","animals2","animals3","nature1","nature2","nature3"]},
-  {id:"modals",          title:"Modal Verbs",                desc:"Can, want, must, should — chaining verbs",     icon:"🗝️", vocabKey:"modals",          xp:22, unit:1, isSentence:true},
+  {id:"modals",          title:"Modal Verbs",                desc:"Can, want, must, should — chaining verbs",     icon:"🗝️", vocabKey:"modals",          xp:22, unit:1, isSentence:true, intro:`<h3>🗝️ Modal Verbs</h3><p>Modal verbs express possibility, desire, necessity, and obligation. In Liru they work differently from English — instead of special helper words, they're just regular verbs that stack with other verbs.</p><p>The four main modals:</p><span class="example">sahu <span class="gloss">to be able to (can)</span></span><span class="example">wanu <span class="gloss">to want</span></span><span class="example">mihu <span class="gloss">to need (must)</span></span><span class="example">shihu <span class="gloss">to ought to (should)</span></span><p>Chain them together by putting the modal first, then the action verb right after:</p><span class="example">Ne wanu tahu. <span class="gloss">I want to eat.</span></span><span class="example">Ne sahu liru. <span class="gloss">I can speak.</span></span><p>That's the whole rule — modal + verb, no "to" in between.</p>`},
   {id:"checkpoint2",     title:"Checkpoint 2",               desc:"Unit 2 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint2",     xp:40, unit:1, isSentence:true, isCheckpoint:true},
 
   // ── UNIT 3: CONNECTING WORDS (L38–L55) ──────────────────────────
-  {id:"conjunctions1",   title:"Conjunctions I",             desc:"And, but, or — joining words",                 icon:"🔗",  vocabKey:"conjunctions1",   xp:22, unit:2, isSentence:true},
-  {id:"questions2",      title:"Content Questions",          desc:"Who, what, where, when, why, how",             icon:"❓",  vocabKey:"questions2",      xp:22, unit:2, isSentence:true},
+  {id:"conjunctions1",   title:"Conjunctions I",             desc:"And, but, or — joining words",                 icon:"🔗",  vocabKey:"conjunctions1",   xp:22, unit:2, isSentence:true, intro:`<h3>🔗 Conjunctions: And, But, Or</h3><p>Three short words connect phrases and ideas:</p><span class="example">sho <span class="gloss">and</span></span><span class="example">ma <span class="gloss">but</span></span><span class="example">au <span class="gloss">or</span></span><p>They work just like in English — sitting between the two things they connect:</p><span class="example">Ne sho te <span class="gloss">me and you</span></span><span class="example">Ne nawu lune ma mai molune. <span class="gloss">I love light but not darkness.</span></span><span class="example">Te au ne? <span class="gloss">You or me?</span></span><p>These are the most common connectors you'll use in longer sentences.</p>`},
+  {id:"questions2",      title:"Content Questions",          desc:"Who, what, where, when, why, how",             icon:"❓",  vocabKey:"questions2",      xp:22, unit:2, isSentence:true, intro:`<h3>❓ Content Questions</h3><p>To ask <strong>who, what, where, when, why, how</strong> — the "content" questions — Liru uses one family of words that all start with <em>ki-</em>.</p><span class="example">kipue <span class="gloss">who</span></span><span class="example">kiwa <span class="gloss">what</span></span><span class="example">kiya <span class="gloss">where</span></span><span class="example">kime <span class="gloss">when</span></span><span class="example">kiwi <span class="gloss">why</span></span><span class="example">kishe <span class="gloss">how</span></span><span class="example">kifa <span class="gloss">how many</span></span><p>They go at the <strong>start</strong> of the question, with no <em>ki</em> particle before them:</p><span class="example">Kiya te hiwe? <span class="gloss">Where is your house?</span></span><span class="example">Kipue su lo? <span class="gloss">Who is this?</span></span><p>Notice the pattern: <em>ki-</em> means "question," and the ending matches the kind of answer expected. Learn one, and the others come easier.</p>`},
   {id:"plants",          title:"Plants & Greenery",          desc:"Flowers, leaves, seeds, branches, roots",      icon:"🌿",  vocabKey:"plants",          xp:22, unit:2},
   {id:"verbs1",          title:"Daily Verbs I",              desc:"Come, run, work, sleep, begin, finish, study", icon:"🏃",  vocabKey:"verbs1",          xp:22, unit:2},
   {id:"verbs2",          title:"Daily Verbs II",             desc:"Give, buy, sell, read, write, make, help",     icon:"🎁",  vocabKey:"verbs2",          xp:22, unit:2},
@@ -2205,8 +2228,8 @@ const LESSONS = [
   {id:"checkpoint3",     title:"Checkpoint 3",               desc:"Unit 3 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint3",     xp:45, unit:2, isSentence:true, isCheckpoint:true},
 
   // ── UNIT 4: EXPRESSION (L56–L78) ────────────────────────────────
-  {id:"comparatives",          title:"Comparatives & Superlatives", desc:"More, less, as-as, most, least",            icon:"📊",  vocabKey:"comparatives",          xp:24, unit:3, isSentence:true},
-  {id:"quantifiers1",          title:"Set Quantifiers",             desc:"All, some, many, any, none",                icon:"🔢",  vocabKey:"quantifiers1",          xp:24, unit:3, isSentence:true},
+  {id:"comparatives",          title:"Comparatives & Superlatives", desc:"More, less, as-as, most, least",            icon:"📊",  vocabKey:"comparatives",          xp:24, unit:3, isSentence:true, intro:`<h3>📊 Comparatives & Superlatives</h3><p>To compare two things, Liru uses three small particles after the adjective:</p><span class="example">ata <span class="gloss">than / more than</span></span><span class="example">moata <span class="gloss">less than</span></span><span class="example">ala <span class="gloss">as … as (equal)</span></span><span class="example">Te su liani ata ne. <span class="gloss">You are taller than me.</span></span><p>For superlatives — <strong>the most</strong> and <strong>the least</strong> — put the particle <em>before</em> the adjective:</p><span class="example">apa <span class="gloss">the most</span></span><span class="example">moapa <span class="gloss">the least</span></span><span class="example">Ne su apa liani. <span class="gloss">I am the tallest.</span></span><p>And to say "out of" a group, use <em>fa</em>:</p><span class="example">Ne su apa liani fa neoa wahe. <span class="gloss">I am the tallest in my family.</span></span>`},
+  {id:"quantifiers1",          title:"Set Quantifiers",             desc:"All, some, many, any, none",                icon:"🔢",  vocabKey:"quantifiers1",          xp:24, unit:3, isSentence:true, intro:`<h3>🔢 Set Quantifiers</h3><p>These small words describe <strong>how much</strong> or <strong>how many</strong> of something there are. They sit right before the noun they describe.</p><span class="example">tai <span class="gloss">all</span></span><span class="example">nai <span class="gloss">many</span></span><span class="example">sai <span class="gloss">some</span></span><span class="example">fai <span class="gloss">any (free-choice)</span></span><span class="example">nuli <span class="gloss">zero / none</span></span><p>They pair naturally with <em>pue</em> (person) to make "everyone," "someone," "no one," and so on:</p><span class="example">Tai pue nawu houme. <span class="gloss">Everyone loves bread.</span></span><span class="example">Nuli pue su loya. <span class="gloss">No one is here.</span></span><p><em>fai</em> is the "free-choice" version — "any person at all, pick one," the kind you use in <em>"anyone can do it"</em>.</p>`},
   {id:"quantifiers2",          title:"Measure Quantifiers",         desc:"More, less, enough, not enough",            icon:"⚖️", vocabKey:"quantifiers2",          xp:22, unit:3},
   {id:"existentials",          title:"Existential Pronouns",        desc:"Someone, anything, no one, everyone",       icon:"👤",  vocabKey:"existentials",          xp:24, unit:3},
   {id:"emotions2",             title:"Emotions II: Social",         desc:"Calm, anger, worry, pride, trust",          icon:"😤",  vocabKey:"emotions2",             xp:24, unit:3},
@@ -2218,7 +2241,7 @@ const LESSONS = [
   {id:"unit4review1",          title:"Unit 4 Review (part 1)",      desc:"Review Unit 4 so far",                      icon:"🔁",  vocabKey:"_review",               xp:24, unit:3, isReview:true, reviewPool:["quantifiers2","existentials","emotions2","emotions3","expressionsoffeeling","personality","adjectives3","adjectives4"]},
   {id:"directions1",           title:"Directions I: Cardinal",      desc:"North, south, east, west",                  icon:"🧭",  vocabKey:"directions1",           xp:20, unit:3},
   {id:"directions2",           title:"Directions II: Motion",       desc:"Right, left, near, far, across, through",   icon:"↔️", vocabKey:"directions2",           xp:24, unit:3},
-  {id:"spatial",               title:"Spatial Position",            desc:"Here, there, above, below, between, around",icon:"📍",  vocabKey:"spatial",               xp:24, unit:3, isSentence:true},
+  {id:"spatial",               title:"Spatial Position",            desc:"Here, there, above, below, between, around",icon:"📍",  vocabKey:"spatial",               xp:24, unit:3, isSentence:true, intro:`<h3>📍 Spatial Position</h3><p>A few short words describe where something is:</p><span class="example">loya <span class="gloss">here</span></span><span class="example">faloya <span class="gloss">there</span></span><span class="example">niwa <span class="gloss">between</span></span><span class="example">voi <span class="gloss">around</span></span><p>Liru also uses <strong>body-part words as positions</strong>, which gives the language a very visual feel:</p><span class="example">pohi <span class="gloss">in front of (literally "facing")</span></span><span class="example">poki <span class="gloss">behind</span></span><p>Use them with the copula <em>su</em>:</p><span class="example">Ne su loya. <span class="gloss">I am here.</span></span><span class="example">Paipe su pohi hiwe. <span class="gloss">The dog is in front of the house.</span></span>`},
   {id:"movement",              title:"Movement Verbs",              desc:"Swim, fly, fall, jump, climb, leave, move", icon:"🏃‍♂️", vocabKey:"movement",             xp:24, unit:3},
   {id:"actionverbs",           title:"Verbs of Action",             desc:"Hit, use, do, try, turn, dance, wear",      icon:"⚡",  vocabKey:"actionverbs",           xp:22, unit:3},
   {id:"clothing",              title:"Clothing",                    desc:"Coat, shoe, hat, shirt, dress, pants",      icon:"👕",  vocabKey:"clothing",              xp:22, unit:3},
@@ -2231,22 +2254,22 @@ const LESSONS = [
 
   // ── UNIT 5: GRAMMAR CORE (L79–L103) ─────────────────────────────
   {id:"agentpue",              title:"The -pue Agent Suffix",       desc:"Teacher, student, doctor — people who do",  icon:"👩‍🏫", vocabKey:"agentpue",             xp:26, unit:4},
-  {id:"diminutive",            title:"The -ile Diminutive",         desc:"Smaller versions: pebble, stream, canoe",   icon:"🔍",  vocabKey:"diminutive",            xp:22, unit:4, isSentence:true},
-  {id:"weprefix",              title:"The we- Repetition Prefix",   desc:"Again, back, redo — productive we-",        icon:"🔄",  vocabKey:"weprefix",              xp:22, unit:4, isSentence:true},
+  {id:"diminutive",            title:"The -ile Diminutive",         desc:"Smaller versions: pebble, stream, canoe",   icon:"🔍",  vocabKey:"diminutive",            xp:22, unit:4, isSentence:true, intro:`<h3>🔍 The -ile Diminutive</h3><p>Adding <em>-ile</em> to the end of any noun makes it smaller, softer, or more affectionate. It's called a <strong>diminutive</strong>.</p><span class="example">kome <span class="gloss">stone</span> → komile <span class="gloss">pebble</span></span><span class="example">loiwe <span class="gloss">book</span> → loiwile <span class="gloss">booklet</span></span><span class="example">shafane <span class="gloss">river</span> → shafanile <span class="gloss">stream</span></span><p>You can even stack it for the tiniest of things:</p><span class="example">komile <span class="gloss">pebble</span> → komilele <span class="gloss">grain of sand</span></span><p>Many words you already know — <em>piwile</em> (baby), <em>weyile</em> (wristwatch), <em>tohile</em> (minute) — are diminutives of bigger things. Now that you know the pattern, you'll start spotting them everywhere.</p>`},
+  {id:"weprefix",              title:"The we- Repetition Prefix",   desc:"Again, back, redo — productive we-",        icon:"🔄",  vocabKey:"weprefix",              xp:22, unit:4, isSentence:true, intro:`<h3>🔄 The we- Repetition Prefix</h3><p>Adding <em>we-</em> to the front of a verb means <strong>again</strong> or <strong>back</strong>. It works on almost any verb.</p><span class="example">tiru <span class="gloss">to see</span> → wetiru <span class="gloss">to see again</span></span><span class="example">vanu <span class="gloss">to come</span> → wevanu <span class="gloss">to come back</span></span><span class="example">liru <span class="gloss">to speak</span> → weliru <span class="gloss">to speak again / repeat</span></span><p>Alternatively, you can use the standalone adverb <em>weihi</em> (again) after the verb — same idea, different style:</p><span class="example">Ne wetiru te. <span class="gloss">I see you again.</span></span><span class="example">Ne tiru te weihi. <span class="gloss">I see you again.</span></span><p>Both are correct. The prefix is shorter; the adverb gives a bit more emphasis.</p>`},
   {id:"compoundpauwe",         title:"Compound: -pauwe (Devices)",  desc:"Washing machine, fridge, oven, airplane",   icon:"⚙️",  vocabKey:"compoundpauwe",         xp:26, unit:4},
   {id:"vehicles",              title:"Vehicles & Transport",        desc:"Car, train, bus, bicycle",                  icon:"🚗",  vocabKey:"vehicles",              xp:22, unit:4},
   {id:"discourseadv",          title:"Discourse Adverbs",           desc:"Also, only, instead",                       icon:"💭",  vocabKey:"discourseadv",          xp:20, unit:4},
   {id:"frequency",             title:"Frequency Adverbs",           desc:"Always, often, sometimes, never",           icon:"🔁",  vocabKey:"frequency",             xp:22, unit:4},
   {id:"temporaladv",           title:"Temporal Adverbs",            desc:"Already, still, soon, eventually",          icon:"⏱️", vocabKey:"temporaladv",           xp:22, unit:4},
   {id:"unit5review1",          title:"Unit 5 Review (part 1)",      desc:"Review the first wave of Unit 5",           icon:"🔁",  vocabKey:"_review",               xp:26, unit:4, isReview:true, reviewPool:["agentpue","compoundpauwe","vehicles","discourseadv","frequency","temporaladv"]},
-  {id:"conjunctions2",         title:"Conjunctions II: Time & Cause", desc:"Before, after, while, until, if, because", icon:"⏳",  vocabKey:"conjunctions2",         xp:26, unit:4, isSentence:true},
+  {id:"conjunctions2",         title:"Conjunctions II: Time & Cause", desc:"Before, after, while, until, if, because", icon:"⏳",  vocabKey:"conjunctions2",         xp:26, unit:4, isSentence:true, intro:`<h3>⏳ Conjunctions II: Time & Cause</h3><p>These subordinating conjunctions build more complex sentences. They introduce a clause that depends on the main action.</p><p><strong>Time:</strong></p><span class="example">wale <span class="gloss">before</span></span><span class="example">wule <span class="gloss">after</span></span><span class="example">wole <span class="gloss">while / during</span></span><span class="example">file <span class="gloss">until</span></span><p><strong>Cause & condition:</strong></p><span class="example">nalai <span class="gloss">because / since</span></span><span class="example">vi <span class="gloss">if</span></span><span class="example">mavi <span class="gloss">although / even though</span></span><span class="example">maivi <span class="gloss">unless</span></span><p>They sit right before the clause they introduce:</p><span class="example">Ne loisu wale rau. <span class="gloss">I read before sleeping.</span></span><span class="example">Vi te vanu, ne wu houli. <span class="gloss">If you come, I will be happy.</span></span>`},
   {id:"intensifiers",          title:"Intensifiers & Near-States",  desc:"Very, really, almost, nearly",              icon:"💥",  vocabKey:"intensifiers",          xp:20, unit:4},
   {id:"ordinals",              title:"Ordinals & Positions",        desc:"First, second, third, next, previous",      icon:"🥇",  vocabKey:"ordinals",              xp:22, unit:4},
   {id:"abstract1",             title:"Abstract I: Life",            desc:"Life, death, birth, world, freedom",        icon:"🌍",  vocabKey:"abstract1",             xp:24, unit:4},
   {id:"abstract2",             title:"Abstract II: Mind",           desc:"Idea, meaning, belief, memory, imagination",icon:"🧠",  vocabKey:"abstract2",             xp:26, unit:4},
   {id:"abstract3",             title:"Abstract III: Challenge",     desc:"Difficulty, solution, harm, warning, result",icon:"⚠️", vocabKey:"abstract3",             xp:24, unit:4},
   {id:"abstract4",             title:"Abstract IV: Social",         desc:"Justice, importance, name, promise, music", icon:"⚖️", vocabKey:"abstract4",             xp:28, unit:4},
-  {id:"relclauses",            title:"Relative Clauses",            desc:"Using lai to build 'the X that...'",        icon:"🔗",  vocabKey:"relclauses",            xp:26, unit:4, isSentence:true},
+  {id:"relclauses",            title:"Relative Clauses",            desc:"Using lai to build 'the X that...'",        icon:"🔗",  vocabKey:"relclauses",            xp:26, unit:4, isSentence:true, intro:`<h3>🔗 Relative Clauses</h3><p>A relative clause is a mini-sentence that describes a noun. In English: <strong>"the book <u>that I read</u>"</strong>, <strong>"the person <u>who came</u>"</strong>.</p><p>Liru uses one word for all of these: <em>lai</em>. Put it right after the noun you're describing, then finish the mini-sentence.</p><span class="example">pue lai wa vanu <span class="gloss">the person who came</span></span><span class="example">loiwe lai ne wa loisu <span class="gloss">the book that I read</span></span><p>That's it — no "who" vs "that" vs "which" distinction, no gendered forms. Just <em>lai</em>.</p><p>The same word also works after a verb (like <em>piru</em> "think") to introduce a <strong>complement clause</strong> — "I think <u>that she sang</u>":</p><span class="example">Ne piru lai ve wa liru. <span class="gloss">I think that she sang.</span></span>`},
   {id:"unit5review2",          title:"Unit 5 Review (part 2)",      desc:"Review the second wave of Unit 5",          icon:"🔁",  vocabKey:"_review",               xp:28, unit:4, isReview:true, reviewPool:["intensifiers","ordinals","abstract1","abstract2","abstract3","abstract4"]},
   {id:"dailyactions1",         title:"Daily Actions I",             desc:"Wake, open, close, push, pull",             icon:"🌅",  vocabKey:"dailyactions1",         xp:22, unit:4},
   {id:"dailyactions2",         title:"Daily Actions II",            desc:"Break, repair, throw, catch, rest, dream",  icon:"🛠️", vocabKey:"dailyactions2",         xp:24, unit:4},
@@ -2257,9 +2280,9 @@ const LESSONS = [
   {id:"checkpoint5",           title:"Checkpoint 5",                desc:"Unit 5 sentence challenge",                 icon:"🏆",  vocabKey:"checkpoint5",           xp:55, unit:4, isSentence:true, isCheckpoint:true},
 
   // ── UNIT 6: FLUENCY (L104–L120) ─────────────────────────────────
-  {id:"complementclauses",     title:"Complement Clauses",          desc:"Deeper lai-after-verb — think/plan/decide", icon:"💭",  vocabKey:"complementclauses",     xp:28, unit:5, isSentence:true},
-  {id:"embeddedqs",            title:"Embedded Questions",          desc:"ki-words in embedded position — no lai",    icon:"❓",  vocabKey:"embeddedqs",            xp:26, unit:5, isSentence:true},
-  {id:"propernouns",           title:"Proper Nouns & Loanwords",    desc:"Names and borrowed words stay unchanged",   icon:"🌏",  vocabKey:"propernouns",           xp:22, unit:5, isSentence:true},
+  {id:"complementclauses",     title:"Complement Clauses",          desc:"Deeper lai-after-verb — think/plan/decide", icon:"💭",  vocabKey:"complementclauses",     xp:28, unit:5, isSentence:true, intro:`<h3>💭 Complement Clauses</h3><p>You already met <em>lai</em> in relative clauses. Here you'll use it after mental-state verbs — <strong>think, believe, remember, plan, decide, fear</strong> — to introduce a full sub-clause describing what you think or plan.</p><span class="example">Ne piru lai te su meli. <span class="gloss">I think that you are good.</span></span><span class="example">Ne meru lai ve wa vanu. <span class="gloss">I remember that she came.</span></span><p>Two new verbs in this lesson:</p><span class="example">piruhu <span class="gloss">to plan</span></span><span class="example">seuhu <span class="gloss">to decide</span></span><p>When the subject of both parts is the same, English would use "to" — "I plan to eat." Liru uses <em>lai</em> the same way:</p><span class="example">Ne piruhu lai ne wu tahu. <span class="gloss">I plan to eat.</span></span><p>The tense of the sub-clause is always measured from the speaker's present, not the matrix verb.</p>`},
+  {id:"embeddedqs",            title:"Embedded Questions",          desc:"ki-words in embedded position — no lai",    icon:"❓",  vocabKey:"embeddedqs",            xp:26, unit:5, isSentence:true, intro:`<h3>❓ Embedded Questions</h3><p>When a question gets folded inside another sentence — "I wonder <u>where she went</u>", "I don't remember <u>who came</u>" — the <em>ki-</em> words (<em>kipue, kiwa, kiya, kime, kiwi, kishe, kifa</em>) introduce the embedded question directly.</p><p><strong>No <em>lai</em> is needed.</strong> That's the key difference from complement clauses.</p><span class="example">Ne pioru kiya ve wa halu. <span class="gloss">I wonder where she went.</span></span><span class="example">Te meru kiwa ne wanu. <span class="gloss">You remember what I want.</span></span><p>Compare with the previous lesson, where <em>lai</em> introduced a statement:</p><span class="example">Ne piru lai ve wa liru. <span class="gloss">I think that she sang.</span></span><span class="example">Ne pioru kipue wa liru. <span class="gloss">I wonder who sang.</span></span><p>Rule of thumb: if the sub-clause is a <em>statement</em>, use <em>lai</em>. If it's a <em>question</em>, use a <em>ki-</em> word.</p>`},
+  {id:"propernouns",           title:"Proper Nouns & Loanwords",    desc:"Names and borrowed words stay unchanged",   icon:"🌏",  vocabKey:"propernouns",           xp:22, unit:5, isSentence:true, intro:`<h3>🌏 Proper Nouns & Loanwords</h3><p>Names of people, places, brands, and borrowed words don't get reshaped into Liru — they stay in their original form, even when that form breaks Liru's usual sound rules.</p><span class="example">Tokyo, Paris, London <span class="gloss">place names — unchanged</span></span><span class="example">Maria, John <span class="gloss">personal names — unchanged</span></span><p>They slot into Liru sentences wherever a regular noun would go:</p><span class="example">Maria su kaisupue. <span class="gloss">Maria is a teacher.</span></span><span class="example">Nea halu so Paris. <span class="gloss">We go to Paris.</span></span><p>Liru speakers generally say foreign names with a Liru-flavored pronunciation, but the spelling stays faithful to the source. This keeps names recognizable across languages.</p>`},
   {id:"outcomes",              title:"Outcomes & Events",           desc:"Success, failure, win, loss, luck",         icon:"🎯",  vocabKey:"outcomes",              xp:24, unit:5},
   {id:"duty",                  title:"Duty & Readiness",            desc:"Duty, ready, allowed, forbidden",           icon:"✅",  vocabKey:"duty",                  xp:22, unit:5},
   {id:"safety",                title:"Safety & Harm",               desc:"Safe, dangerous, protection",               icon:"🛡️", vocabKey:"safety",                xp:20, unit:5},
@@ -2269,7 +2292,7 @@ const LESSONS = [
   {id:"secondaryverbs2",       title:"Secondary Verbs II",          desc:"Mix, focus, visit, invite, depict, stop",   icon:"🎨",  vocabKey:"secondaryverbs2",       xp:26, unit:5},
   {id:"naturephenomena",       title:"Nature Phenomena",            desc:"Thunder, lightning, rainbow, ice, stars",   icon:"🌩️", vocabKey:"naturephenomena",       xp:24, unit:5},
   {id:"specialized",           title:"Specialized Vocabulary",      desc:"War, middle, half, part, wheel, edge",      icon:"🔧",  vocabKey:"specialized",           xp:26, unit:5},
-  {id:"dictionaryphrases",     title:"Dictionary Phrases",          desc:"Together, alone, early, late, not yet",     icon:"📖",  vocabKey:"dictionaryphrases",     xp:24, unit:5, isSentence:true},
+  {id:"dictionaryphrases",     title:"Dictionary Phrases",          desc:"Together, alone, early, late, not yet",     icon:"📖",  vocabKey:"dictionaryphrases",     xp:24, unit:5, isSentence:true, intro:`<h3>📖 Dictionary Phrases</h3><p>Liru has a handful of multi-word expressions that act as single units. Each is built from words you already know, but they carry an idiomatic meaning as a pair.</p><span class="example">ko nea <span class="gloss">together (literally "with us")</span></span><span class="example">moko pue <span class="gloss">alone (no one else present)</span></span><span class="example">moko puea <span class="gloss">alone, in solitude (without people around)</span></span><span class="example">wale oihi <span class="gloss">early (before expected)</span></span><span class="example">wule oihi <span class="gloss">late (after expected)</span></span><span class="example">mai yauwi <span class="gloss">not yet</span></span><p>Use them like any adverb or phrase:</p><span class="example">Nea halu ko nea. <span class="gloss">We go together.</span></span><span class="example">Ne mai yauwi wa tahu. <span class="gloss">I have not yet eaten.</span></span><p>Once you know these, you'll sound a lot more like a native speaker.</p>`},
   {id:"unit6review2",          title:"Unit 6 Review (part 2)",      desc:"Review the second wave of Unit 6",          icon:"🔁",  vocabKey:"_review",               xp:30, unit:5, isReview:true, reviewPool:["secondaryverbs1","secondaryverbs2","naturephenomena","specialized"]},
   {id:"finaldeep1",            title:"Final Deep Review 1",         desc:"Review everything — first pass",            icon:"🌟",  vocabKey:"_review",               xp:40, unit:5, isReview:true, reviewPool:["greetings","pronouns","possessives","family1","family2","body1","body2","body3","adjectives1","adjectives2","home1","home2","relational1","relational2","food1","food2","food3","animals1","animals2","animals3","nature1","nature2","nature3","plants","verbs1","verbs2","verbs3","numbers1","numbers2","time1","daysofweek","months","time2","seasons","colors1","colors2","emotions1"]},
   {id:"finaldeep2",            title:"Final Deep Review 2",         desc:"Review everything — second pass",           icon:"🌟",  vocabKey:"_review",               xp:40, unit:5, isReview:true, reviewPool:["quantifiers2","existentials","emotions2","emotions3","expressionsoffeeling","personality","adjectives3","adjectives4","directions1","directions2","movement","actionverbs","clothing","places","tech","materials","compoundtieme","agentpue","compoundpauwe","vehicles","discourseadv","frequency","temporaladv","intensifiers","ordinals","abstract1","abstract2","abstract3","abstract4","dailyactions1","dailyactions2","sensory","communication","verbsofchange","manneradv","outcomes","duty","safety","group","secondaryverbs1","secondaryverbs2","naturephenomena","specialized"]},
@@ -2492,16 +2515,28 @@ function generateVocabExercises(lesson){
 function generateSentenceExercises(lesson){
   const items=V[lesson.vocabKey];
   if(!items||items.length===0)return[];
-  const exercises=[];
+  const wordOrderPool=[];
+  const fillPool=[];
   items.forEach(sent=>{
     const lwStr=Array.isArray(sent.lw)?sent.lw.join(" "):sent.lw;
     const lwArr=Array.isArray(sent.lw)?sent.lw:lwStr.split(" ");
-    // Word-order exercise
-    exercises.push({type:"wordOrder",prompt:`Translate: "${sent.en}"`,correctOrder:lwArr,correctOrderAlts:sent.alts||null,shuffled:shuffle([...lwArr])});
-    // Fill-translation
-    exercises.push({type:"fill",prompt:`Translate to Liru:\n"${sent.en}"`,correct:lwStr.toLowerCase()});
+    wordOrderPool.push({type:"wordOrder",prompt:`Translate: "${sent.en}"`,correctOrder:lwArr,correctOrderAlts:sent.alts||null,shuffled:shuffle([...lwArr])});
+    fillPool.push({type:"fill",prompt:`Translate to Liru:\n"${sent.en}"`,correct:lwStr.toLowerCase()});
   });
-  return shuffle(exercises).slice(0,14);
+  // Scaffold progression: word-order exercises first (learner sees the words,
+  // just picks the order), then fill-translation (learner must recall and type
+  // the words themselves). Total still capped at 14; split roughly half/half.
+  const TOTAL_CAP=14;
+  const woCap=Math.ceil(TOTAL_CAP/2);
+  const fillCap=Math.floor(TOTAL_CAP/2);
+  const wordOrderChosen=shuffle(wordOrderPool).slice(0,woCap);
+  const fillChosen=shuffle(fillPool).slice(0,fillCap);
+  const ordered=[...wordOrderChosen, ...fillChosen];
+  // If the lesson declares an intro, prepend it (not shuffled, never capped).
+  if(lesson.intro){
+    return [{type:"lessonIntro",html:lesson.intro}].concat(ordered);
+  }
+  return ordered;
 }
 
 function generateReviewExercises(lesson){
@@ -3023,6 +3058,7 @@ function renderLesson(){
   else if(ex.type==="errcorrect")exHTML=renderErrCorrect(ex);
   else if(ex.type==="freetext")exHTML=renderFreeText(ex);
   else if(ex.type==="paraIntro")exHTML=renderParaIntro(ex);
+  else if(ex.type==="lessonIntro")exHTML=renderLessonIntro(ex);
   else if(ex.type==="flashcard")exHTML=renderFlashcard(ex);
   else if(ex.type==="canvasDrill")exHTML=renderCanvasDrill(ex);
 
@@ -3052,6 +3088,7 @@ function renderLesson(){
   else if(ex.type==="errcorrect")bindErrCorrect(ex);
   else if(ex.type==="freetext")bindFreeText(ex);
   else if(ex.type==="paraIntro")bindParaIntro(ex);
+  else if(ex.type==="lessonIntro")bindLessonIntro(ex);
   else if(ex.type==="flashcard")bindFlashcard(ex);
   else if(ex.type==="canvasDrill")bindCanvasDrill(ex);
 }
@@ -3450,6 +3487,19 @@ function bindParaIntro(ex){
   if(chk)chk.addEventListener("click",()=>{handleAnswer(true);});
 }
 
+// Teaching card for sentence-based lessons that introduce a new grammar
+// concept — shown as the first "exercise" before any actual exercises.
+// Earns no XP (filtered out in the XP calc via `gradedCount`). The `html`
+// field is trusted HTML — intros are author-controlled, not user content.
+function renderLessonIntro(ex){
+  return `<div class="lesson-intro-card">${ex.html}</div>
+    <div class="check-bar"><button id="checkBtn" class="btn-primary">GOT IT</button></div>`;
+}
+function bindLessonIntro(ex){
+  const chk=document.getElementById("checkBtn");
+  if(chk)chk.addEventListener("click",()=>{handleAnswer(true);});
+}
+
 // ─── Shared: result banner, answer handler, advance ──────────
 function renderResultBanner(isCorrect,correctLabel){
   if(isCorrect){
@@ -3460,19 +3510,21 @@ function renderResultBanner(isCorrect,correctLabel){
 
 function handleAnswer(isCorrect){
   const ex=state.exercises[state.exIdx];
-  const isFlashcard=ex && ex.type==="flashcard";
+  // Flashcards and teaching intros don't award XP individually — they're
+  // presented as "tap to continue" cards that score trivially.
+  const isUngraded=ex && (ex.type==="flashcard"||ex.type==="lessonIntro"||ex.type==="paraIntro");
   // Hearts are only active on checkpoints and the final test.
   const heartsActive=(state.lesson&&state.lesson.isCheckpoint)||state.isFinalTest;
 
   if(isCorrect){
     state.correct++;
-    // Flashcards don't add XP individually — the lesson's full XP is awarded at the end.
-    // For graded exercises, divide the lesson XP evenly across the graded (non-flashcard) count.
-    if(!isFlashcard){
-      const gradedCount=state.exercises.filter(e=>e.type!=="flashcard").length||1;
+    // Ungraded items don't add XP. For graded exercises, divide the lesson XP
+    // evenly across the graded count.
+    if(!isUngraded){
+      const gradedCount=state.exercises.filter(e=>e.type!=="flashcard"&&e.type!=="lessonIntro"&&e.type!=="paraIntro").length||1;
       state.accXP+=Math.round(state.lesson.xp/gradedCount);
     }
-    setTimeout(()=>advanceAfterAnswer(),isFlashcard?0:900);
+    setTimeout(()=>advanceAfterAnswer(),isUngraded?0:900);
     return;
   }
 
@@ -4414,9 +4466,6 @@ const DICTIONARY_RAW = [
   {lw:"keuhe", en:"thorn", pos:"n"},
   {lw:"keuhi", en:"thorny", pos:"adj"},
   {lw:"keuhu", en:"to prickle", pos:"v"},
-  {lw:"keure", en:"creepiness (or eeriness)", pos:"n"},
-  {lw:"keuri", en:"creepy (or eerie)", pos:"adj"},
-  {lw:"keuru", en:"to creep out (or unsettle)", pos:"v"},
   {lw:"keuwe", en:"roof", pos:"n"},
   {lw:"keuwi", en:"roof-like", pos:"adj"},
   {lw:"kewe", en:"room", pos:"n"},
@@ -4645,9 +4694,6 @@ const DICTIONARY_RAW = [
   {lw:"melume", en:"fog", pos:"n"},
   {lw:"melumi", en:"foggy", pos:"adj"},
   {lw:"melumu", en:"to grow foggy", pos:"v"},
-  {lw:"melure", en:"perfection", pos:"n"},
-  {lw:"meluri", en:"perfect (or flawless)", pos:"adj"},
-  {lw:"meluru", en:"to perfect", pos:"v"},
   {lw:"meni", en:"seven", pos:"num"},
   {lw:"menilawe", en:"Saturday", pos:"n", note:"From meni (7) + lawe (day)"},
   {lw:"meniluone", en:"July", pos:"n", note:"From meni (7) + luone (month)"},
@@ -4818,7 +4864,7 @@ const DICTIONARY_RAW = [
   {lw:"moniuwe", en:"loudness", pos:"n"},
   {lw:"moniuwi", en:"loud", pos:"adj"},
   {lw:"moniuwu", en:"to grow loud", pos:"v"},
-  {lw:"monohe", en:"age (or oldness)", pos:"n"},
+  {lw:"monohe", en:"oldness (or age)", pos:"n"},
   {lw:"monohi", en:"old (or aged)", pos:"adj"},
   {lw:"monohipaure", en:"old man", pos:"n", note:"From mo- + nohipaure"},
   {lw:"monohiyaure", en:"old woman", pos:"n", note:"From mo- + nohiyaure"},
@@ -4963,9 +5009,6 @@ const DICTIONARY_RAW = [
   {lw:"mowesiri", en:"false", pos:"adj"},
   {lw:"mowesiru", en:"to lie (or deceive)", pos:"v"},
   {lw:"mowo", en:"outside", pos:"prep"},
-  {lw:"mowoire", en:"disappearance", pos:"n"},
-  {lw:"mowoiri", en:"vanished (or gone)", pos:"adj"},
-  {lw:"mowoiru", en:"to disappear (or vanish)", pos:"v"},
   {lw:"mowoune", en:"lowering", pos:"n"},
   {lw:"mowouni", en:"lowered", pos:"adj"},
   {lw:"mowounu", en:"to lower (or set down)", pos:"v"},
@@ -5062,7 +5105,7 @@ const DICTIONARY_RAW = [
   {lw:"nohipaure", en:"boy", pos:"n", note:"From nohi (new) + paure"},
   {lw:"nohipue", en:"stranger", pos:"n", note:"From nohi + -pue (agent)"},
   {lw:"nohiyaure", en:"girl", pos:"n", note:"From nohi (new) + yaure"},
-  {lw:"nohu", en:"to renew", pos:"v"},
+  {lw:"nohu", en:"to make young again", pos:"v"},
   {lw:"noihe", en:"almostness (or near-miss)", pos:"n"},
   {lw:"noihi", en:"almost (or nearly)", pos:"adj"},
   {lw:"noihu", en:"to come close to", pos:"v"},
@@ -5313,9 +5356,6 @@ const DICTIONARY_RAW = [
   {lw:"seihe", en:"study", pos:"n"},
   {lw:"seihi", en:"studious", pos:"adj"},
   {lw:"seihu", en:"to study", pos:"v"},
-  {lw:"seire", en:"hint (or indication)", pos:"n"},
-  {lw:"seiri", en:"suggestive (or telling)", pos:"adj"},
-  {lw:"seiru", en:"to hint (or indicate)", pos:"v"},
   {lw:"seiwe", en:"smile", pos:"n"},
   {lw:"seiwi", en:"smiling", pos:"adj"},
   {lw:"seiwu", en:"to smile", pos:"v"},
@@ -5347,8 +5387,6 @@ const DICTIONARY_RAW = [
   {lw:"shaihile", en:"canoe", pos:"n", note:"From shaihe (boat) + -ile \u2014 little boat"},
   {lw:"shaihu", en:"to sail", pos:"v"},
   {lw:"shaihupue", en:"sailor", pos:"n", note:"From shaihu + -pue (agent)"},
-  {lw:"shaine", en:"angel", pos:"n"},
-  {lw:"shaini", en:"angelic", pos:"adj"},
   {lw:"shakume", en:"shark", pos:"n"},
   {lw:"shakumi", en:"shark-like", pos:"adj"},
   {lw:"shalire", en:"rain", pos:"n"},
@@ -5480,7 +5518,7 @@ const DICTIONARY_RAW = [
   {lw:"taike", en:"jump", pos:"n"},
   {lw:"taiki", en:"jumping", pos:"adj"},
   {lw:"taiku", en:"to jump (or leap)", pos:"v"},
-  {lw:"taiweli", en:"always (or forever)", pos:"adj", note:"From tai (all) + weli \u2014 always / forever"},
+  {lw:"taiweli", en:"always", pos:"adj", note:"From tai (all) + weli \u2014 always"},
   {lw:"take", en:"fire", pos:"n"},
   {lw:"taki", en:"fiery", pos:"adj"},
   {lw:"takilune", en:"candle", pos:"n", note:"From taki (fiery) + lune (light) \u2014 fire-kind-of light"},
@@ -5669,9 +5707,6 @@ const DICTIONARY_RAW = [
   {lw:"waunu", en:"to narrow", pos:"v"},
   {lw:"wauwe", en:"basket", pos:"n"},
   {lw:"wauwi", en:"basket-like", pos:"adj"},
-  {lw:"wauye", en:"belonging (or rightful place)", pos:"n"},
-  {lw:"wauyi", en:"belonging (or rightful)", pos:"adj"},
-  {lw:"wauyu", en:"to belong", pos:"v"},
   {lw:"weihe", en:"repetition", pos:"n"},
   {lw:"weihi", en:"again", pos:"adv"},
   {lw:"weihu", en:"to redo", pos:"v"},
@@ -5698,9 +5733,6 @@ const DICTIONARY_RAW = [
   {lw:"wohimu", en:"to matter", pos:"v"},
   {lw:"woile", en:"cloth (or blanket)", pos:"n"},
   {lw:"woili", en:"cloth-like", pos:"adj"},
-  {lw:"woire", en:"appearance (or emergence)", pos:"n"},
-  {lw:"woiri", en:"apparent (or visible)", pos:"adj"},
-  {lw:"woiru", en:"to appear (or emerge)", pos:"v"},
   {lw:"wole", en:"while", pos:"conj", note:"From wo (in) + -le \u2014 while/during"},
   {lw:"woni", en:"hundred", pos:"num"},
   {lw:"wouhe", en:"mountain", pos:"n"},
@@ -5720,7 +5752,6 @@ const DICTIONARY_RAW = [
   {lw:"yahu", en:"to locate", pos:"v"},
   {lw:"yaihe", en:"bird", pos:"n"},
   {lw:"yaihi", en:"bird-like", pos:"adj"},
-  {lw:"yailehe", en:"feather", pos:"n", note:"From yai- (bird, shortened from yaihe) + lehe (hair) \u2014 feather"},
   {lw:"yame", en:"tongue", pos:"n"},
   {lw:"yami", en:"tongue-related", pos:"adj"},
   {lw:"yamu", en:"to lick (or taste)", pos:"v"},
