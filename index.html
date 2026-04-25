@@ -1043,6 +1043,7 @@ const V = {
     {lw:"ya",     en:"at",             pos:"particle"},
     {lw:"leu",    en:"above / over",   pos:"particle"},
     {lw:"moleu",  en:"below / under",  pos:"particle", pair:{base:"leu", base_en:"above / over"}},
+    {lw:"mowo",   en:"outside / out of", pos:"particle", pair:{base:"wo", base_en:"in / inside"}},
   ],
 
   // L25 — Relational Particles II (Movement & Association) + hale (to go)
@@ -1053,9 +1054,8 @@ const V = {
     {lw:"moko",   en:"without",        pos:"particle", pair:{base:"ko", base_en:"with"}},
     {lw:"na",     en:"for",            pos:"particle"},
     {lw:"la",     en:"like / as",      pos:"particle"},
-    {lw:"mowo",   en:"outside",        pos:"particle"},
     {lw:"moso",   en:"away from",      pos:"particle", pair:{base:"so", base_en:"to / toward"}},
-    {lw:"hale",   en:"journey",        pos:"n", canvas:{adj:"hali", adj_en:"traveling", v:"halu", v_en:"to go"}},
+    {lw:"hale",   en:"journey",        pos:"n", canvas:{adj:"hali", adj_en:"going", v:"halu", v_en:"to go"}},
   ],
 
   // L26 — Food I (Staples)
@@ -2472,9 +2472,16 @@ function generateVocabExercises(lesson){
   // ─── STAGE 5: Consolidation match ────────────────────────────
   // Use current lesson words if possible, but mix in previous-lesson words if
   // the current lesson doesn't have enough to form 4 pairs.
-  const matchCandidates=[...wordItems.filter(v=>v.pos!=="particle")];
+  // Particles are normally filtered out of Match (e.g. ki, lai, wa/wu in
+  // sentence lessons would be confusing as match items). Exception: when the
+  // current lesson is particle-only (e.g. relational1), allow particles —
+  // the lesson's whole point is teaching those particles, so matching them
+  // to their glosses is appropriate consolidation.
+  const lessonHasNonParticles=wordItems.some(v=>v.pos!=="particle");
+  const matchPosFilter=lessonHasNonParticles ? (v=>v.pos!=="particle") : (()=>true);
+  const matchCandidates=[...wordItems.filter(matchPosFilter)];
   while(matchCandidates.length<4 && distractorPool.length>0){
-    const extra=distractorPool.filter(v=>v.pos!=="particle" && !matchCandidates.find(m=>m.lw===v.lw));
+    const extra=distractorPool.filter(v=>matchPosFilter(v) && !matchCandidates.find(m=>m.lw===v.lw));
     if(extra.length===0)break;
     matchCandidates.push(extra[Math.floor(Math.random()*extra.length)]);
   }
