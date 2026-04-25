@@ -99,7 +99,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 }
 .top-nav-back:hover { color:var(--text); border-color:var(--mid); }
 .top-nav-title {
-  font-family:var(--display); font-size:18px; font-weight:800; color:var(--green);
+  font-family:var(--display); font-size:18px; font-weight:800; color:#4A7A9E;
   flex:1; text-align:center;
 }
 .top-nav-spacer { width:72px; flex-shrink:0; }
@@ -134,12 +134,15 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 .lesson-card.completed .lesson-icon { background:var(--green-glow); border:2px solid var(--green); }
 .tab-bar { display:flex; border-bottom:1.5px solid var(--border); margin:8px 20px 0; }
 .tab-btn { flex:1; padding:13px 0; background:none; color:var(--dim); font-size:13px; font-weight:800; letter-spacing:0.5px; border-bottom:3px solid transparent; transition:all 0.2s; }
-.tab-btn.active { color:var(--green); border-bottom-color:var(--green); }
+.tab-btn.active { color:#4A7A9E; border-bottom-color:#4A7A9E; }
 .lb-row { display:flex; align-items:center; gap:12px; padding:12px 14px; background:var(--card); border:1.5px solid var(--border); border-radius:14px; margin-bottom:8px; }
 .lb-row.is-me { background:rgba(88,204,2,0.06); border:2px solid var(--green); }
 .btn-primary { width:100%; padding:16px; background:var(--green); border-radius:var(--radius); color:#fff; font-size:17px; font-weight:800; letter-spacing:0.3px; box-shadow:0 4px 20px var(--green-glow), inset 0 1px 0 rgba(255,255,255,0.15); transition:all 0.15s; border:none; }
 .btn-primary:active { transform:scale(0.97); background:var(--green-dark); }
 .btn-primary:disabled { background:var(--border); box-shadow:none; cursor:default; }
+.btn-primary-alt { width:100%; padding:16px; background:#4A7A9E; border-radius:var(--radius); color:#fff; font-size:17px; font-weight:800; letter-spacing:0.3px; box-shadow:0 4px 20px rgba(74,122,158,0.25), inset 0 1px 0 rgba(255,255,255,0.15); transition:all 0.15s; border:none; }
+.btn-primary-alt:active { transform:scale(0.97); background:#3D6585; }
+.btn-primary-alt:disabled { background:var(--border); box-shadow:none; cursor:default; }
 .btn-secondary { width:100%; padding:14px; background:none; border:2px solid var(--border); border-radius:var(--radius); color:var(--dim); font-size:15px; font-weight:700; }
 .check-bar { position:sticky; bottom:0; left:0; right:0; padding:16px 0 20px 0; padding-bottom:max(20px, env(safe-area-inset-bottom)); background:var(--bg); margin-top:24px; z-index:5; }
 .confetti-piece { position:fixed; width:10px; height:10px; border-radius:2px; animation:confetti 1.2s ease-out forwards; pointer-events:none; }
@@ -191,11 +194,11 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   font-family:var(--display);
   font-size:clamp(32px, 10vw, 52px);
   font-weight:800;
-  color:var(--green);
+  color:#4A7A9E;
   letter-spacing:-1px;
   line-height:1.1;
   margin-bottom:6px;
-  text-shadow:0 0 60px rgba(88,204,2,0.3);
+  text-shadow:0 0 60px rgba(74,122,158,0.3);
 }
 .landing-subtitle {
   font-size:16px; font-weight:600; color:var(--dim);
@@ -217,7 +220,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   width:90px; height:90px;
   display:flex; flex-direction:column; align-items:center; justify-content:center;
 }
-.landing-stat-num { font-family:var(--display); font-size:24px; font-weight:800; color:var(--green); }
+.landing-stat-num { font-family:var(--display); font-size:24px; font-weight:800; color:#4A7A9E; }
 .landing-stat-label { font-size:12px; font-weight:700; color:var(--dim); margin-top:2px; }
 .landing-cards {
   display:flex; flex-direction:column; gap:10px;
@@ -237,7 +240,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   background:linear-gradient(135deg, rgba(88,204,2,0.04), transparent);
   opacity:0; transition:opacity 0.2s;
 }
-.landing-card:hover { border-color:var(--green); transform:translateY(-2px); box-shadow:0 8px 32px rgba(88,204,2,0.12); }
+.landing-card:hover { border-color:#4A7A9E; transform:translateY(-2px); box-shadow:0 8px 32px rgba(74,122,158,0.18); }
 .landing-card:hover::before { opacity:1; }
 .landing-card:active { transform:scale(0.98); }
 .landing-card-icon {
@@ -248,7 +251,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 .landing-card-body { flex:1; min-width:0; }
 .landing-card-title { font-family:var(--display); font-size:18px; font-weight:800; color:var(--text); margin-bottom:4px; }
 .landing-card-desc { font-size:13px; font-weight:600; color:var(--dim); }
-.landing-card-arrow { color:var(--green); font-size:22px; flex-shrink:0; }
+.landing-card-arrow { color:#4A7A9E; font-size:22px; flex-shrink:0; }
 .landing-contact-link {
   margin-top:36px;
   color:var(--dim); font-size:13px; font-weight:700;
@@ -333,7 +336,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   padding:4px 0 4px 18px; position:relative;
 }
 .grammar-section-body ul li::before {
-  content:'•'; position:absolute; left:0; color:var(--green);
+  content:'•'; position:absolute; left:0; color:#4A7A9E;
 }
 .grammar-section-body ul li strong { color:var(--text); }
 .grammar-section-body ul li em { color:var(--blue); font-style:italic; }
@@ -341,7 +344,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 .grammar-table { width:100%; border-collapse:collapse; font-size:13px; }
 .grammar-table th {
   padding:10px 14px; background:var(--bg2);
-  color:var(--green); font-weight:800; text-align:left;
+  color:#4A7A9E; font-weight:800; text-align:left;
   font-size:12px; letter-spacing:0.3px; text-transform:uppercase;
   border-bottom:1px solid var(--border);
 }
@@ -362,7 +365,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   height:1px; background:var(--border); margin:12px 0;
 }
 .grammar-sub-header {
-  font-size:13px; font-weight:800; color:var(--green);
+  font-size:13px; font-weight:800; color:#4A7A9E;
   letter-spacing:0.3px; text-transform:uppercase;
   margin:14px 0 8px;
 }
@@ -421,7 +424,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   background:var(--bg2); margin-bottom:6px;
   animation:slideResult 0.2s ease-out both;
 }
-.dict-result-arrow { color:var(--green); font-weight:800; font-size:14px; margin-top:1px; flex-shrink:0; }
+.dict-result-arrow { color:#4A7A9E; font-weight:800; font-size:14px; margin-top:1px; flex-shrink:0; }
 .dict-result-word { font-size:16px; font-weight:800; color:var(--text); }
 .dict-result-translation { font-size:13px; font-weight:600; color:var(--mid); margin-top:2px; }
 .dict-result-pos {
@@ -443,7 +446,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   border:1.5px solid var(--border); border-radius:var(--radius);
   padding:16px 18px; margin-top:20px;
 }
-.dict-grammar-tip-title { font-size:14px; font-weight:800; color:var(--green); margin-bottom:8px; }
+.dict-grammar-tip-title { font-size:14px; font-weight:800; color:#4A7A9E; margin-bottom:8px; }
 .dict-grammar-tip-text { font-size:13px; font-weight:600; color:var(--mid); line-height:1.6; }
 .dict-grammar-tip-text strong { color:var(--text); }
 .dict-browse-section { margin-top:24px; }
@@ -458,7 +461,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   font-family:var(--font);
 }
 .dict-letter-btn:hover { background:var(--card-hover); color:var(--text); }
-.dict-letter-btn.active { background:var(--green-glow); border-color:var(--green); color:var(--green); }
+.dict-letter-btn.active { background:rgba(74,122,158,0.15); border-color:#4A7A9E; color:#4A7A9E; }
 .dict-letter-btn.disabled { opacity:0.25; cursor:default; }
 .dict-browse-results { max-height:420px; overflow-y:auto; }
 
@@ -2826,7 +2829,7 @@ function renderApp(){
 function renderLoading(){
   app.innerHTML=`<div style="min-height:calc(100vh - 61px);display:flex;align-items:center;justify-content:center;flex-direction:column">
     <img class="float liru-logo-img" src="${LIRU_LOGO}" alt="Liru" style="width:96px;height:96px;margin-bottom:16px">
-    <div style="font-family:var(--display);font-size:26px;color:var(--green);font-weight:800">Liru</div>
+    <div style="font-family:var(--display);font-size:26px;color:#4A7A9E;font-weight:800">Liru</div>
     <div style="color:var(--dim);font-size:14px;margin-top:6px">Syncing your progress…</div>
   </div>`;
 }
@@ -2835,13 +2838,13 @@ function renderUsername(){
   app.innerHTML=`<div style="min-height:calc(100vh - 61px);display:flex;align-items:center;justify-content:center;padding:24px">
     <div style="text-align:center;max-width:360px;width:100%">
       <img class="float liru-logo-img" src="${LIRU_LOGO}" alt="Liru" style="width:112px;height:112px;margin:0 auto 16px">
-      <div style="font-family:var(--display);font-size:32px;color:var(--green);font-weight:800;margin-bottom:4px">Liru</div>
+      <div style="font-family:var(--display);font-size:32px;color:#4A7A9E;font-weight:800;margin-bottom:4px">Liru</div>
       <div style="color:var(--dim);font-size:15px;margin-bottom:36px">Song of hope</div>
       <input id="nameInput" type="text" placeholder="Enter your username" maxlength="20" value=""
         style="width:100%;padding:16px;background:var(--input);border:2.5px solid var(--border);border-radius:var(--radius);
         color:var(--text);font-size:17px;font-weight:700;text-align:center;margin-bottom:8px">
       <div style="color:var(--dim);font-size:12px;margin-bottom:16px">New username = new account · Existing username = resume progress</div>
-      <button id="startBtn" class="btn-primary">START LEARNING</button>
+      <button id="startBtn" class="btn-primary-alt">START LEARNING</button>
     </div>
   </div>`;
   const input=document.getElementById("nameInput");const btn=document.getElementById("startBtn");
@@ -2859,13 +2862,13 @@ function renderPassword(){
   app.innerHTML=`<div style="min-height:calc(100vh - 61px);display:flex;align-items:center;justify-content:center;padding:24px">
     <div style="text-align:center;max-width:360px;width:100%">
       <img class="float liru-logo-img" src="${LIRU_LOGO}" alt="Liru" style="width:96px;height:96px;margin:0 auto 16px">
-      <div style="font-family:var(--display);font-size:24px;color:var(--green);font-weight:800;margin-bottom:4px">${title}</div>
+      <div style="font-family:var(--display);font-size:24px;color:#4A7A9E;font-weight:800;margin-bottom:4px">${title}</div>
       <div style="color:var(--dim);font-size:14px;margin-bottom:24px">${sub}</div>
       <input id="pwInput" type="password" maxlength="8" placeholder="Password"
         style="width:100%;padding:16px;background:var(--input);border:2.5px solid var(--border);border-radius:var(--radius);
         color:var(--text);font-size:17px;font-weight:700;text-align:center;margin-bottom:8px;letter-spacing:2px">
       <div id="pwErr" style="color:var(--red);font-size:13px;font-weight:700;min-height:18px;margin-bottom:12px"></div>
-      <button id="pwBtn" class="btn-primary" style="margin-bottom:10px">${m==="verify"?"LOG IN":m==="create"?"NEXT":"CONFIRM"}</button>
+      <button id="pwBtn" class="btn-primary-alt" style="margin-bottom:10px">${m==="verify"?"LOG IN":m==="create"?"NEXT":"CONFIRM"}</button>
       <button id="pwBack" class="btn-secondary">← Switch user</button>
     </div>
   </div>`;
@@ -2913,7 +2916,7 @@ function renderHome(){
     // ── Placeholder state while lessons are being authored ──────
     lessonsHTML=`<div style="padding:40px 20px;text-align:center;background:var(--card);border:2px dashed var(--border);border-radius:var(--radius);margin-top:8px">
       <img class="float liru-logo-img" src="${LIRU_LOGO}" alt="Liru" style="width:80px;height:80px;margin:0 auto 14px">
-      <div style="font-family:var(--display);font-size:20px;font-weight:800;color:var(--green);margin-bottom:8px">Lessons coming soon</div>
+      <div style="font-family:var(--display);font-size:20px;font-weight:800;color:#4A7A9E;margin-bottom:8px">Lessons coming soon</div>
       <div style="color:var(--mid);font-size:14px;font-weight:600;line-height:1.6;max-width:320px;margin:0 auto">
         The lesson plan for Liru is still being written. Check back soon — this is where your journey will begin.
       </div>
@@ -2952,7 +2955,7 @@ function renderHome(){
 
       const chevron=collapsed?'▸':'▾';
       lessonsHTML+=`<div style="margin:${unitIdx===0?'0':'24px'} 0 12px">
-        <button class="unit-header" data-unit-idx="${unitIdx}" style="width:100%;text-align:left;padding:10px 12px;background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:12px;color:var(--green);font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;cursor:pointer">
+        <button class="unit-header" data-unit-idx="${unitIdx}" style="width:100%;text-align:left;padding:10px 12px;background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:12px;color:#4A7A9E;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;cursor:pointer">
           <span style="font-size:14px;width:14px;display:inline-block">${chevron}</span>
           <span>${unitIcons[unitIdx]||'📚'}</span>
           <span style="flex:1">${unitDef.name}</span>
@@ -2973,7 +2976,7 @@ function renderHome(){
   const pct=totalLessons>0?Math.round(doneLessons/totalLessons*100):0;
   app.innerHTML=`<div style="padding-bottom:80px">
     <div style="padding:16px 20px;border-bottom:1.5px solid var(--border);display:flex;align-items:center;justify-content:space-between">
-      <div style="display:flex;align-items:center;gap:8px"><span style="font-size:22px">🌊</span><span style="font-family:var(--display);color:var(--green);font-weight:800;font-size:19px">Liru</span></div>
+      <div style="display:flex;align-items:center;gap:8px"><span style="font-size:22px">🌊</span><span style="font-family:var(--display);color:#4A7A9E;font-weight:800;font-size:19px">Liru</span></div>
       <div style="display:flex;gap:8px;align-items:center"><span class="badge badge-streak">🔥 ${u.streak||0}</span><span class="badge badge-xp">⚡ ${u.xp||0} XP</span></div>
     </div>
     <div style="padding:14px 20px 8px">
