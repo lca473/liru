@@ -3700,15 +3700,25 @@ function renderHome(){
 // Flow per card: prompt visible → user taps Reveal → answer + 4 buttons
 // "Keep going" override unlocks unlimited cards past the soft caps.
 
+// Wrap a card with session-local state. Each session item tracks:
+//   - card: the card object (id, lw, en, dir, etc.)
+//   - streak: consecutive correct answers within this session (graduates at 2)
+//   - graduated: once true, this card has had its real SM-2 schedule applied
+//   - sessionLapses: count of forgot/hard ratings within this session (for fallback scheduling)
+function srsWrapForSession(c){
+  return {card:c,streak:0,graduated:false,sessionLapses:0};
+}
+
 function startReview(opts){
   const username=state.user.username;
-  const queue=srsBuildQueue(username,{unlimited:!!(opts&&opts.unlimited)});
-  // Interleave due + new, due-first.  Queue items keep their card id so we can save.
+  // First session: pull initial 10 cards (or whatever the soft cap is).
+  // Unlimited mode is no longer used by "Keep going" — that path now extends
+  // the existing queue via keepGoingReview() instead.
+  const queue=srsBuildQueue(username,{unlimited:false});
   const items=[];
-  for(const c of queue.due)items.push(c);
-  for(const c of queue.new)items.push(c);
+  for(const c of queue.due)items.push(srsWrapForSession(c));
+  for(const c of queue.new)items.push(srsWrapForSession(c));
   if(items.length===0){
-    // Shouldn't happen given the home tile gating, but safeguard anyway.
     setState({screen:"home"});
     return;
   }
@@ -3719,7 +3729,48 @@ function startReview(opts){
     reviewRevealed:false,
     reviewSessionXP:0,
     reviewSessionCorrect:0,
-    reviewUnlimited:!!(opts&&opts.unlimited)
+    reviewUnlimited:false
+  });
+}
+
+// Extend the current session with another batch of ~20 cards. Used by the
+// "Keep going" button on the completion screen. Pulls the next 20 cards via
+// the standard queue builder (anti-adjacency aware) and appends them, then
+// returns to the review screen at the next unrated position.
+function keepGoingReview(){
+  const username=state.user.username;
+  // Get fresh queue. Build the existing IDs set so we don't double-add cards
+  // that are still in the in-progress queue.
+  const seen=new Set(state.reviewQueue.map(it=>it.card.id));
+  // Pull a batch with a temporarily larger soft cap (20 instead of 10).
+  // Build manually so we can include both due and new with combined limit ~20.
+  const cards=srsLoadCards(username);
+  const now=Date.now();
+  const all=Object.entries(cards).map(([id,c])=>({id,...c}));
+  const due=all.filter(c=>c.interval>0&&c.due<=now&&!seen.has(c.id));
+  const news=all.filter(c=>c.interval===0&&!seen.has(c.id));
+  due.sort((a,b)=>a.due-b.due);
+  news.sort((a,b)=>a.addedAt-b.addedAt);
+  // Take up to 20 total: prefer due, then new
+  const target=20;
+  const dueSlice=srsExpandPairs(due,Math.min(target,due.length));
+  const remainingForNew=target-dueSlice.length;
+  const newSlice=srsExpandPairs(news,Math.max(0,remainingForNew));
+  const combined=srsShuffleNoAdjacency([...dueSlice,...newSlice]);
+  if(combined.length===0){
+    // Nothing more available — just go home.
+    setState({screen:"home"});
+    return;
+  }
+  const newQueue=[...state.reviewQueue,...combined.map(srsWrapForSession)];
+  // reviewIdx points to the next unrated position. After the completion screen,
+  // we want to jump back to the first new card we just added.
+  setState({
+    screen:"review",
+    reviewQueue:newQueue,
+    reviewIdx:state.reviewQueue.length,
+    reviewRevealed:false,
+    reviewUnlimited:false
   });
 }
 
@@ -3731,7 +3782,9 @@ function renderReview(){
     setState({screen:"reviewComplete"});
     return;
   }
-  const card=queue[idx];
+  const item=queue[idx];
+  // queue items are session-wrapped: {card, streak, graduated, sessionLapses}
+  const card=item.card||item;  // backward-compat with any old in-memory queue
   const total=queue.length;
   const pct=Math.round(((idx)/total)*100);
   const dirLabel=card.dir==="lw_en"?"Liru → English":"English → Liru";
@@ -3795,20 +3848,58 @@ function renderReview(){
 function handleRating(rating){
   const queue=state.reviewQueue;
   const idx=state.reviewIdx;
-  const card=queue[idx];
-  if(!card)return;
+  const item=queue[idx];
+  if(!item)return;
+  const card=item.card||item;
   const username=state.user.username;
-  // Apply scheduling
-  const cards=srsLoadCards(username);
-  const stored=cards[card.id];
-  if(stored){
-    srsRate(stored,rating);
-    cards[card.id]=stored;
-    srsSaveCards(username,cards);
-    // Cloud sync: just this one card
-    srsSyncCard(username,card.id,stored);
+
+  // Update session-local streak counter
+  const isCorrect=(rating==="good"||rating==="easy");
+  if(isCorrect){
+    item.streak=(item.streak||0)+1;
+  } else {
+    item.streak=0;
+    item.sessionLapses=(item.sessionLapses||0)+1;
   }
-  // Award XP (capped per session)
+
+  // Decide: graduate, re-insert, or just advance
+  const GRADUATION_THRESHOLD=2;
+  const shouldGraduate=isCorrect&&item.streak>=GRADUATION_THRESHOLD;
+
+  if(shouldGraduate||item.graduated){
+    // Apply real SM-2 scheduling to the stored card and persist
+    const cards=srsLoadCards(username);
+    const stored=cards[card.id];
+    if(stored){
+      // If the user lapsed during the session, treat the final scheduling
+      // rating as "hard" rather than the actual rating — short interval
+      // because they struggled with it. Otherwise use the rating as-is.
+      const finalRating=(item.sessionLapses>0&&isCorrect)?"hard":rating;
+      srsRate(stored,finalRating);
+      cards[card.id]=stored;
+      srsSaveCards(username,cards);
+      srsSyncCard(username,card.id,stored);
+    }
+    item.graduated=true;
+    if(rating!=="forgot")state.reviewSessionCorrect++;
+  } else if(!isCorrect) {
+    // Re-insert this card later in the queue. Position depends on rating:
+    //   "I forgot" → 3-5 cards later
+    //   "Hard"     → 7-10 cards later
+    const minOffset=rating==="forgot"?3:7;
+    const maxOffset=rating==="forgot"?5:10;
+    const offset=minOffset+Math.floor(Math.random()*(maxOffset-minOffset+1));
+    const insertAt=Math.min(idx+offset+1,queue.length);
+    queue.splice(insertAt,0,item);
+  } else {
+    // Correct but not yet graduated (streak === 1). Re-insert farther away
+    // so the user has to genuinely retrieve it, not just remember from seconds ago.
+    const offset=8+Math.floor(Math.random()*5);  // 8-12 cards later
+    const insertAt=Math.min(idx+offset+1,queue.length);
+    queue.splice(insertAt,0,item);
+  }
+
+  // Award XP per rating (capped per session)
   const xp=srsAwardXP(username);
   if(xp>0){
     const u=state.user;
@@ -3816,9 +3907,10 @@ function handleRating(rating){
     saveUserData(u);
     state.reviewSessionXP+=xp;
   }
-  if(rating!=="forgot")state.reviewSessionCorrect++;
+
   // Advance to next card
   setState({
+    reviewQueue:queue,
     reviewIdx:idx+1,
     reviewRevealed:false,
     user:state.user,
@@ -3827,9 +3919,47 @@ function handleRating(rating){
   });
 }
 
+// At session end, apply a fallback schedule to any cards that were rated but
+// never graduated. Called from renderReviewComplete and exitReview.
+function srsCloseSession(){
+  const username=state.user.username;
+  if(!username)return;
+  const queue=state.reviewQueue||[];
+  const cards=srsLoadCards(username);
+  let touched=0;
+  // Walk all session items. For ungraduated items that the user actually saw
+  // (i.e. were before reviewIdx in the queue, or have nonzero sessionLapses),
+  // apply a 1-day fallback so they appear in tomorrow's queue.
+  const seen=new Set();
+  for(const item of queue){
+    if(!item||!item.card||item.graduated)continue;
+    if(seen.has(item.card.id))continue;
+    seen.add(item.card.id);
+    // Only apply fallback if the user actually rated this card at least once
+    // (sessionLapses > 0 OR streak > 0 means they rated it).
+    if((item.sessionLapses||0)===0&&(item.streak||0)===0)continue;
+    const stored=cards[item.card.id];
+    if(!stored)continue;
+    // Force a 1-day interval so it shows up tomorrow as a real review.
+    stored.interval=1;
+    stored.due=Date.now()+86400000;
+    stored.reps=(stored.reps||0)+1;
+    if((item.sessionLapses||0)>0)stored.lapses=(stored.lapses||0)+1;
+    cards[item.card.id]=stored;
+    srsSyncCard(username,item.card.id,stored);
+    touched++;
+  }
+  if(touched>0)srsSaveCards(username,cards);
+  return touched;
+}
+
 function exitReview(){
   // If the user has rated some cards already, treat this as the end of the session.
-  if(state.reviewIdx>0){setState({screen:"reviewComplete"});return;}
+  if(state.reviewIdx>0){
+    srsCloseSession();
+    setState({screen:"reviewComplete"});
+    return;
+  }
   setState({screen:"home"});
 }
 
@@ -3877,9 +4007,12 @@ function renderReviewComplete(){
   </div>`;
 
   const keepBtn=document.getElementById("keepGoingBtn");
-  if(keepBtn)keepBtn.addEventListener("click",()=>startReview({unlimited:true}));
+  if(keepBtn)keepBtn.addEventListener("click",()=>keepGoingReview());
   const doneBtn=document.getElementById("reviewDoneBtn");
-  if(doneBtn)doneBtn.addEventListener("click",()=>setState({screen:"home"}));
+  if(doneBtn)doneBtn.addEventListener("click",()=>{
+    srsCloseSession();
+    setState({screen:"home"});
+  });
 }
 
 // Helper for displaying part-of-speech labels
