@@ -2754,7 +2754,8 @@ function saveUserData(data){
   saveLocal("lw_user_"+data.username,data);
   if(firebaseReady&&db){
     const key=fbKey(data.username);
-    db.ref("users/"+key).set({...data,updatedAt:Date.now()}).catch(e=>console.warn("Firebase save error:",e));
+    // Use .update() not .set() — set() would wipe sibling subtrees like srs/.
+    db.ref("users/"+key).update({...data,updatedAt:Date.now()}).catch(e=>console.warn("Firebase save error:",e));
   }
 }
 async function pushToLeaderboard(data){
@@ -2776,9 +2777,558 @@ async function finishLogin(name){
   const user=await loadUserDataCloud(name);
   saveUserData(user);
   state.user=user;
+  // SRS — pull cloud first (in case user has data from another device),
+  // merge with anything local, then run backfill/migration to fill gaps
+  try{
+    const cloud=await srsPullFromCloud(user.username);
+    if(cloud){
+      const localCards=srsLoadCards(user.username);
+      const merged=srsMergeCloudCards(localCards,cloud.cards||{});
+      srsSaveCards(user.username,localCards);
+      if(cloud.state){
+        // Merge cloud state with local; cloud flags win since cloud is canonical
+        const localState=srsLoadState(user.username);
+        const mergedState={...localState,...cloud.state};
+        srsSaveState(user.username,mergedState);
+      }
+      if(merged>0)console.log("[SRS] merged",merged,"cards from cloud for",user.username);
+    }
+    const added=srsBackfillIfNeeded(user.username,user,LESSONS,V,DICTIONARY_RAW);
+    if(added>0)console.log("[SRS] backfilled",added,"cards for",user.username);
+    const restamped=srsMigrateAddedAtIfNeeded(user.username,user,LESSONS,V,DICTIONARY_RAW);
+    if(restamped>0)console.log("[SRS] re-stamped addedAt on",restamped,"existing cards for",user.username);
+  }catch(e){console.warn("[SRS] cloud sync/backfill/migration failed:",e);}
   state.screen="home";
   renderApp();
   fetchLeaderboard().then(lb=>{state.leaderboard=lb;renderApp();});
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SRS ENGINE — spaced repetition for vocabulary retention
+// ═══════════════════════════════════════════════════════════════
+// Storage layout (localStorage, prefixed lw_srs_):
+//   lw_srs_<username>_cards = { "<cardId>": {ease, interval, due, reps, lapses, dir, lw, en, pos, addedAt} }
+//   lw_srs_<username>_state = { lastReviewDate, sessionXP, sessionDate, backfilled }
+// Card id format: "<lw>::<dir>"  where dir is "lw_en" or "en_lw"
+// Algorithm: SM-2 variant (FSRS-flavored — simpler, well-tested)
+
+// ─── Constants ────────────────────────────────────────────────
+const SRS_PARTICLE_SKIP = new Set(["ki","wa","wu","mai","lai"]);
+const SRS_INITIAL_EASE = 2.5;
+const SRS_MIN_EASE = 1.3;
+const SRS_NEW_INTERVAL_GOOD = 1;       // days
+const SRS_NEW_INTERVAL_EASY = 3;       // days
+const SRS_AGAIN_INTERVAL_MIN = 1/1440; // ~1 minute, in days
+const SRS_HARD_FAIL_INTERVAL = 10/1440; // ~10 min for "I forgot"
+const SRS_HARD_INTERVAL_MULT = 1.2;
+const SRS_EASY_BONUS = 1.3;
+const SRS_DAILY_NEW_SOFT_CAP = 10;
+const SRS_DAILY_REVIEW_SOFT_CAP = 100;
+const SRS_XP_PER_CARD = 1;
+const SRS_XP_SESSION_CAP = 30;
+
+// ─── Storage helpers ─────────────────────────────────────────
+function srsStoreKey(username){return "lw_srs_"+username+"_cards";}
+function srsStateKey(username){return "lw_srs_"+username+"_state";}
+function srsLoadCards(username){
+  if(!username)return{};
+  return loadLocal(srsStoreKey(username),{});
+}
+function srsSaveCards(username,cards){
+  if(!username)return;
+  saveLocal(srsStoreKey(username),cards);
+}
+function srsLoadState(username){
+  if(!username)return{lastReviewDate:null,sessionXP:0,sessionDate:null,backfilled:false};
+  return loadLocal(srsStateKey(username),{lastReviewDate:null,sessionXP:0,sessionDate:null,backfilled:false});
+}
+function srsSaveState(username,s){
+  if(!username)return;
+  saveLocal(srsStateKey(username),s);
+}
+
+// ─── Firebase sync ───────────────────────────────────────────
+// Local-first: every change writes to localStorage immediately, then async
+// to Firebase. Firebase IDs use the same fbKey() escaping as user data.
+// Card paths use the literal "::" separator in card IDs (Firebase allows
+// this in path segments). Conflict resolution: last-write-wins.
+
+function srsCardFbPath(username,cardId){
+  // Firebase paths can't contain ".", "#", "$", "/", "[", or "]".
+  // Card IDs are like "waimo::lw_en" — colons are fine, no escape needed.
+  return "users/"+fbKey(username)+"/srs/cards/"+cardId;
+}
+function srsStateFbPath(username){
+  return "users/"+fbKey(username)+"/srs/state";
+}
+
+// Fire-and-forget sync of a single card (called after each rating).
+function srsSyncCard(username,cardId,card){
+  if(!firebaseReady||!db||!username)return;
+  try{
+    db.ref(srsCardFbPath(username,cardId))
+      .set({...card,lastSync:Date.now()})
+      .catch(e=>console.warn("[SRS] sync card error:",e));
+  }catch(e){console.warn("[SRS] sync card error:",e);}
+}
+
+// Fire-and-forget sync of state (called after backfill, migration, XP award).
+function srsSyncState(username,s){
+  if(!firebaseReady||!db||!username)return;
+  try{
+    db.ref(srsStateFbPath(username))
+      .set({...s,lastSync:Date.now()})
+      .catch(e=>console.warn("[SRS] sync state error:",e));
+  }catch(e){console.warn("[SRS] sync state error:",e);}
+}
+
+// Pull the entire SRS subtree from Firebase. Used on login. Returns
+// {cards, state} or null if Firebase has no data for this user.
+async function srsPullFromCloud(username){
+  if(!firebaseReady||!db||!username)return null;
+  try{
+    const snap=await db.ref("users/"+fbKey(username)+"/srs").once("value");
+    if(!snap.exists())return null;
+    const data=snap.val()||{};
+    return {
+      cards:data.cards||{},
+      state:data.state||null
+    };
+  }catch(e){
+    console.warn("[SRS] pull error:",e);
+    return null;
+  }
+}
+
+// Merge cloud cards into the local deck. For each card, the side with the
+// later lastSync (or due, as fallback) wins. Returns count of cards updated.
+function srsMergeCloudCards(localCards,cloudCards){
+  let changes=0;
+  for(const id in cloudCards){
+    const cloud=cloudCards[id];
+    const local=localCards[id];
+    if(!local){
+      // New from cloud — adopt directly
+      localCards[id]=cloud;
+      changes++;
+      continue;
+    }
+    // Both sides exist; pick the more recent
+    const cloudT=cloud.lastSync||cloud.due||0;
+    const localT=local.lastSync||local.due||0;
+    if(cloudT>localT){
+      localCards[id]=cloud;
+      changes++;
+    }
+  }
+  return changes;
+}
+
+// Hard reset: wipe local + cloud SRS data and clear flags so backfill re-runs.
+async function srsResetAll(username){
+  if(!username)return;
+  // Local wipe
+  localStorage.removeItem(srsStoreKey(username));
+  localStorage.removeItem(srsStateKey(username));
+  // Cloud wipe (fire-and-forget but await to give the user feedback)
+  if(firebaseReady&&db){
+    try{await db.ref("users/"+fbKey(username)+"/srs").remove();}
+    catch(e){console.warn("[SRS] cloud reset error:",e);}
+  }
+}
+
+// ─── Card creation ──────────────────────────────────────────
+function srsMakeCard(lw,en,pos,dir){
+  return {
+    lw,en,pos,dir,
+    ease:SRS_INITIAL_EASE,
+    interval:0,           // 0 = new, never reviewed
+    due:Date.now(),       // due immediately when new
+    reps:0,
+    lapses:0,
+    addedAt:Date.now()
+  };
+}
+function srsCardId(lw,dir){return lw+"::"+dir;}
+
+// Add a (lw, en, pos) triplet to the deck in both directions if not already present.
+// addedAtBase is an optional override for backfill ordering — allows callers to
+// assign deterministic ordering (lower = earlier in study order). Returns count
+// of cards actually added.
+function srsAddWord(cards,lw,en,pos,addedAtBase){
+  if(!lw||!en)return 0;
+  let added=0;
+  ["lw_en","en_lw"].forEach(dir=>{
+    const id=srsCardId(lw,dir);
+    if(!cards[id]){
+      cards[id]=srsMakeCard(lw,en,pos,dir);
+      if(typeof addedAtBase==="number")cards[id].addedAt=addedAtBase;
+      added++;
+    }
+  });
+  return added;
+}
+
+// ─── Lesson → words extraction ───────────────────────────────
+// Given a lesson object and the V map, return an array of {lw, en, pos}
+// representing every word that should enroll for SRS.
+function srsExtractLessonWords(lesson,V,DICTIONARY_RAW){
+  if(!lesson||lesson.isReview||lesson.isCheckpoint)return [];
+  const vKey=lesson.vocabKey;
+  if(!vKey||vKey==="_review")return [];
+  const entries=V[vKey];
+  if(!entries||!Array.isArray(entries))return [];
+
+  const out=[];
+  if(lesson.isSentence){
+    // Sentence lessons — tokenize each sentence and add each unique content word.
+    const dictLookup={};
+    for(const d of DICTIONARY_RAW){dictLookup[d.lw]=d;}
+    const seen=new Set();
+    for(const ent of entries){
+      if(!Array.isArray(ent.lw))continue;
+      for(const tok of ent.lw){
+        const lwLower=String(tok).toLowerCase().replace(/[.,!?]/g,"");
+        if(seen.has(lwLower))continue;
+        seen.add(lwLower);
+        if(SRS_PARTICLE_SKIP.has(lwLower))continue;
+        // Look up base form (handle inflections: -ea plural, -eo possessive, -eoa plural-poss)
+        let base=lwLower;
+        if(!dictLookup[base]){
+          // try stripping plural/possessive endings
+          if(base.endsWith("eoa")&&dictLookup[base.slice(0,-2)])base=base.slice(0,-2);
+          else if(base.endsWith("eo")&&dictLookup[base.slice(0,-1)])base=base.slice(0,-1);
+          else if(base.endsWith("ea")&&dictLookup[base.slice(0,-1)])base=base.slice(0,-1);
+        }
+        const d=dictLookup[base];
+        if(!d)continue;          // unknown token; skip
+        if(d.pos==="particle"&&SRS_PARTICLE_SKIP.has(d.lw))continue;
+        // Skip purely-structural particles even if not in skip set above (defensive)
+        out.push({lw:d.lw,en:d.en,pos:d.pos});
+      }
+    }
+  } else {
+    // Vocab lessons — enroll the base + canvas forms + plural form.
+    for(const ent of entries){
+      if(!ent.lw||Array.isArray(ent.lw))continue;
+      out.push({lw:ent.lw,en:ent.en,pos:ent.pos||"n"});
+      if(ent.canvas){
+        if(ent.canvas.adj)out.push({lw:ent.canvas.adj,en:ent.canvas.adj_en,pos:"adj"});
+        if(ent.canvas.v)out.push({lw:ent.canvas.v,en:ent.canvas.v_en,pos:"v"});
+      }
+      if(ent.plural){
+        out.push({lw:ent.plural,en:ent.plural_en||ent.en,pos:ent.pos||"n"});
+      }
+    }
+  }
+  return out;
+}
+
+// ─── Enrollment ──────────────────────────────────────────────
+// Called when a lesson is completed.  Adds new cards to the user's deck.
+// Returns count of cards added. lessonIdx (optional) is used to derive a
+// stable addedAt that puts earlier lessons before later lessons in study order.
+function srsEnrollLesson(username,lesson,V,DICTIONARY_RAW,lessonIdx){
+  if(!username)return 0;
+  const words=srsExtractLessonWords(lesson,V,DICTIONARY_RAW);
+  if(words.length===0)return 0;
+  const cards=srsLoadCards(username);
+  let added=0;
+  // If lessonIdx wasn't provided, fall back to actual current time so live
+  // enrollments still sort after any backfilled words.
+  const baseTime=(typeof lessonIdx==="number")?(lessonIdx*100000):Date.now();
+  for(let i=0;i<words.length;i++){
+    const w=words[i];
+    added+=srsAddWord(cards,w.lw,w.en,w.pos,baseTime+i);
+  }
+  if(added>0)srsSaveCards(username,cards);
+  return added;
+}
+
+// One-time backfill for users who have completed lessons before SRS existed.
+// Iterates all completed lessons and enrolls their words. Uses per-lesson
+// indices for addedAt so the queue serves earlier-lesson words first.
+function srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.backfilled)return 0;
+  const completed=new Set(user.lessonsCompleted||[]);
+  if(completed.size===0){
+    // Mark backfilled even if there's nothing to backfill, so we don't re-check forever.
+    s.backfilled=true;srsSaveState(username,s);
+    return 0;
+  }
+  const cards=srsLoadCards(username);
+  let added=0;
+  for(let li=0;li<LESSONS.length;li++){
+    const lesson=LESSONS[li];
+    if(!completed.has(lesson.id))continue;
+    const words=srsExtractLessonWords(lesson,V,DICTIONARY_RAW);
+    const baseTime=li*100000;  // deterministic per-lesson slot
+    for(let i=0;i<words.length;i++){
+      const w=words[i];
+      added+=srsAddWord(cards,w.lw,w.en,w.pos,baseTime+i);
+    }
+  }
+  srsSaveCards(username,cards);
+  s.backfilled=true;
+  srsSaveState(username,s);
+  // Cloud sync: bulk write everything at once (one Firebase op rather than one per card)
+  if(firebaseReady&&db&&added>0){
+    try{
+      const stamped={};
+      const now=Date.now();
+      for(const id in cards){stamped[id]={...cards[id],lastSync:cards[id].lastSync||now};}
+      db.ref("users/"+fbKey(username)+"/srs/cards").set(stamped)
+        .catch(e=>console.warn("[SRS] bulk sync error:",e));
+    }catch(e){console.warn("[SRS] bulk sync error:",e);}
+  }
+  srsSyncState(username,s);
+  return added;
+}
+
+// One-time migration: re-stamp addedAt on cards that were enrolled before
+// the deterministic-ordering fix. Detects "old" by checking for a migration
+// flag in the SRS state. Only re-stamps fresh (interval=0) cards so that
+// reviewed cards' history is preserved.
+function srsMigrateAddedAtIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.addedAtMigrationDone)return 0;
+  const completed=new Set(user.lessonsCompleted||[]);
+  const cards=srsLoadCards(username);
+  let restamped=0;
+  // Build a (lw -> {lessonIdx, wordIdx}) map by walking lessons in order.
+  const map={};
+  for(let li=0;li<LESSONS.length;li++){
+    const lesson=LESSONS[li];
+    if(!completed.has(lesson.id))continue;
+    const words=srsExtractLessonWords(lesson,V,DICTIONARY_RAW);
+    for(let i=0;i<words.length;i++){
+      if(!map[words[i].lw])map[words[i].lw]={lessonIdx:li,wordIdx:i};
+    }
+  }
+  // Re-stamp every fresh card whose lw is in the map.
+  for(const id in cards){
+    const c=cards[id];
+    if(c.interval!==0)continue;          // don't disturb scheduled cards
+    const m=map[c.lw];
+    if(!m)continue;
+    c.addedAt=m.lessonIdx*100000+m.wordIdx;
+    restamped++;
+  }
+  srsSaveCards(username,cards);
+  s.addedAtMigrationDone=true;
+  srsSaveState(username,s);
+  // Cloud sync: bulk write the cards subtree (re-stamped addedAts must reach cloud)
+  if(firebaseReady&&db&&restamped>0){
+    try{
+      const stamped={};
+      const now=Date.now();
+      for(const id in cards){stamped[id]={...cards[id],lastSync:cards[id].lastSync||now};}
+      db.ref("users/"+fbKey(username)+"/srs/cards").set(stamped)
+        .catch(e=>console.warn("[SRS] migration sync error:",e));
+    }catch(e){console.warn("[SRS] migration sync error:",e);}
+  }
+  srsSyncState(username,s);
+  return restamped;
+}
+
+// ─── Scheduling (SM-2 variant) ───────────────────────────────
+// rating: "forgot" | "hard" | "good" | "easy"
+// Returns mutated card and a human-readable interval-preview label.
+function srsRate(card,rating){
+  const now=Date.now();
+  const dayMs=86400000;
+  card.reps++;
+  if(rating==="forgot"){
+    card.lapses++;
+    card.ease=Math.max(SRS_MIN_EASE,card.ease-0.2);
+    card.interval=SRS_HARD_FAIL_INTERVAL;
+  } else if(rating==="hard"){
+    card.ease=Math.max(SRS_MIN_EASE,card.ease-0.15);
+    if(card.interval===0){
+      card.interval=SRS_NEW_INTERVAL_GOOD;       // new card → 1d
+    } else {
+      card.interval=Math.max(card.interval*SRS_HARD_INTERVAL_MULT,card.interval+1/24);
+    }
+  } else if(rating==="good"){
+    if(card.interval===0){
+      card.interval=SRS_NEW_INTERVAL_GOOD;
+    } else {
+      card.interval=card.interval*card.ease;
+    }
+  } else if(rating==="easy"){
+    card.ease=card.ease+0.15;
+    if(card.interval===0){
+      card.interval=SRS_NEW_INTERVAL_EASY;
+    } else {
+      card.interval=card.interval*card.ease*SRS_EASY_BONUS;
+    }
+  }
+  card.due=now+card.interval*dayMs;
+  return card;
+}
+
+// Human-readable preview of what each rating would set the interval to.
+// Used by review UI to show "10m / 1d / 3d / 1w" beneath buttons.
+function srsPreviewIntervals(card){
+  const fmt=(days)=>{
+    if(days<1/1440*2)return "<1m";
+    if(days<1/24)return Math.round(days*1440)+"m";
+    if(days<1)return Math.round(days*24)+"h";
+    if(days<30)return Math.round(days)+"d";
+    if(days<365)return Math.round(days/30)+"mo";
+    return Math.round(days/365)+"y";
+  };
+  // Simulate without mutating
+  const simulate=(rating)=>{
+    const c={...card};
+    srsRate(c,rating);
+    return fmt(c.interval);
+  };
+  return {
+    forgot:simulate("forgot"),
+    hard:simulate("hard"),
+    good:simulate("good"),
+    easy:simulate("easy")
+  };
+}
+
+// ─── Queue building ──────────────────────────────────────────
+// Build today's review queue.  Returns {due:[], new:[], total:n}.
+// "due" = previously-seen cards whose due time has passed.
+// "new" = cards never reviewed (interval===0), capped at SRS_DAILY_NEW_SOFT_CAP unless override.
+function srsBuildQueue(username,opts){
+  const cards=srsLoadCards(username);
+  const now=Date.now();
+  const all=Object.entries(cards).map(([id,c])=>({id,...c}));
+  const due=all.filter(c=>c.interval>0&&c.due<=now);
+  const news=all.filter(c=>c.interval===0);
+  // Sort due by how overdue they are (most overdue first)
+  due.sort((a,b)=>a.due-b.due);
+  // Sort new by addedAt (oldest first — earlier lessons drilled first)
+  news.sort((a,b)=>a.addedAt-b.addedAt);
+  const newLimit=(opts&&opts.unlimited)?news.length:SRS_DAILY_NEW_SOFT_CAP;
+  const reviewLimit=(opts&&opts.unlimited)?due.length:SRS_DAILY_REVIEW_SOFT_CAP;
+  // Build the new pile so each unique word contributes both directions before
+  // we move on to the next word. This means a "10-card session" is actually
+  // 5 unique words × 2 directions, which gives the anti-adjacency shuffle
+  // more diversity to work with.
+  const newSlice=srsExpandPairs(news,newLimit);
+  const dueSlice=srsExpandPairs(due,reviewLimit);
+  return {
+    due:srsShuffleNoAdjacency(dueSlice),
+    new:srsShuffleNoAdjacency(newSlice),
+    totalDue:due.length,
+    totalNew:news.length
+  };
+}
+
+// Take cards in order. For each card, if its sibling (same lw, opposite dir)
+// is also present in the input, include both. Stop once we've reached `limit`
+// cards in the output. This pulls pairs as units.
+function srsExpandPairs(sorted,limit){
+  const out=[];
+  const seen=new Set();
+  for(const c of sorted){
+    if(out.length>=limit)break;
+    if(seen.has(c.id))continue;
+    seen.add(c.id);
+    out.push(c);
+    // Find sibling
+    const siblingDir=c.dir==="lw_en"?"en_lw":"lw_en";
+    const siblingId=c.lw+"::"+siblingDir;
+    const sibling=sorted.find(s=>s.id===siblingId);
+    if(sibling&&!seen.has(sibling.id)&&out.length<limit){
+      seen.add(sibling.id);
+      out.push(sibling);
+    }
+  }
+  return out;
+}
+
+// Fisher-Yates shuffle, then repair adjacent same-lw pairs by swapping with
+// non-adjacent positions earlier or later in the array. Runs forward then
+// backward so end-of-array adjacencies also get repaired.
+function srsShuffleNoAdjacency(arr){
+  if(arr.length<=2)return [...arr];
+  const a=shuffle(arr);
+  const tryRepair=(start,end,step)=>{
+    const inc=step>0?1:-1;
+    for(let i=start;step>0?i<end:i>end;i+=inc){
+      const prev=a[i-1];
+      if(!prev||a[i].lw!==prev.lw)continue;
+      // Find a swap candidate elsewhere in the array
+      let swapIdx=-1;
+      for(let j=0;j<a.length;j++){
+        if(j===i||j===i-1)continue;
+        // Swapping a[i]<->a[j]: check that the result has no adjacency
+        // at i (a[i-1] vs a[j]) and at j (a[j-1] vs a[i] and a[j+1] vs a[i])
+        if(a[j].lw===prev.lw)continue;
+        const jPrev=j>0?a[j-1]:null;
+        const jNext=j+1<a.length?a[j+1]:null;
+        if(jPrev&&jPrev.lw===a[i].lw)continue;
+        if(jNext&&jNext.lw===a[i].lw)continue;
+        swapIdx=j;break;
+      }
+      if(swapIdx>=0){
+        [a[i],a[swapIdx]]=[a[swapIdx],a[i]];
+      }
+    }
+  };
+  // Forward pass, then backward pass for end-of-array cases
+  tryRepair(1,a.length,1);
+  tryRepair(a.length-1,0,-1);
+  return a;
+}
+
+// ─── Stats ───────────────────────────────────────────────────
+// Returns {deep, midTide, shallows, total} buckets for the landing page.
+// deep = interval >= 21d
+// midTide = 7d <= interval < 21d
+// shallows = interval > 0 && interval < 7d  (newly retained but not yet sticky)
+// new = interval === 0  (not yet reviewed at all)
+function srsBucketStats(username){
+  const cards=srsLoadCards(username);
+  let deep=0,midTide=0,shallows=0,fresh=0;
+  for(const c of Object.values(cards)){
+    if(c.interval===0)fresh++;
+    else if(c.interval>=21)deep++;
+    else if(c.interval>=7)midTide++;
+    else shallows++;
+  }
+  return {deep,midTide,shallows,fresh,total:deep+midTide+shallows+fresh};
+}
+
+// ─── Session XP tracking ─────────────────────────────────────
+// Returns the XP earned for this card (respecting per-session cap).
+function srsAwardXP(username){
+  const today=new Date().toDateString();
+  const s=srsLoadState(username);
+  if(s.sessionDate!==today){s.sessionDate=today;s.sessionXP=0;}
+  if(s.sessionXP>=SRS_XP_SESSION_CAP){srsSaveState(username,s);srsSyncState(username,s);return 0;}
+  s.sessionXP+=SRS_XP_PER_CARD;
+  srsSaveState(username,s);
+  srsSyncState(username,s);
+  return SRS_XP_PER_CARD;
+}
+
+// ─── Dev panel (console-driven verification) ─────────────────
+// Type srsDebug() in browser console to see deck state.
+function srsDebug(){
+  const u=getCurrentUsername();
+  if(!u){console.log("[SRS] No user logged in.");return;}
+  const cards=srsLoadCards(u);
+  const stats=srsBucketStats(u);
+  const queue=srsBuildQueue(u);
+  const state=srsLoadState(u);
+  console.log("[SRS]",u,"deck:",Object.keys(cards).length,"cards");
+  console.log("[SRS] buckets:",stats);
+  console.log("[SRS] today's queue:",{due:queue.due.length,new:queue.new.length,totalDue:queue.totalDue,totalNew:queue.totalNew});
+  console.log("[SRS] state:",state);
+  console.log("[SRS] sample (first 5):",Object.entries(cards).slice(0,5));
+  return {cards,stats,queue,state};
 }
 
 // ═══════════════════════════════════════════════════════════════
@@ -2799,6 +3349,9 @@ let state={
   freetextInput:"",freetextSubmitted:false,
   waitingContinue:false,
   unitToggleOverrides:{},
+  // SRS review state
+  reviewQueue:[],reviewIdx:0,reviewRevealed:false,reviewSessionXP:0,reviewSessionCorrect:0,
+  reviewUnlimited:false,
 };
 
 function setState(partial){Object.assign(state,partial);renderApp();}
@@ -2826,6 +3379,8 @@ function renderApp(){
     case"lesson":renderLesson();break;
     case"complete":renderComplete();break;
     case"password":renderPassword();break;
+    case"review":renderReview();break;
+    case"reviewComplete":renderReviewComplete();break;
   }
 }
 
@@ -2969,6 +3524,76 @@ function renderHome(){
     });
   }
 
+  // ── Daily Review tile (SRS) ──────────────────────────────────
+  let reviewTileHTML="";
+  try{
+    const queue=srsBuildQueue(u.username);
+    const stats=srsBucketStats(u.username);
+    const dueCount=queue.due.length;
+    const newAvail=Math.min(queue.totalNew,SRS_DAILY_NEW_SOFT_CAP);
+    const totalToday=dueCount+newAvail;
+    if(stats.total===0){
+      // Empty deck — user hasn't completed any lessons yet. Show a placeholder
+      // so the tile space is explained rather than mysteriously absent.
+      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px dashed var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px">
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:28px;opacity:0.5">🌊</span>
+          <div style="flex:1">
+            <div style="color:var(--dim);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase">Ocean of knowledge</div>
+            <div style="font-size:16px;font-weight:800;margin-top:4px;color:var(--mid)">Your tide pool is empty</div>
+            <div style="color:var(--dim);font-size:12px;font-weight:700;margin-top:2px">Complete a lesson below to start collecting words to review</div>
+          </div>
+        </div>
+      </div>`;
+    } else if(totalToday===0){
+      // All caught up.
+      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;opacity:0.85;position:relative">
+        <button id="srsSettingsBtn" title="Reset SRS data" style="position:absolute;top:10px;right:10px;background:transparent;border:none;color:var(--dim);font-size:14px;width:24px;height:24px;cursor:pointer;opacity:0.5">⚙</button>
+        <div style="display:flex;align-items:center;gap:12px">
+          <span style="font-size:28px">🌊</span>
+          <div style="flex:1">
+            <div style="color:var(--dim);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase">Ocean of knowledge</div>
+            <div style="font-size:16px;font-weight:800;margin-top:4px">All caught up</div>
+            <div style="color:var(--dim);font-size:12px;font-weight:700;margin-top:2px">No words due — see you tomorrow</div>
+          </div>
+        </div>
+      </div>`;
+    } else {
+      // Cards available.
+      const newWaveLabel=newAvail>0?` · <span style="color:var(--blue);font-weight:800">${newAvail}</span> new`:"";
+      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--blue);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;box-shadow:0 0 24px var(--blue-glow);position:relative">
+        <button id="srsSettingsBtn" title="Reset SRS data" style="position:absolute;top:10px;right:10px;background:transparent;border:none;color:var(--dim);font-size:14px;width:24px;height:24px;cursor:pointer;opacity:0.5">⚙</button>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
+          <span style="font-size:28px">🌊</span>
+          <div style="flex:1;min-width:0">
+            <div style="color:var(--dim);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase">Ocean of knowledge</div>
+            <div style="font-size:17px;font-weight:800;margin-top:4px">A new wave of words</div>
+            <div style="color:var(--mid);font-size:13px;font-weight:700;margin-top:2px"><span style="color:var(--blue);font-weight:800">${dueCount}</span> ready to review${newWaveLabel}</div>
+          </div>
+          <button id="startReviewBtn" class="btn-primary" style="flex-shrink:0;width:auto;padding:12px 22px;font-size:14px;box-shadow:none">Start review</button>
+        </div>
+        <div style="display:flex;gap:8px;padding-top:12px;border-top:1px solid var(--border)">
+          <div style="flex:1;background:var(--bg2);border-radius:10px;padding:8px 10px">
+            <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">In the deep</div>
+            <div style="font-size:15px;font-weight:800;margin-top:2px">${stats.deep}</div>
+          </div>
+          <div style="flex:1;background:var(--bg2);border-radius:10px;padding:8px 10px">
+            <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">Mid-tide</div>
+            <div style="font-size:15px;font-weight:800;margin-top:2px">${stats.midTide}</div>
+          </div>
+          <div style="flex:1;background:var(--bg2);border-radius:10px;padding:8px 10px">
+            <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">Shallows</div>
+            <div style="font-size:15px;font-weight:800;margin-top:2px">${stats.shallows}</div>
+          </div>
+          <div style="flex:1;background:var(--bg2);border-radius:10px;padding:8px 10px">
+            <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">New</div>
+            <div style="font-size:15px;font-weight:800;margin-top:2px">${stats.fresh}</div>
+          </div>
+        </div>
+      </div>`;
+    }
+  }catch(e){console.warn("[SRS] tile render failed:",e);}
+
   let lbHTML="";
   if(!firebaseReady){lbHTML=`<div style="text-align:center;padding:40px 20px;color:var(--dim)"><div style="font-size:36px;margin-bottom:12px">🌐</div><div style="font-size:15px;font-weight:700;margin-bottom:8px">Leaderboard available when hosted</div><div style="font-size:12px;margin-top:8px">Configure Firebase to enable the leaderboard.</div></div>`;}
   else if(state.leaderboard.length===0){lbHTML=`<div style="text-align:center;padding:40px;color:var(--dim);font-size:15px">No learners yet. Be the first!</div>`;}
@@ -2993,7 +3618,7 @@ function renderHome(){
       <button class="tab-btn ${state.tab==='learn'?'active':''}" data-tab="learn">📚 LEARN</button>
       <button class="tab-btn ${state.tab==='leaderboard'?'active':''}" data-tab="leaderboard">🏆 LEADERBOARD</button>
     </div>
-    <div style="padding:16px 20px;${state.tab==='learn'?'':'display:none'}" id="learnTab">${lessonsHTML}</div>
+    <div style="padding:16px 20px;${state.tab==='learn'?'':'display:none'}" id="learnTab">${reviewTileHTML}${lessonsHTML}</div>
     <div style="padding:16px 20px;${state.tab==='leaderboard'?'':'display:none'}" id="lbTab">${lbHTML}</div>
   </div>`;
 
@@ -3013,6 +3638,19 @@ function renderHome(){
   const refreshBtn=document.getElementById("refreshLB");if(refreshBtn)refreshBtn.addEventListener("click",()=>fetchLeaderboard().then(lb=>setState({leaderboard:lb})));
   document.querySelectorAll(".admin-del").forEach(b=>b.addEventListener("click",async()=>{const un=b.dataset.user;if(confirm(`Delete user "${un}"? This removes their account, leaderboard entry, and password. Cannot be undone.`)){await adminDeleteUser(un);const lb=await fetchLeaderboard();setState({leaderboard:lb});}}));
   document.getElementById("switchUserBtn").addEventListener("click",()=>{setCurrentUsername("");setState({screen:"username",user:{username:"",xp:0,streak:0,lessonsCompleted:[],lastActiveDate:null}});});
+  const startReviewBtn=document.getElementById("startReviewBtn");if(startReviewBtn)startReviewBtn.addEventListener("click",()=>startReview());
+  const srsSettingsBtn=document.getElementById("srsSettingsBtn");if(srsSettingsBtn)srsSettingsBtn.addEventListener("click",async(e)=>{
+    e.stopPropagation();
+    const yes=confirm("Reset all SRS review data?\n\nThis will:\n• Clear your review schedule (all card progress)\n• Re-create the deck from scratch by re-enrolling words from completed lessons\n• Sync the reset to the cloud\n\nYour XP, streak, and lesson progress are NOT affected.\n\nThis cannot be undone.");
+    if(!yes)return;
+    await srsResetAll(u.username);
+    // After reset, immediately re-run backfill so the user has a fresh deck
+    try{
+      srsBackfillIfNeeded(u.username,u,LESSONS,V,DICTIONARY_RAW);
+      srsMigrateAddedAtIfNeeded(u.username,u,LESSONS,V,DICTIONARY_RAW);
+    }catch(err){console.warn("[SRS] post-reset backfill failed:",err);}
+    renderApp();
+  });
 
   // Scroll to just-finished lesson if returning from completion
   if(state.scrollToLessonId){
@@ -3039,6 +3677,207 @@ function renderHome(){
       });
     }
   }
+}
+
+
+// ═══════════════════════════════════════════════════════════════
+// SRS REVIEW SCREENS
+// ═══════════════════════════════════════════════════════════════
+// Three flows: startReview() → renderReview() ↻ → renderReviewComplete()
+// Flow per card: prompt visible → user taps Reveal → answer + 4 buttons
+// "Keep going" override unlocks unlimited cards past the soft caps.
+
+function startReview(opts){
+  const username=state.user.username;
+  const queue=srsBuildQueue(username,{unlimited:!!(opts&&opts.unlimited)});
+  // Interleave due + new, due-first.  Queue items keep their card id so we can save.
+  const items=[];
+  for(const c of queue.due)items.push(c);
+  for(const c of queue.new)items.push(c);
+  if(items.length===0){
+    // Shouldn't happen given the home tile gating, but safeguard anyway.
+    setState({screen:"home"});
+    return;
+  }
+  setState({
+    screen:"review",
+    reviewQueue:items,
+    reviewIdx:0,
+    reviewRevealed:false,
+    reviewSessionXP:0,
+    reviewSessionCorrect:0,
+    reviewUnlimited:!!(opts&&opts.unlimited)
+  });
+}
+
+function renderReview(){
+  const queue=state.reviewQueue;
+  const idx=state.reviewIdx;
+  if(!queue||queue.length===0||idx>=queue.length){
+    // End of session
+    setState({screen:"reviewComplete"});
+    return;
+  }
+  const card=queue[idx];
+  const total=queue.length;
+  const pct=Math.round(((idx)/total)*100);
+  const dirLabel=card.dir==="lw_en"?"Liru → English":"English → Liru";
+  const promptText=card.dir==="lw_en"?card.lw:card.en;
+  const answerText=card.dir==="lw_en"?card.en:card.lw;
+  const posLabel=posDisplayLabel(card.pos);
+
+  // Build button area depending on reveal state
+  let actionAreaHTML="";
+  if(state.reviewRevealed){
+    // Four-button rating row.
+    actionAreaHTML=`<div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px">
+      <button class="rate-btn" data-rate="forgot" style="background:var(--red-glow);border:1.5px solid var(--red);color:var(--red);padding:14px 6px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer">I forgot</button>
+      <button class="rate-btn" data-rate="hard" style="background:var(--gold-glow);border:1.5px solid var(--gold);color:var(--gold);padding:14px 6px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer">Hard</button>
+      <button class="rate-btn" data-rate="good" style="background:var(--blue-glow);border:1.5px solid var(--blue);color:var(--blue);padding:14px 6px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer">Good</button>
+      <button class="rate-btn" data-rate="easy" style="background:var(--green-glow);border:1.5px solid var(--green);color:var(--green);padding:14px 6px;border-radius:10px;font-size:13px;font-weight:800;cursor:pointer">Easy</button>
+    </div>`;
+  }
+
+  app.innerHTML=`<div style="padding-bottom:80px;min-height:calc(100vh - 61px);display:flex;flex-direction:column">
+    <div style="padding:14px 20px;border-bottom:1.5px solid var(--border);display:flex;align-items:center;gap:12px">
+      <button id="reviewExitBtn" style="background:var(--card);border:1.5px solid var(--border);border-radius:10px;width:38px;height:38px;font-size:18px;color:var(--mid);cursor:pointer">✕</button>
+      <div style="flex:1">
+        <div style="height:6px;background:var(--bg2);border-radius:3px;overflow:hidden">
+          <div style="height:100%;background:var(--blue);width:${pct}%;transition:width 0.3s"></div>
+        </div>
+      </div>
+      <div style="color:var(--dim);font-size:12px;font-weight:700;flex-shrink:0">${idx+1}/${total}</div>
+    </div>
+    <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px">
+      <div id="reviewCard" style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:36px 24px;width:100%;max-width:420px;text-align:center;animation:fadeUp 0.3s ease-out;${!state.reviewRevealed?'cursor:pointer;transition:transform 0.1s, border-color 0.2s':''}">
+        <div style="color:var(--dim);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:18px">${dirLabel}</div>
+        <div style="font-family:var(--display);font-size:38px;font-weight:800;color:var(--text);margin-bottom:6px;word-wrap:break-word">${escapeHTML(promptText)}</div>
+        ${posLabel?`<div style="color:var(--dim);font-size:13px;font-style:italic;margin-bottom:20px">${posLabel}</div>`:'<div style="margin-bottom:20px"></div>'}
+        ${state.reviewRevealed?`
+          <div style="border-top:1.5px dashed var(--border);padding-top:20px;margin-top:8px">
+            <div style="font-size:24px;font-weight:800;color:var(--blue);word-wrap:break-word">${escapeHTML(answerText)}</div>
+          </div>`:`
+          <div style="border-top:1.5px dashed var(--border);padding-top:20px;margin-top:8px;color:var(--dim);font-size:13px;font-weight:700">Tap to reveal</div>`}
+      </div>
+      <div style="width:100%;max-width:420px;margin-top:24px">
+        ${actionAreaHTML}
+      </div>
+    </div>
+  </div>`;
+
+  // Wire up handlers
+  const exitBtn=document.getElementById("reviewExitBtn");
+  if(exitBtn)exitBtn.addEventListener("click",exitReview);
+
+  if(!state.reviewRevealed){
+    const cardEl=document.getElementById("reviewCard");
+    if(cardEl)cardEl.addEventListener("click",()=>setState({reviewRevealed:true}));
+  } else {
+    document.querySelectorAll(".rate-btn").forEach(btn=>{
+      btn.addEventListener("click",()=>handleRating(btn.dataset.rate));
+    });
+  }
+}
+
+function handleRating(rating){
+  const queue=state.reviewQueue;
+  const idx=state.reviewIdx;
+  const card=queue[idx];
+  if(!card)return;
+  const username=state.user.username;
+  // Apply scheduling
+  const cards=srsLoadCards(username);
+  const stored=cards[card.id];
+  if(stored){
+    srsRate(stored,rating);
+    cards[card.id]=stored;
+    srsSaveCards(username,cards);
+    // Cloud sync: just this one card
+    srsSyncCard(username,card.id,stored);
+  }
+  // Award XP (capped per session)
+  const xp=srsAwardXP(username);
+  if(xp>0){
+    const u=state.user;
+    u.xp=(u.xp||0)+xp;
+    saveUserData(u);
+    state.reviewSessionXP+=xp;
+  }
+  if(rating!=="forgot")state.reviewSessionCorrect++;
+  // Advance to next card
+  setState({
+    reviewIdx:idx+1,
+    reviewRevealed:false,
+    user:state.user,
+    reviewSessionXP:state.reviewSessionXP,
+    reviewSessionCorrect:state.reviewSessionCorrect
+  });
+}
+
+function exitReview(){
+  // If the user has rated some cards already, treat this as the end of the session.
+  if(state.reviewIdx>0){setState({screen:"reviewComplete"});return;}
+  setState({screen:"home"});
+}
+
+function renderReviewComplete(){
+  const xp=state.reviewSessionXP||0;
+  const correct=state.reviewSessionCorrect||0;
+  const total=state.reviewIdx||0;
+  const username=state.user.username;
+  const queue=srsBuildQueue(username);
+  const moreDue=queue.due.length;
+  const moreNew=queue.totalNew;
+  // Cards remaining after honoring soft caps would have been hit — check if there are still more.
+  const stillMore=(moreDue>0)||(moreNew>0&&queue.new.length>0);
+  // If unlimited mode wasn't on and there are more available, offer "Keep going."
+  const offerKeepGoing=!state.reviewUnlimited&&((moreDue>0)||(moreNew>0));
+
+  const accuracy=total>0?Math.round((correct/total)*100):0;
+  const wave=accuracy>=90?"🌊 The tide rises":accuracy>=70?"🐚 A steady current":"🪨 Anchored — keep going";
+
+  app.innerHTML=`<div style="min-height:calc(100vh - 61px);display:flex;align-items:center;justify-content:center;padding:24px;flex-direction:column">
+    <div style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:32px 24px;width:100%;max-width:420px;text-align:center;animation:fadeUp 0.4s ease-out">
+      <div style="font-size:56px;margin-bottom:12px">🌊</div>
+      <div style="font-family:var(--display);font-size:24px;font-weight:800;color:#4A7A9E;margin-bottom:6px">Review complete</div>
+      <div style="color:var(--dim);font-size:14px;font-weight:700;margin-bottom:24px">${wave}</div>
+      <div style="display:flex;gap:10px;margin-bottom:24px">
+        <div style="flex:1;background:var(--bg2);border-radius:10px;padding:12px 8px">
+          <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">Reviewed</div>
+          <div style="font-size:20px;font-weight:800;margin-top:4px">${total}</div>
+        </div>
+        <div style="flex:1;background:var(--bg2);border-radius:10px;padding:12px 8px">
+          <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">Correct</div>
+          <div style="font-size:20px;font-weight:800;margin-top:4px;color:var(--green)">${correct}</div>
+        </div>
+        <div style="flex:1;background:var(--bg2);border-radius:10px;padding:12px 8px">
+          <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">XP</div>
+          <div style="font-size:20px;font-weight:800;margin-top:4px;color:var(--gold)">+${xp}</div>
+        </div>
+      </div>
+      ${offerKeepGoing?`
+        <div style="color:var(--dim);font-size:13px;font-weight:700;margin-bottom:12px">${moreDue>0?moreDue+" more ready":""}${moreDue>0&&moreNew>0?" · ":""}${moreNew>0?moreNew+" more new":""}</div>
+        <button id="keepGoingBtn" class="btn-primary" style="width:100%;padding:14px;font-size:15px;margin-bottom:10px">Keep going</button>
+      `:""}
+      <button id="reviewDoneBtn" class="btn-secondary" style="width:100%;padding:14px;font-size:15px">Back to lessons</button>
+    </div>
+  </div>`;
+
+  const keepBtn=document.getElementById("keepGoingBtn");
+  if(keepBtn)keepBtn.addEventListener("click",()=>startReview({unlimited:true}));
+  const doneBtn=document.getElementById("reviewDoneBtn");
+  if(doneBtn)doneBtn.addEventListener("click",()=>setState({screen:"home"}));
+}
+
+// Helper for displaying part-of-speech labels
+function posDisplayLabel(pos){
+  if(!pos)return "";
+  const map={
+    n:"noun", v:"verb", adj:"adjective", adv:"adverb",
+    pronoun:"pronoun", particle:"particle", social:"expression",
+    expr:"expression", demonstrative:"demonstrative", prep:"particle"
+  };
+  return map[pos]||"";
 }
 
 function startLesson(idx){
@@ -3623,6 +4462,14 @@ function renderComplete(){
     const alreadyDone=(u.lessonsCompleted||[]).includes(state.lesson.id);
     if(!alreadyDone){
       u.lessonsCompleted=[...(u.lessonsCompleted||[]),state.lesson.id];
+      // SRS — enroll this lesson's words into the user's review deck.
+      // Pass the lesson's index in LESSONS so newly-enrolled cards sort
+      // by lesson order alongside backfilled cards.
+      try{
+        const lessonIdx=LESSONS.findIndex(l=>l.id===state.lesson.id);
+        srsEnrollLesson(u.username,state.lesson,V,DICTIONARY_RAW,lessonIdx>=0?lessonIdx:undefined);
+      }
+      catch(e){console.warn("[SRS] enrollment failed:",e);}
     }
     u.xp=(u.xp||0)+state.accXP;
     // Streak logic
