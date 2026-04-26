@@ -3045,13 +3045,14 @@ function srsEnrollLesson(username,lesson,V,DICTIONARY_RAW,lessonIdx){
   return added;
 }
 
-// One-time backfill for users who have completed lessons before SRS existed.
-// Iterates all completed lessons and enrolls their words. Uses per-lesson
-// indices for addedAt so the queue serves earlier-lesson words first.
+// Backfill enrollment from completed lessons. Runs both for first-time setup
+// (flag never set) AND as a self-healing pass when the deck is incomplete
+// relative to the user's lesson progress (flag set but cards missing —
+// e.g. data was lost or never fully synced to cloud). The flag is purely
+// advisory; the deck-completeness check is authoritative.
 function srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
   if(!username)return 0;
   const s=srsLoadState(username);
-  if(s.backfilled)return 0;
   const completed=new Set(user.lessonsCompleted||[]);
   if(completed.size===0){
     // Mark backfilled even if there's nothing to backfill, so we don't re-check forever.
@@ -3059,6 +3060,9 @@ function srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
     return 0;
   }
   const cards=srsLoadCards(username);
+  // Walk all completed lessons. Enroll any word that's missing from the deck.
+  // This works whether the flag is set or not — if the deck is complete, no
+  // additions happen; if it's incomplete, the missing words get enrolled.
   let added=0;
   for(let li=0;li<LESSONS.length;li++){
     const lesson=LESSONS[li];
@@ -3070,17 +3074,23 @@ function srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
       added+=srsAddWord(cards,w.lw,w.en,w.pos,baseTime+i);
     }
   }
-  srsSaveCards(username,cards);
+  if(added>0||!s.backfilled)srsSaveCards(username,cards);
   s.backfilled=true;
   srsSaveState(username,s);
-  // Cloud sync: bulk write everything at once (one Firebase op rather than one per card)
-  if(firebaseReady&&db&&added>0){
+  // Cloud sync: push the entire deck to Firebase whenever backfill ran.
+  // We do this even if added=0 because the existing local deck might not be
+  // in cloud yet (e.g. user from before sync existed, or sync was never
+  // completed for fresh cards). Bulk write is one Firebase op.
+  if(firebaseReady&&db){
     try{
       const stamped={};
       const now=Date.now();
       for(const id in cards){stamped[id]={...cards[id],lastSync:cards[id].lastSync||now};}
-      db.ref("users/"+fbKey(username)+"/srs/cards").set(stamped)
-        .catch(e=>console.warn("[SRS] bulk sync error:",e));
+      // Only push if we have cards to push (don't wipe cloud with an empty deck)
+      if(Object.keys(stamped).length>0){
+        db.ref("users/"+fbKey(username)+"/srs/cards").update(stamped)
+          .catch(e=>console.warn("[SRS] bulk sync error:",e));
+      }
     }catch(e){console.warn("[SRS] bulk sync error:",e);}
   }
   srsSyncState(username,s);
@@ -3120,14 +3130,17 @@ function srsMigrateAddedAtIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
   srsSaveCards(username,cards);
   s.addedAtMigrationDone=true;
   srsSaveState(username,s);
-  // Cloud sync: bulk write the cards subtree (re-stamped addedAts must reach cloud)
+  // Cloud sync: use .update() so we don't wipe cards the cloud might have
+  // that local doesn't know about.
   if(firebaseReady&&db&&restamped>0){
     try{
       const stamped={};
       const now=Date.now();
       for(const id in cards){stamped[id]={...cards[id],lastSync:cards[id].lastSync||now};}
-      db.ref("users/"+fbKey(username)+"/srs/cards").set(stamped)
-        .catch(e=>console.warn("[SRS] migration sync error:",e));
+      if(Object.keys(stamped).length>0){
+        db.ref("users/"+fbKey(username)+"/srs/cards").update(stamped)
+          .catch(e=>console.warn("[SRS] migration sync error:",e));
+      }
     }catch(e){console.warn("[SRS] migration sync error:",e);}
   }
   srsSyncState(username,s);
