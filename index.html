@@ -792,8 +792,8 @@ const V = {
     {lw:"waimo",   en:"hello",                   pos:"social"},
     {lw:"weriko",  en:"goodbye",                 pos:"social"},
     {lw:"moa",     en:"please / respectfully",   pos:"social"},
-    {lw:"reiwa",   en:"thank you / you're welcome", pos:"social"},
-    {lw:"loho",    en:"sorry / excuse me",       pos:"social"},
+    {lw:"reiwa",   en:"thank you",               pos:"social"},
+    {lw:"elo",     en:"sorry / excuse me",       pos:"social"},
     {lw:"ai",      en:"yes",                     pos:"particle"},
     {lw:"mai",     en:"no / not",                pos:"particle"},
   ],
@@ -4088,18 +4088,18 @@ const GRAMMAR_SECTIONS = [
     body:`<p>Liru has <strong>no formal/informal speech split</strong>. All social tone is carried by these five words. They end in <em>-o</em> or <em>-a</em> and can appear anywhere in an utterance, or stand alone.</p>
     <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Word</th><th>Use</th></tr></thead><tbody>
     <tr><td><em>moa</em></td><td>please / general respect marker</td></tr>
-    <tr><td><em>reiwa</em></td><td>thank you — <em>and</em> you're welcome (same word)</td></tr>
+    <tr><td><em>reiwa</em></td><td>thank you</td></tr>
     <tr><td><em>waimo</em></td><td>hello (meeting)</td></tr>
     <tr><td><em>weriko</em></td><td>goodbye (parting)</td></tr>
-    <tr><td><em>loho</em></td><td>sorry · sympathy · excuse me (one word for all three)</td></tr>
+    <tr><td><em>elo</em></td><td>sorry · sympathy · excuse me (one word for all three)</td></tr>
     </tbody></table></div>
     <ul>
-      <li><em>Reiwa.</em> — Thank you. / You're welcome.</li>
+      <li><em>Reiwa.</em> — Thank you.</li>
       <li><em>Waimo, Maria moa.</em> — Hello, Maria.</li>
-      <li><em>Loho, ne wa kave teo mohe.</em> — Sorry, I broke your cup.</li>
+      <li><em>Elo, ne wa kave teo mohe.</em> — Sorry, I broke your cup.</li>
       <li><em>Moa, feru ne teo loiwe.</em> — Please give me your book.</li>
     </ul>
-    <div class="grammar-callout">There's also a fixed idiom: <strong><em>Su mo</em></strong> — "it is balance / we're even / we're forgiven."</div>`
+    <div class="grammar-callout"><strong><em>Su mo</em></strong> — "it is balance" — is the universal response idiom. Use it to reply to <em>reiwa</em> ("you're welcome"), to reply to <em>elo</em> ("it's okay"), or as a standalone declaration of forgiveness ("we're square"). Three speech acts, one gesture: declaring the balance restored.</div>`
   },
   {
     icon:"🔨", title:"Affixes (Building New Words)",
@@ -4294,6 +4294,7 @@ const DICTIONARY_RAW = [
   {lw:"eirupauwe", en:"airplane", pos:"n", note:"From eiru (to fly) + -pauwe (device) \u2014 flying machine"},
   {lw:"ele", en:"feeling", pos:"n"},
   {lw:"eli", en:"emotional", pos:"adj"},
+  {lw:"elo", en:"sorry (apology / sympathy / excuse-me)", pos:"expr"},
   {lw:"elore", en:"urge-to-squeeze", pos:"n"},
   {lw:"elori", en:"cute-squeezy", pos:"adj"},
   {lw:"eloru", en:"to feel the urge to squeeze", pos:"v"},
@@ -4639,7 +4640,6 @@ const DICTIONARY_RAW = [
   {lw:"loa", en:"these", pos:"dem"},
   {lw:"lohe", en:"goodness", pos:"n"},
   {lw:"lohi", en:"good (or well)", pos:"adj"},
-  {lw:"loho", en:"sorry (apology / sympathy / excuse-me)", pos:"expr"},
   {lw:"lohu", en:"to do good", pos:"v"},
   {lw:"lohure", en:"perfection", pos:"n"},
   {lw:"lohuri", en:"perfect", pos:"adj"},
@@ -5866,7 +5866,7 @@ const GRAMMAR_TIPS = [
   {title:"💡 No Articles Needed",text:"Liru has no words for <strong>the</strong> or <strong>a</strong>. Context does the work. Use <strong>lo</strong> (this) or <strong>falo</strong> (that) when you need to be specific."},
   {title:"💡 Questions Start With <em>ki-</em>",text:"All question words share <strong>ki-</strong>: <em>kipue</em> (who), <em>kiwa</em> (what), <em>kiya</em> (where), <em>kime</em> (when), <em>kishe</em> (how)."},
   {title:"💡 Tense is a Tiny Word",text:"<strong>wa</strong> = past, nothing = present, <strong>wu</strong> = future. Verbs never change form. <em>Ne tiru</em> / <em>Ne wa tiru</em> / <em>Ne wu tiru</em>."},
-  {title:"💡 Social Expressions Sit Outside",text:"Five special words handle all social tone: <em>moa</em> (please), <em>reiwa</em> (thanks/welcome), <em>waimo</em> (hello), <em>weriko</em> (goodbye), <em>loho</em> (sorry)."},
+  {title:"💡 Social Expressions Sit Outside",text:"Five special words handle all social tone: <em>moa</em> (please), <em>reiwa</em> (thanks), <em>waimo</em> (hello), <em>weriko</em> (goodbye), <em>elo</em> (sorry). Reply with <em>Su mo</em> — \"it is balance.\""},
   {title:"💡 Compound Words, Simple Rules",text:"Two roots combine: the second sets the part-of-speech, the first takes <strong>-i</strong> (qualifying), <strong>-e</strong> (material), or <strong>-u</strong> (action) form."},
 ];
 
