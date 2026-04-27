@@ -382,13 +382,14 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   font-size:12px; font-weight:800;
   background:var(--card); border:1.5px solid var(--border); color:var(--dim);
 }
-.dict-stat-chip.blue { background:var(--blue-glow); border-color:rgba(28,176,246,0.25); color:var(--blue); }
-.dict-stat-chip.green { background:rgba(74,122,158,0.15); border-color:rgba(74,122,158,0.3); color:#4A7A9E; }
+.dict-stat-chip.blue-bright { background:rgba(28,176,246,0.12); border-color:rgba(28,176,246,0.35); color:#1CB0F6; }
+.dict-stat-chip.blue-mid    { background:rgba(74,122,158,0.18); border-color:rgba(74,122,158,0.45); color:#7AA5C4; }
+.dict-stat-chip.blue-deep   { background:rgba(58,95,125,0.22);  border-color:rgba(58,95,125,0.5);  color:#9BBED9; }
 .dict-panel {
   background:var(--card); border:2px solid var(--border);
   border-radius:var(--radius); padding:18px; margin-bottom:14px;
 }
-.dict-panel.lw-panel { border-color:rgba(88,204,2,0.2); }
+.dict-panel.lw-panel { border-color:rgba(74,122,158,0.35); }
 .dict-panel-label {
   display:flex; align-items:center; gap:8px; margin-bottom:12px;
 }
@@ -398,7 +399,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
   font-size:11px; font-weight:900; color:#FFF;
 }
 .dict-flag.flag-en { background:linear-gradient(135deg,#1CB0F6,#0d8ec7); }
-.dict-flag.flag-lw { background:linear-gradient(135deg,#58CC02,#46A302); }
+.dict-flag.flag-lw { background:linear-gradient(135deg,#4A7A9E,#3a5f7d); }
 .dict-panel-lang { font-size:14px; font-weight:800; color:var(--mid); }
 .dict-input-wrap { position:relative; }
 .dict-search-input {
@@ -6945,20 +6946,27 @@ function renderDict() {
   const el = document.getElementById('dict-body');
   const tip = GRAMMAR_TIPS[Math.floor(Math.random() * GRAMMAR_TIPS.length)];
 
-  // Letter buttons (sh treated under s; also include "sh" as separate for clarity)
-  const alphabet = 'abcdefghiklmnoprstuvwy'.split(''); // consonants Liru uses + vowels
+  // Letter buttons. Per Grammar.md §1, "sh" is a digraph and gets its own bucket;
+  // "S" matches s+vowel words only (sa, sei, su...), "Sh" matches sh+vowel words.
+  // Liru consonants per Grammar.md §1: p t k f v s sh h m n l r w y. Vowels: a e i o u.
+  const alphabet = ['a','e','f','h','i','k','l','m','n','o','p','r','s','sh','t','u','v','w','y'];
   const letterBtns = alphabet.map(ch => {
-    const hasWords = DICTIONARY_RAW.some(e => e.lw[0].toLowerCase() === ch);
+    const hasWords = DICTIONARY_RAW.some(e => {
+      const lw = e.lw.toLowerCase();
+      if (ch === 's') return lw[0] === 's' && lw[1] !== 'h';
+      if (ch === 'sh') return lw.startsWith('sh');
+      return lw[0] === ch;
+    });
     const active = dictState.browseLetter === ch;
-    return `<button class="dict-letter-btn ${active?'active':''} ${!hasWords?'disabled':''}" data-letter="${ch}" ${!hasWords?'disabled':''}>${ch.toUpperCase()}</button>`;
+    const label = ch === 'sh' ? 'Sh' : ch.toUpperCase();
+    return `<button class="dict-letter-btn ${active?'active':''} ${!hasWords?'disabled':''}" data-letter="${ch}" ${!hasWords?'disabled':''}>${label}</button>`;
   }).join('');
 
   el.innerHTML = `
     <div class="dict-stats">
-      <span class="dict-stat-chip green">~450 Roots</span>
-      <span class="dict-stat-chip green">${DICTIONARY_RAW.length} Words</span>
-      <span class="dict-stat-chip blue">EN ↔ LW</span>
-      <span class="dict-stat-chip">Tap a letter to browse</span>
+      <span class="dict-stat-chip blue-bright">~450 roots</span>
+      <span class="dict-stat-chip blue-mid">${DICTIONARY_RAW.length.toLocaleString()} words</span>
+      <span class="dict-stat-chip blue-deep">EN ↔ LW</span>
     </div>
 
     <div class="dict-panel">
@@ -7148,9 +7156,15 @@ function renderDictBrowse() {
   if (!el) return;
   if (!dictState.browseLetter) { el.innerHTML = ''; return; }
   const ltr = dictState.browseLetter;
-  const matches = DICTIONARY_RAW.filter(e => e.lw[0].toLowerCase() === ltr).sort((a,b) => a.lw.localeCompare(b.lw));
-  if (matches.length === 0) { el.innerHTML = `<div class="dict-no-results">No words starting with ${ltr.toUpperCase()}</div>`; return; }
-  const countHTML = `<div class="dict-result-count">${matches.length} word${matches.length===1?'':'s'} starting with <strong>${ltr.toUpperCase()}</strong></div>`;
+  const matches = DICTIONARY_RAW.filter(e => {
+    const lw = e.lw.toLowerCase();
+    if (ltr === 's') return lw[0] === 's' && lw[1] !== 'h';
+    if (ltr === 'sh') return lw.startsWith('sh');
+    return lw[0] === ltr;
+  }).sort((a,b) => a.lw.localeCompare(b.lw));
+  const label = ltr === 'sh' ? 'Sh' : ltr.toUpperCase();
+  if (matches.length === 0) { el.innerHTML = `<div class="dict-no-results">No words starting with ${label}</div>`; return; }
+  const countHTML = `<div class="dict-result-count">${matches.length} word${matches.length===1?'':'s'} starting with <strong>${label}</strong></div>`;
   el.innerHTML = countHTML + matches.map(e => renderDictEntry(e)).join('');
 }
 
