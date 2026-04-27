@@ -3617,16 +3617,13 @@ function renderHome(){
   const doneLessons=(u.lessonsCompleted||[]).length;
   const pct=totalLessons>0?Math.round(doneLessons/totalLessons*100):0;
   app.innerHTML=`<div style="padding-bottom:80px">
-    <div style="padding:16px 20px;border-bottom:1.5px solid var(--border);display:flex;align-items:center;justify-content:space-between">
-      <div style="display:flex;align-items:center;gap:8px"><span style="font-size:22px">🌊</span><span style="font-family:var(--display);color:#4A7A9E;font-weight:800;font-size:19px">Liru</span></div>
-      <div style="display:flex;gap:8px;align-items:center"><span class="badge badge-streak">🔥 ${u.streak||0}</span><span class="badge badge-xp">⚡ ${u.xp||0} XP</span></div>
-    </div>
-    <div style="padding:14px 20px 8px">
-      <div style="display:flex;align-items:center;justify-content:space-between">
-        <div><div style="color:var(--dim);font-size:14px">Waimo, <span style="color:var(--text);font-weight:800">${u.username}</span>${isAdmin?' <span style="color:var(--gold);font-size:12px">👑 Admin</span>':''}</div><div style="color:var(--dim);font-size:12px;margin-top:4px">${doneLessons}/${totalLessons} lessons · ${pct}% complete</div></div>
-        <button id="switchUserBtn" style="background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:6px 12px;color:var(--dim);font-size:12px;font-weight:700">Switch User</button>
+    <div style="padding:14px 20px 10px;border-bottom:1.5px solid var(--border)">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
+        <div style="display:flex;align-items:center;gap:8px;min-width:0;flex:1"><span style="font-size:22px">🌊</span><div style="color:var(--dim);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Waimo, <span style="color:var(--text);font-weight:800">${u.username}</span>${isAdmin?' <span style="color:var(--gold);font-size:12px">👑</span>':''}</div></div>
+        <div style="display:flex;gap:6px;align-items:center;flex-shrink:0"><span class="badge badge-streak">🔥 ${u.streak||0}</span><span class="badge badge-xp">⚡ ${u.xp||0}</span><button id="switchUserBtn" style="background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:6px 10px;color:var(--dim);font-size:12px;font-weight:700">Log Out</button></div>
       </div>
-      <div style="margin-top:8px" class="progress-track"><div class="progress-fill" style="width:${pct}%;background:var(--gold)"></div></div>
+      <div style="color:var(--dim);font-size:12px;margin-top:6px;margin-left:30px">${doneLessons}/${totalLessons} lessons · ${pct}% complete</div>
+      <div style="margin-top:6px;margin-left:30px;height:8px" class="progress-track"><div class="progress-fill" style="width:${pct}%;background:var(--gold)"></div></div>
     </div>
     <div class="tab-bar">
       <button class="tab-btn ${state.tab==='learn'?'active':''}" data-tab="learn">📚 LEARN</button>
