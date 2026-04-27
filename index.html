@@ -3921,22 +3921,24 @@ function handleRating(rating){
   const GRADUATION_THRESHOLD=2;
   const shouldGraduate=isCorrect&&item.streak>=GRADUATION_THRESHOLD;
 
-  if(shouldGraduate||item.graduated){
-    // Apply real SM-2 scheduling to the stored card and persist — UNLESS
-    // we're in cram mode, in which case ratings don't touch the schedule.
-    if(!state.reviewCramMode){
-      const cards=srsLoadCards(username);
-      const stored=cards[card.id];
-      if(stored){
-        // If the user lapsed during the session, treat the final scheduling
-        // rating as "hard" rather than the actual rating — short interval
-        // because they struggled with it. Otherwise use the rating as-is.
-        const finalRating=(item.sessionLapses>0&&isCorrect)?"hard":rating;
-        srsRate(stored,finalRating);
-        cards[card.id]=stored;
-        srsSaveCards(username,cards);
-        srsSyncCard(username,card.id,stored);
-      }
+  // In cram mode, every rating ends the card — advance to next, no re-insertion,
+  // no graduation requirement. The card is shown once and that's it.
+  if(state.reviewCramMode){
+    item.graduated=true;
+    if(rating!=="forgot")state.reviewSessionCorrect++;
+  } else if(shouldGraduate||item.graduated){
+    // Apply real SM-2 scheduling to the stored card and persist
+    const cards=srsLoadCards(username);
+    const stored=cards[card.id];
+    if(stored){
+      // If the user lapsed during the session, treat the final scheduling
+      // rating as "hard" rather than the actual rating — short interval
+      // because they struggled with it. Otherwise use the rating as-is.
+      const finalRating=(item.sessionLapses>0&&isCorrect)?"hard":rating;
+      srsRate(stored,finalRating);
+      cards[card.id]=stored;
+      srsSaveCards(username,cards);
+      srsSyncCard(username,card.id,stored);
     }
     item.graduated=true;
     if(rating!=="forgot")state.reviewSessionCorrect++;
