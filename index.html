@@ -517,7 +517,8 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 /* ═══════════════════════════════════════════════════════════════
    APP (Learning) PAGE
 ═══════════════════════════════════════════════════════════════ */
-#view-app .app-inner { min-height:calc(100vh - 61px); }
+#view-app { overflow-x:hidden; }
+#view-app .app-inner { min-height:calc(100vh - 61px); overflow-x:hidden; }
 
 /* When the lesson screen is active, lock the whole app view to the viewport
    so the page body never scrolls. The exercise area becomes the only
