@@ -3364,7 +3364,7 @@ let state={
   unitToggleOverrides:{},
   // SRS review state
   reviewQueue:[],reviewIdx:0,reviewRevealed:false,reviewSessionXP:0,reviewSessionCorrect:0,
-  reviewUnlimited:false,
+  reviewUnlimited:false,reviewCramMode:false,
 };
 
 function setState(partial){Object.assign(state,partial);renderApp();}
@@ -3559,16 +3559,17 @@ function renderHome(){
         </div>
       </div>`;
     } else if(totalToday===0){
-      // All caught up.
-      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;opacity:0.85;position:relative">
+      // All caught up. Offer cram practice as a secondary action.
+      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;opacity:0.95;position:relative">
         <button id="srsSettingsBtn" title="Reset SRS data" style="position:absolute;top:10px;right:10px;background:transparent;border:none;color:var(--dim);font-size:14px;width:24px;height:24px;cursor:pointer;opacity:0.5">⚙</button>
-        <div style="display:flex;align-items:center;gap:12px">
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
           <span style="font-size:28px">🌊</span>
-          <div style="flex:1">
+          <div style="flex:1;min-width:0">
             <div style="color:var(--dim);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase">Ocean of knowledge</div>
-            <div style="font-size:16px;font-weight:800;margin-top:4px">All caught up</div>
+            <div style="font-size:17px;font-weight:800;margin-top:4px">All caught up</div>
             <div style="color:var(--dim);font-size:12px;font-weight:700;margin-top:2px">No words due — see you tomorrow</div>
           </div>
+          <button id="cramBtn" class="btn-secondary" style="flex-shrink:0;width:auto;padding:10px 16px;font-size:13px;font-weight:800">Practice anyway</button>
         </div>
       </div>`;
     } else {
@@ -3652,6 +3653,7 @@ function renderHome(){
   document.querySelectorAll(".admin-del").forEach(b=>b.addEventListener("click",async()=>{const un=b.dataset.user;if(confirm(`Delete user "${un}"? This removes their account, leaderboard entry, and password. Cannot be undone.`)){await adminDeleteUser(un);const lb=await fetchLeaderboard();setState({leaderboard:lb});}}));
   document.getElementById("switchUserBtn").addEventListener("click",()=>{setCurrentUsername("");setState({screen:"username",user:{username:"",xp:0,streak:0,lessonsCompleted:[],lastActiveDate:null}});});
   const startReviewBtn=document.getElementById("startReviewBtn");if(startReviewBtn)startReviewBtn.addEventListener("click",()=>startReview());
+  const cramBtn=document.getElementById("cramBtn");if(cramBtn)cramBtn.addEventListener("click",()=>startCramSession());
   const srsSettingsBtn=document.getElementById("srsSettingsBtn");if(srsSettingsBtn)srsSettingsBtn.addEventListener("click",async(e)=>{
     e.stopPropagation();
     const yes=confirm("Reset all SRS review data?\n\nThis will:\n• Clear your review schedule (all card progress)\n• Re-create the deck from scratch by re-enrolling words from completed lessons\n• Sync the reset to the cloud\n\nYour XP, streak, and lesson progress are NOT affected.\n\nThis cannot be undone.");
@@ -3729,7 +3731,50 @@ function startReview(opts){
     reviewRevealed:false,
     reviewSessionXP:0,
     reviewSessionCorrect:0,
-    reviewUnlimited:false
+    reviewUnlimited:false,
+    reviewCramMode:false
+  });
+}
+
+// Start a cram-mode practice session. Pulls 20 random unique words from the
+// user's deck (any bucket) and presents them with the same review UI. Ratings
+// do NOT update the SRS schedule — cram is pure practice, used when the user
+// is "all caught up" and wants to drill anyway. XP still accumulates so the
+// user gets feedback.
+function startCramSession(){
+  const username=state.user.username;
+  const cards=srsLoadCards(username);
+  // Group cards by lw so we pull both directions for each chosen word
+  const byLw={};
+  for(const id in cards){
+    const c=cards[id];
+    if(!byLw[c.lw])byLw[c.lw]=[];
+    byLw[c.lw].push({id,...c});
+  }
+  const allLws=Object.keys(byLw);
+  if(allLws.length===0){setState({screen:"home"});return;}
+  // Pick up to 20 random unique words
+  const targetWords=20;
+  const picked=shuffle(allLws).slice(0,Math.min(targetWords,allLws.length));
+  // Expand each picked word to both directions
+  const items=[];
+  for(const lw of picked){
+    for(const cardObj of byLw[lw]){
+      items.push(srsWrapForSession(cardObj));
+    }
+  }
+  // Anti-adjacency shuffle so siblings don't sit next to each other
+  const shuffled=srsShuffleNoAdjacency(items.map(i=>i.card));
+  const finalItems=shuffled.map(srsWrapForSession);
+  setState({
+    screen:"review",
+    reviewQueue:finalItems,
+    reviewIdx:0,
+    reviewRevealed:false,
+    reviewSessionXP:0,
+    reviewSessionCorrect:0,
+    reviewUnlimited:false,
+    reviewCramMode:true
   });
 }
 
@@ -3819,10 +3864,10 @@ function renderReview(){
       <button id="reviewExitBtn" style="background:var(--card);border:1.5px solid var(--border);border-radius:10px;width:38px;height:38px;font-size:18px;color:var(--mid);cursor:pointer">✕</button>
       <div style="flex:1">
         <div style="height:6px;background:var(--bg2);border-radius:3px;overflow:hidden">
-          <div style="height:100%;background:var(--blue);width:${pct}%;transition:width 0.3s"></div>
+          <div style="height:100%;background:${state.reviewCramMode?'var(--gold)':'var(--blue)'};width:${pct}%;transition:width 0.3s"></div>
         </div>
       </div>
-      <div style="color:var(--dim);font-size:12px;font-weight:700;flex-shrink:0">${masteredSoFar}/${totalDistinct} mastered</div>
+      <div style="color:var(--dim);font-size:12px;font-weight:700;flex-shrink:0">${state.reviewCramMode?`<span style="color:var(--gold);text-transform:uppercase;letter-spacing:0.5px">Practice</span> · ${masteredSoFar}/${totalDistinct}`:`${masteredSoFar}/${totalDistinct} mastered`}</div>
     </div>
     <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 20px">
       <div id="reviewCard" style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:36px 24px;width:100%;max-width:420px;text-align:center;animation:fadeUp 0.3s ease-out;${!state.reviewRevealed?'cursor:pointer;transition:transform 0.1s, border-color 0.2s':''}">
@@ -3877,18 +3922,21 @@ function handleRating(rating){
   const shouldGraduate=isCorrect&&item.streak>=GRADUATION_THRESHOLD;
 
   if(shouldGraduate||item.graduated){
-    // Apply real SM-2 scheduling to the stored card and persist
-    const cards=srsLoadCards(username);
-    const stored=cards[card.id];
-    if(stored){
-      // If the user lapsed during the session, treat the final scheduling
-      // rating as "hard" rather than the actual rating — short interval
-      // because they struggled with it. Otherwise use the rating as-is.
-      const finalRating=(item.sessionLapses>0&&isCorrect)?"hard":rating;
-      srsRate(stored,finalRating);
-      cards[card.id]=stored;
-      srsSaveCards(username,cards);
-      srsSyncCard(username,card.id,stored);
+    // Apply real SM-2 scheduling to the stored card and persist — UNLESS
+    // we're in cram mode, in which case ratings don't touch the schedule.
+    if(!state.reviewCramMode){
+      const cards=srsLoadCards(username);
+      const stored=cards[card.id];
+      if(stored){
+        // If the user lapsed during the session, treat the final scheduling
+        // rating as "hard" rather than the actual rating — short interval
+        // because they struggled with it. Otherwise use the rating as-is.
+        const finalRating=(item.sessionLapses>0&&isCorrect)?"hard":rating;
+        srsRate(stored,finalRating);
+        cards[card.id]=stored;
+        srsSaveCards(username,cards);
+        srsSyncCard(username,card.id,stored);
+      }
     }
     item.graduated=true;
     if(rating!=="forgot")state.reviewSessionCorrect++;
@@ -3934,6 +3982,8 @@ function handleRating(rating){
 function srsCloseSession(){
   const username=state.user.username;
   if(!username)return;
+  // Cram mode doesn't touch the schedule — exit immediately.
+  if(state.reviewCramMode)return 0;
   const queue=state.reviewQueue||[];
   const cards=srsLoadCards(username);
   let touched=0;
@@ -3978,21 +4028,31 @@ function renderReviewComplete(){
   const correct=state.reviewSessionCorrect||0;
   const total=state.reviewIdx||0;
   const username=state.user.username;
-  const queue=srsBuildQueue(username);
-  const moreDue=queue.due.length;
-  const moreNew=queue.totalNew;
-  // Cards remaining after honoring soft caps would have been hit — check if there are still more.
-  const stillMore=(moreDue>0)||(moreNew>0&&queue.new.length>0);
-  // If unlimited mode wasn't on and there are more available, offer "Keep going."
-  const offerKeepGoing=!state.reviewUnlimited&&((moreDue>0)||(moreNew>0));
+  const isCram=!!state.reviewCramMode;
+  // For non-cram, check if there are more cards available for "Keep going"
+  let offerKeepGoing=false;
+  if(!isCram){
+    const queue=srsBuildQueue(username);
+    const moreDue=queue.due.length;
+    const moreNew=queue.totalNew;
+    offerKeepGoing=!state.reviewUnlimited&&((moreDue>0)||(moreNew>0));
+  } else {
+    // Cram: always offer to do another cram session if the deck has cards
+    const cards=srsLoadCards(username);
+    offerKeepGoing=Object.keys(cards).length>0;
+  }
 
   const accuracy=total>0?Math.round((correct/total)*100):0;
-  const wave=accuracy>=90?"🌊 The tide rises":accuracy>=70?"🐚 A steady current":"🪨 Anchored — keep going";
+  const wave=isCram
+    ?(accuracy>=90?"🌊 Strong currents":accuracy>=70?"🐚 Steady waves":"🪨 Anchored — drilling helps")
+    :(accuracy>=90?"🌊 The tide rises":accuracy>=70?"🐚 A steady current":"🪨 Anchored — keep going");
+  const headerText=isCram?"Practice complete":"Review complete";
+  const keepGoingLabel=isCram?"Practice again":"Keep going";
 
   app.innerHTML=`<div style="min-height:calc(100vh - 61px);display:flex;align-items:center;justify-content:center;padding:24px;flex-direction:column">
     <div style="background:var(--card);border:1.5px solid var(--border);border-radius:var(--radius);padding:32px 24px;width:100%;max-width:420px;text-align:center;animation:fadeUp 0.4s ease-out">
       <div style="font-size:56px;margin-bottom:12px">🌊</div>
-      <div style="font-family:var(--display);font-size:24px;font-weight:800;color:#4A7A9E;margin-bottom:6px">Review complete</div>
+      <div style="font-family:var(--display);font-size:24px;font-weight:800;color:#4A7A9E;margin-bottom:6px">${headerText}</div>
       <div style="color:var(--dim);font-size:14px;font-weight:700;margin-bottom:24px">${wave}</div>
       <div style="display:flex;gap:10px;margin-bottom:24px">
         <div style="flex:1;background:var(--bg2);border-radius:10px;padding:12px 8px">
@@ -4009,15 +4069,17 @@ function renderReviewComplete(){
         </div>
       </div>
       ${offerKeepGoing?`
-        <div style="color:var(--dim);font-size:13px;font-weight:700;margin-bottom:12px">${moreDue>0?moreDue+" more ready":""}${moreDue>0&&moreNew>0?" · ":""}${moreNew>0?moreNew+" more new":""}</div>
-        <button id="keepGoingBtn" class="btn-primary" style="width:100%;padding:14px;font-size:15px;margin-bottom:10px">Keep going</button>
+        <button id="keepGoingBtn" class="btn-primary" style="width:100%;padding:14px;font-size:15px;margin-bottom:10px">${keepGoingLabel}</button>
       `:""}
       <button id="reviewDoneBtn" class="btn-secondary" style="width:100%;padding:14px;font-size:15px">Back to lessons</button>
     </div>
   </div>`;
 
   const keepBtn=document.getElementById("keepGoingBtn");
-  if(keepBtn)keepBtn.addEventListener("click",()=>keepGoingReview());
+  if(keepBtn)keepBtn.addEventListener("click",()=>{
+    if(isCram)startCramSession();
+    else keepGoingReview();
+  });
   const doneBtn=document.getElementById("reviewDoneBtn");
   if(doneBtn)doneBtn.addEventListener("click",()=>{
     srsCloseSession();
