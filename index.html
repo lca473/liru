@@ -4276,7 +4276,7 @@ function renderTF(ex){
       if(val===ex.correct)cls+=" correct";
       else if(val===state.tfSelected)cls+=" wrong";
       else cls+=" faded";
-    }
+    } else if(state.tfSelected===val){cls+=" selected";}
     return `<button class="${cls}" data-tf="${val}" ${state.tfAnswered?'disabled':''} style="text-align:center">${label==="TRUE"?"✓ TRUE":"✗ FALSE"}</button>`;
   }).join("");
   const checkHTML=!state.tfAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.tfSelected!==null?'':'disabled'}>CHECK</button></div>`:"";
@@ -4454,7 +4454,7 @@ function renderRevFill(ex){
       if(opt===ex.correct)cls+=" correct";
       else if(opt===state.revfillSelected)cls+=" wrong";
       else cls+=" faded";
-    } else if(state.revfillSelected===opt){/* no extra selected class */}
+    } else if(state.revfillSelected===opt){cls+=" selected";}
     return `<button class="${cls}" data-rf="${escapeHTML(opt)}" ${state.revfillAnswered?'disabled':''}>${escapeHTML(opt)}</button>`;
   }).join("");
   const checkHTML=!state.revfillAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.revfillSelected?'':'disabled'}>CHECK</button></div>`:"";
@@ -4483,7 +4483,7 @@ function renderErrCorrect(ex){
       if(val===ex.isCorrect)cls+=" correct";
       else if(val===state.errcorrectSelected)cls+=" wrong";
       else cls+=" faded";
-    }
+    } else if(state.errcorrectSelected===val){cls+=" selected";}
     return `<button class="${cls}" data-ec="${val}" ${state.errcorrectAnswered?'disabled':''} style="text-align:center">${label==="CORRECT"?"✓ CORRECT":"✗ INCORRECT"}</button>`;
   }).join("");
   const checkHTML=!state.errcorrectAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.errcorrectSelected!==null?'':'disabled'}>CHECK</button></div>`:"";
