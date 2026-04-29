@@ -1057,7 +1057,7 @@ const V = {
     {lw:"na",     en:"for",            pos:"particle"},
     {lw:"la",     en:"like / as",      pos:"particle"},
     {lw:"moso",   en:"away from",      pos:"particle", pair:{base:"so", base_en:"to / toward"}},
-    {lw:"hale",   en:"journey",        pos:"n", canvas:{adj:"hali", adj_en:"going", adj_mechanical:true, v:"halu", v_en:"to go"}},
+    {lw:"hale",   en:"journey",        pos:"n", canvas:{adj:"hali", adj_en:"going", v:"halu", v_en:"to go"}},
   ],
 
   // L26 — Food I (Staples)
@@ -1251,7 +1251,7 @@ const V = {
   // L41 — Daily Verbs I
   verbs1: [
     {lw:"vane",     en:"arrival",     pos:"n", canvas:{adj:"vani", adj_en:"arriving", v:"vanu", v_en:"to come"}},
-    {lw:"haire",    en:"run",         pos:"n", canvas:{adj:"hairi", adj_en:"running", adj_mechanical:true, v:"hairu", v_en:"to run"}},
+    {lw:"haire",    en:"run",         pos:"n", canvas:{adj:"hairi", adj_en:"running", v:"hairu", v_en:"to run"}},
     {lw:"fase",     en:"work",        pos:"n", canvas:{adj:"fasi", adj_en:"laborious", v:"fasu", v_en:"to work"}},
     {lw:"rae",      en:"sleep",       pos:"n", canvas:{adj:"rai", adj_en:"sleepy", v:"rau", v_en:"to sleep"}},
     {lw:"poiye",    en:"start",       pos:"n", canvas:{adj:"poiyi", adj_en:"starting", v:"poiyu", v_en:"to begin"}},
@@ -1263,10 +1263,10 @@ const V = {
   // hoye/mohoye is a balancing pair (buy/sell); fere is give.
   verbs2: [
     {lw:"fere",     en:"gift",        pos:"n", canvas:{adj:"feri", adj_en:"generous", v:"feru", v_en:"to give"}},
-    {lw:"hoye",     en:"purchase",    pos:"n", canvas:{adj:"hoyi", adj_en:"bought", adj_mechanical:true, v:"hoyu", v_en:"to buy"},  pair:{mo:"mohoye", mo_en:"sale"}},
-    {lw:"mohoye",   en:"sale",        pos:"n", canvas:{adj:"mohoyi", adj_en:"sold", adj_mechanical:true, v:"mohoyu", v_en:"to sell"}, pair:{base:"hoye", base_en:"purchase"}},
-    {lw:"loise",    en:"reading",     pos:"n", canvas:{adj:"loisi", adj_en:"read", adj_mechanical:true, v:"loisu", v_en:"to read"}},
-    {lw:"loike",    en:"writing",     pos:"n", canvas:{adj:"loiki", adj_en:"written", adj_mechanical:true, v:"loiku", v_en:"to write"}},
+    {lw:"hoye",     en:"purchase",    pos:"n", canvas:{adj:"hoyi", adj_en:"bought", v:"hoyu", v_en:"to buy"},  pair:{mo:"mohoye", mo_en:"sale"}},
+    {lw:"mohoye",   en:"sale",        pos:"n", canvas:{adj:"mohoyi", adj_en:"sold", v:"mohoyu", v_en:"to sell"}, pair:{base:"hoye", base_en:"purchase"}},
+    {lw:"loise",    en:"reading",     pos:"n", canvas:{adj:"loisi", adj_en:"read", v:"loisu", v_en:"to read"}},
+    {lw:"loike",    en:"writing",     pos:"n", canvas:{adj:"loiki", adj_en:"written", v:"loiku", v_en:"to write"}},
     {lw:"shire",    en:"creation",    pos:"n", canvas:{adj:"shiri", adj_en:"creative", v:"shiru", v_en:"to make"}},
     {lw:"sove",     en:"help",        pos:"n", canvas:{adj:"sovi", adj_en:"helpful", v:"sovu", v_en:"to help"}},
   ],
@@ -1274,11 +1274,11 @@ const V = {
   // L43 — Daily Verbs III
   // toihe/motoihe (pick up / drop off) and lame/molame (same / different) are balancing pairs.
   verbs3: [
-    {lw:"kahe",     en:"hold",        pos:"n", canvas:{adj:"kahi", adj_en:"held", adj_mechanical:true, v:"kahu", v_en:"to hold"}},
-    {lw:"kose",     en:"acquisition", pos:"n", canvas:{adj:"kosi", adj_en:"obtained", adj_mechanical:true, v:"kosu", v_en:"to get"}},
+    {lw:"kahe",     en:"hold",        pos:"n", canvas:{adj:"kahi", adj_en:"held", v:"kahu", v_en:"to hold"}},
+    {lw:"kose",     en:"acquisition", pos:"n", canvas:{adj:"kosi", adj_en:"obtained", v:"kosu", v_en:"to get"}},
     {lw:"rike",     en:"finding",     pos:"n", canvas:{adj:"riki", adj_en:"found", v:"riku", v_en:"to find"}},
     {lw:"riwe",     en:"search",      pos:"n", canvas:{adj:"riwi", adj_en:"sought", v:"riwu", v_en:"to search"}},
-    {lw:"loime",    en:"wait",        pos:"n", canvas:{adj:"loimi", adj_en:"waiting", adj_mechanical:true, v:"loimu", v_en:"to wait"}},
+    {lw:"loime",    en:"wait",        pos:"n", canvas:{adj:"loimi", adj_en:"waiting", v:"loimu", v_en:"to wait"}},
     {lw:"muwe",     en:"sending",     pos:"n", canvas:{adj:"muwi", adj_en:"sent", v:"muwu", v_en:"to send"}},
     {lw:"vehe",     en:"showing",     pos:"n", canvas:{adj:"vehi", adj_en:"shown", v:"vehu", v_en:"to show"}},
     {lw:"vihe",     en:"sharing",     pos:"n", canvas:{adj:"vihi", adj_en:"shared", v:"vihu", v_en:"to share"}},
@@ -1582,14 +1582,14 @@ const V = {
   // liohe (step) added per coverage_notes.
   movement: [
     {lw:"shauwe",  en:"swim",      pos:"n", canvas:{adj:"shauwi", adj_en:"swimming", v:"shauwu", v_en:"to swim"}},
-    {lw:"eire",    en:"flight",    pos:"n", canvas:{adj:"eiri", adj_en:"flying", adj_mechanical:true, v:"eiru", v_en:"to fly"}},
-    {lw:"keye",    en:"fall",      pos:"n", canvas:{adj:"keyi", adj_en:"fallen", adj_mechanical:true, v:"keyu", v_en:"to fall"}},
+    {lw:"eire",    en:"flight",    pos:"n", canvas:{adj:"eiri", adj_en:"flying", v:"eiru", v_en:"to fly"}},
+    {lw:"keye",    en:"fall",      pos:"n", canvas:{adj:"keyi", adj_en:"fallen", v:"keyu", v_en:"to fall"}},
     {lw:"woune",   en:"lifting",   pos:"n", canvas:{adj:"wouni", adj_en:"lifted", v:"wounu", v_en:"to lift"}},
     {lw:"movanu",  en:"to leave",  pos:"v", note:"Verb-only mo-form of vanu (to come)"},
     {lw:"taike",   en:"jump",      pos:"n", canvas:{adj:"taiki", adj_en:"jumping", v:"taiku", v_en:"to jump"}},
     {lw:"naike",   en:"climb",     pos:"n", canvas:{adj:"naiki", adj_en:"climbing", v:"naiku", v_en:"to climb"}},
     {lw:"washe",   en:"movement",  pos:"n", canvas:{adj:"washi", adj_en:"flowing", v:"washu", v_en:"to move"}},
-    {lw:"liohe",   en:"step",      pos:"n", canvas:{adj:"liohi", adj_en:"stepped", adj_mechanical:true, v:"liohu", v_en:"to step up"}},
+    {lw:"liohe",   en:"step",      pos:"n", canvas:{adj:"liohi", adj_en:"stepped", v:"liohu", v_en:"to step up"}},
   ],
 
   // L71 — Verbs of Action
@@ -1599,7 +1599,7 @@ const V = {
     {lw:"puhe",   en:"action",     pos:"n", canvas:{adj:"puhi", adj_en:"active", v:"puhu", v_en:"to do"}},
     {lw:"shame",  en:"attempt",    pos:"n", canvas:{adj:"shami", adj_en:"attempted", v:"shamu", v_en:"to try"}},
     {lw:"poiwe",  en:"turn",       pos:"n", canvas:{adj:"poiwi", adj_en:"rotated", v:"poiwu", v_en:"to turn"}},
-    {lw:"faire",  en:"dance",      pos:"n", canvas:{adj:"fairi", adj_en:"danced", adj_mechanical:true, v:"fairu", v_en:"to dance"}},
+    {lw:"faire",  en:"dance",      pos:"n", canvas:{adj:"fairi", adj_en:"danced", v:"fairu", v_en:"to dance"}},
     {lw:"vauhe",  en:"clothing",   pos:"n", canvas:{adj:"vauhi", adj_en:"worn", v:"vauhu", v_en:"to wear"}},
   ],
 
@@ -1704,7 +1704,7 @@ const V = {
   // Two new base canvas roots (kaise, mauhe); ten common agents.
   agentpue: [
     {lw:"kaise",      en:"lesson",    pos:"n", canvas:{adj:"kaisi", adj_en:"taught", v:"kaisu", v_en:"to teach"}},
-    {lw:"mauhe",      en:"learning",  pos:"n", canvas:{adj:"mauhi", adj_en:"learned", adj_mechanical:true, v:"mauhu", v_en:"to learn"}},
+    {lw:"mauhe",      en:"learning",  pos:"n", canvas:{adj:"mauhi", adj_en:"learned", v:"mauhu", v_en:"to learn"}},
     {lw:"lirupue",    en:"singer",    pos:"n", note:"From liru (speak/sing) + -pue. Also 'speaker.'"},
     {lw:"kaisupue",   en:"teacher",   pos:"n", note:"From kaisu + -pue"},
     {lw:"mauhupue",   en:"student",   pos:"n", note:"From mauhu + -pue"},
@@ -1875,7 +1875,7 @@ const V = {
     {lw:"nile",         en:"name",       pos:"n", canvas:{adj:"nili", adj_en:"named", v:"nilu", v_en:"to name"}},
     {lw:"roihe",        en:"certainty",  pos:"n", canvas:{adj:"roihi", adj_en:"certain", v:"roihu", v_en:"to confirm"}, pair:{mo:"moroihe", mo_en:"doubt"}},
     {lw:"moroihe",      en:"doubt",      pos:"n", canvas:{adj:"moroihi", adj_en:"doubtful", v:"moroihu", v_en:"to doubt"}, pair:{base:"roihe", base_en:"certainty"}},
-    {lw:"feihe",        en:"promise",    pos:"n", canvas:{adj:"feihi", adj_en:"promised", adj_mechanical:true, v:"feihu", v_en:"to promise"}},
+    {lw:"feihe",        en:"promise",    pos:"n", canvas:{adj:"feihi", adj_en:"promised", v:"feihu", v_en:"to promise"}},
     {lw:"luhime",       en:"music",      pos:"n", canvas:{adj:"luhimi", adj_en:"musical", v:"luhimu", v_en:"to play music"}},
     {lw:"niohe",        en:"agreement",  pos:"n", canvas:{adj:"niohi", adj_en:"agreed", v:"niohu", v_en:"to agree"}, pair:{mo:"moniohe", mo_en:"disagreement"}},
     {lw:"moniohe",      en:"disagreement", pos:"n", canvas:{adj:"moniohi", adj_en:"disagreed", v:"moniohu", v_en:"to disagree"}, pair:{base:"niohe", base_en:"agreement"}},
@@ -1942,7 +1942,7 @@ const V = {
   // L100 — Communication Verbs
   // kilire/mokilire is ask/answer pair. seume/moseume is whisper/shout.
   communication: [
-    {lw:"kilire",    en:"question",  pos:"n", canvas:{adj:"kiliri", adj_en:"asked", adj_mechanical:true, v:"kiliru", v_en:"to ask"}, pair:{mo:"mokilire", mo_en:"answer"}},
+    {lw:"kilire",    en:"question",  pos:"n", canvas:{adj:"kiliri", adj_en:"asked", v:"kiliru", v_en:"to ask"}, pair:{mo:"mokilire", mo_en:"answer"}},
     {lw:"mokilire",  en:"answer",    pos:"n", canvas:{adj:"mokiliri", adj_en:"answered", v:"mokiliru", v_en:"to answer"}, pair:{base:"kilire", base_en:"question"}, note:"From mo- + kilire — the response"},
     {lw:"seume",     en:"whisper",   pos:"n", canvas:{adj:"seumi", adj_en:"whispered", v:"seumu", v_en:"to whisper"}, pair:{mo:"moseume", mo_en:"shout"}},
     {lw:"moseume",   en:"shout",     pos:"n", canvas:{adj:"moseumi", adj_en:"shouted", v:"moseumu", v_en:"to shout"}, pair:{base:"seume", base_en:"whisper"}},
@@ -2031,7 +2031,7 @@ const V = {
   outcomes: [
     {lw:"loune",    en:"success",     pos:"n", canvas:{adj:"louni", adj_en:"successful", v:"lounu", v_en:"to succeed"}, pair:{mo:"moloune", mo_en:"failure"}},
     {lw:"moloune",  en:"failure",     pos:"n", canvas:{adj:"molouni", adj_en:"failed", v:"molounu", v_en:"to fail"}, pair:{base:"loune", base_en:"success"}},
-    {lw:"lonone",   en:"win",         pos:"n", canvas:{adj:"lononi", adj_en:"winning", adj_mechanical:true, v:"lononu", v_en:"to win"}, pair:{mo:"molonone", mo_en:"loss"}},
+    {lw:"lonone",   en:"win",         pos:"n", canvas:{adj:"lononi", adj_en:"winning", v:"lononu", v_en:"to win"}, pair:{mo:"molonone", mo_en:"loss"}},
     {lw:"molonone", en:"loss",        pos:"n", canvas:{adj:"molononi", adj_en:"losing", v:"molononu", v_en:"to lose"}, pair:{base:"lonone", base_en:"win"}},
     {lw:"laohe",    en:"happening",   pos:"n", canvas:{adj:"laohi", adj_en:"eventful", v:"laohu", v_en:"to happen"}},
     {lw:"youme",    en:"luck",        pos:"n", canvas:{adj:"youmi", adj_en:"lucky", v:"youmu", v_en:"to luck out"}},
@@ -2086,7 +2086,7 @@ const V = {
   secondaryverbs2: [
     {lw:"muye",     en:"mixture",    pos:"n", canvas:{adj:"muyi", adj_en:"mixed", v:"muyu", v_en:"to mix"}},
     {lw:"nuhe",     en:"focus",      pos:"n", canvas:{adj:"nuhi", adj_en:"focused", v:"nuhu", v_en:"to concentrate"}},
-    {lw:"koule",    en:"visit",      pos:"n", canvas:{adj:"kouli", adj_en:"visited", adj_mechanical:true, v:"koulu", v_en:"to visit"}},
+    {lw:"koule",    en:"visit",      pos:"n", canvas:{adj:"kouli", adj_en:"visited", v:"koulu", v_en:"to visit"}},
     {lw:"poule",    en:"invitation", pos:"n", canvas:{adj:"pouli", adj_en:"invited", v:"poulu", v_en:"to invite"}},
     {lw:"raime",    en:"picture",    pos:"n", canvas:{adj:"raimi", adj_en:"pictured", v:"raimu", v_en:"to depict"}},
     {lw:"mokahu",   en:"to drop (unintentionally)", pos:"v", note:"Verb-only special mo-form"},
@@ -2795,12 +2795,18 @@ async function finishLogin(name){
       }
       if(merged>0)console.log("[SRS] merged",merged,"cards from cloud for",user.username);
     }
+    // Prune any cards whose lw is no longer in the dictionary (stale from prior cleanups)
+    {
+      const cards=srsLoadCards(user.username);
+      srsPruneAndSync(user.username,cards);
+      // Refresh glosses against current V (catches "to do ill" → "to do wrong" style updates)
+      const cards2=srsLoadCards(user.username);
+      srsRefreshAndSync(user.username,cards2);
+    }
     const added=srsBackfillIfNeeded(user.username,user,LESSONS,V,DICTIONARY_RAW);
     if(added>0)console.log("[SRS] backfilled",added,"cards for",user.username);
     const restamped=srsMigrateAddedAtIfNeeded(user.username,user,LESSONS,V,DICTIONARY_RAW);
     if(restamped>0)console.log("[SRS] re-stamped addedAt on",restamped,"existing cards for",user.username);
-    const stripped=srsStripMechanicalIfNeeded(user.username,user,DICTIONARY_RAW);
-    if(stripped>0)console.log("[SRS] stripped",stripped,"mechanical-form cards for",user.username);
   }catch(e){console.warn("[SRS] cloud sync/backfill/migration failed:",e);}
   state.screen="home";
   renderApp();
@@ -2928,6 +2934,135 @@ function srsMergeCloudCards(localCards,cloudCards){
   return changes;
 }
 
+// ─── Stale-card pruning ─────────────────────────────────────
+// When a Liru form is removed from the dictionary (e.g., a strained verb form
+// dropped during cleanup), any existing SRS cards for that form become stale.
+// Their stored gloss reflects the old definition and shouldn't keep appearing
+// for review.
+//
+// Rule: a card is stale if card.lw is not present in DICTIONARY_RAW. Phrases
+// with spaces (e.g. "wule oihi") aren't enrolled as cards, so the simple
+// single-word forms-set is sufficient.
+//
+// This runs at two points (defense in depth):
+//   1. After srsMergeCloudCards on login — catches cards that came from cloud
+//      after a dictionary change shipped.
+//   2. At the start of srsBuildQueue — catches cards that became stale
+//      between syncs (e.g., user has the new app but Firebase still has stale
+//      cards from another device).
+//
+// Pruning is destructive: removed from local storage AND Firebase. Last-write-
+// wins means a stale device that re-syncs a card back will get pruned again
+// next time an updated device runs.
+function srsValidFormsSet(){
+  const s=new Set();
+  for(const e of DICTIONARY_RAW){if(e&&e.lw)s.add(e.lw);}
+  return s;
+}
+function srsPruneStaleCards(cards,validForms){
+  const prunedIds=[];
+  for(const id in cards){
+    const c=cards[id];
+    if(!c||!c.lw||!validForms.has(c.lw)){
+      prunedIds.push(id);
+      delete cards[id];
+    }
+  }
+  return prunedIds;
+}
+function srsPruneAndSync(username,cards){
+  if(!username||!cards)return 0;
+  const validForms=srsValidFormsSet();
+  const prunedIds=srsPruneStaleCards(cards,validForms);
+  if(prunedIds.length===0)return 0;
+  srsSaveCards(username,cards);
+  // Delete from Firebase. Fire-and-forget; if it fails, the next prune will
+  // catch the same stale cards again from cloud.
+  if(firebaseReady&&db){
+    for(const id of prunedIds){
+      try{db.ref(srsCardFbPath(username,id)).remove();}
+      catch(e){/* ignore — local is authoritative until next sync */}
+    }
+  }
+  console.log("[SRS] pruned",prunedIds.length,"stale cards for",username,prunedIds);
+  return prunedIds.length;
+}
+
+// ─── Stale-gloss refresh ─────────────────────────────────────
+// When a gloss is updated in V (e.g., "to do ill" → "to do wrong"), existing
+// SRS cards still show the old gloss because each card's `en` is copied in at
+// creation time and never re-read. This pass walks every card and rewrites
+// any stored `en` that doesn't match the current canonical gloss.
+//
+// Refresh source: V (the lesson vocabulary array). Per project convention V
+// carries the teaching gloss (often shorter/clearer than DICTIONARY_RAW's
+// reference gloss); cards should match what the learner saw at lesson time.
+// If a card's `lw` isn't found in V (anomalous), the card is left alone —
+// stale-form pruning would have already caught it if its lw was deleted.
+//
+// Fires after srsPruneAndSync at both call sites (login + queue build).
+function srsBuildVGlossMap(){
+  // Walk V (which is { lessonKey: [entry, entry, ...] }) and collect every
+  // gloss as { lw -> en }. Canvas adj/v derived forms each contribute their
+  // own row; plural forms contribute their own. On collision, last write wins
+  // (V is the canonical teaching layer; collisions across lessons should
+  // already be cleaned up by preflight's duplicate check).
+  const map=new Map();
+  if(typeof V==="undefined"||!V)return map;
+  for(const key in V){
+    const entries=V[key];
+    if(!Array.isArray(entries))continue;
+    for(const ent of entries){
+      if(!ent||!ent.lw)continue;
+      // Skip sentence-style entries where lw is an array of tokens
+      if(Array.isArray(ent.lw))continue;
+      if(typeof ent.en==="string")map.set(ent.lw,ent.en);
+      if(ent.canvas){
+        if(ent.canvas.adj&&typeof ent.canvas.adj_en==="string")map.set(ent.canvas.adj,ent.canvas.adj_en);
+        if(ent.canvas.v&&typeof ent.canvas.v_en==="string")map.set(ent.canvas.v,ent.canvas.v_en);
+      }
+      if(ent.plural&&typeof ent.plural_en==="string")map.set(ent.plural,ent.plural_en);
+    }
+  }
+  return map;
+}
+function srsRefreshGlosses(cards,glossMap){
+  // Walk cards; rewrite card.en if the V gloss has drifted. Returns array of
+  // refreshed card IDs (for sync). Cards whose lw isn't in glossMap are
+  // skipped (can't refresh against an unknown source).
+  const refreshedIds=[];
+  for(const id in cards){
+    const c=cards[id];
+    if(!c||!c.lw)continue;
+    const canonical=glossMap.get(c.lw);
+    if(canonical===undefined)continue;
+    if(c.en!==canonical){
+      c.en=canonical;
+      refreshedIds.push(id);
+    }
+  }
+  return refreshedIds;
+}
+function srsRefreshAndSync(username,cards){
+  if(!username||!cards)return 0;
+  const glossMap=srsBuildVGlossMap();
+  if(glossMap.size===0)return 0;
+  const refreshedIds=srsRefreshGlosses(cards,glossMap);
+  if(refreshedIds.length===0)return 0;
+  srsSaveCards(username,cards);
+  // Sync refreshed cards to Firebase. Fire-and-forget. Uses the existing
+  // per-card sync helper which writes the full card object including the
+  // updated en.
+  if(firebaseReady&&db){
+    for(const id of refreshedIds){
+      try{srsSyncCard(username,id,cards[id]);}
+      catch(e){/* ignore — local is authoritative until next sync */}
+    }
+  }
+  console.log("[SRS] refreshed",refreshedIds.length,"stale glosses for",username);
+  return refreshedIds.length;
+}
+
 // Hard reset: wipe local + cloud SRS data and clear flags so backfill re-runs.
 async function srsResetAll(username){
   if(!username)return;
@@ -3008,7 +3143,6 @@ function srsExtractLessonWords(lesson,V,DICTIONARY_RAW){
         if(!d)continue;          // unknown token; skip
         if(d.pos==="particle"&&SRS_PARTICLE_SKIP.has(d.lw))continue;
         // Skip purely-structural particles even if not in skip set above (defensive)
-        if(d.mechanical)continue;
         out.push({lw:d.lw,en:d.en,pos:d.pos});
       }
     }
@@ -3018,7 +3152,7 @@ function srsExtractLessonWords(lesson,V,DICTIONARY_RAW){
       if(!ent.lw||Array.isArray(ent.lw))continue;
       out.push({lw:ent.lw,en:ent.en,pos:ent.pos||"n"});
       if(ent.canvas){
-        if(ent.canvas.adj && !ent.canvas.adj_mechanical)out.push({lw:ent.canvas.adj,en:ent.canvas.adj_en,pos:"adj"});
+        if(ent.canvas.adj)out.push({lw:ent.canvas.adj,en:ent.canvas.adj_en,pos:"adj"});
         if(ent.canvas.v)out.push({lw:ent.canvas.v,en:ent.canvas.v_en,pos:"v"});
       }
       if(ent.plural){
@@ -3152,53 +3286,6 @@ function srsMigrateAddedAtIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
   return restamped;
 }
 
-// One-time cleanup: strip cards whose lw is flagged mechanical:true in
-// DICTIONARY_RAW. These are real Liru forms (e.g., hairi "running" as a
-// noun-modifier in shaihe hali "going boat") that were previously enrolled
-// as standalone flashcards with participial English glosses, which actively
-// taught learners to use the adjective where the verb belongs. Removing them
-// preserves grammatical validity (form still in dictionary) while ending the
-// pedagogical bug for existing decks. Idempotent via the mechanicalStripDone
-// state flag.
-function srsStripMechanicalIfNeeded(username,user,DICTIONARY_RAW){
-  if(!username)return 0;
-  const s=srsLoadState(username);
-  if(s.mechanicalStripDone)return 0;
-  // Build set of lw values that are flagged mechanical.
-  const mechSet=new Set();
-  for(const d of DICTIONARY_RAW){if(d.mechanical)mechSet.add(d.lw);}
-  if(mechSet.size===0){
-    s.mechanicalStripDone=true;srsSaveState(username,s);return 0;
-  }
-  const cards=srsLoadCards(username);
-  let stripped=0;
-  const removedIds=[];
-  for(const id in cards){
-    const c=cards[id];
-    if(c&&mechSet.has(c.lw)){
-      delete cards[id];
-      removedIds.push(id);
-      stripped++;
-    }
-  }
-  if(stripped>0)srsSaveCards(username,cards);
-  s.mechanicalStripDone=true;
-  srsSaveState(username,s);
-  // Cloud sync: remove the stripped cards from Firebase as well so the
-  // change propagates across devices. Use null per-key to delete (Firebase
-  // RTDB convention).
-  if(firebaseReady&&db&&removedIds.length>0){
-    try{
-      const wipe={};
-      for(const id of removedIds){wipe[id]=null;}
-      db.ref("users/"+fbKey(username)+"/srs/cards").update(wipe)
-        .catch(e=>console.warn("[SRS] mechanical strip sync error:",e));
-    }catch(e){console.warn("[SRS] mechanical strip sync error:",e);}
-  }
-  srsSyncState(username,s);
-  return stripped;
-}
-
 // ─── Scheduling (SM-2 variant) ───────────────────────────────
 // rating: "forgot" | "hard" | "good" | "easy"
 // Returns mutated card and a human-readable interval-preview label.
@@ -3265,6 +3352,14 @@ function srsPreviewIntervals(card){
 // "due" = previously-seen cards whose due time has passed.
 // "new" = cards never reviewed (interval===0), capped at SRS_DAILY_NEW_SOFT_CAP unless override.
 function srsBuildQueue(username,opts){
+  // Prune stale cards (lw no longer in dictionary) before building. This
+  // catches cards that became stale after the user's last login, e.g., from
+  // a dictionary change that shipped while they were mid-session.
+  const rawCards=srsLoadCards(username);
+  srsPruneAndSync(username,rawCards);
+  // Refresh stale glosses (en drifted from current V) before serving the queue.
+  const refreshCards=srsLoadCards(username);
+  srsRefreshAndSync(username,refreshCards);
   const cards=srsLoadCards(username);
   const now=Date.now();
   const all=Object.entries(cards).map(([id,c])=>({id,...c}));
@@ -3712,7 +3807,6 @@ function renderHome(){
     try{
       srsBackfillIfNeeded(u.username,u,LESSONS,V,DICTIONARY_RAW);
       srsMigrateAddedAtIfNeeded(u.username,u,LESSONS,V,DICTIONARY_RAW);
-      srsStripMechanicalIfNeeded(u.username,u,DICTIONARY_RAW);
     }catch(err){console.warn("[SRS] post-reset backfill failed:",err);}
     renderApp();
   });
@@ -4276,7 +4370,7 @@ function renderTF(ex){
       if(val===ex.correct)cls+=" correct";
       else if(val===state.tfSelected)cls+=" wrong";
       else cls+=" faded";
-    } else if(state.tfSelected===val){cls+=" selected";}
+    }
     return `<button class="${cls}" data-tf="${val}" ${state.tfAnswered?'disabled':''} style="text-align:center">${label==="TRUE"?"✓ TRUE":"✗ FALSE"}</button>`;
   }).join("");
   const checkHTML=!state.tfAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.tfSelected!==null?'':'disabled'}>CHECK</button></div>`:"";
@@ -4454,7 +4548,7 @@ function renderRevFill(ex){
       if(opt===ex.correct)cls+=" correct";
       else if(opt===state.revfillSelected)cls+=" wrong";
       else cls+=" faded";
-    } else if(state.revfillSelected===opt){cls+=" selected";}
+    } else if(state.revfillSelected===opt){/* no extra selected class */}
     return `<button class="${cls}" data-rf="${escapeHTML(opt)}" ${state.revfillAnswered?'disabled':''}>${escapeHTML(opt)}</button>`;
   }).join("");
   const checkHTML=!state.revfillAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.revfillSelected?'':'disabled'}>CHECK</button></div>`:"";
@@ -4483,7 +4577,7 @@ function renderErrCorrect(ex){
       if(val===ex.isCorrect)cls+=" correct";
       else if(val===state.errcorrectSelected)cls+=" wrong";
       else cls+=" faded";
-    } else if(state.errcorrectSelected===val){cls+=" selected";}
+    }
     return `<button class="${cls}" data-ec="${val}" ${state.errcorrectAnswered?'disabled':''} style="text-align:center">${label==="CORRECT"?"✓ CORRECT":"✗ INCORRECT"}</button>`;
   }).join("");
   const checkHTML=!state.errcorrectAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.errcorrectSelected!==null?'':'disabled'}>CHECK</button></div>`:"";
@@ -5207,8 +5301,8 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Word</th><th>Use</th></tr></thead><tbody>
     <tr><td><em>moa</em></td><td>please / general respect marker</td></tr>
     <tr><td><em>reiwa</em></td><td>thank you</td></tr>
-    <tr><td><em>waimo</em></td><td>hello (meeting)</td></tr>
-    <tr><td><em>weriko</em></td><td>goodbye (parting)</td></tr>
+    <tr><td><em>waimo</em></td><td>hello (greeting)</td></tr>
+    <tr><td><em>weriko</em></td><td>goodbye (farewell)</td></tr>
     <tr><td><em>elo</em></td><td>sorry · sympathy · excuse me (one word for all three)</td></tr>
     </tbody></table></div>
     <ul>
@@ -5407,7 +5501,7 @@ const DICTIONARY_RAW = [
   {lw:"awi", en:"more", pos:"adj"},
   {lw:"awu", en:"to increase", pos:"v"},
   {lw:"eire", en:"flight", pos:"n"},
-  {lw:"eiri", en:"in flight (or flying)", pos:"adj", mechanical:true},
+  {lw:"eiri", en:"in flight (or flying)", pos:"adj"},
   {lw:"eiru", en:"to fly", pos:"v"},
   {lw:"eirupauwe", en:"airplane", pos:"n", note:"From eiru (to fly) + -pauwe (device) \u2014 flying machine"},
   {lw:"ele", en:"feeling", pos:"n"},
@@ -5426,7 +5520,7 @@ const DICTIONARY_RAW = [
   {lw:"faili", en:"excited (or eagerly)", pos:"adj"},
   {lw:"failu", en:"to excite", pos:"v"},
   {lw:"faire", en:"dance", pos:"n"},
-  {lw:"fairi", en:"danced", pos:"adj", mechanical:true},
+  {lw:"fairi", en:"danced", pos:"adj"},
   {lw:"fairu", en:"to dance", pos:"v"},
   {lw:"fale", en:"then", pos:"particle"},
   {lw:"falo", en:"that", pos:"dem"},
@@ -5446,7 +5540,7 @@ const DICTIONARY_RAW = [
   {lw:"faune", en:"loneliness", pos:"n"},
   {lw:"fauni", en:"lonely", pos:"adj"},
   {lw:"feihe", en:"promise", pos:"n"},
-  {lw:"feihi", en:"promised", pos:"adj", mechanical:true},
+  {lw:"feihi", en:"promised", pos:"adj"},
   {lw:"feihu", en:"to promise", pos:"v"},
   {lw:"felale", en:"gray (the color)", pos:"n"},
   {lw:"felali", en:"gray", pos:"adj"},
@@ -5496,13 +5590,13 @@ const DICTIONARY_RAW = [
   {lw:"haimi", en:"reflective", pos:"adj"},
   {lw:"haimu", en:"to reflect", pos:"v"},
   {lw:"haire", en:"run", pos:"n"},
-  {lw:"hairi", en:"running", pos:"adj", mechanical:true},
+  {lw:"hairi", en:"running", pos:"adj"},
   {lw:"hairu", en:"to run", pos:"v"},
   {lw:"haiwe", en:"year", pos:"n"},
   {lw:"haiwepiehe", en:"season (as a category)", pos:"n", note:"From haiwe (year) + piehe (part) \u2014 season"},
   {lw:"haiwi", en:"yearly", pos:"adj"},
   {lw:"hale", en:"journey", pos:"n"},
-  {lw:"hali", en:"going", pos:"adj", mechanical:true},
+  {lw:"hali", en:"going", pos:"adj"},
   {lw:"halu", en:"to go", pos:"v"},
   {lw:"hani", en:"ten", pos:"num"},
   {lw:"hanifaniluone", en:"November", pos:"n", note:"From hani (10) + fani (1) + luone (month) \u2014 November"},
@@ -5562,7 +5656,7 @@ const DICTIONARY_RAW = [
   {lw:"houwi", en:"dry", pos:"adj"},
   {lw:"houwu", en:"to dry", pos:"v"},
   {lw:"hoye", en:"purchase", pos:"n"},
-  {lw:"hoyi", en:"bought", pos:"adj", mechanical:true},
+  {lw:"hoyi", en:"bought", pos:"adj"},
   {lw:"hoyu", en:"to buy", pos:"v"},
   {lw:"hue", en:"thing", pos:"n"},
   {lw:"huhe", en:"lung", pos:"n"},
@@ -5586,7 +5680,7 @@ const DICTIONARY_RAW = [
   {lw:"iwuhi", en:"linguistic", pos:"adj"},
   {lw:"iwuhu", en:"to speak (a language)", pos:"v"},
   {lw:"kahe", en:"hold", pos:"n"},
-  {lw:"kahi", en:"held", pos:"adj", mechanical:true},
+  {lw:"kahi", en:"held", pos:"adj"},
   {lw:"kahime", en:"metal", pos:"n"},
   {lw:"kahimi", en:"metallic (or metal-related)", pos:"adj"},
   {lw:"kahu", en:"to hold (or carry)", pos:"v"},
@@ -5627,7 +5721,7 @@ const DICTIONARY_RAW = [
   {lw:"kewe", en:"room", pos:"n"},
   {lw:"kewi", en:"room-related", pos:"adj"},
   {lw:"keye", en:"fall", pos:"n"},
-  {lw:"keyi", en:"fallen", pos:"adj", mechanical:true},
+  {lw:"keyi", en:"fallen", pos:"adj"},
   {lw:"keyu", en:"to fall", pos:"v"},
   {lw:"ki", en:"question particle (yes/no)", pos:"particle"},
   {lw:"kiame", en:"number", pos:"n"},
@@ -5635,7 +5729,7 @@ const DICTIONARY_RAW = [
   {lw:"kiamu", en:"to count", pos:"v"},
   {lw:"kifa", en:"how many", pos:"particle", note:"From ki- + fa \u2014 how many"},
   {lw:"kilire", en:"question", pos:"n", note:"From ki- + lire \u2014 question"},
-  {lw:"kiliri", en:"asked", pos:"adj", mechanical:true},
+  {lw:"kiliri", en:"asked", pos:"adj"},
   {lw:"kiliru", en:"to ask", pos:"v", note:"From ki- + liru \u2014 to ask"},
   {lw:"kime", en:"when", pos:"particle", note:"From ki- + me \u2014 when"},
   {lw:"kipue", en:"who", pos:"particle", note:"From ki- + pue \u2014 who"},
@@ -5659,13 +5753,13 @@ const DICTIONARY_RAW = [
   {lw:"komilele", en:"grain of sand", pos:"n", note:"From kome (stone) + -ile + -ile \u2014 tiny stone"},
   {lw:"komu", en:"to make solid", pos:"v"},
   {lw:"kose", en:"acquisition", pos:"n"},
-  {lw:"kosi", en:"obtained", pos:"adj", mechanical:true},
+  {lw:"kosi", en:"obtained", pos:"adj"},
   {lw:"kosu", en:"to get (or obtain)", pos:"v"},
   {lw:"kouhe", en:"thinness", pos:"n"},
   {lw:"kouhi", en:"thin", pos:"adj"},
   {lw:"kouhu", en:"to thin", pos:"v"},
   {lw:"koule", en:"visit", pos:"n"},
-  {lw:"kouli", en:"visited", pos:"adj", mechanical:true},
+  {lw:"kouli", en:"visited", pos:"adj"},
   {lw:"koulu", en:"to visit", pos:"v"},
   {lw:"kouwe", en:"goat", pos:"n"},
   {lw:"kouwi", en:"goat-related", pos:"adj"},
@@ -5742,7 +5836,7 @@ const DICTIONARY_RAW = [
   {lw:"limi", en:"mature", pos:"adj"},
   {lw:"limu", en:"to grow", pos:"v"},
   {lw:"liohe", en:"step (stair)", pos:"n"},
-  {lw:"liohi", en:"stepped", pos:"adj", mechanical:true},
+  {lw:"liohi", en:"stepped", pos:"adj"},
   {lw:"liohu", en:"to step up", pos:"v"},
   {lw:"lire", en:"song (or speech)", pos:"n"},
   {lw:"liri", en:"vocal", pos:"adj"},
@@ -5764,16 +5858,16 @@ const DICTIONARY_RAW = [
   {lw:"loihe", en:"paper", pos:"n"},
   {lw:"loihi", en:"paper-related", pos:"adj"},
   {lw:"loike", en:"writing", pos:"n"},
-  {lw:"loiki", en:"written", pos:"adj", mechanical:true},
+  {lw:"loiki", en:"written", pos:"adj"},
   {lw:"loiku", en:"to write", pos:"v"},
   {lw:"loime", en:"wait", pos:"n"},
-  {lw:"loimi", en:"waiting", pos:"adj", mechanical:true},
+  {lw:"loimi", en:"waiting", pos:"adj"},
   {lw:"loimu", en:"to wait", pos:"v"},
   {lw:"loine", en:"pen", pos:"n"},
   {lw:"loini", en:"pen-related", pos:"adj"},
   {lw:"loinile", en:"pencil", pos:"n", note:"From loine (pen) + -ile \u2014 little pen"},
   {lw:"loise", en:"reading", pos:"n"},
-  {lw:"loisi", en:"read", pos:"adj", mechanical:true},
+  {lw:"loisi", en:"read", pos:"adj"},
   {lw:"loisu", en:"to read", pos:"v"},
   {lw:"loiwe", en:"book", pos:"n"},
   {lw:"loiwetieme", en:"bookstore", pos:"n", note:"From loiwe (book) + -tieme (store) \u2014 bookstore"},
@@ -5781,7 +5875,7 @@ const DICTIONARY_RAW = [
   {lw:"loiwile", en:"booklet", pos:"n", note:"From loiwe (book) + -ile \u2014 little book"},
   {lw:"lole", en:"now", pos:"particle", note:"From lo (this) + -le \u2014 now"},
   {lw:"lonone", en:"win", pos:"n", note:"Adapted from the English place-name London"},
-  {lw:"lononi", en:"winning", pos:"adj", mechanical:true},
+  {lw:"lononi", en:"winning", pos:"adj"},
   {lw:"lononu", en:"to win", pos:"v"},
   {lw:"loshe", en:"flower", pos:"n"},
   {lw:"loshi", en:"flowering", pos:"adj"},
@@ -5837,7 +5931,7 @@ const DICTIONARY_RAW = [
   {lw:"mashi", en:"medicinal", pos:"adj"},
   {lw:"mashu", en:"to treat with medicine", pos:"v"},
   {lw:"mauhe", en:"learning", pos:"n"},
-  {lw:"mauhi", en:"learned", pos:"adj", mechanical:true},
+  {lw:"mauhi", en:"learned", pos:"adj"},
   {lw:"mauhu", en:"to learn", pos:"v"},
   {lw:"mauhupue", en:"student", pos:"n", note:"From mauhu + -pue (agent)"},
   {lw:"maune", en:"grain", pos:"n"},
@@ -5910,7 +6004,7 @@ const DICTIONARY_RAW = [
   {lw:"moeli", en:"numb", pos:"adj"},
   {lw:"moelu", en:"to numb (or make numb)", pos:"v"},
   {lw:"mofere", en:"taking", pos:"n"},
-  {lw:"moferi", en:"received", pos:"adj", mechanical:true},
+  {lw:"moferi", en:"received", pos:"adj"},
   {lw:"moferu", en:"to take (or receive)", pos:"v"},
   {lw:"mohawe", en:"suffocation", pos:"n"},
   {lw:"mohawi", en:"breathless", pos:"adj"},
@@ -5926,7 +6020,7 @@ const DICTIONARY_RAW = [
   {lw:"mohoule", en:"sadness", pos:"n"},
   {lw:"mohouli", en:"sad (or sadly)", pos:"adj"},
   {lw:"mohoye", en:"sale", pos:"n"},
-  {lw:"mohoyi", en:"sold", pos:"adj", mechanical:true},
+  {lw:"mohoyi", en:"sold", pos:"adj"},
   {lw:"mohoyu", en:"to sell", pos:"v"},
   {lw:"mohune", en:"left (side)", pos:"n"},
   {lw:"mohuni", en:"left (or to the left)", pos:"adj"},
@@ -6837,7 +6931,7 @@ const DICTIONARY_RAW = [
   {lw:"waihe", en:"hope", pos:"n"},
   {lw:"waihi", en:"hopeful (or hopefully)", pos:"adj"},
   {lw:"waihu", en:"to hope", pos:"v"},
-  {lw:"waimo", en:"hello (meeting)", pos:"expr"},
+  {lw:"waimo", en:"hello (greeting)", pos:"expr"},
   {lw:"waine", en:"belt", pos:"n"},
   {lw:"waini", en:"belt-related", pos:"adj"},
   {lw:"wainoe", en:"internet", pos:"n"},
@@ -6881,7 +6975,7 @@ const DICTIONARY_RAW = [
   {lw:"weli", en:"timely (or temporal)", pos:"adj"},
   {lw:"weliru", en:"to repeat (or say again)", pos:"v"},
   {lw:"welu", en:"to time (measure duration)", pos:"v"},
-  {lw:"weriko", en:"goodbye (parting)", pos:"expr"},
+  {lw:"weriko", en:"goodbye (farewell)", pos:"expr"},
   {lw:"wesire", en:"truth", pos:"n"},
   {lw:"wesiri", en:"true", pos:"adj"},
   {lw:"wesiru", en:"to tell the truth", pos:"v"},
