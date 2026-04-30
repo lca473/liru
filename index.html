@@ -1149,7 +1149,7 @@ const V = {
   // L33 — Nature II (Land)
   nature2: [
     {lw:"wouhe",    en:"mountain",  pos:"n"},
-    {lw:"kauhe",    en:"forest",    pos:"n"},
+    {lw:"mouleyahe", en:"forest",   pos:"n", note:"Lexicalized compound: moule (tree) + yahe (place)"},
     {lw:"pieme",    en:"valley",    pos:"n"},
     {lw:"wouhile",  en:"hill",      pos:"n", note:"Diminutive of wouhe (mountain)"},
     {lw:"foule",    en:"field",     pos:"n"},
@@ -1191,7 +1191,7 @@ const V = {
   checkpoint2: [
     {lw:["Ne","wa","tahu","houme"],              en:"I ate bread."},
     {lw:["Ki","te","shahu","kupe"],               en:"Do you drink coffee?"},
-    {lw:["Nea","halu","so","kauhe"],             en:"We go to the forest."},
+    {lw:["Nea","halu","so","mouleyahe"],             en:"We go to the forest."},
     {lw:["Paipe","su","wo","hiwe"],              en:"The dog is in the house."},
     {lw:["Ve","mai","wa","tiru","shoulea"],      en:"She didn't see the fish."},
     {lw:["Lo","hiwe","su","piami"],              en:"This house is small."},
@@ -1215,9 +1215,9 @@ const V = {
     {lw:["Ne","nawu","houme","ma","ne","mai","nawu","pome"], en:"I love bread, but I don't love fruit."},
     {lw:["Ki","te","wu","shahu","shae","au","kupe"],           en:"Will you drink tea or coffee?"},
     {lw:["Lo","paipe","su","piami","ma","tuwi"],              en:"This dog is small but strong."},
-    {lw:["Nea","halu","so","shawome","au","so","kauhe"],      en:"We go to the ocean or to the forest."},
+    {lw:["Nea","halu","so","shawome","au","so","mouleyahe"],      en:"We go to the ocean or to the forest."},
     {lw:["Teo","mawe","sho","powe","su","wauli"],             en:"Your mother and father are beautiful."},
-    {lw:["Ne","wa","halu","so","kauhe","ma","ne","mai","wa","tiru","haupe"], en:"I went to the forest, but I didn't see a bear."},
+    {lw:["Ne","wa","halu","so","mouleyahe","ma","ne","mai","wa","tiru","haupe"], en:"I went to the forest, but I didn't see a bear."},
   ],
 
   // L39 — Content Questions (sentence-based — teaches the seven ki-words as question leaders)
@@ -1417,7 +1417,7 @@ const V = {
     {lw:["Ne","nawu","foshali","loshea"],                            en:"I love green flowers."},
     {lw:["Ki","te","wa","seihu","lo","rouhe","au","wa","rouhe"],     en:"Did you study this week or last week?"},
     {lw:["Kifa","loiwea","te","ahu"],                                en:"How many books do you have?"},
-    {lw:["Ne","wa","tiru","noumali","mewe","ya","kauhe"],            en:"I saw a black cat in the forest."},
+    {lw:["Ne","wa","tiru","noumali","mewe","ya","mouleyahe"],            en:"I saw a black cat in the forest."},
     {lw:["Teo","loye","su","houli","ma","teo","yoye","su","mohouli"],en:"Your brother is happy, but your sister is sad."},
     {lw:["Kiwi","te","moyeru","leshea"],                             en:"Why do you fear snakes?"},
   ],
@@ -1446,7 +1446,7 @@ const V = {
     {lw:["Nai","shoulea","su","wauli"],               en:"Many fish are beautiful."},
     {lw:["Fai","pue","sahu","tahu","houme"],          en:"Anyone can eat bread."},
     {lw:["Nuli","pue","su","rai"],                    en:"No one is sleepy."},
-    {lw:["Ne","tiru","nai","loshea","ya","kauhe"],    en:"I see many flowers in the forest."},
+    {lw:["Ne","tiru","nai","loshea","ya","mouleyahe"],    en:"I see many flowers in the forest."},
     {lw:["Sai","pue","wa","feru","ne","loiwe"],       en:"Someone gave me a book."},
   ],
 
@@ -1570,7 +1570,7 @@ const V = {
   spatial: [
     {lw:["Paipe","su","poki","pahe"],                          en:"The dog is behind the table."},
     {lw:["Ne","su","pohi","hiwe"],                             en:"I am in front of the house."},
-    {lw:["Yaihe","su","liani","kauhe"],                        en:"The bird is above the forest."},
+    {lw:["Yaihe","su","liani","mouleyahe"],                        en:"The bird is above the forest."},
     {lw:["Shoule","su","moliani","shawe"],                     en:"The fish is below the water."},
     {lw:["Neo","loiwe","su","niwa","pahe","sho","raule"],      en:"My book is between the table and the pillow."},
     {lw:["Paipea","halu","voi","hiwe"],                        en:"The dogs walk around the house."},
@@ -2795,6 +2795,13 @@ async function finishLogin(name){
       }
       if(merged>0)console.log("[SRS] merged",merged,"cards from cloud for",user.username);
     }
+    // One-time recoinage migration: kauhe → mouleyahe. MUST run before the
+    // stale-card pruner, which would otherwise delete kauhe cards (kauhe is
+    // no longer in DICTIONARY_RAW) before this migration can rewrite them.
+    {
+      const migrated=srsMigrateKauheToMouleyaheIfNeeded(user.username);
+      if(migrated>0)console.log("[SRS] migrated",migrated,"kauhe cards to mouleyahe for",user.username);
+    }
     // Prune any cards whose lw is no longer in the dictionary (stale from prior cleanups)
     {
       const cards=srsLoadCards(user.username);
@@ -3364,6 +3371,78 @@ function srsPruneMechanicalIfNeeded(username){
   srsSaveState(username,s);
   srsSyncState(username,s);
   return prunedIds.length;
+}
+
+// ─── One-time recoinage migration: kauhe → mouleyahe ─────────
+// When a root is renamed in Liru (recoinage rather than retirement), users
+// who already learned the old form would lose their repetition history if
+// the stale-card pruner just deleted their *kauhe* cards. This migration
+// preserves their work: it rewrites any card with lw === "kauhe" to use the
+// new form "mouleyahe", keeping interval/ease/due/lapses/reps/addedAt intact.
+//
+// Gated by state.kauheToMouleyaheDone; runs once per user on next login,
+// then never again. Safe to keep in the codebase indefinitely — the flag
+// prevents repeated work, and a future user with no *kauhe* cards just
+// gets a no-op.
+//
+// This pattern (recoinage migration) parallels srsPruneMechanicalIfNeeded
+// and srsMigrateAddedAtIfNeeded — one-shot guarded transformations that
+// fix a specific historical issue without touching unaffected cards.
+function srsMigrateKauheToMouleyaheIfNeeded(username){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.kauheToMouleyaheDone)return 0;
+  const cards=srsLoadCards(username);
+  const migratedNew={};   // new card id → card (to write)
+  const oldIds=[];         // old card ids (to delete)
+  const newGloss="forest"; // matches V/DICTIONARY_RAW gloss for mouleyahe
+  for(const id in cards){
+    const c=cards[id];
+    if(!c||c.lw!=="kauhe")continue;
+    // Build new id with the new lw, keeping the same direction.
+    const dir=c.dir||(id.endsWith("::lw_en")?"lw_en":"en_lw");
+    const newId=srsCardId("mouleyahe",dir);
+    // Preserve all state; rewrite identity fields only.
+    migratedNew[newId]={...c,lw:"mouleyahe",en:newGloss};
+    oldIds.push(id);
+  }
+  if(oldIds.length===0){
+    s.kauheToMouleyaheDone=true;
+    srsSaveState(username,s);
+    srsSyncState(username,s);
+    return 0;
+  }
+  // Apply: delete old, add new. If a new id somehow already exists (rare
+  // edge case where the user had both kauhe and mouleyahe cards), the
+  // existing mouleyahe card wins — don't overwrite a card with active
+  // history.
+  for(const oldId of oldIds)delete cards[oldId];
+  for(const newId in migratedNew){
+    if(!cards[newId])cards[newId]=migratedNew[newId];
+  }
+  srsSaveCards(username,cards);
+  // Cloud sync: delete old paths, write new ones.
+  if(firebaseReady&&db){
+    for(const oldId of oldIds){
+      try{db.ref(srsCardFbPath(username,oldId)).remove();}
+      catch(e){/* ignore — local is authoritative until next sync */}
+    }
+    for(const newId in migratedNew){
+      // Only sync if we actually wrote it locally (not skipped due to collision).
+      if(cards[newId]===migratedNew[newId]){
+        try{
+          db.ref(srsCardFbPath(username,newId))
+            .set({...cards[newId],lastSync:Date.now()})
+            .catch(e=>console.warn("[SRS] kauhe migration sync error:",e));
+        }catch(e){console.warn("[SRS] kauhe migration sync error:",e);}
+      }
+    }
+  }
+  console.log("[SRS] migrated",oldIds.length,"kauhe cards to mouleyahe for",username);
+  s.kauheToMouleyaheDone=true;
+  srsSaveState(username,s);
+  srsSyncState(username,s);
+  return oldIds.length;
 }
 
 // ─── Scheduling (SM-2 variant) ───────────────────────────────
@@ -5149,7 +5228,7 @@ const GRAMMAR_SECTIONS = [
     icon:"🔗", title:"Relational Particles (Prepositions)",
     body:`<p>Small, mostly single-syllable words that show the relationship between things.</p>
     <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Particle</th><th>Meaning</th><th>Example</th></tr></thead><tbody>
-    <tr><td><em>fa</em></td><td>from (or of)</td><td><em>loshe fa kauhe</em> — flower from the forest</td></tr>
+    <tr><td><em>fa</em></td><td>from (or of)</td><td><em>loshe fa mouleyahe</em> — flower from the forest</td></tr>
     <tr><td><em>na</em></td><td>for</td><td><em>lire na neo mawe</em> — song for my mother</td></tr>
     <tr><td><em>la</em></td><td>like / as</td><td><em>shawe la lune</em> — water like light</td></tr>
     <tr><td><em>ko</em></td><td>with</td><td><em>Ne halu ko te.</em> — I go with you.</td></tr>
@@ -5782,8 +5861,6 @@ const DICTIONARY_RAW = [
   {lw:"karuhe", en:"war", pos:"n"},
   {lw:"karuhi", en:"warlike (or war-related)", pos:"adj"},
   {lw:"karuhu", en:"to wage war", pos:"v"},
-  {lw:"kauhe", en:"forest", pos:"n"},
-  {lw:"kauhi", en:"forested (or forest-related)", pos:"adj"},
   {lw:"kaume", en:"surprise", pos:"n"},
   {lw:"kaumi", en:"surprising", pos:"adj"},
   {lw:"kaumu", en:"to surprise (or startle)", pos:"v"},
@@ -6328,6 +6405,7 @@ const DICTIONARY_RAW = [
   {lw:"mouhi", en:"worldly", pos:"adj"},
   {lw:"moule", en:"tree", pos:"n"},
   {lw:"mouli", en:"tree-related", pos:"adj"},
+  {lw:"mouleyahe", en:"forest", pos:"n", note:"Lexicalized compound: moule (tree) + yahe (place)"},
   {lw:"movanu", en:"to leave", pos:"v"},
   {lw:"movehe", en:"hiding", pos:"n"},
   {lw:"movehi", en:"hidden", pos:"adj"},
