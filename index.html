@@ -1846,9 +1846,9 @@ const V = {
     {lw:"fele",      en:"belief",       pos:"n", canvas:{adj:"feli", adj_en:"believed", v:"felu", v_en:"to believe"}},
     {lw:"piore",     en:"curiosity",    pos:"n", canvas:{adj:"piori", adj_en:"curious", v:"pioru", v_en:"to wonder"}},
     {lw:"mere",      en:"memory",       pos:"n", canvas:{adj:"meri", adj_en:"memorable", v:"meru", v_en:"to remember"}, pair:{mo:"momere", mo_en:"forgetting"}},
-    {lw:"momere",    en:"forgetting",   pos:"n", canvas:{adj:"momeri", adj_en:"forgotten", v:"momeru", v_en:"to forget"}, pair:{base:"mere", base_en:"memory"}},
-    {lw:"piretire",  en:"imagination",  pos:"n", canvas:{adj:"piretiri", adj_en:"imagined", v:"piretiru", v_en:"to imagine"}, note:"From pire (thought) + tire (sight) — 'seeing-in-thought'"},
-    {lw:"iruhe",     en:"word",         pos:"n", canvas:{adj:"iruhi", adj_en:"worded", v:"iruhu", v_en:"to phrase"}},
+    {lw:"momere",    en:"forgetting",   pos:"n", canvas:{adj:"momeri", adj_en:"forgotten", adj_tier:"mechanical", v:"momeru", v_en:"to forget"}, pair:{base:"mere", base_en:"memory"}},
+    {lw:"piretire",  en:"imagination",  pos:"n", canvas:{adj:"piretiri", adj_en:"imagined", adj_tier:"mechanical", v:"piretiru", v_en:"to imagine"}, note:"From pire (thought) + tire (sight) — 'seeing-in-thought'"},
+    {lw:"iruhe",     en:"word",         pos:"n", canvas:{adj:"iruhi", adj_en:"word-related", adj_tier:"mechanical", v:"iruhu", v_en:"to phrase"}},
     {lw:"iwuhe",     en:"language",     pos:"n", canvas:{adj:"iwuhi", adj_en:"linguistic", v:"iwuhu", v_en:"to speak a language"}},
     {lw:"foile",     en:"joke",         pos:"n", canvas:{adj:"foili", adj_en:"funny", v:"foilu", v_en:"to joke"}},
   ],
@@ -2816,6 +2816,8 @@ async function finishLogin(name){
     if(restamped>0)console.log("[SRS] re-stamped addedAt on",restamped,"existing cards for",user.username);
     const prunedMech=srsPruneMechanicalIfNeeded(user.username);
     if(prunedMech>0)console.log("[SRS] pruned",prunedMech,"mechanical cards for",user.username);
+    const prunedMech2=srsPruneMechanicalRound2IfNeeded(user.username);
+    if(prunedMech2>0)console.log("[SRS] round-2 pruned",prunedMech2,"mechanical cards for",user.username);
   }catch(e){console.warn("[SRS] cloud sync/backfill/migration failed:",e);}
   state.screen="home";
   renderApp();
@@ -3368,6 +3370,59 @@ function srsPruneMechanicalIfNeeded(username){
     console.log("[SRS] pruned",prunedIds.length,"mechanical cards for",username,prunedIds);
   }
   s.mechanicalPruneDone=true;
+  srsSaveState(username,s);
+  srsSyncState(username,s);
+  return prunedIds.length;
+}
+
+// ─── One-time mechanical-card pruner (round 2) ───────────────
+// The original `srsPruneMechanicalIfNeeded` is one-shot per user (gated by
+// `state.mechanicalPruneDone`). When new forms are mechanical-tagged later
+// (e.g., the Apr 2026 follow-up that tagged *iruhi*, *piretiri*, *momeri*),
+// users whose flag is already true would not get the new tags applied to
+// their existing cards. This round-2 pruner is gated by a separate flag
+// (`mechanicalPruneRound2Done`) and runs once per user — same logic as
+// the original, just a fresh one-shot to catch the new tag additions.
+//
+// Safe to keep indefinitely: the flag prevents repeated work; a fresh
+// account gets a no-op because new enrollments are blocked from mechanical
+// forms at the source (`srsExtractLessonWords`).
+//
+// Future mechanical-tag additions can either: (a) cycle through round-N
+// flags, or (b) settle on a more general "mechanical-prune-version" int
+// pattern. Round-2 is enough for now without needing the more general
+// scheme — kept simple per project convention.
+function srsPruneMechanicalRound2IfNeeded(username){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.mechanicalPruneRound2Done)return 0;
+  const mechSet=srsBuildMechanicalFormsSet();
+  if(mechSet.size===0){
+    s.mechanicalPruneRound2Done=true;
+    srsSaveState(username,s);
+    srsSyncState(username,s);
+    return 0;
+  }
+  const cards=srsLoadCards(username);
+  const prunedIds=[];
+  for(const id in cards){
+    const c=cards[id];
+    if(c&&c.lw&&mechSet.has(c.lw)){
+      prunedIds.push(id);
+      delete cards[id];
+    }
+  }
+  if(prunedIds.length>0){
+    srsSaveCards(username,cards);
+    if(firebaseReady&&db){
+      for(const id of prunedIds){
+        try{db.ref(srsCardFbPath(username,id)).remove();}
+        catch(e){/* ignore — local is authoritative until next sync */}
+      }
+    }
+    console.log("[SRS] round-2 pruned",prunedIds.length,"mechanical cards for",username,prunedIds);
+  }
+  s.mechanicalPruneRound2Done=true;
   srsSaveState(username,s);
   srsSyncState(username,s);
   return prunedIds.length;
@@ -5830,13 +5885,13 @@ const DICTIONARY_RAW = [
   {lw:"huyali", en:"orange", pos:"adj"},
   {lw:"huyalu", en:"to turn orange", pos:"v"},
   {lw:"ifuhe", en:"sentence", pos:"n"},
-  {lw:"ifuhi", en:"sentential", pos:"adj"},
+  {lw:"ifuhi", en:"sentence-related", pos:"adj"},
   {lw:"ifuhu", en:"to phrase", pos:"v"},
   {lw:"iroume", en:"snow", pos:"n"},
   {lw:"iroumi", en:"snowy (or snow-related)", pos:"adj"},
   {lw:"iroumu", en:"to snow", pos:"v"},
   {lw:"iruhe", en:"word", pos:"n"},
-  {lw:"iruhi", en:"worded", pos:"adj"},
+  {lw:"iruhi", en:"word-related", pos:"adj"},
   {lw:"iruhu", en:"to word (phrase)", pos:"v"},
   {lw:"iwuhe", en:"language", pos:"n"},
   {lw:"iwuhi", en:"linguistic", pos:"adj"},
