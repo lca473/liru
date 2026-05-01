@@ -2645,6 +2645,28 @@ function renderHome(){
   const validLessonIds=new Set(LESSONS.map(l=>l.id));
   const doneLessons=(u.lessonsCompleted||[]).filter(id=>validLessonIds.has(id)).length;
   const pct=totalLessons>0?Math.round(doneLessons/totalLessons*100):0;
+
+  // One-time rebuild welcome banner. Shows for users with stale completion
+  // entries from the previous course version (lesson IDs that no longer
+  // exist in LESSONS). Dismissible; the dismissal flag persists in
+  // localStorage per-user. New users (empty lessonsCompleted) and users
+  // who have already dismissed don't see it.
+  let welcomeBannerHTML="";
+  const hasStaleEntries=(u.lessonsCompleted||[]).some(id=>!validLessonIds.has(id));
+  const dismissedKey="lw_rebuild_v2_seen_"+u.username;
+  const alreadyDismissed=loadLocal(dismissedKey,false);
+  if(hasStaleEntries && !alreadyDismissed){
+    welcomeBannerHTML=`<div id="rebuildBanner" style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--blue);border-radius:var(--radius);padding:16px 18px;margin-bottom:16px;position:relative;box-shadow:0 0 24px var(--blue-glow)">
+      <button id="rebuildBannerDismiss" style="position:absolute;top:8px;right:10px;background:transparent;border:none;color:var(--dim);font-size:18px;width:24px;height:24px;cursor:pointer;line-height:1;padding:0" title="Dismiss">×</button>
+      <div style="display:flex;align-items:flex-start;gap:12px;padding-right:24px">
+        <span style="font-size:24px;flex-shrink:0">🌊</span>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:15px;font-weight:800;margin-bottom:6px">Welcome back!</div>
+          <div style="color:var(--mid);font-size:13px;font-weight:600;line-height:1.5">The course has been rebuilt around shorter lessons and high-frequency vocabulary. Your flashcard progress, XP, and streak are all preserved — but the lesson tree has been reset. Start with Lesson 1 to explore the new course.</div>
+        </div>
+      </div>
+    </div>`;
+  }
   app.innerHTML=`<div style="padding-bottom:80px">
     <div style="padding:14px 20px 10px;border-bottom:1.5px solid var(--border)">
       <div style="display:flex;align-items:center;justify-content:space-between;gap:8px">
@@ -2658,7 +2680,7 @@ function renderHome(){
       <button class="tab-btn ${state.tab==='learn'?'active':''}" data-tab="learn">📚 LEARN</button>
       <button class="tab-btn ${state.tab==='leaderboard'?'active':''}" data-tab="leaderboard">🏆 LEADERBOARD</button>
     </div>
-    <div style="padding:16px 20px;${state.tab==='learn'?'':'display:none'}" id="learnTab">${reviewTileHTML}${lessonsHTML}</div>
+    <div style="padding:16px 20px;${state.tab==='learn'?'':'display:none'}" id="learnTab">${welcomeBannerHTML}${reviewTileHTML}${lessonsHTML}</div>
     <div style="padding:16px 20px;${state.tab==='leaderboard'?'':'display:none'}" id="lbTab">${lbHTML}</div>
   </div>`;
 
@@ -2681,6 +2703,14 @@ function renderHome(){
   const startReviewBtn=document.getElementById("startReviewBtn");if(startReviewBtn)startReviewBtn.addEventListener("click",()=>startReview());
   const cramBtn=document.getElementById("cramBtn");if(cramBtn)cramBtn.addEventListener("click",()=>startCramSession());
   const practiceAllBtn=document.getElementById("practiceAllBtn");if(practiceAllBtn)practiceAllBtn.addEventListener("click",()=>startPracticeAllSession());
+  const rebuildBannerDismiss=document.getElementById("rebuildBannerDismiss");
+  if(rebuildBannerDismiss){
+    rebuildBannerDismiss.addEventListener("click",()=>{
+      saveLocal(dismissedKey,true);
+      const banner=document.getElementById("rebuildBanner");
+      if(banner)banner.style.display="none";
+    });
+  }
   const srsSettingsBtn=document.getElementById("srsSettingsBtn");if(srsSettingsBtn)srsSettingsBtn.addEventListener("click",async(e)=>{
     e.stopPropagation();
     const yes=confirm("Reset all flashcard progress?\n\nThis will:\n• Clear your review schedule (all card progress)\n• Re-create the deck from scratch by re-enrolling words from completed lessons\n• Sync the reset to the cloud\n\nYour XP, streak, and lesson progress are NOT affected.\n\nThis cannot be undone.");
