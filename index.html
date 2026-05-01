@@ -1415,7 +1415,11 @@ function saveUserData(data){
 async function pushToLeaderboard(data){
   if(!firebaseReady||!db||!data.username)return;
   if(data.username.toLowerCase()==="admin")return;
-  try{await db.ref("leaderboard/"+fbKey(data.username)).set({name:data.username,xp:data.xp,streak:data.streak,lessons:data.lessonsCompleted.length,updatedAt:Date.now()});}
+  // Count only completions matching the current LESSONS — stale entries from
+  // previous course versions don't inflate the leaderboard.
+  const validLessonIds=new Set(LESSONS.map(l=>l.id));
+  const validDone=(data.lessonsCompleted||[]).filter(id=>validLessonIds.has(id)).length;
+  try{await db.ref("leaderboard/"+fbKey(data.username)).set({name:data.username,xp:data.xp,streak:data.streak,lessons:validDone,updatedAt:Date.now()});}
   catch(e){console.warn("Firebase push error:",e);}
 }
 async function fetchLeaderboard(){
@@ -2634,7 +2638,12 @@ function renderHome(){
   else{state.leaderboard.forEach((entry,i)=>{const medal=i===0?"🥇":i===1?"🥈":i===2?"🥉":(i+1);const isMe=entry.name===u.username;const showDel=isAdmin&&entry.name.toLowerCase()!=="admin";lbHTML+=`<div class="lb-row ${isMe?'is-me':''}"><span style="font-size:${i<3?'24px':'16px'};width:36px;text-align:center;color:var(--dim);font-weight:800">${medal}</span><div style="flex:1"><div style="font-size:15px;font-weight:800">${entry.name} ${isMe?'<span style="color:#4A7A9E;font-size:12px">(you)</span>':''}</div><div style="color:var(--dim);font-size:12px;margin-top:2px">${entry.lessons} lessons · 🔥 ${entry.streak}</div></div><div style="color:var(--gold);font-weight:800;font-size:15px">⚡ ${entry.xp}</div>${showDel?`<button class="admin-del" data-user="${entry.name}" style="margin-left:10px;background:#e74c3c;color:#fff;border:none;border-radius:8px;padding:6px 10px;font-weight:800;cursor:pointer">🗑</button>`:""}</div>`;});lbHTML+=`<button id="refreshLB" class="btn-secondary" style="margin-top:10px;font-size:14px">↻ Refresh</button>`;}
 
   const totalLessons=LESSONS.length;
-  const doneLessons=(u.lessonsCompleted||[]).length;
+  // Count only completions that match a lesson currently in LESSONS. Stale
+  // completion entries from previous course versions (different lesson IDs)
+  // are ignored — the data remains in lessonsCompleted but doesn't inflate
+  // the user's visible progress against the current course.
+  const validLessonIds=new Set(LESSONS.map(l=>l.id));
+  const doneLessons=(u.lessonsCompleted||[]).filter(id=>validLessonIds.has(id)).length;
   const pct=totalLessons>0?Math.round(doneLessons/totalLessons*100):0;
   app.innerHTML=`<div style="padding-bottom:80px">
     <div style="padding:14px 20px 10px;border-bottom:1.5px solid var(--border)">
