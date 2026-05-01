@@ -1045,10 +1045,15 @@ function generateVocabExercises(lesson){
 
   // ─── STAGE 2: Recognition (LW → EN) ─────────────────────────
   // One MC per item up to 5. Extra items get covered via top-up or match.
+  // Fallback: if fewer than 3 distractors are available (early lessons with
+  // tiny pools), build a 3-option MC with 2 wrong answers instead of 4-option
+  // with 3. Skip only if 0 or 1 distractors are available — those don't make
+  // a meaningful MC.
   shuffle([...wordItems]).slice(0, 5).forEach(item=>{
     const wrong=wrongEn(item);
-    if(wrong.length<3)return;
-    exercises.push({type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrong]), note:item.note, lwWord:item.lw});
+    if(wrong.length<2)return;
+    const wrongUsed=wrong.slice(0, Math.min(3, wrong.length));
+    exercises.push({type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrongUsed]), note:item.note, lwWord:item.lw});
   });
 
   // ─── STAGE 3: Production (EN → LW) ──────────────────────────
@@ -1060,10 +1065,13 @@ function generateVocabExercises(lesson){
     return true;
   };
   const prodPool=wordItems.filter(cleanForProduction);
+  // Production MC — same fallback as recognition: allow 2 distractors when 3
+  // aren't available.
   shuffle([...prodPool]).slice(0, 4).forEach(item=>{
     const wrong=wrongLw(item);
-    if(wrong.length<3)return;
-    exercises.push({type:"mc", prompt:`How do you say "${item.en}" in Liru?`, correct:item.lw, options:shuffle([item.lw,...wrong])});
+    if(wrong.length<2)return;
+    const wrongUsed=wrong.slice(0, Math.min(3, wrong.length));
+    exercises.push({type:"mc", prompt:`How do you say "${item.en}" in Liru?`, correct:item.lw, options:shuffle([item.lw,...wrongUsed])});
   });
   shuffle([...prodPool]).slice(0,2).forEach(item=>{
     exercises.push({type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()});
@@ -1154,13 +1162,15 @@ function generateVocabExercises(lesson){
       let ex=null, sig=null;
       if(t==="mc-lw2en"){
         const wrong=wrongEn(item);
-        if(wrong.length<3)continue;
-        ex={type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrong]), note:item.note, lwWord:item.lw};
+        if(wrong.length<2)continue;
+        const wrongUsed=wrong.slice(0, Math.min(3, wrong.length));
+        ex={type:"mc", prompt:`What does "${item.lw}" mean?`, correct:item.en, options:shuffle([item.en,...wrongUsed]), note:item.note, lwWord:item.lw};
         sig="mc|"+ex.prompt+"|"+ex.correct;
       } else if(t==="mc-en2lw"){
         const wrong=wrongLw(item);
-        if(wrong.length<3)continue;
-        ex={type:"mc", prompt:`How do you say "${item.en}" in Liru?`, correct:item.lw, options:shuffle([item.lw,...wrong])};
+        if(wrong.length<2)continue;
+        const wrongUsed=wrong.slice(0, Math.min(3, wrong.length));
+        ex={type:"mc", prompt:`How do you say "${item.en}" in Liru?`, correct:item.lw, options:shuffle([item.lw,...wrongUsed])};
         sig="mc|"+ex.prompt+"|"+ex.correct;
       } else { // fill
         ex={type:"fill", prompt:`"${item.en}" in Liru is:`, correct:item.lw.toLowerCase()};
@@ -1179,10 +1189,17 @@ function generateVocabExercises(lesson){
     }
   }
 
-  // Flashcards stay at the front in natural order; everything else shuffles.
+  // Final ordering:
+  //   1. Flashcards in declared order (introduction).
+  //   2. Recognition exercises shuffled (mc, match, canvasDrill) — every word's
+  //      first non-flashcard exposure is a recognition exercise, never typing.
+  //   3. Fill (typing) exercises shuffled at the tail — production from memory
+  //      only after the learner has seen each word in a recognition context.
+  // This enforces the pedagogy: introduce → recognize → produce.
   const flashcards=exercises.filter(e=>e.type==="flashcard");
-  const drills=exercises.filter(e=>e.type!=="flashcard");
-  return [...flashcards, ...shuffle(drills)];
+  const fills=exercises.filter(e=>e.type==="fill");
+  const recognition=exercises.filter(e=>e.type!=="flashcard" && e.type!=="fill");
+  return [...flashcards, ...shuffle(recognition), ...shuffle(fills)];
 }
 
 function generateSentenceExercises(lesson){
@@ -2556,8 +2573,7 @@ function renderHome(){
       </div>`;
     } else if(totalToday===0){
       // All caught up. Offer cram practice as a secondary action.
-      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;opacity:0.95;position:relative">
-        <button id="srsSettingsBtn" title="Reset SRS data" style="position:absolute;top:10px;right:10px;background:transparent;border:none;color:var(--dim);font-size:14px;width:24px;height:24px;cursor:pointer;opacity:0.5">⚙</button>
+      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;opacity:0.95">
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:12px">
           <span style="font-size:28px">🌊</span>
           <div style="flex:1;min-width:0">
@@ -2570,12 +2586,14 @@ function renderHome(){
             <button id="practiceAllBtn" class="btn-secondary" style="width:auto;padding:9px 14px;font-size:12px;font-weight:800;white-space:nowrap">Practice all</button>
           </div>
         </div>
+        <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:4px;text-align:right">
+          <button id="srsSettingsBtn" style="background:transparent;border:none;color:var(--dim);font-size:11px;font-weight:700;cursor:pointer;opacity:0.6;padding:2px 4px">⚙ Reset flashcard progress</button>
+        </div>
       </div>`;
     } else {
       // Cards available.
       const newWaveLabel=newAvail>0?` · <span style="color:var(--blue);font-weight:800">${newAvail}</span> new`:"";
-      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--blue);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;box-shadow:0 0 24px var(--blue-glow);position:relative">
-        <button id="srsSettingsBtn" title="Reset SRS data" style="position:absolute;top:10px;right:10px;background:transparent;border:none;color:var(--dim);font-size:14px;width:24px;height:24px;cursor:pointer;opacity:0.5">⚙</button>
+      reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--blue);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;box-shadow:0 0 24px var(--blue-glow)">
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
           <span style="font-size:28px">🌊</span>
           <div style="flex:1;min-width:0">
@@ -2602,6 +2620,9 @@ function renderHome(){
             <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">New</div>
             <div style="font-size:15px;font-weight:800;margin-top:2px">${stats.fresh}</div>
           </div>
+        </div>
+        <div style="border-top:1px solid var(--border);padding-top:10px;margin-top:10px;text-align:right">
+          <button id="srsSettingsBtn" style="background:transparent;border:none;color:var(--dim);font-size:11px;font-weight:700;cursor:pointer;opacity:0.6;padding:2px 4px">⚙ Reset flashcard progress</button>
         </div>
       </div>`;
     }
@@ -2653,7 +2674,7 @@ function renderHome(){
   const practiceAllBtn=document.getElementById("practiceAllBtn");if(practiceAllBtn)practiceAllBtn.addEventListener("click",()=>startPracticeAllSession());
   const srsSettingsBtn=document.getElementById("srsSettingsBtn");if(srsSettingsBtn)srsSettingsBtn.addEventListener("click",async(e)=>{
     e.stopPropagation();
-    const yes=confirm("Reset all SRS review data?\n\nThis will:\n• Clear your review schedule (all card progress)\n• Re-create the deck from scratch by re-enrolling words from completed lessons\n• Sync the reset to the cloud\n\nYour XP, streak, and lesson progress are NOT affected.\n\nThis cannot be undone.");
+    const yes=confirm("Reset all flashcard progress?\n\nThis will:\n• Clear your review schedule (all card progress)\n• Re-create the deck from scratch by re-enrolling words from completed lessons\n• Sync the reset to the cloud\n\nYour XP, streak, and lesson progress are NOT affected.\n\nThis cannot be undone.");
     if(!yes)return;
     await srsResetAll(u.username);
     // After reset, immediately re-run backfill so the user has a fresh deck
