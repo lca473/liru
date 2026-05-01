@@ -783,1378 +783,81 @@ try {
 // from it by lesson.vocabKey.
 const V = {
   // ═══════════════════════════════════════════════════════════════
-  // UNIT 1 — FOUNDATIONS (L1–L17)
+  // UNIT 1 — GREETINGS & FIRST WORDS (L1–L7)
   // ═══════════════════════════════════════════════════════════════
-  // Canvas roots carry three forms; show all three on the flashcard.
-  // Balancing pairs add a `pair` field; show the mo- partner after the base.
-  // Particles and social expressions are noun-only.
-
-  // L1 — Greetings
-  greetings: [
-    {lw:"waimo",   en:"hello",                   pos:"social"},
-    {lw:"weriko",  en:"goodbye",                 pos:"social"},
-    {lw:"moa",     en:"please / respectfully",   pos:"social"},
-    {lw:"reiwa",   en:"thank you",               pos:"social"},
-    {lw:"elo",     en:"sorry / excuse me",       pos:"social"},
-    {lw:"ai",      en:"yes",                     pos:"particle"},
-    {lw:"mai",     en:"no / not",                pos:"particle"},
-  ],
-
-  // L2 — Pronouns & Copula
-  pronouns: [
-    {lw:"ne",  en:"I",                   pos:"pronoun", plural:"nea",  plural_en:"we"},
-    {lw:"te",  en:"you",                 pos:"pronoun", plural:"tea",  plural_en:"you all"},
-    {lw:"ve",  en:"he / she / it", pos:"pronoun", plural:"vea", plural_en:"they"},
-    {lw:"su",  en:"is / am / are / be", pos:"verb"},
-  ],
-
-  // L3 — Possessives
-  possessives: [
-    {lw:"neo",   en:"my",           pos:"pronoun", plural:"neoa",  plural_en:"our"},
-    {lw:"teo",   en:"your",         pos:"pronoun", plural:"teoa",  plural_en:"your (pl.)"},
-    {lw:"veo",   en:"his / her / its", pos:"pronoun", plural:"veoa", plural_en:"their"},
-  ],
-
-  // L4 — The Vowel Canvas
-  canvas: [
-    {lw:"lune",  en:"light",  pos:"n", canvas:{adj:"luni", adj_en:"bright", v:"lunu", v_en:"to shine"}},
-    {lw:"shawe", en:"water",  pos:"n", canvas:{adj:"shawi", adj_en:"wet", v:"shawu", v_en:"to get wet"}},
-    {lw:"waihe", en:"hope",   pos:"n", canvas:{adj:"waihi", adj_en:"hopeful", v:"waihu", v_en:"to hope"}},
-  ],
-
-  // L5 — Family I (Nuclear)
-  family1: [
-    {lw:"mawe",  en:"mother",    pos:"n"},
-    {lw:"powe",  en:"father",    pos:"n"},
-    {lw:"nowe",  en:"son",       pos:"n"},
-    {lw:"noye",  en:"daughter",  pos:"n"},
-    {lw:"loye",  en:"brother",   pos:"n"},
-    {lw:"yoye",  en:"sister",    pos:"n"},
-    {lw:"wahe",  en:"family",    pos:"n"},
-    {lw:"piwe",  en:"child (or kid)",     pos:"n"},
-  ],
-
-  // L6 — Family II (People)
-  family2: [
-    {lw:"paure",        en:"man (adult male)",   pos:"n"},
-    {lw:"yaure",        en:"woman (adult female)", pos:"n"},
-    {lw:"piwile",       en:"baby",               pos:"n"},
-    {lw:"nohipaure",    en:"boy",                pos:"n"},
-    {lw:"nohiyaure",    en:"girl",               pos:"n"},
-    {lw:"shuwe",        en:"spouse",             pos:"n", canvas:{adj:"shuwi", adj_en:"spousal", v:"shuwu", v_en:"to marry"}},
-  ],
-
-  // L7 — Body I (Head & Face)
-  body1: [
-    {lw:"meiwe", en:"body",    pos:"n"},
-    {lw:"tune",  en:"head",    pos:"n"},
-    {lw:"pohe",  en:"face",    pos:"n", canvas:{adj:"pohi", adj_en:"forward-facing", v:"pohu", v_en:"to face"}},
-    {lw:"mise",  en:"eye",     pos:"n", canvas:{adj:"misi", adj_en:"ocular", v:"misu", v_en:"to look"}},
-    {lw:"nuve",  en:"nose",    pos:"n", canvas:{adj:"nuvi", adj_en:"nasal", v:"nuvu", v_en:"to smell"}},
-    {lw:"pawe",  en:"mouth",   pos:"n"},
-    {lw:"laihe", en:"ear",     pos:"n", canvas:{adj:"laihi", adj_en:"aural", v:"laihu", v_en:"to listen"}},
-    {lw:"miehe", en:"brain / mind", pos:"n", canvas:{adj:"miehi", adj_en:"mental", v:"miehu", v_en:"to contemplate"}},
-  ],
-
-  // L8 — Body II (Torso)
-  body2: [
-    {lw:"rive",  en:"neck",    pos:"n"},
-    {lw:"sole",  en:"throat",  pos:"n", canvas:{adj:"soli", adj_en:"throat-related", v:"solu", v_en:"to swallow"}},
-    {lw:"mune",  en:"chest",   pos:"n"},
-    {lw:"tame",  en:"stomach", pos:"n"},
-    {lw:"poke",  en:"back (body part)", pos:"n"},
-    {lw:"kowe",  en:"skin",    pos:"n"},
-    {lw:"shewe", en:"blood",   pos:"n", canvas:{adj:"shewi", adj_en:"bloody (or blood-related)", v:"shewu", v_en:"to bleed"}},
-    {lw:"kole",  en:"bone",    pos:"n"},
-    {lw:"huhe",  en:"lung",    pos:"n"},
-  ],
-
-  // L9 — Body III (Limbs)
-  body3: [
-    {lw:"heme",  en:"arm",      pos:"n"},
-    {lw:"meve",  en:"shoulder", pos:"n"},
-    {lw:"lauhe", en:"hand",     pos:"n", canvas:{adj:"lauhi", adj_en:"hand-related", v:"lauhu", v_en:"to handle"}},
-    {lw:"wime",  en:"finger",   pos:"n", canvas:{adj:"wimi", adj_en:"finger-related", v:"wimu", v_en:"to point"}},
-    {lw:"hipe",  en:"leg",      pos:"n", canvas:{adj:"hipi", adj_en:"leg-related", v:"hipu", v_en:"to walk"}},
-    {lw:"yore",  en:"knee",     pos:"n", canvas:{adj:"yori", adj_en:"knee-related", v:"yoru", v_en:"to kneel"}},
-    {lw:"laupe", en:"foot",     pos:"n", canvas:{adj:"laupi", adj_en:"foot-related", v:"laupu", v_en:"to kick"}},
-    {lw:"tike",  en:"tooth",    pos:"n", canvas:{adj:"tiki", adj_en:"tooth-related", v:"tiku", v_en:"to bite / chew"}},
-    {lw:"hiehe", en:"joint",    pos:"n", canvas:{adj:"hiehi", adj_en:"flexible", v:"hiehu", v_en:"to bend at a joint"}},
-    {lw:"lauhehiehe", en:"wrist",  pos:"n", note:"lauhe (hand) + hiehe (joint)"},
-    {lw:"hemehiehe",  en:"elbow",  pos:"n", note:"heme (arm) + hiehe (joint)"},
-    {lw:"laupehiehe", en:"ankle",  pos:"n", note:"laupe (foot) + hiehe (joint)"},
-  ],
-
-  // L10 — The mo- Prefix (sentence-based — demonstrates derivation by contrast)
-  // Learner sees base + mo-partner in parallel sentences to internalize the pattern.
-  // All words drawn from L1-L9 + the two mo-pairs introduced here.
-  moprefix: [
-    {lw:["Lune","su","luni"],                   en:"Light is bright."},
-    {lw:["Molune","su","moluni"],               en:"Darkness is dark."},
-    {lw:["Waihe","su","luni"],                  en:"Hope is bright."},
-    {lw:["Mowaihe","su","moluni"],              en:"Despair is dark."},
-    {lw:["Neo","waihe","lunu"],                 en:"My hope shines."},
-    {lw:["Teo","mowaihe","molunu"],             en:"Your despair darkens."},
-    {lw:["Neo","loye","waihu"],                 en:"My brother hopes."},
-  ],
-
-  // L11 — Basic Adjectives I (Size, Goodness, Newness)
-  adjectives1: [
-    {lw:"piame",   en:"smallness",  pos:"n", canvas:{adj:"piami", adj_en:"small", v:"piamu", v_en:"to shrink"},  pair:{mo:"mopiame", mo_en:"bigness"}},
-    {lw:"mopiame", en:"bigness",    pos:"n", canvas:{adj:"mopiami", adj_en:"big", v:"mopiamu", v_en:"to enlarge"}, pair:{base:"piame", base_en:"smallness"}},
-    {lw:"lohe",    en:"goodness",   pos:"n", canvas:{adj:"lohi", adj_en:"good", v:"lohu", v_en:"to do good"},    pair:{mo:"molohe", mo_en:"badness"}},
-    {lw:"molohe",  en:"badness",    pos:"n", canvas:{adj:"molohi", adj_en:"bad", v:"molohu", v_en:"to do wrong"},  pair:{base:"lohe", base_en:"goodness"}},
-    {lw:"nohe",    en:"newness (or youth)",    pos:"n", canvas:{adj:"nohi", adj_en:"new (or young)", v:"nohu", v_en:"to make young again"},       pair:{mo:"monohe", mo_en:"oldness (or age)"}},
-    {lw:"monohe",  en:"oldness (or age)", pos:"n", canvas:{adj:"monohi", adj_en:"old (or aged)", v:"monohu", v_en:"to grow old"}, pair:{base:"nohe", base_en:"newness (or youth)"}},
-  ],
-
-  // L12 — Basic Adjectives II (Beauty, Strength)
-  adjectives2: [
-    {lw:"waule",    en:"beauty",     pos:"n", canvas:{adj:"wauli", adj_en:"beautiful", v:"waulu", v_en:"to make beautiful"}, pair:{mo:"mowaule", mo_en:"ugliness"}},
-    {lw:"mowaule",  en:"ugliness",   pos:"n", canvas:{adj:"mowauli", adj_en:"ugly", v:"mowaulu", v_en:"to make ugly"},      pair:{base:"waule", base_en:"beauty"}},
-    {lw:"tuwe",     en:"strength",   pos:"n", canvas:{adj:"tuwi", adj_en:"strong", v:"tuwu", v_en:"to strengthen"},          pair:{mo:"motuwe", mo_en:"weakness"}},
-    {lw:"motuwe",   en:"weakness",   pos:"n", canvas:{adj:"motuwi", adj_en:"weak", v:"motuwu", v_en:"to weaken"},            pair:{base:"tuwe", base_en:"strength"}},
-  ],
-
-  // L13 — Simple Verbs (See, Hear, Speak, Know)
-  simpleverbs: [
-    {lw:"tire",  en:"sight",       pos:"n", canvas:{adj:"tiri", adj_en:"visible", v:"tiru", v_en:"to see"}},
-    {lw:"liwe",  en:"sound",       pos:"n", canvas:{adj:"liwi", adj_en:"audible", v:"liwu", v_en:"to hear"}},
-    {lw:"lire",  en:"song / speech", pos:"n", canvas:{adj:"liri", adj_en:"vocal", v:"liru", v_en:"to speak / sing"}},
-    {lw:"sene",  en:"knowledge",   pos:"n", canvas:{adj:"seni", adj_en:"known", v:"senu", v_en:"to know"}},
-  ],
-
-  // L14 — SVO + Love/Hate
-  svo: [
-    {lw:"nawe",   en:"love",      pos:"n", canvas:{adj:"nawi", adj_en:"loving", v:"nawu", v_en:"to love"},    pair:{mo:"monawe", mo_en:"hate"}},
-    {lw:"monawe", en:"hate",      pos:"n", canvas:{adj:"monawi", adj_en:"hateful", v:"monawu", v_en:"to hate"}, pair:{base:"nawe", base_en:"love"}},
-    {lw:"wame",   en:"friend",    pos:"n", canvas:{adj:"wami", adj_en:"likeable", v:"wamu", v_en:"to like"},  pair:{mo:"mowame", mo_en:"enemy"}},
-    {lw:"mowame", en:"enemy",     pos:"n", canvas:{adj:"mowami", adj_en:"dislikable", v:"mowamu", v_en:"to dislike"}, pair:{base:"wame", base_en:"friend"}},
-  ],
-
-  // L16 — Yes/No Questions (sentence-based lesson — uses ki particle)
-  // All words drawn from L1–L15 only. isSentence:true on the lesson entry.
-  yesno: [
-    {lw:["Ki","te","nawu","ne"],            en:"Do you love me?"},
-    {lw:["Ki","ve","su","teo","mawe"],      en:"Is she your mother?"},
-    {lw:["Ki","vea","tiru","te"],           en:"Do they see you?"},
-    {lw:["Ki","teo","wahe","su","mopiami"], en:"Is your family big?"},
-    {lw:["Ki","nea","su","wami"],           en:"Are we friendly?"},
-    {lw:["Ki","te","senu","ne"],            en:"Do you know me?"},
-    {lw:["Ki","ve","liru","wauli"],         en:"Does she sing beautifully?"},
-  ],
-
-  // L17 — Checkpoint 1 sentences
-  // All words in these sentences are drawn from L1–L16 only.
-  checkpoint1: [
-    {lw:["Ne","su","teo","loye"],                  en:"I am your brother."},
-    {lw:["Ve","liru","wauli"],                     en:"She sings beautifully."},
-    {lw:["Ki","nea","su","wami"],                  en:"Are we friendly?"},
-    {lw:["Teo","powe","su","tuwi"],                en:"Your father is strong."},
-    {lw:["Vea","tiru","neo","wahe"],               en:"They see my family."},
-    {lw:["Waihe","su","luni"],                     en:"Hope is bright."},
-    {lw:["Ne","mai","nawu","molohi","mowame"],     en:"I don't love a bad enemy."},
-    {lw:["Ki","ve","senu","ne"],                   en:"Does she know me?"},
-    {lw:["Molune","su","moluni"],                  en:"Darkness is dark."},
-    {lw:["Teo","mawe","su","wauli","yaure"],       en:"Your mother is a beautiful woman."},
-    {lw:["Nea","nawu","tea"],                      en:"We love you all."},
-    {lw:["Ve","mai","liru"],                       en:"She is not speaking."},
-    {lw:["Neo","loye","su","teo","wame"],          en:"My brother is your friend."},
-    {lw:["Ki","te","tiru","ne"],                   en:"Do you see me?"},
-  ],
-
-  // ═══════════════════════════════════════════════════════════════
-  // UNIT 2 — DAILY WORLD (L18–L37)
-  // ═══════════════════════════════════════════════════════════════
-
-  // L18 — Home I (Rooms & Furniture)
-  home1: [
-    {lw:"hiwe",  en:"house / home", pos:"n", canvas:{adj:"hiwi", adj_en:"home-related", v:"hiwu", v_en:"to dwell / live (somewhere)"}},
-    {lw:"kewe",  en:"room",     pos:"n"},
-    {lw:"pahe",  en:"table",    pos:"n"},
-    {lw:"seme",  en:"chair",    pos:"n", canvas:{adj:"semi", adj_en:"seated", v:"semu", v_en:"to sit"}},
-    {lw:"rahe",  en:"bed",      pos:"n", canvas:{adj:"rahi", adj_en:"bed-related", v:"rahu", v_en:"to lie down"}},
-    {lw:"soime", en:"shelf",    pos:"n", canvas:{adj:"soimi", adj_en:"shelf-related", v:"soimu", v_en:"to shelve / put away"}},
-    {lw:"tauwe", en:"wall",     pos:"n"},
-    {lw:"touwe", en:"floor",    pos:"n"},
-    {lw:"taupoye", en:"window", pos:"n", note:"From tauwe (wall) + poye (opening)"},
-    {lw:"keuwe", en:"roof",     pos:"n"},
-    {lw:"raule", en:"pillow",   pos:"n"},
-    {lw:"loiwe", en:"book",     pos:"n"},
-  ],
-
-  // L19 — Home II (Kitchen & Dining)
-  home2: [
-    {lw:"nahe",  en:"kitchen",  pos:"n", canvas:{adj:"nahi", adj_en:"cooking-related", v:"nahu", v_en:"to cook"}},
-    {lw:"sauwe", en:"toilet",   pos:"n"},
-    {lw:"fole",  en:"plate",    pos:"n"},
-    {lw:"mohe",  en:"cup",      pos:"n"},
-    {lw:"shome", en:"bottle",   pos:"n"},
-    {lw:"shohe", en:"spoon",    pos:"n"},
-    {lw:"tishe", en:"fork",     pos:"n"},
-  ],
-
-  // L20 — Noun Plurals & Possession (sentence-based — teaches -ea / -eo / -eoa pattern)
-  // All sentences use only L1-L19 vocabulary. Location particles arrive in L24,
-  // so the examples use only the copula (su), adjectives, and pronoun-possession.
-  nouninflection: [
-    {lw:["Neoa","hiwe","su","piami"],          en:"Our house is small."},
-    {lw:["Veo","loiwe","su","wauli"],          en:"His book is beautiful."},
-    {lw:["Nea","tiru","veoa","loiwea"],        en:"We see their books."},
-    {lw:["Neo","piwea","su","piami"],          en:"My children are small."},
-    {lw:["Teoa","mawea","nawu","tea"],         en:"Your mothers love you all."},
-    {lw:["Neo","loyea","su","tuwi"],           en:"My brothers are strong."},
-    {lw:["Piweo","mawe","su","wauli"],         en:"The child's mother is beautiful."},
-  ],
-
-  // L21 — Demonstratives
-  demonstratives: [
-    {lw:"lo",    en:"this",     pos:"demonstrative", plural:"loa",   plural_en:"these"},
-    {lw:"falo",  en:"that",     pos:"demonstrative", plural:"faloa", plural_en:"those"},
-  ],
-
-  // L22 — Tense (sentence-based — teaches wa / wu particles and lo lawe / wa lawe / wu lawe)
-  // All sentences use only L1-L21 vocabulary. Negation arrives in L23, so
-  // these examples use only positive statements.
-  tense: [
-    {lw:["Ne","wa","tiru","teo","mawe"],         en:"I saw your mother."},
-    {lw:["Ne","wa","nawu","te"],                 en:"I loved you."},
-    {lw:["Te","wu","liru","wauli"],              en:"You will sing beautifully."},
-    {lw:["Nea","wa","senu","lo","paure"],        en:"We knew this man."},
-    {lw:["Wa","lawe","ne","wa","tiru","te"],     en:"Yesterday I saw you."},
-    {lw:["Wu","lawe","nea","wu","liru"],         en:"Tomorrow we will speak."},
-    {lw:["Lo","lawe","ne","waihu"],              en:"Today I hope."},
-  ],
-
-  // L23 — Negation (sentence-based — teaches mai as a verb negator)
-  // Mai goes before the verb, or before the tense particle.
-  // All sentences use only L1-L22 vocabulary.
-  negation: [
-    {lw:["Ne","mai","tiru","te"],                en:"I don't see you."},
-    {lw:["Ve","mai","su","teo","mawe"],          en:"She is not your mother."},
-    {lw:["Nea","mai","wa","liru"],               en:"We did not speak."},
-    {lw:["Vea","mai","wu","nawu","ne"],          en:"They will not love me."},
-    {lw:["Lo","paure","mai","su","teo","powe"],  en:"This man is not your father."},
-    {lw:["Ne","mai","wa","senu","falo","yaure"], en:"I did not know that woman."},
-    {lw:["Te","mai","liru","wauli"],             en:"You are not singing beautifully."},
-  ],
-
-  // L24 — Relational Particles I (Location)
-  relational1: [
-    {lw:"wo",     en:"in / inside",    pos:"particle"},
-    {lw:"ya",     en:"at",             pos:"particle"},
-    {lw:"leu",    en:"above / on",   pos:"particle"},
-    {lw:"moleu",  en:"below / under",  pos:"particle", pair:{base:"leu", base_en:"above / on"}},
-    {lw:"mowo",   en:"out / outside / out of", pos:"particle", pair:{base:"wo", base_en:"in / inside"}},
-  ],
-
-  // L25 — Relational Particles II (Movement & Association) + hale (to go)
-  relational2: [
-    {lw:"so",     en:"to / toward",    pos:"particle"},
-    {lw:"fa",     en:"from",           pos:"particle"},
-    {lw:"ko",     en:"with",           pos:"particle"},
-    {lw:"moko",   en:"without",        pos:"particle", pair:{base:"ko", base_en:"with"}},
-    {lw:"na",     en:"for",            pos:"particle"},
-    {lw:"la",     en:"like / as",      pos:"particle"},
-    {lw:"moso",   en:"away from",      pos:"particle", pair:{base:"so", base_en:"to / toward"}},
-    {lw:"hale",   en:"journey",        pos:"n", canvas:{adj:"hali", adj_en:"going", adj_tier:"mechanical", v:"halu", v_en:"to go"}},
-  ],
-
-  // L26 — Food I (Staples)
-  food1: [
-    {lw:"houme",   en:"bread",      pos:"n"},
-    {lw:"pome",    en:"fruit",      pos:"n", pair:{mo:"mopome", mo_en:"vegetable"}},
-    {lw:"mopome",  en:"vegetable",  pos:"n", pair:{base:"pome", base_en:"fruit"}},
-    {lw:"tahe",    en:"food / meal", pos:"n", canvas:{adj:"tahi", adj_en:"edible", v:"tahu", v_en:"to eat"}},
-    {lw:"shahe",    en:"drink",      pos:"n", canvas:{adj:"shahi", adj_en:"drinkable", v:"shahu", v_en:"to drink"}},
-    {lw:"owe",     en:"egg",        pos:"n"},
-    {lw:"miawe",   en:"milk",       pos:"n"},
-  ],
-
-  // L27 — Food II (Flavors & Ingredients)
-  food2: [
-    {lw:"saone",   en:"salt",       pos:"n"},
-    {lw:"milale",  en:"sugar",      pos:"n", canvas:{adj:"milali", adj_en:"sweet", v:"milalu", v_en:"to sweeten"}},
-    {lw:"pike",    en:"pepper",     pos:"n"},
-    {lw:"yaume",   en:"flavor",     pos:"n", canvas:{adj:"yaumi", adj_en:"flavorful", v:"yaumu", v_en:"to flavor"}},
-    {lw:"hoile",   en:"oil",        pos:"n"},
-    {lw:"miafe",   en:"cheese",     pos:"n"},
-  ],
-
-  // L28 — Food III (Meals & Drinks)
-  food3: [
-    {lw:"kupe",        en:"coffee",  pos:"n"},
-    {lw:"shae",        en:"tea",     pos:"n"},
-    {lw:"nemue",       en:"honey",   pos:"n"},
-    {lw:"shiwane",     en:"meat",    pos:"n"},
-    {lw:"maune",       en:"grain",   pos:"n"},
-    {lw:"roine",       en:"rice",    pos:"n"},
-    {lw:"tahishawe",   en:"soup",    pos:"n", note:"From tahe (food) + shawe (water) — a lexicalized compound"},
-  ],
-
-  // L29 — Animals I (Domestic)
-  animals1: [
-    {lw:"paipe",   en:"dog",      pos:"n"},
-    {lw:"mewe",    en:"cat",      pos:"n"},
-    {lw:"mauwe",  en:"horse",    pos:"n"},
-    {lw:"maluwe",  en:"cow",      pos:"n"},
-    {lw:"pahule",  en:"chicken",  pos:"n"},
-    {lw:"kouwe",   en:"goat",     pos:"n"},
-    {lw:"poake",   en:"pig",      pos:"n"},
-    {lw:"louwe",   en:"sheep",    pos:"n"},
-  ],
-
-  // L30 — Animals II (Wild & Water)
-  animals2: [
-    {lw:"yaihe",     en:"bird",      pos:"n"},
-    {lw:"shoule",    en:"fish",      pos:"n"},
-    {lw:"kakepe",    en:"crab",      pos:"n"},
-    {lw:"niwe",      en:"rabbit",    pos:"n"},
-    {lw:"yuhe",      en:"deer",      pos:"n"},
-    {lw:"haupe",     en:"bear",      pos:"n"},
-    {lw:"loume",     en:"wolf",      pos:"n"},
-    {lw:"leshe",     en:"snake",     pos:"n"},
-    {lw:"shaupe",    en:"whale",     pos:"n"},
-    {lw:"shiawe",    en:"dolphin",   pos:"n"},
-    {lw:"shakume",   en:"shark",     pos:"n"},
-    {lw:"shemahe",   en:"octopus",   pos:"n"},
-    {lw:"wilare",    en:"turtle",    pos:"n"},
-  ],
-
-  // L31 — Animals III (Small)
-  animals3: [
-    {lw:"seure",     en:"insect",    pos:"n"},
-    {lw:"niliwe",    en:"ant",       pos:"n"},
-    {lw:"ninuwe",    en:"bee",       pos:"n"},
-    {lw:"paihe",     en:"spider",    pos:"n"},
-    {lw:"paiweme",   en:"butterfly", pos:"n"},
-    {lw:"kuake",     en:"duck",      pos:"n"},
-  ],
-
-  // L32 — Nature I (Sky & Weather)
-  // shalire, iroume, shupe, fiwe, felume are all canvas — their verbs are weather verbs.
-  nature1: [
-    {lw:"haule",    en:"sun",       pos:"n"},
-    {lw:"laime",    en:"sky",       pos:"n"},
-    {lw:"fiwe",     en:"wind",      pos:"n", canvas:{adj:"fiwi", adj_en:"windy", v:"fiwu", v_en:"to blow (as wind)"}},
-    {lw:"felume",   en:"cloud",     pos:"n", canvas:{adj:"felumi", adj_en:"cloudy (or cloud-related)", v:"felumu", v_en:"to cloud over"}},
-    {lw:"shalire",  en:"rain",      pos:"n", canvas:{adj:"shaliri", adj_en:"rainy", v:"shaliru", v_en:"to rain"}},
-    {lw:"iroume",   en:"snow",      pos:"n", canvas:{adj:"iroumi", adj_en:"snowy (or snow-related)", v:"iroumu", v_en:"to snow"}},
-    {lw:"shupe",    en:"storm",     pos:"n", canvas:{adj:"shupi", adj_en:"stormy (or storm-related)", v:"shupu", v_en:"to storm"}},
-    {lw:"melume",   en:"fog",       pos:"n", canvas:{adj:"melumi", adj_en:"foggy (or fog-related)"}},
-    {lw:"helume",   en:"mist",      pos:"n", canvas:{adj:"helumi", adj_en:"misty (or mist-related)"}},
-    {lw:"laimele",  en:"weather",   pos:"n"},
-  ],
-
-  // L33 — Nature II (Land)
-  nature2: [
-    {lw:"wouhe",    en:"mountain",  pos:"n"},
-    {lw:"mouleyahe", en:"forest",   pos:"n", note:"Lexicalized compound: moule (tree) + yahe (place)"},
-    {lw:"pieme",    en:"valley",    pos:"n"},
-    {lw:"wouhile",  en:"hill",      pos:"n", note:"Diminutive of wouhe (mountain)"},
-    {lw:"foule",    en:"field",     pos:"n"},
-    {lw:"touhe",    en:"shore",     pos:"n"},
-    {lw:"nouwe",    en:"island",    pos:"n"},
-    {lw:"tauhe",    en:"desert",    pos:"n"},
-    {lw:"pouwe",    en:"cave",      pos:"n"},
-    {lw:"toule",    en:"ground",    pos:"n"},
-  ],
-
-  // L34 — Nature III (Water)
-  nature3: [
-    {lw:"shafane",   en:"river",     pos:"n"},
-    {lw:"shaune",    en:"lake",      pos:"n", canvas:{adj:"shauni", adj_en:"lake-related"}},
-    {lw:"shawome",   en:"ocean",     pos:"n"},
-    {lw:"shaume",    en:"wave",      pos:"n", canvas:{adj:"shaumi", adj_en:"wave-related", v:"shaumu", v_en:"to surge"}},
-    {lw:"shalome",   en:"puddle",    pos:"n"},
-    {lw:"pishe",     en:"drop",      pos:"n", canvas:{adj:"pishi", adj_en:"droplet-sized", v:"pishu", v_en:"to drip"}},
-    {lw:"pishawe",   en:"splash",    pos:"n", canvas:{adj:"pishawi", adj_en:"splashed", adj_tier:"mechanical", v:"pishawu", v_en:"to splash"}},
-  ],
-
-  // L36 — Modals (sentence-based — teaches sahu/wanu/mihu/shihu as verb-chain modals)
-  // All sentences use only L1-L35 vocabulary.
-  // Budget-validated per /mnt/user-data/outputs/modals_draft.md
-  modals: [
-    {lw:["Ne","sahu","liru"],                   en:"I can speak."},
-    {lw:["Te","wanu","tahu","houme"],           en:"You want to eat bread."},
-    {lw:["Ne","mihu","tahu"],                   en:"I must eat."},
-    {lw:["Ve","shihu","liru","wauli"],          en:"She should sing beautifully."},
-    {lw:["Ne","wa","sahu","tiru","te"],         en:"I could see you."},
-    {lw:["Nea","mai","wanu","halu"],            en:"We don't want to go."},
-    {lw:["Ki","te","sahu","nahu"],              en:"Can you cook?"},
-  ],
-
-  // L37 — Checkpoint 2 sentences
-  // All words drawn from L1-L36. Tests Unit 2 concepts: tense, negation,
-  // location/motion, food, animals, nature, modals.
-  // Budget-validated per /mnt/user-data/outputs/checkpoint2_draft.md
-  checkpoint2: [
-    {lw:["Ne","wa","tahu","houme"],              en:"I ate bread."},
-    {lw:["Ki","te","shahu","kupe"],               en:"Do you drink coffee?"},
-    {lw:["Nea","halu","so","mouleyahe"],             en:"We go to the forest."},
-    {lw:["Paipe","su","wo","hiwe"],              en:"The dog is in the house."},
-    {lw:["Ve","mai","wa","tiru","shoulea"],      en:"She didn't see the fish."},
-    {lw:["Lo","hiwe","su","piami"],              en:"This house is small."},
-    {lw:["Nea","wanu","tahu","shiwane"],         en:"We want to eat meat."},
-    {lw:["Ne","wu","halu","so","shawome"],       en:"I will go to the ocean."},
-    {lw:["Teo","mewe","su","wo","kewe"],         en:"Your cat is in the room."},
-    {lw:["Vea","mihu","shahu","shawe"],           en:"They must drink water."},
-    {lw:["Lo","lawe","ne","mai","tahu"],         en:"Today I don't eat."},
-    {lw:["Wu","shaliru"],                        en:"It will rain."},
-    {lw:["Neo","paipe","su","lohi"],             en:"My dog is good."},
-    {lw:["Ne","mai","sahu","liwu","teo","mawe"], en:"I can't hear your mother."},
-  ],
-
-  // ── UNIT 3: CONNECTING WORDS (L38–L55) ─────────────────────────
-
-  // L38 — Conjunctions I (sentence-based — teaches sho/ma/au as clause and phrase joiners)
-  // All sentences use only L1-L37 vocabulary.
-  // Budget-validated per /mnt/user-data/outputs/l38_draft.md
-  conjunctions1: [
-    {lw:["Ne","tiru","paipe","sho","mewe"],                   en:"I see a dog and a cat."},
-    {lw:["Ne","nawu","houme","ma","ne","mai","nawu","pome"], en:"I love bread, but I don't love fruit."},
-    {lw:["Ki","te","wu","shahu","shae","au","kupe"],           en:"Will you drink tea or coffee?"},
-    {lw:["Lo","paipe","su","piami","ma","tuwi"],              en:"This dog is small but strong."},
-    {lw:["Nea","halu","so","shawome","au","so","mouleyahe"],      en:"We go to the ocean or to the forest."},
-    {lw:["Teo","mawe","sho","powe","su","wauli"],             en:"Your mother and father are beautiful."},
-    {lw:["Ne","wa","halu","so","mouleyahe","ma","ne","mai","wa","tiru","haupe"], en:"I went to the forest, but I didn't see a bear."},
-  ],
-
-  // L39 — Content Questions (sentence-based — teaches the seven ki-words as question leaders)
-  // All sentences use only L1-L38 vocabulary.
-  // Budget-validated per /mnt/user-data/outputs/l39_draft.md
-  questions2: [
-    {lw:["Kipue","teo","mawe","su"],               en:"Who is your mother?"},
-    {lw:["Kiwa","te","wanu","tahu"],               en:"What do you want to eat?"},
-    {lw:["Kiya","te","halu"],                      en:"Where are you going?"},
-    {lw:["Kime","te","wa","tiru","teo","loye"],    en:"When did you see your brother?"},
-    {lw:["Kiwi","te","mai","wa","liru"],           en:"Why didn't you speak?"},
-    {lw:["Kishe","te","su"],                       en:"How are you?"},
-    {lw:["Kifa","paipea","te","tiru"],             en:"How many dogs do you see?"},
-  ],
-
-  // L40 — Plants & Greenery
-  plants: [
-    {lw:"liume",    en:"plant",       pos:"n"},
-    {lw:"loshe",    en:"flower",      pos:"n", canvas:{adj:"loshi", adj_en:"flowering", v:"loshu", v_en:"to bloom"}},
-    {lw:"loshile",  en:"petal",       pos:"n", note:"Diminutive of loshe (flower)"},
-    {lw:"foshe",    en:"grass",       pos:"n"},
-    {lw:"fohe",     en:"moss",        pos:"n"},
-    {lw:"meile",    en:"leaf",        pos:"n"},
-    {lw:"yole",     en:"branch",      pos:"n"},
-    {lw:"roume",    en:"root",        pos:"n", note:"Root of a plant"},
-    {lw:"niame",    en:"seed",        pos:"n", canvas:{adj:"niami", adj_en:"seed-related", v:"niamu", v_en:"to plant a seed"}},
-    {lw:"shauke",   en:"bush",        pos:"n"},
-    {lw:"keuhe",    en:"thorn",       pos:"n", canvas:{adj:"keuhi", adj_en:"thorny (or thorn-related)", v:"keuhu", v_en:"to prickle"}},
-  ],
-
-  // L41 — Daily Verbs I
-  verbs1: [
-    {lw:"vane",     en:"arrival",     pos:"n", canvas:{adj:"vani", adj_en:"arriving", v:"vanu", v_en:"to come"}},
-    {lw:"haire",    en:"run",         pos:"n", canvas:{adj:"hairi", adj_en:"running", adj_tier:"mechanical", v:"hairu", v_en:"to run"}},
-    {lw:"fase",     en:"work",        pos:"n", canvas:{adj:"fasi", adj_en:"laborious", v:"fasu", v_en:"to work"}},
-    {lw:"rae",      en:"sleep",       pos:"n", canvas:{adj:"rai", adj_en:"sleepy", v:"rau", v_en:"to sleep"}},
-    {lw:"poiye",    en:"start",       pos:"n", canvas:{adj:"poiyi", adj_en:"starting", v:"poiyu", v_en:"to begin"}},
-    {lw:"toye",     en:"end",         pos:"n", canvas:{adj:"toyi", adj_en:"finished", v:"toyu", v_en:"to finish"}},
-    {lw:"seihe",    en:"study",       pos:"n", canvas:{adj:"seihi", adj_en:"studious", v:"seihu", v_en:"to study"}},
-  ],
-
-  // L42 — Daily Verbs II
-  // hoye/mohoye is a balancing pair (buy/sell); fere is give.
-  verbs2: [
-    {lw:"fere",     en:"gift",        pos:"n", canvas:{adj:"feri", adj_en:"generous", v:"feru", v_en:"to give"}},
-    {lw:"hoye",     en:"purchase",    pos:"n", canvas:{adj:"hoyi", adj_en:"bought", adj_tier:"mechanical", v:"hoyu", v_en:"to buy"},  pair:{mo:"mohoye", mo_en:"sale"}},
-    {lw:"mohoye",   en:"sale",        pos:"n", canvas:{adj:"mohoyi", adj_en:"sold", adj_tier:"mechanical", v:"mohoyu", v_en:"to sell"}, pair:{base:"hoye", base_en:"purchase"}},
-    {lw:"loise",    en:"reading",     pos:"n", canvas:{adj:"loisi", adj_en:"read", adj_tier:"mechanical", v:"loisu", v_en:"to read"}},
-    {lw:"loike",    en:"writing",     pos:"n", canvas:{adj:"loiki", adj_en:"written", adj_tier:"mechanical", v:"loiku", v_en:"to write"}},
-    {lw:"shire",    en:"creation",    pos:"n", canvas:{adj:"shiri", adj_en:"creative", v:"shiru", v_en:"to make"}},
-    {lw:"sove",     en:"help",        pos:"n", canvas:{adj:"sovi", adj_en:"helpful", v:"sovu", v_en:"to help"}},
-  ],
-
-  // L43 — Daily Verbs III
-  // toihe/motoihe (pick up / drop off) and lame/molame (same / different) are balancing pairs.
-  verbs3: [
-    {lw:"kahe",     en:"hold",        pos:"n", canvas:{adj:"kahi", adj_en:"held", adj_tier:"mechanical", v:"kahu", v_en:"to hold"}},
-    {lw:"kose",     en:"acquisition", pos:"n", canvas:{adj:"kosi", adj_en:"obtained", adj_tier:"mechanical", v:"kosu", v_en:"to get"}},
-    {lw:"rike",     en:"finding",     pos:"n", canvas:{adj:"riki", adj_en:"found", v:"riku", v_en:"to find"}},
-    {lw:"riwe",     en:"search",      pos:"n", canvas:{adj:"riwi", adj_en:"sought", v:"riwu", v_en:"to search"}},
-    {lw:"loime",    en:"wait",        pos:"n", canvas:{adj:"loimi", adj_en:"waiting", adj_tier:"mechanical", v:"loimu", v_en:"to wait"}},
-    {lw:"muwe",     en:"sending",     pos:"n", canvas:{adj:"muwi", adj_en:"sent", v:"muwu", v_en:"to send"}},
-    {lw:"vehe",     en:"showing",     pos:"n", canvas:{adj:"vehi", adj_en:"shown", v:"vehu", v_en:"to show"}},
-    {lw:"vihe",     en:"sharing",     pos:"n", canvas:{adj:"vihi", adj_en:"shared", v:"vihu", v_en:"to share"}},
-    {lw:"toihe",    en:"pickup",      pos:"n", canvas:{adj:"toihi", adj_en:"picked up", v:"toihu", v_en:"to pick up"}, pair:{mo:"motoihe", mo_en:"drop-off"}},
-    {lw:"motoihe",  en:"drop-off",    pos:"n", canvas:{adj:"motoihi", adj_en:"dropped off", v:"motoihu", v_en:"to drop off"}, pair:{base:"toihe", base_en:"pickup"}},
-    {lw:"lame",     en:"sameness",    pos:"n", canvas:{adj:"lami", adj_en:"same", v:"lamu", v_en:"to copy"}, pair:{mo:"molame", mo_en:"difference"}},
-    {lw:"molame",   en:"difference",  pos:"n", canvas:{adj:"molami", adj_en:"different", v:"molamu", v_en:"to differ"}, pair:{base:"lame", base_en:"sameness"}},
-  ],
-
-  // L44 — Numbers 0–10 + "to have"
-  // Digits are invariant adjective-particles; kiame is "number/to count"; ahe is the "have" verb.
-  numbers1: [
-    {lw:"nuli",   en:"zero",   pos:"number"},
-    {lw:"fani",   en:"one",    pos:"number"},
-    {lw:"runi",   en:"two",    pos:"number"},
-    {lw:"teni",   en:"three",  pos:"number"},
-    {lw:"shani",  en:"four",   pos:"number"},
-    {lw:"kani",   en:"five",   pos:"number"},
-    {lw:"veni",   en:"six",    pos:"number"},
-    {lw:"meni",   en:"seven",  pos:"number"},
-    {lw:"poni",   en:"eight",  pos:"number"},
-    {lw:"yani",   en:"nine",   pos:"number"},
-    {lw:"hani",   en:"ten",    pos:"number"},
-    {lw:"kiame",  en:"number", pos:"n", canvas:{adj:"kiami", adj_en:"numeric", v:"kiamu", v_en:"to count"}},
-    {lw:"ahe",    en:"possession", pos:"n", canvas:{adj:"ahi", adj_en:"possessed", v:"ahu", v_en:"to have"}},
-  ],
-
-  // L45 — Numbers 11+ (hundred and thousand)
-  // Eleven through ninety-nine compose digits; woni (100), yoni (1000) for higher place values.
-  numbers2: [
-    {lw:"woni",   en:"hundred",  pos:"number"},
-    {lw:"yoni",   en:"thousand", pos:"number"},
-  ],
-
-  // L46 — Time: Larger Units
-  // lole / fale are time particles; rouhe / luone / haiwe are the noun anchors.
-  time1: [
-    {lw:"rouhe",  en:"week",   pos:"n"},
-    {lw:"luone",  en:"month",  pos:"n", note:"Also means 'moon'"},
-    {lw:"haiwe",  en:"year",   pos:"n"},
-    {lw:"lole",   en:"now",    pos:"particle"},
-    {lw:"fale",   en:"then",   pos:"particle"},
-  ],
-
-  // L47 — Days of the Week (digit + lawe, fused)
-  daysofweek: [
-    {lw:"fanilawe",   en:"Sunday",     pos:"n"},
-    {lw:"runilawe",   en:"Monday",     pos:"n"},
-    {lw:"tenilawe",   en:"Tuesday",    pos:"n"},
-    {lw:"shanilawe",  en:"Wednesday",  pos:"n"},
-    {lw:"kanilawe",   en:"Thursday",   pos:"n"},
-    {lw:"venilawe",   en:"Friday",     pos:"n"},
-    {lw:"menilawe",   en:"Saturday",   pos:"n"},
-  ],
-
-  // L48 — Months of the Year (digit + luone, fused)
-  months: [
-    {lw:"faniluone",      en:"January",    pos:"n"},
-    {lw:"runiluone",      en:"February",   pos:"n"},
-    {lw:"teniluone",      en:"March",      pos:"n"},
-    {lw:"shaniluone",     en:"April",      pos:"n"},
-    {lw:"kaniluone",      en:"May",        pos:"n"},
-    {lw:"veniluone",      en:"June",       pos:"n"},
-    {lw:"meniluone",      en:"July",       pos:"n"},
-    {lw:"poniluone",      en:"August",     pos:"n"},
-    {lw:"yaniluone",      en:"September",  pos:"n"},
-    {lw:"haniluone",      en:"October",    pos:"n"},
-    {lw:"hanifaniluone",  en:"November",   pos:"n"},
-    {lw:"haniruniluone",  en:"December",   pos:"n"},
-  ],
-
-  // L49 — Time: Hours & Parts of Day
-  // molawe = night, literally mo- + lawe ("the un-day").
-  // meshimolawe = midnight (middle-of-night); meshilawe = noon (middle-of-day).
-  time2: [
-    {lw:"tohe",         en:"hour",      pos:"n"},
-    {lw:"tohile",       en:"minute",    pos:"n", note:"Diminutive of tohe (hour)"},
-    {lw:"tohilele",     en:"second",    pos:"n", note:"Diminutive of tohile — a 'moment'"},
-    {lw:"yauhe",        en:"morning",   pos:"n"},
-    {lw:"meshilawe",    en:"noon",      pos:"n", note:"Middle of the day"},
-    {lw:"pouhe",        en:"evening",   pos:"n"},
-    {lw:"molawe",       en:"night",     pos:"n", note:"From mo- + lawe — the 'un-day'"},
-    {lw:"meshimolawe",  en:"midnight",  pos:"n", note:"Middle of the night"},
-  ],
-
-  // L50 — Seasons
-  seasons: [
-    {lw:"foihe",        en:"spring",  pos:"n"},
-    {lw:"hauwe",        en:"summer",  pos:"n"},
-    {lw:"youhe",        en:"autumn",  pos:"n"},
-    {lw:"kaihe",        en:"winter",  pos:"n"},
-    {lw:"haiwepiehe",   en:"season",  pos:"n", note:"From haiwe (year) + piehe (part)"},
-  ],
-
-  // L51 — Colors I (Primary)
-  // Every color is a full canvas root with -ale morphology.
-  colors1: [
-    {lw:"tinale",   en:"color",   pos:"n", canvas:{adj:"tinali", adj_en:"colorful", v:"tinalu", v_en:"to color"}},
-    {lw:"feyale",   en:"red",     pos:"n", canvas:{adj:"feyali", adj_en:"red", v:"feyalu", v_en:"to redden"}},
-    {lw:"laumale",  en:"blue",    pos:"n", canvas:{adj:"laumali", adj_en:"blue", v:"laumalu", v_en:"to turn blue"}},
-    {lw:"foshale",  en:"green",   pos:"n", canvas:{adj:"foshali", adj_en:"green", v:"foshalu", v_en:"to turn green"}},
-    {lw:"haumale",  en:"yellow",  pos:"n", canvas:{adj:"haumali", adj_en:"yellow", v:"haumalu", v_en:"to turn yellow"}},
-    {lw:"noumale",  en:"black",   pos:"n", canvas:{adj:"noumali", adj_en:"black", v:"noumalu", v_en:"to turn black"}},
-    {lw:"lewale",   en:"white",   pos:"n", canvas:{adj:"lewali", adj_en:"white", v:"lewalu", v_en:"to turn white"}},
-  ],
-
-  // L52 — Colors II (Secondary)
-  colors2: [
-    {lw:"felale",   en:"gray",    pos:"n", canvas:{adj:"felali", adj_en:"gray", v:"felalu", v_en:"to turn gray"}},
-    {lw:"huyale",   en:"orange",  pos:"n", canvas:{adj:"huyali", adj_en:"orange", v:"huyalu", v_en:"to turn orange"}},
-    {lw:"niwale",   en:"pink",    pos:"n", canvas:{adj:"niwali", adj_en:"pink", v:"niwalu", v_en:"to turn pink"}},
-    {lw:"roumale",  en:"purple",  pos:"n", canvas:{adj:"roumali", adj_en:"purple", v:"roumalu", v_en:"to turn purple"}},
-    {lw:"touhale",  en:"brown",   pos:"n", canvas:{adj:"touhali", adj_en:"brown", v:"touhalu", v_en:"to turn brown"}},
-  ],
-
-  // L53 — Emotions I (Core)
-  // nawe/monawe are reinforced from L14 (svo), not redeclared here.
-  emotions1: [
-    {lw:"houle",    en:"joy",      pos:"n", canvas:{adj:"houli", adj_en:"happy", v:"houlu", v_en:"to rejoice"}, pair:{mo:"mohoule", mo_en:"sadness"}},
-    {lw:"mohoule",  en:"sadness",  pos:"n", canvas:{adj:"mohouli", adj_en:"sad"}, pair:{base:"houle", base_en:"joy"}},
-    {lw:"yere",     en:"bravery",  pos:"n", canvas:{adj:"yeri", adj_en:"brave", v:"yeru", v_en:"to be brave"},  pair:{mo:"moyere", mo_en:"fear"}},
-    {lw:"moyere",   en:"fear",     pos:"n", canvas:{adj:"moyeri", adj_en:"afraid", v:"moyeru", v_en:"to fear"}, pair:{base:"yere", base_en:"bravery"}},
-  ],
-
-  // L55 — Checkpoint 3 (sentence-based — Unit 3 culminating challenge)
-  // Budget-validated per /mnt/user-data/outputs/l55_checkpoint3_draft.md
-  checkpoint3: [
-    {lw:["Ne","ahu","teni","paipea","sho","runi","mewea"],           en:"I have three dogs and two cats."},
-    {lw:["Kipue","wa","feru","teo","loiwe"],                         en:"Who gave your book?"},
-    {lw:["Lo","loshe","su","feyali","sho","wauli"],                  en:"This flower is red and beautiful."},
-    {lw:["Kiya","te","wa","halu","wa","rouhe"],                      en:"Where did you go last week?"},
-    {lw:["Ne","mai","sahu","rau","molawe"],                          en:"I can't sleep at night."},
-    {lw:["Kime","te","wu","vanu"],                                   en:"When will you come?"},
-    {lw:["Hauwe","su","luni","ma","kaihe","su","moluni"],            en:"Summer is bright but winter is dark."},
-    {lw:["Nea","fasu","lo","yauhe"],                                 en:"We work this morning."},
-    {lw:["Ne","nawu","foshali","loshea"],                            en:"I love green flowers."},
-    {lw:["Ki","te","wa","seihu","lo","rouhe","au","wa","rouhe"],     en:"Did you study this week or last week?"},
-    {lw:["Kifa","loiwea","te","ahu"],                                en:"How many books do you have?"},
-    {lw:["Ne","wa","tiru","noumali","mewe","ya","mouleyahe"],            en:"I saw a black cat in the forest."},
-    {lw:["Teo","loye","su","houli","ma","teo","yoye","su","mohouli"],en:"Your brother is happy, but your sister is sad."},
-    {lw:["Kiwi","te","moyeru","leshea"],                             en:"Why do you fear snakes?"},
-  ],
-
-  // ── UNIT 4: EXPRESSION (L56–L78) ────────────────────────────────
-
-  // L56 — Comparatives & Superlatives (sentence-based)
-  // Introduces ata/ala/apa/moata/moapa/fa particles and liane/moliane pair.
-  // Budget-validated per /mnt/user-data/outputs/l56_draft.md
-  comparatives: [
-    {lw:["Te","su","liani","ata","ne"],                         en:"You are taller than me."},
-    {lw:["Hauwe","su","wauli","ata","kaihe"],                   en:"Summer is more beautiful than winter."},
-    {lw:["Neo","mawe","su","wauli","ala","teo","mawe"],         en:"My mother is as beautiful as your mother."},
-    {lw:["Neo","loye","su","moapa","liani"],                    en:"My brother is the least tall."},
-    {lw:["Kaihe","su","wauli","moata","hauwe"],                 en:"Winter is less beautiful than summer."},
-    {lw:["Neo","yoye","su","apa","liani","fa","neoa","wahe"],   en:"My sister is the tallest of our family."},
-    {lw:["Shawome","su","moliani","ata","wouhe"],               en:"The ocean is lower than the mountain."},
-  ],
-
-  // L57 — Set Quantifiers (sentence-based)
-  // Introduces tai/sai/nai/fai and pue (nuli reinforced from L44).
-  // Budget-validated per /mnt/user-data/outputs/l57_draft.md
-  quantifiers1: [
-    {lw:["Tai","puea","su","wami"],                   en:"All people are likeable."},
-    {lw:["Sai","puea","wa","halu"],                   en:"Some people went."},
-    {lw:["Nai","shoulea","su","wauli"],               en:"Many fish are beautiful."},
-    {lw:["Fai","pue","sahu","tahu","houme"],          en:"Anyone can eat bread."},
-    {lw:["Nuli","pue","su","rai"],                    en:"No one is sleepy."},
-    {lw:["Ne","tiru","nai","loshea","ya","mouleyahe"],    en:"I see many flowers in the forest."},
-    {lw:["Sai","pue","wa","feru","ne","loiwe"],       en:"Someone gave me a book."},
-  ],
-
-  // L58 — Measure Quantifiers (vocab-based — four canvas roots)
-  quantifiers2: [
-    {lw:"awe",     en:"increase",     pos:"n", canvas:{adj:"awi", adj_en:"more", v:"awu", v_en:"to increase"},   pair:{mo:"moawe", mo_en:"decrease"}},
-    {lw:"moawe",   en:"decrease",     pos:"n", canvas:{adj:"moawi", adj_en:"less", v:"moawu", v_en:"to decrease"},pair:{base:"awe", base_en:"increase"}},
-    {lw:"ahime",   en:"sufficiency",  pos:"n", canvas:{adj:"ahimi", adj_en:"enough", v:"ahimu", v_en:"to suffice"}, pair:{mo:"moahime", mo_en:"insufficiency"}},
-    {lw:"moahime", en:"insufficiency", pos:"n", canvas:{adj:"moahimi", adj_en:"not enough", v:"moahimu", v_en:"to fall short"}, pair:{base:"ahime", base_en:"sufficiency"}},
-  ],
-
-  // L59 — Existential Pronouns (vocab-based — 8 derived pronouns + hue base)
-  existentials: [
-    {lw:"hue",       en:"thing",      pos:"n"},
-    {lw:"taihue",    en:"everything", pos:"n", note:"From tai (all) + hue (thing)"},
-    {lw:"saihue",    en:"something",  pos:"n", note:"From sai (some) + hue (thing)"},
-    {lw:"faihue",    en:"anything",   pos:"n", note:"From fai (any, free-choice) + hue"},
-    {lw:"nulihue",   en:"nothing",    pos:"n", note:"From nuli (zero) + hue"},
-    {lw:"taipue",    en:"everyone",   pos:"n", note:"From tai (all) + pue (person)"},
-    {lw:"saipue",    en:"someone",    pos:"n", note:"From sai (some) + pue"},
-    {lw:"faipue",    en:"anyone",     pos:"n", note:"From fai (any, free-choice) + pue"},
-    {lw:"nulipue",   en:"no one",     pos:"n", note:"From nuli (zero) + pue"},
-  ],
-
-  // L60 — Emotions II (Social)
-  // nouhe is n+adj only (no verb) — adj-only canvas.
-  emotions2: [
-    {lw:"nouhe",    en:"peace",     pos:"n", canvas:{adj:"nouhi", adj_en:"peaceful"}},
-    {lw:"tauke",    en:"anger",     pos:"n", canvas:{adj:"tauki", adj_en:"angry", v:"tauku", v_en:"to anger"}},
-    {lw:"muhe",     en:"worry",     pos:"n", canvas:{adj:"muhi", adj_en:"anxious", v:"muhu", v_en:"to worry"}},
-    {lw:"youle",    en:"pride",     pos:"n", canvas:{adj:"youli", adj_en:"proud", v:"youlu", v_en:"to take pride"}, pair:{mo:"moyoule", mo_en:"shame"}},
-    {lw:"moyoule",  en:"shame",     pos:"n", canvas:{adj:"moyouli", adj_en:"ashamed", v:"moyoulu", v_en:"to shame"}, pair:{base:"youle", base_en:"pride"}},
-    {lw:"lene",     en:"trust",     pos:"n", canvas:{adj:"leni", adj_en:"trustworthy", v:"lenu", v_en:"to trust"}, pair:{mo:"molene", mo_en:"betrayal"}},
-    {lw:"molene",   en:"betrayal",  pos:"n", canvas:{adj:"moleni", adj_en:"untrustworthy", v:"molenu", v_en:"to betray"}, pair:{base:"lene", base_en:"trust"}},
-  ],
-
-  // L61 — Emotions III (Deep)
-  // faune is n+adj only (no verb).
-  emotions3: [
-    {lw:"faile",    en:"excitement",     pos:"n", canvas:{adj:"faili", adj_en:"excited", v:"failu", v_en:"to excite"}},
-    {lw:"faune",    en:"loneliness",     pos:"n", canvas:{adj:"fauni", adj_en:"lonely"}},
-    {lw:"feore",    en:"jealousy",       pos:"n", canvas:{adj:"feori", adj_en:"jealous", v:"feoru", v_en:"to envy"}},
-    {lw:"kufe",     en:"pain",           pos:"n", canvas:{adj:"kufi", adj_en:"painful", v:"kufu", v_en:"to hurt"}, pair:{mo:"mokufe", mo_en:"relief"}},
-    {lw:"mokufe",   en:"relief",         pos:"n", canvas:{adj:"mokufi", adj_en:"comforted", v:"mokufu", v_en:"to soothe"}, pair:{base:"kufe", base_en:"pain"}},
-    {lw:"nauhe",    en:"guilt",          pos:"n", canvas:{adj:"nauhi", adj_en:"guilty", v:"nauhu", v_en:"to feel guilt"}},
-    {lw:"pauhe",    en:"disappointment", pos:"n", canvas:{adj:"pauhi", adj_en:"disappointed", v:"pauhu", v_en:"to disappoint"}},
-    {lw:"nouye",    en:"patience",       pos:"n", canvas:{adj:"nouyi", adj_en:"patient"}},
-  ],
-
-  // L62 — Expressions of Feeling (vocab-based — 6 canvas action-verbs)
-  // lewe/molewe (laugh/cry) are a balancing pair; seiwe/moseiwe (smile/frown) are another.
-  expressionsoffeeling: [
-    {lw:"lewe",     en:"laughter",  pos:"n", canvas:{adj:"lewi", adj_en:"laughing", v:"lewu", v_en:"to laugh"}, pair:{mo:"molewe", mo_en:"tears"}},
-    {lw:"molewe",   en:"tears",     pos:"n", canvas:{adj:"molewi", adj_en:"crying", v:"molewu", v_en:"to cry"}, pair:{base:"lewe", base_en:"laughter"}},
-    {lw:"seiwe",    en:"smile",     pos:"n", canvas:{adj:"seiwi", adj_en:"smiling", v:"seiwu", v_en:"to smile"}, pair:{mo:"moseiwe", mo_en:"frown"}},
-    {lw:"moseiwe",  en:"frown",     pos:"n", canvas:{adj:"moseiwi", adj_en:"frowning", v:"moseiwu", v_en:"to frown"}, pair:{base:"seiwe", base_en:"smile"}},
-    {lw:"soume",    en:"kiss",      pos:"n", canvas:{adj:"soumi", adj_en:"kissed", v:"soumu", v_en:"to kiss"}},
-    {lw:"kaume",    en:"surprise",  pos:"n", canvas:{adj:"kaumi", adj_en:"surprising", v:"kaumu", v_en:"to surprise"}},
-  ],
-
-  // L63 — Personality Traits
-  // niahe/moniahe and wesire/mowesire are balancing pairs.
-  // moniahe is n+adj only. sohe is n+adj only.
-  personality: [
-    {lw:"niahe",    en:"carefulness",  pos:"n", canvas:{adj:"niahi", adj_en:"careful", v:"niahu", v_en:"to be careful"}, pair:{mo:"moniahe", mo_en:"carelessness"}},
-    {lw:"moniahe",  en:"carelessness", pos:"n", canvas:{adj:"moniahi", adj_en:"careless"}, pair:{base:"niahe", base_en:"carefulness"}},
-    {lw:"wesire",   en:"truth",        pos:"n", canvas:{adj:"wesiri", adj_en:"true", v:"wesiru", v_en:"to tell the truth"}, pair:{mo:"mowesire", mo_en:"lie"}},
-    {lw:"mowesire", en:"lie",          pos:"n", canvas:{adj:"mowesiri", adj_en:"false", v:"mowesiru", v_en:"to lie"}, pair:{base:"wesire", base_en:"truth"}},
-    {lw:"pire",     en:"thought",      pos:"n", canvas:{adj:"piri", adj_en:"thoughtful", v:"piru", v_en:"to think"}},
-    {lw:"louhe",    en:"respect",      pos:"n", canvas:{adj:"louhi", adj_en:"respectful", v:"louhu", v_en:"to respect"}},
-    {lw:"peihe",    en:"honesty",      pos:"n", canvas:{adj:"peihi", adj_en:"honest", v:"peihu", v_en:"to be honest"}},
-    {lw:"sohe",     en:"other",        pos:"n", canvas:{adj:"sohi", adj_en:"another"}},
-  ],
-
-  // L64 — Descriptive Adjectives I (Texture & Shape)
-  // pere/mopere, shiwe/moshiwe, leume/moleume are all pairs. hese stands alone.
-  adjectives3: [
-    {lw:"pere",    en:"softness",  pos:"n", canvas:{adj:"peri", adj_en:"soft", v:"peru", v_en:"to soften"}, pair:{mo:"mopere", mo_en:"hardness"}},
-    {lw:"mopere",  en:"hardness",  pos:"n", canvas:{adj:"moperi", adj_en:"hard", v:"moperu", v_en:"to harden"}, pair:{base:"pere", base_en:"softness"}},
-    {lw:"shiwe",   en:"smoothness",pos:"n", canvas:{adj:"shiwi", adj_en:"smooth", v:"shiwu", v_en:"to polish"}, pair:{mo:"moshiwe", mo_en:"roughness"}},
-    {lw:"moshiwe", en:"roughness", pos:"n", canvas:{adj:"moshiwi", adj_en:"rough", v:"moshiwu", v_en:"to roughen"}, pair:{base:"shiwe", base_en:"smoothness"}},
-    {lw:"leume",   en:"roundness", pos:"n", canvas:{adj:"leumi", adj_en:"round", v:"leumu", v_en:"to round"}, pair:{mo:"moleume", mo_en:"flatness"}},
-    {lw:"moleume", en:"flatness",  pos:"n", canvas:{adj:"moleumi", adj_en:"flat", v:"moleumu", v_en:"to flatten"}, pair:{base:"leume", base_en:"roundness"}},
-    {lw:"hese",    en:"knife",     pos:"n", canvas:{adj:"hesi", adj_en:"sharp", v:"hesu", v_en:"to cut"}},
-  ],
-
-  // L65 — Descriptive Adjectives II (Taste & Feel)
-  adjectives4: [
-    {lw:"kure",    en:"bitterness", pos:"n", canvas:{adj:"kuri", adj_en:"bitter", v:"kuru", v_en:"to turn bitter"}},
-    {lw:"feule",   en:"sourness",   pos:"n", canvas:{adj:"feuli", adj_en:"sour", v:"feulu", v_en:"to turn sour"}},
-    {lw:"pikale",  en:"spiciness",  pos:"n", canvas:{adj:"pikali", adj_en:"spicy", v:"pikalu", v_en:"to make spicy"}},
-    {lw:"houwe",   en:"dryness",    pos:"n", canvas:{adj:"houwi", adj_en:"dry", v:"houwu", v_en:"to dry"}},
-    {lw:"paile",   en:"clarity",    pos:"n", canvas:{adj:"paili", adj_en:"clear", v:"pailu", v_en:"to clarify"}},
-    {lw:"tuhe",    en:"boredom",    pos:"n", canvas:{adj:"tuhi", adj_en:"bored", v:"tuhu", v_en:"to bore"}},
-  ],
-
-  // L67 — Directions I (Cardinal)
-  // All four compounds. n+adj only (no verb — they're place-names, not actions).
-  directions1: [
-    {lw:"lianitowe",   en:"north", pos:"n", canvas:{adj:"lianitowi", adj_en:"northern"}, note:"From liani (high) + towe (place)"},
-    {lw:"molianitowe", en:"south", pos:"n", canvas:{adj:"molianitowi", adj_en:"southern"}, note:"From moliani (low) + towe (place)"},
-    {lw:"hunitowe",    en:"east",  pos:"n", canvas:{adj:"hunitowi", adj_en:"eastern"}, note:"From huni (right) + towe (place) — rising-sun orientation"},
-    {lw:"mohunitowe",  en:"west",  pos:"n", canvas:{adj:"mohunitowi", adj_en:"western"}, note:"From mohuni (left) + towe (place)"},
-  ],
-
-  // L68 — Directions II (Relative Motion)
-  // hune/mohune, niane/moniane are balancing pairs. tase and taume stand alone.
-  directions2: [
-    {lw:"hune",    en:"right (side)", pos:"n", canvas:{adj:"huni", adj_en:"right", v:"hunu", v_en:"to go right"},  pair:{mo:"mohune", mo_en:"left (side)"}},
-    {lw:"mohune",  en:"left (side)",  pos:"n", canvas:{adj:"mohuni", adj_en:"left", v:"mohunu", v_en:"to go left"},pair:{base:"hune", base_en:"right (side)"}},
-    {lw:"niane",   en:"nearness",     pos:"n", canvas:{adj:"niani", adj_en:"near", v:"nianu", v_en:"to approach"}, pair:{mo:"moniane", mo_en:"distance"}},
-    {lw:"moniane", en:"distance",     pos:"n", canvas:{adj:"moniani", adj_en:"far", v:"monianu", v_en:"to recede"},pair:{base:"niane", base_en:"nearness"}},
-    {lw:"tase",    en:"crossing",     pos:"n", canvas:{adj:"tasi", adj_en:"across", v:"tasu", v_en:"to cross"}},
-    {lw:"taume",   en:"passage",      pos:"n", canvas:{adj:"taumi", adj_en:"through", v:"taumu", v_en:"to pass through"}},
-  ],
-
-  // L69 — Spatial Position (sentence-based)
-  // Teaches loya, faloya, niwa, voi as new particles.
-  // Reinforces pohi/poki (from body) and liani/moliani (from L56) as position.
-  // Budget-validated per /mnt/user-data/outputs/l69_draft.md
-  spatial: [
-    {lw:["Paipe","su","poki","pahe"],                          en:"The dog is behind the table."},
-    {lw:["Ne","su","pohi","hiwe"],                             en:"I am in front of the house."},
-    {lw:["Yaihe","su","liani","mouleyahe"],                        en:"The bird is above the forest."},
-    {lw:["Shoule","su","moliani","shawe"],                     en:"The fish is below the water."},
-    {lw:["Neo","loiwe","su","niwa","pahe","sho","raule"],      en:"My book is between the table and the pillow."},
-    {lw:["Paipea","halu","voi","hiwe"],                        en:"The dogs walk around the house."},
-    {lw:["Ne","su","loya","ma","teo","mawe","su","faloya"],    en:"I am here, but your mother is there."},
-  ],
-
-  // L70 — Movement Verbs
-  // movanu is verb-only (no noun/adj — mo-form of vanu).
-  // liohe (step) added per coverage_notes.
-  movement: [
-    {lw:"shauwe",  en:"swim",      pos:"n", canvas:{adj:"shauwi", adj_en:"swimming", v:"shauwu", v_en:"to swim"}},
-    {lw:"eire",    en:"flight",    pos:"n", canvas:{adj:"eiri", adj_en:"flying", adj_tier:"mechanical", v:"eiru", v_en:"to fly"}},
-    {lw:"keye",    en:"fall",      pos:"n", canvas:{adj:"keyi", adj_en:"fallen", adj_tier:"mechanical", v:"keyu", v_en:"to fall"}},
-    {lw:"woune",   en:"lifting",   pos:"n", canvas:{adj:"wouni", adj_en:"lifted", v:"wounu", v_en:"to lift"}},
-    {lw:"movanu",  en:"to leave",  pos:"v", note:"Verb-only mo-form of vanu (to come)"},
-    {lw:"taike",   en:"jump",      pos:"n", canvas:{adj:"taiki", adj_en:"jumping", v:"taiku", v_en:"to jump"}},
-    {lw:"naike",   en:"climb",     pos:"n", canvas:{adj:"naiki", adj_en:"climbing", v:"naiku", v_en:"to climb"}},
-    {lw:"washe",   en:"movement",  pos:"n", canvas:{adj:"washi", adj_en:"flowing", v:"washu", v_en:"to move"}},
-    {lw:"liohe",   en:"step",      pos:"n", canvas:{adj:"liohi", adj_en:"stepped", adj_tier:"mechanical", v:"liohu", v_en:"to step up"}},
-  ],
-
-  // L71 — Verbs of Action
-  actionverbs: [
-    {lw:"paume",  en:"hit",        pos:"n", canvas:{adj:"paumi", adj_en:"struck", v:"paumu", v_en:"to hit"}},
-    {lw:"toke",   en:"use",        pos:"n", canvas:{adj:"toki", adj_en:"useful", v:"toku", v_en:"to use"}},
-    {lw:"puhe",   en:"action",     pos:"n", canvas:{adj:"puhi", adj_en:"active", v:"puhu", v_en:"to do"}},
-    {lw:"shame",  en:"attempt",    pos:"n", canvas:{adj:"shami", adj_en:"attempted", v:"shamu", v_en:"to try"}},
-    {lw:"poiwe",  en:"turn",       pos:"n", canvas:{adj:"poiwi", adj_en:"rotated", v:"poiwu", v_en:"to turn"}},
-    {lw:"faire",  en:"dance",      pos:"n", canvas:{adj:"fairi", adj_en:"danced", adj_tier:"mechanical", v:"fairu", v_en:"to dance"}},
-    {lw:"vauhe",  en:"clothing",   pos:"n", canvas:{adj:"vauhi", adj_en:"worn", v:"vauhu", v_en:"to wear"}},
-  ],
-
-  // L72 — Clothing
-  // Most are noun-only. poume (bag) is full canvas. waine (belt) is n+adj only.
-  clothing: [
-    {lw:"feure",    en:"coat",    pos:"n"},
-    {lw:"paiwe",    en:"shoe",    pos:"n"},
-    {lw:"pime",     en:"hat",     pos:"n"},
-    {lw:"shoume",   en:"shirt",   pos:"n"},
-    {lw:"woulime",  en:"dress",   pos:"n"},
-    {lw:"poume",    en:"bag",     pos:"n", canvas:{adj:"poumi", adj_en:"bag-related", v:"poumu", v_en:"to bag"}},
-    {lw:"waine",    en:"belt",    pos:"n", canvas:{adj:"waini", adj_en:"belt-related"}},
-    {lw:"paiwile",  en:"sock",    pos:"n", note:"Diminutive of paiwe (shoe)"},
-    {lw:"laiwe",    en:"pants",   pos:"n"},
-  ],
-
-  // L73 — Places & Buildings
-  // heule canvas; heulile, senehiwe, sheyahe are noun-only lexicalized compounds.
-  // tieme, luere canvas. naohe n+adj only. shauke reinforced from L40 as landmark.
-  // shauhe (bathroom), pokihiwe (backyard) added per coverage_notes.
-  places: [
-    {lw:"heule",     en:"city",      pos:"n", canvas:{adj:"heuli", adj_en:"urban", v:"heulu", v_en:"to urbanize"}},
-    {lw:"heulile",   en:"town",      pos:"n", note:"Diminutive of heule"},
-    {lw:"senehiwe",  en:"school",    pos:"n", note:"From sene (knowledge) + hiwe (house)"},
-    {lw:"sheyahe",   en:"hospital",  pos:"n", note:"Lexicalized compound"},
-    {lw:"tieme",     en:"store",     pos:"n", canvas:{adj:"tiemi", adj_en:"commercial", v:"tiemu", v_en:"to run a store"}},
-    {lw:"luere",     en:"road",      pos:"n", canvas:{adj:"lueri", adj_en:"road-related", v:"lueru", v_en:"to pave"}},
-    {lw:"naohe",     en:"bridge",    pos:"n", canvas:{adj:"naohi", adj_en:"bridge-related"}},
-    {lw:"shauhe",    en:"bathroom",  pos:"n", canvas:{adj:"shauhi", adj_en:"bathroom-related"}},
-    {lw:"pokihiwe",  en:"backyard",  pos:"n", note:"From poki (behind) + hiwe (house)"},
-  ],
-
-  // L74 — Technology & Objects
-  // peire, voure, tiere, weye, siehe, pauwe are full canvas.
-  // neule, weyile, une, unile are noun-only (or n+adj only).
-  // wainoe, shirimiehe added per coverage_notes.
-  tech: [
-    {lw:"peire",       en:"camera",      pos:"n", canvas:{adj:"peiri", adj_en:"camera-related", v:"peiru", v_en:"to photograph"}},
-    {lw:"voure",       en:"phone",       pos:"n", canvas:{adj:"vouri", adj_en:"phone-related", v:"vouru", v_en:"to call"}},
-    {lw:"tiere",       en:"computer",    pos:"n", canvas:{adj:"tieri", adj_en:"computer-related", v:"tieru", v_en:"to compute"}},
-    {lw:"neule",       en:"television",  pos:"n", canvas:{adj:"neuli", adj_en:"TV-related"}},
-    {lw:"weye",        en:"clock",       pos:"n", canvas:{adj:"weyi", adj_en:"clock-related", v:"weyu", v_en:"to check the time"}},
-    {lw:"weyile",      en:"wristwatch",  pos:"n", note:"Diminutive of weye"},
-    {lw:"une",         en:"movie",       pos:"n", canvas:{adj:"uni", adj_en:"cinematic"}},
-    {lw:"unile",       en:"TV show",     pos:"n", canvas:{adj:"unili", adj_en:"TV-show-related"}, note:"Diminutive of une"},
-    {lw:"siehe",       en:"electricity", pos:"n", canvas:{adj:"siehi", adj_en:"electric", v:"siehu", v_en:"to power on"}},
-    {lw:"pauwe",       en:"machine",     pos:"n", canvas:{adj:"pauwi", adj_en:"mechanical", v:"pauwu", v_en:"to operate"}},
-    {lw:"wainoe",      en:"internet",    pos:"n", canvas:{adj:"wainoi", adj_en:"online"}},
-    {lw:"shirimiehe",  en:"AI",          pos:"n", canvas:{adj:"shirimiehi", adj_en:"AI-related"}, note:"Artificial intelligence"},
-  ],
-
-  // L75 — Materials
-  // Most are n+adj only. koiwe (corner) added per coverage_notes as full canvas.
-  materials: [
-    {lw:"moile",   en:"wood",    pos:"n", canvas:{adj:"moili", adj_en:"wooden (or wood-related)"}},
-    {lw:"kahime",  en:"metal",   pos:"n", canvas:{adj:"kahimi", adj_en:"metallic (or metal-related)"}},
-    {lw:"paime",   en:"glass",   pos:"n", canvas:{adj:"paimi", adj_en:"glassy (or glass-related)"}},
-    {lw:"shouwe",  en:"soap",    pos:"n", canvas:{adj:"shouwi", adj_en:"soapy (or soap-related)"}},
-    {lw:"woile",   en:"cloth",   pos:"n", canvas:{adj:"woili", adj_en:"cloth-related"}},
-    {lw:"loihe",   en:"paper",   pos:"n", canvas:{adj:"loihi", adj_en:"paper-related"}},
-    {lw:"wauwe",   en:"basket",  pos:"n", canvas:{adj:"wauwi", adj_en:"basket-related"}},
-    {lw:"koiwe",   en:"corner",  pos:"n", canvas:{adj:"koiwi", adj_en:"angular", v:"koiwu", v_en:"to corner"}},
-  ],
-
-  // L76 — Productive Compound: -tieme
-  // Teaches the productive -tieme pattern. New base root mashe (medicine).
-  // leye (money) also added here per coverage_notes as payment vocab fits shopping.
-  compoundtieme: [
-    {lw:"mashe",        en:"medicine",    pos:"n", canvas:{adj:"mashi", adj_en:"medicinal", v:"mashu", v_en:"to treat"}},
-    {lw:"leye",         en:"money",       pos:"n", canvas:{adj:"leyi", adj_en:"monetary", v:"leyu", v_en:"to pay"}},
-    {lw:"houmetieme",   en:"bakery",      pos:"n", note:"houme (bread) + tieme (store)"},
-    {lw:"loiwetieme",   en:"bookstore",   pos:"n", note:"loiwe (book) + tieme"},
-    {lw:"pometieme",    en:"fruit store", pos:"n", note:"pome (fruit) + tieme"},
-    {lw:"kupetieme",    en:"café",        pos:"n", note:"kupe (coffee) + tieme"},
-    {lw:"mashetieme",   en:"pharmacy",    pos:"n", note:"mashe (medicine) + tieme"},
-  ],
-
-  // L78 — Checkpoint 4 (sentence-based — Unit 4 culminating challenge)
-  // Budget-validated per /mnt/user-data/outputs/l78_checkpoint4_draft.md
-  checkpoint4: [
-    {lw:["Ne","su","apa","houli","fa","neoa","wahe"],               en:"I am the happiest of our family."},
-    {lw:["Tai","puea","tahu","pome"],                               en:"All people eat fruit."},
-    {lw:["Ne","wa","tiru","saihue","ya","luere"],                   en:"I saw something on the road."},
-    {lw:["Yaihea","eiru","sho","shoulea","shauwu"],                 en:"Birds fly and fish swim."},
-    {lw:["Ki","te","wa","liru","faihue"],                           en:"Did you say anything?"},
-    {lw:["Neo","mawe","su","pohi","hiwe"],                          en:"My mother is in front of the house."},
-    {lw:["Lo","feure","su","apa","nohi"],                           en:"This coat is the newest."},
-    {lw:["Ne","vouru","neo","yoye","ya","yauhe"],                   en:"I call my sister in the morning."},
-    {lw:["Nea","halu","so","senehiwe","lo","yauhe"],                en:"We go to school this morning."},
-    {lw:["Veo","mewe","su","moliani","pahe"],                       en:"His cat is under the table."},
-    {lw:["Faipue","sahu","fasu"],                                   en:"Anyone can work."},
-    {lw:["Ne","wa","hoyu","loiwe","ya","loiwetieme"],               en:"I bought a book at the bookstore."},
-    {lw:["Paipe","wa","taiku","voi","hiwe"],                        en:"The dog jumped around the house."},
-    {lw:["Nuli","pue","su","loya","lole"],                          en:"No one is here now."},
-  ],
-
-  // ── UNIT 5: GRAMMAR CORE (L79–L103) ────────────────────────────
-
-  // L79 — The -pue Agent Suffix
-  // Productive *-pue* makes "one who does X"; first element in verb form.
-  // Two new base canvas roots (kaise, mauhe); ten common agents.
-  agentpue: [
-    {lw:"kaise",      en:"lesson",    pos:"n", canvas:{adj:"kaisi", adj_en:"taught", v:"kaisu", v_en:"to teach"}},
-    {lw:"mauhe",      en:"learning",  pos:"n", canvas:{adj:"mauhi", adj_en:"learned", adj_tier:"mechanical", v:"mauhu", v_en:"to learn"}},
-    {lw:"lirupue",    en:"singer",    pos:"n", note:"From liru (speak/sing) + -pue. Also 'speaker.'"},
-    {lw:"kaisupue",   en:"teacher",   pos:"n", note:"From kaisu + -pue"},
-    {lw:"mauhupue",   en:"student",   pos:"n", note:"From mauhu + -pue"},
-    {lw:"mashepue",   en:"doctor",    pos:"n", note:"Exception: built on noun mashe (medicine)"},
-    {lw:"sheyepue",   en:"nurse",     pos:"n", note:"From sheye (healing) + -pue"},
-    {lw:"shauwupue",  en:"swimmer",   pos:"n", note:"From shauwu + -pue"},
-    {lw:"shaihupue",  en:"sailor",    pos:"n", note:"From shaihe (boat) + -pue"},
-    {lw:"hiwipue",    en:"neighbor",  pos:"n", note:"From hiwi (dwelling-adj) + -pue"},
-    {lw:"mosenipue",    en:"stranger",  pos:"n", note:"From moseni (unknown) + -pue — 'unknown-person'"},
-    {lw:"maihupue",   en:"messenger", pos:"n", note:"From maihu + -pue"},
-  ],
-
-  // L80 — The -ile Diminutive (sentence-based)
-  // Budget-validated per /mnt/user-data/outputs/l80_draft.md
-  diminutive: [
-    {lw:["Ne","tiru","komilele"],                                en:"I see a grain of sand."},
-    {lw:["Lo","shafanile","su","wauli"],                         en:"This stream is beautiful."},
-    {lw:["Neo","piwile","su","rai"],                             en:"My baby is sleepy."},
-    {lw:["Ki","te","ahu","loiwile"],                             en:"Do you have a booklet?"},
-    {lw:["Ne","tiru","shaihile","ya","shafane"],                 en:"I see a canoe on the river."},
-    {lw:["Teo","komile","su","piami"],                           en:"Your pebble is small."},
-    {lw:["Lo","shaihe","su","mopiami","ata","shaihile"],         en:"This boat is bigger than a canoe."},
-  ],
-
-  // L81 — The we- Repetition Prefix (sentence-based)
-  // Budget-validated per /mnt/user-data/outputs/l81_draft.md
-  weprefix: [
-    {lw:["Ve","wa","wevanu","so","hiwe"],                        en:"She came back to the house."},
-    {lw:["Ne","wanu","wetiru","teo","mawe"],                     en:"I want to see your mother again."},
-    {lw:["Ve","wa","weliru"],                                    en:"She spoke again."},
-    {lw:["Ne","mai","wanu","weloisu"],                           en:"I don't want to read again."},
-    {lw:["Neo","loye","weihi","wa","vanu"],                      en:"My brother came again."},
-    {lw:["Ki","te","wu","wehoyu","houme"],                       en:"Will you buy bread again?"},
-    {lw:["Ne","wu","weihu","neo","fase"],                        en:"I will redo my work."},
-  ],
-
-  // L82 — Productive Compound: -pauwe (Devices)
-  // Three new base canvas roots (saye, luhe, hauhe) + mosaye pair + 5 devices.
-  compoundpauwe: [
-    {lw:"saye",         en:"cleanliness",     pos:"n", canvas:{adj:"sayi", adj_en:"clean", v:"sayu", v_en:"to wash"}, pair:{mo:"mosaye", mo_en:"dirt"}},
-    {lw:"mosaye",       en:"dirt",            pos:"n", canvas:{adj:"mosayi", adj_en:"dirty", v:"mosayu", v_en:"to dirty"}, pair:{base:"saye", base_en:"cleanliness"}},
-    {lw:"luhe",         en:"coldness",        pos:"n", canvas:{adj:"luhi", adj_en:"cold", v:"luhu", v_en:"to make cold"}},
-    {lw:"hauhe",        en:"heat",            pos:"n", canvas:{adj:"hauhi", adj_en:"hot", v:"hauhu", v_en:"to heat"}},
-    {lw:"sayupauwe",    en:"washing machine", pos:"n", note:"sayu (to wash) + pauwe (device)"},
-    {lw:"luhupauwe",    en:"refrigerator",    pos:"n", note:"luhu (to make cold) + pauwe"},
-    {lw:"hauhupauwe",   en:"oven",            pos:"n", note:"hauhu (to heat) + pauwe"},
-    {lw:"nahupauwe",    en:"stove",           pos:"n", note:"nahu (to cook, from L19) + pauwe"},
-    {lw:"eirupauwe",    en:"airplane",        pos:"n", note:"eiru (to fly) + pauwe"},
-  ],
-
-  // L83 — Vehicles & Transport
-  vehicles: [
-    {lw:"koire",         en:"car",      pos:"n", canvas:{adj:"koiri", adj_en:"car-related", v:"koiru", v_en:"to drive"}},
-    {lw:"waire",         en:"ride",     pos:"n", canvas:{adj:"wairi", adj_en:"riding", v:"wairu", v_en:"to ride"}},
-    {lw:"roheme",        en:"train",    pos:"n", canvas:{adj:"rohemi", adj_en:"train-related"}},
-    {lw:"meuhekoire",    en:"bus",      pos:"n", note:"From meuhe (group) + koire (car)"},
-    {lw:"runipoime",     en:"bicycle",  pos:"n", note:"From runi (two) + poime (wheels)"},
-  ],
-
-  // L84 — Discourse Adverbs
-  // Three adverbs that flavor a sentence. fani (only) is from L44 — context
-  // disambiguates the digit from the adverb.
-  discourseadv: [
-    {lw:"vine",    en:"addition", pos:"n", canvas:{adj:"vini", adj_en:"also"}},
-    {lw:"shoine",  en:"change",   pos:"n", canvas:{adj:"shoini", adj_en:"instead", v:"shoinu", v_en:"to change"}},
-  ],
-
-  // L85 — Frequency Adverbs
-  // Quantifier + weli frequency adverbs. wele is the base canvas root.
-  frequency: [
-    {lw:"wele",      en:"time",      pos:"n", canvas:{adj:"weli", adj_en:"timely", v:"welu", v_en:"to time"}},
-    {lw:"taiweli",   en:"always",    pos:"adv", note:"tai (all) + weli (times)"},
-    {lw:"naiweli",   en:"often",     pos:"adv", note:"nai (many) + weli"},
-    {lw:"saiweli",   en:"sometimes", pos:"adv", note:"sai (some) + weli"},
-    {lw:"faiweli",   en:"ever",      pos:"adv", note:"fai (any, free-choice) + weli"},
-    {lw:"nuliweli",  en:"never",     pos:"adv", note:"nuli (zero) + weli"},
-  ],
-
-  // L86 — Temporal Adverbs
-  // Six canvas roots + one short noun-form (nohile).
-  temporaladv: [
-    {lw:"ouhe",   en:"prior-completion", pos:"n", canvas:{adj:"ouhi", adj_en:"already"}},
-    {lw:"yauwe",  en:"continuing-state", pos:"n", canvas:{adj:"yauwi", adj_en:"still", v:"yauwu", v_en:"to continue"}},
-    {lw:"wuhe",  en:"near-future",      pos:"n", canvas:{adj:"wuhi", adj_en:"soon"}},
-    {lw:"feuhe",  en:"eventuality",      pos:"n", canvas:{adj:"feuhi", adj_en:"eventually"}},
-    {lw:"oihe",   en:"expectation",      pos:"n", canvas:{adj:"oihi", adj_en:"expected", v:"oihu", v_en:"to expect"}},
-    {lw:"nohile", en:"recentness",       pos:"n", canvas:{adj:"nohili", adj_en:"recent"}},
-  ],
-
-  // L88 — Conjunctions II: Time & Cause (sentence-based)
-  // Eight subordinators: wale, wule, wole, file, nalai, vi, mavi, maivi.
-  // Budget-validated per /mnt/user-data/outputs/l88_draft.md
-  conjunctions2: [
-    {lw:["Ne","loisu","wale","rau"],                              en:"I read before sleeping."},
-    {lw:["Nea","tahu","wule","fase"],                             en:"We eat after work."},
-    {lw:["Ve","liru","wole","fase"],                              en:"She sings while working."},
-    {lw:["Ne","wu","loimu","file","te","vanu"],                   en:"I will wait until you come."},
-    {lw:["Ne","wa","rau","nalai","ne","wa","tuhi"],               en:"I slept because I was bored."},
-    {lw:["Vi","te","vanu","ne","wu","houli"],                     en:"If you come, I will be happy."},
-    {lw:["Mavi","ve","su","piami","ve","su","tuwi"],              en:"Although she is small, she is strong."},
-    {lw:["Maivi","te","loimu","ne","wu","movanu"],                en:"Unless you wait, I will leave."},
-  ],
-
-  // L89 — Intensifiers & Near-States
-  // Two canvas roots.
-  intensifiers: [
-    {lw:"ore",    en:"intensity",  pos:"n", canvas:{adj:"ori", adj_en:"very", v:"oru", v_en:"to intensify"}},
-    {lw:"noihe",  en:"almostness", pos:"n", canvas:{adj:"noihi", adj_en:"almost", v:"noihu", v_en:"to come close to"}},
-  ],
-
-  // L90 — Ordinals & Positional Adjectives
-  // Three ordinal digits + two positional adjectives.
-  // poiyi/toyi (starting/final) are reinforced from L41 verbs1 — not re-declared.
-  ordinals: [
-    {lw:"fanini",  en:"first",    pos:"adv", note:"fani + -ni ordinal suffix"},
-    {lw:"runini",  en:"second",   pos:"adv", note:"runi + -ni"},
-    {lw:"tenini",  en:"third",    pos:"adv", note:"teni + -ni"},
-    {lw:"wali",    en:"previous", pos:"adv"},
-    {lw:"wuli",    en:"next",     pos:"adv"},
-  ],
-
-  // L91 — Abstract I (Life)
-  // oke/moke, nore/monore are balancing pairs.
-  abstract1: [
-    {lw:"oke",     en:"life",     pos:"n", canvas:{adj:"oki", adj_en:"alive", v:"oku", v_en:"to live"},  pair:{mo:"moke", mo_en:"death"}},
-    {lw:"moke",    en:"death",    pos:"n", canvas:{adj:"moki", adj_en:"dead", v:"moku", v_en:"to die"},   pair:{base:"oke", base_en:"life"}},
-    {lw:"nore",    en:"birth",    pos:"n", canvas:{adj:"nori", adj_en:"born", v:"noru", v_en:"to give birth"}, pair:{mo:"monore", mo_en:"killing"}},
-    {lw:"monore",  en:"killing",  pos:"n", canvas:{adj:"monori", adj_en:"killed", v:"monoru", v_en:"to kill"}, pair:{base:"nore", base_en:"birth"}},
-    {lw:"mouhe",   en:"world",    pos:"n", canvas:{adj:"mouhi", adj_en:"worldly"}},
-    {lw:"waume",   en:"freedom",  pos:"n", canvas:{adj:"waumi", adj_en:"free", v:"waumu", v_en:"to free"}},
-  ],
-
-  // L92 — Abstract II (Mind)
-  // mere/momere balancing pair (memory/forgetting).
-  // iruhe, iwuhe, foile added per coverage_notes.
-  abstract2: [
-    {lw:"yoihe",     en:"idea",         pos:"n", canvas:{adj:"yoihi", adj_en:"idea-related", v:"yoihu", v_en:"to conceive"}},
-    {lw:"yuhime",    en:"meaning",      pos:"n", canvas:{adj:"yuhimi", adj_en:"meaningful", v:"yuhimu", v_en:"to mean"}},
-    {lw:"fele",      en:"belief",       pos:"n", canvas:{adj:"feli", adj_en:"believed", v:"felu", v_en:"to believe"}},
-    {lw:"piore",     en:"curiosity",    pos:"n", canvas:{adj:"piori", adj_en:"curious", v:"pioru", v_en:"to wonder"}},
-    {lw:"mere",      en:"memory",       pos:"n", canvas:{adj:"meri", adj_en:"memorable", v:"meru", v_en:"to remember"}, pair:{mo:"momere", mo_en:"forgetting"}},
-    {lw:"momere",    en:"forgetting",   pos:"n", canvas:{adj:"momeri", adj_en:"forgotten", adj_tier:"mechanical", v:"momeru", v_en:"to forget"}, pair:{base:"mere", base_en:"memory"}},
-    {lw:"piretire",  en:"imagination",  pos:"n", canvas:{adj:"piretiri", adj_en:"imagined", adj_tier:"mechanical", v:"piretiru", v_en:"to imagine"}, note:"From pire (thought) + tire (sight) — 'seeing-in-thought'"},
-    {lw:"iruhe",     en:"word",         pos:"n", canvas:{adj:"iruhi", adj_en:"word-related", adj_tier:"mechanical", v:"iruhu", v_en:"to phrase"}},
-    {lw:"iwuhe",     en:"language",     pos:"n", canvas:{adj:"iwuhi", adj_en:"linguistic", v:"iwuhu", v_en:"to speak a language"}},
-    {lw:"foile",     en:"joke",         pos:"n", canvas:{adj:"foili", adj_en:"funny", v:"foilu", v_en:"to joke"}},
-  ],
-
-  // L93 — Abstract III (Challenge)
-  // teuhe/moteuhe balancing pair. teuhile is diminutive-style noun.
-  abstract3: [
-    {lw:"teuhe",    en:"difficulty", pos:"n", canvas:{adj:"teuhi", adj_en:"difficult", v:"teuhu", v_en:"to complicate"}, pair:{mo:"moteuhe", mo_en:"ease"}},
-    {lw:"moteuhe",  en:"ease",       pos:"n", canvas:{adj:"moteuhi", adj_en:"easy", v:"moteuhu", v_en:"to ease"}, pair:{base:"teuhe", base_en:"difficulty"}},
-    {lw:"soile",    en:"solution",   pos:"n", canvas:{adj:"soili", adj_en:"solved", v:"soilu", v_en:"to solve"}},
-    {lw:"rouwe",    en:"harm",       pos:"n", canvas:{adj:"rouwi", adj_en:"harmful", v:"rouwu", v_en:"to harm"}},
-    {lw:"nauke",    en:"warning",    pos:"n", canvas:{adj:"nauki", adj_en:"warned", v:"nauku", v_en:"to warn"}},
-    {lw:"raihe",    en:"result",     pos:"n", canvas:{adj:"raihi", adj_en:"resultant", v:"raihu", v_en:"to result in"}},
-    {lw:"teuhile",  en:"problem",    pos:"n", note:"Diminutive of teuhe — a small-but-specific difficulty"},
-  ],
-
-  // L94 — Abstract IV (Social Concepts)
-  // roihe/moroihe is a pair (certainty/doubt).
-  // niohe/moniohe, niuwe/moniuwe, nove/monove pairs from coverage_notes.
-  // movehisene, shoinulire are lexicalized compounds.
-  abstract4: [
-    {lw:"sheure",       en:"justice",    pos:"n", canvas:{adj:"sheuri", adj_en:"just", v:"sheuru", v_en:"to do justice"}},
-    {lw:"wohime",       en:"importance", pos:"n", canvas:{adj:"wohimi", adj_en:"important", v:"wohimu", v_en:"to matter"}},
-    {lw:"nile",         en:"name",       pos:"n", canvas:{adj:"nili", adj_en:"named", v:"nilu", v_en:"to name"}},
-    {lw:"roihe",        en:"certainty",  pos:"n", canvas:{adj:"roihi", adj_en:"certain", v:"roihu", v_en:"to confirm"}, pair:{mo:"moroihe", mo_en:"doubt"}},
-    {lw:"moroihe",      en:"doubt",      pos:"n", canvas:{adj:"moroihi", adj_en:"doubtful", v:"moroihu", v_en:"to doubt"}, pair:{base:"roihe", base_en:"certainty"}},
-    {lw:"feihe",        en:"promise",    pos:"n", canvas:{adj:"feihi", adj_en:"promised", adj_tier:"mechanical", v:"feihu", v_en:"to promise"}},
-    {lw:"luhime",       en:"music",      pos:"n", canvas:{adj:"luhimi", adj_en:"musical", v:"luhimu", v_en:"to play music"}},
-    {lw:"niohe",        en:"agreement",  pos:"n", canvas:{adj:"niohi", adj_en:"agreed", v:"niohu", v_en:"to agree"}, pair:{mo:"moniohe", mo_en:"disagreement"}},
-    {lw:"moniohe",      en:"disagreement", pos:"n", canvas:{adj:"moniohi", adj_en:"disagreed", v:"moniohu", v_en:"to disagree"}, pair:{base:"niohe", base_en:"agreement"}},
-    {lw:"niuwe",        en:"quietness",  pos:"n", canvas:{adj:"niuwi", adj_en:"quiet", v:"niuwu", v_en:"to quiet"}, pair:{mo:"moniuwe", mo_en:"loudness"}},
-    {lw:"moniuwe",      en:"loudness",   pos:"n", canvas:{adj:"moniuwi", adj_en:"loud", v:"moniuwu", v_en:"to grow loud"}, pair:{base:"niuwe", base_en:"quietness"}},
-    {lw:"nove",         en:"correctness (or correction)",pos:"n", canvas:{adj:"novi", adj_en:"correct", v:"novu", v_en:"to correct"}, pair:{mo:"monove", mo_en:"mistake"}},
-    {lw:"monove",       en:"mistake",    pos:"n", canvas:{adj:"monovi", adj_en:"incorrect", v:"monovu", v_en:"to err"}, pair:{base:"nove", base_en:"correctness"}},
-    {lw:"movehisene",   en:"secret",     pos:"n", note:"Lexicalized compound — 'hidden knowledge'"},
-    {lw:"shoinulire",   en:"translation",pos:"n", canvas:{adj:"shoinuliri", adj_en:"translated", v:"shoinuliru", v_en:"to translate"}, note:"Lexicalized — 'changed speech'"},
-  ],
-
-  // L95 — Relative Clauses (sentence-based)
-  // Introduces lai for both relative and complement clauses.
-  // Budget-validated per /mnt/user-data/outputs/l95_draft.md
-  relclauses: [
-    {lw:["Ne","tiru","pue","lai","wa","vanu"],                           en:"I see the person who came."},
-    {lw:["Lo","loiwe","lai","ne","wa","loisu","su","wauli"],             en:"The book that I read is beautiful."},
-    {lw:["Yaihe","lai","wa","keyu","su","piami"],                        en:"The bird that fell is small."},
-    {lw:["Shawome","lai","nea","wa","halu","so","su","wauli"],           en:"The ocean that we went to is beautiful."},
-    {lw:["Pue","lai","ne","wa","tiru","su","neo","wame"],                en:"The person that I saw is my friend."},
-    {lw:["Loiwe","lai","ve","wa","loisu","su","apa","lohi"],             en:"The book that she read is the best."},
-    {lw:["Ne","piru","lai","ve","wa","liru"],                            en:"I think that she sang."},
-  ],
-
-  // L97 — Daily Actions I
-  // morae is mo-form of rae (sleep, L41) — waking. poye/mopoye, tawe/motawe are pairs.
-  dailyactions1: [
-    {lw:"morae",    en:"wakefulness",pos:"n", canvas:{adj:"morai", adj_en:"awake", v:"morau", v_en:"to wake up"}},
-    {lw:"poye",     en:"opening",    pos:"n", canvas:{adj:"poyi", adj_en:"open", v:"poyu", v_en:"to open"}, pair:{mo:"mopoye", mo_en:"closure"}},
-    {lw:"mopoye",   en:"closure",    pos:"n", canvas:{adj:"mopoyi", adj_en:"closed", v:"mopoyu", v_en:"to close"}, pair:{base:"poye", base_en:"opening"}},
-    {lw:"tawe",     en:"push",       pos:"n", canvas:{adj:"tawi", adj_en:"pushed", v:"tawu", v_en:"to push"}, pair:{mo:"motawe", mo_en:"pull"}},
-    {lw:"motawe",   en:"pull",       pos:"n", canvas:{adj:"motawi", adj_en:"pulled", v:"motawu", v_en:"to pull"}, pair:{base:"tawe", base_en:"push"}},
-  ],
-
-  // L98 — Daily Actions II
-  // Four balancing pairs: kave/mokave, shife/moshife, lahe/molahe, hiye/mohiye.
-  dailyactions2: [
-    {lw:"kave",     en:"fracture",   pos:"n", canvas:{adj:"kavi", adj_en:"broken", v:"kavu", v_en:"to break"}, pair:{mo:"mokave", mo_en:"repair"}},
-    {lw:"mokave",   en:"repair",     pos:"n", canvas:{adj:"mokavi", adj_en:"mended", v:"mokavu", v_en:"to mend"}, pair:{base:"kave", base_en:"fracture"}},
-    {lw:"shife",    en:"throw",      pos:"n", canvas:{adj:"shifi", adj_en:"thrown", v:"shifu", v_en:"to throw"}, pair:{mo:"moshife", mo_en:"catch"}},
-    {lw:"moshife",  en:"catch",      pos:"n", canvas:{adj:"moshifi", adj_en:"caught", v:"moshifu", v_en:"to catch"}, pair:{base:"shife", base_en:"throw"}},
-    {lw:"lahe",     en:"rest",       pos:"n", canvas:{adj:"lahi", adj_en:"restful", v:"lahu", v_en:"to rest"}, pair:{mo:"molahe", mo_en:"disturbance"}},
-    {lw:"molahe",   en:"disturbance",pos:"n", canvas:{adj:"molahi", adj_en:"disturbed", v:"molahu", v_en:"to disturb"}, pair:{base:"lahe", base_en:"rest"}},
-    {lw:"hiye",     en:"dream",      pos:"n", canvas:{adj:"hiyi", adj_en:"dreamlike (or dream-related)", v:"hiyu", v_en:"to dream"}, pair:{mo:"mohiye", mo_en:"dreamless sleep"}},
-    {lw:"mohiye",   en:"dreamless sleep", pos:"n", canvas:{adj:"mohiyi", adj_en:"dreamless", v:"mohiyu", v_en:"to sleep without dreams"}, pair:{base:"hiye", base_en:"dream"}},
-  ],
-
-  // L99 — Sensory Verbs
-  // tere/motere pair; hawe/mohawe pair.
-  // take, tuke, sheye, mosheye added per coverage_notes (body/health verbs).
-  sensory: [
-    {lw:"ele",      en:"feeling",    pos:"n", canvas:{adj:"eli", adj_en:"emotional", v:"elu", v_en:"to feel"}},
-    {lw:"tere",     en:"touch",      pos:"n", canvas:{adj:"teri", adj_en:"tangible", v:"teru", v_en:"to touch"}, pair:{mo:"motere", mo_en:"aversion"}},
-    {lw:"motere",   en:"aversion",   pos:"n", canvas:{adj:"moteri", adj_en:"avoided", v:"moteru", v_en:"to recoil"}, pair:{base:"tere", base_en:"touch"}},
-    {lw:"yame",     en:"tongue",     pos:"n", canvas:{adj:"yami", adj_en:"tongue-related", v:"yamu", v_en:"to taste"}},
-    {lw:"hawe",     en:"breath",     pos:"n", canvas:{adj:"hawi", adj_en:"breathing", v:"hawu", v_en:"to breathe"}, pair:{mo:"mohawe", mo_en:"suffocation"}},
-    {lw:"mohawe",   en:"suffocation",pos:"n", canvas:{adj:"mohawi", adj_en:"breathless", v:"mohawu", v_en:"to suffocate"}, pair:{base:"hawe", base_en:"breath"}},
-    {lw:"take",     en:"fire",       pos:"n", canvas:{adj:"taki", adj_en:"fiery (or fire-related)", v:"taku", v_en:"to burn"}},
-    {lw:"tuke",     en:"cough",      pos:"n", canvas:{adj:"tuki", adj_en:"coughing", v:"tuku", v_en:"to cough"}},
-    {lw:"sheye",    en:"healing",    pos:"n", canvas:{adj:"sheyi", adj_en:"healthy", v:"sheyu", v_en:"to heal"}, pair:{mo:"mosheye", mo_en:"sickness"}},
-    {lw:"mosheye",  en:"sickness",   pos:"n", canvas:{adj:"mosheyi", adj_en:"sick", v:"mosheyu", v_en:"to fall ill"}, pair:{base:"sheye", base_en:"healing"}},
-  ],
-
-  // L100 — Communication Verbs
-  // kilire/mokilire is ask/answer pair. seume/moseume is whisper/shout.
-  communication: [
-    {lw:"kilire",    en:"question",  pos:"n", canvas:{adj:"kiliri", adj_en:"asked", adj_tier:"mechanical", v:"kiliru", v_en:"to ask"}, pair:{mo:"mokilire", mo_en:"answer"}},
-    {lw:"mokilire",  en:"answer",    pos:"n", canvas:{adj:"mokiliri", adj_en:"answered", v:"mokiliru", v_en:"to answer"}, pair:{base:"kilire", base_en:"question"}, note:"From mo- + kilire — the response"},
-    {lw:"seume",     en:"whisper",   pos:"n", canvas:{adj:"seumi", adj_en:"whispered", v:"seumu", v_en:"to whisper"}, pair:{mo:"moseume", mo_en:"shout"}},
-    {lw:"moseume",   en:"shout",     pos:"n", canvas:{adj:"moseumi", adj_en:"shouted", v:"moseumu", v_en:"to shout"}, pair:{base:"seume", base_en:"whisper"}},
-    {lw:"fauhe",     en:"story",     pos:"n", canvas:{adj:"fauhi", adj_en:"story-related", v:"fauhu", v_en:"to tell a story"}},
-  ],
-
-  // L101 — Verbs of Change
-  // lime/molime is a state-change pair (growth/decay).
-  verbsofchange: [
-    {lw:"lime",    en:"growth",  pos:"n", canvas:{adj:"limi", adj_en:"mature", v:"limu", v_en:"to grow"}, pair:{mo:"molime", mo_en:"decay"}},
-    {lw:"molime",  en:"decay",   pos:"n", canvas:{adj:"molimi", adj_en:"withered", v:"molimu", v_en:"to wither"}, pair:{base:"lime", base_en:"growth"}},
-  ],
-
-  // L102 — Adverbs of Manner
-  // saire/mosaire pair. This lesson makes explicit the adj/adv dual role of -i forms.
-  manneradv: [
-    {lw:"saire",    en:"speed",     pos:"n", canvas:{adj:"sairi", adj_en:"fast", v:"sairu", v_en:"to speed up"}, pair:{mo:"mosaire", mo_en:"slowness"}},
-    {lw:"mosaire",  en:"slowness",  pos:"n", canvas:{adj:"mosairi", adj_en:"slow", v:"mosairu", v_en:"to slow down"}, pair:{base:"saire", base_en:"speed"}},
-  ],
-
-  // L103 — Checkpoint 5 (sentence-based — Unit 5 culminating challenge)
-  // Budget-validated per /mnt/user-data/outputs/l103_checkpoint5_draft.md
-  checkpoint5: [
-    {lw:["Kaisupue","lai","ne","wa","tiru","su","neo","mawe"],            en:"The teacher I saw is my mother."},
-    {lw:["Vi","te","wetiru","neo","piwile","te","wu","houli"],            en:"If you see my baby again, you will be happy."},
-    {lw:["Ne","taiweli","piru","pire","wauli"],                           en:"I always think beautiful thoughts."},
-    {lw:["Luhupauwe","lai","teo","powe","wa","hoyu","su","mopiami"],      en:"The refrigerator your father bought is big."},
-    {lw:["Ne","ouhi","wa","mauhu","iwuhe"],                               en:"I already learned the language."},
-    {lw:["Shauwupue","su","ori","tuwi"],                                  en:"The swimmer is very strong."},
-    {lw:["Ne","nuliweli","wa","monoru","mewe"],                           en:"I never killed a cat."},
-    {lw:["Ve","saiweli","liru","wole","ve","fasu"],                       en:"She sometimes sings while working."},
-    {lw:["Neo","wame","wa","feihu","lai","ve","wu","vanu"],               en:"My friend promised that she would come."},
-    {lw:["Lo","teuhile","su","moteuhi","ata","falo"],                     en:"This problem is easier than that."},
-    {lw:["Mavi","ve","su","monohi","ve","hairu","sairi"],                 en:"Although she is old, she runs quickly."},
-    {lw:["Ne","fanini","wa","tiru","lo","une"],                           en:"I first saw this movie."},
-    {lw:["Neo","loye","wa","kavu","teo","mohe"],                          en:"My brother broke your cup."},
-    {lw:["Ne","loisu","nalai","ne","nawu","iruhea"],                      en:"I read because I love words."},
-  ],
-
-  // ── UNIT 6: FLUENCY (L104–L120) ─────────────────────────────────
-
-  // L104 — Complement Clauses (sentence-based)
-  // Introduces two new base roots: piruhe (plan), seuhe (decision).
-  // Builds on L95 relclauses with deeper lai-after-verb coverage.
-  // Budget-validated per /mnt/user-data/outputs/l104_draft.md
-  complementclauses: [
-    {lw:["Ne","piru","lai","te","su","lohi"],                              en:"I think that you are good."},
-    {lw:["Ne","piruhu","lai","ne","wu","tahu"],                            en:"I plan to eat."},
-    {lw:["Ve","wa","seuhu","lai","ve","wu","halu"],                        en:"She decided to go."},
-    {lw:["Ne","moyeru","lai","te","wu","moku"],                            en:"I fear that you will die."},
-    {lw:["Teo","mawe","wa","liru","lai","ve","wa","kufi"],                 en:"Your mother said that she was in pain."},
-    {lw:["Ne","meru","lai","ne","loiku","teo","nile"],                     en:"I remember to write your name."},
-    {lw:["Nea","felu","lai","lo","iwuhe","su","wauli"],                    en:"We believe that this language is beautiful."},
-  ],
-
-  // L105 — Embedded Questions (sentence-based)
-  // ki-words introduce embedded questions directly — no lai needed.
-  // No new roots — pure grammar practice.
-  // Budget-validated per /mnt/user-data/outputs/l105_draft.md
-  embeddedqs: [
-    {lw:["Ne","pioru","kiya","ve","wa","halu"],                            en:"I wonder where she went."},
-    {lw:["Te","meru","kiwa","ne","wanu"],                                  en:"You remember what I want."},
-    {lw:["Ne","mai","meru","kipue","wa","liru"],                           en:"I don't remember who sang."},
-    {lw:["Ve","pioru","kime","te","wu","vanu"],                            en:"She wonders when you will come."},
-    {lw:["Nea","momeru","kiwi","ve","wa","monovu"],                        en:"We forgot why she made a mistake."},
-    {lw:["Ne","pioru","kishe","te","puhu"],                                en:"I wonder how you are doing."},
-    {lw:["Ne","mai","meru","kifa","paipea","te","ahu"],                    en:"I don't remember how many dogs you have."},
-  ],
-
-  // L106 — Proper Nouns & Loanwords (sentence-based)
-  // Teaches that names/brands/borrowed words stay in source-language form.
-  // No new Liru roots — proper nouns registered in preflight.
-  // Budget-validated per /mnt/user-data/outputs/l106_draft.md
-  propernouns: [
-    {lw:["Teo","yoye","su","wo","Tokyo"],                                  en:"Your sister is in Tokyo."},
-    {lw:["Ne","nawu","Hawaii"],                                            en:"I love Hawaii."},
-    {lw:["Maria","su","kaisupue"],                                         en:"Maria is a teacher."},
-    {lw:["Nea","halu","so","Paris"],                                       en:"We go to Paris."},
-    {lw:["John","wa","vanu","so","neo","hiwe"],                            en:"John came to my house."},
-    {lw:["Ki","te","nawu","London","au","Paris"],                          en:"Do you love London or Paris?"},
-    {lw:["Maria","sho","John","su","wami"],                                en:"Maria and John are likeable."},
-  ],
-
-  // L107 — Outcomes & Events
-  // loune/moloune and lonone/molonone are balancing pairs (success/failure, win/loss).
-  outcomes: [
-    {lw:"loune",    en:"success",     pos:"n", canvas:{adj:"louni", adj_en:"successful", v:"lounu", v_en:"to succeed"}, pair:{mo:"moloune", mo_en:"failure"}},
-    {lw:"moloune",  en:"failure",     pos:"n", canvas:{adj:"molouni", adj_en:"failed", v:"molounu", v_en:"to fail"}, pair:{base:"loune", base_en:"success"}},
-    {lw:"lonone",   en:"win",         pos:"n", canvas:{adj:"lononi", adj_en:"winning", adj_tier:"mechanical", v:"lononu", v_en:"to win"}, pair:{mo:"molonone", mo_en:"loss"}},
-    {lw:"molonone", en:"loss",        pos:"n", canvas:{adj:"molononi", adj_en:"losing", v:"molononu", v_en:"to lose"}, pair:{base:"lonone", base_en:"win"}},
-    {lw:"laohe",    en:"happening",   pos:"n", canvas:{adj:"laohi", adj_en:"eventful", v:"laohu", v_en:"to happen"}},
-    {lw:"youme",    en:"luck",        pos:"n", canvas:{adj:"youmi", adj_en:"lucky", v:"youmu", v_en:"to luck out"}},
-  ],
-
-  // L108 — Duty & Readiness
-  // miohe is n+adj only. seuwe/moseuwe is an allowed/forbidden pair.
-  duty: [
-    {lw:"miohe",    en:"duty",         pos:"n", canvas:{adj:"miohi", adj_en:"dutiful"}},
-    {lw:"peiwe",    en:"readiness",    pos:"n", canvas:{adj:"peiwi", adj_en:"ready", v:"peiwu", v_en:"to get ready"}},
-    {lw:"seuwe",    en:"allowance",    pos:"n", canvas:{adj:"seuwi", adj_en:"allowed", v:"seuwu", v_en:"to allow"}, pair:{mo:"moseuwe", mo_en:"forbiddance"}},
-    {lw:"moseuwe",  en:"forbiddance",  pos:"n", canvas:{adj:"moseuwi", adj_en:"forbidden", v:"moseuwu", v_en:"to forbid"}, pair:{base:"seuwe", base_en:"allowance"}},
-  ],
-
-  // L109 — Safety & Harm
-  // yohe/moyohe pair (safety/danger). waiye standalone.
-  // rouwe reinforced from L93 — not re-declared.
-  safety: [
-    {lw:"yohe",     en:"safety",     pos:"n", canvas:{adj:"yohi", adj_en:"safe", v:"yohu", v_en:"to make safe"}, pair:{mo:"moyohe", mo_en:"danger"}},
-    {lw:"moyohe",   en:"danger",     pos:"n", canvas:{adj:"moyohi", adj_en:"dangerous", v:"moyohu", v_en:"to endanger"}, pair:{base:"yohe", base_en:"safety"}},
-    {lw:"waiye",    en:"protection", pos:"n", canvas:{adj:"waiyi", adj_en:"protective", v:"waiyu", v_en:"to protect"}},
-  ],
-
-  // L110 — Group & Solitude
-  // nauye/monauye is a play/fight pair. meuhe for gathering.
-  group: [
-    {lw:"meuhe",    en:"group",     pos:"n", canvas:{adj:"meuhi", adj_en:"together", v:"meuhu", v_en:"to gather"}},
-    {lw:"nauye",    en:"game",      pos:"n", canvas:{adj:"nauyi", adj_en:"fun", v:"nauyu", v_en:"to play"}, pair:{mo:"monauye", mo_en:"fight"}},
-    {lw:"monauye",  en:"fight",     pos:"n", canvas:{adj:"monauyi", adj_en:"hostile", v:"monauyu", v_en:"to fight"}, pair:{base:"nauye", base_en:"game"}},
-  ],
-
-  // L112 — Secondary Verbs I
-  // Six balancing pairs extending verbs already taught.
-  // vehe/movehe (show/hide), vihe/movihe (share/keep), tole/motole (lead/follow),
-  // rume/morume (lock/unlock), hese/mohese (cut/connect), toihe/motoihe (pickup/dropoff).
-  // The base members (vehe, vihe, tole-not-yet, rume-not-yet, hese, toihe) are from earlier.
-  // motoihe was declared in L43 — don't redeclare here. Same for the others already taught.
-  // NEW in this lesson: movehe, movihe, tole, motole, rume, morume, mohese.
-  secondaryverbs1: [
-    {lw:"movehe",   en:"hiding",    pos:"n", canvas:{adj:"movehi", adj_en:"hidden", v:"movehu", v_en:"to hide"}},
-    {lw:"movihe",   en:"keeping",   pos:"n", canvas:{adj:"movihi", adj_en:"kept", v:"movihu", v_en:"to keep"}},
-    {lw:"tole",     en:"leadership",pos:"n", canvas:{adj:"toli", adj_en:"leading", v:"tolu", v_en:"to lead"}, pair:{mo:"motole", mo_en:"following"}},
-    {lw:"motole",   en:"following", pos:"n", canvas:{adj:"motoli", adj_en:"loyal", v:"motolu", v_en:"to follow"}, pair:{base:"tole", base_en:"leadership"}},
-    {lw:"rume",     en:"lock",      pos:"n", canvas:{adj:"rumi", adj_en:"locked", v:"rumu", v_en:"to lock"}, pair:{mo:"morume", mo_en:"key"}},
-    {lw:"morume",   en:"key",       pos:"n", canvas:{adj:"morumi", adj_en:"unlocked", v:"morumu", v_en:"to unlock"}, pair:{base:"rume", base_en:"lock"}},
-    {lw:"mohese",   en:"bond",      pos:"n", canvas:{adj:"mohesi", adj_en:"joined", v:"mohesu", v_en:"to connect"}},
-  ],
-
-  // L113 — Secondary Verbs II
-  // Four ordinary canvas verbs + three special mo-verbs (mokahu, mokosu — verb-only;
-  // mowashi — adj+verb only, no noun).
-  secondaryverbs2: [
-    {lw:"muye",     en:"mixture",    pos:"n", canvas:{adj:"muyi", adj_en:"mixed", v:"muyu", v_en:"to mix"}},
-    {lw:"nuhe",     en:"focus",      pos:"n", canvas:{adj:"nuhi", adj_en:"focused", v:"nuhu", v_en:"to concentrate"}},
-    {lw:"koule",    en:"visit",      pos:"n", canvas:{adj:"kouli", adj_en:"visited", adj_tier:"mechanical", v:"koulu", v_en:"to visit"}},
-    {lw:"poule",    en:"invitation", pos:"n", canvas:{adj:"pouli", adj_en:"invited", v:"poulu", v_en:"to invite"}},
-    {lw:"raime",    en:"picture",    pos:"n", canvas:{adj:"raimi", adj_en:"pictured", v:"raimu", v_en:"to depict"}},
-    {lw:"mokahu",   en:"to drop (unintentionally)", pos:"v", note:"Verb-only special mo-form"},
-    {lw:"mokosu",   en:"to let go",  pos:"v", note:"Verb-only — to give up possession"},
-    {lw:"mowashi",  en:"still",      pos:"adj", note:"Adj + verb only; mowashu leads a verb chain to stop an action"},
-  ],
-
-  // L114 — Nature Phenomena
-  // Extends L32 weather with atmospheric and astronomical vocabulary.
-  naturephenomena: [
-    {lw:"tarume",   en:"thunder",   pos:"n", canvas:{adj:"tarumi", adj_en:"thunderous (or thunder-related)", v:"tarumu", v_en:"to thunder"}},
-    {lw:"lunume",   en:"lightning", pos:"n", canvas:{adj:"lunumi", adj_en:"lightning-related", v:"lunumu", v_en:"to flash"}, note:"Literally 'sky-light'"},
-    {lw:"maiwale",  en:"rainbow",   pos:"n", canvas:{adj:"maiwali", adj_en:"rainbow-related"}},
-    {lw:"kawe",     en:"ice",       pos:"n", canvas:{adj:"kawi", adj_en:"frozen", v:"kawu", v_en:"to freeze"}},
-    {lw:"toile",    en:"star",      pos:"n", canvas:{adj:"toili", adj_en:"starry (or star-related)", v:"toilu", v_en:"to sparkle"}},
-  ],
-
-  // L115 — Specialized Vocabulary
-  // Range of useful concepts + three lexicalized light-compounds.
-  specialized: [
-    {lw:"karuhe",       en:"war",       pos:"n", canvas:{adj:"karuhi", adj_en:"warlike (or war-related)", v:"karuhu", v_en:"to wage war"}},
-    {lw:"meshe",        en:"middle",    pos:"n", canvas:{adj:"meshi", adj_en:"central", v:"meshu", v_en:"to center"}},
-    {lw:"meshifane",    en:"half",      pos:"n", canvas:{adj:"meshifani", adj_en:"half-of"}, note:"From meshe (middle) + fane (of)"},
-    {lw:"piehe",        en:"part",      pos:"n", canvas:{adj:"piehi", adj_en:"partial", v:"piehu", v_en:"to divide"}},
-    {lw:"poime",        en:"wheel",     pos:"n", canvas:{adj:"poimi", adj_en:"wheel-related", v:"poimu", v_en:"to roll on wheels"}},
-    {lw:"toure",        en:"edge",      pos:"n", canvas:{adj:"touri", adj_en:"bordering", v:"touru", v_en:"to border"}},
-    {lw:"molunilune",   en:"shadow",    pos:"n", note:"Lexicalized — 'darkness of light'"},
-    {lw:"takilune",     en:"candle",    pos:"n", note:"Lexicalized — 'fire-light'"},
-    {lw:"lunekahe",     en:"lamp",      pos:"n", note:"Lexicalized — 'light-holder'"},
-  ],
-
-  // L116 — Dictionary Phrases (sentence-based)
-  // Six multi-word idiomatic phrases. All component tokens already in budget.
-  // Budget-validated per /mnt/user-data/outputs/l116_draft.md
-  dictionaryphrases: [
-    {lw:["Nea","halu","ko","nea"],                                         en:"We go together."},
-    {lw:["Ne","su","moko","pue"],                                          en:"I am alone."},
-    {lw:["Ve","fasu","moko","puea"],                                       en:"She works in solitude."},
-    {lw:["Te","wa","vanu","wale","oihi"],                                  en:"You came early."},
-    {lw:["Neo","loye","wa","vanu","wule","oihi"],                          en:"My brother came late."},
-    {lw:["Ne","mai","yauwi","wa","tahu"],                                  en:"I have not yet eaten."},
-    {lw:["Nea","piruhu","lai","nea","wu","halu","ko","nea","so","Paris"],  en:"We plan to go to Paris together."},
-  ],
-
-  // L120 — Final Test: The Song of Hope (sentence-based, comprehensive)
-  // 20 sentences spanning all six units. Introduces waihe (hope) as capstone.
-  // Budget-validated per /mnt/user-data/outputs/l120_finaltest_draft.md
-  finaltest: [
-    {lw:["Waimo","neo","nile","su","Maria"],                                                en:"Hello, my name is Maria."},
-    {lw:["Neo","wahe","su","mopiami"],                                                      en:"My family is big."},
-    {lw:["Ne","ahu","teni","loyea","sho","runi","yoyea"],                                   en:"I have three brothers and two sisters."},
-    {lw:["Hauwe","su","apa","wauli","fa","tai","haiwepiehea"],                              en:"Summer is the most beautiful of all the seasons."},
-    {lw:["Ki","te","wa","koulu","teo","wahe","lo","rouhe"],                                 en:"Did you visit your family this week?"},
-    {lw:["Kiya","te","wa","hoyu","lo","feure"],                                             en:"Where did you buy this coat?"},
-    {lw:["Lo","kaisupue","lai","ne","wa","tiru","wa","liru","wauli"],                       en:"The teacher I saw spoke beautifully."},
-    {lw:["Nea","felu","lai","te","wu","lounu"],                                             en:"We believe that you will succeed."},
-    {lw:["Ne","mai","meru","kime","ve","wa","vanu"],                                        en:"I don't remember when she came."},
-    {lw:["Vi","te","sovu","ne","ne","wu","su","houli"],                                     en:"If you help me, I will be happy."},
-    {lw:["Nuli","pue","wa","tiru","lo","movehisene"],                                       en:"No one saw this secret."},
-    {lw:["Paipe","wa","taiku","niwa","runi","hiwea"],                                       en:"The dog jumped between two houses."},
-    {lw:["Ve","mai","sahu","liru","nalai","ve","su","mohouli"],                             en:"She cannot speak because she is sad."},
-    {lw:["Teo","piwile","su","loya","ma","neo","piwile","su","faloya"],                     en:"Your baby is here, but my baby is there."},
-    {lw:["Ne","nuliweli","wa","tiru","faihue","tuwi","ata","loune"],                        en:"I have never seen anything stronger than success."},
-    {lw:["Nea","ouhi","wa","piruhu","lai","nea","wu","halu","so","Paris","lo","haiwe"],     en:"We already planned to go to Paris this year."},
-    {lw:["Ne","wanu","feru","feyali","loshea","so","teo","mawe"],                           en:"I want to give red flowers to your mother."},
-    {lw:["Kifa","iwuhea","te","mauhu"],                                                     en:"How many languages do you learn?"},
-    {lw:["Lo","Liru","iwuhe","su","kaumi","sho","wauli"],                                   en:"This Liru language is surprising and beautiful."},
-    {lw:["Waihe","su","apa","wohimi","hue","ya","lo","mouhe"],                              en:"Hope is the most important thing in this world."},
+  // Per lesson_principles.md: max 4 new roots per lesson, 6–8 new words target.
+  // Every entry verified against Dictionary.md (citations in unit1_build.md).
+  //
+  // Conventions:
+  //   - Sentence-prompt tokens are PUNCTUATION-FREE. Periods, commas, and
+  //     question marks live in the English gloss only. Punctuation in
+  //     draggable tokens would leak word-order information to the learner.
+  //   - Each prompt is a SINGLE Liru sentence. Multi-sentence dialogues are
+  //     split into separate consecutive prompts.
+  //
+  // L1: l1_greetings — waimo, weriko, moa
+  // L2: l2_thanks    — reiwa, elo
+  // L3: l3_yesno     — ai, mai, "Su mo"
+  // L4: l4_iam       — ne, su   (vocab; the pattern is exercised in L5 immediately)
+  // L5: l5_yourname  — sentence-based; introduces te/teo, kiwa, nile
+  // L6: l6_practice  — sentence-based; combines L1–L5, no new vocab
+  // L7: l7_review    — Unit 1 Review (no V entry; uses _review)
+
+  // L1 — Hello & Goodbye
+  l1_greetings: [
+    {lw:"waimo",  en:"hello",                       pos:"social"},
+    {lw:"weriko", en:"goodbye",                     pos:"social"},
+    {lw:"moa",    en:"please / respectfully",       pos:"social"},
+  ],
+
+  // L2 — Thanks & Sorry
+  l2_thanks: [
+    {lw:"reiwa",  en:"thank you",                   pos:"social"},
+    {lw:"elo",    en:"sorry / excuse me",           pos:"social"},
+  ],
+
+  // L3 — Yes, No, and "Su mo"
+  // mai is in SRS_PARTICLE_SKIP for sentence-content extraction, but this is
+  // a vocab lesson — vocab branch enrolls regardless. "Su mo" is a phrase
+  // (Dictionary.md L632: pos "phrase").
+  l3_yesno: [
+    {lw:"ai",     en:"yes",                         pos:"particle"},
+    {lw:"mai",    en:"no / not",                    pos:"particle"},
+    {lw:"Su mo",  en:"you're welcome / it's okay",  pos:"phrase"},
+  ],
+
+  // L4 — Saying Your Name (vocab; 2 flashcards)
+  l4_iam: [
+    {lw:"ne",     en:"I",                           pos:"pronoun"},
+    {lw:"su",     en:"is / am / are / be",          pos:"verb"},
+  ],
+
+  // L5 — "What is your name?" (sentence-based)
+  // 7 prompts, each a single Liru sentence, tokens punctuation-free.
+  // Sentence-content SRS extraction will pull: te, teo, kiwa, nile, plus
+  // already-enrolled ne/su. The inflection-stripper recognizes -eo → base,
+  // so teo/neo/veo will all map back to their base pronouns for SRS.
+  l5_yourname: [
+    {lw:["Kiwa","su","teo","nile"],     en:"What is your name?"},
+    {lw:["Ne","su","Yuna"],             en:"I am Yuna."},
+    {lw:["Te","su","Kai"],              en:"You are Kai."},
+    {lw:["Teo","nile","su","Yuna"],     en:"Your name is Yuna."},
+    {lw:["Neo","nile","su","Kai"],      en:"My name is Kai."},
+    {lw:["Kiwa","su","neo","nile"],     en:"What is my name?"},
+  ],
+
+  // L6 — Greeting Conversations (sentence-based; combines L1–L5; no new vocab)
+  // 7 single-sentence prompts. The intro card frames these as the building
+  // blocks of a real first meeting; the conversational arc lives in the
+  // intro text, not in stitched-together prompts.
+  l6_practice: [
+    {lw:["Waimo","Yuna","moa"],         en:"Hello, Yuna."},
+    {lw:["Ne","su","Kai"],              en:"I am Kai."},
+    {lw:["Kiwa","su","teo","nile"],     en:"What is your name?"},
+    {lw:["Reiwa","Kai"],                en:"Thank you, Kai."},
+    {lw:["Su","mo"],                    en:"You're welcome."},
+    {lw:["Elo","Yuna"],                 en:"Sorry, Yuna."},
+    {lw:["Weriko"],                     en:"Goodbye."},
   ],
 };
 
@@ -2170,150 +873,82 @@ const FREETEXT_PROMPTS = [
 // UNITS = collapsible lesson groups shown on the home Learn tab.
 // Each unit's `start` index points into the LESSONS array.
 const UNITS = [
-  {name:"Unit 1 — Foundations", start:0},
-  {name:"Unit 2 — Daily World", start:17},
-  {name:"Unit 3 — Connecting Words", start:37},
-  {name:"Unit 4 — Expression", start:55},
-  {name:"Unit 5 — Grammar Core", start:78},
-  {name:"Unit 6 — Fluency", start:103},
+  {name:"Unit 1 — Greetings & First Words", start:0},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
 //   id, title, desc, icon, vocabKey (into V), xp, unit (UNITS index)
 // Optional flags: isReview, isSentence, isParagraph, isFreeText, isFinalTest, reviewPool
 // When empty, the Learn tab renders a "Coming soon" panel.
+// LESSONS = flat array of lesson definitions. Each lesson has:
+//   id, title, desc, icon, vocabKey (into V), xp, unit (UNITS index)
+// Optional flags: isReview, isSentence, isParagraph, isFreeText, isFinalTest, reviewPool
+// When empty, the Learn tab renders a "Coming soon" panel.
 const LESSONS = [
-  // ── UNIT 1: FOUNDATIONS (L1–L17) ──────────────────────────────
-  {id:"greetings",    title:"Greetings",                 desc:"Hello, goodbye, please, thank you",          icon:"👋",  vocabKey:"greetings",    xp:15, unit:0},
-  {id:"pronouns",     title:"Pronouns & the Copula",     desc:"I, you, they, and how to say 'is'",          icon:"👥",  vocabKey:"pronouns",     xp:15, unit:0},
-  {id:"possessives",  title:"Possessives",               desc:"My, your, ours, theirs",                     icon:"🫂",  vocabKey:"possessives",  xp:15, unit:0},
-  {id:"canvas",       title:"The Vowel Canvas",          desc:"Every word has three faces: -e, -i, -u",     icon:"🎨",  vocabKey:"canvas",       xp:20, unit:0},
-  {id:"family1",      title:"Family I: Nuclear",         desc:"Mother, father, brother, sister, child",     icon:"👨‍👩‍👧", vocabKey:"family1",    xp:18, unit:0},
-  {id:"family2",      title:"Family II: People",         desc:"Man, woman, boy, girl, baby, spouse",        icon:"🧑",  vocabKey:"family2",      xp:18, unit:0},
-  {id:"body1",        title:"Body I: Head & Face",       desc:"Head, face, eyes, nose, mouth, mind",        icon:"😊",  vocabKey:"body1",        xp:20, unit:0},
-  {id:"body2",        title:"Body II: Torso",            desc:"Neck, chest, stomach, back, skin, blood",    icon:"🫁",  vocabKey:"body2",        xp:20, unit:0},
-  {id:"body3",        title:"Body III: Limbs",           desc:"Arms, legs, hands, feet, joints",            icon:"💪",  vocabKey:"body3",        xp:22, unit:0},
-  {id:"moprefix",     title:"The mo- Prefix",            desc:"Every thing has its balancing partner",      icon:"☯️", vocabKey:"moprefix",     xp:20, unit:0, isSentence:true, intro:`<h3>☯️ The <em>mo-</em> Prefix</h3><p>In Liru, many opposites are built by adding <em>mo-</em> to the front of a word. You don't learn a separate word for the opposite — you just add <em>mo-</em>.</p><p>For example, you already know <em>lune</em> (light). To say <strong>darkness</strong>, just add <em>mo-</em>:</p><span class="example">lune <span class="gloss">light</span> → molune <span class="gloss">darkness</span></span><p>The same pattern works for the adjectives and verbs built from the root. <em>luni</em> means <strong>bright</strong>, so <em>moluni</em> means <strong>dark</strong>:</p><span class="example">luni <span class="gloss">bright</span> → moluni <span class="gloss">dark</span></span><p>This is one of the most important patterns in Liru. Once you know a word, you often already know its opposite — just add <em>mo-</em>.</p><p>In this lesson, you'll practice with <em>lune / molune</em> (light / darkness) and <em>waihe / mowaihe</em> (hope / despair).</p>`},
-  {id:"adjectives1",  title:"Basic Adjectives I",        desc:"Small, big, good, bad, new, old",            icon:"📏",  vocabKey:"adjectives1",  xp:20, unit:0},
-  {id:"adjectives2",  title:"Basic Adjectives II",       desc:"Beautiful, ugly, strong, weak",              icon:"✨",  vocabKey:"adjectives2",  xp:18, unit:0},
-  {id:"simpleverbs",  title:"Simple Verbs",              desc:"See, hear, speak, know",                     icon:"👀",  vocabKey:"simpleverbs",  xp:20, unit:0},
-  {id:"svo",          title:"SVO + Love & Hate",         desc:"Subject-verb-object sentences",              icon:"💗",  vocabKey:"svo",          xp:22, unit:0},
-  {id:"yesno",        title:"Yes/No Questions",          desc:"Asking 'is it?' with ki",                    icon:"❓",  vocabKey:"yesno",        xp:22, unit:0, isSentence:true, intro:`<h3>❓ Yes/No Questions</h3><p>To turn a statement into a yes-or-no question in Liru, just put <em>ki</em> at the front. The rest of the sentence stays exactly the same.</p><span class="example">Te su Claude. <span class="gloss">You are Claude.</span></span><span class="example">Ki te su Claude? <span class="gloss">Are you Claude?</span></span><p>That's it. No changing the word order, no adding extra words — just <em>ki</em> at the front.</p><p>In this lesson, you'll practice asking simple yes/no questions.</p>`},
-  {id:"unit1review",  title:"Unit 1 Review",             desc:"Review everything from Unit 1 so far",       icon:"🔁",  vocabKey:"_review",      xp:18, unit:0, isReview:true, reviewPool:["greetings","pronouns","possessives","canvas","family1","family2","body1","body2","body3","moprefix","adjectives1","adjectives2","simpleverbs","svo"]},
-  {id:"checkpoint1",  title:"Checkpoint 1",              desc:"Unit 1 sentence challenge",                  icon:"🏆",  vocabKey:"checkpoint1",  xp:35, unit:0, isSentence:true, isCheckpoint:true},
+  // ── UNIT 1: GREETINGS & FIRST WORDS (L1–L7) ──────────────────────────
+  {id:"l1_greetings",
+   title:"Hello & Goodbye",
+   desc:"waimo, weriko, moa",
+   icon:"👋",
+   vocabKey:"l1_greetings",
+   xp:15,
+   unit:0},
 
-  // ── UNIT 2: DAILY WORLD (L18–L37) ──────────────────────────────
-  {id:"home1",           title:"Home I: Rooms & Furniture",  desc:"Rooms, tables, chairs, beds, walls",           icon:"🏠",  vocabKey:"home1",           xp:22, unit:1},
-  {id:"home2",           title:"Home II: Kitchen & Dining",  desc:"Kitchen, plates, cups, forks, spoons",         icon:"🍽️", vocabKey:"home2",           xp:20, unit:1},
-  {id:"nouninflection",  title:"Noun Plurals & Possession",  desc:"The -ea, -eo, -eoa suffixes on nouns",         icon:"📐",  vocabKey:"nouninflection",  xp:20, unit:1, isSentence:true, intro:`<h3>📐 Noun Plurals & Possession</h3><p>Liru uses three short endings on nouns to show plural and "belonging to." They attach right to the end of a noun.</p><p><em>-ea</em> makes a noun <strong>plural</strong>:</p><span class="example">paipe <span class="gloss">dog</span> → paipea <span class="gloss">dogs</span></span><p><em>-eo</em> means <strong>"of" that noun</strong> (possession):</p><span class="example">paipeo houme <span class="gloss">the dog's bread</span></span><p>And <em>-eoa</em> combines both — <strong>"of those plural things"</strong>:</p><span class="example">paipeoa houme <span class="gloss">the dogs' bread</span></span><p>The endings attach only to nouns (words ending in <em>-e</em>), never to adjectives or verbs.</p>`},
-  {id:"demonstratives",  title:"Demonstratives",             desc:"This, these, that, those",                     icon:"👉",  vocabKey:"demonstratives",  xp:18, unit:1},
-  {id:"tense",           title:"Past & Future Tense",        desc:"Saying what happened and what will happen",    icon:"⏳",  vocabKey:"tense",           xp:22, unit:1, isSentence:true, intro:`<h3>⏳ Past & Future Tense</h3><p>By default, a Liru verb has no tense — it could be happening now, or it could be a general truth. To make time clear, add one of two particles right before the verb.</p><p><em>wa</em> means <strong>past</strong>:</p><span class="example">Ne wa tahu. <span class="gloss">I ate.</span></span><p><em>wu</em> means <strong>future</strong>:</p><span class="example">Ne wu tahu. <span class="gloss">I will eat.</span></span><p>Without either particle, the verb is present or timeless:</p><span class="example">Ne tahu. <span class="gloss">I eat.</span></span><p><strong>Building "yesterday," "today," "tomorrow."</strong> The same little words also build time phrases when paired with <em>lawe</em> (day). <em>lo</em> (this) joins them for "today":</p><span class="example">wa lawe <span class="gloss">yesterday</span></span><span class="example">lo lawe <span class="gloss">today</span></span><span class="example">wu lawe <span class="gloss">tomorrow</span></span><p>This same pattern will work with any time-noun you learn later (week, month, year).</p><p>That's the whole system — no conjugations, no irregular forms, just these tiny words.</p>`},
-  {id:"negation",        title:"Negation",                   desc:"Saying no — mai with verbs",                   icon:"🚫",  vocabKey:"negation",        xp:20, unit:1, isSentence:true, intro:`<h3>🚫 Negation</h3><p>To negate a verb — to say <strong>not</strong> — put <em>mai</em> right before the verb.</p><span class="example">Ne tahu. <span class="gloss">I eat.</span></span><span class="example">Ne mai tahu. <span class="gloss">I don't eat.</span></span><p>It works the same way with past and future tense — <em>mai</em> comes before the tense particle:</p><span class="example">Ne mai wa tahu. <span class="gloss">I didn't eat.</span></span><span class="example">Ne mai wu tahu. <span class="gloss">I won't eat.</span></span><p>One word, always in the same spot. No "do" or "did" helpers needed.</p>`},
-  {id:"relational1",     title:"Location Particles",         desc:"In, at, above, below",                         icon:"📍",  vocabKey:"relational1",     xp:18, unit:1},
-  {id:"relational2",     title:"Motion & Association",       desc:"To, from, with, without — and 'to go'",        icon:"🚶",  vocabKey:"relational2",     xp:22, unit:1},
-  {id:"food1",           title:"Food I: Staples",            desc:"Bread, fruit, to eat, to drink",               icon:"🍞",  vocabKey:"food1",           xp:22, unit:1},
-  {id:"food2",           title:"Food II: Flavors",           desc:"Salt, sugar, pepper, oil, cheese",             icon:"🧂",  vocabKey:"food2",           xp:20, unit:1},
-  {id:"food3",           title:"Food III: Meals & Drinks",   desc:"Coffee, tea, meat, rice, soup",                icon:"☕",  vocabKey:"food3",           xp:20, unit:1},
-  {id:"animals1",        title:"Animals I: Domestic",        desc:"Dog, cat, horse, cow, pig, sheep",             icon:"🐕",  vocabKey:"animals1",        xp:20, unit:1},
-  {id:"animals2",        title:"Animals II: Wild & Water",   desc:"Wolves, bears, whales, sharks, birds",         icon:"🐺",  vocabKey:"animals2",        xp:24, unit:1},
-  {id:"animals3",        title:"Animals III: Small Creatures", desc:"Insects, ants, bees, spiders, ducks",        icon:"🦋",  vocabKey:"animals3",        xp:20, unit:1},
-  {id:"nature1",         title:"Nature I: Sky & Weather",    desc:"Sun, sky, wind, rain, snow, storms",           icon:"☀️", vocabKey:"nature1",         xp:22, unit:1},
-  {id:"nature2",         title:"Nature II: Land",            desc:"Mountains, forests, valleys, beaches",         icon:"🏔️", vocabKey:"nature2",         xp:22, unit:1},
-  {id:"nature3",         title:"Nature III: Water",          desc:"Rivers, lakes, oceans, waves, drops",          icon:"🌊",  vocabKey:"nature3",         xp:22, unit:1},
-  {id:"unit2review",     title:"Unit 2 Review",              desc:"Review everything from Unit 2 so far",         icon:"🔁",  vocabKey:"_review",         xp:22, unit:1, isReview:true, reviewPool:["home1","home2","demonstratives","relational1","relational2","food1","food2","food3","animals1","animals2","animals3","nature1","nature2","nature3"]},
-  {id:"modals",          title:"Modal Verbs",                desc:"Can, want, must, should — chaining verbs",     icon:"🗝️", vocabKey:"modals",          xp:22, unit:1, isSentence:true, intro:`<h3>🗝️ Modal Verbs</h3><p>Modal verbs express possibility, desire, necessity, and obligation. In Liru they work differently from English — instead of special helper words, they're just regular verbs that stack with other verbs.</p><p>The four main modals:</p><span class="example">sahu <span class="gloss">to be able to (can)</span></span><span class="example">wanu <span class="gloss">to want</span></span><span class="example">mihu <span class="gloss">to need (must)</span></span><span class="example">shihu <span class="gloss">to ought to (should)</span></span><p>Chain them together by putting the modal first, then the action verb right after:</p><span class="example">Ne wanu tahu. <span class="gloss">I want to eat.</span></span><span class="example">Ne sahu liru. <span class="gloss">I can speak.</span></span><p>That's the whole rule — modal + verb, no "to" in between.</p>`},
-  {id:"checkpoint2",     title:"Checkpoint 2",               desc:"Unit 2 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint2",     xp:40, unit:1, isSentence:true, isCheckpoint:true},
+  {id:"l2_thanks",
+   title:"Thanks & Sorry",
+   desc:"reiwa and elo",
+   icon:"🙏",
+   vocabKey:"l2_thanks",
+   xp:12,
+   unit:0},
 
-  // ── UNIT 3: CONNECTING WORDS (L38–L55) ──────────────────────────
-  {id:"conjunctions1",   title:"Conjunctions I",             desc:"And, but, or — joining words",                 icon:"🔗",  vocabKey:"conjunctions1",   xp:22, unit:2, isSentence:true, intro:`<h3>🔗 Conjunctions: And, But, Or</h3><p>Three short words connect phrases and ideas:</p><span class="example">sho <span class="gloss">and</span></span><span class="example">ma <span class="gloss">but</span></span><span class="example">au <span class="gloss">or</span></span><p>They work just like in English — sitting between the two things they connect:</p><span class="example">Ne sho te <span class="gloss">me and you</span></span><span class="example">Ne nawu lune ma mai molune. <span class="gloss">I love light but not darkness.</span></span><span class="example">Te au ne? <span class="gloss">You or me?</span></span><p>These are the most common connectors you'll use in longer sentences.</p>`},
-  {id:"questions2",      title:"Content Questions",          desc:"Who, what, where, when, why, how",             icon:"❓",  vocabKey:"questions2",      xp:22, unit:2, isSentence:true, intro:`<h3>❓ Content Questions</h3><p>To ask <strong>who, what, where, when, why, how</strong>, Liru uses a family of words that all start with <em>ki-</em>.</p><span class="example">kipue <span class="gloss">who</span></span><span class="example">kiwa <span class="gloss">what</span></span><span class="example">kiya <span class="gloss">where</span></span><span class="example">kime <span class="gloss">when</span></span><span class="example">kiwi <span class="gloss">why</span></span><span class="example">kishe <span class="gloss">how</span></span><span class="example">kifa <span class="gloss">how many</span></span><p>The rule is simple: the ki-word goes at the <strong>front</strong> of the question. The rest of the sentence stays in normal SVO order, with the unknown piece simply left out.</p><span class="example">Kiya te halu? <span class="gloss">Where are you going?</span></span><span class="example">Kipue lo su? <span class="gloss">Who is this?</span></span><p>If the unknown is a quantity of something — "how many years," "how many books" — the counted noun comes to the front with the ki-word:</p><span class="example">Kifa loiwea te ahu? <span class="gloss">How many books do you have?</span></span><p>When the question asks about a location, destination, or origin, the relational particle (<em>ya</em>, <em>so</em>, <em>fa</em>) drops — context tells the listener which is meant.</p>`},
-  {id:"plants",          title:"Plants & Greenery",          desc:"Flowers, leaves, seeds, branches, roots",      icon:"🌿",  vocabKey:"plants",          xp:22, unit:2},
-  {id:"verbs1",          title:"Daily Verbs I",              desc:"Come, run, work, sleep, begin, finish, study", icon:"🏃",  vocabKey:"verbs1",          xp:22, unit:2},
-  {id:"verbs2",          title:"Daily Verbs II",             desc:"Give, buy, sell, read, write, make, help",     icon:"🎁",  vocabKey:"verbs2",          xp:22, unit:2},
-  {id:"verbs3",          title:"Daily Verbs III",            desc:"Hold, get, find, seek, wait, send, show",      icon:"✋",  vocabKey:"verbs3",          xp:24, unit:2},
-  {id:"numbers1",        title:"Numbers 0–10 & \"to have\"", desc:"Counting from zero to ten, and ahu",           icon:"🔢",  vocabKey:"numbers1",        xp:24, unit:2},
-  {id:"numbers2",        title:"Numbers 11+",                desc:"Eleven and beyond — compounds, hundred, thousand", icon:"💯",  vocabKey:"numbers2",    xp:18, unit:2},
-  {id:"time1",           title:"Time: Larger Units",         desc:"Week, month, year — now and then",             icon:"📅",  vocabKey:"time1",           xp:20, unit:2},
-  {id:"daysofweek",      title:"Days of the Week",           desc:"Sunday through Saturday",                      icon:"🗓️", vocabKey:"daysofweek",      xp:20, unit:2},
-  {id:"months",          title:"Months of the Year",         desc:"January through December",                     icon:"📆",  vocabKey:"months",          xp:22, unit:2},
-  {id:"time2",           title:"Time: Hours & Parts of Day", desc:"Hour, minute, morning, noon, night, midnight", icon:"🕐",  vocabKey:"time2",           xp:22, unit:2},
-  {id:"seasons",         title:"Seasons",                    desc:"Spring, summer, autumn, winter",               icon:"🍂",  vocabKey:"seasons",         xp:18, unit:2},
-  {id:"colors1",         title:"Colors I: Primary",          desc:"Red, blue, green, yellow, black, white",       icon:"🎨",  vocabKey:"colors1",         xp:22, unit:2},
-  {id:"colors2",         title:"Colors II: Secondary",       desc:"Gray, orange, pink, purple, brown",            icon:"🌈",  vocabKey:"colors2",         xp:20, unit:2},
-  {id:"emotions1",       title:"Emotions I: Core",           desc:"Joy, sadness, bravery, fear",                  icon:"😊",  vocabKey:"emotions1",       xp:22, unit:2},
-  {id:"unit3review",     title:"Unit 3 Review",              desc:"Review everything from Unit 3 so far",         icon:"🔁",  vocabKey:"_review",         xp:24, unit:2, isReview:true, reviewPool:["plants","verbs1","verbs2","verbs3","numbers1","numbers2","time1","daysofweek","months","time2","seasons","colors1","colors2","emotions1"]},
-  {id:"checkpoint3",     title:"Checkpoint 3",               desc:"Unit 3 sentence challenge",                    icon:"🏆",  vocabKey:"checkpoint3",     xp:45, unit:2, isSentence:true, isCheckpoint:true},
+  {id:"l3_yesno",
+   title:"Yes, No, and Su mo",
+   desc:"ai, mai, and the universal response",
+   icon:"✅",
+   vocabKey:"l3_yesno",
+   xp:15,
+   unit:0,
+   intro:`<h3>✅ Yes, No, and the response phrase</h3><p>Yes is <em>ai</em>. No is <em>mai</em>.</p><p>When someone says <em>reiwa</em> (thank you) or <em>elo</em> (sorry) to you, respond with <em>Su mo</em> — literally "it is balance." One phrase covers "you're welcome" and "it's okay" both.</p><span class="example">"Reiwa." "Su mo." <span class="gloss">"Thank you." "You're welcome."</span></span><span class="example">"Elo." "Su mo." <span class="gloss">"Sorry." "It's okay."</span></span>`},
 
-  // ── UNIT 4: EXPRESSION (L56–L78) ────────────────────────────────
-  {id:"comparatives",          title:"Comparatives & Superlatives", desc:"More, less, as-as, most, least",            icon:"📊",  vocabKey:"comparatives",          xp:24, unit:3, isSentence:true, intro:`<h3>📊 Comparatives & Superlatives</h3><p>To compare two things, Liru uses three small particles after the adjective:</p><span class="example">ata <span class="gloss">than / more than</span></span><span class="example">moata <span class="gloss">less than</span></span><span class="example">ala <span class="gloss">as … as (equal)</span></span><span class="example">Te su liani ata ne. <span class="gloss">You are taller than me.</span></span><p>For superlatives — <strong>the most</strong> and <strong>the least</strong> — put the particle <em>before</em> the adjective:</p><span class="example">apa <span class="gloss">the most</span></span><span class="example">moapa <span class="gloss">the least</span></span><span class="example">Ne su apa liani. <span class="gloss">I am the tallest.</span></span><p>And to say "out of" a group, use <em>fa</em>:</p><span class="example">Ne su apa liani fa neoa wahe. <span class="gloss">I am the tallest in my family.</span></span>`},
-  {id:"quantifiers1",          title:"Set Quantifiers",             desc:"All, some, many, any, none",                icon:"🔢",  vocabKey:"quantifiers1",          xp:24, unit:3, isSentence:true, intro:`<h3>🔢 Set Quantifiers</h3><p>These small words describe <strong>how much</strong> or <strong>how many</strong> of something there are. They sit right before the noun they describe.</p><span class="example">tai <span class="gloss">all</span></span><span class="example">nai <span class="gloss">many</span></span><span class="example">sai <span class="gloss">some</span></span><span class="example">fai <span class="gloss">any (free-choice)</span></span><span class="example">nuli <span class="gloss">zero / none</span></span><p>They pair naturally with <em>pue</em> (person) to make "everyone," "someone," "no one," and so on:</p><span class="example">Tai pue nawu houme. <span class="gloss">Everyone loves bread.</span></span><span class="example">Nuli pue su loya. <span class="gloss">No one is here.</span></span><p><em>fai</em> is the "free-choice" version — "any person at all, pick one," the kind you use in <em>"anyone can do it"</em>.</p>`},
-  {id:"quantifiers2",          title:"Measure Quantifiers",         desc:"More, less, enough, not enough",            icon:"⚖️", vocabKey:"quantifiers2",          xp:22, unit:3},
-  {id:"existentials",          title:"Existential Pronouns",        desc:"Someone, anything, no one, everyone",       icon:"👤",  vocabKey:"existentials",          xp:24, unit:3},
-  {id:"emotions2",             title:"Emotions II: Social",         desc:"Calm, anger, worry, pride, trust",          icon:"😤",  vocabKey:"emotions2",             xp:24, unit:3},
-  {id:"emotions3",             title:"Emotions III: Deep",          desc:"Excitement, loneliness, jealousy, pain",    icon:"💔",  vocabKey:"emotions3",             xp:24, unit:3},
-  {id:"expressionsoffeeling",  title:"Expressions of Feeling",      desc:"Laugh, cry, smile, frown, kiss, surprise",  icon:"🥲",  vocabKey:"expressionsoffeeling",  xp:22, unit:3},
-  {id:"personality",           title:"Personality Traits",          desc:"Careful, honest, thoughtful, respectful",   icon:"🧭",  vocabKey:"personality",           xp:24, unit:3},
-  {id:"adjectives3",           title:"Adjectives: Texture & Shape", desc:"Soft, hard, smooth, rough, round, flat",    icon:"🔷",  vocabKey:"adjectives3",           xp:22, unit:3},
-  {id:"adjectives4",           title:"Adjectives: Taste & Feel",    desc:"Bitter, sour, spicy, dry, clear, boring",   icon:"🌶️", vocabKey:"adjectives4",           xp:22, unit:3},
-  {id:"unit4review1",          title:"Unit 4 Review (part 1)",      desc:"Review Unit 4 so far",                      icon:"🔁",  vocabKey:"_review",               xp:24, unit:3, isReview:true, reviewPool:["quantifiers2","existentials","emotions2","emotions3","expressionsoffeeling","personality","adjectives3","adjectives4"]},
-  {id:"directions1",           title:"Directions I: Cardinal",      desc:"North, south, east, west",                  icon:"🧭",  vocabKey:"directions1",           xp:20, unit:3},
-  {id:"directions2",           title:"Directions II: Motion",       desc:"Right, left, near, far, across, through",   icon:"↔️", vocabKey:"directions2",           xp:24, unit:3},
-  {id:"spatial",               title:"Spatial Position",            desc:"Here, there, above, below, between, around",icon:"📍",  vocabKey:"spatial",               xp:24, unit:3, isSentence:true, intro:`<h3>📍 Spatial Position</h3><p>A few short words describe where something is:</p><span class="example">loya <span class="gloss">here</span></span><span class="example">faloya <span class="gloss">there</span></span><span class="example">niwa <span class="gloss">between</span></span><span class="example">voi <span class="gloss">around</span></span><p>Liru also uses <strong>body-part words as positions</strong>, which gives the language a very visual feel:</p><span class="example">pohi <span class="gloss">in front of (literally "facing")</span></span><span class="example">poki <span class="gloss">behind</span></span><p>Use them with the copula <em>su</em>:</p><span class="example">Ne su loya. <span class="gloss">I am here.</span></span><span class="example">Paipe su pohi hiwe. <span class="gloss">The dog is in front of the house.</span></span>`},
-  {id:"movement",              title:"Movement Verbs",              desc:"Swim, fly, fall, jump, climb, leave, move", icon:"🏃‍♂️", vocabKey:"movement",             xp:24, unit:3},
-  {id:"actionverbs",           title:"Verbs of Action",             desc:"Hit, use, do, try, turn, dance, wear",      icon:"⚡",  vocabKey:"actionverbs",           xp:22, unit:3},
-  {id:"clothing",              title:"Clothing",                    desc:"Coat, shoe, hat, shirt, dress, pants",      icon:"👕",  vocabKey:"clothing",              xp:22, unit:3},
-  {id:"places",                title:"Places & Buildings",          desc:"City, school, hospital, store, bridge",     icon:"🏙️", vocabKey:"places",                xp:24, unit:3},
-  {id:"tech",                  title:"Technology & Objects",        desc:"Phone, computer, clock, TV, AI, internet",  icon:"📱",  vocabKey:"tech",                  xp:24, unit:3},
-  {id:"materials",             title:"Materials",                   desc:"Wood, metal, glass, cloth, paper, basket",  icon:"🪵",  vocabKey:"materials",             xp:22, unit:3},
-  {id:"compoundtieme",         title:"Productive Compound: -tieme", desc:"Bakery, bookstore, pharmacy — build store names", icon:"🏪",  vocabKey:"compoundtieme",   xp:24, unit:3},
-  {id:"unit4review2",          title:"Unit 4 Review (part 2)",      desc:"Review the second half of Unit 4",          icon:"🔁",  vocabKey:"_review",               xp:26, unit:3, isReview:true, reviewPool:["directions1","directions2","movement","actionverbs","clothing","places","tech","materials","compoundtieme"]},
-  {id:"checkpoint4",           title:"Checkpoint 4",                desc:"Unit 4 sentence challenge",                 icon:"🏆",  vocabKey:"checkpoint4",           xp:50, unit:3, isSentence:true, isCheckpoint:true},
+  {id:"l4_iam",
+   title:"I am ___",
+   desc:"ne (I) and su (is / am / are)",
+   icon:"🪞",
+   vocabKey:"l4_iam",
+   xp:15,
+   unit:0,
+   intro:`<h3>🪞 Saying who you are</h3><p><em>ne</em> means "I." <em>su</em> means "is," "am," or "are" — one word for all three. Liru verbs don't change for person.</p><p>To introduce yourself: <em>Ne su &lt;name&gt;.</em></p><span class="example">Ne su Yuna. <span class="gloss">I am Yuna.</span></span><span class="example">Ne su Kai. <span class="gloss">I am Kai.</span></span><p>Liru keeps proper names exactly as they sound in their original language — no special marking.</p>`},
 
-  // ── UNIT 5: GRAMMAR CORE (L79–L103) ─────────────────────────────
-  {id:"agentpue",              title:"The -pue Agent Suffix",       desc:"Teacher, student, doctor — people who do",  icon:"👩‍🏫", vocabKey:"agentpue",             xp:26, unit:4},
-  {id:"diminutive",            title:"The -ile Diminutive",         desc:"Smaller versions: pebble, stream, canoe",   icon:"🔍",  vocabKey:"diminutive",            xp:22, unit:4, isSentence:true, intro:`<h3>🔍 The -ile Diminutive</h3><p>Adding <em>-ile</em> to the end of any noun makes it smaller, softer, or more affectionate. It's called a <strong>diminutive</strong>.</p><span class="example">kome <span class="gloss">stone</span> → komile <span class="gloss">pebble</span></span><span class="example">loiwe <span class="gloss">book</span> → loiwile <span class="gloss">booklet</span></span><span class="example">shafane <span class="gloss">river</span> → shafanile <span class="gloss">stream</span></span><p>You can even stack it for the tiniest of things:</p><span class="example">komile <span class="gloss">pebble</span> → komilele <span class="gloss">grain of sand</span></span><p>Many words you already know — <em>piwile</em> (baby), <em>weyile</em> (wristwatch), <em>tohile</em> (minute) — are diminutives of bigger things. Now that you know the pattern, you'll start spotting them everywhere.</p>`},
-  {id:"weprefix",              title:"The we- Repetition Prefix",   desc:"Again, back, redo — productive we-",        icon:"🔄",  vocabKey:"weprefix",              xp:22, unit:4, isSentence:true, intro:`<h3>🔄 The we- Repetition Prefix</h3><p>Adding <em>we-</em> to the front of a verb means <strong>again</strong> or <strong>back</strong>. It works on almost any verb.</p><span class="example">tiru <span class="gloss">to see</span> → wetiru <span class="gloss">to see again</span></span><span class="example">vanu <span class="gloss">to come</span> → wevanu <span class="gloss">to come back</span></span><span class="example">liru <span class="gloss">to speak</span> → weliru <span class="gloss">to speak again / repeat</span></span><p>Alternatively, you can use the standalone adverb <em>weihi</em> (again) after the verb — same idea, different style:</p><span class="example">Ne wetiru te. <span class="gloss">I see you again.</span></span><span class="example">Ne tiru te weihi. <span class="gloss">I see you again.</span></span><p>Both are correct. The prefix is shorter; the adverb gives a bit more emphasis.</p>`},
-  {id:"compoundpauwe",         title:"Compound: -pauwe (Devices)",  desc:"Washing machine, fridge, oven, airplane",   icon:"⚙️",  vocabKey:"compoundpauwe",         xp:26, unit:4},
-  {id:"vehicles",              title:"Vehicles & Transport",        desc:"Car, train, bus, bicycle",                  icon:"🚗",  vocabKey:"vehicles",              xp:22, unit:4},
-  {id:"discourseadv",          title:"Discourse Adverbs",           desc:"Also, only, instead",                       icon:"💭",  vocabKey:"discourseadv",          xp:20, unit:4},
-  {id:"frequency",             title:"Frequency Adverbs",           desc:"Always, often, sometimes, never",           icon:"🔁",  vocabKey:"frequency",             xp:22, unit:4},
-  {id:"temporaladv",           title:"Temporal Adverbs",            desc:"Already, still, soon, eventually",          icon:"⏱️", vocabKey:"temporaladv",           xp:22, unit:4},
-  {id:"unit5review1",          title:"Unit 5 Review (part 1)",      desc:"Review the first wave of Unit 5",           icon:"🔁",  vocabKey:"_review",               xp:26, unit:4, isReview:true, reviewPool:["agentpue","compoundpauwe","vehicles","discourseadv","frequency","temporaladv"]},
-  {id:"conjunctions2",         title:"Conjunctions II: Time & Cause", desc:"Before, after, while, until, if, because", icon:"⏳",  vocabKey:"conjunctions2",         xp:26, unit:4, isSentence:true, intro:`<h3>⏳ Conjunctions II: Time & Cause</h3><p>These subordinating conjunctions build more complex sentences. They introduce a clause that depends on the main action.</p><p><strong>Time:</strong></p><span class="example">wale <span class="gloss">before</span></span><span class="example">wule <span class="gloss">after</span></span><span class="example">wole <span class="gloss">while / during</span></span><span class="example">file <span class="gloss">until</span></span><p><strong>Cause & condition:</strong></p><span class="example">nalai <span class="gloss">because / since</span></span><span class="example">vi <span class="gloss">if</span></span><span class="example">mavi <span class="gloss">although / even though</span></span><span class="example">maivi <span class="gloss">unless</span></span><p>They sit right before the clause they introduce:</p><span class="example">Ne loisu wale rau. <span class="gloss">I read before sleeping.</span></span><span class="example">Vi te vanu, ne wu houli. <span class="gloss">If you come, I will be happy.</span></span>`},
-  {id:"intensifiers",          title:"Intensifiers & Near-States",  desc:"Very, really, almost, nearly",              icon:"💥",  vocabKey:"intensifiers",          xp:20, unit:4},
-  {id:"ordinals",              title:"Ordinals & Positions",        desc:"First, second, third, next, previous",      icon:"🥇",  vocabKey:"ordinals",              xp:22, unit:4},
-  {id:"abstract1",             title:"Abstract I: Life",            desc:"Life, death, birth, world, freedom",        icon:"🌍",  vocabKey:"abstract1",             xp:24, unit:4},
-  {id:"abstract2",             title:"Abstract II: Mind",           desc:"Idea, meaning, belief, memory, imagination",icon:"🧠",  vocabKey:"abstract2",             xp:26, unit:4},
-  {id:"abstract3",             title:"Abstract III: Challenge",     desc:"Difficulty, solution, harm, warning, result",icon:"⚠️", vocabKey:"abstract3",             xp:24, unit:4},
-  {id:"abstract4",             title:"Abstract IV: Social",         desc:"Justice, importance, name, promise, music", icon:"⚖️", vocabKey:"abstract4",             xp:28, unit:4},
-  {id:"relclauses",            title:"Relative Clauses",            desc:"Using lai to build 'the X that...'",        icon:"🔗",  vocabKey:"relclauses",            xp:26, unit:4, isSentence:true, intro:`<h3>🔗 Relative Clauses</h3><p>A relative clause is a mini-sentence that describes a noun. In English: <strong>"the book <u>that I read</u>"</strong>, <strong>"the person <u>who came</u>"</strong>.</p><p>Liru uses one word for all of these: <em>lai</em>. Put it right after the noun you're describing, then finish the mini-sentence.</p><span class="example">pue lai wa vanu <span class="gloss">the person who came</span></span><span class="example">loiwe lai ne wa loisu <span class="gloss">the book that I read</span></span><p>That's it — no "who" vs "that" vs "which" distinction, no gendered forms. Just <em>lai</em>.</p><p>The same word also works after a verb (like <em>piru</em> "think") to introduce a <strong>complement clause</strong> — "I think <u>that she sang</u>":</p><span class="example">Ne piru lai ve wa liru. <span class="gloss">I think that she sang.</span></span>`},
-  {id:"unit5review2",          title:"Unit 5 Review (part 2)",      desc:"Review the second wave of Unit 5",          icon:"🔁",  vocabKey:"_review",               xp:28, unit:4, isReview:true, reviewPool:["intensifiers","ordinals","abstract1","abstract2","abstract3","abstract4"]},
-  {id:"dailyactions1",         title:"Daily Actions I",             desc:"Wake, open, close, push, pull",             icon:"🌅",  vocabKey:"dailyactions1",         xp:22, unit:4},
-  {id:"dailyactions2",         title:"Daily Actions II",            desc:"Break, repair, throw, catch, rest, dream",  icon:"🛠️", vocabKey:"dailyactions2",         xp:24, unit:4},
-  {id:"sensory",               title:"Sensory Verbs",               desc:"Feel, touch, taste, breathe, heal, burn",   icon:"👁️", vocabKey:"sensory",               xp:26, unit:4},
-  {id:"communication",         title:"Communication Verbs",         desc:"Ask, answer, whisper, shout, tell stories", icon:"🗣️", vocabKey:"communication",         xp:22, unit:4},
-  {id:"verbsofchange",         title:"Verbs of Change",             desc:"Grow, wither — state transformations",      icon:"🌱",  vocabKey:"verbsofchange",         xp:20, unit:4},
-  {id:"manneradv",             title:"Adverbs of Manner",           desc:"Fast, slow — the adj/adv dual role",        icon:"🎯",  vocabKey:"manneradv",             xp:20, unit:4},
-  {id:"checkpoint5",           title:"Checkpoint 5",                desc:"Unit 5 sentence challenge",                 icon:"🏆",  vocabKey:"checkpoint5",           xp:55, unit:4, isSentence:true, isCheckpoint:true},
+  {id:"l5_yourname",
+   title:"What is your name?",
+   desc:"te, teo, kiwa, nile",
+   icon:"❓",
+   vocabKey:"l5_yourname",
+   xp:18,
+   unit:0,
+   isSentence:true,
+   intro:`<h3>❓ Asking someone's name</h3><p><em>te</em> means "you." Add <em>-o</em> for the possessive: <em>teo</em> means "your."</p><p><em>kiwa</em> is the question word for "what." Liru questions always start with the question word, then the rest of the sentence is in normal order:</p><span class="example">Kiwa su teo nile? <span class="gloss">What is your name?</span></span><p>Literally: "what is your name?" The unknown sits at the front and the rest of the sentence stays in place.</p><p><em>nile</em> is "name" — used the same way as in English.</p>`},
 
-  // ── UNIT 6: FLUENCY (L104–L120) ─────────────────────────────────
-  {id:"complementclauses",     title:"Complement Clauses",          desc:"Deeper lai-after-verb — think/plan/decide", icon:"💭",  vocabKey:"complementclauses",     xp:28, unit:5, isSentence:true, intro:`<h3>💭 Complement Clauses</h3><p>You already met <em>lai</em> in relative clauses. Here you'll use it after mental-state verbs — <strong>think, believe, remember, plan, decide, fear</strong> — to introduce a full sub-clause describing what you think or plan.</p><span class="example">Ne piru lai te su lohi. <span class="gloss">I think that you are good.</span></span><span class="example">Ne meru lai ve wa vanu. <span class="gloss">I remember that she came.</span></span><p>Two new verbs in this lesson:</p><span class="example">piruhu <span class="gloss">to plan</span></span><span class="example">seuhu <span class="gloss">to decide</span></span><p>When the subject of both parts is the same, English would use "to" — "I plan to eat." Liru uses <em>lai</em> the same way:</p><span class="example">Ne piruhu lai ne wu tahu. <span class="gloss">I plan to eat.</span></span><p>The tense of the sub-clause is always measured from the speaker's present, not the matrix verb.</p>`},
-  {id:"embeddedqs",            title:"Embedded Questions",          desc:"ki-words in embedded position — no lai",    icon:"❓",  vocabKey:"embeddedqs",            xp:26, unit:5, isSentence:true, intro:`<h3>❓ Embedded Questions</h3><p>When a question gets folded inside another sentence — "I wonder <u>where she went</u>", "I don't remember <u>who came</u>" — the <em>ki-</em> words (<em>kipue, kiwa, kiya, kime, kiwi, kishe, kifa</em>) introduce the embedded question directly.</p><p><strong>No <em>lai</em> is needed.</strong> That's the key difference from complement clauses.</p><span class="example">Ne pioru kiya ve wa halu. <span class="gloss">I wonder where she went.</span></span><span class="example">Te meru kiwa ne wanu. <span class="gloss">You remember what I want.</span></span><p>Compare with the previous lesson, where <em>lai</em> introduced a statement:</p><span class="example">Ne piru lai ve wa liru. <span class="gloss">I think that she sang.</span></span><span class="example">Ne pioru kipue wa liru. <span class="gloss">I wonder who sang.</span></span><p>Rule of thumb: if the sub-clause is a <em>statement</em>, use <em>lai</em>. If it's a <em>question</em>, use a <em>ki-</em> word.</p>`},
-  {id:"propernouns",           title:"Proper Nouns & Loanwords",    desc:"Names and borrowed words stay unchanged",   icon:"🌏",  vocabKey:"propernouns",           xp:22, unit:5, isSentence:true, intro:`<h3>🌏 Proper Nouns & Loanwords</h3><p>Names of people, places, brands, and borrowed words don't get reshaped into Liru — they stay in their original form, even when that form breaks Liru's usual sound rules.</p><span class="example">Tokyo, Paris, London <span class="gloss">place names — unchanged</span></span><span class="example">Maria, John <span class="gloss">personal names — unchanged</span></span><p>They slot into Liru sentences wherever a regular noun would go:</p><span class="example">Maria su kaisupue. <span class="gloss">Maria is a teacher.</span></span><span class="example">Nea halu so Paris. <span class="gloss">We go to Paris.</span></span><p>Liru speakers generally say foreign names with a Liru-flavored pronunciation, but the spelling stays faithful to the source. This keeps names recognizable across languages.</p>`},
-  {id:"outcomes",              title:"Outcomes & Events",           desc:"Success, failure, win, loss, luck",         icon:"🎯",  vocabKey:"outcomes",              xp:24, unit:5},
-  {id:"duty",                  title:"Duty & Readiness",            desc:"Duty, ready, allowed, forbidden",           icon:"✅",  vocabKey:"duty",                  xp:22, unit:5},
-  {id:"safety",                title:"Safety & Harm",               desc:"Safe, dangerous, protection",               icon:"🛡️", vocabKey:"safety",                xp:20, unit:5},
-  {id:"group",                 title:"Group & Solitude",            desc:"Gather, play, fight — with others",         icon:"👥",  vocabKey:"group",                 xp:22, unit:5},
-  {id:"unit6review1",          title:"Unit 6 Review (part 1)",      desc:"Review the first wave of Unit 6",           icon:"🔁",  vocabKey:"_review",               xp:28, unit:5, isReview:true, reviewPool:["outcomes","duty","safety","group"]},
-  {id:"secondaryverbs1",       title:"Secondary Verbs I",           desc:"Hide, keep, lead, follow, lock, bond",      icon:"🔒",  vocabKey:"secondaryverbs1",       xp:26, unit:5},
-  {id:"secondaryverbs2",       title:"Secondary Verbs II",          desc:"Mix, focus, visit, invite, depict, stop",   icon:"🎨",  vocabKey:"secondaryverbs2",       xp:26, unit:5},
-  {id:"naturephenomena",       title:"Nature Phenomena",            desc:"Thunder, lightning, rainbow, ice, stars",   icon:"🌩️", vocabKey:"naturephenomena",       xp:24, unit:5},
-  {id:"specialized",           title:"Specialized Vocabulary",      desc:"War, middle, half, part, wheel, edge",      icon:"🔧",  vocabKey:"specialized",           xp:26, unit:5},
-  {id:"dictionaryphrases",     title:"Dictionary Phrases",          desc:"Together, alone, early, late, not yet",     icon:"📖",  vocabKey:"dictionaryphrases",     xp:24, unit:5, isSentence:true, intro:`<h3>📖 Dictionary Phrases</h3><p>Liru has a handful of multi-word expressions that act as single units. Each is built from words you already know, but they carry an idiomatic meaning as a pair.</p><span class="example">ko nea <span class="gloss">together (literally "with us")</span></span><span class="example">moko pue <span class="gloss">alone (no one else present)</span></span><span class="example">moko puea <span class="gloss">alone, in solitude (without people around)</span></span><span class="example">wale oihi <span class="gloss">early (before expected)</span></span><span class="example">wule oihi <span class="gloss">late (after expected)</span></span><span class="example">mai yauwi <span class="gloss">not yet</span></span><p>Use them like any adverb or phrase:</p><span class="example">Nea halu ko nea. <span class="gloss">We go together.</span></span><span class="example">Ne mai yauwi wa tahu. <span class="gloss">I have not yet eaten.</span></span><p>Once you know these, you'll sound a lot more like a native speaker.</p>`},
-  {id:"unit6review2",          title:"Unit 6 Review (part 2)",      desc:"Review the second wave of Unit 6",          icon:"🔁",  vocabKey:"_review",               xp:30, unit:5, isReview:true, reviewPool:["secondaryverbs1","secondaryverbs2","naturephenomena","specialized"]},
-  {id:"finaldeep1",            title:"Final Deep Review 1",         desc:"Review everything — first pass",            icon:"🌟",  vocabKey:"_review",               xp:40, unit:5, isReview:true, reviewPool:["greetings","pronouns","possessives","family1","family2","body1","body2","body3","adjectives1","adjectives2","home1","home2","relational1","relational2","food1","food2","food3","animals1","animals2","animals3","nature1","nature2","nature3","plants","verbs1","verbs2","verbs3","numbers1","numbers2","time1","daysofweek","months","time2","seasons","colors1","colors2","emotions1"]},
-  {id:"finaldeep2",            title:"Final Deep Review 2",         desc:"Review everything — second pass",           icon:"🌟",  vocabKey:"_review",               xp:40, unit:5, isReview:true, reviewPool:["quantifiers2","existentials","emotions2","emotions3","expressionsoffeeling","personality","adjectives3","adjectives4","directions1","directions2","movement","actionverbs","clothing","places","tech","materials","compoundtieme","agentpue","compoundpauwe","vehicles","discourseadv","frequency","temporaladv","intensifiers","ordinals","abstract1","abstract2","abstract3","abstract4","dailyactions1","dailyactions2","sensory","communication","verbsofchange","manneradv","outcomes","duty","safety","group","secondaryverbs1","secondaryverbs2","naturephenomena","specialized"]},
-  {id:"finaltest",             title:"Final Test: The Song of Hope",desc:"Comprehensive test — everything you've learned", icon:"🎓", vocabKey:"finaltest",           xp:100, unit:5, isSentence:true, isCheckpoint:true, isFinalTest:true},
+  {id:"l6_practice",
+   title:"Greeting Conversations",
+   desc:"Put it all together",
+   icon:"💬",
+   vocabKey:"l6_practice",
+   xp:20,
+   unit:0,
+   isSentence:true,
+   intro:`<h3>💬 Putting it all together</h3><p>You now have everything you need for a first meeting in Liru. Here's how a real exchange might go:</p><span class="example">Waimo, Yuna moa. <span class="gloss">Hello, Yuna.</span></span><span class="example">Ne su Kai. Kiwa su teo nile? <span class="gloss">I am Kai. What is your name?</span></span><span class="example">Reiwa. <span class="gloss">Thank you.</span></span><span class="example">Su mo. Weriko. <span class="gloss">You're welcome. Goodbye.</span></span><p>This lesson practices the building blocks one sentence at a time.</p>`},
+
+  {id:"l7_review",
+   title:"Unit 1 Review",
+   desc:"Review everything from Unit 1",
+   icon:"🔁",
+   vocabKey:"_review",
+   xp:20,
+   unit:0,
+   isReview:true,
+   reviewPool:["l1_greetings","l2_thanks","l3_yesno","l4_iam","l5_yourname"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
@@ -3930,7 +2565,10 @@ function renderHome(){
             <div style="font-size:17px;font-weight:800;margin-top:4px">All caught up</div>
             <div style="color:var(--dim);font-size:12px;font-weight:700;margin-top:2px">Ready for a new lesson?</div>
           </div>
-          <button id="cramBtn" class="btn-secondary" style="flex-shrink:0;width:auto;padding:10px 16px;font-size:13px;font-weight:800">Practice anyway</button>
+          <div style="display:flex;flex-direction:column;gap:6px;flex-shrink:0">
+            <button id="cramBtn" class="btn-secondary" style="width:auto;padding:9px 14px;font-size:12px;font-weight:800;white-space:nowrap">Practice deck</button>
+            <button id="practiceAllBtn" class="btn-secondary" style="width:auto;padding:9px 14px;font-size:12px;font-weight:800;white-space:nowrap">Practice all</button>
+          </div>
         </div>
       </div>`;
     } else {
@@ -4012,6 +2650,7 @@ function renderHome(){
   document.getElementById("switchUserBtn").addEventListener("click",()=>{setCurrentUsername("");setState({screen:"username",user:{username:"",xp:0,streak:0,lessonsCompleted:[],lastActiveDate:null}});});
   const startReviewBtn=document.getElementById("startReviewBtn");if(startReviewBtn)startReviewBtn.addEventListener("click",()=>startReview());
   const cramBtn=document.getElementById("cramBtn");if(cramBtn)cramBtn.addEventListener("click",()=>startCramSession());
+  const practiceAllBtn=document.getElementById("practiceAllBtn");if(practiceAllBtn)practiceAllBtn.addEventListener("click",()=>startPracticeAllSession());
   const srsSettingsBtn=document.getElementById("srsSettingsBtn");if(srsSettingsBtn)srsSettingsBtn.addEventListener("click",async(e)=>{
     e.stopPropagation();
     const yes=confirm("Reset all SRS review data?\n\nThis will:\n• Clear your review schedule (all card progress)\n• Re-create the deck from scratch by re-enrolling words from completed lessons\n• Sync the reset to the cloud\n\nYour XP, streak, and lesson progress are NOT affected.\n\nThis cannot be undone.");
@@ -4133,6 +2772,50 @@ function startCramSession(){
     reviewSessionCorrect:0,
     reviewUnlimited:false,
     reviewCramMode:true
+  });
+}
+
+// Start a practice-all session. Pulls 20 random words from the entire
+// DICTIONARY_RAW (not just the user's deck), builds throwaway in-memory
+// cards, and presents them in cram mode. Cards do NOT enter the user's
+// SRS deck and ratings do NOT affect schedule. Pure ephemeral practice.
+// Used when the user is "all caught up" and wants to encounter new
+// vocabulary that hasn't been taught yet through lessons.
+function startPracticeAllSession(){
+  if(!Array.isArray(DICTIONARY_RAW)||DICTIONARY_RAW.length===0){
+    setState({screen:"home"});return;
+  }
+  // Filter to entries with a usable English gloss. Skip entries without lw or en.
+  const pool=DICTIONARY_RAW.filter(d=>d&&d.lw&&d.en);
+  if(pool.length===0){setState({screen:"home"});return;}
+  // Pick up to 20 random unique entries
+  const targetWords=20;
+  const picked=shuffle(pool).slice(0,Math.min(targetWords,pool.length));
+  // Build throwaway cards in both directions for each picked entry
+  const items=[];
+  for(const d of picked){
+    for(const dir of ["lw_en","en_lw"]){
+      const card=srsMakeCard(d.lw,d.en,d.pos||"n",dir);
+      card.id=srsCardId(d.lw,dir);
+      // Mark as practice-only so any downstream code that might persist
+      // these can choose to ignore them (defensive — cram mode already
+      // skips persistence).
+      card._practiceAll=true;
+      items.push(srsWrapForSession(card));
+    }
+  }
+  // Anti-adjacency shuffle so siblings don't sit next to each other
+  const shuffled=srsShuffleNoAdjacency(items.map(i=>i.card));
+  const finalItems=shuffled.map(srsWrapForSession);
+  setState({
+    screen:"review",
+    reviewQueue:finalItems,
+    reviewIdx:0,
+    reviewRevealed:false,
+    reviewSessionXP:0,
+    reviewSessionCorrect:0,
+    reviewUnlimited:false,
+    reviewCramMode:true   // reuses cram-mode plumbing: no schedule effect
   });
 }
 
