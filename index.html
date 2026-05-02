@@ -2674,7 +2674,7 @@ function renderHome(){
         <div style="display:flex;gap:6px;align-items:center;flex-shrink:0"><span class="badge badge-streak">🔥 ${u.streak||0}</span><span class="badge badge-xp">⚡ ${u.xp||0}</span><button id="switchUserBtn" style="background:var(--card);border:1.5px solid var(--border);border-radius:10px;padding:6px 10px;color:var(--dim);font-size:12px;font-weight:700">Log Out</button></div>
       </div>
       <div style="color:var(--dim);font-size:12px;margin-top:6px;margin-left:30px">${doneLessons}/${totalLessons} lessons · ${pct}% complete</div>
-      <div style="margin-top:6px;margin-left:30px;height:8px" class="progress-track"><div class="progress-fill" style="width:${pct}%;background:var(--gold)"></div></div>
+      <div style="margin-top:6px;height:8px" class="progress-track"><div class="progress-fill" style="width:${pct}%;background:var(--gold)"></div></div>
     </div>
     <div class="tab-bar">
       <button class="tab-btn ${state.tab==='learn'?'active':''}" data-tab="learn">📚 LEARN</button>
