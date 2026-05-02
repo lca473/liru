@@ -783,7 +783,7 @@ try {
 // from it by lesson.vocabKey.
 const V = {
   // ═══════════════════════════════════════════════════════════════
-  // UNIT 1 — GREETINGS & FIRST WORDS (L1–L7)
+  // UNIT 1 — GREETINGS & FIRST WORDS (L1–L6)
   // ═══════════════════════════════════════════════════════════════
   // Per lesson_principles.md: max 4 new roots per lesson, 6–8 new words target.
   // Every entry verified against Dictionary.md (citations in unit1_build.md).
@@ -795,49 +795,49 @@ const V = {
   //   - Each prompt is a SINGLE Liru sentence. Multi-sentence dialogues are
   //     split into separate consecutive prompts.
   //
-  // L1: l1_greetings — waimo, weriko, moa
-  // L2: l2_thanks    — reiwa, elo
-  // L3: l3_yesno     — ai, mai, "Su mo"
-  // L4: l4_iam       — ne, su   (vocab; the pattern is exercised in L5 immediately)
-  // L5: l5_yourname  — sentence-based; introduces te/teo, kiwa, nile
-  // L6: l6_practice  — sentence-based; combines L1–L5, no new vocab
-  // L7: l7_review    — Unit 1 Review (no V entry; uses _review)
+  // L1: l1_socials   — waimo, weriko, reiwa, elo (4 social expressions)
+  // L2: l2_yesno     — ai, mai, "Su mo"
+  // L3: l3_iam       — ne, su   (vocab; the pattern is exercised in L4 immediately)
+  // L4: l4_yourname  — sentence-based; introduces te/teo, kiwa, nile
+  // L5: l5_practice  — sentence-based; combines L1–L4, no new vocab
+  // L6: l6_review    — Unit 1 Review (no V entry; uses _review)
+  //
+  // Note: moa (please) was previously in L1 but has been deferred. moa is
+  // a request-politeness particle ("please"); without verb constructions to
+  // attach it to (introduced in later units), it has no natural place in
+  // Unit 1. moa remains in Dictionary.md and the Grammar Guide; it will be
+  // taught when imperatives or modal-request constructions are introduced.
 
-  // L1 — Hello & Goodbye
-  l1_greetings: [
+  // L1 — Hello, Goodbye, Thanks, Sorry
+  l1_socials: [
     {lw:"waimo",  en:"hello",                       pos:"social"},
     {lw:"weriko", en:"goodbye",                     pos:"social"},
-    {lw:"moa",    en:"please / respectfully",       pos:"social"},
-  ],
-
-  // L2 — Thanks & Sorry
-  l2_thanks: [
     {lw:"reiwa",  en:"thank you",                   pos:"social"},
     {lw:"elo",    en:"sorry / excuse me",           pos:"social"},
   ],
 
-  // L3 — Yes, No, and "Su mo"
+  // L2 — Yes, No, and "Su mo"
   // mai is in SRS_PARTICLE_SKIP for sentence-content extraction, but this is
   // a vocab lesson — vocab branch enrolls regardless. "Su mo" is a phrase
   // (Dictionary.md L632: pos "phrase").
-  l3_yesno: [
+  l2_yesno: [
     {lw:"ai",     en:"yes",                         pos:"particle"},
     {lw:"mai",    en:"no / not",                    pos:"particle"},
     {lw:"Su mo",  en:"you're welcome / it's okay",  pos:"phrase"},
   ],
 
-  // L4 — Saying Your Name (vocab; 2 flashcards)
-  l4_iam: [
+  // L3 — Saying Your Name (vocab; 2 flashcards)
+  l3_iam: [
     {lw:"ne",     en:"I",                           pos:"pronoun"},
     {lw:"su",     en:"is / am / are / be",          pos:"verb"},
   ],
 
-  // L5 — "What is your name?" (sentence-based)
-  // 7 prompts, each a single Liru sentence, tokens punctuation-free.
+  // L4 — "What is your name?" (sentence-based)
+  // 6 prompts, each a single Liru sentence, tokens punctuation-free.
   // Sentence-content SRS extraction will pull: te, teo, kiwa, nile, plus
   // already-enrolled ne/su. The inflection-stripper recognizes -eo → base,
   // so teo/neo/veo will all map back to their base pronouns for SRS.
-  l5_yourname: [
+  l4_yourname: [
     {lw:["Kiwa","su","teo","nile"],     en:"What is your name?"},
     {lw:["Ne","su","Yuna"],             en:"I am Yuna."},
     {lw:["Te","su","Kai"],              en:"You are Kai."},
@@ -846,12 +846,12 @@ const V = {
     {lw:["Kiwa","su","neo","nile"],     en:"What is my name?"},
   ],
 
-  // L6 — Greeting Conversations (sentence-based; combines L1–L5; no new vocab)
+  // L5 — Greeting Conversations (sentence-based; combines L1–L4; no new vocab)
   // 7 single-sentence prompts. The intro card frames these as the building
   // blocks of a real first meeting; the conversational arc lives in the
   // intro text, not in stitched-together prompts.
-  l6_practice: [
-    {lw:["Waimo","Yuna","moa"],         en:"Hello, Yuna."},
+  l5_practice: [
+    {lw:["Waimo","Yuna"],               en:"Hello, Yuna."},
     {lw:["Ne","su","Kai"],              en:"I am Kai."},
     {lw:["Kiwa","su","teo","nile"],     en:"What is your name?"},
     {lw:["Reiwa","Kai"],                en:"Thank you, Kai."},
@@ -885,62 +885,55 @@ const UNITS = [
 // Optional flags: isReview, isSentence, isParagraph, isFreeText, isFinalTest, reviewPool
 // When empty, the Learn tab renders a "Coming soon" panel.
 const LESSONS = [
-  // ── UNIT 1: GREETINGS & FIRST WORDS (L1–L7) ──────────────────────────
-  {id:"l1_greetings",
-   title:"Hello & Goodbye",
-   desc:"waimo, weriko, moa",
+  // ── UNIT 1: GREETINGS & FIRST WORDS (L1–L6) ──────────────────────────
+  {id:"l1_socials",
+   title:"Hello, Goodbye, Thanks, Sorry",
+   desc:"The four social expressions",
    icon:"👋",
-   vocabKey:"l1_greetings",
-   xp:15,
-   unit:0},
+   vocabKey:"l1_socials",
+   xp:18,
+   unit:0,
+   intro:`<h3>👋 The social expressions</h3><p>Liru handles social moves through five short, fixed expressions. Four of them are for everyday use:</p><ul><li><em>waimo</em> — hello</li><li><em>weriko</em> — goodbye</li><li><em>reiwa</em> — thank you</li><li><em>elo</em> — sorry (or "excuse me")</li></ul><p>These are atomic words — they stand alone and don't change form. The fifth (<em>moa</em> — "please") is taught later when there's a request to attach it to.</p>`},
 
-  {id:"l2_thanks",
-   title:"Thanks & Sorry",
-   desc:"reiwa and elo",
-   icon:"🙏",
-   vocabKey:"l2_thanks",
-   xp:12,
-   unit:0},
-
-  {id:"l3_yesno",
+  {id:"l2_yesno",
    title:"Yes, No, and Su mo",
    desc:"ai, mai, and the universal response",
    icon:"✅",
-   vocabKey:"l3_yesno",
+   vocabKey:"l2_yesno",
    xp:15,
    unit:0,
    intro:`<h3>✅ Yes, No, and the response phrase</h3><p>Yes is <em>ai</em>. No is <em>mai</em>.</p><p>When someone says <em>reiwa</em> (thank you) or <em>elo</em> (sorry) to you, respond with <em>Su mo</em> — literally "it is balance." One phrase covers "you're welcome" and "it's okay" both.</p><span class="example">"Reiwa." "Su mo." <span class="gloss">"Thank you." "You're welcome."</span></span><span class="example">"Elo." "Su mo." <span class="gloss">"Sorry." "It's okay."</span></span>`},
 
-  {id:"l4_iam",
+  {id:"l3_iam",
    title:"I am ___",
    desc:"ne (I) and su (is / am / are)",
    icon:"🪞",
-   vocabKey:"l4_iam",
+   vocabKey:"l3_iam",
    xp:15,
    unit:0,
    intro:`<h3>🪞 Saying who you are</h3><p><em>ne</em> means "I." <em>su</em> means "is," "am," or "are" — one word for all three. Liru verbs don't change for person.</p><p>To introduce yourself: <em>Ne su &lt;name&gt;.</em></p><span class="example">Ne su Yuna. <span class="gloss">I am Yuna.</span></span><span class="example">Ne su Kai. <span class="gloss">I am Kai.</span></span><p>Liru keeps proper names exactly as they sound in their original language — no special marking.</p>`},
 
-  {id:"l5_yourname",
+  {id:"l4_yourname",
    title:"What is your name?",
    desc:"te, teo, kiwa, nile",
    icon:"❓",
-   vocabKey:"l5_yourname",
+   vocabKey:"l4_yourname",
    xp:18,
    unit:0,
    isSentence:true,
    intro:`<h3>❓ Asking someone's name</h3><p><em>te</em> means "you." Add <em>-o</em> for the possessive: <em>teo</em> means "your."</p><p><em>kiwa</em> is the question word for "what." Liru questions always start with the question word, then the rest of the sentence is in normal order:</p><span class="example">Kiwa su teo nile? <span class="gloss">What is your name?</span></span><p>Literally: "what is your name?" The unknown sits at the front and the rest of the sentence stays in place.</p><p><em>nile</em> is "name" — used the same way as in English.</p>`},
 
-  {id:"l6_practice",
+  {id:"l5_practice",
    title:"Greeting Conversations",
    desc:"Put it all together",
    icon:"💬",
-   vocabKey:"l6_practice",
+   vocabKey:"l5_practice",
    xp:20,
    unit:0,
    isSentence:true,
-   intro:`<h3>💬 Putting it all together</h3><p>You now have everything you need for a first meeting in Liru. Here's how a real exchange might go:</p><span class="example">Waimo, Yuna moa. <span class="gloss">Hello, Yuna.</span></span><span class="example">Ne su Kai. Kiwa su teo nile? <span class="gloss">I am Kai. What is your name?</span></span><span class="example">Reiwa. <span class="gloss">Thank you.</span></span><span class="example">Su mo. Weriko. <span class="gloss">You're welcome. Goodbye.</span></span><p>This lesson practices the building blocks one sentence at a time.</p>`},
+   intro:`<h3>💬 Putting it all together</h3><p>You now have everything you need for a first meeting in Liru. Here's how a real exchange might go:</p><span class="example">Waimo, Yuna. <span class="gloss">Hello, Yuna.</span></span><span class="example">Ne su Kai. Kiwa su teo nile? <span class="gloss">I am Kai. What is your name?</span></span><span class="example">Reiwa. <span class="gloss">Thank you.</span></span><span class="example">Su mo. Weriko. <span class="gloss">You're welcome. Goodbye.</span></span><p>This lesson practices the building blocks one sentence at a time.</p>`},
 
-  {id:"l7_review",
+  {id:"l6_review",
    title:"Unit 1 Review",
    desc:"Review everything from Unit 1",
    icon:"🔁",
@@ -948,7 +941,7 @@ const LESSONS = [
    xp:20,
    unit:0,
    isReview:true,
-   reviewPool:["l1_greetings","l2_thanks","l3_yesno","l4_iam","l5_yourname"]},
+   reviewPool:["l1_socials","l2_yesno","l3_iam","l4_yourname"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
@@ -4256,7 +4249,7 @@ const GRAMMAR_SECTIONS = [
     icon:"🙏", title:"Social Expressions",
     body:`<p>Liru has <strong>no formal/informal speech split</strong>. All social tone is carried by these five words. They end in <em>-o</em> or <em>-a</em> and can appear anywhere in an utterance, or stand alone.</p>
     <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Word</th><th>Use</th></tr></thead><tbody>
-    <tr><td><em>moa</em></td><td>please / general respect marker</td></tr>
+    <tr><td><em>moa</em></td><td>please</td></tr>
     <tr><td><em>reiwa</em></td><td>thank you</td></tr>
     <tr><td><em>waimo</em></td><td>hello (greeting)</td></tr>
     <tr><td><em>weriko</em></td><td>goodbye (farewell)</td></tr>
@@ -4264,7 +4257,7 @@ const GRAMMAR_SECTIONS = [
     </tbody></table></div>
     <ul>
       <li><em>Reiwa.</em> — Thank you.</li>
-      <li><em>Waimo, Maria moa.</em> — Hello, Maria.</li>
+      <li><em>Waimo, Maria.</em> — Hello, Maria.</li>
       <li><em>Elo, ne wa kave teo mohe.</em> — Sorry, I broke your cup.</li>
       <li><em>Moa, feru ne teo loiwe.</em> — Please give me your book.</li>
     </ul>
@@ -4953,7 +4946,7 @@ const DICTIONARY_RAW = [
   {lw:"mise", en:"eye", pos:"n"},
   {lw:"misi", en:"ocular", pos:"adj"},
   {lw:"misu", en:"to look (or watch)", pos:"v"},
-  {lw:"moa", en:"please / general respect marker", pos:"expr"},
+  {lw:"moa", en:"please", pos:"expr"},
   {lw:"moahime", en:"insufficiency", pos:"n"},
   {lw:"moahimi", en:"not enough", pos:"adj"},
   {lw:"moahimu", en:"to fall short", pos:"v"},
