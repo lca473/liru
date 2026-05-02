@@ -966,17 +966,19 @@ const V = {
   ],
 
   // L15 — Whose? (sentence-based; -eo / -eoa generalization)
-  // 7 single-sentence prompts. Sentence 6 (Maweo mawe su ne) is a teaser for
-  // the chained-possessive pattern documented in Grammar.md §3 ("maweo mawe"
-  // = grandmother). Productive forms used: neo, teo, veo, neoa, maweo.
+  // 7 single-sentence prompts. Possessive forms balanced across the productive
+  // inflections: neo ×1, teo ×2, veo ×2, neoa ×1, veoa ×1. Every L13/L14
+  // family root appears at least once. Verbs (senu, nawu, shahu, tahu) carry
+  // forward from Unit 2 — sentences are real things a learner would say
+  // about family, not predicate-pronoun contortions.
   l15_possessives: [
-    {lw:["Ve","su","neo","mawe"],         en:"She is my mother."},
-    {lw:["Yuna","su","neo","yoye"],       en:"Yuna is my sister."},
-    {lw:["Kai","su","veo","loye"],        en:"Kai is her brother."},
-    {lw:["Maya","su","teo","piwe"],       en:"Maya is your child."},
-    {lw:["Neo","wahe","su","nea"],        en:"My family is us."},
-    {lw:["Maweo","mawe","su","ne"],       en:"Mother's mother is me."},
-    {lw:["Vea","su","neoa","wahe"],       en:"They are our family."},
+    {lw:["Yuna","su","neo","mawe"],       en:"Yuna is my mother."},
+    {lw:["Veo","powe","su","Kai"],        en:"Her father is Kai."},
+    {lw:["Teo","yoye","nawu","Maya"],     en:"Your sister loves Maya."},
+    {lw:["Maya","senu","veo","loye"],     en:"Maya knows her brother."},
+    {lw:["Neoa","mawe","shahu"],          en:"Our mother is drinking."},
+    {lw:["Veoa","wahe","tahu"],           en:"Their family is eating."},
+    {lw:["Teo","piwe","nawu","te"],       en:"Your child loves you."},
   ],
 
   // L16 — Friends
@@ -985,16 +987,18 @@ const V = {
   ],
 
   // L17 — Family & Friends Practice (sentence-based; combines Units 1+2+3)
-  // 7 single-sentence prompts. Sentence 6 (Tea su neoa wamea) exercises both
-  // plural-possessive (-eoa) and plural-noun (-ea) inflections in one prompt.
+  // 7 single-sentence prompts. Possessive forms balanced: neo ×1, teo ×2,
+  // veo ×2, neoa ×2. Pulls greetings, verbs from Unit 2, and family vocab
+  // into mixed practice. Sentence 6 exercises plural-possessor (-eoa) and
+  // plural-noun (-ea) inflections in one prompt.
   l17_practice: [
     {lw:["Waimo","neo","wame"],           en:"Hello, my friend."},
     {lw:["Kipue","su","veo","mawe"],      en:"Who is her mother?"},
-    {lw:["Yuna","su","neo","yoye"],       en:"Yuna is my sister."},
+    {lw:["Yuna","su","teo","yoye"],       en:"Yuna is your sister."},
     {lw:["Maya","nawu","veo","wahe"],     en:"Maya loves her family."},
-    {lw:["Neo","powe","senu","Kai"],      en:"My father knows Kai."},
+    {lw:["Neoa","powe","senu","Kai"],     en:"Our father knows Kai."},
     {lw:["Tea","su","neoa","wamea"],      en:"You all are our friends."},
-    {lw:["Reiwa","neo","wame"],           en:"Thank you, my friend."},
+    {lw:["Teo","loye","tahu"],            en:"Your brother is eating."},
   ],
 
 };
@@ -1168,7 +1172,7 @@ const LESSONS = [
    xp:20,
    unit:2,
    isSentence:true,
-   intro:`<h3>🔗 Possessives on every noun</h3><p>You've been using <em>neo</em>, <em>teo</em>, <em>veo</em> (my, your, his/her) since Unit 1 — and the family words took the same <em>-eo</em> ending. The pattern works on <strong>any</strong> noun:</p><ul><li><em>mawe</em> (mother) → <em>maweo</em> (mother's)</li><li><em>powe</em> (father) → <em>poweo</em> (father's)</li></ul><p>For a plural possessor (our, their, etc.), use <em>-eoa</em>: <em>neoa</em> (our), <em>veoa</em> (their).</p><p>You can even chain them. <em>maweo mawe</em> — literally "mother's mother" — that is, "grandmother." Liru builds extended family from the basic words.</p>`},
+   intro:`<h3>🔗 Possessives on every noun</h3><p>You've been using <em>neo</em>, <em>teo</em>, <em>veo</em> (my, your, his/her) since Unit 1 — and the family words took the same <em>-eo</em> ending. The pattern works on <strong>any</strong> noun, with any pronoun:</p><ul><li><em>neo mawe</em> — my mother</li><li><em>teo powe</em> — your father</li><li><em>veo loye</em> — his/her brother</li></ul><p>For a plural possessor (our, their, etc.), use <em>-eoa</em>:</p><ul><li><em>neoa mawe</em> — our mother</li><li><em>veoa wahe</em> — their family</li></ul>`},
 
   {id:"l16_friends",
    title:"Friends",
