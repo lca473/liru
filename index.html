@@ -930,6 +930,73 @@ const V = {
     {lw:["Reiwa","Maya"],               en:"Thank you, Maya."},
   ],
 
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 3 — FAMILY & PEOPLE (L13–L18)
+  // ════════════════════════════════════════════════════════════════
+  // L13: l13_family1     — mawe, powe, wahe (immediate family + collective)
+  // L14: l14_family2     — yoye, loye, piwe (siblings + child)
+  // L15: l15_possessives — sentence-based; generalizes -eo / -eoa across nouns
+  // L16: l16_friends     — wame
+  // L17: l17_practice    — sentence-based; combines Units 1+2+3
+  // L18: l18_review      — Unit 3 Review
+  //
+  // All seven new vocab entries are taught noun-only per lesson_principles §5.
+  // The canvas adj/v forms (mawi, powu, etc.) remain in Dictionary.md but are
+  // not drilled in this unit. wame's verb form wamu ("to like") is reserved
+  // for a future feelings/wants unit.
+  //
+  // Possessives: Grammar.md §3 documents -eo on nouns (komeo "stone's") and
+  // -eoa for plural possessor (komeoa "stones'"). Same pattern applies to
+  // family roots: maweo, poweo, yoyeo, loyeo. Inflections are productive
+  // (covered by preflight's checkNounInflection). No name-possessives in
+  // sentences this unit — keeps things in the documented zone.
+
+  // L13 — Mother, Father, Family
+  l13_family1: [
+    {lw:"mawe", en:"mother", pos:"n"},
+    {lw:"powe", en:"father", pos:"n"},
+    {lw:"wahe", en:"family", pos:"n"},
+  ],
+
+  // L14 — Sister, Brother, Child
+  l14_family2: [
+    {lw:"yoye", en:"sister", pos:"n"},
+    {lw:"loye", en:"brother", pos:"n"},
+    {lw:"piwe", en:"child",  pos:"n"},
+  ],
+
+  // L15 — Whose? (sentence-based; -eo / -eoa generalization)
+  // 7 single-sentence prompts. Sentence 6 (Maweo mawe su ne) is a teaser for
+  // the chained-possessive pattern documented in Grammar.md §3 ("maweo mawe"
+  // = grandmother). Productive forms used: neo, teo, veo, neoa, maweo.
+  l15_possessives: [
+    {lw:["Ve","su","neo","mawe"],         en:"She is my mother."},
+    {lw:["Yuna","su","neo","yoye"],       en:"Yuna is my sister."},
+    {lw:["Kai","su","veo","loye"],        en:"Kai is her brother."},
+    {lw:["Maya","su","teo","piwe"],       en:"Maya is your child."},
+    {lw:["Neo","wahe","su","nea"],        en:"My family is us."},
+    {lw:["Maweo","mawe","su","ne"],       en:"Mother's mother is me."},
+    {lw:["Vea","su","neoa","wahe"],       en:"They are our family."},
+  ],
+
+  // L16 — Friends
+  l16_friends: [
+    {lw:"wame", en:"friend", pos:"n"},
+  ],
+
+  // L17 — Family & Friends Practice (sentence-based; combines Units 1+2+3)
+  // 7 single-sentence prompts. Sentence 6 (Tea su neoa wamea) exercises both
+  // plural-possessive (-eoa) and plural-noun (-ea) inflections in one prompt.
+  l17_practice: [
+    {lw:["Waimo","neo","wame"],           en:"Hello, my friend."},
+    {lw:["Kipue","su","veo","mawe"],      en:"Who is her mother?"},
+    {lw:["Yuna","su","neo","yoye"],       en:"Yuna is my sister."},
+    {lw:["Maya","nawu","veo","wahe"],     en:"Maya loves her family."},
+    {lw:["Neo","powe","senu","Kai"],      en:"My father knows Kai."},
+    {lw:["Tea","su","neoa","wamea"],      en:"You all are our friends."},
+    {lw:["Reiwa","neo","wame"],           en:"Thank you, my friend."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -946,6 +1013,7 @@ const FREETEXT_PROMPTS = [
 const UNITS = [
   {name:"Unit 1 — Greetings & First Words", start:0},
   {name:"Unit 2 — People & Actions", start:6},
+  {name:"Unit 3 — Family & People", start:12},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1072,6 +1140,64 @@ const LESSONS = [
    unit:1,
    isReview:true,
    reviewPool:["l7_pronouns","l8_verbs1","l9_verbs2","l10_who"]},
+
+  // ── UNIT 3: FAMILY & PEOPLE (L13–L18) ────────────────────────────────
+  {id:"l13_family1",
+   title:"Mother, Father, Family",
+   desc:"mawe, powe, wahe",
+   icon:"👪",
+   vocabKey:"l13_family1",
+   xp:18,
+   unit:2,
+   intro:`<h3>👪 The first family words</h3><p><em>mawe</em> — mother. <em>powe</em> — father. <em>wahe</em> — family.</p><p>Liru forms possessives by adding <em>-eo</em> to a noun — the same ending you've been using on the pronouns:</p><ul><li><em>neo mawe</em> — my mother</li><li><em>teo powe</em> — your father</li><li><em>veo wahe</em> — his/her family</li></ul><p>For "our" and "their," use <em>-eoa</em>: <em>neoa wahe</em> — "our family."</p>`},
+
+  {id:"l14_family2",
+   title:"Sister, Brother, Child",
+   desc:"yoye, loye, piwe",
+   icon:"👧",
+   vocabKey:"l14_family2",
+   xp:18,
+   unit:2,
+   intro:`<h3>👧 More family</h3><p><em>yoye</em> — sister. <em>loye</em> — brother. <em>piwe</em> — child (or kid).</p><p>Same possessive rule as before:</p><span class="example">Neo yoye su Yuna. <span class="gloss">My sister is Yuna.</span></span><span class="example">Veo loye su Kai. <span class="gloss">Her brother is Kai.</span></span>`},
+
+  {id:"l15_possessives",
+   title:"Whose?",
+   desc:"-eo and -eoa on every noun",
+   icon:"🔗",
+   vocabKey:"l15_possessives",
+   xp:20,
+   unit:2,
+   isSentence:true,
+   intro:`<h3>🔗 Possessives on every noun</h3><p>You've been using <em>neo</em>, <em>teo</em>, <em>veo</em> (my, your, his/her) since Unit 1 — and the family words took the same <em>-eo</em> ending. The pattern works on <strong>any</strong> noun:</p><ul><li><em>mawe</em> (mother) → <em>maweo</em> (mother's)</li><li><em>powe</em> (father) → <em>poweo</em> (father's)</li></ul><p>For a plural possessor (our, their, etc.), use <em>-eoa</em>: <em>neoa</em> (our), <em>veoa</em> (their).</p><p>You can even chain them. <em>maweo mawe</em> — literally "mother's mother" — that is, "grandmother." Liru builds extended family from the basic words.</p>`},
+
+  {id:"l16_friends",
+   title:"Friends",
+   desc:"wame",
+   icon:"🤝",
+   vocabKey:"l16_friends",
+   xp:12,
+   unit:2,
+   intro:`<h3>🤝 Friend</h3><p><em>wame</em> — friend.</p><span class="example">Neo wame su Maya. <span class="gloss">My friend is Maya.</span></span><p>(There's also a verb form <em>wamu</em> meaning "to like" — we'll meet that one later.)</p>`},
+
+  {id:"l17_practice",
+   title:"Family & Friends Practice",
+   desc:"Three units, one conversation",
+   icon:"💬",
+   vocabKey:"l17_practice",
+   xp:22,
+   unit:2,
+   isSentence:true,
+   intro:`<h3>💬 Three units of conversation</h3><p>You've now got greetings, names, pronouns, four verbs, two question words, possessives, and family vocabulary. Time to bring it all together.</p>`},
+
+  {id:"l18_review",
+   title:"Unit 3 Review",
+   desc:"Review everything from Unit 3",
+   icon:"🔁",
+   vocabKey:"_review",
+   xp:22,
+   unit:2,
+   isReview:true,
+   reviewPool:["l13_family1","l14_family2","l16_friends"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
