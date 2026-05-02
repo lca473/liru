@@ -1001,6 +1001,24 @@ const V = {
     {lw:["Teo","loye","tahu"],            en:"Your brother is eating."},
   ],
 
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 4 — WANTS, NEEDS, FEELINGS (L19–L?)
+  // ════════════════════════════════════════════════════════════════
+  // L19 — Like, Want, Need (the three core modals + the canvas rule)
+  // Three new verb forms paying off Unit 3's deferral of wamu and opening
+  // the modal-chain unit. Two noun forms (tahe "food", shahe "drink")
+  // derived from already-known L9 verbs (tahu, shahu) — included so the
+  // lesson can teach the vowel canvas (Grammar.md §2) as a productive rule.
+  // First time the canvas is named for the learner; future units lean on
+  // this so derived forms don't need their own flashcards.
+  l19_likewant: [
+    {lw:"wamu", en:"to like",  pos:"verb"},
+    {lw:"wanu", en:"to want",  pos:"verb"},
+    {lw:"mihu", en:"to need",  pos:"verb"},
+    {lw:"tahe", en:"food",     pos:"n"},
+    {lw:"shahe",en:"drink",    pos:"n"},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1018,6 +1036,7 @@ const UNITS = [
   {name:"Unit 1 — Greetings & First Words", start:0},
   {name:"Unit 2 — People & Actions", start:6},
   {name:"Unit 3 — Family & People", start:12},
+  {name:"Unit 4 — Wants, Needs, Feelings", start:18},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1202,6 +1221,16 @@ const LESSONS = [
    unit:2,
    isReview:true,
    reviewPool:["l13_family1","l14_family2","l16_friends"]},
+
+  // ── UNIT 4: WANTS, NEEDS, FEELINGS (L19–L?) ──────────────────────────
+  {id:"l19_likewant",
+   title:"Like, Want, Need",
+   desc:"wamu, wanu, mihu (+ canvas rule)",
+   icon:"💭",
+   vocabKey:"l19_likewant",
+   xp:20,
+   unit:3,
+   intro:`<h3>🎨 The vowel canvas — the rule you've been seeing</h3><p>You've already noticed: Liru verbs end in <em>-u</em> and nouns end in <em>-e</em>. That's the rule. Most Liru roots shift between three forms by changing the last vowel:</p><ul><li><em>-e</em> = noun &nbsp; <em>-u</em> = verb &nbsp; <em>-i</em> = adjective</li></ul><p>So if you know one form, you often know the others. <em>tahu</em> "to eat" → <em>tahe</em> "food." <em>shahu</em> "to drink" → <em>shahe</em> "drink." Both <em>tahe</em> and <em>shahe</em> are yours now, for free.</p><h3>💭 And three new verbs</h3><p>The unit's three core verbs:</p><ul><li><em>wamu</em> — to like (verb form of <em>wame</em>, friend, from Unit 3 — same rule)</li><li><em>wanu</em> — to want</li><li><em>mihu</em> — to need</li></ul><span class="example">Ne wamu Maya. <span class="gloss">I like Maya.</span></span><span class="example">Te wanu shahe. <span class="gloss">You want a drink.</span></span><span class="example">Ve mihu tahe. <span class="gloss">She needs food.</span></span><p>One thing these three verbs do that earlier verbs didn't: they can take <em>another verb</em> as their object.</p><span class="example">Ne wanu tahu. <span class="gloss">I want to eat.</span></span><span class="example">Te mihu shahu. <span class="gloss">You need to drink.</span></span><p>Same <em>wanu</em>, different second word — "I want food" vs "I want to eat." We'll work on this in the next lesson.</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
