@@ -859,6 +859,77 @@ const V = {
     {lw:["Elo","Yuna"],                 en:"Sorry, Yuna."},
     {lw:["Weriko"],                     en:"Goodbye."},
   ],
+
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 2 — PEOPLE & ACTIONS (L7–L12)
+  // ════════════════════════════════════════════════════════════════
+  // L7:  l7_pronouns  — ve (with nea, tea, vea as -a plurals)
+  // L8:  l8_verbs1    — nawu (introduces the verb-form rule)
+  // L9:  l9_verbs2    — tahu, shahu, senu
+  // L10: l10_who      — sentence-based; introduces kipue
+  // L11: l11_practice — sentence-based; combines Units 1+2
+  // L12: l12_review   — Unit 2 Review (no V entry; uses _review)
+  //
+  // Recurring characters: Yuna and Kai from Unit 1 plus Maya (Unit 2 addition).
+  // Maya is registered in preflight.js's PROPER_NOUNS set.
+
+  // L7 — Everyone in the Conversation
+  // Teaches *ve* plus the three plural pronoun forms (nea, tea, vea) via the
+  // -a plural pattern. All four are flashcards; the intro card explains the
+  // pattern so the plurals read as a system, not as four separate words.
+  l7_pronouns: [
+    {lw:"ve",   en:"he / she / it / they (sg.)",  pos:"pronoun"},
+    {lw:"nea",  en:"we",                          pos:"pronoun"},
+    {lw:"tea",  en:"you (pl.)",                   pos:"pronoun"},
+    {lw:"vea",  en:"they (pl.)",                  pos:"pronoun"},
+  ],
+
+  // L8 — To Love (introduces verbs as a category)
+  // Single flashcard. The intro card carries the conceptual lift (-u ending,
+  // SVO, no person-conjugation, no su); exercises drill the pattern with
+  // sentences in the lesson tail.
+  l8_verbs1: [
+    {lw:"nawu", en:"to love",                     pos:"verb"},
+  ],
+
+  // L9 — To Eat, To Drink, To Know
+  // Three verbs reinforcing the L8 pattern. Only the verb (-u) form of each
+  // canvas root is taught here per lesson_principles.md §5; noun and adj forms
+  // remain in Dictionary.md for dictionary lookup.
+  l9_verbs2: [
+    {lw:"tahu", en:"to eat",                      pos:"verb"},
+    {lw:"shahu",en:"to drink",                    pos:"verb"},
+    {lw:"senu", en:"to know",                     pos:"verb"},
+  ],
+
+  // L10 — Who? (sentence-based; introduces kipue)
+  // 7 single-sentence prompts. Sentence 7 (Kipue tahu?) demonstrates the
+  // subject-empty case where the unknown is the subject. Maya appears here
+  // for the first time.
+  l10_who: [
+    {lw:["Kipue","su","ve"],            en:"Who is he?"},
+    {lw:["Ve","su","Maya"],             en:"She is Maya."},
+    {lw:["Kipue","te","nawu"],          en:"Who do you love?"},
+    {lw:["Ne","nawu","Kai"],            en:"I love Kai."},
+    {lw:["Kipue","senu","Yuna"],        en:"Who knows Yuna?"},
+    {lw:["Maya","senu","Yuna"],         en:"Maya knows Yuna."},
+    {lw:["Kipue","tahu"],               en:"Who is eating?"},
+  ],
+
+  // L11 — People & Actions Practice (sentence-based; combines Units 1+2)
+  // 7 single-sentence prompts. Sentence 5 (Kiwa te tahu?) pairs a Unit 1
+  // question word with a Unit 2 verb to demonstrate the question-word
+  // generalization across both units.
+  l11_practice: [
+    {lw:["Waimo","Maya"],               en:"Hello, Maya."},
+    {lw:["Ne","su","Yuna"],             en:"I am Yuna."},
+    {lw:["Kipue","su","ve"],            en:"Who is he?"},
+    {lw:["Nea","nawu","Yuna"],          en:"We love Yuna."},
+    {lw:["Kiwa","te","tahu"],           en:"What are you eating?"},
+    {lw:["Vea","shahu"],                en:"They are drinking."},
+    {lw:["Reiwa","Maya"],               en:"Thank you, Maya."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -874,6 +945,7 @@ const FREETEXT_PROMPTS = [
 // Each unit's `start` index points into the LESSONS array.
 const UNITS = [
   {name:"Unit 1 — Greetings & First Words", start:0},
+  {name:"Unit 2 — People & Actions", start:6},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -942,6 +1014,64 @@ const LESSONS = [
    unit:0,
    isReview:true,
    reviewPool:["l1_socials","l2_yesno","l3_iam","l4_yourname"]},
+
+  // ── UNIT 2: PEOPLE & ACTIONS (L7–L12) ────────────────────────────────
+  {id:"l7_pronouns",
+   title:"Everyone in the Conversation",
+   desc:"ve, nea, tea, vea",
+   icon:"👥",
+   vocabKey:"l7_pronouns",
+   xp:18,
+   unit:1,
+   intro:`<h3>👥 The rest of the pronouns</h3><p><em>ve</em> covers he, she, it, and singular they — Liru doesn't mark gender.</p><p>To make any pronoun plural, add <em>-a</em>:</p><ul><li><em>ne</em> → <em>nea</em> (we)</li><li><em>te</em> → <em>tea</em> (you all)</li><li><em>ve</em> → <em>vea</em> (they)</li></ul><p>Same <em>-a</em> pattern, every pronoun.</p>`},
+
+  {id:"l8_verbs1",
+   title:"To Love",
+   desc:"nawu — and how Liru verbs work",
+   icon:"❤️",
+   vocabKey:"l8_verbs1",
+   xp:15,
+   unit:1,
+   intro:`<h3>❤️ Your first action verb</h3><p><em>nawu</em> means "to love." Every Liru verb ends in <em>-u</em>.</p><p>Verbs don't change for person — <em>Ne nawu</em> (I love), <em>Te nawu</em> (you love), <em>Ve nawu</em> (he/she/they loves) all use the same form.</p><p>And action verbs go directly, without <em>su</em>:</p><span class="example">Ne nawu te. <span class="gloss">I love you.</span></span><p>Never <em>Ne su nawu te</em>. Reserve <em>su</em> for "is/are" statements.</p>`},
+
+  {id:"l9_verbs2",
+   title:"To Eat, To Drink, To Know",
+   desc:"tahu, shahu, senu",
+   icon:"🍽️",
+   vocabKey:"l9_verbs2",
+   xp:18,
+   unit:1,
+   intro:`<h3>🍽️ Three more verbs</h3><p>Same rule as <em>nawu</em>: <em>-u</em> ending, no person-conjugation, no <em>su</em>.</p><ul><li><em>tahu</em> — to eat</li><li><em>shahu</em> — to drink</li><li><em>senu</em> — to know</li></ul><span class="example">Ne tahu. <span class="gloss">I am eating.</span></span><span class="example">Te shahu. <span class="gloss">You are drinking.</span></span><span class="example">Ve senu Yuna. <span class="gloss">He knows Yuna.</span></span>`},
+
+  {id:"l10_who",
+   title:"Who?",
+   desc:"kipue — asking who",
+   icon:"🙋",
+   vocabKey:"l10_who",
+   xp:18,
+   unit:1,
+   isSentence:true,
+   intro:`<h3>🙋 Asking who</h3><p><em>kipue</em> is the question word for "who." Like <em>kiwa</em>, it goes at the front of the sentence; the rest stays in normal SVO order, and the unknown slot is simply empty:</p><span class="example">Kipue su ve? <span class="gloss">Who is he?</span></span><span class="example">Kipue te nawu? <span class="gloss">Who do you love?</span></span><p>The slot where the answer would go is just left out. If the unknown is the subject itself, the verb stands alone after <em>kipue</em>:</p><span class="example">Kipue tahu? <span class="gloss">Who is eating?</span></span>`},
+
+  {id:"l11_practice",
+   title:"People & Actions Practice",
+   desc:"Bring it all together",
+   icon:"💬",
+   vocabKey:"l11_practice",
+   xp:20,
+   unit:1,
+   isSentence:true,
+   intro:`<h3>💬 Putting it all together</h3><p>Unit 1 gave you greetings, names, and one question word. Unit 2 gave you the rest of the pronouns, four verbs, and a second question word. A real conversation uses all of it.</p><span class="example">Waimo, Maya. <span class="gloss">Hello, Maya.</span></span><span class="example">Kipue su ve? <span class="gloss">Who is he?</span></span><span class="example">Nea nawu Yuna. <span class="gloss">We love Yuna.</span></span>`},
+
+  {id:"l12_review",
+   title:"Unit 2 Review",
+   desc:"Review everything from Unit 2",
+   icon:"🔁",
+   vocabKey:"_review",
+   xp:20,
+   unit:1,
+   isReview:true,
+   reviewPool:["l7_pronouns","l8_verbs1","l9_verbs2","l10_who"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
