@@ -1019,6 +1019,67 @@ const V = {
     {lw:"shahe",en:"drink",    pos:"n"},
   ],
 
+  // L20 — Modal Chains (sentence-based)
+  // Adds sahu (can) and shihu (should) — the two remaining modals.
+  // Formalizes the verb-chain construction (modal + bare verb) per G§5.
+  // 8 sentences instead of 7 so each of the 5 modals gets at least one
+  // chained example. Distribution: wanu, mihu, sahu each at 2/8;
+  // shihu and wamu at 1/8 each. Chained verbs split 4/4 between
+  // tahu and shahu. Only mai (negation) appears in the negative slot;
+  // tense particles wa/wu are reserved for Unit 5.
+  l20_chains: [
+    {lw:["Ne","wanu","tahu"],                        en:"I want to eat."},
+    {lw:["Te","mihu","shahu"],                       en:"You need to drink."},
+    {lw:["Ve","sahu","tahu","tahe"],                 en:"She can eat food."},
+    {lw:["Ne","shihu","shahu"],                      en:"I should drink."},
+    {lw:["Yuna","wamu","tahu"],                      en:"Yuna likes to eat."},
+    {lw:["Kipue","wanu","tahu"],                     en:"Who wants to eat?"},
+    {lw:["Nea","mihu","shahu"],                      en:"We need to drink."},
+    {lw:["Ne","mai","sahu","shahu"],                 en:"I can't drink."},
+  ],
+
+  // L21 — Feeling, Happy, Sad (vocab)
+  // Three new entries: ele (feeling, n.), houli (happy, adj.), mohouli
+  // (sad, adj.). Intro card teaches predicate adjectives with su [G§6]
+  // and introduces the mo- productive rule [G§18] using houli/mohouli
+  // as the canonical example. ele's canvas siblings (eli, elu) remain
+  // dictionary-only per §5 canvas discipline.
+  l21_houli: [
+    {lw:"ele",     en:"feeling",  pos:"n"},
+    {lw:"houli",   en:"happy",    pos:"adj"},
+    {lw:"mohouli", en:"sad",      pos:"adj"},
+  ],
+
+  // L22 — Angry, Afraid, Worried, Surprised (vocab)
+  // Four feeling adjectives. tauki and kaumi are non-mo- roots; moyeri
+  // and muhi(?) — moyeri contains mo-, reinforcing the rule from L21.
+  // muhi gloss matches Dictionary.md exactly: "anxious (or worried)"
+  // (post-2026-05-02 alignment). kaumi gloss: "surprised" (post-alignment).
+  // Four adjectives is on the heavy side for one vocab lesson but they
+  // share one grammatical pattern (X su FEELING) so reinforcement is
+  // efficient.
+  l22_feelings2: [
+    {lw:"tauki",   en:"angry",                 pos:"adj"},
+    {lw:"moyeri",  en:"afraid",                pos:"adj"},
+    {lw:"muhi",    en:"anxious (or worried)",  pos:"adj"},
+    {lw:"kaumi",   en:"surprised",             pos:"adj"},
+  ],
+
+  // L23 — Feelings & Modals Practice (sentence-based)
+  // No new vocabulary. Combines L19 modals + L21/L22 feelings + Units 1-3.
+  // Each sentence uses at least one Unit 4 piece. Distribution: predicate
+  // adjective in 5/7 prompts; modal chain in 3/7. Each new modal/feeling
+  // form appears at most twice across the 7 sentences.
+  l23_practice: [
+    {lw:["Ne","su","houli"],                          en:"I am happy."},
+    {lw:["Maya","wanu","tahu"],                       en:"Maya wants to eat."},
+    {lw:["Te","mai","su","mohouli"],                  en:"You are not sad."},
+    {lw:["Yuna","sahu","shahu"],                      en:"Yuna can drink."},
+    {lw:["Veo","mawe","su","tauki"],                  en:"Her mother is angry."},
+    {lw:["Neoa","mawe","wanu","senu","te"],           en:"Our mother wants to know you."},
+    {lw:["Kipue","su","muhi"],                        en:"Who is anxious?"},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1231,6 +1292,54 @@ const LESSONS = [
    xp:20,
    unit:3,
    intro:`<h3>🎨 The vowel canvas — the rule you've been seeing</h3><p>You've already noticed: Liru verbs end in <em>-u</em> and nouns end in <em>-e</em>. That's the rule. Most Liru roots shift between three forms by changing the last vowel:</p><ul><li><em>-e</em> = noun &nbsp; <em>-u</em> = verb &nbsp; <em>-i</em> = adjective</li></ul><p>So if you know one form, you often know the others. <em>tahu</em> "to eat" → <em>tahe</em> "food." <em>shahu</em> "to drink" → <em>shahe</em> "drink." Both <em>tahe</em> and <em>shahe</em> are yours now, for free.</p><h3>💭 And three new verbs</h3><p>The unit's three core verbs:</p><ul><li><em>wamu</em> — to like (verb form of <em>wame</em>, friend, from Unit 3 — same rule)</li><li><em>wanu</em> — to want</li><li><em>mihu</em> — to need</li></ul><span class="example">Ne wamu Maya. <span class="gloss">I like Maya.</span></span><span class="example">Te wanu shahe. <span class="gloss">You want a drink.</span></span><span class="example">Ve mihu tahe. <span class="gloss">She needs food.</span></span><p>One thing these three verbs do that earlier verbs didn't: they can take <em>another verb</em> as their object.</p><span class="example">Ne wanu tahu. <span class="gloss">I want to eat.</span></span><span class="example">Te mihu shahu. <span class="gloss">You need to drink.</span></span><p>Same <em>wanu</em>, different second word — "I want food" vs "I want to eat." We'll work on this in the next lesson.</p>`},
+
+  {id:"l20_chains",
+   title:"Modal Chains",
+   desc:"sahu, shihu + verb chains",
+   icon:"🔗",
+   vocabKey:"l20_chains",
+   xp:22,
+   unit:3,
+   isSentence:true,
+   intro:`<h3>🔗 Verb chains: "want to," "need to," "can," "should"</h3><p>You've already met three modal verbs: <em>wamu</em> (like), <em>wanu</em> (want), <em>mihu</em> (need). Two more complete the set:</p><ul><li><em>sahu</em> — to be able to (can)</li><li><em>shihu</em> — to ought to (should)</li></ul><p>All five behave the same way. They can take a noun:</p><span class="example">Ne wanu shahe. <span class="gloss">I want a drink.</span></span><p>Or they can take <em>another verb</em> in its base <em>-u</em> form:</p><span class="example">Ne wanu tahu. <span class="gloss">I want to eat.</span></span><span class="example">Te mihu shahu. <span class="gloss">You need to drink.</span></span><span class="example">Ve sahu tahu tahe. <span class="gloss">She can eat food.</span></span><span class="example">Te shihu shahu. <span class="gloss">You should drink.</span></span><p>The first verb tells you "want / need / can / should." The second verb tells you the action. To say "not," put <em>mai</em> before the modal:</p><span class="example">Ne mai sahu tahu. <span class="gloss">I can't eat.</span></span><span class="example">Te mai mihu shahu. <span class="gloss">You don't need to drink.</span></span>`},
+
+  {id:"l21_houli",
+   title:"Feeling, Happy, Sad",
+   desc:"ele, houli, mohouli + the mo- rule",
+   icon:"💛",
+   vocabKey:"l21_houli",
+   xp:18,
+   unit:3,
+   intro:`<h3>💛 Talking about feelings</h3><p>One new noun and two new adjectives:</p><ul><li><em>ele</em> — feeling (the noun)</li><li><em>houli</em> — happy</li><li><em>mohouli</em> — sad</li></ul><p>To say someone "is" a feeling, use <em>su</em> — the same copula you've been using for "I am Maya" sentences:</p><span class="example">Ne su houli. <span class="gloss">I am happy.</span></span><span class="example">Maya su mohouli. <span class="gloss">Maya is sad.</span></span><h3>🔄 The <em>mo-</em> rule</h3><p>Notice <em>mohouli</em> "sad" is just <em>houli</em> "happy" with <em>mo-</em> stuck on the front. That's a real Liru rule: <em>mo-</em> flips a word's meaning to its opposite or balancing pair. <em>houli</em> "happy" → <em>mohouli</em> "sad."</p><p>Not every word has a <em>mo-</em> partner, but when one does exist, the rule is reliable. You'll see more pairs as the course continues.</p>`},
+
+  {id:"l22_feelings2",
+   title:"Angry, Afraid, Worried, Surprised",
+   desc:"tauki, moyeri, muhi, kaumi",
+   icon:"😠",
+   vocabKey:"l22_feelings2",
+   xp:20,
+   unit:3,
+   intro:`<h3>😠 Four more feelings</h3><p>Four common feeling adjectives:</p><ul><li><em>tauki</em> — angry</li><li><em>moyeri</em> — afraid</li><li><em>muhi</em> — anxious (or worried)</li><li><em>kaumi</em> — surprised</li></ul><p>All four work the same way as <em>houli</em> and <em>mohouli</em> — use <em>su</em> to say someone is feeling them:</p><span class="example">Ne su tauki. <span class="gloss">I am angry.</span></span><span class="example">Maya su moyeri. <span class="gloss">Maya is afraid.</span></span><span class="example">Te su muhi. <span class="gloss">You are anxious.</span></span><span class="example">Yuna su kaumi. <span class="gloss">Yuna is surprised.</span></span><p>Notice <em>moyeri</em> starts with <em>mo-</em>, just like <em>mohouli</em> from the last lesson. The <em>mo-</em> rule again — its partner is the Liru word for "brave," which we'll meet later.</p>`},
+
+  {id:"l23_practice",
+   title:"Feelings & Modals Practice",
+   desc:"Combine everything from Unit 4",
+   icon:"🌊",
+   vocabKey:"l23_practice",
+   xp:22,
+   unit:3,
+   isSentence:true,
+   intro:`<h3>🌊 Putting it together</h3><p>Time to use everything from this unit together: modals, feelings, family, the words you already know. Each sentence below uses at least one piece of new material from Unit 4. Read each one aloud in English first, then assemble.</p>`},
+
+  {id:"l24_review",
+   title:"Unit 4 Review",
+   desc:"Review everything from Unit 4",
+   icon:"🔁",
+   vocabKey:"_review",
+   xp:25,
+   unit:3,
+   isReview:true,
+   reviewPool:["l19_likewant","l21_houli","l22_feelings2"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
@@ -4942,7 +5051,7 @@ const DICTIONARY_RAW = [
   {lw:"karuhi", en:"warlike (or war-related)", pos:"adj"},
   {lw:"karuhu", en:"to wage war", pos:"v"},
   {lw:"kaume", en:"surprise", pos:"n"},
-  {lw:"kaumi", en:"surprising", pos:"adj"},
+  {lw:"kaumi", en:"surprised", pos:"adj"},
   {lw:"kaumu", en:"to surprise (or startle)", pos:"v"},
   {lw:"kauwe", en:"lightness (in weight)", pos:"n"},
   {lw:"kauwi", en:"light (not heavy)", pos:"adj"},
@@ -5534,7 +5643,7 @@ const DICTIONARY_RAW = [
   {lw:"moyouli", en:"ashamed (or shamefully)", pos:"adj"},
   {lw:"moyoulu", en:"to shame (or make ashamed)", pos:"v"},
   {lw:"muhe", en:"worry", pos:"n"},
-  {lw:"muhi", en:"anxious", pos:"adj"},
+  {lw:"muhi", en:"anxious (or worried)", pos:"adj"},
   {lw:"muhu", en:"to worry", pos:"v"},
   {lw:"mune", en:"chest", pos:"n"},
   {lw:"muni", en:"chest-related", pos:"adj"},
