@@ -1590,7 +1590,15 @@ function generateVocabExercises(lesson){
   const flashcards=exercises.filter(e=>e.type==="flashcard");
   const fills=exercises.filter(e=>e.type==="fill");
   const recognition=exercises.filter(e=>e.type!=="flashcard" && e.type!=="fill");
-  return [...flashcards, ...shuffle(recognition), ...shuffle(fills)];
+  const ordered=[...flashcards, ...shuffle(recognition), ...shuffle(fills)];
+  // If the lesson declares an intro, prepend it (not shuffled, never capped).
+  // Mirrors the behavior of generateSentenceExercises so vocab lessons with
+  // intro cards (the canvas rule in Like, Want, Need; the mo- rule in
+  // Feeling, Happy, Sad; etc.) actually display them to the learner.
+  if(lesson.intro){
+    return [{type:"lessonIntro",html:lesson.intro}].concat(ordered);
+  }
+  return ordered;
 }
 
 function generateSentenceExercises(lesson){
