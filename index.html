@@ -800,7 +800,6 @@ const V = {
   // L3: l3_iam       — ne, su   (vocab; the pattern is exercised in L4 immediately)
   // L4: l4_yourname  — sentence-based; introduces te/teo, kiwa, nile
   // L5: l5_practice  — sentence-based; combines L1–L4, no new vocab
-  // L6: l6_review    — Unit 1 Review (no V entry; uses _review)
   //
   // Note: moa (please) was previously in L1 but has been deferred. moa is
   // a request-politeness particle ("please"); without verb constructions to
@@ -868,7 +867,6 @@ const V = {
   // L9:  l9_verbs2    — tahu, shahu, senu
   // L10: l10_who      — sentence-based; introduces kipue
   // L11: l11_practice — sentence-based; combines Units 1+2
-  // L12: l12_review   — Unit 2 Review (no V entry; uses _review)
   //
   // Recurring characters: Yuna and Kai from Unit 1 plus Maya (Unit 2 addition).
   // Maya is registered in preflight.js's PROPER_NOUNS set.
@@ -938,7 +936,6 @@ const V = {
   // L15: l15_possessives — sentence-based; generalizes -eo / -eoa across nouns
   // L16: l16_friends     — wame
   // L17: l17_practice    — sentence-based; combines Units 1+2+3
-  // L18: l18_review      — Unit 3 Review
   //
   // All seven new vocab entries are taught noun-only per lesson_principles §5.
   // The canvas adj/v forms (mawi, powu, etc.) remain in Dictionary.md but are
@@ -1265,11 +1262,11 @@ const FREETEXT_PROMPTS = [
 // Each unit's `start` index points into the LESSONS array.
 const UNITS = [
   {name:"Unit 1 — Greetings & First Words", start:0},
-  {name:"Unit 2 — People & Actions", start:6},
-  {name:"Unit 3 — Family & People", start:12},
-  {name:"Unit 4 — Wants, Needs, Feelings", start:18},
-  {name:"Unit 5 — Time and Tense", start:24},
-  {name:"Unit 6 — Connectors and Demonstratives", start:31},
+  {name:"Unit 2 — People & Actions", start:5},
+  {name:"Unit 3 — Family & People", start:10},
+  {name:"Unit 4 — Wants, Needs, Feelings", start:15},
+  {name:"Unit 5 — Time and Tense", start:20},
+  {name:"Unit 6 — Connectors and Demonstratives", start:26},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1330,16 +1327,6 @@ const LESSONS = [
    isCheckpoint:true,
    intro:`<h3>💬 Unit 1 Exam</h3><p>This is your Unit 1 exam. <strong>Three hearts, three mistakes.</strong> Pass it to advance to Unit 2.</p><p>You've got everything you need for a first meeting in Liru — greetings, names, the social expressions, and the question word for "what." Here's how a real exchange might go:</p><span class="example">Waimo, Yuna. <span class="gloss">Hello, Yuna.</span></span><span class="example">Ne su Kai. Kiwa su teo nile? <span class="gloss">I am Kai. What is your name?</span></span><span class="example">Reiwa. <span class="gloss">Thank you.</span></span><span class="example">Su mo. Weriko. <span class="gloss">You're welcome. Goodbye.</span></span>`},
 
-  {id:"l6_review",
-   title:"Unit 1 Recap",
-   desc:"Recap everything from Unit 1",
-   icon:"🔁",
-   vocabKey:"_review",
-   xp:20,
-   unit:0,
-   isReview:true,
-   reviewPool:["l1_socials","l2_yesno","l3_iam","l4_yourname"]},
-
   // ── UNIT 2: PEOPLE & ACTIONS (L7–L12) ────────────────────────────────
   {id:"l7_pronouns",
    title:"Everyone in the Conversation",
@@ -1388,16 +1375,6 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>💬 Unit 2 Exam</h3><p>This is your Unit 2 exam. You've got <strong>three hearts</strong> — three mistakes and the exam ends. Pass it to advance to Unit 3.</p><p>Everything you've learned so far is fair game: greetings, names, pronouns, four verbs, and two question words.</p><span class="example">Waimo, Maya. <span class="gloss">Hello, Maya.</span></span><span class="example">Kipue su ve? <span class="gloss">Who is he?</span></span><span class="example">Nea nawu Yuna. <span class="gloss">We love Yuna.</span></span>`},
-
-  {id:"l12_review",
-   title:"Unit 2 Recap",
-   desc:"Recap everything from Unit 2",
-   icon:"🔁",
-   vocabKey:"_review",
-   xp:20,
-   unit:1,
-   isReview:true,
-   reviewPool:["l7_pronouns","l8_verbs1","l9_verbs2","l10_who"]},
 
   // ── UNIT 3: FAMILY & PEOPLE (L13–L18) ────────────────────────────────
   {id:"l13_family1",
@@ -1448,16 +1425,6 @@ const LESSONS = [
    isCheckpoint:true,
    intro:`<h3>💬 Unit 3 Exam</h3><p>This is your Unit 3 exam. <strong>Three hearts, three mistakes.</strong> Pass it to advance to Unit 4.</p><p>You've got greetings, names, pronouns, four verbs, two question words, possessives, and family vocabulary. Time to bring it all together.</p>`},
 
-  {id:"l18_review",
-   title:"Unit 3 Recap",
-   desc:"Recap everything from Unit 3",
-   icon:"🔁",
-   vocabKey:"_review",
-   xp:22,
-   unit:2,
-   isReview:true,
-   reviewPool:["l13_family1","l14_family2","l16_friends"]},
-
   // ── UNIT 4: WANTS, NEEDS, FEELINGS (L19–L?) ──────────────────────────
   {id:"l19_likewant",
    title:"Like, Want, Need",
@@ -1506,16 +1473,6 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>🌊 Unit 4 Exam</h3><p>This is your Unit 4 exam. <strong>Three hearts, three mistakes.</strong> Pass it to advance to Unit 5.</p><p>Everything from this unit is fair game — modals, feelings, family — alongside what you know from earlier units. Read each sentence aloud in English first, then assemble.</p>`},
-
-  {id:"l24_review",
-   title:"Unit 4 Recap",
-   desc:"Recap everything from Unit 4",
-   icon:"🔁",
-   vocabKey:"_review",
-   xp:25,
-   unit:3,
-   isReview:true,
-   reviewPool:["l19_likewant","l21_houli","l22_feelings2"]},
 
   // ── UNIT 5: TIME AND TENSE (L25–L31) ─────────────────────────────────
   {id:"l25_past",
@@ -1578,16 +1535,6 @@ const LESSONS = [
    isCheckpoint:true,
    intro:`<h3>🌊 Unit 5 Exam</h3><p>This is your Unit 5 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — tense particles, time anchors, negation — is fair game, alongside what you know from Units 1–4. Read each sentence aloud in English first, then assemble.</p>`},
 
-  {id:"l31_review",
-   title:"Unit 5 Recap",
-   desc:"Recap everything from Unit 5",
-   icon:"🔁",
-   vocabKey:"_review",
-   xp:25,
-   unit:4,
-   isReview:true,
-   reviewPool:["l25_past","l26_future","l27_timewords","l28_anchors"]},
-
   // ── UNIT 6: CONNECTORS AND DEMONSTRATIVES (L32–L38) ──────────────────
   {id:"l32_thisthat",
    title:"This and That",
@@ -1648,16 +1595,6 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>🌊 Unit 6 Exam</h3><p>This is your Unit 6 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — demonstratives, plurals, connectors, intensifiers, and the new question words — is fair game, alongside what you know from Units 1–5.</p>`},
-
-  {id:"l38_review",
-   title:"Unit 6 Recap",
-   desc:"Recap everything from Unit 6",
-   icon:"🔁",
-   vocabKey:"_review",
-   xp:25,
-   unit:5,
-   isReview:true,
-   reviewPool:["l32_thisthat","l33_plurals","l34_andbutorwith","l35_intensifiers","l36_questions"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
