@@ -3247,14 +3247,12 @@ function renderHome(){
         const cls=completed?"completed":unlocked?"":"locked";
         const icon=completed?'<span style="color:#4A7A9E;font-size:28px;font-weight:800;line-height:1">✓</span>':unlocked?l.icon:"🔒";
         const isFinal=l.isFinalTest;
-        const isExam=l.isCheckpoint && !isFinal;
         let cardStyle="";
         if(isFinal){cardStyle=`background:linear-gradient(135deg,rgba(255,200,0,0.12),rgba(206,130,255,0.08));border:2.5px solid var(--gold);`;}
-        else if(isExam){cardStyle=`background:linear-gradient(135deg,rgba(74,122,158,0.10),rgba(74,122,158,0.04));border:2.5px solid #4A7A9E;`;}
         innerHTML+=`<button class="lesson-card ${cls}" data-idx="${i}" ${!unlocked?'disabled':''} style="${cardStyle}">
-          <div class="lesson-icon" style="${isFinal?'background:var(--gold-glow);border:2px solid var(--gold)':isExam?'background:rgba(74,122,158,0.18);border:2px solid #4A7A9E':''}">${icon}</div>
+          <div class="lesson-icon" style="${isFinal?'background:var(--gold-glow);border:2px solid var(--gold)':''}">${icon}</div>
           <div style="flex:1;min-width:0">
-            <div style="font-size:16px;font-weight:800;${isFinal?'color:var(--gold)':isExam?'color:#4A7A9E':''}">${l.title}</div>
+            <div style="font-size:16px;font-weight:800;${isFinal?'color:var(--gold)':''}">${l.title}</div>
             <div style="color:var(--dim);font-size:13px;font-weight:600;margin-top:2px">${l.desc}</div>
           </div>
           <div style="color:var(--gold);font-size:12px;font-weight:800;flex-shrink:0">+${l.xp} XP</div>
