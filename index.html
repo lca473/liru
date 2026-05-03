@@ -1161,6 +1161,95 @@ const V = {
     {lw:["Wale,","ne","mai","wa","senu","teo","nile"],  en:"Before, I didn't know your name."},
   ],
 
+  // ── UNIT 6: CONNECTORS AND DEMONSTRATIVES (L32–L38) ────────────────
+
+  // L32 — This and That (sentence-based)
+  // Introduces lo and falo. Pairs demonstrative + noun in copula and
+  // action-verb frames. Reuses lo as separable from "lo lawe" (L28).
+  l32_thisthat: [
+    {lw:["Lo","piwe","su","Maya"],            en:"This child is Maya."},
+    {lw:["Falo","wame","su","Yuna"],          en:"That friend is Yuna."},
+    {lw:["Ne","nawu","lo","piwe"],            en:"I love this child."},
+    {lw:["Te","wamu","lo","piwe"],            en:"You like this child."},
+    {lw:["Lo","mawe","su","houli"],           en:"This mother is happy."},
+    {lw:["Te","wa","tahu","falo","tahe"],     en:"You ate that food."},
+    {lw:["Maya","su","falo","yoye"],          en:"Maya is that sister."},
+  ],
+
+  // L33 — Plurals: These and Those (sentence-based)
+  // Introduces loa, faloa. Generalizes the -a plural rule from pronouns
+  // (taught L7) to all nouns. Reinforces plural possessives (-eoa)
+  // taught earlier in L13/L15. Uses five different noun plurals across
+  // seven sentences for strong rule exposure.
+  l33_plurals: [
+    {lw:["Loa","piwea","su","houli"],                  en:"These children are happy."},
+    {lw:["Faloa","wamea","su","tauki"],                en:"Those friends are angry."},
+    {lw:["Lo","mawe","nawu","veo","piwea"],            en:"This mother loves her children."},
+    {lw:["Veoa","loyea","su","moyeri"],                en:"Their brothers are afraid."},
+    {lw:["Te","wa","senu","faloa","piwea"],            en:"You knew those children."},
+    {lw:["Faloa","mawea","su","muhi"],                 en:"Those mothers are worried."},
+    {lw:["Loa","yoyea","su","moyeri"],                 en:"These sisters are afraid."},
+  ],
+
+  // L34 — And, But, Or, With (sentence-based)
+  // Introduces sho, ma, au, ko. 12 sentences (3 per connector) since
+  // four connectors need fair practice across different grammatical
+  // frames. Spirals possessives, modals, tense, negation, copula,
+  // feelings, and family vocabulary from Units 1–5.
+  l34_andbutorwith: [
+    {lw:["Yuna","sho","Kai","su","wamea"],                en:"Yuna and Kai are friends."},
+    {lw:["Neo","mawe","sho","neo","powe","nawu","ne"],    en:"My mother and father love me."},
+    {lw:["Ne","wa","tahu","sho","ne","wa","shahu"],       en:"I ate and I drank."},
+    {lw:["Ne","su","houli,","ma","Maya","su","mohouli"],  en:"I'm happy, but Maya is sad."},
+    {lw:["Ne","wamu","Yuna,","ma","ne","mai","wamu","Kai"], en:"I like Yuna, but I don't like Kai."},
+    {lw:["Ve","su","wame,","ma","ve","mai","su","loye"],  en:"She's a friend, but she's not a brother."},
+    {lw:["Ne","wanu","tahe","au","shahe"],                en:"I want food or a drink."},
+    {lw:["Maya","wu","wamu","Yuna","au","Kai"],           en:"Maya will like Yuna or Kai."},
+    {lw:["Te","shihu","tahu","au","shahu"],               en:"You should eat or drink."},
+    {lw:["Ne","tahu","ko","Maya"],                        en:"I eat with Maya."},
+    {lw:["Yuna","su","ko","veo","wahe"],                  en:"Yuna is with her family."},
+    {lw:["Te","wu","liru","ko","ne"],                     en:"You will speak with me."},
+  ],
+
+  // L35 — Without, Very, Also (vocab)
+  // Introduces moko (without), ori (very), vini (also). moko taught via
+  // the mo- rule (mo- + ko = without). ori and vini taught as adverbs
+  // only — noun forms (ore, vine) stay in dictionary per the L25/L27
+  // canvas-form-selection precedent.
+  l35_intensifiers: [
+    {lw:"moko", en:"without", pos:"prep"},
+    {lw:"ori",  en:"very",    pos:"adv"},
+    {lw:"vini", en:"also",    pos:"adv"},
+  ],
+
+  // L36 — Asking Questions: Yes/No, When, How, Why (sentence-based)
+  // Introduces ki (yes/no question particle), kime (when), kishe (how),
+  // kiwi (why). Completes the WH-question set (kiwa what, kipue who
+  // taught earlier; kiya where reserved for Unit 7 Places).
+  l36_questions: [
+    {lw:["Ki","te","wanu","tahe"],                en:"Do you want food?"},
+    {lw:["Ki","ve","wa","liru"],                  en:"Did she speak?"},
+    {lw:["Kime","te","wa","tahu"],                en:"When did you eat?"},
+    {lw:["Kishe","te","su"],                      en:"How are you?"},
+    {lw:["Kiwi","ve","su","tauki"],               en:"Why is she angry?"},
+    {lw:["Kime","Maya","wu","liru"],              en:"When will Maya speak?"},
+    {lw:["Kiwi","te","mai","wamu","Kai"],         en:"Why don't you like Kai?"},
+  ],
+
+  // L37 — Unit 6 Exam (sentence-based, isCheckpoint:true)
+  // Mixed practice across L32–L36 plus prior units. No new forms.
+  // 8 sentences covering 13 of the 14 new Unit 6 forms.
+  l37_exam: [
+    {lw:["Lo","wame","su","ori","houli"],                                en:"This friend is very happy."},
+    {lw:["Loa","piwea","sho","neoa","mawea","su","tauki"],               en:"These children and our mothers are angry."},
+    {lw:["Kime","te","wa","liru","ko","Maya"],                           en:"When did you speak with Maya?"},
+    {lw:["Maya","vini","wa","tahu","lo lawe"],                           en:"Maya also ate today."},
+    {lw:["Ki","ve","wanu","shahu"],                                      en:"Does she want to drink?"},
+    {lw:["Faloa","wamea","su","muhi,","ma","loa","wamea","su","houli"],  en:"Those friends are anxious, but these friends are happy."},
+    {lw:["Te","shihu","tahu","moko","Kai"],                              en:"You should eat without Kai."},
+    {lw:["Te","shihu","liru","ko","Yuna","au","Kai"],                    en:"You should speak with Yuna or Kai."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1180,6 +1269,7 @@ const UNITS = [
   {name:"Unit 3 — Family & People", start:12},
   {name:"Unit 4 — Wants, Needs, Feelings", start:18},
   {name:"Unit 5 — Time and Tense", start:24},
+  {name:"Unit 6 — Connectors and Demonstratives", start:31},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1497,6 +1587,77 @@ const LESSONS = [
    unit:4,
    isReview:true,
    reviewPool:["l25_past","l26_future","l27_timewords","l28_anchors"]},
+
+  // ── UNIT 6: CONNECTORS AND DEMONSTRATIVES (L32–L38) ──────────────────
+  {id:"l32_thisthat",
+   title:"This and That",
+   desc:"lo, falo",
+   icon:"👉",
+   vocabKey:"l32_thisthat",
+   xp:20,
+   unit:5,
+   isSentence:true,
+   intro:`<h3>👉 Pointing things out</h3><p>Liru has two demonstratives — words for "this" and "that":</p><ul><li><em>lo</em> — this (close to me)</li><li><em>falo</em> — that (over there)</li></ul><p>They go right before the noun:</p><span class="example">lo piwe <span class="gloss">this child</span></span><span class="example">falo wame <span class="gloss">that friend</span></span><p>Liru has no equivalent of English "the" or "a." When you want to point to a specific one, use <em>lo</em> or <em>falo</em>. Without them, <em>piwe</em> on its own can mean "child," "the child," or "a child" depending on context.</p><p>You've been using <em>lo</em> already without realizing it — <em>lo lawe</em> (today) is literally "this day." That same <em>lo</em> can attach to any noun.</p>`},
+
+  {id:"l33_plurals",
+   title:"Plurals: These and Those",
+   desc:"loa, faloa + the -a plural rule",
+   icon:"👥",
+   vocabKey:"l33_plurals",
+   xp:22,
+   unit:5,
+   isSentence:true,
+   intro:`<h3>👥 More than one</h3><p>You already know how to make a pronoun plural — add <em>-a</em>: <em>ne</em> → <em>nea</em>, <em>te</em> → <em>tea</em>, <em>ve</em> → <em>vea</em>.</p><p>The same rule works for any noun:</p><ul><li><em>piwe</em> → <em>piwea</em> (children)</li><li><em>wame</em> → <em>wamea</em> (friends)</li><li><em>mawe</em> → <em>mawea</em> (mothers)</li></ul><p>One rule for both. Pronouns and nouns pluralize the same way: just add <em>-a</em>.</p><h3>👈 Pointing at more than one</h3><p>Demonstratives also pluralize the same way:</p><ul><li><em>loa</em> — these (plural of <em>lo</em>)</li><li><em>faloa</em> — those (plural of <em>falo</em>)</li></ul><p>Use them with plural nouns:</p><span class="example">loa piwea <span class="gloss">these children</span></span><span class="example">faloa wamea <span class="gloss">those friends</span></span><h3>👪 Talking about a group's things</h3><p>You already know the plural possessives from earlier lessons: <em>neoa</em> (our), <em>veoa</em> (their). They're built the same way as everything else — start with the singular possessive (<em>neo</em>, <em>veo</em>) and add <em>-a</em>:</p><ul><li><em>neo</em> (my) → <em>neoa</em> (our)</li><li><em>veo</em> (his/her) → <em>veoa</em> (their)</li></ul><p>They work in front of plural nouns too — both pieces just add <em>-a</em>:</p><span class="example">neoa mawea <span class="gloss">our mothers</span></span><span class="example">veoa loyea <span class="gloss">their brothers</span></span><p>The pattern is consistent: anywhere you'd want to mark "more than one," add <em>-a</em>.</p>`},
+
+  {id:"l34_andbutorwith",
+   title:"And, But, Or, With",
+   desc:"sho, ma, au, ko",
+   icon:"🔗",
+   vocabKey:"l34_andbutorwith",
+   xp:24,
+   unit:5,
+   isSentence:true,
+   intro:`<h3>🔗 Joining ideas</h3><p>Four short words let you join nouns, clauses, and people:</p><ul><li><em>sho</em> — and</li><li><em>ma</em> — but</li><li><em>au</em> — or</li><li><em>ko</em> — with</li></ul><h3><em>sho</em> (and)</h3><p><em>sho</em> joins two nouns or two clauses:</p><span class="example">Yuna sho Kai su wamea. <span class="gloss">Yuna and Kai are friends.</span></span><span class="example">Ne tahu sho ne shahu. <span class="gloss">I'm eating and drinking.</span></span><h3><em>ma</em> (but)</h3><p><em>ma</em> connects a contrast:</p><span class="example">Ne su houli, ma Maya su mohouli. <span class="gloss">I'm happy, but Maya is sad.</span></span><h3><em>au</em> (or)</h3><p><em>au</em> gives a choice between two things:</p><span class="example">Ne wanu tahe au shahe. <span class="gloss">I want food or a drink.</span></span><h3><em>ko</em> (with)</h3><p><em>ko</em> attaches to a noun or pronoun to mean "in the company of":</p><span class="example">Ne tahu ko Maya. <span class="gloss">I eat with Maya.</span></span><span class="example">Yuna su ko veo wahe. <span class="gloss">Yuna is with her family.</span></span>`},
+
+  {id:"l35_intensifiers",
+   title:"Without, Very, Also",
+   desc:"moko, ori, vini",
+   icon:"💪",
+   vocabKey:"l35_intensifiers",
+   xp:20,
+   unit:5,
+   intro:`<h3>🚫 Without — and the <em>mo-</em> rule again</h3><p><em>moko</em> means "without" — the opposite of <em>ko</em> "with." That's the <em>mo-</em> rule you've already met (in <em>mohouli</em> "sad" from <em>houli</em> "happy"): put <em>mo-</em> on the front of a word to flip it to its balancing partner.</p><span class="example">Ne tahu ko Maya. <span class="gloss">I eat with Maya.</span></span><span class="example">Ne tahu moko Maya. <span class="gloss">I eat without Maya.</span></span><h3>💪 Very and Also</h3><p>Two short adverbs add nuance to your sentences:</p><ul><li><em>ori</em> — very (or really, intensely)</li><li><em>vini</em> — also (or too, in addition)</li></ul><p><em>ori</em> comes before an adjective to intensify it:</p><span class="example">Ne su ori houli. <span class="gloss">I am very happy.</span></span><span class="example">Maya su ori tauki. <span class="gloss">Maya is very angry.</span></span><p><em>vini</em> comes before the verb to mean "also" or "too":</p><span class="example">Ve vini wa liru. <span class="gloss">She also spoke.</span></span><span class="example">Ne vini wamu Yuna. <span class="gloss">I also like Yuna.</span></span>`},
+
+  {id:"l36_questions",
+   title:"Asking Questions",
+   desc:"ki, kime, kishe, kiwi",
+   icon:"❓",
+   vocabKey:"l36_questions",
+   xp:22,
+   unit:5,
+   isSentence:true,
+   intro:`<h3>❓ Asking yes/no questions</h3><p>Liru has one more question word — <em>ki</em>, the yes/no question particle. Put it at the front of any normal sentence to turn it into a yes/no question:</p><span class="example">Te wanu tahe. <span class="gloss">You want food.</span></span><span class="example">Ki te wanu tahe? <span class="gloss">Do you want food?</span></span><p>The answer is <em>ai</em> (yes) or <em>mai</em> (no) — words you've known since Unit 1.</p><h3>🗓️ Three more question words</h3><p>You already know <em>kiwa</em> (what) and <em>kipue</em> (who). Three more complete the WH-set:</p><ul><li><em>kime</em> — when</li><li><em>kishe</em> — how</li><li><em>kiwi</em> — why</li></ul><p>All three go at the front of the sentence, like <em>kiwa</em> and <em>kipue</em>:</p><span class="example">Kime te wa tahu? <span class="gloss">When did you eat?</span></span><span class="example">Kishe te su? <span class="gloss">How are you?</span></span><span class="example">Kiwi ve su tauki? <span class="gloss">Why is she angry?</span></span><p>The rest of the sentence stays in normal SVO order, with the unknown piece simply absent — same rule as before.</p>`},
+
+  {id:"l37_exam",
+   title:"Unit 6 Exam: Connectors and Demonstratives",
+   desc:"Three hearts, three mistakes",
+   icon:"🌊",
+   vocabKey:"l37_exam",
+   xp:24,
+   unit:5,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>🌊 Unit 6 Exam</h3><p>This is your Unit 6 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — demonstratives, plurals, connectors, intensifiers, and the new question words — is fair game, alongside what you know from Units 1–5.</p>`},
+
+  {id:"l38_review",
+   title:"Unit 6 Recap",
+   desc:"Recap everything from Unit 6",
+   icon:"🔁",
+   vocabKey:"_review",
+   xp:25,
+   unit:5,
+   isReview:true,
+   reviewPool:["l32_thisthat","l33_plurals","l34_andbutorwith","l35_intensifiers","l36_questions"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
