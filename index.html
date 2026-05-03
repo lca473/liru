@@ -1080,6 +1080,87 @@ const V = {
     {lw:["Kipue","su","muhi"],                        en:"Who is anxious?"},
   ],
 
+  // ──────────────────────────────────────────────────────────────────
+  // UNIT 5: TIME AND TENSE (L25–L31)
+  // ──────────────────────────────────────────────────────────────────
+
+  // L25 — Past Tense (sentence-based; introduces wa, liru)
+  // First tense lesson. wa goes immediately before the verb. liru is the
+  // verb-only form of root lire (per L8/L9 precedent — verb-only intro).
+  l25_past: [
+    {lw:["Ne","wa","tahu"],                en:"I ate."},
+    {lw:["Ve","wa","shahu"],               en:"She drank."},
+    {lw:["Te","wa","liru"],                en:"You spoke."},
+    {lw:["Maya","wa","liru"],              en:"Maya spoke."},
+    {lw:["Yuna","wa","nawu","Kai"],        en:"Yuna loved Kai."},
+    {lw:["Nea","wa","senu","Maya"],        en:"We knew Maya."},
+    {lw:["Vea","wa","liru"],               en:"They spoke."},
+  ],
+
+  // L26 — Future Tense (sentence-based; introduces wu)
+  // Parallel structure to L25. wu before the verb.
+  l26_future: [
+    {lw:["Ne","wu","tahu"],                en:"I will eat."},
+    {lw:["Te","wu","shahu"],               en:"You will drink."},
+    {lw:["Ve","wu","liru"],                en:"She will speak."},
+    {lw:["Maya","wu","shahu"],             en:"Maya will drink."},
+    {lw:["Kai","wu","liru"],               en:"Kai will speak."},
+    {lw:["Vea","wu","tahu"],               en:"They will eat."},
+    {lw:["Tea","wu","senu","Maya"],        en:"You all will know Maya."},
+  ],
+
+  // L27 — Time Words (vocab; 4 flashcards)
+  // Three nouns + one adverb. wuhi (adv. "soon") rather than wuhe (n.
+  // "near-future") because adverbs are what learners actually need.
+  // No canvas drills will run on wuhi (adv-only).
+  l27_timewords: [
+    {lw:"lawe",   en:"day",   pos:"n"},
+    {lw:"molawe", en:"night", pos:"n"},
+    {lw:"wele",   en:"time",  pos:"n"},
+    {lw:"wuhi",   en:"soon",  pos:"adv"},
+  ],
+
+  // L28 — Today, Yesterday, Tomorrow (sentence-based)
+  // Phrases (lo lawe, wa lawe, wu lawe) stored as single tokens in lw arrays
+  // so they drag as units in word-order exercises and enroll as single SRS
+  // cards. DICTIONARY_RAW already has these as pos:"phrase" entries.
+  // Also introduces particles lole, wale, wule.
+  l28_anchors: [
+    {lw:["Ne","wa","tahu","lo lawe"],            en:"I ate today."},
+    {lw:["Wa lawe,","ve","wa","liru"],           en:"Yesterday, she spoke."},
+    {lw:["Nea","wu","tahu","wu lawe"],           en:"We will eat tomorrow."},
+    {lw:["Lole,","ne","tahu"],                   en:"Now, I'm eating."},
+    {lw:["Wale,","ne","wa","senu","Maya"],       en:"Before, I knew Maya."},
+    {lw:["Wule,","ve","wu","liru"],              en:"After, she will speak."},
+    {lw:["Kai","tahu","lo lawe"],                en:"Kai is eating today."},
+  ],
+
+  // L29 — Past & Future Negation (sentence-based; no new forms)
+  // Combines mai (L2) with wa (L25) and wu (L26). Per Grammar.md §5,
+  // mai is placed before the tense particle.
+  l29_negation: [
+    {lw:["Ne","mai","wa","tahu"],                       en:"I didn't eat."},
+    {lw:["Ve","mai","wu","liru"],                       en:"She won't speak."},
+    {lw:["Te","mai","wa","senu","Maya"],                en:"You didn't know Maya."},
+    {lw:["Wu lawe,","nea","mai","wu","tahu"],           en:"Tomorrow, we won't eat."},
+    {lw:["Maya","mai","wa","shahu","wa lawe"],          en:"Maya didn't drink yesterday."},
+    {lw:["Vea","mai","wu","liru","lo lawe"],            en:"They won't speak today."},
+    {lw:["Ne","mai","wa","nawu","Kai"],                 en:"I didn't love Kai."},
+  ],
+
+  // L30 — Time and Tense Practice (sentence-based; no new forms)
+  // Mixed practice combining tense particles, time anchors, negation, and
+  // material from Units 1–4.
+  l30_practice: [
+    {lw:["Wa lawe,","ne","wa","liru"],                  en:"Yesterday, I spoke."},
+    {lw:["Lole,","ve","tahu"],                          en:"Now, she's eating."},
+    {lw:["Wu lawe,","nea","wu","tahu"],                 en:"Tomorrow, we will eat."},
+    {lw:["Te","mai","wa","shahu","lo lawe"],            en:"You didn't drink today."},
+    {lw:["Kai","wu","liru","wuhi"],                     en:"Kai will speak soon."},
+    {lw:["Maya","nawu","veo","mawe"],                   en:"Maya loves her mother."},
+    {lw:["Wale,","ne","mai","wa","senu","teo","nile"],  en:"Before, I didn't know your name."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1098,6 +1179,7 @@ const UNITS = [
   {name:"Unit 2 — People & Actions", start:6},
   {name:"Unit 3 — Family & People", start:12},
   {name:"Unit 4 — Wants, Needs, Feelings", start:18},
+  {name:"Unit 5 — Time and Tense", start:24},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1340,6 +1422,76 @@ const LESSONS = [
    unit:3,
    isReview:true,
    reviewPool:["l19_likewant","l21_houli","l22_feelings2"]},
+
+  // ── UNIT 5: TIME AND TENSE (L25–L31) ─────────────────────────────────
+  {id:"l25_past",
+   title:"Past Tense",
+   desc:"wa + liru",
+   icon:"⏪",
+   vocabKey:"l25_past",
+   xp:20,
+   unit:4,
+   isSentence:true,
+   intro:`<h3>⏪ Talking about the past</h3><p>Liru marks past tense with the particle <em>wa</em>, placed right before the verb. Verbs themselves never change form.</p><span class="example">Ne tahu. <span class="gloss">I eat.</span></span><span class="example">Ne wa tahu. <span class="gloss">I ate.</span></span><h3>🗣️ One new verb</h3><p>This unit also introduces <em>liru</em> — to speak, talk, or say.</p><span class="example">Te liru. <span class="gloss">You speak.</span></span><span class="example">Te wa liru. <span class="gloss">You spoke.</span></span>`},
+
+  {id:"l26_future",
+   title:"Future Tense",
+   desc:"wu",
+   icon:"⏩",
+   vocabKey:"l26_future",
+   xp:20,
+   unit:4,
+   isSentence:true,
+   intro:`<h3>⏩ Talking about the future</h3><p>Future tense works the same way as past — just swap <em>wa</em> for <em>wu</em>.</p><span class="example">Ne tahu. <span class="gloss">I eat.</span></span><span class="example">Ne wa tahu. <span class="gloss">I ate.</span></span><span class="example">Ne wu tahu. <span class="gloss">I will eat.</span></span><p>Same particle position, same rule: right before the verb.</p>`},
+
+  {id:"l27_timewords",
+   title:"Day, Night, Time, Soon",
+   desc:"lawe, molawe, wele, wuhi",
+   icon:"🌗",
+   vocabKey:"l27_timewords",
+   xp:18,
+   unit:4,
+   intro:`<h3>🌗 Words for time</h3><p>Liru has clean roots for the basics of time:</p><ul><li><em>lawe</em> — day</li><li><em>molawe</em> — night</li><li><em>wele</em> — time</li><li><em>wuhi</em> — soon</li></ul><p>Notice <em>lawe</em> and <em>molawe</em> — that's the <em>mo-</em> rule again, day balanced by night. <em>wele</em> is the abstract noun for time itself, and <em>wuhi</em> means "soon."</p>`},
+
+  {id:"l28_anchors",
+   title:"Today, Yesterday, Tomorrow",
+   desc:"lo lawe, wa lawe, wu lawe + lole, wale, wule",
+   icon:"📅",
+   vocabKey:"l28_anchors",
+   xp:22,
+   unit:4,
+   isSentence:true,
+   intro:`<h3>📅 The everyday time anchors</h3><p>Liru builds today, yesterday, and tomorrow transparently from words you already know:</p><ul><li><em>lo lawe</em> (this + day) → today</li><li><em>wa lawe</em> (past + day) → yesterday</li><li><em>wu lawe</em> (future + day) → tomorrow</li></ul><p>Three more particles round out the toolkit:</p><ul><li><em>lole</em> — now</li><li><em>wale</em> — before</li><li><em>wule</em> — after</li></ul><span class="example">Ne wa tahu lo lawe. <span class="gloss">I ate today.</span></span><span class="example">Lole, ne tahu. <span class="gloss">Now, I'm eating.</span></span>`},
+
+  {id:"l29_negation",
+   title:"Past & Future Negation",
+   desc:"mai wa, mai wu",
+   icon:"🚫",
+   vocabKey:"l29_negation",
+   xp:20,
+   unit:4,
+   isSentence:true,
+   intro:`<h3>🚫 "Didn't" and "won't"</h3><p>Negation works in both tenses — <em>mai</em> goes before the tense particle.</p><span class="example">Ne mai tahu. <span class="gloss">I don't eat.</span></span><span class="example">Ne mai wa tahu. <span class="gloss">I didn't eat.</span></span><span class="example">Ne mai wu tahu. <span class="gloss">I won't eat.</span></span><p>The order is always <em>mai</em> → tense particle → verb.</p>`},
+
+  {id:"l30_practice",
+   title:"Time and Tense Practice",
+   desc:"Combine everything from Unit 5",
+   icon:"🌊",
+   vocabKey:"l30_practice",
+   xp:22,
+   unit:4,
+   isSentence:true,
+   intro:`<h3>🌊 Putting it together</h3><p>Time to use everything from this unit together: tense particles, time anchors, and negation, alongside everything you know from Units 1–4. Read each sentence aloud in English first, then assemble.</p>`},
+
+  {id:"l31_review",
+   title:"Unit 5 Review",
+   desc:"Review everything from Unit 5",
+   icon:"🔁",
+   vocabKey:"_review",
+   xp:25,
+   unit:4,
+   isReview:true,
+   reviewPool:["l25_past","l26_future","l27_timewords","l28_anchors"]},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
@@ -3726,7 +3878,7 @@ function renderTF(ex){
       if(val===ex.correct)cls+=" correct";
       else if(val===state.tfSelected)cls+=" wrong";
       else cls+=" faded";
-    }
+    } else if(state.tfSelected===val){cls+=" selected";}
     return `<button class="${cls}" data-tf="${val}" ${state.tfAnswered?'disabled':''} style="text-align:center">${label==="TRUE"?"✓ TRUE":"✗ FALSE"}</button>`;
   }).join("");
   const checkHTML=!state.tfAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${state.tfSelected!==null?'':'disabled'}>CHECK</button></div>`:"";
