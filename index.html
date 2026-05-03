@@ -1247,6 +1247,95 @@ const V = {
     {lw:["Te","shihu","liru","ko","Yuna","au","Kai"],                    en:"You should speak with Yuna or Kai."},
   ],
 
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 7 — PLACES AND GOING (L39–L43)
+  // ════════════════════════════════════════════════════════════════
+  // L39: l39_goingcoming — sentence-based; introduces halu, vanu, movanu
+  // L40: l40_places      — vocab; hiwe (+hiwu), kewe, yahe, tieme, senehiwe, kupetieme
+  // L41: l41_locatives   — sentence-based; introduces ya, wo, mowo, so, fa
+  //                        (leu, moleu deferred to Unit 12 where natural pairings exist)
+  // L42: l42_herethere   — sentence-based; introduces loya, faloya, kiya
+  // L43: l43_exam        — Unit 7 exam (isCheckpoint:true)
+  //
+  // Recurring characters: Yuna, Kai, Maya from prior units.
+
+  // L39 — Going and Coming
+  // Two motion verbs plus the mo- pair *movanu*. Sentences are intransitive
+  // or use known proper nouns; locative particles arrive in L41.
+  l39_goingcoming: [
+    {lw:["Ne","halu"],                       en:"I go."},
+    {lw:["Te","vanu"],                       en:"You come."},
+    {lw:["Maya","wa","vanu","lo lawe"],      en:"Maya came today."},
+    {lw:["Ne","wu","halu"],                  en:"I will go."},
+    {lw:["Ki","te","wa","vanu"],             en:"Did you come?"},
+    {lw:["Kai","wa","movanu"],               en:"Kai left."},
+    {lw:["Nea","sahu","vanu"],               en:"We can come."},
+  ],
+
+  // L40 — Places (vocab)
+  // Six place-noun roots. *hiwu* taught as canvas verb of *hiwe*.
+  // *senehiwe* and *kupetieme* are productive compounds (Grammar.md §19).
+  // Mechanical-tagged adj/v forms are excluded from flashcards but stay
+  // valid Liru forms in the dictionary.
+  l40_places: [
+    {lw:"hiwe",       en:"house (or home)",    pos:"n",
+     canvas:{adj:"hiwi", adj_en:"home-related", adj_tier:"mechanical",
+             v:"hiwu",   v_en:"to live (or dwell)"}},
+    {lw:"kewe",       en:"room",               pos:"n",
+     canvas:{adj:"kewi", adj_en:"room-related", adj_tier:"mechanical"}},
+    {lw:"yahe",       en:"place",              pos:"n",
+     canvas:{adj:"yahi", adj_en:"local",        adj_tier:"mechanical",
+             v:"yahu",   v_en:"to locate",      v_tier:"mechanical"}},
+    {lw:"tieme",      en:"store (or shop)",    pos:"n",
+     canvas:{adj:"tiemi", adj_en:"commercial",  adj_tier:"mechanical",
+             v:"tiemu",   v_en:"to run a store", v_tier:"mechanical"}},
+    {lw:"senehiwe",   en:"school",             pos:"n"},
+    {lw:"kupetieme",  en:"café",               pos:"n"},
+  ],
+
+  // L41 — Locative Particles (sentence-based)
+  // Five particles: ya (at), wo (in), mowo (out), so (to), fa (from).
+  // *leu* and *moleu* deferred to Unit 12 (need tree/sky/etc. for natural
+  // drill pairings). *mowo* is the mo- derivation of *wo*, taught together.
+  l41_locatives: [
+    {lw:["Ne","su","ya","hiwe"],                  en:"I am at the house."},
+    {lw:["Maya","su","wo","kewe"],                en:"Maya is in the room."},
+    {lw:["Kai","su","mowo","senehiwe"],           en:"Kai is outside the school."},
+    {lw:["Ne","halu","so","kupetieme"],           en:"I go to the café."},
+    {lw:["Ve","wa","vanu","fa","hiwe"],           en:"She came from the house."},
+    {lw:["Yuna","su","ya","tieme"],               en:"Yuna is at the store."},
+    {lw:["Nea","wa","halu","so","senehiwe"],      en:"We went to the school."},
+  ],
+
+  // L42 — Here, There, and Where (sentence-based)
+  // Locative-extended demonstratives loya/faloya plus the question word kiya.
+  // Particle-drop in *kiya* questions is shown in the intro card and
+  // exercised in sentences 4, 7 (so/fa drop respectively).
+  l42_herethere: [
+    {lw:["Ne","su","loya"],                      en:"I am here."},
+    {lw:["Maya","su","faloya"],                  en:"Maya is there."},
+    {lw:["Kiya","te","su"],                      en:"Where are you?"},
+    {lw:["Kiya","Yuna","halu"],                  en:"Where is Yuna going?"},
+    {lw:["Te","vanu","loya"],                    en:"You come here."},
+    {lw:["Kai","wa","halu","faloya"],            en:"Kai went there."},
+    {lw:["Kiya","ve","wa","vanu"],               en:"Where did she come from?"},
+  ],
+
+  // L43 — Unit 7 Exam (sentence-based, isCheckpoint:true)
+  // Mixed practice across L39–L42 plus prior units. No new forms.
+  // 8 sentences covering all 5 particles, all motion verbs, and the
+  // demonstrative + question-word pieces.
+  l43_exam: [
+    {lw:["Ne","halu","so","hiwe"],                                en:"I go to the house."},
+    {lw:["Maya","su","wo","kewe"],                                en:"Maya is in the room."},
+    {lw:["Kiya","tea","wa","halu"],                               en:"Where did you all go?"},
+    {lw:["Yuna","sho","Kai","wa","vanu","fa","kupetieme"],        en:"Yuna and Kai came from the café."},
+    {lw:["Lo","wame","su","ya","senehiwe"],                       en:"This friend is at the school."},
+    {lw:["Ki","te","wa","hiwu","wo","lo","hiwe"],                 en:"Did you live in this house?"},
+    {lw:["Ne","mai","wamu","lo","tieme"],                         en:"I don't like this store."},
+    {lw:["Kiya","neoa","wamea","su"],                             en:"Where are our friends?"},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1267,6 +1356,7 @@ const UNITS = [
   {name:"Unit 4 — Wants, Needs, Feelings", start:15},
   {name:"Unit 5 — Time and Tense", start:20},
   {name:"Unit 6 — Connectors and Demonstratives", start:26},
+  {name:"Unit 7 — Places and Going", start:32},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1595,6 +1685,58 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>🌊 Unit 6 Exam</h3><p>This is your Unit 6 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — demonstratives, plurals, connectors, intensifiers, and the new question words — is fair game, alongside what you know from Units 1–5.</p>`},
+
+  // ── UNIT 7: PLACES AND GOING (L39–L43) ────────────────────────────────
+
+  {id:"l39_goingcoming",
+   title:"Going and Coming",
+   desc:"halu, vanu, movanu",
+   icon:"🚶",
+   vocabKey:"l39_goingcoming",
+   xp:18,
+   unit:6,
+   isSentence:true,
+   intro:`<h3>🚶 Going and coming</h3><p>Two of the most-used verbs in any language. <em>halu</em> means <strong>to go</strong> and <em>vanu</em> means <strong>to come.</strong> Like every Liru verb, they end in <em>-u</em>.</p><span class="example">Ne halu. <span class="gloss">I go.</span></span><span class="example">Te vanu. <span class="gloss">You come.</span></span><h3>📍 Adding a destination</h3><p>A bare <em>halu</em> with no destination is fine ("I'm leaving / I'm going"), but most of the time you'll want to say where to. Liru uses small location-marking words for that — you'll meet them in the next two lessons.</p><h3>🔁 <em>movanu</em> — to leave</h3><p>Add <em>mo-</em> to <em>vanu</em> and you get <em>movanu</em> — the opposite of <em>vanu</em>. Where <em>vanu</em> is "come" or "arrive," <em>movanu</em> is "leave" or "depart."</p><span class="example">Ve wa movanu. <span class="gloss">She left.</span></span>`},
+
+  {id:"l40_places",
+   title:"Places",
+   desc:"hiwe, kewe, yahe, tieme, senehiwe, kupetieme",
+   icon:"🏠",
+   vocabKey:"l40_places",
+   xp:20,
+   unit:6,
+   intro:`<h3>🏠 Places people go</h3><p>Six places to anchor the rest of this unit.</p><h3>🏡 Home</h3><p><em>hiwe</em> — house, or home. The verb form <em>hiwu</em> means <strong>to live</strong> or <strong>to dwell</strong> somewhere.</p><h3>🧱 Productive compounds</h3><p><em>senehiwe</em> (school) is <em>sene</em> (knowledge) + <em>hiwe</em> (house) — literally "knowledge house." <em>kupetieme</em> (café) is <em>kupe</em> (coffee) + <em>tieme</em> (store). Liru builds compound nouns by sticking smaller words together — once you know the parts, the whole is transparent.</p><h3>📍 <em>yahe</em> — place</h3><p><em>yahe</em> is the generic word for "place" or "location" — useful when you don't have a more specific noun.</p>`},
+
+  {id:"l41_locatives",
+   title:"Locative Particles",
+   desc:"ya, wo, mowo, so, fa",
+   icon:"📍",
+   vocabKey:"l41_locatives",
+   xp:22,
+   unit:6,
+   isSentence:true,
+   intro:`<h3>📍 Where things are</h3><p>Liru marks locations with small particles that go between the noun and the location. There's no equivalent of English <em>the</em> — just the noun and the particle.</p><h3>🧍 Static location: <em>ya</em>, <em>wo</em></h3><p>These say where something <strong>is.</strong></p><ul><li><em>ya</em> — at</li><li><em>wo</em> — in / inside</li></ul><span class="example">Ne su ya hiwe. <span class="gloss">I am at the house.</span></span><span class="example">Maya su wo kewe. <span class="gloss">Maya is in the room.</span></span><h3>🚪 <em>mowo</em> — outside</h3><p>Add <em>mo-</em> to <em>wo</em> and you flip it around — same productive <em>mo-</em> rule from Unit 4.</p><span class="example">Yuna su mowo hiwe. <span class="gloss">Yuna is outside the house.</span></span><h3>🏃 Motion: <em>so</em>, <em>fa</em></h3><p>These mark where motion is heading or coming from.</p><ul><li><em>so</em> — to / toward</li><li><em>fa</em> — from</li></ul><span class="example">Ne halu so kupetieme. <span class="gloss">I go to the café.</span></span><span class="example">Ve wa vanu fa hiwe. <span class="gloss">She came from the house.</span></span>`},
+
+  {id:"l42_herethere",
+   title:"Here, There, and Where",
+   desc:"loya, faloya, kiya",
+   icon:"👉",
+   vocabKey:"l42_herethere",
+   xp:22,
+   unit:6,
+   isSentence:true,
+   intro:`<h3>👉 Here, there, where</h3><p>Three more locative words — two adverbs and one question word. They build on words you already know.</p><h3>📍 <em>loya</em> — here / <em>faloya</em> — there</h3><p>Remember <em>lo</em> (this) and <em>falo</em> (that) from Unit 6? Add <em>-ya</em> (the locative particle) and you get the matching place adverb:</p><ul><li><em>lo</em> (this) → <em>loya</em> (here, at this place)</li><li><em>falo</em> (that) → <em>faloya</em> (there, at that place)</li></ul><span class="example">Ne su loya. <span class="gloss">I am here.</span></span><span class="example">Maya su faloya. <span class="gloss">Maya is there.</span></span><p>These work like English "here" and "there" — they don't need a separate locative particle.</p><h3>❓ <em>kiya</em> — where</h3><p><em>kiya</em> is the question word for "where" — it joins the WH-set you learned in Unit 6 (<em>kiwa</em>, <em>kipue</em>, <em>kime</em>, <em>kishe</em>, <em>kiwi</em>).</p><span class="example">Kiya te su? <span class="gloss">Where are you?</span></span><span class="example">Kiya Maya halu? <span class="gloss">Where is Maya going?</span></span><h3>✂️ Particle drop in <em>kiya</em> questions</h3><p>When you ask "where to?" or "where from?", the locative particle (<em>so</em>, <em>fa</em>, <em>ya</em>) <strong>drops</strong> in the question. Context tells the listener what was meant.</p><span class="example">Kiya te halu? <span class="gloss">Where are you going? (no <em>so</em> needed)</span></span><span class="example">Kiya ve wa vanu? <span class="gloss">Where did she come from? (no <em>fa</em> needed)</span></span>`},
+
+  {id:"l43_exam",
+   title:"Unit 7 Exam: Places and Going",
+   desc:"Three hearts, three mistakes",
+   icon:"🏠",
+   vocabKey:"l43_exam",
+   xp:24,
+   unit:6,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>🏠 Unit 7 Exam</h3><p>This is your Unit 7 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — going and coming, locative particles, places, here/there/where — is fair game, alongside what you know from Units 1–6.</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
