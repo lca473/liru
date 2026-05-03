@@ -1230,14 +1230,15 @@ const LESSONS = [
    intro:`<h3>❓ Asking someone's name</h3><p><em>te</em> means "you." Add <em>-o</em> to a pronoun to make it possessive: <em>teo</em> means "your," and the same pattern gives <em>neo</em> ("my") from <em>ne</em>.</p><p><em>kiwa</em> is the question word for "what." Liru questions always start with the question word, then the rest of the sentence is in normal order:</p><span class="example">Kiwa su teo nile? <span class="gloss">What is your name?</span></span><p>Literally: "what is your name?" The unknown sits at the front and the rest of the sentence stays in place.</p><p><em>nile</em> is "name" — used the same way as in English.</p>`},
 
   {id:"l5_practice",
-   title:"Greeting Conversations",
-   desc:"Put it all together",
+   title:"Unit 1 Exam: Greeting Conversations",
+   desc:"Three hearts, three mistakes",
    icon:"💬",
    vocabKey:"l5_practice",
    xp:20,
    unit:0,
    isSentence:true,
-   intro:`<h3>💬 Putting it all together</h3><p>You now have everything you need for a first meeting in Liru. Here's how a real exchange might go:</p><span class="example">Waimo, Yuna. <span class="gloss">Hello, Yuna.</span></span><span class="example">Ne su Kai. Kiwa su teo nile? <span class="gloss">I am Kai. What is your name?</span></span><span class="example">Reiwa. <span class="gloss">Thank you.</span></span><span class="example">Su mo. Weriko. <span class="gloss">You're welcome. Goodbye.</span></span><p>This lesson practices the building blocks one sentence at a time.</p>`},
+   isCheckpoint:true,
+   intro:`<h3>💬 Unit 1 Exam</h3><p>This is your Unit 1 exam. <strong>Three hearts, three mistakes.</strong> Pass it to advance to Unit 2.</p><p>You've got everything you need for a first meeting in Liru — greetings, names, the social expressions, and the question word for "what." Here's how a real exchange might go:</p><span class="example">Waimo, Yuna. <span class="gloss">Hello, Yuna.</span></span><span class="example">Ne su Kai. Kiwa su teo nile? <span class="gloss">I am Kai. What is your name?</span></span><span class="example">Reiwa. <span class="gloss">Thank you.</span></span><span class="example">Su mo. Weriko. <span class="gloss">You're welcome. Goodbye.</span></span>`},
 
   {id:"l6_review",
    title:"Unit 1 Recap",
@@ -4003,8 +4004,10 @@ function renderWordOrder(ex){
   let resultHTML="";
   if(state.woAnswered){
     resultHTML=renderResultBanner(state.woCorrect, correctStr);
-    // If the user had the right words in the wrong order, add a gentle hint below.
-    if(state.woCorrect && state.woOrderHint){
+    // If the user had the right words in the wrong order, show the natural-order hint.
+    // The hint appears on a wrong answer (since wrong order is now wrong); the wrong-answer
+    // path doesn't auto-advance, so the learner has time to read it.
+    if(!state.woCorrect && state.woOrderHint){
       resultHTML+=`<div style="margin-top:10px;padding:12px 14px;background:rgba(28,176,246,0.06);border:1.5px solid var(--blue);border-radius:12px;color:var(--blue);font-size:13px;font-weight:700" class="fade-in">📝 Right words! The natural order is: <strong>${escapeHTML(correctStr)}</strong></div>`;
     }
   }
@@ -4033,25 +4036,23 @@ function bindWordOrder(ex){
     const correctStr=ex.correctOrder.join(" ").toLowerCase();
     const alts=(ex.correctOrderAlts||[]).map(a=>a.join(" ").toLowerCase());
     const exactMatch=userStr===correctStr||alts.includes(userStr);
-    // Leniency: if words match as a multiset (same words, different order), accept
-    // and show a hint about the natural ordering.
-    let lenientMatch=false;
+    // Detect "right words, wrong order" so we can show a helpful hint on the wrong banner.
+    let rightWordsWrongOrder=false;
     if(!exactMatch){
       const norm=arr=>arr.map(s=>s.toLowerCase()).sort().join("|");
       const userMultiset=norm(state.woSelected);
       const correctMultiset=norm(ex.correctOrder);
       if(userMultiset===correctMultiset){
-        lenientMatch=true;
+        rightWordsWrongOrder=true;
       } else {
-        // Also check alt orderings' multisets
         for(const alt of (ex.correctOrderAlts||[])){
-          if(norm(alt)===userMultiset){lenientMatch=true;break;}
+          if(norm(alt)===userMultiset){rightWordsWrongOrder=true;break;}
         }
       }
     }
-    const isCorrect=exactMatch||lenientMatch;
+    const isCorrect=exactMatch;
     handleAnswer(isCorrect);
-    setState({woAnswered:true, woCorrect:isCorrect, woOrderHint:lenientMatch});
+    setState({woAnswered:true, woCorrect:isCorrect, woOrderHint:rightWordsWrongOrder});
   });
 }
 
@@ -4377,11 +4378,13 @@ function renderComplete(){
       <div style="font-family:var(--display);font-size:28px;font-weight:800;color:#4A7A9E;margin-bottom:8px">You did it!</div>
       <div style="color:var(--dim);font-size:15px;margin-bottom:28px">+${state.accXP} XP earned · ${state.correct}/${state.exercises.length} correct</div>`;
     } else if(isCheckpoint){
+      const nextUnitNum=examUnitNum+1;
       innerHTML=`
       <div style="font-size:80px;margin-bottom:16px">🎉</div>
-      <div style="font-family:var(--display);font-size:32px;font-weight:800;color:#4A7A9E;margin-bottom:8px">Unit ${examUnitNum} Passed!</div>
-      <div style="color:var(--text);font-size:16px;font-weight:600;margin-bottom:8px">You crossed the unit. On to the next.</div>
-      <div style="color:var(--dim);font-size:15px;margin-bottom:28px">+${state.accXP} XP earned · ${state.correct}/${state.exercises.length} correct</div>`;
+      <div style="font-family:var(--display);font-size:32px;font-weight:800;color:#4A7A9E;margin-bottom:12px">Congratulations!!!</div>
+      <div style="color:var(--text);font-size:17px;font-weight:700;margin-bottom:6px">You completed Unit ${examUnitNum}.</div>
+      <div style="color:var(--text);font-size:15px;font-weight:600;margin-bottom:18px">Unit ${nextUnitNum} has now been unlocked.</div>
+      <div style="color:var(--dim);font-size:14px;margin-bottom:28px">+${state.accXP} XP earned · ${state.correct}/${state.exercises.length} correct</div>`;
     } else {
       innerHTML=`
       <div style="font-size:72px;margin-bottom:16px">🎉</div>
