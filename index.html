@@ -1336,6 +1336,88 @@ const V = {
     {lw:["Kiya","neoa","wamea","su"],                             en:"Where are our friends?"},
   ],
 
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 8 — ACTION VERBS (L44–L49)
+  // ════════════════════════════════════════════════════════════════
+  // L44: l44_sensory          — vocab; introduces tiru, liwu, paipe, mewe
+  // L45: l45_sensesentences   — sentence-based; drills L44 (no new forms)
+  // L46: l46_routine          — vocab; introduces rau, fasu, puhu
+  // L47: l47_exchange         — vocab; introduces feru, moferu, riku
+  // L48: l48_routinesentences — sentence-based; drills L46+L47 (no new forms)
+  // L49: l49_exam             — Unit 8 exam (isCheckpoint:true)
+  //
+  // Canvas policy: teach only the verb form per root; mechanical-tag the
+  // adjective forms (tiri, liwi, rai, fasi, puhi, feri, moferi, riki) and
+  // the animal-related adjectives (paipi, mewi). Per L40 precedent.
+
+  // L44 — To See, To Hear (vocab)
+  // Two sensory verbs plus the two animal nouns that drill them.
+  // Verbs use pos:"verb" with no canvas (matches L8/L9 pattern).
+  // Animal nouns use pos:"n" with mechanical-tagged canvas adjective.
+  l44_sensory: [
+    {lw:"tiru",  en:"to see",  pos:"verb"},
+    {lw:"liwu",  en:"to hear", pos:"verb"},
+    {lw:"paipe", en:"dog",     pos:"n",
+     canvas:{adj:"paipi", adj_en:"dog-related", adj_tier:"mechanical"}},
+    {lw:"mewe",  en:"cat",     pos:"n",
+     canvas:{adj:"mewi", adj_en:"cat-related", adj_tier:"mechanical"}},
+  ],
+
+  // L45 — Verbs in Sentences (sentence-based, no new forms)
+  // Drills tiru/liwu against paipe/mewe and known pronouns/anchors.
+  l45_sensesentences: [
+    {lw:["Ne","tiru","paipe"],                          en:"I see the dog."},
+    {lw:["Maya","liwu","mewe"],                         en:"Maya hears the cat."},
+    {lw:["Paipe","tiru","ne"],                          en:"The dog sees me."},
+    {lw:["Ki","te","liwu","paipe"],                     en:"Do you hear the dog?"},
+    {lw:["Ne","wa","tiru","mewe"],                      en:"I saw the cat."},
+    {lw:["Mewe","sho","paipe","su","loya"],             en:"The cat and dog are here."},
+    {lw:["Kipue","tiru","ne"],                          en:"Who sees me?"},
+  ],
+
+  // L46 — To Sleep, Work, Do (vocab)
+  // Three high-frequency daily-routine verbs. Verb-only, no canvas.
+  l46_routine: [
+    {lw:"rau",  en:"to sleep",           pos:"verb"},
+    {lw:"fasu", en:"to work",            pos:"verb"},
+    {lw:"puhu", en:"to do (or perform)", pos:"verb"},
+  ],
+
+  // L47 — To Give, Take, Find (vocab)
+  // Three exchange/finding verbs. moferu is the mo- pair of feru.
+  l47_exchange: [
+    {lw:"feru",   en:"to give",           pos:"verb"},
+    {lw:"moferu", en:"to take",           pos:"verb"},
+    {lw:"riku",   en:"to find (or meet)", pos:"verb"},
+  ],
+
+  // L48 — Verbs in Sentences II (sentence-based, no new forms)
+  // Drills L46 + L47 verbs. Sentences 4+5 deliberately pair feru/so and
+  // moferu/fa to reinforce the give/take + to/from symmetry.
+  l48_routinesentences: [
+    {lw:["Ne","rau","wo","kewe"],                       en:"I sleep in the room."},
+    {lw:["Maya","wa","fasu","lo lawe"],                 en:"Maya worked today."},
+    {lw:["Kiwa","te","puhu"],                           en:"What are you doing?"},
+    {lw:["Ne","feru","lo","so","Yuna"],                 en:"I give this to Yuna."},
+    {lw:["Kai","wa","moferu","lo","fa","ne"],           en:"Kai took this from me."},
+    {lw:["Ne","wa","riku","Maya","ya","senehiwe"],      en:"I met Maya at the school."},
+    {lw:["Tea","wa","rau"],                             en:"You all slept."},
+  ],
+
+  // L49 — Unit 8 Exam (sentence-based, isCheckpoint:true)
+  // Mixed practice across L44–L48 plus prior units. No new forms.
+  // 8 sentences covering all 8 new verbs and both new animals.
+  l49_exam: [
+    {lw:["Ne","tiru","lo","paipe"],                     en:"I see this dog."},
+    {lw:["Mewe","wa","rau","ya","hiwe"],                en:"The cat slept at the house."},
+    {lw:["Kiwa","te","puhu"],                           en:"What are you doing?"},
+    {lw:["Ne","wa","riku","Maya"],                      en:"I found Maya."},
+    {lw:["Tea","wa","fasu","lo lawe"],                  en:"You all worked today."},
+    {lw:["Kipue","wa","moferu","lo","paipe"],           en:"Who took this dog?"},
+    {lw:["Paipe","liwu","mewe"],                        en:"The dog hears the cat."},
+    {lw:["Ne","mai","senu"],                            en:"I don't know."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1357,6 +1439,7 @@ const UNITS = [
   {name:"Unit 5 — Time and Tense", start:20},
   {name:"Unit 6 — Connectors and Demonstratives", start:26},
   {name:"Unit 7 — Places and Going", start:32},
+  {name:"Unit 8 — Action Verbs", start:37},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1737,6 +1820,65 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>🏠 Unit 7 Exam</h3><p>This is your Unit 7 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — going and coming, locative particles, places, here/there/where — is fair game, alongside what you know from Units 1–6.</p>`},
+
+  // ── UNIT 8: ACTION VERBS (L44–L49) ───────────────────────────────────
+  {id:"l44_sensory",
+   title:"To See, To Hear",
+   desc:"tiru, liwu — and two new friends",
+   icon:"🐾",
+   vocabKey:"l44_sensory",
+   xp:20,
+   unit:7,
+   intro:`<h3>🐾 Sensory verbs and two new friends</h3><p><em>tiru</em> means <strong>to see</strong> and <em>liwu</em> means <strong>to hear</strong>. Both are action verbs — they go without <em>su</em>:</p><span class="example">Ne tiru Maya. <span class="gloss">I see Maya.</span></span><span class="example">Te liwu ne. <span class="gloss">You hear me.</span></span><h3>🐕 Two new nouns</h3><p>Two animals to drill them with. Useful as subjects, useful as objects.</p><ul><li><em>paipe</em> — dog</li><li><em>mewe</em> — cat</li></ul><span class="example">Paipe tiru ne. <span class="gloss">The dog sees me.</span></span><p>You'll put these together in sentences in the next lesson.</p>`},
+
+  {id:"l45_sensesentences",
+   title:"Verbs in Sentences",
+   desc:"Drilling tiru, liwu, paipe, mewe",
+   icon:"🐕",
+   vocabKey:"l45_sensesentences",
+   xp:18,
+   unit:7,
+   isSentence:true,
+   intro:`<h3>🐕 Putting it together</h3><p>Now you've got <em>tiru</em> (see) and <em>liwu</em> (hear), plus two animals to drill them with. <strong>No new words this lesson</strong> — just sentences.</p><span class="example">Ne tiru paipe. <span class="gloss">I see the dog.</span></span><span class="example">Maya liwu mewe. <span class="gloss">Maya hears the cat.</span></span>`},
+
+  {id:"l46_routine",
+   title:"To Sleep, Work, Do",
+   desc:"rau, fasu, puhu",
+   icon:"💤",
+   vocabKey:"l46_routine",
+   xp:18,
+   unit:7,
+   intro:`<h3>💤 Daily-routine verbs</h3><p>Three high-frequency verbs for what people do all day:</p><ul><li><em>rau</em> — to sleep</li><li><em>fasu</em> — to work</li><li><em>puhu</em> — to do (or perform)</li></ul><p><em>puhu</em> is the general "to do" — useful for asking what someone is up to:</p><span class="example">Kiwa te puhu? <span class="gloss">What are you doing?</span></span>`},
+
+  {id:"l47_exchange",
+   title:"To Give, Take, Find",
+   desc:"feru, moferu, riku",
+   icon:"🎁",
+   vocabKey:"l47_exchange",
+   xp:18,
+   unit:7,
+   intro:`<h3>🎁 Exchange and finding</h3><p>Three more verbs:</p><ul><li><em>feru</em> — to give</li><li><em>moferu</em> — to take</li><li><em>riku</em> — to find (or meet)</li></ul><h3>🔁 The mo- pair</h3><p>Notice that <em>moferu</em> is built from <em>mo-</em> + <em>feru</em>, the same productive prefix you've seen on <em>moko</em> (after) and <em>mowo</em> (out). Giving and taking are opposites — the <em>mo-</em> rule captures that directly.</p><span class="example">Ne feru. <span class="gloss">I give.</span></span><span class="example">Ne moferu. <span class="gloss">I take.</span></span>`},
+
+  {id:"l48_routinesentences",
+   title:"Verbs in Sentences II",
+   desc:"Drilling rau, fasu, puhu, feru, moferu, riku",
+   icon:"🛌",
+   vocabKey:"l48_routinesentences",
+   xp:22,
+   unit:7,
+   isSentence:true,
+   intro:`<h3>🛌 Drilling six more verbs</h3><p>You've got the routine verbs (<em>rau, fasu, puhu</em>) and the exchange verbs (<em>feru, moferu, riku</em>). <strong>No new words this lesson</strong> — just sentences.</p><h3>↔️ Give and take</h3><p>Watch for <em>feru</em> paired with <em>so</em> (to) and <em>moferu</em> paired with <em>fa</em> (from). Giving sends something <em>to</em> someone; taking pulls it <em>from</em> someone. The locatives match the direction.</p><span class="example">Ne feru lo so Yuna. <span class="gloss">I give this to Yuna.</span></span><span class="example">Kai wa moferu lo fa ne. <span class="gloss">Kai took this from me.</span></span>`},
+
+  {id:"l49_exam",
+   title:"Unit 8 Exam: Action Verbs",
+   desc:"Three hearts, three mistakes",
+   icon:"✅",
+   vocabKey:"l49_exam",
+   xp:24,
+   unit:7,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>✅ Unit 8 Exam</h3><p>This is your Unit 8 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across the eight new verbs (<em>tiru, liwu, rau, fasu, puhu, feru, moferu, riku</em>) and the two new animals (<em>paipe, mewe</em>). Past tense, locatives, questions — all fair game.</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
