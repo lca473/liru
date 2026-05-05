@@ -1418,6 +1418,80 @@ const V = {
     {lw:["Ne","mai","senu"],                            en:"I don't know."},
   ],
 
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 9 — NUMBERS AND DAYS (L50–L54)
+  // ════════════════════════════════════════════════════════════════
+  // L50: l50_numbers1 — vocab; nuli, fani, runi, teni, shani, kani (0–5)
+  // L51: l51_numbers2 — vocab; veni, meni, poni, yani, hani (6–10)
+  // L52: l52_days     — vocab; fanilawe through menilawe (Sun–Sat)
+  // L53: l53_howmany  — sentence; introduces kifa, haiwe, tau, ahu
+  // L54: l54_exam     — Unit 9 exam (isCheckpoint:true)
+  //
+  // Numbers are pos:"adj" per Grammar.md §15 (numbers behave as adjectives,
+  // precede the noun, take the plural -ea). Day names are pos:"n" with no
+  // canvas (no -i adjective form exists in Dictionary.md).
+  // §2 cap exception (approved per lesson_principles.md §13): numbers split
+  // 6+5, all 7 day names in one lesson — pure recognition, low per-card load.
+
+  l50_numbers1: [
+    {lw:"nuli",  en:"zero",  pos:"adj"},
+    {lw:"fani",  en:"one",   pos:"adj"},
+    {lw:"runi",  en:"two",   pos:"adj"},
+    {lw:"teni",  en:"three", pos:"adj"},
+    {lw:"shani", en:"four",  pos:"adj"},
+    {lw:"kani",  en:"five",  pos:"adj"},
+  ],
+
+  l51_numbers2: [
+    {lw:"veni", en:"six",   pos:"adj"},
+    {lw:"meni", en:"seven", pos:"adj"},
+    {lw:"poni", en:"eight", pos:"adj"},
+    {lw:"yani", en:"nine",  pos:"adj"},
+    {lw:"hani", en:"ten",   pos:"adj"},
+  ],
+
+  l52_days: [
+    {lw:"fanilawe",  en:"Sunday",    pos:"n"},
+    {lw:"runilawe",  en:"Monday",    pos:"n"},
+    {lw:"tenilawe",  en:"Tuesday",   pos:"n"},
+    {lw:"shanilawe", en:"Wednesday", pos:"n"},
+    {lw:"kanilawe",  en:"Thursday",  pos:"n"},
+    {lw:"venilawe",  en:"Friday",    pos:"n"},
+    {lw:"menilawe",  en:"Saturday",  pos:"n"},
+  ],
+
+  // L53 — How Many and How Old (sentence-based)
+  // Introduces 4 new forms: kifa, haiwe, tau, ahu. Counted-noun question
+  // pattern (Grammar.md §12) and age idiom (DesignNotes.md "Age").
+  // Sentences 5–7 carry literal-translation parentheticals to flag the
+  // structural mismatch between Liru's "years completed" framing and
+  // English's "how old."
+  l53_howmany: [
+    {lw:["Kifa","paipea","te","ahu"],             en:"How many dogs do you have?"},
+    {lw:["Kifa","wamea","te","ahu"],              en:"How many friends do you have?"},
+    {lw:["Ne","ahu","teni","paipea"],             en:"I have three dogs."},
+    {lw:["Maya","ahu","shani","mewea"],           en:"Maya has four cats."},
+    {lw:["Kifa","haiwea","te","wa","tau"],        en:"How old are you? (lit. how many years have you completed?)"},
+    {lw:["Ne","wa","tau","hani","haiwea"],        en:"I am ten years old. (lit. I have completed ten years.)"},
+    {lw:["Maya","wa","tau","yani","haiwea"],      en:"Maya is nine years old. (lit. Maya has completed nine years.)"},
+  ],
+
+  // L54 — Unit 9 Exam (sentence-based, isCheckpoint:true)
+  // Mixed practice across L50–L53 plus prior units. No new forms.
+  // 8 sentences covering kifa, ahu, tau, haiwe densely + a representative
+  // spread of numbers (2, 7, 8) and days (Sun, Tue, Wed). Bulk-recognition
+  // coverage of all 11 numbers / 7 days happens in L50–L52 themselves.
+  l54_exam: [
+    {lw:["Ne","ahu","runi","paipea"],                       en:"I have two dogs."},
+    {lw:["Kifa","wamea","te","ahu"],                        en:"How many friends do you have?"},
+    {lw:["Maya","wa","tau","poni","haiwea"],                en:"Maya is eight years old. (lit. Maya has completed eight years.)"},
+    {lw:["Lo lawe","su","shanilawe"],                       en:"Today is Wednesday."},
+    {lw:["Ne","wa","liru","ko","meni","wamea"],             en:"I spoke with seven friends."},
+    {lw:["Kifa","mewea","te","wa","tiru","lo lawe"],        en:"How many cats did you see today?"},
+    {lw:["Fanilawe","ne","wa","rau"],                       en:"Sunday I slept."},
+    {lw:["Tenilawe","Yuna","wu","vanu"],                    en:"Tuesday Yuna will come."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1440,6 +1514,7 @@ const UNITS = [
   {name:"Unit 6 — Connectors and Demonstratives", start:26},
   {name:"Unit 7 — Places and Going", start:32},
   {name:"Unit 8 — Action Verbs", start:37},
+  {name:"Unit 9 — Numbers and Days", start:43},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -1879,6 +1954,55 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>✅ Unit 8 Exam</h3><p>This is your Unit 8 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across the eight new verbs (<em>tiru, liwu, rau, fasu, puhu, feru, moferu, riku</em>) and the two new animals (<em>paipe, mewe</em>). Past tense, locatives, questions — all fair game.</p>`},
+
+  // ── UNIT 9: NUMBERS AND DAYS (L50–L54) ───────────────────────────────
+  {id:"l50_numbers1",
+   title:"Numbers 0–5",
+   desc:"nuli, fani, runi, teni, shani, kani",
+   icon:"🔢",
+   vocabKey:"l50_numbers1",
+   xp:18,
+   unit:8,
+   intro:`<h3>🔢 The first six numbers</h3><p>Numbers in Liru behave like adjectives. They precede the noun, and the noun takes the plural <em>-ea</em> when the count is more than one.</p><ul><li><em>nuli</em> — zero</li><li><em>fani</em> — one</li><li><em>runi</em> — two</li><li><em>teni</em> — three</li><li><em>shani</em> — four</li><li><em>kani</em> — five</li></ul><span class="example">Runi paipea. <span class="gloss">Two dogs.</span></span><span class="example">Fani wame. <span class="gloss">One friend.</span></span>`},
+
+  {id:"l51_numbers2",
+   title:"Numbers 6–10",
+   desc:"veni, meni, poni, yani, hani",
+   icon:"🔢",
+   vocabKey:"l51_numbers2",
+   xp:18,
+   unit:8,
+   intro:`<h3>🔢 The rest of the basics</h3><p>Five more numbers to round out single digits:</p><ul><li><em>veni</em> — six</li><li><em>meni</em> — seven</li><li><em>poni</em> — eight</li><li><em>yani</em> — nine</li><li><em>hani</em> — ten</li></ul><span class="example">Meni mewea. <span class="gloss">Seven cats.</span></span>`},
+
+  {id:"l52_days",
+   title:"Days of the Week",
+   desc:"fanilawe through menilawe",
+   icon:"📅",
+   vocabKey:"l52_days",
+   xp:20,
+   unit:8,
+   intro:`<h3>📅 Days as numbered days</h3><p>Liru day names are built from the numbers you just learned plus <em>lawe</em> (day). Sunday is day one, and the week counts from there.</p><ul><li><em>fanilawe</em> — Sunday (day 1)</li><li><em>runilawe</em> — Monday (day 2)</li><li><em>tenilawe</em> — Tuesday (day 3)</li><li><em>shanilawe</em> — Wednesday (day 4)</li><li><em>kanilawe</em> — Thursday (day 5)</li><li><em>venilawe</em> — Friday (day 6)</li><li><em>menilawe</em> — Saturday (day 7)</li></ul><p>Once you've learned the numbers, the day names build themselves.</p>`},
+
+  {id:"l53_howmany",
+   title:"How Many and How Old",
+   desc:"kifa, haiwe, tau, ahu",
+   icon:"🎂",
+   vocabKey:"l53_howmany",
+   xp:22,
+   unit:8,
+   isSentence:true,
+   intro:`<h3>🎂 Counts, ages, and a new verb</h3><p><strong>A new verb: <em>ahu</em> — to have.</strong> Used like any other verb in SVO: <em>Ne ahu teni paipea</em> — "I have three dogs." Notice the noun is plural (<em>paipea</em>) when the count is more than one.</p><h3>❓ Asking quantities</h3><p><em>Kifa</em> means "how many." Like other ki-words, it goes to the front of the sentence, with the plural noun in tow:</p><span class="example">Kifa paipea te ahu? <span class="gloss">How many dogs do you have?</span></span><h3>🎂 Talking about age</h3><p>Liru frames age as years completed, not as a length you've reached. <em>Kifa haiwea te wa tau?</em> literally asks "How many years have you completed?" The answer follows the same shape:</p><span class="example">Ne wa tau hani haiwea. <span class="gloss">I have completed ten years. (= I am ten.)</span></span><p><em>haiwe</em> = year. <em>tau</em> = to complete (from the root <em>tae</em> "totality, all").</p><h3>➕ Bigger numbers</h3><p>Liru builds larger numbers by stacking with hyphens: <em>runi-hani</em> (twenty), <em>teni-hani</em> (thirty), <em>runi-hani-fani</em> (twenty-one). You won't drill these in this lesson — single-digit ages only — but you'll see them in the wild.</p>`},
+
+  {id:"l54_exam",
+   title:"Unit 9 Exam: Numbers and Days",
+   desc:"Three hearts, three mistakes",
+   icon:"✅",
+   vocabKey:"l54_exam",
+   xp:24,
+   unit:8,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>✅ Unit 9 Exam</h3><p>This is your Unit 9 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across numbers (0–10), days of the week, the new verb <em>ahu</em>, the question word <em>kifa</em>, and the age idiom (<em>tau</em>, <em>haiwe</em>). Past tense, plurals, locatives — all fair game.</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
