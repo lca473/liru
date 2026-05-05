@@ -1124,11 +1124,11 @@ const V = {
   // Also introduces particles lole, wale, wule.
   l28_anchors: [
     {lw:["Ne","wa","tahu","lo lawe"],            en:"I ate today."},
-    {lw:["Wa lawe,","ve","wa","liru"],           en:"Yesterday, she spoke."},
+    {lw:["Wa lawe","ve","wa","liru"],           en:"Yesterday, she spoke."},
     {lw:["Nea","wu","tahu","wu lawe"],           en:"We will eat tomorrow."},
-    {lw:["Lole,","ne","tahu"],                   en:"Now, I'm eating."},
-    {lw:["Wale,","ne","wa","senu","Maya"],       en:"Before, I knew Maya."},
-    {lw:["Wule,","ve","wu","liru"],              en:"After, she will speak."},
+    {lw:["Lole","ne","tahu"],                   en:"Now, I'm eating."},
+    {lw:["Wale","ne","wa","senu","Maya"],       en:"Before, I knew Maya."},
+    {lw:["Wule","ve","wu","liru"],              en:"After, she will speak."},
     {lw:["Kai","tahu","lo lawe"],                en:"Kai is eating today."},
   ],
 
@@ -1139,7 +1139,7 @@ const V = {
     {lw:["Ne","mai","wa","tahu"],                       en:"I didn't eat."},
     {lw:["Ve","mai","wu","liru"],                       en:"She won't speak."},
     {lw:["Te","mai","wa","senu","Maya"],                en:"You didn't know Maya."},
-    {lw:["Wu lawe,","nea","mai","wu","tahu"],           en:"Tomorrow, we won't eat."},
+    {lw:["Wu lawe","nea","mai","wu","tahu"],           en:"Tomorrow, we won't eat."},
     {lw:["Maya","mai","wa","shahu","wa lawe"],          en:"Maya didn't drink yesterday."},
     {lw:["Vea","mai","wu","liru","lo lawe"],            en:"They won't speak today."},
     {lw:["Ne","mai","wa","nawu","Kai"],                 en:"I didn't love Kai."},
@@ -1149,13 +1149,13 @@ const V = {
   // Mixed practice combining tense particles, time anchors, negation, and
   // material from Units 1–4.
   l30_practice: [
-    {lw:["Wa lawe,","ne","wa","liru"],                  en:"Yesterday, I spoke."},
-    {lw:["Lole,","ve","tahu"],                          en:"Now, she's eating."},
-    {lw:["Wu lawe,","nea","wu","tahu"],                 en:"Tomorrow, we will eat."},
+    {lw:["Wa lawe","ne","wa","liru"],                  en:"Yesterday, I spoke."},
+    {lw:["Lole","ve","tahu"],                          en:"Now, she's eating."},
+    {lw:["Wu lawe","nea","wu","tahu"],                 en:"Tomorrow, we will eat."},
     {lw:["Te","mai","wa","shahu","lo lawe"],            en:"You didn't drink today."},
     {lw:["Kai","wu","liru","wuhi"],                     en:"Kai will speak soon."},
     {lw:["Maya","nawu","veo","mawe"],                   en:"Maya loves her mother."},
-    {lw:["Wale,","ne","mai","wa","senu","teo","nile"],  en:"Before, I didn't know your name."},
+    {lw:["Wale","ne","mai","wa","senu","teo","nile"],  en:"Before, I didn't know your name."},
   ],
 
   // ── UNIT 6: CONNECTORS AND DEMONSTRATIVES (L32–L38) ────────────────
@@ -1197,9 +1197,9 @@ const V = {
     {lw:["Yuna","sho","Kai","su","wamea"],                en:"Yuna and Kai are friends."},
     {lw:["Neo","mawe","sho","neo","powe","nawu","ne"],    en:"My mother and father love me."},
     {lw:["Ne","wa","tahu","sho","ne","wa","shahu"],       en:"I ate and I drank."},
-    {lw:["Ne","su","houli,","ma","Maya","su","mohouli"],  en:"I'm happy, but Maya is sad."},
-    {lw:["Ne","wamu","Yuna,","ma","ne","mai","wamu","Kai"], en:"I like Yuna, but I don't like Kai."},
-    {lw:["Ve","su","wame,","ma","ve","mai","su","loye"],  en:"She's a friend, but she's not a brother."},
+    {lw:["Ne","su","houli","ma","Maya","su","mohouli"],  en:"I'm happy, but Maya is sad."},
+    {lw:["Ne","wamu","Yuna","ma","ne","mai","wamu","Kai"], en:"I like Yuna, but I don't like Kai."},
+    {lw:["Ve","su","wame","ma","ve","mai","su","loye"],  en:"She's a friend, but she's not a brother."},
     {lw:["Ne","wanu","tahe","au","shahe"],                en:"I want food or a drink."},
     {lw:["Maya","wu","wamu","Yuna","au","Kai"],           en:"Maya will like Yuna or Kai."},
     {lw:["Te","shihu","tahu","au","shahu"],               en:"You should eat or drink."},
@@ -1242,7 +1242,7 @@ const V = {
     {lw:["Kime","te","wa","liru","ko","Maya"],                           en:"When did you speak with Maya?"},
     {lw:["Maya","vini","wa","tahu","lo lawe"],                           en:"Maya also ate today."},
     {lw:["Ki","ve","wanu","shahu"],                                      en:"Does she want to drink?"},
-    {lw:["Faloa","wamea","su","muhi,","ma","loa","wamea","su","houli"],  en:"Those friends are anxious, but these friends are happy."},
+    {lw:["Faloa","wamea","su","muhi","ma","loa","wamea","su","houli"],  en:"Those friends are anxious, but these friends are happy."},
     {lw:["Te","shihu","tahu","moko","Kai"],                              en:"You should eat without Kai."},
     {lw:["Te","shihu","liru","ko","Yuna","au","Kai"],                    en:"You should speak with Yuna or Kai."},
   ],
@@ -2008,26 +2008,40 @@ function generateVocabExercises(lesson){
   });
 
   // ─── STAGE 4: Canvas drill ───────────────────────────────────
-  const canvasItems=wordItems.filter(v=>v.canvas);
+  // Only canvas roots with at least one non-mechanical sibling get drilled.
+  // Mechanical-tagged forms (adj_tier:"mechanical" or v_tier:"mechanical")
+  // are skipped both as drill endpoints and as distractors — they exist as
+  // legal Liru forms but should not be taught as standalone vocabulary.
+  // See DECISIONS.md "Mechanical-tag display rules."
+  const canvasItems=wordItems.filter(v=>{
+    if(!v.canvas)return false;
+    const adjOk=v.canvas.adj && v.canvas.adj_tier!=="mechanical";
+    const vOk  =v.canvas.v   && v.canvas.v_tier  !=="mechanical";
+    return adjOk || vOk;
+  });
   if(canvasItems.length>0){
     // Build a canvas-distractor pool from current + previous canvas items.
+    // Skip mechanical forms — they shouldn't surface as plausible answer choices.
     const canvasDistractors=[];
     fullPool.forEach(v=>{
       if(v.canvas){
-        if(v.canvas.adj)canvasDistractors.push(v.canvas.adj);
-        if(v.canvas.v)canvasDistractors.push(v.canvas.v);
+        if(v.canvas.adj && v.canvas.adj_tier!=="mechanical")canvasDistractors.push(v.canvas.adj);
+        if(v.canvas.v   && v.canvas.v_tier  !=="mechanical")canvasDistractors.push(v.canvas.v);
         canvasDistractors.push(v.lw);
       }
     });
     // Generate up to 2 canvas drills (one per random current-lesson canvas item).
     const drillSources=shuffle([...canvasItems]).slice(0,Math.min(2, canvasItems.length));
     drillSources.forEach(pick1=>{
+      // Build candidate directions; drop any whose from or to is mechanical-tagged.
+      const adjOk=pick1.canvas.adj && pick1.canvas.adj_tier!=="mechanical";
+      const vOk  =pick1.canvas.v   && pick1.canvas.v_tier  !=="mechanical";
       const directions=[
-        {fromForm:pick1.lw,           fromEn:pick1.en,           to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en},
-        {fromForm:pick1.lw,           fromEn:pick1.en,           to:"adj", toForm:pick1.canvas.adj, toEn:pick1.canvas.adj_en},
-        {fromForm:pick1.canvas.adj,   fromEn:pick1.canvas.adj_en, to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en},
-        {fromForm:pick1.canvas.v,     fromEn:pick1.canvas.v_en,   to:"n",   toForm:pick1.lw,         toEn:pick1.en},
-      ].filter(d=>d.toForm && d.fromForm);
+        vOk          ? {fromForm:pick1.lw,           fromEn:pick1.en,           to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en}   : null,
+        adjOk        ? {fromForm:pick1.lw,           fromEn:pick1.en,           to:"adj", toForm:pick1.canvas.adj, toEn:pick1.canvas.adj_en} : null,
+        (adjOk&&vOk) ? {fromForm:pick1.canvas.adj,   fromEn:pick1.canvas.adj_en, to:"v",   toForm:pick1.canvas.v,   toEn:pick1.canvas.v_en}   : null,
+        vOk          ? {fromForm:pick1.canvas.v,     fromEn:pick1.canvas.v_en,   to:"n",   toForm:pick1.lw,         toEn:pick1.en}            : null,
+      ].filter(d=>d && d.toForm && d.fromForm);
       if(directions.length===0)return;
       const dir=directions[Math.floor(Math.random()*directions.length)];
       const wrong=pick(canvasDistractors.filter(d=>d!==dir.toForm && d!==dir.fromForm), 3);
@@ -4524,10 +4538,13 @@ function renderFlashcard(ex){
 
   if(item.canvas){
     // Full canvas root — show all three forms stacked.
+    // Mechanical-tagged canvas forms (adj_tier:"mechanical" or v_tier:"mechanical")
+    // are hidden — they exist as legal Liru forms but should not be taught as
+    // standalone vocabulary. See DECISIONS.md "Mechanical-tag display rules."
     const rows=[
       {form:lw,              pos:"noun",       en:en},
-      item.canvas.adj ? {form:item.canvas.adj, pos:"adjective", en:item.canvas.adj_en} : null,
-      item.canvas.v   ? {form:item.canvas.v,   pos:"verb",      en:item.canvas.v_en  } : null,
+      (item.canvas.adj && item.canvas.adj_tier!=="mechanical") ? {form:item.canvas.adj, pos:"adjective", en:item.canvas.adj_en} : null,
+      (item.canvas.v   && item.canvas.v_tier!=="mechanical")   ? {form:item.canvas.v,   pos:"verb",      en:item.canvas.v_en  } : null,
     ].filter(Boolean);
     mainHTML=rows.map(r=>`
       <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 18px;background:var(--bg2);border-radius:14px;border:1.5px solid var(--border)">
