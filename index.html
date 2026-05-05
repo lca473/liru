@@ -1499,7 +1499,7 @@ const V = {
   // L56: l56_food         — vocab; houme, pome, mopome
   // L57: l57_cooking      — sentence; introduces nahe / nahu
   // L58: l58_taste        — vocab; milale, saone, yaume (+ canvas adj)
-  // L59: l59_money        — vocab; leye, hoye, mohoye, toke
+  // L59: l59_money        — vocab; tone, hoye, mohoye, toke
   // L60: l60_buyingselling— sentence; introduces nai (much/many)
   // L61: l61_exam         — Unit 10 checkpoint exam
   //
@@ -1564,9 +1564,9 @@ const V = {
   ],
 
   l59_money: [
-    {lw:"leye",   en:"money (or payment)", pos:"n",
-     canvas:{adj:"leyi", adj_en:"monetary", adj_tier:"mechanical",
-             v:"leyu",   v_en:"to pay"}},
+    {lw:"tone",   en:"money (or payment)", pos:"n",
+     canvas:{adj:"toni", adj_en:"monetary", adj_tier:"mechanical",
+             v:"tonu",   v_en:"to pay"}},
     {lw:"hoye",   en:"purchase",           pos:"n",
      canvas:{adj:"hoyi", adj_en:"bought",  adj_tier:"mechanical",
              v:"hoyu",   v_en:"to buy"}},
@@ -1580,21 +1580,21 @@ const V = {
 
   // L60 — Buying, Selling, and Asking the Price (sentence-based)
   // Introduces nai (many/much) as a quantifier adjective. Drills the
-  // canonical price-asking pattern (Kifa leyea su X?) per Grammar.md §12 —
+  // canonical price-asking pattern (Kifa tonea su X?) per Grammar.md §12 —
   // uses productive grammar, not a new idiom. Reinforces L59 transactional
   // verbs (hoyu, mohoyu) with so/fa locative particles from L41.
   // Uses pometieme (productive compound, free in budget) for transactional
-  // setting. Note: leye is a count noun and pluralizes regularly (leyea);
+  // setting. Note: tone is a count noun and pluralizes regularly (tonea);
   // English mass-noun reflex is the key error pattern to drill against.
   // Note: nai is the adjective form; the noun nae ("abundance") is not
   // taught in this lesson — too abstract for an intro-course quantifier.
   l60_buyingselling: [
-    {lw:["Kifa","leyea","su","lo","houme"],         en:"How much is this bread?"},
-    {lw:["Lo","houme","su","hani","leyea"],         en:"This bread is ten monies."},
+    {lw:["Kifa","tonea","su","lo","houme"],         en:"How much is this bread?"},
+    {lw:["Lo","houme","su","hani","tonea"],         en:"This bread is ten monies."},
     {lw:["Ne","wanu","hoyu","lo","shae"],           en:"I want to buy this tea."},
     {lw:["Maya","hoyu","pomea","fa","Kai"],         en:"Maya buys fruits from Kai."},
     {lw:["Kai","mohoyu","houmea","so","Maya"],      en:"Kai sells bread to Maya."},
-    {lw:["Ne","ahu","nai","leyea"],                 en:"I have a lot of money."},
+    {lw:["Ne","ahu","nai","tonea"],                 en:"I have a lot of money."},
     {lw:["Maya","hoyu","nai","pomea","fa","pometieme"], en:"Maya buys many fruits from the fruit store."},
   ],
 
@@ -1606,11 +1606,11 @@ const V = {
   l61_exam: [
     {lw:["Ne","wamu","kupe"],                       en:"I like coffee."},
     {lw:["Maya","nahu","tahe","wo","nahe"],         en:"Maya cooks food in the kitchen."},
-    {lw:["Kifa","leyea","su","lo","shae"],          en:"How much is this tea?"},
+    {lw:["Kifa","tonea","su","lo","shae"],          en:"How much is this tea?"},
     {lw:["Ne","wa","hoyu","miawe","fa","tieme"],    en:"I bought milk from the store."},
     {lw:["Lo","pome","su","milali"],                en:"This fruit is sweet."},
     {lw:["Kai","mohoyu","houmea","so","ne"],        en:"Kai sells bread to me."},
-    {lw:["Ki","te","ahu","nai","leyea"],            en:"Do you have a lot of money?"},
+    {lw:["Ki","te","ahu","nai","tonea"],            en:"Do you have a lot of money?"},
     {lw:["Tenilawe","ne","wu","halu","so","kupetieme"], en:"Tuesday I will go to the café."},
   ],
 
@@ -2163,7 +2163,7 @@ const LESSONS = [
 
   {id:"l59_money",
    title:"Money and Transactions",
-   desc:"leye, hoye, mohoye, toke",
+   desc:"tone, hoye, mohoye, toke",
    icon:"💰",
    vocabKey:"l59_money",
    xp:20,
@@ -2177,7 +2177,7 @@ const LESSONS = [
    xp:24,
    unit:9,
    isSentence:true,
-   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kifa</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kifa leyea su lo houme? <span class="gloss">How much is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>leye</em> ("money") pluralizes regularly to <em>leyea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Lo houme su hani leyea. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs from <em>hoye</em> and its <em>mo-</em> partner <em>mohoye</em>:</p><span class="example">Ne hoyu lo shae. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea fa Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houmea so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>fa</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun:</p><span class="example">Ne ahu nai leyea. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu nai pomea fa pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span>`},
+   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kifa</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kifa tonea su lo houme? <span class="gloss">How much is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Lo houme su hani tonea. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs from <em>hoye</em> and its <em>mo-</em> partner <em>mohoye</em>:</p><span class="example">Ne hoyu lo shae. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea fa Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houmea so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>fa</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun:</p><span class="example">Ne ahu nai tonea. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu nai pomea fa pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span>`},
 
   {id:"l61_exam",
    title:"Unit 10 Exam: Food and Transactions",
@@ -2719,6 +2719,14 @@ async function finishLogin(name){
     {
       const migrated=srsMigrateKauheToMouleyaheIfNeeded(user.username);
       if(migrated>0)console.log("[SRS] migrated",migrated,"kauhe cards to mouleyahe for",user.username);
+    }
+    // One-time recoinage migration: leye → tone. Same constraint as kauhe:
+    // MUST run before the stale-card pruner. Unlike kauhe (single-form
+    // compound), leye had a full canvas (n./adj./v.) so all three forms get
+    // migrated: leye → tone, leyi → toni, leyu → tonu.
+    {
+      const migrated=srsMigrateLeyeToToneIfNeeded(user.username);
+      if(migrated>0)console.log("[SRS] migrated",migrated,"leye/leyi/leyu cards to tone family for",user.username);
     }
     // Prune any cards whose lw is no longer in the dictionary (stale from prior cleanups)
     {
@@ -3413,6 +3421,87 @@ function srsMigrateKauheToMouleyaheIfNeeded(username){
   }
   console.log("[SRS] migrated",oldIds.length,"kauhe cards to mouleyahe for",username);
   s.kauheToMouleyaheDone=true;
+  srsSaveState(username,s);
+  srsSyncState(username,s);
+  return oldIds.length;
+}
+
+// ─── One-time recoinage migration: leye → tone ───────────────
+// Recoinage of the L59 root for "money" because the plural *leyea* — drilled
+// across L60's price-asking pattern (Kifa leyea su X?) — had an awkward
+// glide-vowel hiatus. Replaced with *tone* / *toni* / *tonu*, plural *tonea*.
+//
+// Unlike kauhe→mouleyahe (single-form compound recoinage), leye carried a
+// full canvas, so this migration handles three lw-rewrites: leye→tone,
+// leyi→toni, leyu→tonu. Each card type (n., adj., v.) gets the corresponding
+// new gloss from V/DICTIONARY_RAW.
+//
+// Same one-shot guarded pattern as srsMigrateKauheToMouleyaheIfNeeded.
+// Gated by state.leyeToToneDone; runs once per user on next login, then
+// never again. Safe to keep indefinitely — the flag prevents repeated work,
+// and a future user with no leye cards just gets a no-op.
+//
+// MUST run before the stale-card pruner, since leye/leyi/leyu are no longer
+// in DICTIONARY_RAW and would otherwise be deleted before being migrated.
+function srsMigrateLeyeToToneIfNeeded(username){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.leyeToToneDone)return 0;
+  const cards=srsLoadCards(username);
+  // Map of old lw → {newLw, newGloss}. Glosses match V entries for the
+  // tone canvas (see V.l59_money) and DICTIONARY_RAW entries.
+  const renameMap={
+    "leye":{newLw:"tone", newGloss:"money (or payment)"},
+    "leyi":{newLw:"toni", newGloss:"monetary"},
+    "leyu":{newLw:"tonu", newGloss:"to pay"},
+  };
+  const migratedNew={};   // new card id → card (to write)
+  const oldIds=[];         // old card ids (to delete)
+  for(const id in cards){
+    const c=cards[id];
+    if(!c)continue;
+    const rename=renameMap[c.lw];
+    if(!rename)continue;
+    // Build new id with the new lw, keeping the same direction.
+    const dir=c.dir||(id.endsWith("::lw_en")?"lw_en":"en_lw");
+    const newId=srsCardId(rename.newLw,dir);
+    // Preserve all state; rewrite identity fields only.
+    migratedNew[newId]={...c,lw:rename.newLw,en:rename.newGloss};
+    oldIds.push(id);
+  }
+  if(oldIds.length===0){
+    s.leyeToToneDone=true;
+    srsSaveState(username,s);
+    srsSyncState(username,s);
+    return 0;
+  }
+  // Apply: delete old, add new. If a new id somehow already exists (rare
+  // edge case where the user had both leye and tone cards), the existing
+  // tone card wins — don't overwrite a card with active history.
+  for(const oldId of oldIds)delete cards[oldId];
+  for(const newId in migratedNew){
+    if(!cards[newId])cards[newId]=migratedNew[newId];
+  }
+  srsSaveCards(username,cards);
+  // Cloud sync: delete old paths, write new ones.
+  if(firebaseReady&&db){
+    for(const oldId of oldIds){
+      try{db.ref(srsCardFbPath(username,oldId)).remove();}
+      catch(e){/* ignore — local is authoritative until next sync */}
+    }
+    for(const newId in migratedNew){
+      // Only sync if we actually wrote it locally (not skipped due to collision).
+      if(cards[newId]===migratedNew[newId]){
+        try{
+          db.ref(srsCardFbPath(username,newId))
+            .set({...cards[newId],lastSync:Date.now()})
+            .catch(e=>console.warn("[SRS] leye migration sync error:",e));
+        }catch(e){console.warn("[SRS] leye migration sync error:",e);}
+      }
+    }
+  }
+  console.log("[SRS] migrated",oldIds.length,"leye/leyi/leyu cards to tone family for",username);
+  s.leyeToToneDone=true;
   srsSaveState(username,s);
   srsSyncState(username,s);
   return oldIds.length;
@@ -6076,9 +6165,6 @@ const DICTIONARY_RAW = [
   {lw:"lewe", en:"laughter", pos:"n"},
   {lw:"lewi", en:"laughing", pos:"adj"},
   {lw:"lewu", en:"to laugh", pos:"v"},
-  {lw:"leye", en:"money (or payment)", pos:"n"},
-  {lw:"leyi", en:"monetary", pos:"adj"},
-  {lw:"leyu", en:"to pay", pos:"v"},
   {lw:"liane", en:"height", pos:"n"},
   {lw:"liani", en:"tall (or highly)", pos:"adj"},
   {lw:"lianu", en:"to rise", pos:"v"},
@@ -7118,6 +7204,9 @@ const DICTIONARY_RAW = [
   {lw:"tole", en:"leadership", pos:"n"},
   {lw:"toli", en:"leading", pos:"adj"},
   {lw:"tolu", en:"to lead", pos:"v"},
+  {lw:"tone", en:"money (or payment)", pos:"n"},
+  {lw:"toni", en:"monetary", pos:"adj"},
+  {lw:"tonu", en:"to pay", pos:"v"},
   {lw:"touhale", en:"brown (the color)", pos:"n"},
   {lw:"touhali", en:"brown", pos:"adj"},
   {lw:"touhalu", en:"to turn brown", pos:"v"},
