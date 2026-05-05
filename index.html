@@ -1492,6 +1492,128 @@ const V = {
     {lw:["Tenilawe","Yuna","wu","vanu"],                    en:"Tuesday Yuna will come."},
   ],
 
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 10 — FOOD AND TRANSACTIONS (L55–L61)
+  // ════════════════════════════════════════════════════════════════
+  // L55: l55_drinks       — vocab; kupe, shae, miawe, shawe (+ shawi adj)
+  // L56: l56_food         — vocab; houme, pome, mopome
+  // L57: l57_cooking      — sentence; introduces nahe / nahu
+  // L58: l58_taste        — vocab; milale, saone, yaume (+ canvas adj)
+  // L59: l59_money        — vocab; leye, hoye, mohoye, toke
+  // L60: l60_buyingselling— sentence; introduces nai (much/many)
+  // L61: l61_exam         — Unit 10 checkpoint exam
+  //
+  // Per Dictionary.md, kupe and shae are noun+adj only (substance nouns,
+  // no verb sense). miawe and shawe carry full canvas; miawi and the
+  // verb forms (miawu, shawu) are mechanical-tagged for deck-size restraint.
+  // shawi (wet) surfaces as a regular flashcard.
+  // L58 adjectives (milali, saoni, yaumi) all surface as flashcards;
+  // verbs (milalu, saonu, yaumu) are mechanical-tagged.
+  // Note: tieme was introduced in L40 (Places) and is in budget; not
+  // listed as a new form for L59. Productive compounds pometieme and
+  // houmetieme are also free in budget per Grammar.md §19.
+
+  l55_drinks: [
+    {lw:"kupe",  en:"coffee", pos:"n",
+     canvas:{adj:"kupi", adj_en:"coffee-related", adj_tier:"mechanical"}},
+    {lw:"shae",  en:"tea",    pos:"n",
+     canvas:{adj:"shai", adj_en:"tea-related",    adj_tier:"mechanical"}},
+    {lw:"miawe", en:"milk",   pos:"n",
+     canvas:{adj:"miawi", adj_en:"milky (or milk-related)", adj_tier:"mechanical",
+             v:"miawu",   v_en:"to milk (or give milk)",    v_tier:"mechanical"}},
+    {lw:"shawe", en:"water",  pos:"n",
+     canvas:{adj:"shawi", adj_en:"wet",
+             v:"shawu",   v_en:"to get wet (or make wet)", v_tier:"mechanical"}},
+  ],
+
+  l56_food: [
+    {lw:"houme",     en:"bread",       pos:"n",
+     canvas:{adj:"houmi",  adj_en:"bread-related",     adj_tier:"mechanical"}},
+    {lw:"pome",      en:"fruit",       pos:"n",
+     canvas:{adj:"pomi",   adj_en:"fruit-related",     adj_tier:"mechanical"}},
+    {lw:"mopome",    en:"vegetable",   pos:"n",
+     canvas:{adj:"mopomi", adj_en:"vegetable-related", adj_tier:"mechanical"}},
+    {lw:"houmetieme", en:"bakery",     pos:"n"},
+    {lw:"pometieme",  en:"fruit store", pos:"n"},
+  ],
+
+  // L57 — Cooking (sentence-based)
+  // Introduces nahe (kitchen) and nahu (to cook). Pattern parallels L39's
+  // halu/vanu treatment: 1 root, full canvas exposure through SVO,
+  // locative, and modal-stacking sentences.
+  l57_cooking: [
+    {lw:["Maya","nahu"],                            en:"Maya cooks."},
+    {lw:["Ne","wa","nahu","houme"],                 en:"I cooked bread."},
+    {lw:["Kai","nahu","pomea"],                     en:"Kai cooks fruits."},
+    {lw:["Ne","wanu","nahu","tahe"],                en:"I want to cook a meal."},
+    {lw:["Yuna","su","wo","nahe"],                  en:"Yuna is in the kitchen."},
+    {lw:["Maya","sahu","nahu","mopomea"],           en:"Maya can cook vegetables."},
+    {lw:["Ki","te","wa","nahu","lo lawe"],          en:"Did you cook today?"},
+  ],
+
+  l58_taste: [
+    {lw:"milale", en:"sugar (or sweetness)", pos:"n",
+     canvas:{adj:"milali", adj_en:"sweet",
+             v:"milalu",   v_en:"to sweeten",   v_tier:"mechanical"}},
+    {lw:"saone",  en:"salt",                  pos:"n",
+     canvas:{adj:"saoni",  adj_en:"salty (or salt-related)",
+             v:"saonu",    v_en:"to salt",     v_tier:"mechanical"}},
+    {lw:"yaume",  en:"flavor",                pos:"n",
+     canvas:{adj:"yaumi",  adj_en:"flavorful",
+             v:"yaumu",    v_en:"to flavor (or season)", v_tier:"mechanical"}},
+  ],
+
+  l59_money: [
+    {lw:"leye",   en:"money (or payment)", pos:"n",
+     canvas:{adj:"leyi", adj_en:"monetary", adj_tier:"mechanical",
+             v:"leyu",   v_en:"to pay"}},
+    {lw:"hoye",   en:"purchase",           pos:"n",
+     canvas:{adj:"hoyi", adj_en:"bought",  adj_tier:"mechanical",
+             v:"hoyu",   v_en:"to buy"}},
+    {lw:"mohoye", en:"sale",               pos:"n",
+     canvas:{adj:"mohoyi", adj_en:"sold",  adj_tier:"mechanical",
+             v:"mohoyu",   v_en:"to sell"}, pair:"hoye"},
+    {lw:"toke",   en:"use (or usage)",     pos:"n",
+     canvas:{adj:"toki", adj_en:"useful",
+             v:"toku",   v_en:"to use"}},
+  ],
+
+  // L60 — Buying, Selling, and Asking the Price (sentence-based)
+  // Introduces nai (many/much) as a quantifier adjective. Drills the
+  // canonical price-asking pattern (Kifa leyea su X?) per Grammar.md §12 —
+  // uses productive grammar, not a new idiom. Reinforces L59 transactional
+  // verbs (hoyu, mohoyu) with so/fa locative particles from L41.
+  // Uses pometieme (productive compound, free in budget) for transactional
+  // setting. Note: leye is a count noun and pluralizes regularly (leyea);
+  // English mass-noun reflex is the key error pattern to drill against.
+  // Note: nai is the adjective form; the noun nae ("abundance") is not
+  // taught in this lesson — too abstract for an intro-course quantifier.
+  l60_buyingselling: [
+    {lw:["Kifa","leyea","su","lo","houme"],         en:"How much is this bread?"},
+    {lw:["Lo","houme","su","hani","leyea"],         en:"This bread is ten monies."},
+    {lw:["Ne","wanu","hoyu","lo","shae"],           en:"I want to buy this tea."},
+    {lw:["Maya","hoyu","pomea","fa","Kai"],         en:"Maya buys fruits from Kai."},
+    {lw:["Kai","mohoyu","houmea","so","Maya"],      en:"Kai sells bread to Maya."},
+    {lw:["Ne","ahu","nai","leyea"],                 en:"I have a lot of money."},
+    {lw:["Maya","hoyu","nai","pomea","fa","pometieme"], en:"Maya buys many fruits from the fruit store."},
+  ],
+
+  // L61 — Unit 10 Exam (sentence-based, isCheckpoint:true)
+  // Mixed practice across L55–L60. No new forms. 8 sentences covering
+  // the unit's vocab clusters (drinks, food, cooking, taste, money,
+  // transactions) plus prior-unit grammar (plurals, locatives, days,
+  // future tense, modals, demonstratives, questions).
+  l61_exam: [
+    {lw:["Ne","wamu","kupe"],                       en:"I like coffee."},
+    {lw:["Maya","nahu","tahe","wo","nahe"],         en:"Maya cooks food in the kitchen."},
+    {lw:["Kifa","leyea","su","lo","shae"],          en:"How much is this tea?"},
+    {lw:["Ne","wa","hoyu","miawe","fa","tieme"],    en:"I bought milk from the store."},
+    {lw:["Lo","pome","su","milali"],                en:"This fruit is sweet."},
+    {lw:["Kai","mohoyu","houmea","so","ne"],        en:"Kai sells bread to me."},
+    {lw:["Ki","te","ahu","nai","leyea"],            en:"Do you have a lot of money?"},
+    {lw:["Tenilawe","ne","wu","halu","so","kupetieme"], en:"Tuesday I will go to the café."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1515,6 +1637,7 @@ const UNITS = [
   {name:"Unit 7 — Places and Going", start:32},
   {name:"Unit 8 — Action Verbs", start:37},
   {name:"Unit 9 — Numbers and Days", start:43},
+  {name:"Unit 10 — Food and Transactions", start:48},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -2003,6 +2126,69 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>✅ Unit 9 Exam</h3><p>This is your Unit 9 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across numbers (0–10), days of the week, the new verb <em>ahu</em>, the question word <em>kifa</em>, and the age idiom (<em>tau</em>, <em>haiwe</em>). Past tense, plurals, locatives — all fair game.</p>`},
+
+  {id:"l55_drinks",
+   title:"Drinks",
+   desc:"kupe, shae, miawe, shawe",
+   icon:"☕",
+   vocabKey:"l55_drinks",
+   xp:20,
+   unit:9},
+
+  {id:"l56_food",
+   title:"Food",
+   desc:"houme, pome, mopome (+ bakery, fruit store)",
+   icon:"🍞",
+   vocabKey:"l56_food",
+   xp:18,
+   unit:9},
+
+  {id:"l57_cooking",
+   title:"Cooking",
+   desc:"nahe, nahu",
+   icon:"🍳",
+   vocabKey:"l57_cooking",
+   xp:18,
+   unit:9,
+   isSentence:true,
+   intro:`<h3>🍳 A new verb: <em>nahu</em> — to cook</h3><p>You already know <em>tahu</em> "to eat." Its sibling is <em>nahu</em> "to cook." Both are everyday food verbs and they take food-noun objects:</p><span class="example">Ne nahu houme. <span class="gloss">I cook bread.</span></span><span class="example">Maya nahu pomea. <span class="gloss">Maya cooks fruits.</span></span><h3>🏠 The kitchen: <em>nahe</em></h3><p>The noun <em>nahe</em> means "kitchen" — the place where cooking happens. Use it with locatives <em>ya</em> (at) and <em>wo</em> (in) from Unit 7:</p><span class="example">Yuna su wo nahe. <span class="gloss">Yuna is in the kitchen.</span></span><h3>🔗 Stacking with modals</h3><p><em>nahu</em> stacks with <em>wanu</em>, <em>sahu</em>, and <em>shihu</em> just like any other verb:</p><span class="example">Maya sahu nahu mopomea. <span class="gloss">Maya can cook vegetables.</span></span>`},
+
+  {id:"l58_taste",
+   title:"Taste and Flavor",
+   desc:"milale, saone, yaume",
+   icon:"🍯",
+   vocabKey:"l58_taste",
+   xp:22,
+   unit:9},
+
+  {id:"l59_money",
+   title:"Money and Transactions",
+   desc:"leye, hoye, mohoye, toke",
+   icon:"💰",
+   vocabKey:"l59_money",
+   xp:20,
+   unit:9},
+
+  {id:"l60_buyingselling",
+   title:"Buying, Selling, Asking the Price",
+   desc:"Transactional patterns; introduces nai",
+   icon:"🛒",
+   vocabKey:"l60_buyingselling",
+   xp:24,
+   unit:9,
+   isSentence:true,
+   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kifa</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kifa leyea su lo houme? <span class="gloss">How much is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>leye</em> ("money") pluralizes regularly to <em>leyea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Lo houme su hani leyea. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs from <em>hoye</em> and its <em>mo-</em> partner <em>mohoye</em>:</p><span class="example">Ne hoyu lo shae. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea fa Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houmea so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>fa</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun:</p><span class="example">Ne ahu nai leyea. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu nai pomea fa pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span>`},
+
+  {id:"l61_exam",
+   title:"Unit 10 Exam: Food and Transactions",
+   desc:"Three hearts, three mistakes",
+   icon:"✅",
+   vocabKey:"l61_exam",
+   xp:26,
+   unit:9,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>✅ Unit 10 Exam</h3><p>This is your Unit 10 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across drinks, food, cooking, taste vocabulary, money, and transactional patterns — plus prior-unit grammar (plurals, locatives, days, future tense, modals, demonstratives, questions).</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
