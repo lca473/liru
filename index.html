@@ -1842,6 +1842,93 @@ const V = {
     {lw:["Iroume","sho","fiwe","su","luhi"],             en:"The snow and wind are cold."},
   ],
 
+  // ═══════════════════════════════════════════════════════════════
+  // UNIT 13 — THIS AND THAT (L75–L80)
+  // ═══════════════════════════════════════════════════════════════
+  // Descriptive vocabulary, common verbs, household objects.
+  // No coinages — all forms pre-existing in Dictionary.md.
+  // No new grammar — all constructions reuse Units 1-12.
+  //
+  // L75 — Big and Small, Old and New, Beautiful and Ugly (vocab)
+  //   3 mo-pair adjective roots: piami/mopiami, nohi/monohi, wauli/mowauli
+  // L76 — Easy and Hard, Soft and Hard, Smart (vocab)
+  //   2 mo-pair adjectives + standalone yashi: teuhi/moteuhi, peri/moperi, yashi
+  // L77 — To Hold and To Drop, To Get and To Let Go (vocab)
+  //   2 idiomatic mo-pair verbs: kahu/mokahu, kosu/mokosu
+  //   Note: mokahu and mokosu are tighter than the productive mo- rule predicts —
+  //   listed as standalone verb-only entries in Dictionary.md. No intro-card
+  //   pedagogy on this — learners derive close-enough meaning from the rule.
+  // L78 — To Remember, To Forget, To Think, To Open, To Close (vocab)
+  //   2 mo-pair verbs + standalone piru: meru/momeru, piru, poyu/mopoyu
+  // L79 — Things at Home (vocab)
+  //   6 noun-only forms: seme, pahe, koire, voure, tiere, neule
+  //   Canvas adj/v forms remain in Dictionary.md but aren't surfaced.
+  //   Same precedent as L66 loiwe and L72 dramatic-weather nouns.
+  // L80 — Unit Exam (sentence checkpoint, three-hearts-three-mistakes)
+  //   8 sentences covering 21/26 unit forms. Demonstrates the new clause-
+  //   coordination rule (Grammar.md §10) — tense repeats, subject elides
+  //   unless context demands it.
+
+  l75_bigsmall: [
+    {lw:"piami",   en:"small",                       pos:"adj"},
+    {lw:"mopiami", en:"big (or large)",              pos:"adj", pair:"piami"},
+    {lw:"nohi",    en:"new (or young, recent)",      pos:"adj"},
+    {lw:"monohi",  en:"old (or aged)",               pos:"adj", pair:"nohi"},
+    {lw:"wauli",   en:"beautiful (or beautifully)",  pos:"adj"},
+    {lw:"mowauli", en:"ugly",                        pos:"adj", pair:"wauli"},
+  ],
+
+  l76_easyhardsmart: [
+    {lw:"teuhi",   en:"difficult",                   pos:"adj"},
+    {lw:"moteuhi", en:"easy (or easily)",            pos:"adj", pair:"teuhi"},
+    {lw:"peri",    en:"soft",                        pos:"adj"},
+    {lw:"moperi",  en:"hard",                        pos:"adj", pair:"peri"},
+    {lw:"yashi",   en:"smart (or clever)",           pos:"adj"},
+  ],
+
+  l77_holdgive: [
+    {lw:"kahu",   en:"to hold (or carry)",                       pos:"verb"},
+    {lw:"mokahu", en:"to drop (unintentional)",                  pos:"verb", pair:"kahu"},
+    {lw:"kosu",   en:"to get (or obtain)",                       pos:"verb"},
+    {lw:"mokosu", en:"to give up possession (or let go)",        pos:"verb", pair:"kosu"},
+  ],
+
+  l78_cognitiveopen: [
+    {lw:"meru",   en:"to remember",      pos:"verb"},
+    {lw:"momeru", en:"to forget",        pos:"verb", pair:"meru"},
+    {lw:"piru",   en:"to think",         pos:"verb"},
+    {lw:"poyu",   en:"to open",          pos:"verb"},
+    {lw:"mopoyu", en:"to close (or shut)", pos:"verb", pair:"poyu"},
+  ],
+
+  l79_athome: [
+    {lw:"seme",  en:"chair",                pos:"n"},
+    {lw:"pahe",  en:"table",                pos:"n"},
+    {lw:"koire", en:"car",                  pos:"n"},
+    {lw:"voure", en:"phone",                pos:"n"},
+    {lw:"tiere", en:"computer",             pos:"n"},
+    {lw:"neule", en:"television (or TV)",   pos:"n"},
+  ],
+
+  l80_exam: [
+    {lw:["Lo","paipe","su","piami","sho","wauli"],
+     en:"This dog is small and beautiful."},
+    {lw:["Veo","koire","su","mopiami","sho","monohi"],
+     en:"Their car is big and old."},
+    {lw:["Lo","nauye","su","teuhi","ma","falo","nauye","su","moteuhi"],
+     en:"This game is difficult, but that game is easy."},
+    {lw:["Lo","seme","su","peri","ma","lo","pahe","su","moperi"],
+     en:"This chair is soft, but this table is hard."},
+    {lw:["Ne","wa","kosu","nohi","tiere"],
+     en:"I got a new computer."},
+    {lw:["Yuna","su","yashi","sho","ve","meru","neo","nile"],
+     en:"Yuna is smart and she remembers my name."},
+    {lw:["Kai","wa","mokahu","veo","voure","sho","wa","momeru","ve"],
+     en:"Kai dropped his phone and forgot it."},
+    {lw:["Maya","wa","poyu","lo","loiwe","sho","wa","mopoyu","ve"],
+     en:"Maya opened this book and closed it."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1868,6 +1955,7 @@ const UNITS = [
   {name:"Unit 10 — Food and Transactions", start:48},
   {name:"Unit 11 — Body, Health, and Daily Life", start:55},
   {name:"Unit 12 — Weather and Nature", start:61},
+  {name:"Unit 13 — This and That", start:68},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -2546,6 +2634,68 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>✅ Unit 12 Exam</h3><p>This is your Unit 12 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across weather and nature vocabulary, the new locative particles (<em>leu</em>, <em>moleu</em>), and the impersonal-verb construction — plus prior-unit grammar (possessives, demonstratives, plurals, conjunctions, ki-questions, tense).</p>`},
+
+  // ── UNIT 13: THIS AND THAT (L75–L80) ──────────────────────────────────
+  // Descriptive vocabulary, common verbs, household objects.
+  // No coinages, no new grammar (the new clause-coordination rule per
+  // Grammar.md §10 is implicit in L80's exam sentences but not taught
+  // explicitly via an intro card).
+
+  {id:"l75_bigsmall",
+   title:"Big and Small, Old and New, Beautiful and Ugly",
+   desc:"piami, mopiami, nohi, monohi, wauli, mowauli",
+   icon:"🌸",
+   vocabKey:"l75_bigsmall",
+   xp:20,
+   unit:12,
+   intro:`<h3>🌸 Describing Things</h3><p>So far you've learned to say what things are (a dog, a friend) and where they are (in the room, at home). Now you'll learn to describe them.</p><p>Liru describes things using <strong>adjective + noun</strong>, with the adjective coming <strong>before</strong> the noun:</p><span class="example">piami paipe <span class="gloss">a small dog</span></span><p>Or with the copula <em>su</em> to make a full sentence:</p><span class="example">Lo paipe su piami. <span class="gloss">This dog is small.</span></span><p>Three pairs in this lesson all use the <em>mo-</em> balancing rule from Unit 4:</p><ul><li><em>piami</em> (small) ↔ <em>mopiami</em> (big)</li><li><em>nohi</em> (new) ↔ <em>monohi</em> (old)</li><li><em>wauli</em> (beautiful) ↔ <em>mowauli</em> (ugly)</li></ul>`},
+
+  {id:"l76_easyhardsmart",
+   title:"Easy and Hard, Soft and Hard, Smart",
+   desc:"teuhi, moteuhi, peri, moperi, yashi",
+   icon:"💡",
+   vocabKey:"l76_easyhardsmart",
+   xp:18,
+   unit:12,
+   intro:`<h3>💡 More Adjectives</h3><p>Three more describing words. Two are <em>mo-</em> pairs like the ones you just learned; the third stands alone.</p><ul><li><em>teuhi</em> (difficult) ↔ <em>moteuhi</em> (easy)</li><li><em>peri</em> (soft) ↔ <em>moperi</em> (hard)</li><li><em>yashi</em> (smart, clever)</li></ul><p>Note: English uses <strong>hard</strong> for two different ideas — <em>teuhi</em> is "hard" as in difficult, and <em>moperi</em> is "hard" as in not soft. Liru keeps these separate.</p>`},
+
+  {id:"l77_holdgive",
+   title:"To Hold and To Drop, To Get and To Let Go",
+   desc:"kahu, mokahu, kosu, mokosu",
+   icon:"✋",
+   vocabKey:"l77_holdgive",
+   xp:16,
+   unit:12,
+   intro:`<h3>✋ Holding and Getting</h3><p>Four verbs about possession.</p><ul><li><em>kahu</em> (to hold, carry) — <em>mokahu</em> (to drop)</li><li><em>kosu</em> (to get, obtain) — <em>mokosu</em> (to let go)</li></ul>`},
+
+  {id:"l78_cognitiveopen",
+   title:"To Remember, To Forget, To Think, To Open, To Close",
+   desc:"meru, momeru, piru, poyu, mopoyu",
+   icon:"🧠",
+   vocabKey:"l78_cognitiveopen",
+   xp:18,
+   unit:12,
+   intro:`<h3>🧠 Cognitive and Action Verbs</h3><p>Five more verbs that come up in everyday speech.</p><ul><li><em>meru</em> (to remember) ↔ <em>momeru</em> (to forget)</li><li><em>piru</em> (to think)</li><li><em>poyu</em> (to open) ↔ <em>mopoyu</em> (to close)</li></ul>`},
+
+  {id:"l79_athome",
+   title:"Things at Home",
+   desc:"seme, pahe, koire, voure, tiere, neule",
+   icon:"🏠",
+   vocabKey:"l79_athome",
+   xp:20,
+   unit:12,
+   intro:`<h3>🏠 Common Objects</h3><p>Six everyday things — three around your home, three modern devices.</p><p><em>koire</em>, <em>voure</em>, <em>tiere</em>, and <em>neule</em> are recent additions to Liru's lexicon — the language treats modern technology with the same simple noun patterns as anything else. There's no special "tech" vocabulary register.</p>`},
+
+  {id:"l80_exam",
+   title:"Unit 13 Exam: This and That",
+   desc:"Three hearts, three mistakes",
+   icon:"✅",
+   vocabKey:"l80_exam",
+   xp:30,
+   unit:12,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>✅ Unit 13 Exam</h3><p>This is your Unit 13 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across the unit's descriptive adjectives, action verbs, and household objects — plus prior-unit grammar (possessives, demonstratives, conjunctions, tense).</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
