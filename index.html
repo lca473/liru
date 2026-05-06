@@ -1719,6 +1719,129 @@ const V = {
     {lw:["Wu lawe","ne","wu","hipu","so","hiwe"],      en:"Tomorrow I will walk to the house."},
   ],
 
+  // ── UNIT 12: WEATHER AND NATURE (L68–L74) ──────────────────────────────
+
+  // L68 — Sun, Rain, Wind, Sky (vocab)
+  // Four core weather/nature nouns. Verbs *shaliru* and *fiwu* surface
+  // as canvas verbs because L73 drills them as impersonal verbs.
+  // Mechanical-tagged adj forms not surfaced as flashcards.
+  l68_weather1: [
+    {lw:"haule",   en:"sun",   pos:"n",
+     canvas:{adj:"hauli", adj_en:"sun-related", adj_tier:"mechanical"}},
+    {lw:"shalire", en:"rain",  pos:"n",
+     canvas:{adj:"shaliri", adj_en:"rainy", adj_tier:"mechanical",
+             v:"shaliru",   v_en:"to rain"}},
+    {lw:"fiwe",    en:"wind",  pos:"n",
+     canvas:{adj:"fiwi", adj_en:"windy", adj_tier:"mechanical",
+             v:"fiwu",   v_en:"to blow (as wind)"}},
+    {lw:"laime",   en:"sky",   pos:"n",
+     canvas:{adj:"laimi", adj_en:"sky-related", adj_tier:"mechanical"}},
+  ],
+
+  // L69 — Hot, Cold, Snow, Cloud (vocab)
+  // *hauhe*/*luhe* taught with adj forms *hauhi*/*luhi* as primary teaching
+  // targets — these are the everyday adjectives. *iroumu* (to snow) surfaces
+  // for L73's impersonal-verb drills. Mechanical-tagged forms not surfaced.
+  // *moluhi* (warm) is the documented mo-balancing pair for *luhi* but is
+  // not surfaced — taught later via SRS if needed.
+  l69_weather2: [
+    {lw:"hauhe",   en:"heat",      pos:"n",
+     canvas:{adj:"hauhi", adj_en:"hot (or hotly)",
+             v:"hauhu",   v_en:"to heat up", v_tier:"mechanical"}},
+    {lw:"luhe",    en:"coldness",  pos:"n",
+     canvas:{adj:"luhi",  adj_en:"cold (or coldly)",
+             v:"luhu",    v_en:"to make cold", v_tier:"mechanical"}},
+    {lw:"iroume",  en:"snow",      pos:"n",
+     canvas:{adj:"iroumi", adj_en:"snowy", adj_tier:"mechanical",
+             v:"iroumu",   v_en:"to snow"}},
+    {lw:"felume",  en:"cloud",     pos:"n",
+     canvas:{adj:"felumi", adj_en:"cloudy", adj_tier:"mechanical",
+             v:"felumu",   v_en:"to cloud over", v_tier:"mechanical"}},
+  ],
+
+  // L70 — Tree, Flower, Grass, Plant (vocab + productive compound)
+  // Four nature nouns. *loshu* (to bloom) surfaces because it's a natural
+  // everyday verb. *mouleyahe* (forest) is a productive compound (moule +
+  // yahe per Grammar.md §19); declared as standalone noun with no canvas
+  // object, per L40 senehiwe/kupetieme and L56 houmetieme/pometieme
+  // precedents. Closes the Unit 11 *mouleyahe* registration carryover.
+  l70_nature: [
+    {lw:"moule",     en:"tree",   pos:"n",
+     canvas:{adj:"mouli", adj_en:"tree-related", adj_tier:"mechanical"}},
+    {lw:"loshe",     en:"flower", pos:"n",
+     canvas:{adj:"loshi", adj_en:"flowering", adj_tier:"mechanical",
+             v:"loshu",   v_en:"to bloom"}},
+    {lw:"foshe",     en:"grass",  pos:"n",
+     canvas:{adj:"foshi", adj_en:"grass-related", adj_tier:"mechanical"}},
+    {lw:"liume",     en:"plant",  pos:"n",
+     canvas:{adj:"liumi", adj_en:"plant-related", adj_tier:"mechanical"}},
+    {lw:"mouleyahe", en:"forest", pos:"n"},
+  ],
+
+  // L71 — Above and Below (sentence-based)
+  // Drills locative particles *leu* (above/on) and *moleu* (under/below).
+  // 7 sentences, 4-leu / 3-moleu balance. Particles enroll in SRS via
+  // sentence-token extraction (L41 precedent — leu/moleu have pos:"prep"
+  // in DICTIONARY_RAW, not pos:"particle", and are not in SRS_PARTICLE_SKIP).
+  l71_locatives: [
+    {lw:["Loshe","su","leu","foshe"],      en:"The flower is above the grass."},
+    {lw:["Foshe","su","moleu","moule"],    en:"The grass is below the tree."},
+    {lw:["Haule","su","leu","laime"],      en:"The sun is in the sky."},
+    {lw:["Felume","su","leu","hiwe"],      en:"The cloud is above the house."},
+    {lw:["Mewe","su","moleu","moule"],     en:"The cat is under the tree."},
+    {lw:["Paipe","su","moleu","hiwe"],     en:"The dog is below the house."},
+    {lw:["Iroume","su","leu","moule"],     en:"The snow is on the tree."},
+  ],
+
+  // L72 — Thunder, Lightning, Storm, Ocean (vocab)
+  // Per Neal's Interpretation A: noun forms only. Adj forms mechanical-
+  // tagged. Verb forms exist in Dictionary.md but are NOT surfaced — they
+  // remain dictionary-only in core. Verbs ("to thunder," "to ocean," etc.)
+  // are not common everyday utterances and would expand surfaced flashcards
+  // without proportionate utility. Available for an advanced track.
+  l72_dramaticweather: [
+    {lw:"tarume",   en:"thunder",   pos:"n",
+     canvas:{adj:"tarumi", adj_en:"thunder-related", adj_tier:"mechanical"}},
+    {lw:"lunume",   en:"lightning", pos:"n",
+     canvas:{adj:"lunumi", adj_en:"lightning-related", adj_tier:"mechanical"}},
+    {lw:"shupe",    en:"storm",     pos:"n",
+     canvas:{adj:"shupi", adj_en:"stormy", adj_tier:"mechanical"}},
+    {lw:"shawome",  en:"ocean",     pos:"n",
+     canvas:{adj:"shawomi", adj_en:"oceanic", adj_tier:"mechanical"}},
+  ],
+
+  // L73 — It Rains, It Snows, It's Windy (sentence-based)
+  // Drills the impersonal-verb construction (Grammar.md §5, lines 180–186).
+  // Three verbs: *shaliru* ×2, *iroumu* ×3, *fiwu* ×2. Three tenses:
+  // 3 present, 2 past, 2 future. Time anchors *lo lawe*, *wa lawe*,
+  // *wu lawe*, *molawe*, *wuhi* drilled across the set. No new forms —
+  // verbs were surfaced in L68/L69's V maps.
+  l73_impersonal: [
+    {lw:["Shaliru"],                          en:"It is raining."},
+    {lw:["Wa","iroumu","wa lawe"],            en:"It snowed yesterday."},
+    {lw:["Wu","fiwu","wu lawe"],              en:"It will be windy tomorrow."},
+    {lw:["Iroumu","lo lawe"],                 en:"It is snowing today."},
+    {lw:["Wa","shaliru","molawe"],            en:"It rained at night."},
+    {lw:["Fiwu","lo lawe"],                   en:"It is windy today."},
+    {lw:["Wu","iroumu","wuhi"],               en:"It will snow soon."},
+  ],
+
+  // L74 — Unit 12 Exam (sentence-based, isCheckpoint:true)
+  // Comprehensive review across L68–L73. 8 sentences mixing Unit 12
+  // weather/nature vocab, the new locatives, and the impersonal-verb
+  // construction with prior-unit grammar (possessives, plurals, ki-
+  // questions, demonstratives, conjunctions, tense). No new forms.
+  l74_exam: [
+    {lw:["Lo","loshe","su","neo"],                       en:"This flower is mine."},
+    {lw:["Wa","shaliru","wa lawe"],                      en:"It rained yesterday."},
+    {lw:["Lo","mouleyahe","ahu","nai","moulea"],         en:"This forest has many trees."},
+    {lw:["Felume","su","leu","mouleyahe"],               en:"The cloud is above the forest."},
+    {lw:["Ki","haule","su","hauhi"],                     en:"Is the sun hot?"},
+    {lw:["Paipe","su","moleu","liume"],                  en:"The dog is under the plant."},
+    {lw:["Wu","fiwu","lo lawe"],                         en:"It will be windy today."},
+    {lw:["Iroume","sho","fiwe","su","luhi"],             en:"The snow and wind are cold."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1744,6 +1867,7 @@ const UNITS = [
   {name:"Unit 9 — Numbers and Days", start:43},
   {name:"Unit 10 — Food and Transactions", start:48},
   {name:"Unit 11 — Body, Health, and Daily Life", start:55},
+  {name:"Unit 12 — Weather and Nature", start:61},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -2353,6 +2477,75 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>✅ Unit 11 Exam</h3><p>This is your Unit 11 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across body parts, pain and sickness vocabulary, healthcare, the L65 idioms, and daily-life vocabulary — plus prior-unit grammar (possessives, copula, demonstratives, modals, locatives, plurals, ki-questions, future tense).</p>`},
+
+  // ── UNIT 12: WEATHER AND NATURE (L68–L74) ──────────────────────────────
+
+  {id:"l68_weather1",
+   title:"Sun, Rain, Wind, Sky",
+   desc:"Four core weather and nature nouns",
+   icon:"☀️",
+   vocabKey:"l68_weather1",
+   xp:18,
+   unit:11,
+   intro:`<h3>☀️ Welcome to Weather and Nature</h3><p>This unit teaches everyday weather and natural-world vocabulary, plus two new locative particles for talking about position (above, below).</p><p>Four nouns to start: <em>haule</em> (sun), <em>shalire</em> (rain), <em>fiwe</em> (wind), <em>laime</em> (sky). Two of them — <em>shalire</em> and <em>fiwe</em> — also surface as verbs (<em>shaliru</em> "to rain," <em>fiwu</em> "to blow") because Liru uses these directly to describe weather: <em>shaliru</em> by itself means "it's raining."</p>`},
+
+  {id:"l69_weather2",
+   title:"Hot, Cold, Snow, Cloud",
+   desc:"Temperature adjectives and more weather",
+   icon:"❄️",
+   vocabKey:"l69_weather2",
+   xp:20,
+   unit:11,
+   intro:`<h3>❄️ Hot and cold; snow and cloud</h3><p>Two adjective-led pairs and two weather nouns:</p><ul><li><em>hauhe</em> (heat) → <em>hauhi</em> (hot)</li><li><em>luhe</em> (coldness) → <em>luhi</em> (cold)</li><li><em>iroume</em> (snow) → <em>iroumu</em> (to snow)</li><li><em>felume</em> (cloud)</li></ul><p>The adjective forms <em>hauhi</em> and <em>luhi</em> are the everyday teaching targets — say <em>Haule su hauhi</em> "the sun is hot" or <em>Iroume su luhi</em> "the snow is cold." The verb <em>iroumu</em> ("to snow") will be drilled in L73 with the impersonal-verb construction.</p>`},
+
+  {id:"l70_nature",
+   title:"Tree, Flower, Grass, Plant",
+   desc:"Nature nouns and the forest compound",
+   icon:"🌳",
+   vocabKey:"l70_nature",
+   xp:20,
+   unit:11,
+   intro:`<h3>🌳 The growing world</h3><p>Four nature nouns: <em>moule</em> (tree), <em>loshe</em> (flower), <em>foshe</em> (grass), <em>liume</em> (plant). Plus a productive compound: <em>mouleyahe</em> (forest).</p><p><em>mouleyahe</em> follows the productive-compound pattern from Grammar §19: <em>moule</em> (tree) + <em>yahe</em> (place) = "tree-place" = forest. Like <em>senehiwe</em> (school = teaching-place) and <em>kupetieme</em> (café = drink-store), it's built from parts you already know — and you can recognize others like it as you encounter them.</p><p><em>loshu</em> "to bloom" surfaces because flowers blooming is everyday vocabulary worth keeping.</p>`},
+
+  {id:"l71_locatives",
+   title:"Above and Below",
+   desc:"Two new locative particles: leu and moleu",
+   icon:"⬆️",
+   vocabKey:"l71_locatives",
+   xp:22,
+   unit:11,
+   isSentence:true,
+   intro:`<h3>⬆️ Where things are vertically</h3><p>Liru has two more locative particles for vertical position:</p><ul><li><em>leu</em> — above, on</li><li><em>moleu</em> — below, under</li></ul><p>Like the locatives you already know (<em>ya, wo, mowo, so, fa</em> from Unit 7), these come between the subject and the place noun:</p><ul><li><em>Loshe su leu moule.</em> — The flower is on the tree.</li><li><em>Foshe su moleu moule.</em> — The grass is below the tree.</li></ul><p>Notice that <em>moleu</em> is the <em>mo-</em> derivation of <em>leu</em> — they form a balancing pair, just like <em>mowo</em> (out) balances <em>wo</em> (in).</p><p>One thing to know: Liru uses <em>leu</em> for both English "above" (when not touching) and "on" (when contacting the surface). The English gloss adapts to context, but the Liru is one word.</p>`},
+
+  {id:"l72_dramaticweather",
+   title:"Thunder, Lightning, Storm, Ocean",
+   desc:"Four dramatic-weather and water nouns",
+   icon:"⚡",
+   vocabKey:"l72_dramaticweather",
+   xp:18,
+   unit:11,
+   intro:`<h3>⚡ Big weather, big water</h3><p>Four dramatic nature nouns: <em>tarume</em> (thunder), <em>lunume</em> (lightning), <em>shupe</em> (storm), <em>shawome</em> (ocean).</p><p>These are taught as nouns only — Liru has verb forms for these (you can find them in the dictionary), but the everyday speech patterns lean on the noun forms with descriptive adjectives. Say <em>Shupe su shawomi</em> "the storm is oceanic" rather than trying to verb the storm.</p>`},
+
+  {id:"l73_impersonal",
+   title:"It Rains, It Snows, It's Windy",
+   desc:"The impersonal-verb construction",
+   icon:"🌧️",
+   vocabKey:"l73_impersonal",
+   xp:22,
+   unit:11,
+   isSentence:true,
+   intro:`<h3>🌧️ Subjectless weather</h3><p>In English, we say "it's raining" — but the "it" doesn't refer to anything. It's a placeholder. Liru handles this differently: it just drops the placeholder.</p><ul><li><em>Shaliru.</em> — It is raining. <em>(literally: "rains.")</em></li><li><em>Iroumu.</em> — It is snowing.</li><li><em>Fiwu.</em> — It is windy.</li></ul><p>The verb stands alone. Tense particles work the same as with any verb:</p><ul><li><em>Wa shaliru.</em> — It rained.</li><li><em>Wu iroumu wuhi.</em> — It will snow soon.</li></ul><p>And time anchors slot in naturally:</p><ul><li><em>Shaliru lo lawe.</em> — It is raining today.</li><li><em>Wa fiwu wa lawe.</em> — It was windy yesterday.</li></ul>`},
+
+  {id:"l74_exam",
+   title:"Unit 12 Exam: Weather and Nature",
+   desc:"Three hearts, three mistakes",
+   icon:"✅",
+   vocabKey:"l74_exam",
+   xp:26,
+   unit:11,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>✅ Unit 12 Exam</h3><p>This is your Unit 12 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across weather and nature vocabulary, the new locative particles (<em>leu</em>, <em>moleu</em>), and the impersonal-verb construction — plus prior-unit grammar (possessives, demonstratives, plurals, conjunctions, ki-questions, tense).</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
