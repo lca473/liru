@@ -3080,12 +3080,64 @@ function generateVocabExercises(lesson){
 function generateSentenceExercises(lesson){
   const items=V[lesson.vocabKey];
   if(!items||items.length===0)return[];
+
+  // Build a pool of single-word distractor tiles drawn from previously-taught
+  // lessons (vocab-lesson V entries + tokens used in prior sentence lessons).
+  // Used to pad word-order prompts where the correct sentence has < 3 tiles —
+  // without padding, a single-token sentence like "Weriko." → ["Weriko"] is
+  // unfailable (one tile, one possible answer). With 1–2 distractors mixed in,
+  // the learner has to actually identify the correct word.
+  const distractorTilePool=(()=>{
+    const pool=new Set();
+    for(const L of LESSONS){
+      if(L.id===lesson.id)break;
+      if(L.isReview||L.isCheckpoint||L.isFinalTest)continue;
+      const arr=V[L.vocabKey];
+      if(!arr)continue;
+      for(const v of arr){
+        if(Array.isArray(v.lw)){
+          // Sentence lesson — harvest each token.
+          for(const tok of v.lw){
+            const clean=String(tok).toLowerCase().replace(/[.,!?]/g,"");
+            if(clean&&!/\s/.test(clean))pool.add(clean);
+          }
+        } else if(typeof v.lw==="string"){
+          // Vocab lesson — base form plus canvas + plural where present.
+          pool.add(v.lw.toLowerCase());
+          if(v.canvas){
+            if(v.canvas.adj)pool.add(v.canvas.adj.toLowerCase());
+            if(v.canvas.v)pool.add(v.canvas.v.toLowerCase());
+          }
+          if(v.plural)pool.add(v.plural.toLowerCase());
+        }
+      }
+    }
+    return [...pool];
+  })();
+
+  // Pad a word-order tile array with distractors when it's too short to be
+  // failable. correctOrderLower is the lowercased correct tokens — we exclude
+  // those from distractor candidates so a distractor can never accidentally
+  // match a correct tile.
+  const padShuffled=(shuffledArr,correctOrder)=>{
+    if(correctOrder.length>=3)return shuffledArr;
+    const correctLower=new Set(correctOrder.map(t=>String(t).toLowerCase().replace(/[.,!?]/g,"")));
+    const candidates=distractorTilePool.filter(w=>!correctLower.has(w));
+    if(candidates.length===0)return shuffledArr;
+    // Length 1 → add 2 distractors (3 tiles total); length 2 → add 1 distractor.
+    const need=correctOrder.length===1?2:1;
+    const picked=shuffle([...candidates]).slice(0,Math.min(need,candidates.length));
+    return shuffle([...shuffledArr,...picked]);
+  };
+
   const wordOrderPool=[];
   const fillPool=[];
   items.forEach(sent=>{
     const lwStr=Array.isArray(sent.lw)?sent.lw.join(" "):sent.lw;
     const lwArr=Array.isArray(sent.lw)?sent.lw:lwStr.split(" ");
-    wordOrderPool.push({type:"wordOrder",prompt:`Translate: "${sent.en}"`,correctOrder:lwArr,correctOrderAlts:sent.alts||null,shuffled:shuffle([...lwArr])});
+    const baseShuffled=shuffle([...lwArr]);
+    const padded=padShuffled(baseShuffled,lwArr);
+    wordOrderPool.push({type:"wordOrder",prompt:`Translate: "${sent.en}"`,correctOrder:lwArr,correctOrderAlts:sent.alts||null,shuffled:padded});
     fillPool.push({type:"fill",prompt:`Translate to Liru:\n"${sent.en}"`,correct:lwStr.toLowerCase()});
   });
   // Scaffold progression: word-order exercises first (learner sees the words,
@@ -3316,6 +3368,25 @@ async function finishLogin(name){
     const cloud=await srsPullFromCloud(user.username);
     if(cloud){
       const localCards=srsLoadCards(user.username);
+      // Cloud→local mirror: when cloud explicitly returned a `cards` object,
+      // treat cloud as canonical for set membership. Drop any local card whose
+      // ID isn't in cloud. This is what makes a reset on Device A propagate
+      // to Device B on B's next login — without this step, B's old local
+      // cards survive the merge (which only ever ADOPTS cloud cards, never
+      // deletes local). The guard `cloud.cards` (truthy object) ensures a
+      // missing/transient subtree doesn't accidentally wipe local — only an
+      // explicit cloud state with a known card set triggers the mirror.
+      if(cloud.cards){
+        const cloudIds=cloud.cards;
+        let dropped=0;
+        for(const id in localCards){
+          if(!(id in cloudIds)){
+            delete localCards[id];
+            dropped++;
+          }
+        }
+        if(dropped>0)console.log("[SRS] mirror dropped",dropped,"local cards missing from cloud for",user.username);
+      }
       const merged=srsMergeCloudCards(localCards,cloud.cards||{});
       srsSaveCards(user.username,localCards);
       if(cloud.state){
@@ -3357,7 +3428,14 @@ async function finishLogin(name){
     if(prunedMech>0)console.log("[SRS] pruned",prunedMech,"mechanical cards for",user.username);
     const prunedMech2=srsPruneMechanicalRound2IfNeeded(user.username);
     if(prunedMech2>0)console.log("[SRS] round-2 pruned",prunedMech2,"mechanical cards for",user.username);
+    // One-shot targeted reset for user "LondonGP" — wipes his deck and
+    // re-enrolls from current LESSONS ∩ lessonsCompleted. No-op for everyone
+    // else. See srsResetLondonGpIfNeeded for full rationale.
+    await srsResetLondonGpIfNeeded(user.username,user,LESSONS,V,DICTIONARY_RAW);
   }catch(e){console.warn("[SRS] cloud sync/backfill/migration failed:",e);}
+  // Attach realtime listener so a reset on another device propagates live
+  // to this open session. Wipe-only scope; see srsAttachCloudListener.
+  srsAttachCloudListener(user.username);
   state.screen="home";
   renderApp();
   fetchLeaderboard().then(lb=>{state.leaderboard=lb;renderApp();});
@@ -3615,15 +3693,48 @@ function srsRefreshAndSync(username,cards){
   return refreshedIds.length;
 }
 
-// Hard reset: wipe local + cloud SRS data and clear flags so backfill re-runs.
+// Hard reset: wipe local + cloud SRS data. Going forward (post-Part 2),
+// reset means "empty deck, full stop" — no auto-repopulation from completed
+// lessons. The deckIntentionallyEmpty flag tells srsBackfillIfNeeded to
+// skip self-healing on this user; the flag is cleared automatically when
+// the user completes their next lesson (see srsEnrollLesson).
+//
+// Cloud is wiped and a fresh state with the flag set is written so that
+// other devices, on their next login, will mirror the wipe (via the
+// cloud→local mirror in finishLogin) and skip their own backfill.
+//
+// The realtime listener attached in finishLogin causes other open devices
+// to mirror this wipe live, without waiting for a re-login.
 async function srsResetAll(username){
   if(!username)return;
   // Local wipe
   localStorage.removeItem(srsStoreKey(username));
   localStorage.removeItem(srsStateKey(username));
-  // Cloud wipe (fire-and-forget but await to give the user feedback)
+  // Write fresh state. deckIntentionallyEmpty:true blocks login-time
+  // backfill on this and any other device until the user completes a
+  // future lesson. Other one-shot guards are also set so they don't
+  // re-fire on a freshly-empty deck.
+  const freshState={
+    backfilled:true,
+    deckIntentionallyEmpty:true,
+    addedAtMigrationDone:true,
+    mechanicalPruneDone:true,
+    mechanicalPruneRound2Done:true,
+    kauheToMouleyaheDone:true,
+    leyeToToneDone:true,
+    londonGpResetDone:true,
+  };
+  srsSaveState(username,freshState);
+  // Cloud wipe (await the remove so the subsequent state write is unambiguous).
   if(firebaseReady&&db){
-    try{await db.ref("users/"+fbKey(username)+"/srs").remove();}
+    try{
+      await db.ref("users/"+fbKey(username)+"/srs").remove();
+      // After removal, set the state subtree explicitly so other devices
+      // picking up the change on next login see a fresh, post-reset state
+      // (rather than treating the missing subtree as "first-time user" and
+      // running their own backfill). Cards subtree stays absent → empty deck.
+      await db.ref("users/"+fbKey(username)+"/srs/state").set({...freshState,lastSync:Date.now()});
+    }
     catch(e){console.warn("[SRS] cloud reset error:",e);}
   }
 }
@@ -3743,6 +3854,15 @@ function srsEnrollLesson(username,lesson,V,DICTIONARY_RAW,lessonIdx){
     added+=srsAddWord(cards,w.lw,w.en,w.pos,baseTime+i);
   }
   if(added>0)srsSaveCards(username,cards);
+  // If the deck was intentionally empty (post-reset), the user completing
+  // a lesson signals they want progression to resume. Clear the flag so
+  // future login-time self-healing backfills can run normally.
+  const s=srsLoadState(username);
+  if(s.deckIntentionallyEmpty){
+    s.deckIntentionallyEmpty=false;
+    srsSaveState(username,s);
+    srsSyncState(username,s);
+  }
   return added;
 }
 
@@ -3754,6 +3874,11 @@ function srsEnrollLesson(username,lesson,V,DICTIONARY_RAW,lessonIdx){
 function srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
   if(!username)return 0;
   const s=srsLoadState(username);
+  // After a manual reset (via the gear button), the deck is intentionally
+  // empty and should NOT be repopulated by self-healing backfill. The flag
+  // is set in srsResetAll. Cleared by srsEnrollLesson when the user
+  // completes their next lesson, so future progression resumes normally.
+  if(s.deckIntentionallyEmpty)return 0;
   const completed=new Set(user.lessonsCompleted||[]);
   if(completed.size===0){
     // Mark backfilled even if there's nothing to backfill, so we don't re-check forever.
@@ -3965,6 +4090,47 @@ function srsPruneMechanicalRound2IfNeeded(username){
   srsSaveState(username,s);
   srsSyncState(username,s);
   return prunedIds.length;
+}
+
+// ─── One-time targeted reset for user "LondonGP" ─────────────
+// Context: LondonGP's deck contained a mix of v1-course cards (from the
+// pre-rebuild course that taught a different vocabulary set) and v2-course
+// cards. The stale-card pruner only kills cards whose lw is no longer in
+// DICTIONARY_RAW, so v1 words still in the v2 dictionary survived pruning.
+// This one-shot wipes his entire deck (local + cloud) and re-enrolls cards
+// from scratch by walking his lessonsCompleted ∩ current LESSONS — yielding
+// exactly the cards he should have for the v2 lessons he has finished.
+//
+// Gated by state.londonGpResetDone. Runs once for that user, then never
+// again. No-op for everyone else (username check). Safe to keep in the
+// codebase indefinitely — same retention pattern as the kauhe/leye migrations.
+//
+// Important: this does NOT touch lessonsCompleted, XP, streak, or any other
+// non-SRS data. The Firebase wipe targets only users/<key>/srs/.
+async function srsResetLondonGpIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
+  if(!username)return 0;
+  if(username.toLowerCase()!=="londongp")return 0;
+  const s=srsLoadState(username);
+  if(s.londonGpResetDone)return 0;
+  // Wipe local
+  localStorage.removeItem(srsStoreKey(username));
+  localStorage.removeItem(srsStateKey(username));
+  // Wipe cloud (await so the subsequent backfill push doesn't race the delete)
+  if(firebaseReady&&db){
+    try{await db.ref("users/"+fbKey(username)+"/srs").remove();}
+    catch(e){console.warn("[SRS] LondonGP cloud wipe error:",e);}
+  }
+  // Re-enroll from current LESSONS ∩ lessonsCompleted. srsBackfillIfNeeded
+  // walks LESSONS (so v1-only IDs in lessonsCompleted are silently skipped)
+  // and sets state.backfilled=true at the end.
+  const added=srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW);
+  // Mark this one-shot done. Re-load state because backfill replaced it.
+  const s2=srsLoadState(username);
+  s2.londonGpResetDone=true;
+  srsSaveState(username,s2);
+  srsSyncState(username,s2);
+  console.log("[SRS] LondonGP one-shot reset complete; re-enrolled",added,"cards");
+  return added;
 }
 
 // ─── One-time recoinage migration: kauhe → mouleyahe ─────────
@@ -4277,6 +4443,87 @@ function srsShuffleNoAdjacency(arr){
   return a;
 }
 
+// ─── Realtime cloud listener (Part 3b) ───────────────────────
+// Live propagation of cross-device wipes. Attaches once per login to
+// users/<key>/srs/cards. When the cards subtree disappears (or empties),
+// we know another device wiped the deck and we mirror that locally.
+//
+// Intentional narrow scope: this listener only handles the WIPE case,
+// not per-card sync. Per-card sync via listener would race against the
+// active device's own writes (creating echo loops and conflict work).
+// Non-wipe drift between devices is still resolved on next login by the
+// existing srsPullFromCloud + srsMergeCloudCards path, augmented by the
+// cloud→local mirror added in finishLogin.
+//
+// Mid-session safety: if the user is actively reviewing when the wipe
+// fires, we defer the local wipe via state.pendingCloudWipe. The deferred
+// wipe applies the next time renderApp runs on a non-review screen
+// (typically when the user finishes the session and returns home).
+//
+// No teardown: the app doesn't support logout without a page reload, so
+// the listener naturally lives for the session's lifetime.
+let srsCloudListenerRef=null;
+function srsAttachCloudListener(username){
+  if(!firebaseReady||!db||!username)return;
+  // Detach any prior listener (defense in depth — finishLogin shouldn't run
+  // twice in one page-load, but if it does, don't stack listeners).
+  if(srsCloudListenerRef){
+    try{srsCloudListenerRef.off();}catch(e){/* ignore */}
+    srsCloudListenerRef=null;
+  }
+  const ref=db.ref("users/"+fbKey(username)+"/srs/cards");
+  srsCloudListenerRef=ref;
+  // Skip the initial fire — we already pulled the cloud state during login
+  // and don't want this handler to "wipe" on a non-event. Use a one-shot
+  // gate that lets the first snapshot through silently.
+  let primed=false;
+  ref.on("value",snap=>{
+    if(!primed){primed=true;return;}
+    const cloudCards=snap.val();
+    const localCards=srsLoadCards(username);
+    const localCount=Object.keys(localCards).length;
+    // Wipe condition: cloud has no cards, but local still does.
+    const cloudEmpty=!cloudCards||Object.keys(cloudCards).length===0;
+    if(cloudEmpty&&localCount>0){
+      // Defer if user is mid-review.
+      if(state.screen==="review"&&state.reviewQueue&&state.reviewQueue.length>0){
+        state.pendingCloudWipe=true;
+        console.log("[SRS] cloud wipe detected mid-review; deferring local wipe for",username);
+        return;
+      }
+      // Apply wipe immediately.
+      srsApplyPendingWipe(username);
+    }
+  });
+}
+
+// Wipe local cards (and reset the SRS state) in response to a cross-device
+// reset. Idempotent — safe to call when there's nothing to wipe. Re-renders
+// so any deck-count UI updates.
+function srsApplyPendingWipe(username){
+  if(!username)return;
+  state.pendingCloudWipe=false;
+  localStorage.removeItem(srsStoreKey(username));
+  // Mirror srsResetAll's state shape — deck is intentionally empty post-wipe,
+  // and all one-shot guards are accounted for so a subsequent login on this
+  // device doesn't re-run any one-shots (which would do nothing useful but
+  // could interact awkwardly with an empty deck).
+  const s=srsLoadState(username);
+  const preserved={
+    backfilled:true,
+    deckIntentionallyEmpty:true,
+    addedAtMigrationDone:true,
+    mechanicalPruneDone:true,
+    mechanicalPruneRound2Done:true,
+    kauheToMouleyaheDone:s.kauheToMouleyaheDone===true,
+    leyeToToneDone:s.leyeToToneDone===true,
+    londonGpResetDone:s.londonGpResetDone===true,
+  };
+  srsSaveState(username,preserved);
+  console.log("[SRS] applied pending cloud wipe for",username);
+  if(typeof renderApp==="function")renderApp();
+}
+
 // ─── Stats ───────────────────────────────────────────────────
 // Returns {deep, midTide, shallows, total} buckets for the landing page.
 // deep = interval >= 21d
@@ -4364,6 +4611,14 @@ setTimeout(async()=>{
 
 function renderApp(){
   if(currentView!=='app')return;
+  // If a cross-device wipe was deferred during a review session, apply it
+  // now that we're rendering a non-review screen.
+  if(state.pendingCloudWipe&&state.screen!=="review"&&state.user&&state.user.username){
+    srsApplyPendingWipe(state.user.username);
+    // srsApplyPendingWipe calls renderApp recursively — return now to avoid
+    // double-rendering the new state.
+    return;
+  }
   const viewApp=document.getElementById('view-app');
   if(viewApp)viewApp.classList.toggle('in-lesson',state.screen==='lesson');
   switch(state.screen){
@@ -4678,14 +4933,9 @@ function renderHome(){
   }
   const srsSettingsBtn=document.getElementById("srsSettingsBtn");if(srsSettingsBtn)srsSettingsBtn.addEventListener("click",async(e)=>{
     e.stopPropagation();
-    const yes=confirm("Reset all flashcard progress?\n\nThis will:\n• Clear your review schedule (all card progress)\n• Re-create the deck from scratch by re-enrolling words from completed lessons\n• Sync the reset to the cloud\n\nYour XP, streak, and lesson progress are NOT affected.\n\nThis cannot be undone.");
+    const yes=confirm("Reset all flashcard progress?\n\nThis will clear your review schedule and empty the deck on all of your devices. New cards will only enroll when you complete future lessons.\n\nYour XP, streak, and lesson progress are NOT affected.\n\nThis cannot be undone.");
     if(!yes)return;
     await srsResetAll(u.username);
-    // After reset, immediately re-run backfill so the user has a fresh deck
-    try{
-      srsBackfillIfNeeded(u.username,u,LESSONS,V,DICTIONARY_RAW);
-      srsMigrateAddedAtIfNeeded(u.username,u,LESSONS,V,DICTIONARY_RAW);
-    }catch(err){console.warn("[SRS] post-reset backfill failed:",err);}
     renderApp();
   });
 
