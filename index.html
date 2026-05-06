@@ -1786,7 +1786,7 @@ const V = {
   l71_locatives: [
     {lw:["Loshe","su","leu","foshe"],      en:"The flower is above the grass."},
     {lw:["Foshe","su","moleu","moule"],    en:"The grass is below the tree."},
-    {lw:["Haule","su","leu","laime"],      en:"The sun is in the sky."},
+    {lw:["Haule","su","wo","laime"],       en:"The sun is in the sky."},
     {lw:["Felume","su","leu","hiwe"],      en:"The cloud is above the house."},
     {lw:["Mewe","su","moleu","moule"],     en:"The cat is under the tree."},
     {lw:["Paipe","su","moleu","hiwe"],     en:"The dog is below the house."},
@@ -1929,6 +1929,70 @@ const V = {
      en:"Maya opened this book and closed it."},
   ],
 
+  // ──────────────── UNIT 14 — Asking for Help; Final Review ────────────────
+
+  // L81 — Please, Help, Understand (vocab; 5 forms)
+  // moa (particle, "please") finally lands here, paying off Unit 1's deferral.
+  // sove (n.) and sovu (v.) are co-taught — noun-with-verb is standard for
+  // canvas roots. moyeihi (adj.) is the natural self-descriptive form for
+  // "confused"; the verb form moyeihu means "to confuse someone" and is not
+  // surfaced (precedent: L75/L76 adjective-led pair entries).
+  l81_pleasehelp: [
+    {lw:"moa",      en:"please",                     pos:"particle"},
+    {lw:"sove",     en:"help (or aid)",              pos:"n"},
+    {lw:"sovu",     en:"to help",                    pos:"verb"},
+    {lw:"yeihu",    en:"to understand",              pos:"verb"},
+    {lw:"moyeihi",  en:"confused",                   pos:"adj"},
+  ],
+
+  // L82 — Repeat, Slow, Clear, Language, Learn (vocab; 5 forms)
+  // weliru (verb-only entry per Dictionary.md). mosairi taught as adj./adv.
+  // per its dictionary gloss. paili taught as the adjective; its noun paile
+  // remains dictionary-only. iwuhe (n.) is the meta-vocab for a language
+  // learner — natural place for talking about speaking Liru. mauhu (v.) is
+  // the verb-only surface; mauhe (n.) and mauhi (adj.) remain dictionary-only.
+  l82_repeatslow: [
+    {lw:"weliru",   en:"to repeat (or say again)",   pos:"verb"},
+    {lw:"mosairi",  en:"slow (or slowly)",           pos:"adj"},
+    {lw:"paili",    en:"clear",                      pos:"adj"},
+    {lw:"iwuhe",    en:"language",                   pos:"n"},
+    {lw:"mauhu",    en:"to learn",                   pos:"verb"},
+  ],
+
+  // L83 — Asking for Help (sentence; no new forms; 7 sentences)
+  // Drills L81/L82 vocab in their natural communicative contexts.
+  // S6 (Laime su paili lo lawe) keeps paili in its native water/sky domain.
+  // S7 introduces "Liru" as a proper noun — registered in preflight.js
+  // PROPER_NOUNS alongside Yuna/Kai/Maya.
+  l83_askinghelp: [
+    {lw:["Sovu","ne","moa"],                              en:"Help me, please."},
+    {lw:["Ne","mai","yeihu"],                             en:"I don't understand."},
+    {lw:["Ne","su","moyeihi"],                            en:"I am confused."},
+    {lw:["Weliru","moa"],                                 en:"Please repeat."},
+    {lw:["Mosairi","moa"],                                en:"Slowly, please."},
+    {lw:["Laime","su","paili","lo lawe"],                 en:"The sky is clear today."},
+    {lw:["Ne","mauhu","Liru","iwuhe"],                    en:"I am learning Liru."},
+  ],
+
+  // L84 — Final Review: All 14 Units (capstone, sentence-based, isCheckpoint)
+  // 13 sentences spanning all 14 units. Final lesson of the core course.
+  // 🎉 Passing this completes the core Liru course.
+  l84_finalreview: [
+    {lw:["Reiwa","Maya"],                                                  en:"Thank you, Maya."},
+    {lw:["Neo","wahe","su","wauli"],                                       en:"My family is beautiful."},
+    {lw:["Ne","wanu","mauhu"],                                             en:"I want to learn."},
+    {lw:["Wa lawe","Kai","wa","tahu","houme"],                             en:"Yesterday, Kai ate bread."},
+    {lw:["Ki","te","ahu","lo","loiwe"],                                    en:"Do you have this book?"},
+    {lw:["Ne","wu","halu","so","senehiwe"],                                en:"I will go to the school."},
+    {lw:["Vea","wa","tiru","paipea","sho","mewea"],                        en:"They saw dogs and cats."},
+    {lw:["Maya","wa","tau","hani","haiwea"],                               en:"Maya is ten years old."},
+    {lw:["Ne","mai","ahu","nai","tonea"],                                  en:"I don't have a lot of money."},
+    {lw:["Veo","laupe","wa","kufu","lo lawe"],                             en:"Her foot hurt today."},
+    {lw:["Haule","su","wo","laime","lo lawe"],                             en:"The sun is in the sky today."},
+    {lw:["Lo","seme","su","nohi"],                                         en:"This chair is new."},
+    {lw:["Ne","mauhu","Liru","iwuhe","sho","ne","mihu","sove"],            en:"I am learning the Liru language and I need help."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1956,6 +2020,7 @@ const UNITS = [
   {name:"Unit 11 — Body, Health, and Daily Life", start:55},
   {name:"Unit 12 — Weather and Nature", start:61},
   {name:"Unit 13 — This and That", start:68},
+  {name:"Unit 14 — Asking for Help; Final Review", start:74},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -2696,6 +2761,47 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>✅ Unit 13 Exam</h3><p>This is your Unit 13 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across the unit's descriptive adjectives, action verbs, and household objects — plus prior-unit grammar (possessives, demonstratives, conjunctions, tense).</p>`},
+
+  // ──────────────── UNIT 14 — Asking for Help; Final Review ────────────────
+
+  {id:"l81_pleasehelp",
+   title:"Please, Help, Understand",
+   desc:"moa, sove, sovu, yeihu, moyeihi",
+   icon:"🙏",
+   vocabKey:"l81_pleasehelp",
+   xp:20,
+   unit:13,
+   intro:`<h3>🙏 The most useful words a learner has</h3><p>Five forms that unlock real conversation: <em>moa</em> ("please") finally lands here — you've been waiting for it since Unit 1.</p><p>Two help-words from one root: <em>sove</em> is the noun ("help"), <em>sovu</em> is the verb ("to help"). Use whichever fits the sentence.</p><p><em>yeihu</em> is the verb "to understand." Its <em>mo-</em> partner shows up as <em>moyeihi</em> (adj. "confused") — the form you reach for when describing yourself: <em>Ne su moyeihi</em>.</p>`},
+
+  {id:"l82_repeatslow",
+   title:"Repeat, Slow, Clear, Language, Learn",
+   desc:"weliru, mosairi, paili, iwuhe, mauhu",
+   icon:"🐢",
+   vocabKey:"l82_repeatslow",
+   xp:20,
+   unit:13,
+   intro:`<h3>🐢 Slow down and learn</h3><p>Five more useful forms. <em>weliru</em> ("to repeat") is a verb-only entry. <em>mosairi</em> works as both adjective and adverb — "slow" and "slowly."</p><p><em>paili</em> describes water that runs clear, but works for anything that's clear in shape or meaning. <em>iwuhe</em> is the noun "language" — the meta-vocabulary every learner needs.</p><p>And <em>mauhu</em> — "to learn." The verb you've been doing all along.</p>`},
+
+  {id:"l83_askinghelp",
+   title:"Asking for Help",
+   desc:"the phrases a learner reaches for",
+   icon:"💬",
+   vocabKey:"l83_askinghelp",
+   xp:20,
+   unit:13,
+   isSentence:true,
+   intro:`<h3>💬 Asking for Help</h3><p>This lesson teaches the phrases a Liru learner uses most: asking for help, saying you don't understand, asking for repetition.</p><p><em>Moa</em> ("please") usually goes at the end of a request, after a comma. <em>Sovu</em> is the verb "to help" — the noun <em>sove</em> means "help" itself.</p>`},
+
+  {id:"l84_finalreview",
+   title:"Final Review — All 14 Units",
+   desc:"Three hearts, three mistakes",
+   icon:"🎓",
+   vocabKey:"l84_finalreview",
+   xp:50,
+   unit:13,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>🎓 Final Review</h3><p>This is the final review. Thirteen sentences from across all fourteen units. <strong>Three hearts, three mistakes</strong> — and you've finished the core course.</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
