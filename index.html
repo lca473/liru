@@ -1614,6 +1614,111 @@ const V = {
     {lw:["Tenilawe","ne","wu","halu","so","kupetieme"], en:"Tuesday I will go to the café."},
   ],
 
+  // ── UNIT 11: BODY, HEALTH, AND DAILY LIFE (L62–L67) ─────────────────
+  // L62: l62_body                — vocab; tune, mise, lauhe, laupe, heme, hipe
+  //                                (+ misu, laupu, hipu verbs surfaced)
+  // L63: l63_painsickness        — vocab; kufe, mosheye, sheye (full canvas surfaced)
+  // L64: l64_healthcare          — vocab; pue, mashe, mashupue, sheyupue
+  //                                (intro card teaches the -pue agent rule)
+  // L65: l65_healthidioms        — sentence; drills Ne su mosheyi and Neo X kufu
+  // L66: l66_thingsactivities    — vocab; loiwe, nauye, fauhe, hue
+  // L67: l67_exam                — Unit 11 checkpoint exam
+  //
+  // L62 has 6 roots — one over §2's standard cap of 4. Approved expansion:
+  // body parts are concrete and learnable in a batch. Mechanical-tagged forms:
+  // all six "X-related" adjectives (tuni, misi, lauhi, laupi, hemi, hipi),
+  // plus lauhu (to handle). Surfaced verbs: misu (to look, distinguished
+  // from tiru "to see" in the intro card), laupu (to kick), hipu (to walk).
+  // L63 surfaces the full canvas of all three roots — the L65 idiom lesson
+  // drills the adjectives (mosheyi, sheyi) and verb (kufu) heavily.
+  // L64 introduces pue (the standalone noun "person") alongside the agent
+  // compounds; intro card teaches that -pue attaches to a verb stem.
+  // L66 mechanical-tags the "X-related" adjectives (loiwi, fauhi, hui)
+  // and surfaces nauyi (fun) — everyday useful adjective.
+
+  l62_body: [
+    {lw:"tune",  en:"head", pos:"n",
+     canvas:{adj:"tuni",  adj_en:"head-related", adj_tier:"mechanical"}},
+    {lw:"mise",  en:"eye",  pos:"n",
+     canvas:{adj:"misi",  adj_en:"eye-related",  adj_tier:"mechanical",
+             v:"misu",    v_en:"to look (or watch)"}},
+    {lw:"lauhe", en:"hand", pos:"n",
+     canvas:{adj:"lauhi", adj_en:"hand-related", adj_tier:"mechanical",
+             v:"lauhu",   v_en:"to handle",      v_tier:"mechanical"}},
+    {lw:"laupe", en:"foot", pos:"n",
+     canvas:{adj:"laupi", adj_en:"foot-related", adj_tier:"mechanical",
+             v:"laupu",   v_en:"to kick"}},
+    {lw:"heme",  en:"arm",  pos:"n",
+     canvas:{adj:"hemi",  adj_en:"arm-related",  adj_tier:"mechanical"}},
+    {lw:"hipe",  en:"leg",  pos:"n",
+     canvas:{adj:"hipi",  adj_en:"leg-related",  adj_tier:"mechanical",
+             v:"hipu",    v_en:"to walk"}},
+  ],
+
+  l63_painsickness: [
+    {lw:"kufe",     en:"pain",     pos:"n",
+     canvas:{adj:"kufi",     adj_en:"painful (or painfully)",
+             v:"kufu",       v_en:"to hurt (or feel pain)"}},
+    {lw:"mosheye",  en:"sickness", pos:"n",
+     canvas:{adj:"mosheyi",  adj_en:"sick",
+             v:"mosheyu",    v_en:"to fall ill"}, pair:"sheye"},
+    {lw:"sheye",    en:"healing",  pos:"n",
+     canvas:{adj:"sheyi",    adj_en:"healthy (or healed)",
+             v:"sheyu",      v_en:"to heal"}, pair:"mosheye"},
+  ],
+
+  l64_healthcare: [
+    {lw:"pue",       en:"person",   pos:"n"},
+    {lw:"mashe",     en:"medicine", pos:"n",
+     canvas:{adj:"mashi", adj_en:"medicinal", adj_tier:"mechanical",
+             v:"mashu",   v_en:"to treat with medicine", v_tier:"mechanical"}},
+    {lw:"mashupue",  en:"doctor",   pos:"n"},
+    {lw:"sheyupue",  en:"nurse",    pos:"n"},
+  ],
+
+  // L65 — Health Idioms (sentence-based)
+  // Drills two compositional patterns: copula + predicate adjective
+  // (Ne su mosheyi) and possessive + body part + verb (Neo X kufu).
+  // No new forms; uses L62 body parts and L63 health vocab.
+  l65_healthidioms: [
+    {lw:["Ne","su","mosheyi"],         en:"I am sick."},
+    {lw:["Te","su","sheyi"],           en:"You are healthy."},
+    {lw:["Neo","tune","kufu"],         en:"My head hurts."},
+    {lw:["Teo","heme","kufu"],         en:"Your arm hurts."},
+    {lw:["Maya","su","mosheyi"],       en:"Maya is sick."},
+    {lw:["Neo","laupe","kufu"],        en:"My foot hurts."},
+    {lw:["Kai","su","sheyi"],          en:"Kai is healthy."},
+  ],
+
+  l66_thingsactivities: [
+    {lw:"loiwe", en:"book",  pos:"n",
+     canvas:{adj:"loiwi", adj_en:"book-related", adj_tier:"mechanical"}},
+    {lw:"nauye", en:"game",  pos:"n",
+     canvas:{adj:"nauyi", adj_en:"fun",
+             v:"nauyu",   v_en:"to play"}},
+    {lw:"fauhe", en:"story", pos:"n",
+     canvas:{adj:"fauhi", adj_en:"story-related", adj_tier:"mechanical",
+             v:"fauhu",   v_en:"to tell a story"}},
+    {lw:"hue",   en:"thing", pos:"n",
+     canvas:{adj:"hui",   adj_en:"thing-related", adj_tier:"mechanical"}},
+  ],
+
+  // L67 — Unit 11 Exam (sentence-based, isCheckpoint:true)
+  // Mixed practice across L62–L66. No new forms. 8 sentences covering
+  // body parts, health vocab, idioms, healthcare, and daily-life vocab,
+  // plus prior-unit grammar (possessives, copula, demonstratives,
+  // pronouns, modals, locatives, plurals, ki-questions, future tense).
+  l67_exam: [
+    {lw:["Lo","mashupue","su","sheyi"],                en:"This doctor is healthy."},
+    {lw:["Neo","tune","kufu"],                         en:"My head hurts."},
+    {lw:["Ne","misu","lo","loiwe"],                    en:"I am looking at this book."},
+    {lw:["Maya","ahu","nai","nauyea"],                 en:"Maya has many games."},
+    {lw:["Lo","sheyupue","ahu","mashe"],               en:"This nurse has medicine."},
+    {lw:["Ne","wa","fauhu","nai","fauhea"],            en:"I told many stories."},
+    {lw:["Ki","teo","laupe","kufu"],                   en:"Does your foot hurt?"},
+    {lw:["Wu lawe","ne","wu","hipu","so","hiwe"],      en:"Tomorrow I will walk to the house."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -1638,6 +1743,7 @@ const UNITS = [
   {name:"Unit 8 — Action Verbs", start:37},
   {name:"Unit 9 — Numbers and Days", start:43},
   {name:"Unit 10 — Food and Transactions", start:48},
+  {name:"Unit 11 — Body, Health, and Daily Life", start:55},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -2189,6 +2295,64 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>✅ Unit 10 Exam</h3><p>This is your Unit 10 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across drinks, food, cooking, taste vocabulary, money, and transactional patterns — plus prior-unit grammar (plurals, locatives, days, future tense, modals, demonstratives, questions).</p>`},
+
+  // ── UNIT 11: BODY, HEALTH, AND DAILY LIFE (L62–L67) ─────────────────
+  {id:"l62_body",
+   title:"Body Parts",
+   desc:"Head, eye, hand, foot, arm, leg",
+   icon:"🦵",
+   vocabKey:"l62_body",
+   xp:22,
+   unit:10,
+   intro:`<h3>🦵 Body parts</h3><p>Six everyday body parts. The "X-related" adjectives (<em>tuni, misi, lauhi, laupi, hemi, hipi</em>) follow predictably from the canvas rule and aren't drilled separately — focus on the nouns.</p><p>Three of the canvas verbs are useful in their own right and surface as flashcards:</p><ul><li><em>misu</em> — to look (or watch)</li><li><em>laupu</em> — to kick</li><li><em>hipu</em> — to walk</li></ul><p><strong>Look vs. see.</strong> <em>misu</em> (look) and <em>tiru</em> (see, from L8) are different verbs. <em>tiru</em> is passive perception — what your eyes register. <em>misu</em> is active directed attention — turning your eyes toward something. English blurs the two; Liru keeps them apart.</p>`},
+
+  {id:"l63_painsickness",
+   title:"Pain and Sickness",
+   desc:"kufe, mosheye, sheye",
+   icon:"🤒",
+   vocabKey:"l63_painsickness",
+   xp:22,
+   unit:10,
+   intro:`<h3>🤒 The sickness arc</h3><p>Three roots covering pain, illness, and recovery — each with its full canvas (noun, adjective, verb):</p><ul><li><em>kufe</em> (pain) → <em>kufi</em> (painful) → <em>kufu</em> (to hurt)</li><li><em>mosheye</em> (sickness) → <em>mosheyi</em> (sick) → <em>mosheyu</em> (to fall ill)</li><li><em>sheye</em> (healing) → <em>sheyi</em> (healthy) → <em>sheyu</em> (to heal)</li></ul><p><em>mosheye</em> and <em>sheye</em> are a balancing pair — sickness and its opposite. The next lesson (L65) drills these forms in the everyday idioms <em>Ne su mosheyi</em> ("I am sick") and <em>Neo X kufu</em> ("My X hurts").</p>`},
+
+  {id:"l64_healthcare",
+   title:"Healthcare and People",
+   desc:"pue, mashe, mashupue, sheyupue",
+   icon:"🏥",
+   vocabKey:"l64_healthcare",
+   xp:22,
+   unit:10,
+   intro:`<h3>🏥 Person, medicine, healers</h3><p><em>pue</em> means "person" — a standalone noun. It also attaches to verb stems as a productive suffix to mean "one who does X":</p><span class="example">liru (speak) + pue → lirupue <span class="gloss">speaker / singer</span></span><span class="example">washu (travel) + pue → washupue <span class="gloss">traveler</span></span><p>Two healthcare agents follow the same rule:</p><span class="example">mashu (treat) + pue → mashupue <span class="gloss">doctor — "one who treats"</span></span><span class="example">sheyu (heal) + pue → sheyupue <span class="gloss">nurse — "one who heals"</span></span><p>Notice the verb form (<em>-u</em>) is always the first element: an agent is defined by what they <strong>do</strong>. <em>mashe</em> (medicine) is the substance itself — the noun.</p>`},
+
+  {id:"l65_healthidioms",
+   title:"Health Idioms",
+   desc:"I am sick. My head hurts.",
+   icon:"🩹",
+   vocabKey:"l65_healthidioms",
+   xp:22,
+   unit:10,
+   isSentence:true,
+   intro:`<h3>🩹 Saying you're sick or hurt</h3><p>Liru handles two everyday health expressions through grammar you already know:</p><p><strong>"I am sick"</strong> uses the copula <em>su</em> (L7) with the predicate adjective <em>mosheyi</em> (sick):</p><span class="example">Ne su mosheyi. <span class="gloss">I am sick.</span></span><span class="example">Te su sheyi. <span class="gloss">You are healthy.</span></span><p><strong>"My X hurts"</strong> uses the possessive (L4) with a body part and the verb <em>kufu</em> (to hurt):</p><span class="example">Neo tune kufu. <span class="gloss">My head hurts.</span></span><span class="example">Teo laupe kufu. <span class="gloss">Your foot hurts.</span></span><p>Note the contrast: <em>Ne kufu</em> alone means "I hurt" or "I feel pain" generally; <em>Neo X kufu</em> specifies which body part hurts. Liru keeps the body part as the subject of the verb — there's no "I have pain in my X" construction.</p>`},
+
+  {id:"l66_thingsactivities",
+   title:"Things and Activities",
+   desc:"loiwe, nauye, fauhe, hue",
+   icon:"📚",
+   vocabKey:"l66_thingsactivities",
+   xp:22,
+   unit:10,
+   intro:`<h3>📚 Everyday things and activities</h3><p>Four nouns from daily life. Two carry useful canvas verbs:</p><ul><li><em>nauye</em> (game) → <em>nauyi</em> (fun) → <em>nauyu</em> (to play)</li><li><em>fauhe</em> (story) → <em>fauhu</em> (to tell a story)</li></ul><p><em>loiwe</em> (book) is a noun-only learning tool — it joins the <em>loi-</em> literacy cluster you saw in earlier units. <em>hue</em> (thing) is the general placeholder noun, and pairs with quantifiers to form indefinite pronouns: <em>saihue</em> "something," <em>faihue</em> "anything," <em>nulihue</em> "nothing," <em>taihue</em> "everything."</p>`},
+
+  {id:"l67_exam",
+   title:"Unit 11 Exam: Body, Health, and Daily Life",
+   desc:"Three hearts, three mistakes",
+   icon:"✅",
+   vocabKey:"l67_exam",
+   xp:26,
+   unit:10,
+   isSentence:true,
+   isCheckpoint:true,
+   intro:`<h3>✅ Unit 11 Exam</h3><p>This is your Unit 11 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across body parts, pain and sickness vocabulary, healthcare, the L65 idioms, and daily-life vocabulary — plus prior-unit grammar (possessives, copula, demonstratives, modals, locatives, plurals, ki-questions, future tense).</p>`},
 ];
 
 // Populate the landing-page lesson count from the actual LESSONS array.
@@ -6269,10 +6433,10 @@ const DICTIONARY_RAW = [
   {lw:"maluwe", en:"cow", pos:"n"},
   {lw:"maluwi", en:"cow-related", pos:"adj"},
   {lw:"mashe", en:"medicine", pos:"n"},
-  {lw:"mashepue", en:"doctor", pos:"n", note:"From mashe + -pue (agent)"},
   {lw:"mashetieme", en:"pharmacy", pos:"n", note:"From mashe (medicine) + -tieme (store) \u2014 pharmacy"},
   {lw:"mashi", en:"medicinal", pos:"adj"},
   {lw:"mashu", en:"to treat with medicine", pos:"v"},
+  {lw:"mashupue", en:"doctor", pos:"n", note:"From mashu + -pue (agent)"},
   {lw:"mauhe", en:"learning", pos:"n"},
   {lw:"mauhi", en:"learned", pos:"adj"},
   {lw:"mauhu", en:"to learn", pos:"v"},
@@ -7041,9 +7205,9 @@ const DICTIONARY_RAW = [
   {lw:"shewu", en:"to bleed", pos:"v"},
   {lw:"sheyahe", en:"hospital", pos:"n", note:"From sheye (healing) + yahe (place) \u2014 hospital"},
   {lw:"sheye", en:"healing", pos:"n"},
-  {lw:"sheyepue", en:"nurse", pos:"n", note:"From sheye + -pue (agent)"},
   {lw:"sheyi", en:"healthy (or healed)", pos:"adj"},
-  {lw:"sheyu", en:"to heal (or recover)", pos:"v"},
+  {lw:"sheyu", en:"to heal", pos:"v"},
+  {lw:"sheyupue", en:"nurse", pos:"n", note:"From sheyu + -pue (agent)"},
   {lw:"shiawe", en:"dolphin", pos:"n"},
   {lw:"shiawi", en:"dolphin-related", pos:"adj"},
   {lw:"shife", en:"throw", pos:"n"},
