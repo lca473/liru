@@ -576,8 +576,8 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
 
     <div class="landing-stats fade-up" style="animation-delay:0.1s">
       <div class="landing-stat">
-        <div class="landing-stat-num">~450</div>
-        <div class="landing-stat-label">Roots</div>
+        <div class="landing-stat-num" id="landing-word-count">—</div>
+        <div class="landing-stat-label">Words</div>
       </div>
       <div class="landing-stat">
         <div class="landing-stat-num" id="landing-lesson-count">—</div>
@@ -585,7 +585,7 @@ input, textarea, select { font-family:var(--font); outline:none; color:#FFF; }
       </div>
       <div class="landing-stat">
         <div class="landing-stat-num">∞</div>
-        <div class="landing-stat-label">Waihe</div>
+        <div class="landing-stat-label">Sahe</div>
       </div>
     </div>
 
@@ -1499,7 +1499,7 @@ const V = {
   // L56: l56_food         — vocab; houme, pome, mopome
   // L57: l57_cooking      — sentence; introduces nahe / nahu
   // L58: l58_taste        — vocab; milale, saone, yaume (+ canvas adj)
-  // L59: l59_money        — vocab; tone, hoye, mohoye, toke
+  // L59: l59_money        — vocab; tone, hoyu, mohoyu, toke
   // L60: l60_buyingselling— sentence; introduces nai (much/many)
   // L61: l61_exam         — Unit 10 checkpoint exam
   //
@@ -1567,12 +1567,8 @@ const V = {
     {lw:"tone",   en:"money (or payment)", pos:"n",
      canvas:{adj:"toni", adj_en:"monetary", adj_tier:"mechanical",
              v:"tonu",   v_en:"to pay"}},
-    {lw:"hoye",   en:"purchase",           pos:"n",
-     canvas:{adj:"hoyi", adj_en:"bought",  adj_tier:"mechanical",
-             v:"hoyu",   v_en:"to buy"}},
-    {lw:"mohoye", en:"sale",               pos:"n",
-     canvas:{adj:"mohoyi", adj_en:"sold",  adj_tier:"mechanical",
-             v:"mohoyu",   v_en:"to sell"}, pair:"hoye"},
+    {lw:"hoyu",   en:"to buy",  pos:"verb"},
+    {lw:"mohoyu", en:"to sell", pos:"verb", pair:"hoyu"},
     {lw:"toke",   en:"use (or usage)",     pos:"n",
      canvas:{adj:"toki", adj_en:"useful",
              v:"toku",   v_en:"to use"}},
@@ -2072,14 +2068,14 @@ const LESSONS = [
 
   {id:"l5_practice",
    title:"Unit 1 Exam: Greeting Conversations",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"💬",
    vocabKey:"l5_practice",
    xp:20,
    unit:0,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>💬 Unit 1 Exam</h3><p>This is your Unit 1 exam. <strong>Three hearts, three mistakes.</strong> Pass it to advance to Unit 2.</p><p>You've got everything you need for a first meeting in Liru — greetings, names, the social expressions, and the question word for "what." Here's how a real exchange might go:</p><span class="example">Waimo, Yuna. <span class="gloss">Hello, Yuna.</span></span><span class="example">Ne su Kai. Kiwa su teo nile? <span class="gloss">I am Kai. What is your name?</span></span><span class="example">Reiwa. <span class="gloss">Thank you.</span></span><span class="example">Su mo. Weriko. <span class="gloss">You're welcome. Goodbye.</span></span>`},
+   intro:`<h3>💬 Unit 1 Exam</h3><p>This is your Unit 1 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to advance to Unit 2.</p><p>You've got everything you need for a first meeting in Liru — greetings, names, the social expressions, and the question word for "what." Here's how a real exchange might go:</p><span class="example">Waimo, Yuna. <span class="gloss">Hello, Yuna.</span></span><span class="example">Ne su Kai. Kiwa su teo nile? <span class="gloss">I am Kai. What is your name?</span></span><span class="example">Reiwa. <span class="gloss">Thank you.</span></span><span class="example">Su mo. Weriko. <span class="gloss">You're welcome. Goodbye.</span></span>`},
 
   // ── UNIT 2: PEOPLE & ACTIONS (L7–L12) ────────────────────────────────
   {id:"l7_pronouns",
@@ -2121,14 +2117,14 @@ const LESSONS = [
 
   {id:"l11_practice",
    title:"Unit 2 Exam: People & Actions",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"💬",
    vocabKey:"l11_practice",
    xp:20,
    unit:1,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>💬 Unit 2 Exam</h3><p>This is your Unit 2 exam. You've got <strong>three hearts</strong> — three mistakes and the exam ends. Pass it to advance to Unit 3.</p><p>Everything you've learned so far is fair game: greetings, names, pronouns, four verbs, and two question words.</p><span class="example">Waimo, Maya. <span class="gloss">Hello, Maya.</span></span><span class="example">Kipue su ve? <span class="gloss">Who is he?</span></span><span class="example">Nea nawu Yuna. <span class="gloss">We love Yuna.</span></span>`},
+   intro:`<h3>💬 Unit 2 Exam</h3><p>This is your Unit 2 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to advance to Unit 3.</p><p>Everything you've learned so far is fair game: greetings, names, pronouns, four verbs, and two question words.</p><span class="example">Waimo, Maya. <span class="gloss">Hello, Maya.</span></span><span class="example">Kipue su ve? <span class="gloss">Who is he?</span></span><span class="example">Nea nawu Yuna. <span class="gloss">We love Yuna.</span></span>`},
 
   // ── UNIT 3: FAMILY & PEOPLE (L13–L18) ────────────────────────────────
   {id:"l13_family1",
@@ -2170,14 +2166,14 @@ const LESSONS = [
 
   {id:"l17_practice",
    title:"Unit 3 Exam: Family & Friends",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"💬",
    vocabKey:"l17_practice",
    xp:22,
    unit:2,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>💬 Unit 3 Exam</h3><p>This is your Unit 3 exam. <strong>Three hearts, three mistakes.</strong> Pass it to advance to Unit 4.</p><p>You've got greetings, names, pronouns, four verbs, two question words, possessives, and family vocabulary. Time to bring it all together.</p>`},
+   intro:`<h3>💬 Unit 3 Exam</h3><p>This is your Unit 3 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to advance to Unit 4.</p><p>You've got greetings, names, pronouns, four verbs, two question words, possessives, and family vocabulary. Time to bring it all together.</p>`},
 
   // ── UNIT 4: WANTS, NEEDS, FEELINGS (L19–L?) ──────────────────────────
   {id:"l19_likewant",
@@ -2219,14 +2215,14 @@ const LESSONS = [
 
   {id:"l23_practice",
    title:"Unit 4 Exam: Feelings & Modals",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"🌊",
    vocabKey:"l23_practice",
    xp:22,
    unit:3,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>🌊 Unit 4 Exam</h3><p>This is your Unit 4 exam. <strong>Three hearts, three mistakes.</strong> Pass it to advance to Unit 5.</p><p>Everything from this unit is fair game — modals, feelings, family — alongside what you know from earlier units. Read each sentence aloud in English first, then assemble.</p>`},
+   intro:`<h3>🌊 Unit 4 Exam</h3><p>This is your Unit 4 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to advance to Unit 5.</p><p>Everything from this unit is fair game — modals, feelings, family — alongside what you know from earlier units. Read each sentence aloud in English first, then assemble.</p>`},
 
   // ── UNIT 5: TIME AND TENSE (L25–L31) ─────────────────────────────────
   {id:"l25_past",
@@ -2280,14 +2276,14 @@ const LESSONS = [
 
   {id:"l30_practice",
    title:"Unit 5 Exam: Time and Tense",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"🌊",
    vocabKey:"l30_practice",
    xp:22,
    unit:4,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>🌊 Unit 5 Exam</h3><p>This is your Unit 5 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — tense particles, time anchors, negation — is fair game, alongside what you know from Units 1–4. Read each sentence aloud in English first, then assemble.</p>`},
+   intro:`<h3>🌊 Unit 5 Exam</h3><p>This is your Unit 5 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Everything from this unit — tense particles, time anchors, negation — is fair game, alongside what you know from Units 1–4. Read each sentence aloud in English first, then assemble.</p>`},
 
   // ── UNIT 6: CONNECTORS AND DEMONSTRATIVES (L32–L38) ──────────────────
   {id:"l32_thisthat",
@@ -2341,14 +2337,14 @@ const LESSONS = [
 
   {id:"l37_exam",
    title:"Unit 6 Exam: Connectors and Demonstratives",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"🌊",
    vocabKey:"l37_exam",
    xp:24,
    unit:5,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>🌊 Unit 6 Exam</h3><p>This is your Unit 6 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — demonstratives, plurals, connectors, intensifiers, and the new question words — is fair game, alongside what you know from Units 1–5.</p>`},
+   intro:`<h3>🌊 Unit 6 Exam</h3><p>This is your Unit 6 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Everything from this unit — demonstratives, plurals, connectors, intensifiers, and the new question words — is fair game, alongside what you know from Units 1–5.</p>`},
 
   // ── UNIT 7: PLACES AND GOING (L39–L43) ────────────────────────────────
 
@@ -2393,14 +2389,14 @@ const LESSONS = [
 
   {id:"l43_exam",
    title:"Unit 7 Exam: Places and Going",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"🏠",
    vocabKey:"l43_exam",
    xp:24,
    unit:6,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>🏠 Unit 7 Exam</h3><p>This is your Unit 7 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Everything from this unit — going and coming, locative particles, places, here/there/where — is fair game, alongside what you know from Units 1–6.</p>`},
+   intro:`<h3>🏠 Unit 7 Exam</h3><p>This is your Unit 7 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Everything from this unit — going and coming, locative particles, places, here/there/where — is fair game, alongside what you know from Units 1–6.</p>`},
 
   // ── UNIT 8: ACTION VERBS (L44–L49) ───────────────────────────────────
   {id:"l44_sensory",
@@ -2452,14 +2448,14 @@ const LESSONS = [
 
   {id:"l49_exam",
    title:"Unit 8 Exam: Action Verbs",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"✅",
    vocabKey:"l49_exam",
    xp:24,
    unit:7,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>✅ Unit 8 Exam</h3><p>This is your Unit 8 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across the eight new verbs (<em>tiru, liwu, rau, fasu, puhu, feru, moferu, riku</em>) and the two new animals (<em>paipe, mewe</em>). Past tense, locatives, questions — all fair game.</p>`},
+   intro:`<h3>✅ Unit 8 Exam</h3><p>This is your Unit 8 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across the eight new verbs (<em>tiru, liwu, rau, fasu, puhu, feru, moferu, riku</em>) and the two new animals (<em>paipe, mewe</em>). Past tense, locatives, questions — all fair game.</p>`},
 
   // ── UNIT 9: NUMBERS AND DAYS (L50–L54) ───────────────────────────────
   {id:"l50_numbers1",
@@ -2501,14 +2497,14 @@ const LESSONS = [
 
   {id:"l54_exam",
    title:"Unit 9 Exam: Numbers and Days",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"✅",
    vocabKey:"l54_exam",
    xp:24,
    unit:8,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>✅ Unit 9 Exam</h3><p>This is your Unit 9 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across numbers (0–10), days of the week, the new verb <em>ahu</em>, the question word <em>kifa</em>, and the age idiom (<em>tau</em>, <em>haiwe</em>). Past tense, plurals, locatives — all fair game.</p>`},
+   intro:`<h3>✅ Unit 9 Exam</h3><p>This is your Unit 9 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across numbers (0–10), days of the week, the new verb <em>ahu</em>, the question word <em>kifa</em>, and the age idiom (<em>tau</em>, <em>haiwe</em>). Past tense, plurals, locatives — all fair game.</p>`},
 
   {id:"l55_drinks",
    title:"Drinks",
@@ -2546,7 +2542,7 @@ const LESSONS = [
 
   {id:"l59_money",
    title:"Money and Transactions",
-   desc:"tone, hoye, mohoye, toke",
+   desc:"tone, hoyu, mohoyu, toke",
    icon:"💰",
    vocabKey:"l59_money",
    xp:20,
@@ -2560,18 +2556,18 @@ const LESSONS = [
    xp:24,
    unit:9,
    isSentence:true,
-   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kifa</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kifa tonea su lo houme? <span class="gloss">How much is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Lo houme su hani tonea. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs from <em>hoye</em> and its <em>mo-</em> partner <em>mohoye</em>:</p><span class="example">Ne hoyu lo shae. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea fa Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houmea so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>fa</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun:</p><span class="example">Ne ahu nai tonea. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu nai pomea fa pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span>`},
+   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kifa</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kifa tonea su lo houme? <span class="gloss">How much is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Lo houme su hani tonea. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs — <em>hoyu</em> (to buy) and its <em>mo-</em> partner <em>mohoyu</em> (to sell):</p><span class="example">Ne hoyu lo shae. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea fa Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houmea so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>fa</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun:</p><span class="example">Ne ahu nai tonea. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu nai pomea fa pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span>`},
 
   {id:"l61_exam",
    title:"Unit 10 Exam: Food and Transactions",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"✅",
    vocabKey:"l61_exam",
    xp:26,
    unit:9,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>✅ Unit 10 Exam</h3><p>This is your Unit 10 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across drinks, food, cooking, taste vocabulary, money, and transactional patterns — plus prior-unit grammar (plurals, locatives, days, future tense, modals, demonstratives, questions).</p>`},
+   intro:`<h3>✅ Unit 10 Exam</h3><p>This is your Unit 10 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across drinks, food, cooking, taste vocabulary, money, and transactional patterns — plus prior-unit grammar (plurals, locatives, days, future tense, modals, demonstratives, questions).</p>`},
 
   // ── UNIT 11: BODY, HEALTH, AND DAILY LIFE (L62–L67) ─────────────────
   {id:"l62_body",
@@ -2622,14 +2618,14 @@ const LESSONS = [
 
   {id:"l67_exam",
    title:"Unit 11 Exam: Body, Health, and Daily Life",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"✅",
    vocabKey:"l67_exam",
    xp:26,
    unit:10,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>✅ Unit 11 Exam</h3><p>This is your Unit 11 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across body parts, pain and sickness vocabulary, healthcare, the L65 idioms, and daily-life vocabulary — plus prior-unit grammar (possessives, copula, demonstratives, modals, locatives, plurals, ki-questions, future tense).</p>`},
+   intro:`<h3>✅ Unit 11 Exam</h3><p>This is your Unit 11 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across body parts, pain and sickness vocabulary, healthcare, the L65 idioms, and daily-life vocabulary — plus prior-unit grammar (possessives, copula, demonstratives, modals, locatives, plurals, ki-questions, future tense).</p>`},
 
   // ── UNIT 12: WEATHER AND NATURE (L68–L74) ──────────────────────────────
 
@@ -2691,14 +2687,14 @@ const LESSONS = [
 
   {id:"l74_exam",
    title:"Unit 12 Exam: Weather and Nature",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"✅",
    vocabKey:"l74_exam",
    xp:26,
    unit:11,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>✅ Unit 12 Exam</h3><p>This is your Unit 12 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across weather and nature vocabulary, the new locative particles (<em>leu</em>, <em>moleu</em>), and the impersonal-verb construction — plus prior-unit grammar (possessives, demonstratives, plurals, conjunctions, ki-questions, tense).</p>`},
+   intro:`<h3>✅ Unit 12 Exam</h3><p>This is your Unit 12 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across weather and nature vocabulary, the new locative particles (<em>leu</em>, <em>moleu</em>), and the impersonal-verb construction — plus prior-unit grammar (possessives, demonstratives, plurals, conjunctions, ki-questions, tense).</p>`},
 
   // ── UNIT 13: THIS AND THAT (L75–L80) ──────────────────────────────────
   // Descriptive vocabulary, common verbs, household objects.
@@ -2753,14 +2749,14 @@ const LESSONS = [
 
   {id:"l80_exam",
    title:"Unit 13 Exam: This and That",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"✅",
    vocabKey:"l80_exam",
    xp:30,
    unit:12,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>✅ Unit 13 Exam</h3><p>This is your Unit 13 exam. <strong>Three hearts, three mistakes.</strong> Pass it to complete the unit.</p><p>Mixed practice across the unit's descriptive adjectives, action verbs, and household objects — plus prior-unit grammar (possessives, demonstratives, conjunctions, tense).</p>`},
+   intro:`<h3>✅ Unit 13 Exam</h3><p>This is your Unit 13 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across the unit's descriptive adjectives, action verbs, and household objects — plus prior-unit grammar (possessives, demonstratives, conjunctions, tense).</p>`},
 
   // ──────────────── UNIT 14 — Asking for Help; Final Review ────────────────
 
@@ -2794,26 +2790,33 @@ const LESSONS = [
 
   {id:"l84_finalreview",
    title:"Final Review — All 14 Units",
-   desc:"Three hearts, three mistakes",
+   desc:"Three hearts. Show what you know.",
    icon:"🎓",
    vocabKey:"l84_finalreview",
    xp:50,
    unit:13,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>🎓 Final Review</h3><p>This is the final review. Thirteen sentences from across all fourteen units. <strong>Three hearts, three mistakes</strong> — and you've finished the core course.</p>`},
+   intro:`<h3>🎓 Final Review</h3><p>This is the final review. Thirteen sentences from across all fourteen units. <strong>Three hearts — show what you've learned</strong> — and you've finished the core course.</p>`},
 ];
 
-// Populate the landing-page lesson count from the actual LESSONS array.
-(function updateLandingLessonCount(){
-  const setCount = () => {
-    const el = document.getElementById('landing-lesson-count');
-    if (el) el.textContent = LESSONS.length.toString();
+// Populate the landing-page lesson and word counts from live data.
+(function updateLandingCounts(){
+  const setCounts = () => {
+    const lessonEl = document.getElementById('landing-lesson-count');
+    if (lessonEl) lessonEl.textContent = LESSONS.length.toString();
+    const wordEl = document.getElementById('landing-word-count');
+    if (wordEl && typeof DICTIONARY_RAW !== 'undefined') {
+      // Round down to nearest 100 and append "+" so the number feels stable
+      // and approachable — "1,583" reads like inventory, "1,500+" reads like scale.
+      const rounded = Math.floor(DICTIONARY_RAW.length / 100) * 100;
+      wordEl.textContent = rounded.toLocaleString() + '+';
+    }
   };
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', setCount);
+    document.addEventListener('DOMContentLoaded', setCounts);
   } else {
-    setCount();
+    setCounts();
   }
 })();
 
@@ -3428,6 +3431,15 @@ async function finishLogin(name){
     if(prunedMech>0)console.log("[SRS] pruned",prunedMech,"mechanical cards for",user.username);
     const prunedMech2=srsPruneMechanicalRound2IfNeeded(user.username);
     if(prunedMech2>0)console.log("[SRS] round-2 pruned",prunedMech2,"mechanical cards for",user.username);
+    // One-shot pruner for *hoye* and *mohoye* nouns retired from the L59
+    // course (May 2026). The verb forms *hoyu* and *mohoyu* are now the
+    // taught headwords; the noun forms remain in DICTIONARY_RAW for
+    // searchability but are excluded from SRS. Existing L59-completers may
+    // have lingering noun cards from the previous V structure — this kills
+    // them. Their *hoyu* / *mohoyu* verb cards are preserved (already exist).
+    // See DECISIONS.md "*hoye* / *mohoye* nouns retired from the course".
+    const prunedHoyeMohoye=srsPruneHoyeMohoyeNounsIfNeeded(user.username);
+    if(prunedHoyeMohoye>0)console.log("[SRS] pruned",prunedHoyeMohoye,"retired hoye/mohoye noun cards for",user.username);
     // One-shot targeted reset for user "LondonGP" — wipes his deck and
     // re-enrolls from current LESSONS ∩ lessonsCompleted. No-op for everyone
     // else. See srsResetLondonGpIfNeeded for full rationale.
@@ -4087,6 +4099,58 @@ function srsPruneMechanicalRound2IfNeeded(username){
     console.log("[SRS] round-2 pruned",prunedIds.length,"mechanical cards for",username,prunedIds);
   }
   s.mechanicalPruneRound2Done=true;
+  srsSaveState(username,s);
+  srsSyncState(username,s);
+  return prunedIds.length;
+}
+
+// ─── One-time pruner for retired *hoye* / *mohoye* noun cards ────────
+// The L59 vocabulary lesson originally taught *hoye* (purchase) and
+// *mohoye* (sale) as noun-headed canvas entries with the verb forms
+// (*hoyu*, *mohoyu*) in their canvas. As of May 2026, the V entries
+// were restructured to be verb-only: *hoyu* and *mohoyu* are the
+// flashcards; *hoye*/*mohoye* remain in Dictionary.md and DICTIONARY_RAW
+// for searchability but are no longer taught. See DECISIONS.md
+// "*hoye* / *mohoye* nouns retired from the course".
+//
+// Existing L59-completers had separate cards for the noun headword AND
+// the canvas verb (`srsExtractLessonWords` produces both at enrollment
+// time). Their *hoyu*/*mohoyu* verb cards are preserved; the orphan
+// noun cards are killed by this one-shot. The existing stale-card
+// pruner can't catch these because *hoye* and *mohoye* still exist in
+// DICTIONARY_RAW.
+//
+// This is **deletion, not migration** — see DECISIONS.md for why
+// migration would collide with the existing verb cards.
+//
+// Gated by `state.hoyeMohoyeNounsPruneDone`; one-shot per user. Lives
+// indefinitely as a no-op for fresh accounts (V no longer enrolls
+// these forms, so new decks never contain them).
+function srsPruneHoyeMohoyeNounsIfNeeded(username){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.hoyeMohoyeNounsPruneDone)return 0;
+  const retiredSet=new Set(["hoye","mohoye"]);
+  const cards=srsLoadCards(username);
+  const prunedIds=[];
+  for(const id in cards){
+    const c=cards[id];
+    if(c&&c.lw&&retiredSet.has(c.lw)){
+      prunedIds.push(id);
+      delete cards[id];
+    }
+  }
+  if(prunedIds.length>0){
+    srsSaveCards(username,cards);
+    if(firebaseReady&&db){
+      for(const id of prunedIds){
+        try{db.ref(srsCardFbPath(username,id)).remove();}
+        catch(e){/* ignore — local is authoritative until next sync */}
+      }
+    }
+    console.log("[SRS] pruned",prunedIds.length,"retired hoye/mohoye noun cards for",username,prunedIds);
+  }
+  s.hoyeMohoyeNounsPruneDone=true;
   srsSaveState(username,s);
   srsSyncState(username,s);
   return prunedIds.length;
@@ -6524,7 +6588,7 @@ const GRAMMAR_SECTIONS = [
       <li><em>lune</em> (light) → <em>molune</em> (darkness)</li>
       <li><em>houle</em> (joy) → <em>mohoule</em> (sadness)</li>
       <li><em>fere</em> (give) → <em>mofere</em> (take)</li>
-      <li><em>hoye</em> (buy) → <em>mohoye</em> (sell)</li>
+      <li><em>hoyu</em> (to buy) → <em>mohoyu</em> (to sell)</li>
     </ul>
     <div class="grammar-sub-header"><em>we-</em> — again / repetition</div>
     <ul>
@@ -6734,7 +6798,7 @@ const DICTIONARY_RAW = [
   {lw:"faniluone", en:"January", pos:"n", note:"From fani (1) + luone (month)"},
   {lw:"fanini", en:"first", pos:"adj", note:"From fani + -ni (ordinal) \u2014 first"},
   {lw:"faniwime", en:"thumb", pos:"n", note:"From fani (one) + wime (finger) \u2014 one-finger / first finger"},
-  {lw:"fase", en:"work", pos:"n"},
+  {lw:"fase", en:"work (or job)", pos:"n"},
   {lw:"fasi", en:"laborious", pos:"adj"},
   {lw:"fasu", en:"to work", pos:"v"},
   {lw:"fauhe", en:"story", pos:"n"},
