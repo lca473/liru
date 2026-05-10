@@ -1110,7 +1110,7 @@ const V = {
   // No canvas drills will run on wuhi (adv-only).
   l27_timewords: [
     {lw:"lawe",   en:"day",   pos:"n"},
-    {lw:"molawe", en:"night", pos:"n"},
+    {lw:"none", en:"night", pos:"n"},
     {lw:"wele",   en:"time",  pos:"n"},
     {lw:"wuhi",   en:"soon",  pos:"adv"},
   ],
@@ -1420,7 +1420,7 @@ const V = {
   // UNIT 9 — NUMBERS AND DAYS (L50–L54)
   // ════════════════════════════════════════════════════════════════
   // L50: l50_numbers1 — vocab; nuli, fani, runi, teni, shani, kani (0–5)
-  // L51: l51_numbers2 — vocab; veni, meni, poni, yani, hani (6–10)
+  // L51: l51_numbers2 — vocab; veni, meni, oni, yani, hani (6–10)
   // L52: l52_days     — vocab; fanilawe through menilawe (Sun–Sat)
   // L53: l53_howmany  — sentence; introduces kifa, haiwe, tau, ahu
   // L54: l54_exam     — Unit 9 exam (isCheckpoint:true)
@@ -1443,7 +1443,7 @@ const V = {
   l51_numbers2: [
     {lw:"veni", en:"six",   pos:"adj"},
     {lw:"meni", en:"seven", pos:"adj"},
-    {lw:"poni", en:"eight", pos:"adj"},
+    {lw:"oni", en:"eight", pos:"adj"},
     {lw:"yani", en:"nine",  pos:"adj"},
     {lw:"hani", en:"ten",   pos:"adj"},
   ],
@@ -1482,7 +1482,7 @@ const V = {
   l54_exam: [
     {lw:["Ne","ahu","runi","paipea"],                       en:"I have two dogs."},
     {lw:["Kifa","wamea","te","ahu"],                        en:"How many friends do you have?"},
-    {lw:["Maya","wa","tau","poni","haiwea"],                en:"Maya is eight years old. (lit. Maya has completed eight years.)"},
+    {lw:["Maya","wa","tau","oni","haiwea"],                en:"Maya is eight years old. (lit. Maya has completed eight years.)"},
     {lw:["Lo lawe","su","shanilawe"],                       en:"Today is Wednesday."},
     {lw:["Ne","wa","liru","ko","meni","wamea"],             en:"I spoke with seven friends."},
     {lw:["Kifa","mewea","te","wa","tiru","lo lawe"],        en:"How many cats did you see today?"},
@@ -1808,14 +1808,14 @@ const V = {
   // Drills the impersonal-verb construction (Grammar.md §5, lines 180–186).
   // Three verbs: *shaliru* ×2, *iroumu* ×3, *fiwu* ×2. Three tenses:
   // 3 present, 2 past, 2 future. Time anchors *lo lawe*, *wa lawe*,
-  // *wu lawe*, *molawe*, *wuhi* drilled across the set. No new forms —
+  // *wu lawe*, *none*, *wuhi* drilled across the set. No new forms —
   // verbs were surfaced in L68/L69's V maps.
   l73_impersonal: [
     {lw:["Shaliru"],                          en:"It is raining."},
     {lw:["Wa","iroumu","wa lawe"],            en:"It snowed yesterday."},
     {lw:["Wu","fiwu","wu lawe"],              en:"It will be windy tomorrow."},
     {lw:["Iroumu","lo lawe"],                 en:"It is snowing today."},
-    {lw:["Wa","shaliru","molawe"],            en:"It rained at night."},
+    {lw:["Wa","shaliru","none"],            en:"It rained at night."},
     {lw:["Fiwu","lo lawe"],                   en:"It is windy today."},
     {lw:["Wu","iroumu","wuhi"],               en:"It will snow soon."},
   ],
@@ -2245,12 +2245,12 @@ const LESSONS = [
 
   {id:"l27_timewords",
    title:"Day, Night, Time, Soon",
-   desc:"lawe, molawe, wele, wuhi",
+   desc:"lawe, none, wele, wuhi",
    icon:"🌗",
    vocabKey:"l27_timewords",
    xp:18,
    unit:4,
-   intro:`<h3>🌗 Words for time</h3><p>Liru has clean roots for the basics of time:</p><ul><li><em>lawe</em> — day</li><li><em>molawe</em> — night</li><li><em>wele</em> — time</li><li><em>wuhi</em> — soon</li></ul><p>Notice <em>lawe</em> and <em>molawe</em> — that's the <em>mo-</em> rule again, day balanced by night. <em>wele</em> is the abstract noun for time itself, and <em>wuhi</em> means "soon."</p>`},
+   intro:`<h3>🌗 Words for time</h3><p>Liru has clean roots for the basics of time:</p><ul><li><em>lawe</em> — day</li><li><em>none</em> — night</li><li><em>wele</em> — time</li><li><em>wuhi</em> — soon</li></ul><p>Each part of the day stands as its own root — <em>yauhe</em> (morning), <em>pouhe</em> (evening), and <em>none</em> (night). <em>wele</em> is the abstract noun for time itself, and <em>wuhi</em> means "soon."</p>`},
 
   {id:"l28_anchors",
    title:"Today, Yesterday, Tomorrow",
@@ -2467,12 +2467,12 @@ const LESSONS = [
 
   {id:"l51_numbers2",
    title:"Numbers 6–10",
-   desc:"veni, meni, poni, yani, hani",
+   desc:"veni, meni, oni, yani, hani",
    icon:"🔢",
    vocabKey:"l51_numbers2",
    xp:18,
    unit:8,
-   intro:`<h3>🔢 The rest of the basics</h3><p>Five more numbers to round out single digits:</p><ul><li><em>veni</em> — six</li><li><em>meni</em> — seven</li><li><em>poni</em> — eight</li><li><em>yani</em> — nine</li><li><em>hani</em> — ten</li></ul><span class="example">Meni mewea. <span class="gloss">Seven cats.</span></span>`},
+   intro:`<h3>🔢 The rest of the basics</h3><p>Five more numbers to round out single digits:</p><ul><li><em>veni</em> — six</li><li><em>meni</em> — seven</li><li><em>oni</em> — eight</li><li><em>yani</em> — nine</li><li><em>hani</em> — ten</li></ul><span class="example">Meni mewea. <span class="gloss">Seven cats.</span></span>`},
 
   {id:"l52_days",
    title:"Days of the Week",
@@ -3413,6 +3413,15 @@ async function finishLogin(name){
       const migrated=srsMigrateLeyeToToneIfNeeded(user.username);
       if(migrated>0)console.log("[SRS] migrated",migrated,"leye/leyi/leyu cards to tone family for",user.username);
     }
+    // One-time rename migration: poni→oni (eight), molawe→none (night), plus
+    // their compounds poniluone→oniluone (August) and meshimolawe→meshinone
+    // (midnight). Day/night un-paired from the mo- system; eight renamed to
+    // set up the n+eight easter egg (oni → none). MUST run before the
+    // stale-card pruner. See DECISIONS.md "Eight/night easter egg".
+    {
+      const migrated=srsMigratePoniMolaweToOniNoneIfNeeded(user.username);
+      if(migrated>0)console.log("[SRS] migrated",migrated,"poni/molawe-family cards for",user.username);
+    }
     // Prune any cards whose lw is no longer in the dictionary (stale from prior cleanups)
     {
       const cards=srsLoadCards(user.username);
@@ -4343,6 +4352,77 @@ function srsMigrateLeyeToToneIfNeeded(username){
   }
   console.log("[SRS] migrated",oldIds.length,"leye/leyi/leyu cards to tone family for",username);
   s.leyeToToneDone=true;
+  srsSaveState(username,s);
+  srsSyncState(username,s);
+  return oldIds.length;
+}
+
+// Same one-shot guarded pattern as srsMigrateLeyeToToneIfNeeded.
+// Gated by state.poniMolaweToOniNoneDone; runs once per user on next login,
+// then never again. Migrates four old forms to their renamed counterparts:
+//   poni     (eight)    → oni
+//   poniluone(August)   → oniluone
+//   molawe   (night)    → none
+//   meshimolawe(midnight)→ meshinone
+// Preserves SM-2 history (interval, ease, reps, lapses, due dates).
+//
+// MUST run before the stale-card pruner, since the old forms are no longer
+// in DICTIONARY_RAW and would otherwise be deleted before being migrated.
+function srsMigratePoniMolaweToOniNoneIfNeeded(username){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.poniMolaweToOniNoneDone)return 0;
+  const cards=srsLoadCards(username);
+  // Map of old lw → {newLw, newGloss}. Glosses match V entries and DICTIONARY_RAW.
+  const renameMap={
+    "poni":{newLw:"oni", newGloss:"eight"},
+    "poniluone":{newLw:"oniluone", newGloss:"August"},
+    "molawe":{newLw:"none", newGloss:"night"},
+    "meshimolawe":{newLw:"meshinone", newGloss:"midnight"},
+  };
+  const migratedNew={};   // new card id → card (to write)
+  const oldIds=[];         // old card ids (to delete)
+  for(const id in cards){
+    const c=cards[id];
+    if(!c)continue;
+    const rename=renameMap[c.lw];
+    if(!rename)continue;
+    const dir=c.dir||(id.endsWith("::lw_en")?"lw_en":"en_lw");
+    const newId=srsCardId(rename.newLw,dir);
+    // Preserve all state; rewrite identity fields only.
+    migratedNew[newId]={...c,lw:rename.newLw,en:rename.newGloss};
+    oldIds.push(id);
+  }
+  if(oldIds.length===0){
+    s.poniMolaweToOniNoneDone=true;
+    srsSaveState(username,s);
+    srsSyncState(username,s);
+    return 0;
+  }
+  // Apply: delete old, add new. If a new id somehow already exists, keep existing.
+  for(const oldId of oldIds)delete cards[oldId];
+  for(const newId in migratedNew){
+    if(!cards[newId])cards[newId]=migratedNew[newId];
+  }
+  srsSaveCards(username,cards);
+  // Cloud sync: delete old paths, write new ones.
+  if(firebaseReady&&db){
+    for(const oldId of oldIds){
+      try{db.ref(srsCardFbPath(username,oldId)).remove();}
+      catch(e){/* ignore — local is authoritative until next sync */}
+    }
+    for(const newId in migratedNew){
+      if(cards[newId]===migratedNew[newId]){
+        try{
+          db.ref(srsCardFbPath(username,newId))
+            .set({...cards[newId],lastSync:Date.now()})
+            .catch(e=>console.warn("[SRS] poni/molawe migration sync error:",e));
+        }catch(e){console.warn("[SRS] poni/molawe migration sync error:",e);}
+      }
+    }
+  }
+  console.log("[SRS] migrated",oldIds.length,"poni/molawe-family cards to oni/none family for",username);
+  s.poniMolaweToOniNoneDone=true;
   srsSaveState(username,s);
   srsSyncState(username,s);
   return oldIds.length;
@@ -6436,7 +6516,7 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>#</th><th>Word</th><th>#</th><th>Word</th></tr></thead><tbody>
     <tr><td>0</td><td><em>nuli</em></td><td>6</td><td><em>veni</em></td></tr>
     <tr><td>1</td><td><em>fani</em></td><td>7</td><td><em>meni</em></td></tr>
-    <tr><td>2</td><td><em>runi</em></td><td>8</td><td><em>poni</em></td></tr>
+    <tr><td>2</td><td><em>runi</em></td><td>8</td><td><em>oni</em></td></tr>
     <tr><td>3</td><td><em>teni</em></td><td>9</td><td><em>yani</em></td></tr>
     <tr><td>4</td><td><em>shani</em></td><td>10</td><td><em>hani</em></td></tr>
     <tr><td>5</td><td><em>kani</em></td><td>100</td><td><em>woni</em></td></tr>
@@ -6505,8 +6585,8 @@ const GRAMMAR_SECTIONS = [
     <tr><td>morning</td><td><em>yauhe</em></td></tr>
     <tr><td>noon</td><td><em>meshilawe</em></td></tr>
     <tr><td>evening</td><td><em>pouhe</em></td></tr>
-    <tr><td>night</td><td><em>molawe</em></td></tr>
-    <tr><td>midnight</td><td><em>meshimolawe</em></td></tr>
+    <tr><td>night</td><td><em>none</em></td></tr>
+    <tr><td>midnight</td><td><em>meshinone</em></td></tr>
     </tbody></table></div>
     <p>"Afternoon" is <em>wule meshilawe</em> (after noon).</p>
     <div class="grammar-sub-header">Smaller units</div>
@@ -7235,7 +7315,7 @@ const DICTIONARY_RAW = [
   {lw:"meshifane", en:"half", pos:"n"},
   {lw:"meshifani", en:"half-of", pos:"adj"},
   {lw:"meshilawe", en:"noon", pos:"n", note:"From meshi (middle) + lawe \u2014 noon"},
-  {lw:"meshimolawe", en:"midnight", pos:"n", note:"From meshi (middle) + molawe \u2014 midnight"},
+  {lw:"meshinone", en:"midnight", pos:"n", note:"From meshi (middle) + none \u2014 midnight"},
   {lw:"meshu", en:"to center", pos:"v"},
   {lw:"meuhekoire", en:"bus", pos:"n", note:"From meuhe (group) + koire (car) \u2014 group car"},
   {lw:"meve", en:"shoulder", pos:"n"},
@@ -7333,7 +7413,6 @@ const DICTIONARY_RAW = [
   {lw:"molame", en:"difference", pos:"n"},
   {lw:"molami", en:"different", pos:"adj"},
   {lw:"molamu", en:"to differ", pos:"v"},
-  {lw:"molawe", en:"night", pos:"n", note:"From mo- + lawe \u2014 night (balance of day)"},
   {lw:"molene", en:"betrayal", pos:"n"},
   {lw:"moleni", en:"untrustworthy", pos:"adj"},
   {lw:"molenu", en:"to betray (or distrust)", pos:"v"},
@@ -7650,6 +7729,7 @@ const DICTIONARY_RAW = [
   {lw:"nome", en:"box", pos:"n"},
   {lw:"nomi", en:"contained", pos:"adj"},
   {lw:"nomu", en:"to contain", pos:"v"},
+  {lw:"none", en:"night", pos:"n", note:"Night \u2014 a dedicated root, paired with oni (eight) as a cross-linguistic easter egg"},
   {lw:"nore", en:"birth", pos:"n"},
   {lw:"nori", en:"born", pos:"adj"},
   {lw:"noru", en:"to give birth", pos:"v"},
@@ -7689,6 +7769,8 @@ const DICTIONARY_RAW = [
   {lw:"okelawe", en:"birthday", pos:"n", note:"From oke (life) + lawe (day) \u2014 life-day"},
   {lw:"oki", en:"alive", pos:"adj"},
   {lw:"oku", en:"to live (or be alive)", pos:"v"},
+  {lw:"oni", en:"eight", pos:"num"},
+  {lw:"oniluone", en:"August", pos:"n", note:"From oni (8) + luone (month)"},
   {lw:"ore", en:"intensity", pos:"n"},
   {lw:"ori", en:"very (or really, intensely)", pos:"adj"},
   {lw:"oru", en:"to intensify", pos:"v"},
@@ -7797,8 +7879,6 @@ const DICTIONARY_RAW = [
   {lw:"pome", en:"fruit", pos:"n"},
   {lw:"pometieme", en:"fruit store", pos:"n", note:"From pome (fruit) + -tieme (store) \u2014 fruit store"},
   {lw:"pomi", en:"fruit-related", pos:"adj"},
-  {lw:"poni", en:"eight", pos:"num"},
-  {lw:"poniluone", en:"August", pos:"n", note:"From poni (8) + luone (month)"},
   {lw:"pouhe", en:"evening", pos:"n"},
   {lw:"pouhi", en:"of the evening", pos:"adj"},
   {lw:"poule", en:"invitation", pos:"n"},
