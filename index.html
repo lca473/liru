@@ -3656,7 +3656,21 @@ function srsBuildVGlossMap(){
   // already be cleaned up by preflight's duplicate check).
   // Mechanical-tagged forms are excluded — they should never be SRS cards,
   // so their glosses don't belong in the refresh map.
+  //
+  // Fallback layer: after V is walked, walk DICTIONARY_RAW and add any form
+  // that V did not register. This is the only source of glosses for
+  // sentence-lesson tokens that have SRS cards but no vocab V entry (e.g.,
+  // pronouns and possessives like *veo*, *veoa*; modals like *shihu*; or
+  // any other form first encountered as a sentence-only token). Without
+  // this fallback, those cards become permanently stuck on whatever gloss
+  // DICTIONARY_RAW had at enrollment time, and dictionary regloss edits
+  // never propagate to existing decks. V still wins on collisions, and
+  // any lw that V explicitly mechanical-tagged is also excluded from the
+  // DICTIONARY_RAW fallback — preserving the original mechanical-exclusion
+  // intent (mechanical forms should never have refreshable cards).
+  // See DECISIONS.md SRS section "Sentence-only form gloss refresh."
   const map=new Map();
+  const mechanicalLws=new Set();
   if(typeof V==="undefined"||!V)return map;
   for(const key in V){
     const entries=V[key];
@@ -3665,12 +3679,29 @@ function srsBuildVGlossMap(){
       if(!ent||!ent.lw)continue;
       // Skip sentence-style entries where lw is an array of tokens
       if(Array.isArray(ent.lw))continue;
-      if(ent.tier!=="mechanical"&&typeof ent.en==="string")map.set(ent.lw,ent.en);
+      if(ent.tier==="mechanical")mechanicalLws.add(ent.lw);
+      else if(typeof ent.en==="string")map.set(ent.lw,ent.en);
       if(ent.canvas){
-        if(ent.canvas.adj&&ent.canvas.adj_tier!=="mechanical"&&typeof ent.canvas.adj_en==="string")map.set(ent.canvas.adj,ent.canvas.adj_en);
-        if(ent.canvas.v&&ent.canvas.v_tier!=="mechanical"&&typeof ent.canvas.v_en==="string")map.set(ent.canvas.v,ent.canvas.v_en);
+        if(ent.canvas.adj){
+          if(ent.canvas.adj_tier==="mechanical")mechanicalLws.add(ent.canvas.adj);
+          else if(typeof ent.canvas.adj_en==="string")map.set(ent.canvas.adj,ent.canvas.adj_en);
+        }
+        if(ent.canvas.v){
+          if(ent.canvas.v_tier==="mechanical")mechanicalLws.add(ent.canvas.v);
+          else if(typeof ent.canvas.v_en==="string")map.set(ent.canvas.v,ent.canvas.v_en);
+        }
       }
       if(ent.plural&&typeof ent.plural_en==="string")map.set(ent.plural,ent.plural_en);
+    }
+  }
+  // DICTIONARY_RAW fallback for sentence-only tokens.
+  // Skip lws V mechanical-tagged — those shouldn't be refreshable.
+  if(typeof DICTIONARY_RAW!=="undefined"&&Array.isArray(DICTIONARY_RAW)){
+    for(const d of DICTIONARY_RAW){
+      if(!d||!d.lw||typeof d.en!=="string")continue;
+      if(map.has(d.lw))continue;
+      if(mechanicalLws.has(d.lw))continue;
+      map.set(d.lw,d.en);
     }
   }
   return map;
