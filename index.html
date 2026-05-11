@@ -929,7 +929,7 @@ const V = {
   // ════════════════════════════════════════════════════════════════
   // UNIT 3 — FAMILY & PEOPLE (L13–L18)
   // ════════════════════════════════════════════════════════════════
-  // L13: l13_family1     — mawe, powe, wahe (immediate family + collective)
+  // L13: l13_family1     — mawe, pawe, wahe (immediate family + collective)
   // L14: l14_family2     — yoye, loye, piwe (siblings + child)
   // L15: l15_possessives — sentence-based; generalizes -eo / -eoa across nouns
   // L16: l16_friends     — wame
@@ -942,14 +942,14 @@ const V = {
   //
   // Possessives: Grammar.md §3 documents -eo on nouns (komeo "stone's") and
   // -eoa for plural possessor (komeoa "stones'"). Same pattern applies to
-  // family roots: maweo, poweo, yoyeo, loyeo. Inflections are productive
+  // family roots: maweo, paweo, yoyeo, loyeo. Inflections are productive
   // (covered by preflight's checkNounInflection). No name-possessives in
   // sentences this unit — keeps things in the documented zone.
 
   // L13 — Mother, Father, Family
   l13_family1: [
     {lw:"mawe", en:"mother", pos:"n"},
-    {lw:"powe", en:"father", pos:"n"},
+    {lw:"pawe", en:"father", pos:"n"},
     {lw:"wahe", en:"family", pos:"n"},
   ],
 
@@ -968,7 +968,7 @@ const V = {
   // about family, not predicate-pronoun contortions.
   l15_possessives: [
     {lw:["Yuna","su","neo","mawe"],       en:"Yuna is my mother."},
-    {lw:["Veo","powe","su","Kai"],        en:"Her father is Kai."},
+    {lw:["Veo","pawe","su","Kai"],        en:"Her father is Kai."},
     {lw:["Teo","yoye","nawu","Maya"],     en:"Your sister loves Maya."},
     {lw:["Maya","senu","veo","loye"],     en:"Maya knows her brother."},
     {lw:["Neoa","mawe","shahu"],          en:"Our mother is drinking."},
@@ -991,7 +991,7 @@ const V = {
     {lw:["Kipue","su","veo","mawe"],      en:"Who is her mother?"},
     {lw:["Yuna","su","teo","yoye"],       en:"Yuna is your sister."},
     {lw:["Maya","nawu","veo","wahe"],     en:"Maya loves her family."},
-    {lw:["Neoa","powe","senu","Kai"],     en:"Our father knows Kai."},
+    {lw:["Neoa","pawe","senu","Kai"],     en:"Our father knows Kai."},
     {lw:["Tea","su","neoa","wamea"],      en:"You all are our friends."},
     {lw:["Teo","loye","tahu"],            en:"Your brother is eating."},
   ],
@@ -1193,7 +1193,7 @@ const V = {
   // feelings, and family vocabulary from Units 1–5.
   l34_andbutorwith: [
     {lw:["Yuna","sho","Kai","su","wamea"],                en:"Yuna and Kai are friends."},
-    {lw:["Neo","mawe","sho","neo","powe","nawu","ne"],    en:"My mother and father love me."},
+    {lw:["Neo","mawe","sho","neo","pawe","nawu","ne"],    en:"My mother and father love me."},
     {lw:["Ne","wa","tahu","sho","ne","wa","shahu"],       en:"I ate and I drank."},
     {lw:["Ne","su","houli","ma","Maya","su","mohouli"],  en:"I'm happy, but Maya is sad."},
     {lw:["Ne","wamu","Yuna","ma","ne","mai","wamu","Kai"], en:"I like Yuna, but I don't like Kai."},
@@ -1218,16 +1218,16 @@ const V = {
   ],
 
   // L36 — Asking Questions: Yes/No, When, How, Why (sentence-based)
-  // Introduces ki (yes/no question particle), kime (when), kishe (how),
+  // Introduces ki (yes/no question particle), kile (when), kishe (how),
   // kiwi (why). Completes the WH-question set (kiwa what, kipue who
   // taught earlier; kiya where reserved for Unit 7 Places).
   l36_questions: [
     {lw:["Ki","te","wanu","tahe"],                en:"Do you want food?"},
     {lw:["Ki","ve","wa","liru"],                  en:"Did she speak?"},
-    {lw:["Kime","te","wa","tahu"],                en:"When did you eat?"},
+    {lw:["Kile","te","wa","tahu"],                en:"When did you eat?"},
     {lw:["Kishe","te","su"],                      en:"How are you?"},
     {lw:["Kiwi","ve","su","tauki"],               en:"Why is she angry?"},
-    {lw:["Kime","Maya","wu","liru"],              en:"When will Maya speak?"},
+    {lw:["Kile","Maya","wu","liru"],              en:"When will Maya speak?"},
     {lw:["Kiwi","te","mai","wamu","Kai"],         en:"Why don't you like Kai?"},
   ],
 
@@ -1237,7 +1237,7 @@ const V = {
   l37_exam: [
     {lw:["Lo","wame","su","ori","houli"],                                en:"This friend is very happy."},
     {lw:["Loa","piwea","sho","neoa","mawea","su","tauki"],               en:"These children and our mothers are angry."},
-    {lw:["Kime","te","wa","liru","ko","Maya"],                           en:"When did you speak with Maya?"},
+    {lw:["Kile","te","wa","liru","ko","Maya"],                           en:"When did you speak with Maya?"},
     {lw:["Maya","vini","wa","tahu","lo lawe"],                           en:"Maya also ate today."},
     {lw:["Ki","ve","wanu","shahu"],                                      en:"Does she want to drink?"},
     {lw:["Faloa","wamea","su","muhi","ma","loa","wamea","su","houli"],  en:"Those friends are anxious, but these friends are happy."},
@@ -1422,7 +1422,7 @@ const V = {
   // L50: l50_numbers1 — vocab; nuli, fani, runi, teni, shani, kani (0–5)
   // L51: l51_numbers2 — vocab; veni, meni, oni, yani, hani (6–10)
   // L52: l52_days     — vocab; fanilawe through menilawe (Sun–Sat)
-  // L53: l53_howmany  — sentence; introduces kifa, haiwe, tau, ahu
+  // L53: l53_howmany  — sentence; introduces kinai, haiwe, tau, ahu
   // L54: l54_exam     — Unit 9 exam (isCheckpoint:true)
   //
   // Numbers are pos:"adj" per Grammar.md §15 (numbers behave as adjectives,
@@ -1459,33 +1459,33 @@ const V = {
   ],
 
   // L53 — How Many and How Old (sentence-based)
-  // Introduces 4 new forms: kifa, haiwe, tau, ahu. Counted-noun question
+  // Introduces 4 new forms: kinai, haiwe, tau, ahu. Counted-noun question
   // pattern (Grammar.md §12) and age idiom (DesignNotes.md "Age").
   // Sentences 5–7 carry literal-translation parentheticals to flag the
   // structural mismatch between Liru's "years completed" framing and
   // English's "how old."
   l53_howmany: [
-    {lw:["Kifa","paipea","te","ahu"],             en:"How many dogs do you have?"},
-    {lw:["Kifa","wamea","te","ahu"],              en:"How many friends do you have?"},
+    {lw:["Kinai","paipea","te","ahu"],             en:"How many dogs do you have?"},
+    {lw:["Kinai","wamea","te","ahu"],              en:"How many friends do you have?"},
     {lw:["Ne","ahu","teni","paipea"],             en:"I have three dogs."},
     {lw:["Maya","ahu","shani","mewea"],           en:"Maya has four cats."},
-    {lw:["Kifa","haiwea","te","wa","tau"],        en:"How old are you? (lit. how many years have you completed?)"},
+    {lw:["Kinai","haiwea","te","wa","tau"],        en:"How old are you? (lit. how many years have you completed?)"},
     {lw:["Ne","wa","tau","hani","haiwea"],        en:"I am ten years old. (lit. I have completed ten years.)"},
     {lw:["Maya","wa","tau","yani","haiwea"],      en:"Maya is nine years old. (lit. Maya has completed nine years.)"},
   ],
 
   // L54 — Unit 9 Exam (sentence-based, isCheckpoint:true)
   // Mixed practice across L50–L53 plus prior units. No new forms.
-  // 8 sentences covering kifa, ahu, tau, haiwe densely + a representative
+  // 8 sentences covering kinai, ahu, tau, haiwe densely + a representative
   // spread of numbers (2, 7, 8) and days (Sun, Tue, Wed). Bulk-recognition
   // coverage of all 11 numbers / 7 days happens in L50–L52 themselves.
   l54_exam: [
     {lw:["Ne","ahu","runi","paipea"],                       en:"I have two dogs."},
-    {lw:["Kifa","wamea","te","ahu"],                        en:"How many friends do you have?"},
+    {lw:["Kinai","wamea","te","ahu"],                        en:"How many friends do you have?"},
     {lw:["Maya","wa","tau","oni","haiwea"],                en:"Maya is eight years old. (lit. Maya has completed eight years.)"},
     {lw:["Lo lawe","su","shanilawe"],                       en:"Today is Wednesday."},
     {lw:["Ne","wa","liru","ko","meni","wamea"],             en:"I spoke with seven friends."},
-    {lw:["Kifa","mewea","te","wa","tiru","lo lawe"],        en:"How many cats did you see today?"},
+    {lw:["Kinai","mewea","te","wa","tiru","lo lawe"],        en:"How many cats did you see today?"},
     {lw:["Fanilawe","ne","wa","rau"],                       en:"Sunday I slept."},
     {lw:["Tenilawe","Yuna","wu","vanu"],                    en:"Tuesday Yuna will come."},
   ],
@@ -1574,7 +1574,7 @@ const V = {
 
   // L60 — Buying, Selling, and Asking the Price (sentence-based)
   // Introduces nai (many/much) as a quantifier adjective. Drills the
-  // canonical price-asking pattern (Kifa tonea su X?) per Grammar.md §12 —
+  // canonical price-asking pattern (Kinai tonea su X?) per Grammar.md §12 —
   // uses productive grammar, not a new idiom. Reinforces L59 transactional
   // verbs (hoyu, mohoyu) with so/fa locative particles from L41.
   // Uses pometieme (productive compound, free in budget) for transactional
@@ -1582,8 +1582,10 @@ const V = {
   // English mass-noun reflex is the key error pattern to drill against.
   // Note: nai is the adjective form; the noun nae ("abundance") is not
   // taught in this lesson — too abstract for an intro-course quantifier.
+  // kinai (how many / how much) decomposes as ki + nai, so it's transparent
+  // to learners who have just learned nai.
   l60_buyingselling: [
-    {lw:["Kifa","tonea","su","lo","houme"],         en:"How much is this bread?"},
+    {lw:["Kinai","tonea","su","lo","houme"],         en:"How much is this bread?"},
     {lw:["Lo","houme","su","hani","tonea"],         en:"This bread is ten monies."},
     {lw:["Ne","wanu","hoyu","lo","shae"],           en:"I want to buy this tea."},
     {lw:["Maya","hoyu","pomea","fa","Kai"],         en:"Maya buys fruits from Kai."},
@@ -1600,7 +1602,7 @@ const V = {
   l61_exam: [
     {lw:["Ne","wamu","kupe"],                       en:"I like coffee."},
     {lw:["Maya","nahu","tahe","wo","nahe"],         en:"Maya cooks food in the kitchen."},
-    {lw:["Kifa","tonea","su","lo","shae"],          en:"How much is this tea?"},
+    {lw:["Kinai","tonea","su","lo","shae"],          en:"How much is this tea?"},
     {lw:["Ne","wa","hoyu","miawe","fa","tieme"],    en:"I bought milk from the store."},
     {lw:["Lo","pome","su","milali"],                en:"This fruit is sweet."},
     {lw:["Kai","mohoyu","houme","so","ne"],         en:"Kai sells bread to me."},
@@ -2127,12 +2129,12 @@ const LESSONS = [
   // ── UNIT 3: FAMILY & PEOPLE (L13–L18) ────────────────────────────────
   {id:"l13_family1",
    title:"Mother, Father, Family",
-   desc:"mawe, powe, wahe",
+   desc:"mawe, pawe, wahe",
    icon:"👪",
    vocabKey:"l13_family1",
    xp:18,
    unit:2,
-   intro:`<h3>👪 The first family words</h3><p><em>mawe</em> — mother. <em>powe</em> — father. <em>wahe</em> — family.</p><p>Liru forms possessives by adding <em>-o</em> to a noun — the same ending you've been using on the pronouns:</p><ul><li><em>neo mawe</em> — my mother</li><li><em>teo powe</em> — your father</li><li><em>veo wahe</em> — his/her family</li></ul><p>For "our" and "their," use <em>-oa</em>: <em>neoa wahe</em> — "our family."</p>`},
+   intro:`<h3>👪 The first family words</h3><p><em>mawe</em> — mother. <em>pawe</em> — father. <em>wahe</em> — family.</p><p>Liru forms possessives by adding <em>-o</em> to a noun — the same ending you've been using on the pronouns:</p><ul><li><em>neo mawe</em> — my mother</li><li><em>teo pawe</em> — your father</li><li><em>veo wahe</em> — his/her family</li></ul><p>For "our" and "their," use <em>-oa</em>: <em>neoa wahe</em> — "our family."</p>`},
 
   {id:"l14_family2",
    title:"Sister, Brother, Child",
@@ -2151,7 +2153,7 @@ const LESSONS = [
    xp:20,
    unit:2,
    isSentence:true,
-   intro:`<h3>🔗 Possessives on every noun</h3><p>You've been using <em>neo</em>, <em>teo</em>, <em>veo</em> (my, your, his/her) since Unit 1 — and the family words took the same <em>-o</em> ending. The pattern works on <strong>any</strong> noun, with any pronoun:</p><ul><li><em>neo mawe</em> — my mother</li><li><em>teo powe</em> — your father</li><li><em>veo loye</em> — his/her brother</li></ul><p>For a plural possessor (our, their, etc.), use <em>-oa</em>:</p><ul><li><em>neoa mawe</em> — our mother</li><li><em>veoa wahe</em> — their family</li></ul><p><strong>A note on "their":</strong> English "their" is ambiguous — it can mean one person's (singular <em>they</em>) or several people's. Liru splits them: <em>veo</em> for one possessor (his / her / their sg.), <em>veoa</em> for multiple possessors. When you see "their (plural)" in a prompt, that's the cue to use <em>veoa</em>.</p>`},
+   intro:`<h3>🔗 Possessives on every noun</h3><p>You've been using <em>neo</em>, <em>teo</em>, <em>veo</em> (my, your, his/her) since Unit 1 — and the family words took the same <em>-o</em> ending. The pattern works on <strong>any</strong> noun, with any pronoun:</p><ul><li><em>neo mawe</em> — my mother</li><li><em>teo pawe</em> — your father</li><li><em>veo loye</em> — his/her brother</li></ul><p>For a plural possessor (our, their, etc.), use <em>-oa</em>:</p><ul><li><em>neoa mawe</em> — our mother</li><li><em>veoa wahe</em> — their family</li></ul><p><strong>A note on "their":</strong> English "their" is ambiguous — it can mean one person's (singular <em>they</em>) or several people's. Liru splits them: <em>veo</em> for one possessor (his / her / their sg.), <em>veoa</em> for multiple possessors. When you see "their (plural)" in a prompt, that's the cue to use <em>veoa</em>.</p>`},
 
   {id:"l16_friends",
    title:"Friends",
@@ -2325,13 +2327,13 @@ const LESSONS = [
 
   {id:"l36_questions",
    title:"Asking Questions",
-   desc:"ki, kime, kishe, kiwi",
+   desc:"ki, kile, kishe, kiwi",
    icon:"❓",
    vocabKey:"l36_questions",
    xp:22,
    unit:5,
    isSentence:true,
-   intro:`<h3>❓ Asking yes/no questions</h3><p>Liru has one more question word — <em>ki</em>, the yes/no question particle. Put it at the front of any normal sentence to turn it into a yes/no question:</p><span class="example">Te wanu tahe. <span class="gloss">You want food.</span></span><span class="example">Ki te wanu tahe? <span class="gloss">Do you want food?</span></span><p>The answer is <em>ai</em> (yes) or <em>mai</em> (no) — words you've known since Unit 1.</p><h3>🗓️ Three more question words</h3><p>You already know <em>kiwa</em> (what) and <em>kipue</em> (who). Three more complete the WH-set:</p><ul><li><em>kime</em> — when</li><li><em>kishe</em> — how</li><li><em>kiwi</em> — why</li></ul><p>All three go at the front of the sentence, like <em>kiwa</em> and <em>kipue</em>:</p><span class="example">Kime te wa tahu? <span class="gloss">When did you eat?</span></span><span class="example">Kishe te su? <span class="gloss">How are you?</span></span><span class="example">Kiwi ve su tauki? <span class="gloss">Why is she angry?</span></span><p>The rest of the sentence stays in normal SVO order, with the unknown piece simply absent — same rule as before.</p>`},
+   intro:`<h3>❓ Asking yes/no questions</h3><p>Liru has one more question word — <em>ki</em>, the yes/no question particle. Put it at the front of any normal sentence to turn it into a yes/no question:</p><span class="example">Te wanu tahe. <span class="gloss">You want food.</span></span><span class="example">Ki te wanu tahe? <span class="gloss">Do you want food?</span></span><p>The answer is <em>ai</em> (yes) or <em>mai</em> (no) — words you've known since Unit 1.</p><h3>🗓️ Three more question words</h3><p>You already know <em>kiwa</em> (what) and <em>kipue</em> (who). Three more complete the WH-set:</p><ul><li><em>kile</em> — when</li><li><em>kishe</em> — how</li><li><em>kiwi</em> — why</li></ul><p>All three go at the front of the sentence, like <em>kiwa</em> and <em>kipue</em>:</p><span class="example">Kile te wa tahu? <span class="gloss">When did you eat?</span></span><span class="example">Kishe te su? <span class="gloss">How are you?</span></span><span class="example">Kiwi ve su tauki? <span class="gloss">Why is she angry?</span></span><p>The rest of the sentence stays in normal SVO order, with the unknown piece simply absent — same rule as before.</p>`},
 
   {id:"l37_exam",
    title:"Unit 6 Exam: Connectors and Demonstratives",
@@ -2383,7 +2385,7 @@ const LESSONS = [
    xp:22,
    unit:6,
    isSentence:true,
-   intro:`<h3>👉 Here, there, where</h3><p>Three more locative words — two adverbs and one question word. They build on words you already know.</p><h3>📍 <em>loya</em> — here / <em>faloya</em> — there</h3><p>Remember <em>lo</em> (this) and <em>falo</em> (that) from Unit 6? Add <em>-ya</em> (the locative particle) and you get the matching place adverb:</p><ul><li><em>lo</em> (this) → <em>loya</em> (here, at this place)</li><li><em>falo</em> (that) → <em>faloya</em> (there, at that place)</li></ul><span class="example">Ne su loya. <span class="gloss">I am here.</span></span><span class="example">Maya su faloya. <span class="gloss">Maya is there.</span></span><p>These work like English "here" and "there" — they don't need a separate locative particle.</p><h3>❓ <em>kiya</em> — where</h3><p><em>kiya</em> is the question word for "where" — it joins the WH-set you learned in Unit 6 (<em>kiwa</em>, <em>kipue</em>, <em>kime</em>, <em>kishe</em>, <em>kiwi</em>).</p><span class="example">Kiya te su? <span class="gloss">Where are you?</span></span><span class="example">Kiya Maya halu? <span class="gloss">Where is Maya going?</span></span><h3>✂️ Particle drop in <em>kiya</em> questions</h3><p>When you ask "where to?" or "where from?", the locative particle (<em>so</em>, <em>fa</em>, <em>ya</em>) <strong>drops</strong> in the question. Context tells the listener what was meant.</p><span class="example">Kiya te halu? <span class="gloss">Where are you going? (no <em>so</em> needed)</span></span><span class="example">Kiya ve wa vanu? <span class="gloss">Where did she come from? (no <em>fa</em> needed)</span></span>`},
+   intro:`<h3>👉 Here, there, where</h3><p>Three more locative words — two adverbs and one question word. They build on words you already know.</p><h3>📍 <em>loya</em> — here / <em>faloya</em> — there</h3><p>Remember <em>lo</em> (this) and <em>falo</em> (that) from Unit 6? Add <em>-ya</em> (the locative particle) and you get the matching place adverb:</p><ul><li><em>lo</em> (this) → <em>loya</em> (here, at this place)</li><li><em>falo</em> (that) → <em>faloya</em> (there, at that place)</li></ul><span class="example">Ne su loya. <span class="gloss">I am here.</span></span><span class="example">Maya su faloya. <span class="gloss">Maya is there.</span></span><p>These work like English "here" and "there" — they don't need a separate locative particle.</p><h3>❓ <em>kiya</em> — where</h3><p><em>kiya</em> is the question word for "where" — it joins the WH-set you learned in Unit 6 (<em>kiwa</em>, <em>kipue</em>, <em>kile</em>, <em>kishe</em>, <em>kiwi</em>).</p><span class="example">Kiya te su? <span class="gloss">Where are you?</span></span><span class="example">Kiya Maya halu? <span class="gloss">Where is Maya going?</span></span><h3>✂️ Particle drop in <em>kiya</em> questions</h3><p>When you ask "where to?" or "where from?", the locative particle (<em>so</em>, <em>fa</em>, <em>ya</em>) <strong>drops</strong> in the question. Context tells the listener what was meant.</p><span class="example">Kiya te halu? <span class="gloss">Where are you going? (no <em>so</em> needed)</span></span><span class="example">Kiya ve wa vanu? <span class="gloss">Where did she come from? (no <em>fa</em> needed)</span></span>`},
 
   {id:"l43_exam",
    title:"Unit 7 Exam: Places and Going",
@@ -2485,13 +2487,13 @@ const LESSONS = [
 
   {id:"l53_howmany",
    title:"How Many and How Old",
-   desc:"kifa, haiwe, tau, ahu",
+   desc:"kinai, haiwe, tau, ahu",
    icon:"🎂",
    vocabKey:"l53_howmany",
    xp:22,
    unit:8,
    isSentence:true,
-   intro:`<h3>🎂 Counts, ages, and a new verb</h3><p><strong>A new verb: <em>ahu</em> — to have.</strong> Used like any other verb in SVO: <em>Ne ahu teni paipea</em> — "I have three dogs." Notice the noun is plural (<em>paipea</em>) when the count is more than one.</p><h3>❓ Asking quantities</h3><p><em>Kifa</em> means "how many." Like other ki-words, it goes to the front of the sentence, with the plural noun in tow:</p><span class="example">Kifa paipea te ahu? <span class="gloss">How many dogs do you have?</span></span><h3>🎂 Talking about age</h3><p>Liru frames age as years completed, not as a length you've reached. <em>Kifa haiwea te wa tau?</em> literally asks "How many years have you completed?" The answer follows the same shape:</p><span class="example">Ne wa tau hani haiwea. <span class="gloss">I have completed ten years. (= I am ten.)</span></span><p><em>haiwe</em> = year. <em>tau</em> = to complete (from the root <em>tae</em> "totality, all").</p><h3>➕ Bigger numbers</h3><p>Liru builds larger numbers by stacking with hyphens: <em>runi-hani</em> (twenty), <em>teni-hani</em> (thirty), <em>runi-hani-fani</em> (twenty-one). You won't drill these in this lesson — single-digit ages only — but you'll see them in the wild.</p>`},
+   intro:`<h3>🎂 Counts, ages, and a new verb</h3><p><strong>A new verb: <em>ahu</em> — to have.</strong> Used like any other verb in SVO: <em>Ne ahu teni paipea</em> — "I have three dogs." Notice the noun is plural (<em>paipea</em>) when the count is more than one.</p><h3>❓ Asking quantities</h3><p><em>Kinai</em> means "how many" or "how much." Like other ki-words, it goes to the front of the sentence, with the plural noun in tow:</p><span class="example">Kinai paipea te ahu? <span class="gloss">How many dogs do you have?</span></span><h3>🎂 Talking about age</h3><p>Liru frames age as years completed, not as a length you've reached. <em>Kinai haiwea te wa tau?</em> literally asks "How many years have you completed?" The answer follows the same shape:</p><span class="example">Ne wa tau hani haiwea. <span class="gloss">I have completed ten years. (= I am ten.)</span></span><p><em>haiwe</em> = year. <em>tau</em> = to complete (from the root <em>tae</em> "totality, all").</p><h3>➕ Bigger numbers</h3><p>Liru builds larger numbers by stacking with hyphens: <em>runi-hani</em> (twenty), <em>teni-hani</em> (thirty), <em>runi-hani-fani</em> (twenty-one). You won't drill these in this lesson — single-digit ages only — but you'll see them in the wild.</p>`},
 
   {id:"l54_exam",
    title:"Unit 9 Exam: Numbers and Days",
@@ -2502,7 +2504,7 @@ const LESSONS = [
    unit:8,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>✅ Unit 9 Exam</h3><p>This is your Unit 9 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across numbers (0–10), days of the week, the new verb <em>ahu</em>, the question word <em>kifa</em>, and the age idiom (<em>tau</em>, <em>haiwe</em>). Past tense, plurals, locatives — all fair game.</p>`},
+   intro:`<h3>✅ Unit 9 Exam</h3><p>This is your Unit 9 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across numbers (0–10), days of the week, the new verb <em>ahu</em>, the question word <em>kinai</em>, and the age idiom (<em>tau</em>, <em>haiwe</em>). Past tense, plurals, locatives — all fair game.</p>`},
 
   {id:"l55_drinks",
    title:"Drinks",
@@ -2554,7 +2556,7 @@ const LESSONS = [
    xp:24,
    unit:9,
    isSentence:true,
-   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kifa</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kifa tonea su lo houme? <span class="gloss">How much is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Lo houme su hani tonea. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs — <em>hoyu</em> (to buy) and its <em>mo-</em> partner <em>mohoyu</em> (to sell):</p><span class="example">Ne hoyu lo shae. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea fa Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houme so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>fa</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun:</p><span class="example">Ne ahu nai tonea. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu nai pomea fa pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span>`},
+   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kinai</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kinai tonea su lo houme? <span class="gloss">How much is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Lo houme su hani tonea. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs — <em>hoyu</em> (to buy) and its <em>mo-</em> partner <em>mohoyu</em> (to sell):</p><span class="example">Ne hoyu lo shae. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea fa Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houme so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>fa</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun:</p><span class="example">Ne ahu nai tonea. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu nai pomea fa pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span><p><strong>A note on <em>kinai</em>:</strong> now that you know <em>nai</em>, the question word <em>kinai</em> decomposes transparently — <em>ki</em> (question particle) + <em>nai</em> (many/much) = "how many / how much." Same with <em>kile</em> (when), which is <em>ki</em> + <em>-le</em> (the time-particle ending you see in <em>lole</em> "now" and <em>fale</em> "then").</p>`},
 
   {id:"l61_exam",
    title:"Unit 10 Exam: Food and Transactions",
@@ -3421,6 +3423,15 @@ async function finishLogin(name){
     {
       const migrated=srsMigratePoniMolaweToOniNoneIfNeeded(user.username);
       if(migrated>0)console.log("[SRS] migrated",migrated,"poni/molawe-family cards for",user.username);
+    }
+    // Generic form-rename migration via SRS_FORM_RENAMES. Idempotent —
+    // runs on every login, no-op once cards are rewritten. Handles all
+    // future one-to-one form renames without bespoke migration code.
+    // MUST run before the stale-card pruner. See DECISIONS.md / SHIPLOG.md
+    // entries for individual renames carried by the registry.
+    {
+      const migrated=srsMigrateRenamedFormsIfNeeded(user.username);
+      if(migrated>0)console.log("[SRS] form-renamed",migrated,"cards for",user.username);
     }
     // Prune any cards whose lw is no longer in the dictionary (stale from prior cleanups)
     {
@@ -4309,7 +4320,7 @@ function srsMigrateKauheToMouleyaheIfNeeded(username){
 
 // ─── One-time recoinage migration: leye → tone ───────────────
 // Recoinage of the L59 root for "money" because the plural *leyea* — drilled
-// across L60's price-asking pattern (Kifa leyea su X?) — had an awkward
+// across L60's price-asking pattern (Kinai leyea su X?) — had an awkward
 // glide-vowel hiatus. Replaced with *tone* / *toni* / *tonu*, plural *tonea*.
 //
 // Unlike kauhe→mouleyahe (single-form compound recoinage), leye carried a
@@ -4456,6 +4467,77 @@ function srsMigratePoniMolaweToOniNoneIfNeeded(username){
   s.poniMolaweToOniNoneDone=true;
   srsSaveState(username,s);
   srsSyncState(username,s);
+  return oldIds.length;
+}
+
+// ─── Generic form-rename migration ─────────────────────────────────────
+// SRS_FORM_RENAMES is the registry of one-to-one Liru form renames that
+// affect existing user SRS cards. Each entry maps an old (retired) lw to
+// the new lw. The card's English gloss is NOT changed here — that is the
+// job of the regular srsRefreshAndSync pass that runs after this migration
+// against the current DICTIONARY_RAW (the renamed form's entry will carry
+// the right gloss).
+//
+// This is the generic replacement for one-off migrations like
+// srsMigrateKauheToMouleyaheIfNeeded, srsMigrateLeyeToToneIfNeeded, and
+// srsMigratePoniMolaweToOniNoneIfNeeded. Those three remain in place to
+// avoid disturbing already-migrated user state; SRS_FORM_RENAMES is the
+// home for all *future* renames.
+//
+// The migration is idempotent by design — on a re-run, no card's lw will
+// match any old key (they were rewritten on the prior run), so the loop
+// is a no-op. No state flag needed; runs on every login. The cost is one
+// pass through the user's cards (typically < 200 entries) looking for
+// matches against a small map.
+const SRS_FORM_RENAMES={
+  kime:'kile',
+  kifa:'kinai',
+};
+function srsMigrateRenamedFormsIfNeeded(username){
+  if(!username)return 0;
+  if(!SRS_FORM_RENAMES||Object.keys(SRS_FORM_RENAMES).length===0)return 0;
+  const cards=srsLoadCards(username);
+  const migratedNew={};
+  const oldIds=[];
+  for(const id in cards){
+    const c=cards[id];
+    if(!c||!c.lw)continue;
+    const newLw=SRS_FORM_RENAMES[c.lw];
+    if(!newLw)continue;
+    const dir=c.dir||(id.endsWith("::lw_en")?"lw_en":"en_lw");
+    const newId=srsCardId(newLw,dir);
+    // Preserve all scheduling state; rewrite the identity field only.
+    // English gloss is intentionally left as-is here — the next
+    // srsRefreshAndSync pass will update it from DICTIONARY_RAW.
+    migratedNew[newId]={...c,lw:newLw};
+    oldIds.push(id);
+  }
+  if(oldIds.length===0)return 0;
+  // Apply: delete old, add new. Collision guard: if a card already exists
+  // at the new id (rare — user had cards for both old and new names),
+  // keep the existing one (don't overwrite active history).
+  for(const oldId of oldIds)delete cards[oldId];
+  for(const newId in migratedNew){
+    if(!cards[newId])cards[newId]=migratedNew[newId];
+  }
+  srsSaveCards(username,cards);
+  // Cloud sync: delete old paths, write new ones (only the ones we kept).
+  if(firebaseReady&&db){
+    for(const oldId of oldIds){
+      try{db.ref(srsCardFbPath(username,oldId)).remove();}
+      catch(e){/* ignore — local is authoritative until next sync */}
+    }
+    for(const newId in migratedNew){
+      if(cards[newId]===migratedNew[newId]){
+        try{
+          db.ref(srsCardFbPath(username,newId))
+            .set({...cards[newId],lastSync:Date.now()})
+            .catch(e=>console.warn("[SRS] form-rename migration sync error:",e));
+        }catch(e){console.warn("[SRS] form-rename migration sync error:",e);}
+      }
+    }
+  }
+  console.log("[SRS] form-renamed",oldIds.length,"cards via SRS_FORM_RENAMES for",username);
   return oldIds.length;
 }
 
@@ -6512,16 +6594,16 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>kipue</em></td><td>who</td></tr>
     <tr><td><em>kiwa</em></td><td>what</td></tr>
     <tr><td><em>kiya</em></td><td>where</td></tr>
-    <tr><td><em>kime</em></td><td>when</td></tr>
+    <tr><td><em>kile</em></td><td>when</td></tr>
     <tr><td><em>kiwi</em></td><td>why</td></tr>
     <tr><td><em>kishe</em></td><td>how</td></tr>
-    <tr><td><em>kifa</em></td><td>how many</td></tr>
+    <tr><td><em>kinai</em></td><td>how many (or how much)</td></tr>
     </tbody></table></div>
     <ul>
       <li><em>Kipue su ya hiwe?</em> — Who is at the house?</li>
       <li><em>Kiya te halu?</em> — Where are you going?</li>
-      <li><em>Kifa loiwea te ahu?</em> — How many books do you have?</li>
-      <li><em>Kifa haiwea te wa tau?</em> — How old are you? (lit. "How many years have you completed?")</li>
+      <li><em>Kinai loiwea te ahu?</em> — How many books do you have?</li>
+      <li><em>Kinai haiwea te wa tau?</em> — How old are you? (lit. "How many years have you completed?")</li>
     </ul>
     <div class="grammar-callout">The yes/no particle <em>ki</em> and a content-question word <strong>never</strong> appear together.</div>`
   },
@@ -7105,11 +7187,11 @@ const DICTIONARY_RAW = [
   {lw:"kiame", en:"number", pos:"n"},
   {lw:"kiami", en:"numeric", pos:"adj"},
   {lw:"kiamu", en:"to count", pos:"v"},
-  {lw:"kifa", en:"how many", pos:"particle", note:"From ki- + fa \u2014 how many"},
+  {lw:"kile", en:"when", pos:"particle", note:"From ki + -le \u2014 question particle + time-particle ending; \"what time\" = when"},
   {lw:"kilire", en:"question", pos:"n", note:"From ki- + lire \u2014 question"},
   {lw:"kiliri", en:"asked", pos:"adj"},
   {lw:"kiliru", en:"to ask", pos:"v", note:"From ki- + liru \u2014 to ask"},
-  {lw:"kime", en:"when", pos:"particle", note:"From ki- + me \u2014 when"},
+  {lw:"kinai", en:"how many (or how much)", pos:"particle", note:"From ki + nai \u2014 question particle + many/much"},
   {lw:"kipue", en:"who", pos:"particle", note:"From ki- + pue \u2014 who"},
   {lw:"kishe", en:"how", pos:"particle", note:"From ki- + she \u2014 how"},
   {lw:"kiwa", en:"what", pos:"particle", note:"From ki- + wa \u2014 what"},
@@ -7841,8 +7923,8 @@ const DICTIONARY_RAW = [
   {lw:"pauwe", en:"machine", pos:"n"},
   {lw:"pauwi", en:"mechanical", pos:"adj"},
   {lw:"pauwu", en:"to operate a machine", pos:"v"},
-  {lw:"pawe", en:"mouth", pos:"n"},
-  {lw:"pawi", en:"oral", pos:"adj"},
+  {lw:"pawe", en:"father", pos:"n"},
+  {lw:"pawi", en:"fatherly", pos:"adj"},
   {lw:"peihe", en:"honesty", pos:"n"},
   {lw:"peihi", en:"honest (or honestly)", pos:"adj"},
   {lw:"peihu", en:"to be honest", pos:"v"},
@@ -7923,8 +8005,8 @@ const DICTIONARY_RAW = [
   {lw:"poumu", en:"to bag (put in a bag)", pos:"v"},
   {lw:"pouwe", en:"cave", pos:"n"},
   {lw:"pouwi", en:"cavernous (or cave-related)", pos:"adj"},
-  {lw:"powe", en:"father", pos:"n"},
-  {lw:"powi", en:"fatherly", pos:"adj"},
+  {lw:"powe", en:"mouth", pos:"n"},
+  {lw:"powi", en:"oral", pos:"adj"},
   {lw:"poye", en:"opening (or door)", pos:"n"},
   {lw:"poyi", en:"open", pos:"adj"},
   {lw:"poyu", en:"to open", pos:"v"},
@@ -8468,7 +8550,7 @@ const GRAMMAR_TIPS = [
   {title:"💡 The Vowel Canvas",text:"In Liru, the <strong>final vowel</strong> tells you the word class: <strong>-e</strong> = noun, <strong>-u</strong> = verb, <strong>-i</strong> = adjective. Change the vowel, change the word!"},
   {title:"💡 The <em>mo-</em> Balance",text:"The <strong>mo-</strong> prefix isn't just negation — it's <em>balance</em>. Dark (<em>molune</em>) is light's balancing partner, not its enemy. This shapes the whole language."},
   {title:"💡 No Articles Needed",text:"Liru has no words for <strong>the</strong> or <strong>a</strong>. Context does the work. Use <strong>lo</strong> (this) or <strong>falo</strong> (that) when you need to be specific."},
-  {title:"💡 Questions Start With <em>ki-</em>",text:"All question words share <strong>ki-</strong>: <em>kipue</em> (who), <em>kiwa</em> (what), <em>kiya</em> (where), <em>kime</em> (when), <em>kishe</em> (how)."},
+  {title:"💡 Questions Start With <em>ki-</em>",text:"All question words share <strong>ki-</strong>: <em>kipue</em> (who), <em>kiwa</em> (what), <em>kiya</em> (where), <em>kile</em> (when), <em>kishe</em> (how)."},
   {title:"💡 Tense is a Tiny Word",text:"<strong>wa</strong> = past, nothing = present, <strong>wu</strong> = future. Verbs never change form. <em>Ne tiru</em> / <em>Ne wa tiru</em> / <em>Ne wu tiru</em>."},
   {title:"💡 Social Expressions Sit Outside",text:"Five special words handle all social tone: <em>moa</em> (please), <em>reiwa</em> (thanks), <em>waimo</em> (hello), <em>weriko</em> (goodbye), <em>elo</em> (sorry). Reply with <em>Su mo</em> — \"it is balance.\""},
   {title:"💡 Compound Words, Simple Rules",text:"Two roots combine: the second sets the part-of-speech, the first takes <strong>-i</strong> (qualifying), <strong>-e</strong> (material), or <strong>-u</strong> (action) form."},
