@@ -972,7 +972,7 @@ const V = {
     {lw:["Teo","yoye","nawu","Maya"],     en:"Your sister loves Maya."},
     {lw:["Maya","senu","veo","loye"],     en:"Maya knows her brother."},
     {lw:["Neoa","mawe","shahu"],          en:"Our mother is drinking."},
-    {lw:["Veoa","wahe","tahu"],           en:"Their family is eating."},
+    {lw:["Veoa","wahe","tahu"],           en:"Their (plural) family is eating."},
     {lw:["Teo","piwe","nawu","te"],       en:"Your child loves you."},
   ],
 
@@ -1180,7 +1180,7 @@ const V = {
     {lw:["Loa","piwea","su","houli"],                  en:"These children are happy."},
     {lw:["Faloa","wamea","su","tauki"],                en:"Those friends are angry."},
     {lw:["Lo","mawe","nawu","veo","piwea"],            en:"This mother loves her children."},
-    {lw:["Veoa","loyea","su","moyeri"],                en:"Their brothers are afraid."},
+    {lw:["Veoa","loyea","su","moyeri"],                en:"Their (plural) brothers are afraid."},
     {lw:["Te","wa","senu","faloa","piwea"],            en:"You knew those children."},
     {lw:["Faloa","mawea","su","muhi"],                 en:"Those mothers are worried."},
     {lw:["Loa","yoyea","su","moyeri"],                 en:"These sisters are afraid."},
@@ -2151,7 +2151,7 @@ const LESSONS = [
    xp:20,
    unit:2,
    isSentence:true,
-   intro:`<h3>🔗 Possessives on every noun</h3><p>You've been using <em>neo</em>, <em>teo</em>, <em>veo</em> (my, your, his/her) since Unit 1 — and the family words took the same <em>-o</em> ending. The pattern works on <strong>any</strong> noun, with any pronoun:</p><ul><li><em>neo mawe</em> — my mother</li><li><em>teo powe</em> — your father</li><li><em>veo loye</em> — his/her brother</li></ul><p>For a plural possessor (our, their, etc.), use <em>-oa</em>:</p><ul><li><em>neoa mawe</em> — our mother</li><li><em>veoa wahe</em> — their family</li></ul>`},
+   intro:`<h3>🔗 Possessives on every noun</h3><p>You've been using <em>neo</em>, <em>teo</em>, <em>veo</em> (my, your, his/her) since Unit 1 — and the family words took the same <em>-o</em> ending. The pattern works on <strong>any</strong> noun, with any pronoun:</p><ul><li><em>neo mawe</em> — my mother</li><li><em>teo powe</em> — your father</li><li><em>veo loye</em> — his/her brother</li></ul><p>For a plural possessor (our, their, etc.), use <em>-oa</em>:</p><ul><li><em>neoa mawe</em> — our mother</li><li><em>veoa wahe</em> — their family</li></ul><p><strong>A note on "their":</strong> English "their" is ambiguous — it can mean one person's (singular <em>they</em>) or several people's. Liru splits them: <em>veo</em> for one possessor (his / her / their sg.), <em>veoa</em> for multiple possessors. When you see "their (plural)" in a prompt, that's the cue to use <em>veoa</em>.</p>`},
 
   {id:"l16_friends",
    title:"Friends",
@@ -6319,7 +6319,7 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Person</th><th>Sg.</th><th>Pl.</th><th>Poss. Sg.</th><th>Poss. Pl.</th></tr></thead><tbody>
     <tr><td>1st</td><td><em>ne</em> — I</td><td><em>nea</em> — we</td><td><em>neo</em> — my</td><td><em>neoa</em> — our</td></tr>
     <tr><td>2nd</td><td><em>te</em> — you</td><td><em>tea</em> — you all</td><td><em>teo</em> — your</td><td><em>teoa</em> — your (pl)</td></tr>
-    <tr><td>3rd</td><td><em>ve</em> — he/she/it/him/her, they/them sg.</td><td><em>vea</em> — they/them</td><td><em>veo</em> — his/her/its</td><td><em>veoa</em> — their</td></tr>
+    <tr><td>3rd</td><td><em>ve</em> — he/she/it/him/her, they/them sg.</td><td><em>vea</em> — they/them</td><td><em>veo</em> — his/her/its/their (sg.)</td><td><em>veoa</em> — their (pl.)</td></tr>
     </tbody></table></div>
     <div class="grammar-callout"><strong>Possessives precede the noun:</strong> <em>neo mawe</em> (my mother), <em>veoa hiwe</em> (their house).</div>`
   },
@@ -8060,7 +8060,7 @@ const DICTIONARY_RAW = [
   {lw:"shifi", en:"thrown", pos:"adj"},
   {lw:"shifu", en:"to throw", pos:"v"},
   {lw:"shihe", en:"obligation", pos:"n"},
-  {lw:"shihi", en:"should (or ought)", pos:"adj"},
+  {lw:"shihi", en:"proper (or fitting)", pos:"adj"},
   {lw:"shihu", en:"to ought to (should)", pos:"v"},
   {lw:"shire", en:"creation", pos:"n"},
   {lw:"shiri", en:"creative (or creatively)", pos:"adj"},
@@ -8274,7 +8274,7 @@ const DICTIONARY_RAW = [
   {lw:"venilawe", en:"Friday", pos:"n", note:"From veni (6) + lawe (day)"},
   {lw:"veniluone", en:"June", pos:"n", note:"From veni (6) + luone (month)"},
   {lw:"veo", en:"his/her/its/their sg.", pos:"pron"},
-  {lw:"veoa", en:"their", pos:"pron"},
+  {lw:"veoa", en:"their (pl.)", pos:"pron"},
   {lw:"vi", en:"if", pos:"conj"},
   {lw:"vihe", en:"the act of sharing", pos:"n"},
   {lw:"vihi", en:"shared (or communal)", pos:"adj"},
