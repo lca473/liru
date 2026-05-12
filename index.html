@@ -2705,6 +2705,111 @@ const V = {
      cloze:{blanks:[2], bank:["taihue","saihue","faihue","nulihue","wohime","vehe"]}},
   ],
 
+  // ═══════════════════════════════════════════════════════════════════
+  // UNIT 20 (A6): COLORS — ADVANCED TRACK
+  // ═══════════════════════════════════════════════════════════════════
+  // First breadth unit after the capability-first run (A1-A5). 13 roots
+  // all sharing the -ale/-ali/-alu canvas. Per Neal's decision, only
+  // noun and adjective forms are taught/drilled — verb forms (-alu)
+  // exist in Dictionary.md but are not surfaced in lessons or SRS.
+  // EXCEPTION: tinale "color" keeps its verb tinalu "to color/tint"
+  // since it's a genuinely useful general-purpose verb (unlike the
+  // inchoative color-change verbs).
+  // Split: 4 vocab lessons + 1 unit exam, grouping by warm/cool/
+  // neutral/tertiary color families. All 12 colors covered in actual
+  // exam sentences (not distractor-only). No weave-in vocab — the unit
+  // has plenty of new vocabulary on its own per Neal's call.
+
+  // L111 — Vocab: color meta-root + warm colors
+  // tinale teaches the -ale/-ali canvas pattern via the meta-root,
+  // then feyale and haumale anchor the warm end of the spectrum.
+  // tinale is the only color root with a taught verb form (tinalu
+  // "to color/tint"). Intro card teaches the canvas pattern without
+  // mentioning the color-change verbs (per Neal's decision).
+  l111_vocab_color_meta: [
+    {lw:"tinale", en:"color", pos:"n",
+     canvas:{adj:"tinali", adj_en:"colored (or colorful)",
+             v:"tinalu",   v_en:"to color (or tint)"}},
+    {lw:"feyale", en:"red (the color)", pos:"n",
+     canvas:{adj:"feyali", adj_en:"red"}},
+    {lw:"haumale", en:"yellow (the color)", pos:"n",
+     canvas:{adj:"haumali", adj_en:"yellow"}},
+  ],
+
+  // L112 — Vocab: cool colors
+  // foshale green, laumale blue, roumale purple.
+  l112_vocab_color_cool: [
+    {lw:"foshale", en:"green (the color)", pos:"n",
+     canvas:{adj:"foshali", adj_en:"green"}},
+    {lw:"laumale", en:"blue (the color)", pos:"n",
+     canvas:{adj:"laumali", adj_en:"blue"}},
+    {lw:"roumale", en:"purple (the color)", pos:"n",
+     canvas:{adj:"roumali", adj_en:"purple"}},
+  ],
+
+  // L113 — Vocab: neutral colors
+  // lewale white, noumale black, felale gray. Note: white/black are
+  // NOT a mo- pair in Liru — they're a culturally paired set rather
+  // than a marked balanced opposite, so neither root carries the
+  // mo- prefix.
+  l113_vocab_color_neutral: [
+    {lw:"lewale", en:"white (the color)", pos:"n",
+     canvas:{adj:"lewali", adj_en:"white"}},
+    {lw:"noumale", en:"black (the color)", pos:"n",
+     canvas:{adj:"noumali", adj_en:"black"}},
+    {lw:"felale", en:"gray (the color)", pos:"n",
+     canvas:{adj:"felali", adj_en:"gray"}},
+  ],
+
+  // L114 — Vocab: tertiary / off-spectrum colors
+  // niwale pink, touhale brown, huyale orange. The three "off the
+  // rainbow" colors — pink (light red), brown (dark red-yellow blend),
+  // orange (red-yellow blend).
+  l114_vocab_color_tertiary: [
+    {lw:"niwale", en:"pink (the color)", pos:"n",
+     canvas:{adj:"niwali", adj_en:"pink"}},
+    {lw:"touhale", en:"brown (the color)", pos:"n",
+     canvas:{adj:"touhali", adj_en:"brown"}},
+    {lw:"huyale", en:"orange (the color)", pos:"n",
+     canvas:{adj:"huyali", adj_en:"orange"}},
+  ],
+
+  // L115 — Unit 20 Exam: colors in context
+  // 10 sentences covering all 12 colors. 4 cloze sentences (blanks
+  // typically on the color form itself; banks of 6 chips drawn from
+  // other A6 color adjectives). Patterns drilled: predicate adj with
+  // copula su (Grammar §6), attributive adj (Grammar §7 left-branching),
+  // attributive + plural -ea, yes/no question with ki (§12),
+  // comparative ata (§13), superlative apa (§13), negation mai (§5),
+  // past wa (§5), conditional vi (Grammar §10, introduced L90).
+  // Every non-color token verified V-taught at or before L115.
+  l115_color_exam: [
+    {lw:["Lo","loshe","su","feyali"],
+     en:"This flower is red.",
+     cloze:{blanks:[3], bank:["feyali","laumali","foshali","niwali","huyali","noumali"]}},
+    {lw:["Laime","su","laumali"],
+     en:"The sky is blue.",
+     cloze:{blanks:[2], bank:["laumali","feyali","felali","lewali","foshali","roumali"]}},
+    {lw:["Ne","wamu","foshali","moulea"],
+     en:"I like green trees."},
+    {lw:["Lo","kupe","su","touhali"],
+     en:"This coffee is brown."},
+    {lw:["Ne","wa","tiru","huyali","haule","sho","lewali","felume"],
+     en:"I saw an orange sun and a white cloud."},
+    {lw:["Felume","su","felali","ata","laime"],
+     en:"The cloud is grayer than the sky.",
+     cloze:{blanks:[2], bank:["felali","noumali","lewali","laumali","huyali","touhali"]}},
+    {lw:["Ki","lo","loiwe","su","roumali"],
+     en:"Is this book purple?"},
+    {lw:["Haumali","loshea","su","apa","wauli"],
+     en:"Yellow flowers are the most beautiful."},
+    {lw:["Ne","mai","wa","tiru","noumali","pome"],
+     en:"I didn't see a black fruit."},
+    {lw:["Vi","te","wamu","tinali","pomea","te","wu","tahu","lo","niwali","pome"],
+     en:"If you like colorful fruits, you will eat this pink fruit.",
+     cloze:{blanks:[3,9], bank:["tinali","niwali","feyali","huyali","roumali","laumali"]}},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2745,6 +2850,7 @@ const UNITS = [
   {name:"Unit 17 — Relative & Complement Clauses", start:88, track:"advanced"},
   {name:"Unit 18 — Frequency & Spatial Adverbs", start:93, track:"advanced"},
   {name:"Unit 19 — Existential Pronouns", start:100, track:"advanced"},
+  {name:"Unit 20 — Colors", start:104, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -3802,6 +3908,60 @@ const LESSONS = [
    vocabKey:"l110_existentials_exam",
    xp:30,
    unit:18,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── UNIT 20: COLORS (L111–L115) — ADVANCED TRACK ────────────────────
+  // A6: first breadth unit. 13 color roots sharing the -ale/-ali/-alu
+  // canvas pattern. Only noun and adjective forms are taught (per
+  // Neal's decision); verb forms exist in Dictionary.md but aren't
+  // drilled. Exception: tinale "color" keeps its verb tinalu
+  // "to color/tint" as a genuinely useful general-purpose verb.
+  // 4 vocab lessons + 1 unit exam. All 12 colors covered in actual
+  // exam sentences (not distractor-only). No weave-in vocab.
+  {id:"l111_vocab_color_meta",
+   title:"Colors — Meta Root and Warm Colors",
+   desc:"tinale (color), feyale (red), haumale (yellow)",
+   icon:"🎨",
+   vocabKey:"l111_vocab_color_meta",
+   xp:24,
+   unit:19,
+   intro:`<h3>🎨 Color words share one canvas pattern</h3><p>Every color word in Liru sits on the same canvas: a noun ending in <em>-ale</em>, and an adjective ending in <em>-ali</em>. Once you know the pattern, you know how every color word works.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun (the color)</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>tinale</em></td><td style="padding:4px 12px"><em>tinali</em> — colored / colorful</td></tr><tr><td style="padding:4px 12px"><em>feyale</em></td><td style="padding:4px 12px"><em>feyali</em> — red</td></tr><tr><td style="padding:4px 12px"><em>haumale</em></td><td style="padding:4px 12px"><em>haumali</em> — yellow</td></tr></table><h3>🖌️ <em>tinale</em> — the meta-root</h3><p><em>tinale</em> means "color" itself, and <em>tinali</em> means "colored" or "colorful." It also carries a verb form, <em>tinalu</em> — "to color" or "to tint" something. (This verb is taught; the color-change verbs of the specific colors aren't.)</p><h3>📝 Two ways to say "the X is red"</h3><p>Like other adjectives, color adjectives can sit on either side of the copula <em>su</em>:</p><span class="example">Lo loshe su feyali. <span class="gloss">This flower is red. (predicate — describes the flower)</span></span><span class="example">Feyali loshe su wauli. <span class="gloss">The red flower is beautiful. (attributive — modifies the flower)</span></span><p>When attributive, the color comes <strong>before</strong> the noun, like every adjective in Liru.</p>`},
+
+  {id:"l112_vocab_color_cool",
+   title:"Cool Colors",
+   desc:"foshale (green), laumale (blue), roumale (purple)",
+   icon:"💧",
+   vocabKey:"l112_vocab_color_cool",
+   xp:22,
+   unit:19,
+   intro:`<h3>💧 Three cool colors</h3><p>Same canvas as L111 — noun in <em>-ale</em>, adjective in <em>-ali</em>:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>foshale</em></td><td style="padding:4px 12px"><em>foshali</em> — green</td></tr><tr><td style="padding:4px 12px"><em>laumale</em></td><td style="padding:4px 12px"><em>laumali</em> — blue</td></tr><tr><td style="padding:4px 12px"><em>roumale</em></td><td style="padding:4px 12px"><em>roumali</em> — purple</td></tr></table><h3>📝 In use</h3><span class="example">Laime su laumali. <span class="gloss">The sky is blue.</span></span><span class="example">Foshali moulea su apa wauli. <span class="gloss">Green trees are the most beautiful.</span></span><span class="example">Ki lo loiwe su roumali? <span class="gloss">Is this book purple?</span></span>`},
+
+  {id:"l113_vocab_color_neutral",
+   title:"Neutral Colors",
+   desc:"lewale (white), noumale (black), felale (gray)",
+   icon:"⚫",
+   vocabKey:"l113_vocab_color_neutral",
+   xp:22,
+   unit:19,
+   intro:`<h3>⚫ Three neutral colors</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>lewale</em></td><td style="padding:4px 12px"><em>lewali</em> — white</td></tr><tr><td style="padding:4px 12px"><em>noumale</em></td><td style="padding:4px 12px"><em>noumali</em> — black</td></tr><tr><td style="padding:4px 12px"><em>felale</em></td><td style="padding:4px 12px"><em>felali</em> — gray</td></tr></table><h3>⚖️ White and black aren't a <em>mo-</em> pair</h3><p>You might expect <em>lewale</em> and <em>noumale</em> to be linked by the <em>mo-</em> prefix the way <em>nawu</em>/<em>monawu</em> (love/hate) or <em>houli</em>/<em>mohouli</em> (happy/sad) are. They aren't — and that's deliberate. The <em>mo-</em> prefix marks a balanced opposite on a value axis (the joyful kind of opposite). White and black are a culturally paired set rather than that kind of opposition, so each one is its own root.</p><h3>📝 In use</h3><span class="example">Felume su lewali. <span class="gloss">The cloud is white.</span></span><span class="example">Lo kupe su noumali. <span class="gloss">This coffee is black.</span></span><span class="example">Felume su felali ata laime. <span class="gloss">The cloud is grayer than the sky.</span></span>`},
+
+  {id:"l114_vocab_color_tertiary",
+   title:"Tertiary Colors",
+   desc:"niwale (pink), touhale (brown), huyale (orange)",
+   icon:"🟠",
+   vocabKey:"l114_vocab_color_tertiary",
+   xp:22,
+   unit:19,
+   intro:`<h3>🟠 Three more colors — off the rainbow</h3><p>Pink, brown, and orange round out the color set. Same canvas pattern.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>niwale</em></td><td style="padding:4px 12px"><em>niwali</em> — pink</td></tr><tr><td style="padding:4px 12px"><em>touhale</em></td><td style="padding:4px 12px"><em>touhali</em> — brown</td></tr><tr><td style="padding:4px 12px"><em>huyale</em></td><td style="padding:4px 12px"><em>huyali</em> — orange</td></tr></table><h3>📝 In use</h3><span class="example">Maya wamu niwali loshea. <span class="gloss">Maya likes pink flowers.</span></span><span class="example">Ne wa tiru huyali haule. <span class="gloss">I saw an orange sun.</span></span><span class="example">Lo kupe su touhali. <span class="gloss">This coffee is brown.</span></span>`},
+
+  {id:"l115_color_exam",
+   title:"Unit 20 Exam — Colors",
+   desc:"Three hearts. All twelve colors in context.",
+   icon:"🎨",
+   vocabKey:"l115_color_exam",
+   xp:30,
+   unit:19,
    isSentence:true,
    isCheckpoint:true},
 ];
