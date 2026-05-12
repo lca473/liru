@@ -2599,6 +2599,112 @@ const V = {
      en:"The house is far from the school."},
   ],
 
+  // ═══════════════════════════════════════════════════════════════
+  // ADVANCED TRACK — Unit 19 (A5): Existential Pronouns
+  // ═══════════════════════════════════════════════════════════════
+  // Closes out the pronoun system — the existential counterpart to
+  // the ki- WH-pronouns (kipue/kiwa/etc., taught at L36). All 8 forms
+  // are transparent compositional pronouns: quantifier prefix (sai/
+  // fai/nuli/tai) + hue (thing) or pue (person). See Grammar.md and
+  // DesignNotes.md "Family: Existential pronouns."
+  //
+  // Lesson roadmap:
+  //   L107 — Vocab: things series (saihue, faihue, nulihue, taihue).
+  //          4 roots, 4 forms. Intro card teaches the compositional
+  //          pattern and references the L66 forward-pointer.
+  //   L108 — Vocab: weave-in canvas roots (vehe/vehi/vehu show,
+  //          vihe/vihi/vihu share, wohime/wohimi/wohimu matter).
+  //          3 roots, 9 forms. Mixed-POS weave-in per the
+  //          capability-units-carry-A20-vocab convention. Two A20
+  //          verbs (vehe, vihe) and one A18 abstract (wohime).
+  //   L109 — Vocab: people series (saipue, faipue, nulipue, taipue).
+  //          4 roots, 4 forms. Intro card focuses on the sai-/fai-
+  //          discrimination (specific-but-unnamed vs. free-choice)
+  //          and the "mai faipue" emphatic-negation pattern.
+  //   L110 — Unit exam (isCheckpoint:true). 10 sentences mixing all
+  //          8 existential pronouns with L108 weave-in, A1
+  //          comparatives, A2 conditionals, and A3 lai relative-
+  //          clauses. Cloze on 4 sentences targeting sai-/fai-
+  //          discrimination and pronoun selection. 0 new roots.
+
+  // L107 — Vocab: existential things (4 standalone nouns, no canvas)
+  l107_vocab_existentials_things: [
+    {lw:"saihue", en:"something", pos:"n",
+     note:"From sai (some) + hue (thing) — specific-but-unnamed thing"},
+    {lw:"faihue", en:"anything (free-choice)", pos:"n",
+     note:"From fai (any) + hue (thing) — free-choice anything"},
+    {lw:"nulihue", en:"nothing", pos:"n",
+     note:"From nuli (zero) + hue (thing) — carries negation natively"},
+    {lw:"taihue", en:"everything", pos:"n",
+     note:"From tai (all) + hue (thing) — universal"},
+  ],
+
+  // L108 — Vocab: weave-in canvas roots (3 roots, 9 forms)
+  // Per the A2/A3/A4 capability-units-carry-A20-vocab convention,
+  // A5 weaves three full-canvas roots between the two halves of the
+  // existential set. Mixed POS sources: vehe and vihe are A20 verbs;
+  // wohime is A18 (Cultural & Abstract Roots). All pair naturally
+  // with existential pronouns in sentence frames — exam (L110) draws
+  // on them heavily.
+  l108_vocab_weave: [
+    {lw:"vehe", en:"showing", pos:"n",
+     canvas:{adj:"vehi", adj_en:"shown",
+             v:"vehu",   v_en:"to show (or display)"}},
+    {lw:"vihe", en:"sharing", pos:"n",
+     canvas:{adj:"vihi", adj_en:"shared (or communal)",
+             v:"vihu",   v_en:"to share"}},
+    {lw:"wohime", en:"importance", pos:"n",
+     canvas:{adj:"wohimi", adj_en:"important",
+             v:"wohimu",   v_en:"to matter"}},
+  ],
+
+  // L109 — Vocab: existential people (4 standalone nouns, no canvas)
+  l109_vocab_existentials_people: [
+    {lw:"saipue", en:"someone", pos:"n",
+     note:"From sai (some) + pue (person) — specific-but-unnamed person"},
+    {lw:"faipue", en:"anyone (free-choice)", pos:"n",
+     note:"From fai (any) + pue (person) — free-choice anyone"},
+    {lw:"nulipue", en:"no one", pos:"n",
+     note:"From nuli (zero) + pue (person) — carries negation natively"},
+    {lw:"taipue", en:"everyone", pos:"n",
+     note:"From tai (all) + pue (person) — universal"},
+  ],
+
+  // L110 — Unit exam (sentence-based, isCheckpoint:true)
+  // 10 sentences spanning all 8 existential pronouns plus L108 weave-
+  // in. Cloze on 4 sentences: two test pronoun discrimination among
+  // the -hue/-pue series; two test verb+pronoun choice together
+  // (one combines A2 conditional vi + existential, one combines mai+
+  // fai- negation pattern). 0 new roots; all forms in cumulative
+  // budget through L109.
+  l110_existentials_exam: [
+    {lw:["Saipue","wamu","ne"],
+     en:"Someone likes me."},
+    {lw:["Ne","mai","wa","tiru","faipue"],
+     en:"I didn't see anyone."},
+    {lw:["Taihue","su","wauli"],
+     en:"Everything is beautiful.",
+     cloze:{blanks:[0], bank:["taihue","saihue","faihue","nulihue","taipue","saipue"]}},
+    {lw:["Vi","te","wa","vehu","ne","saihue","ne","wu","su","houli"],
+     en:"If you showed me something, I will be happy.",
+     cloze:{blanks:[3,5], bank:["vehu","vihu","wohimu","saihue","faihue","nulihue"]}},
+    {lw:["Nulipue","koulu","ne"],
+     en:"No one visits me.",
+     cloze:{blanks:[0], bank:["nulipue","saipue","taipue","faipue","nulihue","taihue"]}},
+    {lw:["Yuna","mai","vihu","faihue","ko","nulipue"],
+     en:"Yuna doesn't share anything with anyone.",
+     cloze:{blanks:[3,5], bank:["faihue","saihue","nulipue","saipue","taipue","taihue"]}},
+    {lw:["Ki","te","wa","vehu","faihue","ya","senehiwe"],
+     en:"Did you show anything at school?"},
+    {lw:["Saipue","wohimi","wa","vanu","ma","nulipue","wa","liru"],
+     en:"An important person came, but no one spoke."},
+    {lw:["Vi","te","lenu","ne","ne","wu","vehu","te","taihue"],
+     en:"If you trust me, I will show you everything."},
+    {lw:["Vehu","ne","taihue","lai","te","ahu"],
+     en:"Show me everything that you have.",
+     cloze:{blanks:[2], bank:["taihue","saihue","faihue","nulihue","wohime","vehe"]}},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2638,6 +2744,7 @@ const UNITS = [
   {name:"Unit 16 — Conditional & Causal Conjunctions", start:82, track:"advanced"},
   {name:"Unit 17 — Relative & Complement Clauses", start:88, track:"advanced"},
   {name:"Unit 18 — Frequency & Spatial Adverbs", start:93, track:"advanced"},
+  {name:"Unit 19 — Existential Pronouns", start:100, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -3654,6 +3761,47 @@ const LESSONS = [
    vocabKey:"l106_frequency_spatial_exam",
    xp:32,
    unit:17,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── UNIT 19: EXISTENTIAL PRONOUNS (L107–L110) — ADVANCED TRACK ──────
+  // A5: closes out the pronoun system. Parallel to the ki- WH-pronouns
+  // from L36. 8 transparent compositional pronouns (quantifier + hue/pue)
+  // plus 3 weave-in canvas roots (vehe, vihe, wohime). 4 lessons total.
+  {id:"l107_vocab_existentials_things",
+   title:"Something, Anything, Nothing, Everything",
+   desc:"saihue, faihue, nulihue, taihue",
+   icon:"🔵",
+   vocabKey:"l107_vocab_existentials_things",
+   xp:22,
+   unit:18,
+   intro:`<h3>🔵 Existential pronouns — the <em>-hue</em> series</h3><p>You met <em>hue</em> "thing" back in Unit 10, alongside a brief mention of these four compound pronouns. Now you'll drill them. Each is built from a quantifier you already know plus <em>hue</em>:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> (some) + <em>hue</em></td><td style="padding:4px 12px">→ <em>saihue</em> — something</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> (any) + <em>hue</em></td><td style="padding:4px 12px">→ <em>faihue</em> — anything (free-choice)</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> (zero) + <em>hue</em></td><td style="padding:4px 12px">→ <em>nulihue</em> — nothing</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> (all) + <em>hue</em></td><td style="padding:4px 12px">→ <em>taihue</em> — everything</td></tr></table><h3>📝 In use</h3><span class="example">Ne wanu saihue. <span class="gloss">I want something.</span></span><span class="example">Ki te wanu faihue? <span class="gloss">Do you want anything?</span></span><span class="example">Ne mai wanu nulihue. <span class="gloss">I don't want anything.</span></span><span class="example">Ne wamu taihue. <span class="gloss">I like everything.</span></span><p>Notice that <em>nulihue</em> carries its own negation — you don't need <em>mai</em> with it. The parallel <em>-pue</em> series (someone, anyone, no one, everyone) lands two lessons from now; the next lesson takes a short detour through three useful verb roots that pair naturally with these pronouns.</p>`},
+
+  {id:"l108_vocab_weave",
+   title:"Show, Share, Matter",
+   desc:"vehe, vihe, wohime — three canvas roots",
+   icon:"🤝",
+   vocabKey:"l108_vocab_weave",
+   xp:26,
+   unit:18,
+   intro:`<h3>🤝 Three useful canvas roots</h3><p>Before meeting the <em>-pue</em> existentials, three full-canvas roots that pair naturally with both series. Each gives you a noun, an adjective, and a verb:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">noun</th><th style="padding:4px 8px;color:var(--dim)">adj.</th><th style="padding:4px 8px;color:var(--dim)">verb</th><th style="padding:4px 8px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 8px"><em>vehe</em></td><td style="padding:4px 8px"><em>vehi</em></td><td style="padding:4px 8px"><em>vehu</em></td><td style="padding:4px 8px">showing / shown / to show</td></tr><tr><td style="padding:4px 8px"><em>vihe</em></td><td style="padding:4px 8px"><em>vihi</em></td><td style="padding:4px 8px"><em>vihu</em></td><td style="padding:4px 8px">sharing / shared / to share</td></tr><tr><td style="padding:4px 8px"><em>wohime</em></td><td style="padding:4px 8px"><em>wohimi</em></td><td style="padding:4px 8px"><em>wohimu</em></td><td style="padding:4px 8px">importance / important / to matter</td></tr></table><h3>📝 In use</h3><span class="example">Vehu ne lo loiwe. <span class="gloss">Show me this book.</span></span><span class="example">Maya wa vehu ne saihue. <span class="gloss">Maya showed me something.</span></span><span class="example">Nea vihu loiwe. <span class="gloss">We share a book.</span></span><span class="example">Lo loiwe su wohimi. <span class="gloss">This book is important.</span></span><span class="example">Nulihue su wohimi. <span class="gloss">Nothing matters.</span></span><p>The verb forms take direct objects without prepositions: <em>vehu ne</em> "show me," <em>vihu loiwe</em> "share a book." <em>wohimu</em> "to matter" is most often used impersonally (<em>X wohimu</em> "X matters").</p>`},
+
+  {id:"l109_vocab_existentials_people",
+   title:"Someone, Anyone, No One, Everyone",
+   desc:"saipue, faipue, nulipue, taipue",
+   icon:"👥",
+   vocabKey:"l109_vocab_existentials_people",
+   xp:24,
+   unit:18,
+   intro:`<h3>👥 Existential pronouns — the <em>-pue</em> series</h3><p>Same pattern as the <em>-hue</em> series from L107, but with <em>pue</em> (person) instead of <em>hue</em> (thing):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> + <em>pue</em></td><td style="padding:4px 12px">→ <em>saipue</em> — someone</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> + <em>pue</em></td><td style="padding:4px 12px">→ <em>faipue</em> — anyone (free-choice)</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> + <em>pue</em></td><td style="padding:4px 12px">→ <em>nulipue</em> — no one</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> + <em>pue</em></td><td style="padding:4px 12px">→ <em>taipue</em> — everyone</td></tr></table><h3>⚖️ <em>sai-</em> vs. <em>fai-</em>: specific vs. free-choice</h3><p>This distinction matters and pairs the same way as in English's <em>something</em>/<em>anything</em> and <em>someone</em>/<em>anyone</em>:</p><ul><li><em>sai-</em> picks out a specific-but-unnamed referent. Use in plain assertions.</li><li><em>fai-</em> is free-choice. Use in questions, after <em>mai</em>, and in conditional/hypothetical clauses.</li></ul><span class="example">Ne wa tiru saipue. <span class="gloss">I saw someone. (specific, didn't name them)</span></span><span class="example">Ki te wa tiru faipue? <span class="gloss">Did you see anyone? (at all)</span></span><span class="example">Ne mai wa tiru faipue. <span class="gloss">I didn't see anyone. (emphatic)</span></span><h3>📝 More in use</h3><span class="example">Saipue wa vanu. <span class="gloss">Someone came.</span></span><span class="example">Nulipue wa nahu. <span class="gloss">No one cooked.</span></span><span class="example">Taipue wamu Yuna. <span class="gloss">Everyone likes Yuna.</span></span><span class="example">Vihu lo loiwe ko saipue wohimi. <span class="gloss">Share this book with an important person.</span></span><p>Like <em>nulihue</em>, <em>nulipue</em> carries negation natively — no <em>mai</em> needed.</p>`},
+
+  {id:"l110_existentials_exam",
+   title:"Unit 19 Exam — Existential Pronouns",
+   desc:"Three hearts. All eight existentials in context.",
+   icon:"✅",
+   vocabKey:"l110_existentials_exam",
+   xp:30,
+   unit:18,
    isSentence:true,
    isCheckpoint:true},
 ];
