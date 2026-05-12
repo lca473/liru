@@ -2059,6 +2059,106 @@ const V = {
     {lw:["Kai","su","moapa","muhi","fa","neoa","wamea"],         en:"Kai is the least anxious of our friends."},
   ],
 
+  // ── UNIT 16 (A2): CONDITIONAL & CAUSAL CONJUNCTIONS (L89–L94) ────────
+  // Second advanced-track unit. Teaches vi (if), nalae/nalai/nalau
+  // (reason/because/to cause), file (until), mavi (although), maivi (unless).
+  // Mix of 2 vocab lessons (A20 verbs that pair with the conjunctions) +
+  // 3 sentence-based teaching lessons + 1 unit exam.
+  // See advanced_track_plan.md §4 for unit scope.
+
+  // L89 — Vocab: shame (attempt/try), seuhe (decision/decide)
+  // Two A20 verb roots taught with full canvas. These pair naturally with
+  // vi "if" sentences in L90 — conditional clauses love "try" and "decide"
+  // verbs. All three forms (noun, adj., verb) appear as flashcards; verb
+  // forms shamu/seuhu are the highest-utility teaching targets.
+  l89_vocab_decision_attempt: [
+    {lw:"shame", en:"attempt", pos:"n",
+     canvas:{adj:"shami", adj_en:"attempted",
+             v:"shamu",   v_en:"to try (or attempt)"}},
+    {lw:"seuhe", en:"decision", pos:"n",
+     canvas:{adj:"seuhi", adj_en:"decided",
+             v:"seuhu",   v_en:"to decide (or choose)"}},
+  ],
+
+  // L90 — Conditional vi "if" (sentence-based; introduces vi)
+  // Teaches the basic conditional construction. The vi-clause can come
+  // first (Vi X, Y) or last (Y, vi X). Sentences cover both orders.
+  // Forms registered in preflight.js sentenceLessonNewForms as ['vi'].
+  l90_conditional_vi: [
+    {lw:["Vi","te","halu","ne","wu","halu"],                           en:"If you go, I will go."},
+    {lw:["Vi","shaliru","ne","mai","wu","halu"],                       en:"If it rains, I will not go."},
+    {lw:["Ne","wu","shamu","vi","te","seuhu"],                         en:"I will try, if you decide."},
+    {lw:["Vi","Yuna","su","houli","ne","wu","su","houli"],             en:"If Yuna is happy, I will be happy."},
+    {lw:["Vi","ne","riku","Maya","ne","wu","liru","ko","ve"],          en:"If I meet Maya, I will speak with her."},
+    {lw:["Vi","te","mai","senu","ne","wu","liru"],                     en:"If you don't know, I will speak."},
+    {lw:["Ne","wu","hoyu","houme","vi","ne","ahu","tone"],             en:"I will buy bread, if I have money."},
+  ],
+
+  // L91 — Vocab: toye (end/finish), loime (wait/wait)
+  // Two A20 verb roots taught with full canvas. These pair naturally with
+  // file "until" sentences in L93 — until-clauses very often involve
+  // finishing or waiting. Verb forms toyu/loimu are the teaching targets.
+  l91_vocab_finish_wait: [
+    {lw:"toye", en:"end", pos:"n",
+     canvas:{adj:"toyi", adj_en:"finished",
+             v:"toyu",   v_en:"to finish (or end)"}},
+    {lw:"loime", en:"wait", pos:"n",
+     canvas:{adj:"loimi", adj_en:"waiting",
+             v:"loimu",   v_en:"to wait"}},
+  ],
+
+  // L92 — Causal nalae/nalai/nalau (sentence-based; introduces all three)
+  // Teaches the full canvas of the nalae root: nalae (n. reason), nalai
+  // (adj./particle "because"), nalau (v. "to cause"). Distribution across
+  // 7 sentences: 3 nalai (main teaching target as conjunction), 2 nalae
+  // (noun), 2 nalau (verb). Both clause orders for nalai (Y nalai X / Nalai X, Y).
+  // Forms registered in preflight.js sentenceLessonNewForms as
+  // ['nalae','nalai','nalau'].
+  l92_causal_nalae: [
+    {lw:["Maya","su","houli","nalai","ve","ahu","tone"],               en:"Maya is happy because she has money."},
+    {lw:["Nalai","ne","wa","rau","ne","su","sheyi","lo lawe"],         en:"Because I slept, I am healthy today."},
+    {lw:["Ne","mai","wu","halu","nalai","shaliru"],                    en:"I will not go because it is raining."},
+    {lw:["Kiwa","su","teo","nalae"],                                   en:"What is your reason?"},
+    {lw:["Ne","mai","senu","lo","nalae"],                              en:"I don't know this reason."},
+    {lw:["Kiwa","wa","nalau","teo","kufe"],                            en:"What caused your pain?"},
+    {lw:["Lo","loiwe","wa","nalau","neo","seuhe"],                     en:"This book caused my decision."},
+  ],
+
+  // L93 — file / mavi / maivi (sentence-based; introduces all three)
+  // Bundles the three remaining subordinating conjunctions. Distribution
+  // across 7 sentences: 3 file, 2 mavi, 2 maivi. Intro card flags the
+  // mavi/maivi near-minimal pair explicitly (one letter, opposing meaning).
+  // Forms registered in preflight.js sentenceLessonNewForms as
+  // ['file','mavi','maivi'].
+  l93_until_although_unless: [
+    {lw:["Ne","wu","loimu","file","te","vanu"],                        en:"I will wait until you come."},
+    {lw:["Maya","wa","tahu","file","ve","su","toyi"],                  en:"Maya ate until she was finished."},
+    {lw:["Ne","fasu","file","lole"],                                   en:"I have been working until now."},
+    {lw:["Mavi","ne","su","muhi","ne","wu","halu"],                    en:"Although I am anxious, I will go."},
+    {lw:["Mavi","shaliru","Yuna","su","houli"],                        en:"Although it is raining, Yuna is happy."},
+    {lw:["Ne","mai","wu","halu","maivi","te","vanu"],                  en:"I will not go unless you come."},
+    {lw:["Ne","mai","wu","seuhu","maivi","te","liru","ko","ne"],       en:"I will not decide unless you speak with me."},
+  ],
+
+  // L94 — Unit 16 Exam (sentence-based, isCheckpoint:true; no new forms)
+  // Tests all 5 conjunction particles (vi, nalai, file, mavi, maivi) plus
+  // the nalae (n.) and nalau (v.) canvas forms. Fresh sentence content —
+  // not copies of L90/L92/L93 exercises — so the test is recombination,
+  // not muscle memory. Distribution: vi×2, nalai×2, nalae×1, nalau×1,
+  // file×2, mavi×1, maivi×1.
+  l94_conjunctions_exam: [
+    {lw:["Vi","te","wa","vanu","Maya","wu","su","houli"],              en:"If you came, Maya will be happy."},
+    {lw:["Vi","ne","ahu","tone","ne","wu","hoyu","lo","loiwe"],        en:"If I have money, I will buy this book."},
+    {lw:["Yuna","mai","wu","fasu","nalai","ve","su","mosheyi"],        en:"Yuna will not work because she is sick."},
+    {lw:["Nalai","Maya","su","yashi","ne","wamu","ve"],                en:"Because Maya is smart, I like her."},
+    {lw:["Kiwa","su","lo","nalae"],                                    en:"What is this reason?"},
+    {lw:["Lo","iroume","wa","nalau","mosheye"],                        en:"This snow caused sickness."},
+    {lw:["Ne","wu","loimu","file","ve","toyu"],                        en:"I will wait until she finishes."},
+    {lw:["Ne","wu","nahu","file","Yuna","vanu"],                       en:"I will cook until Yuna comes."},
+    {lw:["Mavi","ne","mai","ahu","tone","ne","su","houli"],            en:"Although I do not have money, I am happy."},
+    {lw:["Te","mai","wu","senu","maivi","te","shamu"],                 en:"You will not know unless you try."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2095,6 +2195,7 @@ const UNITS = [
   // L85 is at LESSONS index 78 because lesson IDs include
   // historical gaps (l6, l12, l18, etc. were never created).
   {name:"Unit 15 — Comparatives & Superlatives", start:78, track:"advanced"},
+  {name:"Unit 16 — Conditional & Causal Conjunctions", start:82, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -2921,6 +3022,71 @@ const LESSONS = [
    unit:14,
    isSentence:true,
    isCheckpoint:true},
+
+  // ── UNIT 16 (A2): CONDITIONAL & CAUSAL CONJUNCTIONS (L89–L94) ────────
+  // Second advanced-track unit. Teaches vi (if), nalae/nalai/nalau
+  // (reason/because/to cause), file (until), mavi (although), maivi (unless).
+  // Mix of 2 vocab lessons (A20 verbs paired with the conjunctions) + 3
+  // sentence-based teaching lessons + 1 unit exam.
+  // See advanced_track_plan.md §4 for unit scope.
+
+  {id:"l89_vocab_decision_attempt",
+   title:"Try and Decide",
+   desc:"shame (try) and seuhe (decide)",
+   icon:"🤔",
+   vocabKey:"l89_vocab_decision_attempt",
+   xp:20,
+   unit:15,
+   intro:`<h3>🤔 Two verbs for what we want and where we land</h3><p>Two everyday roots with full canvas — noun, adjective, verb. The verb forms are the workhorses, but each root carries an adjective form learners will see in the wild too:</p><ul><li><em>shame</em> (attempt) → <em>shami</em> (attempted) → <em>shamu</em> (to try)</li><li><em>seuhe</em> (decision) → <em>seuhi</em> (decided) → <em>seuhu</em> (to decide / to choose)</li></ul><p><em>shamu</em> and <em>seuhu</em> stack with modals just like any verb:</p><span class="example">Ne wanu shamu. <span class="gloss">I want to try.</span></span><span class="example">Te sahu seuhu. <span class="gloss">You can decide.</span></span><p>You'll meet these again next lesson — they're natural partners for <em>vi</em> "if."</p>`},
+
+  {id:"l90_conditional_vi",
+   title:"If — vi",
+   desc:"Conditional clauses with vi",
+   icon:"🔀",
+   vocabKey:"l90_conditional_vi",
+   xp:22,
+   unit:15,
+   isSentence:true,
+   intro:`<h3>🔀 If — <em>vi</em></h3><p>Liru joins two clauses with the particle <em>vi</em> to make a conditional: <strong>if X, then Y</strong>. The clause that <em>vi</em> introduces is the condition; the other clause is the result.</p><p>The <em>vi</em>-clause can come first:</p><span class="example">Vi te halu, ne wu halu. <span class="gloss">If you go, I will go.</span></span><p>Or last:</p><span class="example">Ne wu halu, vi te halu. <span class="gloss">I will go, if you go.</span></span><p>Both orders are common. English shows the split with a comma — Liru just lets the conjunction do the work.</p><p>Mixing tenses is natural — the condition and the result can sit in different time zones:</p><span class="example">Vi te wa vanu, Maya wu su houli. <span class="gloss">If you came, Maya will be happy.</span></span><p>And negation works as expected — put <em>mai</em> wherever it belongs:</p><span class="example">Vi shaliru, ne mai wu halu. <span class="gloss">If it rains, I will not go.</span></span>`},
+
+  {id:"l91_vocab_finish_wait",
+   title:"Finish and Wait",
+   desc:"toye (finish) and loime (wait)",
+   icon:"⏳",
+   vocabKey:"l91_vocab_finish_wait",
+   xp:20,
+   unit:15,
+   intro:`<h3>⏳ Two verbs for time and completion</h3><p>Two more full-canvas roots — these come up constantly in everyday speech, and both pair naturally with <em>file</em> "until" in the next sentence lesson:</p><ul><li><em>toye</em> (end) → <em>toyi</em> (finished) → <em>toyu</em> (to finish / to end)</li><li><em>loime</em> (wait) → <em>loimi</em> (waiting) → <em>loimu</em> (to wait)</li></ul><p><em>toyu</em> can be intransitive ("I finish") or transitive ("I finish the book"):</p><span class="example">Ne wa toyu. <span class="gloss">I finished.</span></span><span class="example">Ne wa toyu lo loiwe. <span class="gloss">I finished this book.</span></span><p><em>loimu</em> typically takes a complement clause — "wait until X" or "wait for X." Liru handles "wait until" with <em>file</em>, which you'll learn in L93.</p>`},
+
+  {id:"l92_causal_nalae",
+   title:"Because — nalai",
+   desc:"Causes, reasons, and to cause",
+   icon:"➡️",
+   vocabKey:"l92_causal_nalae",
+   xp:24,
+   unit:15,
+   isSentence:true,
+   intro:`<h3>➡️ Because — <em>nalai</em> (and family)</h3><p>The <em>nalae</em> root carries the whole cause-and-effect family in one canvas:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>nalae</em> (n.)</td><td style="padding:4px 12px">reason / cause / purpose</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nalai</em> (particle)</td><td style="padding:4px 12px">because / since</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nalau</em> (v.)</td><td style="padding:4px 12px">to cause</td></tr></table><p>The particle <em>nalai</em> is the main teaching target — it joins two clauses to give a reason. Like <em>vi</em>, the <em>nalai</em>-clause can come first or last:</p><span class="example">Maya su houli nalai ve ahu tone. <span class="gloss">Maya is happy because she has money.</span></span><span class="example">Nalai ne wa rau, ne su sheyi lo lawe. <span class="gloss">Because I slept, I am healthy today.</span></span><p>The noun <em>nalae</em> stands in for "the reason" as you'd expect:</p><span class="example">Kiwa su teo nalae? <span class="gloss">What is your reason?</span></span><p>And the verb <em>nalau</em> means "to cause" — takes an ordinary object:</p><span class="example">Kiwa wa nalau teo kufe? <span class="gloss">What caused your pain?</span></span><p style="color:var(--mid);font-size:13px;font-style:italic;margin-top:14px">You already know the phrase <em>nalai lo</em> "therefore" — that's literally "because of this," and it's how Liru starts a consequence clause across a sentence boundary.</p>`},
+
+  {id:"l93_until_although_unless",
+   title:"Until, Although, Unless",
+   desc:"file, mavi, and maivi",
+   icon:"🪢",
+   vocabKey:"l93_until_although_unless",
+   xp:24,
+   unit:15,
+   isSentence:true,
+   intro:`<h3>🪢 Three more conjunctions</h3><p>Three conjunctions, each joining two clauses. <em>file</em> first — it marks an endpoint:</p><span class="example">Ne wu loimu file te vanu. <span class="gloss">I will wait until you come.</span></span><span class="example">Maya wa tahu file ve su toyi. <span class="gloss">Maya ate until she was finished.</span></span><p>Then the two that look almost identical but mean opposite things:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>mavi</em></td><td style="padding:4px 12px">although / even though (from <em>ma</em> "but" + <em>vi</em> "if")</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>maivi</em></td><td style="padding:4px 12px">unless (from <em>mai</em> "not" + <em>vi</em> "if")</td></tr></table><p><strong>One letter, opposite worlds.</strong> Watch the <em>i</em>:</p><span class="example">Mavi shaliru, Yuna su houli. <span class="gloss">Although it is raining, Yuna is happy.</span></span><span class="example">Ne mai wu halu maivi te vanu. <span class="gloss">I will not go unless you come.</span></span><p>Notice the decomposition: <em>mavi</em> is "but-if" (a concession — "but even if this is true"), while <em>maivi</em> is "not-if" (a negative condition — "if this is not true"). Both come from familiar pieces.</p>`},
+
+  {id:"l94_conjunctions_exam",
+   title:"Unit 16 Exam — Conjunctions",
+   desc:"Three hearts. Five particles plus nalae and nalau.",
+   icon:"📝",
+   vocabKey:"l94_conjunctions_exam",
+   xp:32,
+   unit:15,
+   isSentence:true,
+   isCheckpoint:true},
 ];
 
 // Populate the landing-page lesson and word counts from live data.
@@ -3620,6 +3786,11 @@ const SRS_GLOSS_OVERRIDES = {
   "apa":   "the most (before adj.)",
   "moata": "less than (after adj.)",
   "moapa": "the least (before adj.)",
+  "vi":    "if (before clause)",
+  "nalai": "because (particle, before/after clause)",
+  "file":  "until (before clause)",
+  "mavi":  "although (before clause)",
+  "maivi": "unless (before/after clause)",
 };
 
 const SRS_INITIAL_EASE = 2.5;
