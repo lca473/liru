@@ -2159,6 +2159,226 @@ const V = {
     {lw:["Te","mai","wu","senu","maivi","te","shamu"],                 en:"You will not know unless you try."},
   ],
 
+  // ═══════════════════════════════════════════════════════════════
+  // ADVANCED TRACK — Unit 17 (A3): Relative & Complement Clauses
+  // ═══════════════════════════════════════════════════════════════
+  // Highest grammar-payoff unit of the advanced track. Introduces the
+  // particle *lai* — the case-that marker — which produces two distinct
+  // clause types depending on position:
+  //   • *lai* after a noun → relative clause (with a gap)
+  //   • *lai* after a verb → complement clause (full embedded sentence)
+  // See Grammar.md §11 for the canonical treatment.
+  //
+  // Engine note: this unit introduces a new exercise type — cloze (multi-
+  // blank). Sentences with a `cloze:{blanks:[...], bank:[...]}` field
+  // produce one cloze exercise each. The blanks array contains indices
+  // into the `lw` array; the bank contains the chips shown to the learner
+  // (must include each blanked token + distractors). All blanks correct
+  // to pass.
+  //
+  // Lesson roadmap:
+  //   L95 — Relative clauses (subject/object/oblique gaps). 8 sentences.
+  //         Introduces: lai (particle), kavu (break), hairu (run), launu
+  //         (put/place). 4 roots, 10 forms in sentences.
+  //   L96 — Complement clauses (cognitive/reportive/emotive verbs).
+  //         8 sentences. Introduces: waihu (hope), moyeru (fear), feihu
+  //         (promise), oihu (expect). 4 roots, 4 verb forms in sentences
+  //         (canvas mates surfaced in intro card only).
+  //   L97 — Advanced complement (absolute embedded tense, to-infinitive,
+  //         ambiguity). 8 sentences. Introduces: piruhu (plan), seuwu
+  //         (allow), lenu (trust). 3 roots, 3 forms.
+  //   L98 — Combined patterns synthesis. 8 sentences. 0 new roots.
+  //   L99 — Unit exam (isCheckpoint:true). 12 sentences. 0 new roots.
+  //
+  // A20 vocabulary woven in (per A2 capability-unit convention):
+  //   • L95: kavu, hairu, launu (concrete action verbs — good relative-
+  //          clause heads for pictures of objects and people)
+  //   • L96: waihu, moyeru, feihu, oihu (the four canonical complement-
+  //          taking verbs from Grammar.md §11 examples)
+  //   • L97: piruhu, seuwu, lenu (verbs that pair with same-subject
+  //          to-infinitive and trust-claim patterns)
+  // Total unit lexical load: 10 A20 verbs + 1 particle = 11 roots / 31
+  // new forms across the unit. Each lesson within the §2 cap (≤4 roots).
+  // Forms registered in preflight.js sentenceLessonNewForms.
+
+  // L95 — Relative clauses (sentence-based)
+  // Introduces *lai* + 3 A20 verbs (kavu, hairu, launu). Sentences cover
+  // all three gap types: subject-gap (1,2,3), object-gap (4,5,6), oblique-
+  // gap with stranded relational particle (7,8). 4 of 8 sentences carry
+  // cloze data. Forms registered in preflight.js sentenceLessonNewForms
+  // as ['lai','kave','kavi','kavu','haire','hairi','hairu','laune',
+  // 'launi','launu']. The canvas-mate forms (kave/kavi, haire/hairi,
+  // laune/launi) are taught in the intro card; sentences use only the
+  // verbs, but the registrations make all forms available for cloze
+  // bank distractors and SRS sourcing.
+  l95_relative_clauses: [
+    {lw:["Pue","lai","wa","liru","su","moyeri"],
+     en:"The person who sang is afraid.",
+     cloze:{blanks:[1,5], bank:["lai","ko","moyeri","yashi","sho","wa"]}},
+    {lw:["Piwe","lai","hairu","su","yashi"],
+     en:"The child who runs is smart."},
+    {lw:["Paipe","lai","hairu","su","piami"],
+     en:"The dog that runs is small."},
+    {lw:["Loiwe","lai","ne","wa","loisu","su","nohi"],
+     en:"The book that I read is new.",
+     cloze:{blanks:[1,4], bank:["lai","ne","loisu","nahu","su","nohi"]}},
+    {lw:["Voure","lai","ne","wa","kavu","wa","su","neo"],
+     en:"The phone that I broke was mine."},
+    {lw:["Tahe","lai","Maya","wa","launu","ya","pahe","su","yaumi"],
+     en:"The food that Maya put on the table is flavorful.",
+     cloze:{blanks:[4,5], bank:["launu","kavu","ya","wo","ko","pahe"]}},
+    {lw:["Hiwe","lai","ne","wa","rau","wo","su","nohi"],
+     en:"The house that I slept in is new.",
+     cloze:{blanks:[1,5], bank:["lai","wa","wo","so","fa","ya"]}},
+    {lw:["Pue","lai","ne","wa","liru","ko","wa","su","neo","wame"],
+     en:"The person I spoke with was my friend."},
+  ],
+
+  // L96 — Complement clauses (sentence-based)
+  // Introduces complement reading of *lai* (verb + lai + full embedded
+  // clause). Four new A20 complement-taking verbs: waihu (hope), moyeru
+  // (fear), feihu (promise), oihu (expect). Each verb appears in 1-2
+  // sentences. The canvas mates (waihe/waihi, moyere, feihe/feihi,
+  // oihe/oihi) are mentioned in the intro card for context but don't
+  // appear in sentences. moyeri is already taught (L26). Forms registered
+  // in preflight.js as ['waihu','moyeru','feihu','oihu','waihe','waihi',
+  // 'moyere','feihe','feihi','oihe','oihi'] — the canvas mates are
+  // registered so they're available as cloze bank distractors and for
+  // SRS sourcing even though no sentence uses them. 4 cloze sentences.
+  l96_complement_clauses: [
+    {lw:["Ne","waihu","lai","te","wu","vanu"],
+     en:"I hope that you will come.",
+     cloze:{blanks:[1,2], bank:["waihu","moyeru","lai","sho","ne","su"]}},
+    {lw:["Maya","waihu","lai","Yuna","su","houli"],
+     en:"Maya hopes that Yuna is happy."},
+    {lw:["Ne","moyeru","lai","te","wu","movanu"],
+     en:"I fear that you will leave.",
+     cloze:{blanks:[1,5], bank:["moyeru","waihu","movanu","vanu","halu","hairu"]}},
+    {lw:["Yuna","moyeru","lai","Maya","su","tauki"],
+     en:"Yuna fears that Maya is angry."},
+    {lw:["Ne","feihu","lai","ne","wu","vanu"],
+     en:"I promise that I will come.",
+     cloze:{blanks:[1,5], bank:["feihu","oihu","vanu","halu","movanu","lai"]}},
+    {lw:["Maya","wa","feihu","lai","ve","wu","sovu","ne"],
+     en:"Maya promised that she will help me."},
+    {lw:["Ne","oihu","lai","te","wu","liru"],
+     en:"I expect that you will speak.",
+     cloze:{blanks:[1,5], bank:["oihu","waihu","liru","vanu","lai","su"]}},
+    {lw:["Nea","waihu","lai","neo","wame","su","sheyi"],
+     en:"We hope that our friend is healthy."},
+  ],
+
+  // L97 — Complement clauses advanced (sentence-based)
+  // Three teaching moves bundled in one lesson: (a) absolute embedded
+  // tense — embedded clause tense tracks the speaker's now, not the
+  // matrix verb's time; (b) "to-infinitive" equivalent — same-subject
+  // complement patterns ("I plan to V", "I decide to V"); (c) ambiguity
+  // resolution — when matrix verb + object + lai could parse as either
+  // relative or complement, cognitive verbs default to complement.
+  // Introduces 3 A20 verbs: piruhu (plan), seuwu (allow), lenu (trust).
+  // Forms registered in preflight.js as ['piruhu','seuwu','lenu',
+  // 'piruhe','piruhi','seuwe','seuwi','lene','leni'] — canvas mates
+  // available as cloze distractors. 4 cloze sentences.
+  l97_complement_advanced: [
+    {lw:["Ne","piruhu","lai","ne","wu","tahu"],
+     en:"I plan to eat.",
+     cloze:{blanks:[1,5], bank:["piruhu","seuwu","tahu","vanu","lenu","halu"]}},
+    {lw:["Maya","wa","piruhu","lai","ve","wu","vanu"],
+     en:"Maya planned to come."},
+    {lw:["Ne","seuwu","lai","te","halu"],
+     en:"I allow you to go.",
+     cloze:{blanks:[1,4], bank:["seuwu","piruhu","halu","vanu","lenu","lai"]}},
+    {lw:["Maya","mai","seuwu","lai","veo","piwe","wu","hairu"],
+     en:"Maya doesn't allow her child to run."},
+    {lw:["Ne","lenu","lai","te","su","yashi"],
+     en:"I trust that you are smart."},
+    {lw:["Yuna","wa","liru","lai","ve","su","kufi"],
+     en:"Yuna said that she is in pain.",
+     cloze:{blanks:[3,5], bank:["lai","sho","su","wa","wu","kufi"]}},
+    {lw:["Yuna","wa","liru","lai","ve","wa","su","kufi"],
+     en:"Yuna said that she was in pain.",
+     cloze:{blanks:[5,7], bank:["wa","su","kufi","kufe","lai","mai"]}},
+    {lw:["Ne","wa","lenu","lai","te","wu","sovu","ne"],
+     en:"I trusted that you would help me."},
+  ],
+
+  // L98 — Combined patterns synthesis (sentence-based)
+  // Pure synthesis lesson — 0 new roots, 0 new forms. The cognitive load
+  // is structural combination. Patterns covered:
+  //   • Relative inside complement (sentences 1, 2, 6, 7)
+  //   • Complement inside relative (sentence 4)
+  //   • Object-gap relative with cognitive verb (sentence 3, contrasts
+  //     against complement-default rule from L97)
+  //   • Chained relatives with comma (sentence 5)
+  //   • Three lai clauses in one sentence (sentence 8)
+  // 4 cloze sentences. No new forms registered.
+  l98_lai_combined: [
+    {lw:["Ne","senu","lai","pue","lai","wa","liru","su","moyeri"],
+     en:"I know that the person who sang is afraid.",
+     cloze:{blanks:[2,4], bank:["lai","sho","ma","ko","su","wa"]}},
+    {lw:["Maya","waihu","lai","paipe","lai","hairu","su","sheyi"],
+     en:"Maya hopes that the dog that runs is healthy."},
+    {lw:["Pue","lai","ne","senu","su","yashi"],
+     en:"The person I know is smart."},
+    {lw:["Ne","wamu","pue","lai","senu","lai","ne","su","moyeri"],
+     en:"I like the person who knows that I am afraid.",
+     cloze:{blanks:[3,5], bank:["lai","sho","vi","wamu","ne","mai"]}},
+    {lw:["Loiwe","lai","ne","wa","loisu","sho","Maya","wa","launu","ya","pahe","su","nohi"],
+     en:"The book that I read and that Maya put on the table is new.",
+     cloze:{blanks:[1,5], bank:["lai","sho","ma","wa","ne","su"]}},
+    {lw:["Ne","moyeru","lai","pue","lai","te","wa","liru","ko","su","tauki"],
+     en:"I fear that the person you spoke with is angry."},
+    {lw:["Yuna","wa","liru","lai","tahe","lai","ne","wa","nahu","wa","su","yaumi"],
+     en:"Yuna said that the food I cooked was flavorful.",
+     cloze:{blanks:[3,11], bank:["lai","sho","yaumi","nohi","wauli","su"]}},
+    {lw:["Pue","lai","ne","senu","lai","wa","liru","lai","ve","wu","vanu","su","neo","wame"],
+     en:"The person I know, who said that she will come, is my friend."},
+  ],
+
+  // L99 — Unit 17 Exam (sentence-based, isCheckpoint:true; no new forms)
+  // 12 sentences (denser than core's standard 10 to match advanced unit
+  // pacing). Distribution:
+  //   • Subject-gap relative × 2 (sentences 1, 2)
+  //   • Object-gap relative × 2 (sentences 3, 4)
+  //   • Oblique-gap relative × 1 (sentence 5)
+  //   • Basic complement × 3 (sentences 6, 7, 8)
+  //   • Same-subject to-V complement × 1 (sentence 9)
+  //   • Absolute embedded past tense × 1 (sentence 10)
+  //   • Combined patterns × 2 (sentences 11, 12)
+  // Each new A20 verb from the unit appears at least once (hairu s1,
+  // kavu s3, launu s4, waihu s6, moyeru s7, feihu s8, piruhu s9, lenu
+  // s11, oihu s12). 4 cloze exercises.
+  l99_lai_exam: [
+    {lw:["Piwe","lai","hairu","su","houli"],
+     en:"The child who runs is happy."},
+    {lw:["Pue","lai","wa","vanu","su","neo","loye"],
+     en:"The person who came is my brother."},
+    {lw:["Loiwe","lai","ne","wa","kavu","wa","su","neo"],
+     en:"The book that I broke was mine."},
+    {lw:["Tahe","lai","Maya","wa","launu","ya","pahe","su","yaumi"],
+     en:"The food Maya put on the table is flavorful.",
+     cloze:{blanks:[4,5], bank:["launu","kavu","ya","wo","ko","pahe"]}},
+    {lw:["Hiwe","lai","ne","wa","rau","wo","su","nohi"],
+     en:"The house I slept in is new."},
+    {lw:["Ne","waihu","lai","te","wu","vanu"],
+     en:"I hope that you will come."},
+    {lw:["Ne","moyeru","lai","Maya","su","mosheyi"],
+     en:"I fear that Maya is sick.",
+     cloze:{blanks:[1,2], bank:["moyeru","waihu","lai","sho","su","mai"]}},
+    {lw:["Ne","feihu","lai","ne","wu","sovu","te"],
+     en:"I promise that I will help you."},
+    {lw:["Ne","piruhu","lai","ne","wu","tahu"],
+     en:"I plan to eat."},
+    {lw:["Maya","wa","liru","lai","ve","wa","su","kufi"],
+     en:"Maya said that she was in pain.",
+     cloze:{blanks:[1,5], bank:["wa","wu","su","lai","mai","ve"]}},
+    {lw:["Ne","lenu","lai","pue","lai","te","wa","riku","wamu","te"],
+     en:"I trust that the person you met likes you.",
+     cloze:{blanks:[2,4], bank:["lai","sho","wa","ne","ko","lo"]}},
+    {lw:["Yuna","oihu","lai","loiwe","lai","ne","loisu","su","teuhi"],
+     en:"Yuna expects that the book I am reading is easy."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2196,6 +2416,7 @@ const UNITS = [
   // historical gaps (l6, l12, l18, etc. were never created).
   {name:"Unit 15 — Comparatives & Superlatives", start:78, track:"advanced"},
   {name:"Unit 16 — Conditional & Causal Conjunctions", start:82, track:"advanced"},
+  {name:"Unit 17 — Relative & Complement Clauses", start:88, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -3087,6 +3308,64 @@ const LESSONS = [
    unit:15,
    isSentence:true,
    isCheckpoint:true},
+
+  // ═══════════════════════════════════════════════════════════════
+  // ADVANCED TRACK — Unit 17 (A3): Relative & Complement Clauses
+  // ═══════════════════════════════════════════════════════════════
+  // Five lessons (L95–L99). All sentence-based. Heavy intro cards do the
+  // grammar teaching; sentences provide practice; the new cloze exercise
+  // type tests structural placement of *lai* and content words together.
+  // See V map above for per-lesson scope.
+
+  {id:"l95_relative_clauses",
+   title:"Relative Clauses — lai",
+   desc:"Noun + lai + clause: subject, object, and oblique gaps",
+   icon:"🔗",
+   vocabKey:"l95_relative_clauses",
+   xp:26,
+   unit:16,
+   isSentence:true,
+   intro:`<h3>🔗 Relative clauses with <em>lai</em></h3><p>The particle <em>lai</em> attaches a clause to a noun. The clause describes the noun — answering "which one?":</p><span class="example">pue lai wa liru <span class="gloss">the person who sang</span></span><p>The English glosses use <strong>who</strong>, <strong>that</strong>, and <strong>which</strong>; Liru uses just <em>lai</em> for all three.</p><h3>🧩 The gap</h3><p>Inside the clause, the noun's role is left empty — that empty slot is the <strong>gap</strong>. The gap tells you what role the noun plays inside the clause:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><strong>subject gap</strong></td><td style="padding:4px 12px"><em>pue lai wa liru</em> — the person who sang</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>object gap</strong></td><td style="padding:4px 12px"><em>loiwe lai ne wa loisu</em> — the book that I read</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>oblique gap</strong></td><td style="padding:4px 12px"><em>hiwe lai ne wa rau wo</em> — the house I slept in</td></tr></table><p>For oblique gaps — when the noun plays a role marked by a relational particle like <em>wo</em> "in," <em>ko</em> "with," <em>so</em> "to," <em>ya</em> "at" — the particle <strong>stays at the end of the clause</strong>. English does the same thing colloquially: "the house I slept <strong>in</strong>."</p><h3>🆕 Three new verbs</h3><p>Three workhorse action verbs to drill with:</p><ul><li><em>kave</em> (fracture) → <em>kavi</em> (broken) → <em>kavu</em> (to break)</li><li><em>haire</em> (run) → <em>hairi</em> (running) → <em>hairu</em> (to run)</li><li><em>laune</em> (placement) → <em>launi</em> (placed) → <em>launu</em> (to put / to place)</li></ul><p>All three are concrete and picture-friendly — perfect for relative-clause practice. You'll see <em>launu</em> taking objects placed at locations: <em>ne wa launu loiwe ya pahe</em> "I put the book on the table."</p>`},
+
+  {id:"l96_complement_clauses",
+   title:"Complement Clauses — lai",
+   desc:"Verb + lai + full embedded clause",
+   icon:"💭",
+   vocabKey:"l96_complement_clauses",
+   xp:26,
+   unit:16,
+   isSentence:true,
+   intro:`<h3>💭 Complement clauses with <em>lai</em></h3><p>Same particle, different position. When <em>lai</em> sits <strong>after a verb</strong>, the clause that follows is a <strong>complement</strong> — a full embedded sentence with its own subject, verb, and tense. No gap:</p><span class="example">Ne senu lai ve wa liru. <span class="gloss">I know that she sang.</span></span><span class="example">Ve wa liru lai ne wa halu. <span class="gloss">She said that I left.</span></span><p>Compare with relative clauses from last lesson — there's no "missing piece" inside the embedded clause. <em>ve wa liru</em> is a complete sentence on its own; <em>lai</em> just glues it into the matrix sentence as the object of <em>senu</em>.</p><h3>📖 The verbs that take complements</h3><p>Four new A20 verbs, each takes a "that…" complement. Each has the full canvas:</p><ul><li><em>waihe</em> (hope) → <em>waihi</em> (hopeful) → <em>waihu</em> (to hope) — the second half of <em>LiruWaihe</em>, the language's full name</li><li><em>moyere</em> (fear) → <em>moyeri</em> (afraid — you know this one) → <em>moyeru</em> (to fear)</li><li><em>feihe</em> (promise) → <em>feihi</em> (promised) → <em>feihu</em> (to promise)</li><li><em>oihe</em> (expectation) → <em>oihi</em> (expected) → <em>oihu</em> (to expect)</li></ul><p>Already-taught complement verbs you already know how to use this way: <em>senu</em> (know), <em>liru</em> (say), <em>meru</em> (remember). They all work identically.</p><h3>⚖️ Soft default for ambiguity</h3><p>What if the matrix verb is followed by an object, and <em>then</em> <em>lai</em>? Both readings are possible:</p><ul><li>Relative: "I know <strong>the person who sang</strong>"</li><li>Complement: "I know <strong>that the person sang</strong>"</li></ul><p>The soft rule: <strong>cognitive, reportive, and emotive verbs</strong> (know, say, hope, fear) default to complement. <strong>Physical verbs</strong> default to relative. Context settles the rest. We'll come back to this next lesson.</p>`},
+
+  {id:"l97_complement_advanced",
+   title:"Embedded Tense and To-Infinitives",
+   desc:"Absolute embedded tense; same-subject to-V patterns",
+   icon:"⏱️",
+   vocabKey:"l97_complement_advanced",
+   xp:28,
+   unit:16,
+   isSentence:true,
+   intro:`<h3>⏱️ Embedded tense is absolute</h3><p>One of the trickiest English-to-Liru differences. When a complement clause has its own tense particle, that tense is <strong>anchored to the speaker's now</strong> — not to the matrix verb's time. Compare:</p><span class="example">Yuna wa liru lai ve su kufi. <span class="gloss">Yuna said that she is [now] in pain.</span></span><span class="example">Yuna wa liru lai ve wa su kufi. <span class="gloss">Yuna said that she was [earlier] in pain.</span></span><p>English usually "backshifts" — when the matrix is past, English makes the embedded past too ("she said that she <strong>was</strong> in pain") even when the pain is still happening now. Liru doesn't backshift. The embedded <em>wa</em> means past from <em>your</em> standpoint, not from Yuna's.</p><p>This matters for the future too:</p><span class="example">Ne wa lenu lai te wu sovu ne. <span class="gloss">I trusted that you would help me.</span></span><p>Literally: "I trusted that you <em>will</em> help me." The <em>wu</em> embedded says the helping is future from your now. English calls it "would" because English backshifts; Liru just says <em>wu</em>.</p><h3>🎯 The "to-V" equivalent</h3><p>English uses "to + verb" for same-subject complements: "I plan to eat," "I decide to go," "she remembers to write." Liru handles all of these with the complement <em>lai</em> pattern and the future particle <em>wu</em>:</p><span class="example">Ne piruhu lai ne wu tahu. <span class="gloss">I plan to eat.</span></span><span class="example">Ve seuhu lai ve wu halu. <span class="gloss">She decides to go.</span></span><p>The subject of the embedded clause repeats — there's no "raising." This stays explicit and grammatical.</p><h3>🆕 Three new verbs</h3><ul><li><em>piruhe</em> (plan) → <em>piruhi</em> (planned) → <em>piruhu</em> (to plan)</li><li><em>seuwe</em> (allowance) → <em>seuwi</em> (allowed) → <em>seuwu</em> (to allow / permit)</li><li><em>lene</em> (trust) → <em>leni</em> (trustworthy) → <em>lenu</em> (to trust)</li></ul><p><em>seuwu</em> takes a <strong>different-subject</strong> complement most naturally: "I allow <em>you</em> to go" — <em>Ne seuwu lai te halu</em>. <em>lenu</em> is a classic complement verb: "I trust <em>that</em>…".</p>`},
+
+  {id:"l98_lai_combined",
+   title:"Combined Patterns",
+   desc:"Relative inside complement, complement inside relative, chained clauses",
+   icon:"🧬",
+   vocabKey:"l98_lai_combined",
+   xp:30,
+   unit:16,
+   isSentence:true,
+   intro:`<h3>🧬 Putting it all together</h3><p>You now know everything <em>lai</em> can do. This lesson is about putting the pieces together — clauses inside clauses. No new vocabulary; the cognitive load is structural.</p><h3>🪆 Relative inside complement</h3><p>The matrix clause has a complement <em>lai</em>; the embedded clause contains a noun with its own relative <em>lai</em>:</p><span class="example">Ne senu lai pue lai wa liru su moyeri. <span class="gloss">I know that the person who sang is afraid.</span></span><p>Parse it outside-in: <em>Ne senu lai [X]</em> — "I know that [X]." The [X] is itself a sentence: <em>pue lai wa liru su moyeri</em> — "the person who sang is afraid." Two <em>lai</em>'s, two roles.</p><h3>🔁 Complement inside relative</h3><p>The reverse — a relative clause whose embedded clause contains a complement:</p><span class="example">Ne wamu pue lai senu lai ne su moyeri. <span class="gloss">I like the person who knows that I am afraid.</span></span><p>Outside-in: <em>Ne wamu pue lai [Y]</em> — "I like the person who [Y]s." The [Y] is <em>senu lai ne su moyeri</em> — "knows that I am afraid."</p><h3>🪢 Chained relatives</h3><p>Two relative clauses describing the same noun. The first runs straight after the noun; the second usually attaches with a coordinator like <em>sho</em> "and":</p><span class="example">Loiwe lai ne wa loisu sho Maya wa launu ya pahe su nohi. <span class="gloss">The book that I read and that Maya put on the table is new.</span></span><p>Both <em>lai</em> clauses modify <em>loiwe</em>. The <em>sho</em> separates them. The final <em>su nohi</em> is the matrix predicate — "is new."</p><h3>💡 Reading strategy</h3><p>When you hit a long <em>lai</em>-heavy sentence:</p><ol><li>Find the <strong>outermost</strong> matrix verb (usually the leftmost one with no <em>lai</em> directly before it).</li><li>For each <em>lai</em>, decide if the word before it is a noun (→ relative) or verb (→ complement).</li><li>Build inward.</li></ol><p>You'll work through 8 such sentences. The complexity is real; take them one at a time.</p>`},
+
+  {id:"l99_lai_exam",
+   title:"Unit 17 Exam — Relative & Complement Clauses",
+   desc:"Three hearts. All gap types, all complement patterns.",
+   icon:"📝",
+   vocabKey:"l99_lai_exam",
+   xp:36,
+   unit:16,
+   isSentence:true,
+   isCheckpoint:true},
 ];
 
 // Populate the landing-page lesson and word counts from live data.
@@ -3424,6 +3703,7 @@ function generateSentenceExercises(lesson){
 
   const wordOrderPool=[];
   const fillPool=[];
+  const clozePool=[];
   items.forEach(sent=>{
     const lwStr=Array.isArray(sent.lw)?sent.lw.join(" "):sent.lw;
     const lwArr=Array.isArray(sent.lw)?sent.lw:lwStr.split(" ");
@@ -3431,16 +3711,29 @@ function generateSentenceExercises(lesson){
     const padded=padShuffled(baseShuffled,lwArr);
     wordOrderPool.push({type:"wordOrder",prompt:`Translate: "${sent.en}"`,correctOrder:lwArr,correctOrderAlts:sent.alts||null,shuffled:padded});
     fillPool.push({type:"fill",prompt:`Translate to Liru:\n"${sent.en}"`,correct:lwStr.toLowerCase()});
+    // Sentences with a `cloze` field generate a cloze exercise (multi-blank
+    // fill from a word bank). Introduced in A3 (Unit 17) — see renderCloze.
+    if(sent.cloze && Array.isArray(sent.cloze.blanks) && Array.isArray(sent.cloze.bank)){
+      clozePool.push({type:"cloze", liru:lwArr, blanks:sent.cloze.blanks, bank:sent.cloze.bank, en:sent.en});
+    }
   });
-  // Scaffold progression: word-order exercises first (learner sees the words,
-  // just picks the order), then fill-translation (learner must recall and type
-  // the words themselves). Total still capped at 14; split roughly half/half.
+  // Scaffold progression: word-order first (recognition), then fill
+  // (production from scratch), then cloze (production with bank +
+  // distractors — pinpointed placement test). For sentence lessons
+  // without any cloze entries (all core sentence lessons and any
+  // advanced sentence lesson that chooses not to use cloze), behavior
+  // is identical to the pre-cloze generator. For lessons with cloze
+  // entries (A3 onward), the lesson gets word-order + fill + cloze.
+  // Total caps: 7 word-order + 7 fill + all available cloze (capped at
+  // a reasonable upper bound to avoid runaway length).
   const TOTAL_CAP=14;
   const woCap=Math.ceil(TOTAL_CAP/2);
   const fillCap=Math.floor(TOTAL_CAP/2);
+  const clozeCap=Math.min(clozePool.length, 4);
   const wordOrderChosen=shuffle(wordOrderPool).slice(0,woCap);
   const fillChosen=shuffle(fillPool).slice(0,fillCap);
-  const ordered=[...wordOrderChosen, ...fillChosen];
+  const clozeChosen=shuffle(clozePool).slice(0,clozeCap);
+  const ordered=[...wordOrderChosen, ...fillChosen, ...clozeChosen];
   // If the lesson declares an intro, prepend it (not shuffled, never capped).
   if(lesson.intro){
     return [{type:"lessonIntro",html:lesson.intro}].concat(ordered);
@@ -3791,6 +4084,8 @@ const SRS_GLOSS_OVERRIDES = {
   "file":  "until (before clause)",
   "mavi":  "although (before clause)",
   "maivi": "unless (before/after clause)",
+  // A3 (Unit 17): the case-that marker — placement determines reading.
+  "lai":   "that / who / which (after noun=relative, after verb=complement)",
 };
 
 const SRS_INITIAL_EASE = 2.5;
@@ -5174,6 +5469,11 @@ let state={
   revfillSelected:null,revfillAnswered:false,
   errcorrectSelected:null,errcorrectAnswered:false,
   freetextInput:"",freetextSubmitted:false,
+  // Cloze (multi-blank fill from a word bank). clozeFilled[i] holds the
+  // bank-chip key currently in blank i (or null). clozeBank holds the
+  // remaining (un-placed) chips as {key,id} so duplicate chip values
+  // remain individually trackable.
+  clozeFilled:[],clozeBank:[],clozeAnswered:false,clozeCorrect:false,
   waitingContinue:false,
   unitToggleOverrides:{},
   // SRS review state
@@ -6097,6 +6397,9 @@ function startLesson(idx){
     revfillSelected:null,revfillAnswered:false,
     errcorrectSelected:null,errcorrectAnswered:false,
     freetextInput:"",freetextSubmitted:false,
+    clozeFilled:ex.type==="cloze"?ex.blanks.map(()=>null):[],
+    clozeBank:ex.type==="cloze"?shuffle(ex.bank.map((w,i)=>({key:w,id:i}))):[],
+    clozeAnswered:false,clozeCorrect:false,
     waitingContinue:false,
   });
 }
@@ -6124,6 +6427,7 @@ function renderLesson(){
   else if(ex.type==="match")exHTML=renderMatch(ex);
   else if(ex.type==="fill")exHTML=renderFill(ex);
   else if(ex.type==="wordOrder")exHTML=renderWordOrder(ex);
+  else if(ex.type==="cloze")exHTML=renderCloze(ex);
   else if(ex.type==="tf")exHTML=renderTF(ex);
   else if(ex.type==="revfill")exHTML=renderRevFill(ex);
   else if(ex.type==="errcorrect")exHTML=renderErrCorrect(ex);
@@ -6154,6 +6458,7 @@ function renderLesson(){
   else if(ex.type==="match")bindMatch(ex);
   else if(ex.type==="fill")bindFill(ex);
   else if(ex.type==="wordOrder")bindWordOrder(ex);
+  else if(ex.type==="cloze")bindCloze(ex);
   else if(ex.type==="tf")bindTF(ex);
   else if(ex.type==="revfill")bindRevFill(ex);
   else if(ex.type==="errcorrect")bindErrCorrect(ex);
@@ -6368,6 +6673,92 @@ function bindWordOrder(ex){
     const isCorrect=exactMatch;
     handleAnswer(isCorrect);
     setState({woAnswered:true, woCorrect:isCorrect, woOrderHint:rightWordsWrongOrder});
+  });
+}
+
+// ─── Cloze (multi-blank fill from a word bank) ────────────────
+// Ships with A3 (Unit 17). Exercise data shape:
+//   {type:"cloze", liru:[...tokens...], blanks:[idx,idx,...],
+//    bank:[chip,chip,...], en:"English translation"}
+// blanks lists indices into liru[] that should be hidden as blanks.
+// bank lists chips shown below the sentence — must contain every blanked
+// token plus 2+ distractors. Learner taps a chip, then taps a blank to
+// place it (tap-tap, mobile-friendly). All blanks must be filled to
+// enable CHECK; all blanks correct to pass (single-strike pass/fail
+// matching renderFill). state.clozeFilled[i] holds the chip object
+// {key,id} placed in blank i (or null). state.clozeBank holds the chips
+// not yet placed.
+function renderCloze(ex){
+  const filled=state.clozeFilled;
+  const bank=state.clozeBank;
+  const allFilled=filled.every(c=>c!==null);
+  let userCorrect=false;
+  if(state.clozeAnswered){
+    userCorrect=filled.every((c,i)=>c && c.key.toLowerCase()===ex.liru[ex.blanks[i]].toLowerCase());
+  }
+  // Build the sentence: tokens with blanks replaced by interactive boxes.
+  const tokensHTML=ex.liru.map((tok,i)=>{
+    const blankIdx=ex.blanks.indexOf(i);
+    if(blankIdx<0){
+      return `<span style="display:inline-block;margin:2px 4px;padding:6px 2px;font-weight:700">${escapeHTML(tok)}</span>`;
+    }
+    const placed=filled[blankIdx];
+    const isThisCorrect=state.clozeAnswered && placed && placed.key.toLowerCase()===ex.liru[i].toLowerCase();
+    const isThisWrong=state.clozeAnswered && placed && placed.key.toLowerCase()!==ex.liru[i].toLowerCase();
+    let boxStyle="display:inline-block;margin:2px 4px;min-width:64px;padding:6px 12px;border:2px dashed var(--blue);border-radius:10px;font-weight:700;text-align:center;cursor:pointer";
+    if(placed){boxStyle="display:inline-block;margin:2px 4px;min-width:64px;padding:6px 12px;border:2px solid var(--blue);border-radius:10px;font-weight:700;text-align:center;cursor:pointer;background:var(--bg2)";}
+    if(isThisCorrect){boxStyle+=";border-color:#4A7A9E;background:rgba(74,122,158,0.15)";}
+    if(isThisWrong){boxStyle+=";border-color:var(--red);background:rgba(255,75,75,0.10);color:var(--red)";}
+    const content=placed?escapeHTML(placed.key):"&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
+    return `<span class="cloze-blank" data-blank="${blankIdx}" style="${boxStyle}">${content}</span>`;
+  }).join("");
+  // Bank chips: only those not currently placed in a blank.
+  const placedIds=new Set(filled.filter(c=>c!==null).map(c=>c.id));
+  const bankHTML=bank.filter(c=>!placedIds.has(c.id)).map(c=>{
+    return `<button class="word-chip" data-bank="${c.id}" ${state.clozeAnswered?'disabled':''}>${escapeHTML(c.key)}</button>`;
+  }).join("");
+  // Correct-answer banner (shows the full correct sentence for clarity).
+  const correctSentence=ex.liru.join(" ");
+  const resultHTML=state.clozeAnswered?renderResultBanner(userCorrect,correctSentence):"";
+  const checkHTML=!state.clozeAnswered?`<div class="check-bar"><button id="checkBtn" class="btn-primary" ${allFilled?'':'disabled'}>CHECK</button></div>`:"";
+  return `<div style="font-family:var(--display);font-size:18px;font-weight:800;margin-bottom:10px;line-height:1.4">Fill in the blanks:</div>
+    <div style="color:var(--dim);font-size:14px;font-weight:600;margin-bottom:18px;font-style:italic">"${escapeHTML(ex.en)}"</div>
+    <div style="padding:14px 8px;background:var(--input);border:2px dashed var(--border);border-radius:var(--radius);margin-bottom:18px;line-height:2.2;font-size:17px">${tokensHTML}</div>
+    <div style="display:flex;flex-wrap:wrap;gap:8px;justify-content:center">${bankHTML||'<span style="color:var(--dim);font-size:13px">All chips placed</span>'}</div>
+    ${resultHTML}${checkHTML}`;
+}
+function bindCloze(ex){
+  // Tap a bank chip: place it in the first empty blank (or the active blank
+  // if one is "selected"). Simpler tap-tap: tap chip → place in first empty
+  // blank; tap filled blank → return its chip to the bank.
+  document.querySelectorAll("[data-bank]").forEach(b=>b.addEventListener("click",()=>{
+    if(state.clozeAnswered)return;
+    const chipId=parseInt(b.dataset.bank);
+    const chip=state.clozeBank.find(c=>c.id===chipId);
+    if(!chip)return;
+    // Find first empty blank.
+    const firstEmpty=state.clozeFilled.findIndex(c=>c===null);
+    if(firstEmpty<0)return;  // all blanks already filled
+    const next=[...state.clozeFilled];
+    next[firstEmpty]=chip;
+    setState({clozeFilled:next});
+  }));
+  // Tap a filled blank: return that chip to the bank (empty the slot).
+  document.querySelectorAll(".cloze-blank").forEach(b=>b.addEventListener("click",()=>{
+    if(state.clozeAnswered)return;
+    const blankIdx=parseInt(b.dataset.blank);
+    if(state.clozeFilled[blankIdx]===null)return;
+    const next=[...state.clozeFilled];
+    next[blankIdx]=null;
+    setState({clozeFilled:next});
+  }));
+  const chk=document.getElementById("checkBtn");
+  if(chk)chk.addEventListener("click",()=>{
+    const allFilled=state.clozeFilled.every(c=>c!==null);
+    if(!allFilled)return;
+    const isCorrect=state.clozeFilled.every((c,i)=>c.key.toLowerCase()===ex.liru[ex.blanks[i]].toLowerCase());
+    handleAnswer(isCorrect);
+    setState({clozeAnswered:true,clozeCorrect:isCorrect});
   });
 }
 
@@ -6647,6 +7038,9 @@ function advanceAfterAnswer(){
     revfillSelected:null,revfillAnswered:false,
     errcorrectSelected:null,errcorrectAnswered:false,
     freetextInput:"",freetextSubmitted:false,
+    clozeFilled:nextEx.type==="cloze"?nextEx.blanks.map(()=>null):[],
+    clozeBank:nextEx.type==="cloze"?shuffle(nextEx.bank.map((w,i)=>({key:w,id:i}))):[],
+    clozeAnswered:false,clozeCorrect:false,
     waitingContinue:false,
   });
 }
