@@ -6081,10 +6081,14 @@ function renderHome(){
   function renderUnit(unitDef,unitIdx,sectionUnits){
     const start=unitDef.start;
     const sectionIdx=sectionUnits.indexOf(unitDef);
-    // End of this unit = start of the next unit in the same section, or end
-    // of LESSONS. Within a section, units always sit contiguously in the
-    // LESSONS array, so this slicing is safe.
-    const end=(sectionIdx+1<sectionUnits.length)?sectionUnits[sectionIdx+1].start:LESSONS.length;
+    // End of this unit = start of the NEXT unit in the absolute UNITS array
+    // (regardless of section), falling back to LESSONS.length only if this is
+    // the last unit overall. Using the absolute UNITS list matters because the
+    // last unit in a filtered section (e.g. core's Unit 14) is NOT the last in
+    // LESSONS once advanced units exist — sectionUnits[sectionIdx+1] would
+    // miss the boundary and the section's tail unit would swallow every
+    // advanced lesson after it.
+    const end=(unitIdx+1<UNITS.length)?UNITS[unitIdx+1].start:LESSONS.length;
     const unitLessons=LESSONS.slice(start,end);
     const doneCount=unitLessons.filter(l=>completedSet.has(l.id)).length;
     const unitComplete=doneCount===unitLessons.length && unitLessons.length>0;
