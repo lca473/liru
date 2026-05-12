@@ -2008,6 +2008,57 @@ const V = {
     {lw:["Yoye","su","sheyi","ala","loye"],                      en:"Sister is as healthy as brother."},
   ],
 
+  // L86 — Superlative apa (sentence-based; introduces apa)
+  // Teaches *apa* (the most, BEFORE adjective — contrast with L85's *ata*/*ala*
+  // which come AFTER). Also introduces the *apa…fa* "most of [set]" construction
+  // using already-taught preposition *fa* (L41) in a new grammatical role.
+  // 4 sentences with bare apa, 3 with apa…fa, so both patterns get drilled.
+  // Forms registered in preflight.js sentenceLessonNewForms as ['apa'].
+  l86_superlative_apa: [
+    {lw:["Neo","mawe","su","apa","wauli"],                       en:"My mother is the most beautiful."},
+    {lw:["Yuna","su","apa","houli","fa","neo","wahe"],           en:"Yuna is the happiest of my family."},
+    {lw:["Lo","loiwe","su","apa","wauli"],                       en:"This book is the most beautiful."},
+    {lw:["Kai","su","apa","yashi","fa","neoa","wamea"],          en:"Kai is the smartest of our friends."},
+    {lw:["Lo","nauye","su","apa","nauyi"],                       en:"This game is the most fun."},
+    {lw:["Maya","su","apa","houli","fa","neoa","piwea"],         en:"Maya is the happiest of our children."},
+    {lw:["Falo","paipe","su","apa","mopiami"],                   en:"That dog is the biggest."},
+  ],
+
+  // L87 — mo- Comparison (sentence-based; introduces moata, moapa)
+  // Teaches the mo- counterparts of ata and apa: *moata* (less than) and
+  // *moapa* (least). Reuses the already-internalized mo- pattern from core
+  // (Unit 4 onward). Intro card notes the asymmetry: *ala* has no mo- form
+  // (asymmetric equality is not a thing — see Grammar.md §13).
+  // 4 moata sentences (post-adj), 3 moapa sentences (pre-adj).
+  // Forms registered in preflight.js sentenceLessonNewForms as ['moata','moapa'].
+  l87_mo_comparison: [
+    {lw:["Lo","loiwe","su","moata","wauli","ata","falo","loiwe"], en:"This book is less beautiful than that book."},
+    {lw:["Mewe","su","moata","yashi","ata","paipe"],              en:"The cat is less smart than the dog."},
+    {lw:["Yuna","su","moata","houli","ata","Kai"],                en:"Yuna is less happy than Kai."},
+    {lw:["Neo","mewe","su","moata","nauyi","ata","teo","paipe"],  en:"My cat is less fun than your dog."},
+    {lw:["Falo","loiwe","su","moapa","wauli"],                    en:"That book is the least beautiful."},
+    {lw:["Lo","nauye","su","moapa","nauyi"],                      en:"This game is the least fun."},
+    {lw:["Maya","su","moapa","muhi","fa","neoa","wahe"],          en:"Maya is the least anxious of our family."},
+  ],
+
+  // L88 — Unit Exam (sentence-based, isCheckpoint:true; no new forms)
+  // Tests all 5 comparison particles (ata, ala, apa, moata, moapa) plus the
+  // *fa* "of [set]" extension. Fresh sentence content — not copies of L85–L87
+  // exercises — so the test is recombination, not muscle memory. Symmetric
+  // distribution: ata×2, ala×2, apa×2 (one with fa), moata×2, moapa×2 (one with fa).
+  l88_comparison_exam: [
+    {lw:["Mawe","su","wauli","ata","pawe"],                      en:"Mother is more beautiful than father."},
+    {lw:["Teo","paipe","su","mopiami","ata","neo","mewe"],       en:"Your dog is bigger than my cat."},
+    {lw:["Kai","su","houli","ala","Yuna"],                       en:"Kai is as happy as Yuna."},
+    {lw:["Lo","loiwe","su","nauyi","ala","falo","loiwe"],        en:"This book is as fun as that book."},
+    {lw:["Neo","wame","su","apa","houli"],                       en:"My friend is the happiest."},
+    {lw:["Maya","su","apa","yashi","fa","neoa","wahe"],          en:"Maya is the smartest of our family."},
+    {lw:["Lo","mewe","su","moata","yashi","ata","falo","paipe"], en:"This cat is less smart than that dog."},
+    {lw:["Yoye","su","moata","muhi","ata","loye"],               en:"Sister is less anxious than brother."},
+    {lw:["Falo","loiwe","su","moapa","nauyi"],                   en:"That book is the least fun."},
+    {lw:["Kai","su","moapa","muhi","fa","neoa","wamea"],         en:"Kai is the least anxious of our friends."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2840,6 +2891,36 @@ const LESSONS = [
    unit:14,
    isSentence:true,
    intro:`<h3>⚖️ Comparing two things</h3><p>Liru compares things by placing a small particle next to an adjective.</p><p>To say <em>more than</em>, put <em>ata</em> <em>after</em> the adjective:</p><span class="example">Mawe su <strong>wauli ata</strong> pawe. <span class="gloss">Mother is more beautiful than father.</span></span><p>To say <em>as ___ as</em> (equal), put <em>ala</em> in the same spot:</p><span class="example">Yoye su <strong>houli ala</strong> loye. <span class="gloss">Sister is as happy as brother.</span></span><p>The pattern is always: <strong>[subject] su [adjective] ata/ala [comparison]</strong>. The particle hugs the adjective from behind — never before it.</p>`},
+
+  {id:"l86_superlative_apa",
+   title:"The Most",
+   desc:"Superlatives with apa and apa fa",
+   icon:"🏆",
+   vocabKey:"l86_superlative_apa",
+   xp:22,
+   unit:14,
+   isSentence:true,
+   intro:`<h3>🏆 The most ___</h3><p><em>apa</em> means "the most." Unlike <em>ata</em> and <em>ala</em>, <em>apa</em> goes <em>before</em> the adjective:</p><span class="example">Neo mawe su <strong>apa wauli</strong>. <span class="gloss">My mother is the most beautiful.</span></span><p>Watch the placement carefully — it's the reverse of last lesson:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>ata, ala</em></td><td style="padding:4px 12px">go <strong>after</strong> the adjective</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>apa</em></td><td style="padding:4px 12px">goes <strong>before</strong> the adjective</td></tr></table><p>To say <em>the most ___ of [group]</em>, add <em>fa</em> (of) plus the group:</p><span class="example">Yuna su <strong>apa houli fa</strong> neo wahe. <span class="gloss">Yuna is the happiest of my family.</span></span><p>You already know <em>fa</em> from Unit 7 (where it meant "from"). Here it does double duty as "of [a set]."</p>`},
+
+  {id:"l87_mo_comparison",
+   title:"Less than, Least",
+   desc:"The mo- counterparts: moata and moapa",
+   icon:"🔻",
+   vocabKey:"l87_mo_comparison",
+   xp:22,
+   unit:14,
+   isSentence:true,
+   intro:`<h3>🔻 Less than, the least</h3><p>You already know the <em>mo-</em> prefix from across the course — it creates the balancing counterpart of a word (<em>houli</em> → <em>mohouli</em>, <em>nawu</em> → <em>monawu</em>). The same pattern works on the comparison particles:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>ata</em> (more than)</td><td style="padding:4px 12px">→</td><td style="padding:4px 12px"><strong>moata</strong> (less than)</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>apa</em> (the most)</td><td style="padding:4px 12px">→</td><td style="padding:4px 12px"><strong>moapa</strong> (the least)</td></tr></table><p>Placement is identical to their positive counterparts: <em>moata</em> goes after the adjective, <em>moapa</em> goes before.</p><span class="example">Mewe su <strong>moata yashi ata</strong> paipe. <span class="gloss">The cat is less smart than the dog.</span></span><span class="example">Lo nauye su <strong>moapa nauyi</strong>. <span class="gloss">This game is the least fun.</span></span><p style="color:var(--mid);font-size:13px;font-style:italic;margin-top:14px">Note: there's no <em>moala</em>. Equality doesn't have a "less equal" counterpart — if two things aren't equal, you'd use <em>moata</em> or <em>ata</em> instead.</p>`},
+
+  {id:"l88_comparison_exam",
+   title:"Unit 15 Exam — Comparatives",
+   desc:"Three hearts. All five particles.",
+   icon:"📝",
+   vocabKey:"l88_comparison_exam",
+   xp:30,
+   unit:14,
+   isSentence:true,
+   isCheckpoint:true},
 ];
 
 // Populate the landing-page lesson and word counts from live data.
@@ -3524,6 +3605,23 @@ async function finishLogin(name){
 
 // ─── Constants ────────────────────────────────────────────────
 const SRS_PARTICLE_SKIP = new Set(["ki","wa","wu","mai","lai"]);
+
+// SRS_GLOSS_OVERRIDES — small declarative override map for SRS-specific gloss
+// reinforcement. Used when a particle's lexical pairing alone is insufficient
+// for retention (typically: grammar-loaded particles whose meaning depends on
+// placement). The DICTIONARY_RAW canonical gloss is preserved for the in-app
+// dictionary search; only SRS cards show the placement-cued version. Looked
+// up in srsExtractLessonWords (at enrollment) and srsBuildVGlossMap (at
+// queue-build, so existing user decks regloss automatically). Scoped narrowly
+// — not a general-purpose gloss override system. See DECISIONS.md SRS section.
+const SRS_GLOSS_OVERRIDES = {
+  "ata":   "more than (after adj.)",
+  "ala":   "as ___ as (after adj.)",
+  "apa":   "the most (before adj.)",
+  "moata": "less than (after adj.)",
+  "moapa": "the least (before adj.)",
+};
+
 const SRS_INITIAL_EASE = 2.5;
 const SRS_MIN_EASE = 1.3;
 const SRS_NEW_INTERVAL_GOOD = 1;       // days
@@ -3757,6 +3855,18 @@ function srsBuildVGlossMap(){
       map.set(d.lw,d.en);
     }
   }
+  // SRS_GLOSS_OVERRIDES — last-write-wins overlay. Applied after V and
+  // DICTIONARY_RAW so overrides always win regardless of which layer
+  // contributed the form's previous gloss. This is what causes an existing
+  // user's *ata* card (enrolled before overrides existed) to regloss to
+  // "more than (after adj.)" on next login. See SRS_GLOSS_OVERRIDES definition
+  // near SRS constants for the full rationale.
+  if(typeof SRS_GLOSS_OVERRIDES!=="undefined"){
+    for(const lw in SRS_GLOSS_OVERRIDES){
+      if(mechanicalLws.has(lw))continue;
+      map.set(lw,SRS_GLOSS_OVERRIDES[lw]);
+    }
+  }
   return map;
 }
 function srsRefreshGlosses(cards,glossMap){
@@ -3909,7 +4019,11 @@ function srsExtractLessonWords(lesson,V,DICTIONARY_RAW){
         if(!d)continue;          // unknown token; skip
         if(d.pos==="particle"&&SRS_PARTICLE_SKIP.has(d.lw))continue;
         // Skip purely-structural particles even if not in skip set above (defensive)
-        out.push({lw:d.lw,en:d.en,pos:d.pos});
+        // SRS_GLOSS_OVERRIDES: substitute placement-cued gloss for forms whose
+        // dictionary gloss is too abstract to drill in isolation (e.g., comparison
+        // particles, where placement is the actual grammar payload).
+        const enForCard = SRS_GLOSS_OVERRIDES[d.lw] || d.en;
+        out.push({lw:d.lw,en:enForCard,pos:d.pos});
       }
     }
   } else {
@@ -3921,18 +4035,22 @@ function srsExtractLessonWords(lesson,V,DICTIONARY_RAW){
     for(const ent of entries){
       if(!ent.lw||Array.isArray(ent.lw))continue;
       if(ent.tier!=="mechanical"){
-        out.push({lw:ent.lw,en:ent.en,pos:ent.pos||"n"});
+        const enForCard = SRS_GLOSS_OVERRIDES[ent.lw] || ent.en;
+        out.push({lw:ent.lw,en:enForCard,pos:ent.pos||"n"});
       }
       if(ent.canvas){
         if(ent.canvas.adj&&ent.canvas.adj_tier!=="mechanical"){
-          out.push({lw:ent.canvas.adj,en:ent.canvas.adj_en,pos:"adj"});
+          const adjEn = SRS_GLOSS_OVERRIDES[ent.canvas.adj] || ent.canvas.adj_en;
+          out.push({lw:ent.canvas.adj,en:adjEn,pos:"adj"});
         }
         if(ent.canvas.v&&ent.canvas.v_tier!=="mechanical"){
-          out.push({lw:ent.canvas.v,en:ent.canvas.v_en,pos:"v"});
+          const vEn = SRS_GLOSS_OVERRIDES[ent.canvas.v] || ent.canvas.v_en;
+          out.push({lw:ent.canvas.v,en:vEn,pos:"v"});
         }
       }
       if(ent.plural){
-        out.push({lw:ent.plural,en:ent.plural_en||ent.en,pos:ent.pos||"n"});
+        const plEn = SRS_GLOSS_OVERRIDES[ent.plural] || ent.plural_en || ent.en;
+        out.push({lw:ent.plural,en:plEn,pos:ent.pos||"n"});
       }
     }
   }
@@ -5012,18 +5130,99 @@ function renderHome(){
   const completedSet=new Set(u.lessonsCompleted||[]);
   const isAdmin=(u.username||"").toLowerCase()==="admin";
 
-  // Advanced-track gating. Units tagged track:"advanced" are hidden until
-  // the learner completes l84_finalreview (the core final test). Admin
-  // always sees everything. This is the *minimum* gating — the full
-  // user-facing presentation (dedicated "✨ Advanced Liru" section divider,
-  // separate progress bars) ships with the A1 unit completion batch.
-  // See advanced_track_plan.md §6.
+  // Advanced-track gating + section presentation. Units tagged track:"advanced"
+  // are hidden until the learner completes l84_finalreview. Admin always sees
+  // everything. When advanced units are visible, they render in their own
+  // labeled section ("✨ Advanced Liru") below the core section, each with
+  // independent progress bars. See advanced_track_plan.md §2, §6.
   const coreComplete=isAdmin||completedSet.has("l84_finalreview");
-  const visibleUnits=UNITS.filter(unit=>coreComplete||unit.track!=="advanced");
+  const coreUnits=UNITS.filter(u=>u.track!=="advanced");
+  const advancedUnits=coreComplete?UNITS.filter(u=>u.track==="advanced"):[];
+
+  // Aggregate progress per section (lessons-completed across the section's units).
+  // Core stays at done_core/84 — when complete, freezes at 84/84 ✓ 100% rather
+  // than getting repurposed for advanced progress.
+  function countSection(units){
+    let total=0,done=0;
+    for(let i=0;i<units.length;i++){
+      const u2=units[i];
+      const idxInUnits=UNITS.indexOf(u2);
+      const start=u2.start;
+      const end=(idxInUnits+1<UNITS.length)?UNITS[idxInUnits+1].start:LESSONS.length;
+      const ls=LESSONS.slice(start,end);
+      total+=ls.length;
+      done+=ls.filter(l=>completedSet.has(l.id)).length;
+    }
+    return {total,done};
+  }
+  const coreProg=countSection(coreUnits);
+  const advProg=countSection(advancedUnits);
 
   // Build per-unit lesson groups so units can be collapsed when complete
   const unitIcons=['🌱','🏠','🌍','💡','⚙️','🔥'];
   let lessonsHTML="";
+
+  // Shared per-unit renderer — used by both core and advanced sections.
+  // unitDef comes from the section's filtered list; unitIdx is the absolute
+  // UNITS index (used for icons, collapse-state keys, and click handler).
+  function renderUnit(unitDef,unitIdx,sectionUnits){
+    const start=unitDef.start;
+    const sectionIdx=sectionUnits.indexOf(unitDef);
+    // End of this unit = start of the next unit in the same section, or end
+    // of LESSONS. Within a section, units always sit contiguously in the
+    // LESSONS array, so this slicing is safe.
+    const end=(sectionIdx+1<sectionUnits.length)?sectionUnits[sectionIdx+1].start:LESSONS.length;
+    const unitLessons=LESSONS.slice(start,end);
+    const doneCount=unitLessons.filter(l=>completedSet.has(l.id)).length;
+    const unitComplete=doneCount===unitLessons.length && unitLessons.length>0;
+    const override=state.unitToggleOverrides[unitIdx];
+    const collapsed=(override===undefined)?unitComplete:!override;
+
+    let innerHTML="";
+    unitLessons.forEach((l,offset)=>{
+      const i=start+offset;
+      const completed=completedSet.has(l.id);
+      const unlocked=isAdmin||i===0||completedSet.has(LESSONS[i-1].id);
+      const cls=completed?"completed":unlocked?"":"locked";
+      const icon=completed?'<span style="color:#4A7A9E;font-size:28px;font-weight:800;line-height:1">✓</span>':unlocked?l.icon:"🔒";
+      const isFinal=l.isFinalTest;
+      let cardStyle="";
+      if(isFinal){cardStyle=`background:linear-gradient(135deg,rgba(255,200,0,0.12),rgba(206,130,255,0.08));border:2.5px solid var(--gold);`;}
+      innerHTML+=`<button class="lesson-card ${cls}" data-idx="${i}" ${!unlocked?'disabled':''} style="${cardStyle}">
+        <div class="lesson-icon" style="${isFinal?'background:var(--gold-glow);border:2px solid var(--gold)':''}">${icon}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:16px;font-weight:800;${isFinal?'color:var(--gold)':''}">${l.title}</div>
+          <div style="color:var(--dim);font-size:13px;font-weight:600;margin-top:2px">${l.desc}</div>
+        </div>
+        <div style="color:var(--gold);font-size:12px;font-weight:800;flex-shrink:0">+${l.xp} XP</div>
+      </button>`;
+    });
+
+    const chevron=collapsed?'▸':'▾';
+    return `<div style="margin:${sectionIdx===0?'0':'24px'} 0 12px">
+      <button class="unit-header" data-unit-idx="${unitIdx}" style="width:100%;text-align:left;padding:10px 12px;background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:12px;color:#4A7A9E;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;cursor:pointer">
+        <span style="font-size:14px;width:14px;display:inline-block">${chevron}</span>
+        <span>${unitIcons[unitIdx]||'📚'}</span>
+        <span style="flex:1">${unitDef.name}</span>
+        <span style="color:var(--dim);font-size:11px;font-weight:700;text-transform:none;letter-spacing:0">${doneCount}/${unitLessons.length}${unitComplete?' ✓':''}</span>
+      </button>
+      <div data-unit-body="${unitIdx}" style="${collapsed?'display:none':'margin-top:12px'}">${innerHTML}</div>
+    </div>`;
+  }
+
+  // Per-section progress bar markup. Renders the "x/y · z%" header and bar.
+  function progressBarHTML(label,done,total,accent){
+    const pct=total>0?Math.round((done/total)*100):0;
+    return `<div style="margin-bottom:14px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px">
+        <div style="font-size:12px;font-weight:800;letter-spacing:0.8px;text-transform:uppercase;color:${accent}">${label}</div>
+        <div style="font-size:12px;font-weight:700;color:var(--dim)">${done}/${total} · ${pct}%</div>
+      </div>
+      <div style="height:8px;background:var(--bg2);border-radius:4px;overflow:hidden">
+        <div style="height:100%;background:${accent};width:${pct}%;transition:width 0.3s"></div>
+      </div>
+    </div>`;
+  }
 
   if(LESSONS.length===0){
     // ── Placeholder state while lessons are being authored ──────
@@ -5038,50 +5237,27 @@ function renderHome(){
       </div>
     </div>`;
   } else {
-    visibleUnits.forEach((unitDef,visIdx)=>{
-      const start=unitDef.start;
-      // End of this unit = start of the next *visible* unit, or end of LESSONS.
-      // The original UNITS array index is also used for collapse-state overrides
-      // (state.unitToggleOverrides) to keep IDs stable across visibility changes.
-      const end=(visIdx+1<visibleUnits.length)?visibleUnits[visIdx+1].start:LESSONS.length;
+    // ── Core section ──────────────────────────────────────────
+    // Always rendered. Progress bar shows done/84 (frozen at 84/84 after completion).
+    lessonsHTML+=progressBarHTML("Core course",coreProg.done,coreProg.total,"#4A7A9E");
+    coreUnits.forEach(unitDef=>{
       const unitIdx=UNITS.indexOf(unitDef);
-      const unitLessons=LESSONS.slice(start,end);
-      const doneCount=unitLessons.filter(l=>completedSet.has(l.id)).length;
-      const unitComplete=doneCount===unitLessons.length && unitLessons.length>0;
-      const override=state.unitToggleOverrides[unitIdx];
-      const collapsed=(override===undefined)?unitComplete:!override;
-
-      let innerHTML="";
-      unitLessons.forEach((l,offset)=>{
-        const i=start+offset;
-        const completed=completedSet.has(l.id);
-        const unlocked=isAdmin||i===0||completedSet.has(LESSONS[i-1].id);
-        const cls=completed?"completed":unlocked?"":"locked";
-        const icon=completed?'<span style="color:#4A7A9E;font-size:28px;font-weight:800;line-height:1">✓</span>':unlocked?l.icon:"🔒";
-        const isFinal=l.isFinalTest;
-        let cardStyle="";
-        if(isFinal){cardStyle=`background:linear-gradient(135deg,rgba(255,200,0,0.12),rgba(206,130,255,0.08));border:2.5px solid var(--gold);`;}
-        innerHTML+=`<button class="lesson-card ${cls}" data-idx="${i}" ${!unlocked?'disabled':''} style="${cardStyle}">
-          <div class="lesson-icon" style="${isFinal?'background:var(--gold-glow);border:2px solid var(--gold)':''}">${icon}</div>
-          <div style="flex:1;min-width:0">
-            <div style="font-size:16px;font-weight:800;${isFinal?'color:var(--gold)':''}">${l.title}</div>
-            <div style="color:var(--dim);font-size:13px;font-weight:600;margin-top:2px">${l.desc}</div>
-          </div>
-          <div style="color:var(--gold);font-size:12px;font-weight:800;flex-shrink:0">+${l.xp} XP</div>
-        </button>`;
-      });
-
-      const chevron=collapsed?'▸':'▾';
-      lessonsHTML+=`<div style="margin:${unitIdx===0?'0':'24px'} 0 12px">
-        <button class="unit-header" data-unit-idx="${unitIdx}" style="width:100%;text-align:left;padding:10px 12px;background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--border);border-radius:12px;color:#4A7A9E;font-size:13px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase;display:flex;align-items:center;gap:8px;cursor:pointer">
-          <span style="font-size:14px;width:14px;display:inline-block">${chevron}</span>
-          <span>${unitIcons[unitIdx]||'📚'}</span>
-          <span style="flex:1">${unitDef.name}</span>
-          <span style="color:var(--dim);font-size:11px;font-weight:700;text-transform:none;letter-spacing:0">${doneCount}/${unitLessons.length}${unitComplete?' ✓':''}</span>
-        </button>
-        <div data-unit-body="${unitIdx}" style="${collapsed?'display:none':'margin-top:12px'}">${innerHTML}</div>
-      </div>`;
+      lessonsHTML+=renderUnit(unitDef,unitIdx,coreUnits);
     });
+
+    // ── Advanced section ──────────────────────────────────────
+    // Hidden when coreComplete is false. Section divider banner + own progress bar.
+    if(advancedUnits.length>0){
+      lessonsHTML+=`<div style="margin:32px 0 16px;padding:14px 16px;background:linear-gradient(135deg,rgba(255,200,0,0.10),rgba(206,130,255,0.08));border:1.5px solid var(--gold);border-radius:14px;text-align:center">
+        <div style="font-family:var(--display);font-size:18px;font-weight:800;color:var(--gold);letter-spacing:0.5px">✨ Advanced Liru</div>
+        <div style="color:var(--mid);font-size:12px;font-weight:600;margin-top:2px">Beyond the core — richer expression, more range</div>
+      </div>`;
+      lessonsHTML+=progressBarHTML("Advanced progress",advProg.done,advProg.total,"var(--gold)");
+      advancedUnits.forEach(unitDef=>{
+        const unitIdx=UNITS.indexOf(unitDef);
+        lessonsHTML+=renderUnit(unitDef,unitIdx,advancedUnits);
+      });
+    }
   }
 
   // ── Daily Review tile (SRS) ──────────────────────────────────
