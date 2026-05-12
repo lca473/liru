@@ -2379,6 +2379,226 @@ const V = {
      en:"Yuna expects that the book I am reading is easy."},
   ],
 
+  // ═══════════════════════════════════════════════════════════════
+  // ADVANCED TRACK — Unit 18 (A4): Frequency & Spatial Adverbs
+  // ═══════════════════════════════════════════════════════════════
+  // Two related closed sets of adverbs that expand the learner's
+  // expressive range for talking about HOW OFTEN and WHERE/HOW.
+  // See Grammar.md §15 (Frequency Adverbs) and §16 (Directional and
+  // Spatial Adverbs) for the canonical treatments.
+  //
+  // Lesson roadmap:
+  //   L100 — Vocab: 3 basic frequency adverbs (taiweli, naiweli,
+  //          saiweli). The quantifier + weli pattern is the teaching
+  //          payload of the intro card.
+  //   L101 — Vocab: 2 polar frequency adverbs (nuliweli, faiweli) +
+  //          1 A20 verb root (koulu "to visit"). The intro card
+  //          covers the mai naiweli / mai faiweli phrase patterns.
+  //   L102 — Sentence-based: drill all 5 frequency adverbs in
+  //          context, with cloze on placement. 0 new roots.
+  //   L103 — Vocab: 4 canvas-root spatial concepts (taume passage,
+  //          tase crossing, niane nearness, moniane farness).
+  //   L104 — Vocab: 4 canvas-root spatial concepts (hune right,
+  //          mohune left, moliane lowness, vaihe side). hune and
+  //          mohune are taught together as a directional pair per
+  //          Grammar.md §16 — sheure is the separate "justice"
+  //          reading and is not in this unit.
+  //   L105 — Sentence-based: introduces 3 spatial particles (niwa,
+  //          voi, moso) plus 1 A20 verb form (washu "to move/flow")
+  //          drilled sentence-only. 4 new items total.
+  //   L106 — Unit 18 exam (isCheckpoint:true). 10 sentences,
+  //          frequency + spatial mixed. Cloze on 3-4 sentences.
+  //
+  // A20 vocabulary woven in (per A2/A3 capability-unit convention):
+  //   • L101: koulu "to visit" — the canonical frequency-collocator
+  //   • L105: washu "to move / flow" — pairs with directional adverbs
+  // Two A20 verbs total across the unit.
+  //
+  // Total unit lexical load: 15 A4 roots + 2 A20 verbs = 17 roots /
+  // 33 forms. Each lesson within the §2 cap (≤4 roots).
+  //
+  // Forms registered in preflight.js sentenceLessonNewForms for L102,
+  // L105, L106.
+
+  // L100 — Vocab: basic frequency adverbs
+  // The three "positive" frequency adverbs built from quantifier +
+  // weli. taiweli (tai+weli), naiweli (nai+weli), saiweli (sai+weli).
+  // Single-form entries (no canvas). The intro card teaches the
+  // pattern and the adverb-slot placement (before the verb).
+  l100_vocab_frequency_basic: [
+    {lw:"taiweli", en:"always", pos:"adj",
+     note:"From tai (all) + weli — at all times"},
+    {lw:"naiweli", en:"often", pos:"adj",
+     note:"From nai (many) + weli — at many times"},
+    {lw:"saiweli", en:"sometimes", pos:"adj",
+     note:"From sai (some) + weli — at some times"},
+  ],
+
+  // L101 — Vocab: polar frequency adverbs + a frequency-collocator verb
+  // nuliweli (nuli+weli) is the zero pole; faiweli (fai+weli) is the
+  // free-choice pole used most often in questions and negated contexts.
+  // koulu "to visit" is the A20 weave-in — visiting is the verb that
+  // most naturally collocates with frequency adverbs in conversation
+  // ("I always visit my friends," "She rarely visits the temple").
+  // Taught as a full canvas root: koule (n.) / kouli (adj.) / koulu (v.).
+  l101_vocab_frequency_polar: [
+    {lw:"nuliweli", en:"never", pos:"adj",
+     note:"From nuli (zero) + weli — at no time"},
+    {lw:"faiweli", en:"ever / at any time (free-choice)", pos:"adj",
+     note:"From fai (any) + weli — at any time"},
+    {lw:"koule", en:"visit", pos:"n",
+     canvas:{adj:"kouli", adj_en:"visited",
+             v:"koulu",   v_en:"to visit"}},
+  ],
+
+  // L102 — Sentence-based: drill frequency-adverb placement
+  // 7 sentences spreading the 5 frequency adverbs across familiar
+  // verbs and contexts. mai naiweli "rarely" and mai faiweli "never
+  // (emphatic)" each get one sentence. Cloze on 4 sentences puts the
+  // adverb itself in the blank — the placement IS the payload.
+  // 0 new roots; all forms in budget from L100/L101 and earlier core.
+  l102_frequency_sentences: [
+    {lw:["Ne","taiweli","wa","tahu","wule","Yuna","vanu"],
+     en:"I always ate after Yuna came.",
+     cloze:{blanks:[1], bank:["taiweli","naiweli","saiweli","nuliweli","faiweli","mai"]}},
+    {lw:["Maya","naiweli","koulu","neo","wame"],
+     en:"Maya often visits my friend.",
+     cloze:{blanks:[1,2], bank:["naiweli","saiweli","koulu","halu","ko","wa"]}},
+    {lw:["Ne","saiweli","liru","ko","Yuna"],
+     en:"I sometimes speak with Yuna."},
+    {lw:["Ve","nuliweli","wa","liru","ko","ne"],
+     en:"She never spoke with me.",
+     cloze:{blanks:[1], bank:["nuliweli","naiweli","taiweli","mai","saiweli","faiweli"]}},
+    {lw:["Ki","te","faiweli","wa","nahu","kupe"],
+     en:"Have you ever cooked fish?",
+     cloze:{blanks:[2], bank:["faiweli","taiweli","saiweli","nuliweli","naiweli","mai"]}},
+    {lw:["Ne","mai","naiweli","halu","so","loya"],
+     en:"I rarely come here."},
+    {lw:["Yuna","mai","faiweli","wa","tahu","kupe"],
+     en:"Yuna has never eaten fish."},
+  ],
+
+  // L103 — Vocab: spatial paths (4 canvas roots)
+  // Path-shaped spatial concepts. All four are full canvas roots:
+  // noun = the abstract space-concept, adjective/adverb = "in an
+  // X-ward manner," verb = "move with respect to X."
+  //   taume passage / through / pass through
+  //   tase  crossing / across / cross
+  //   niane nearness / near / approach
+  //   moniane farness / far / recede
+  // moniane is the mo- counterpart of niane (genuine value pair per
+  // the mo- principles in DesignNotes).
+  l103_vocab_paths: [
+    {lw:"taume", en:"passage", pos:"n",
+     canvas:{adj:"taumi", adj_en:"through",
+             v:"taumu",   v_en:"to pass through"}},
+    {lw:"tase", en:"crossing", pos:"n",
+     canvas:{adj:"tasi", adj_en:"across",
+             v:"tasu",   v_en:"to cross"}},
+    {lw:"niane", en:"nearness", pos:"n",
+     canvas:{adj:"niani", adj_en:"near (or nearby)",
+             v:"nianu",   v_en:"to approach"},
+     pair:"moniane"},
+    {lw:"moniane", en:"farness (or distance)", pos:"n",
+     canvas:{adj:"moniani", adj_en:"far (or distantly)",
+             v:"monianu",   v_en:"to recede"},
+     pair:"niane"},
+  ],
+
+  // L104 — Vocab: spatial position (4 canvas roots)
+  // Position-shaped spatial concepts. All four are full canvas roots.
+  //   hune    right / right / go right
+  //   mohune  left / left / go left
+  //   moliane lowness / low / lower (or descend)
+  //   vaihe   side / sided / face
+  // hune and mohune are a directional pair (mo- prefix). Per
+  // Grammar.md §16 they form the basic left/right directional axis.
+  // moliane is taught alone here; its pair (liane "highness/tall")
+  // is already taught as core vocabulary (L62 weather/nature).
+  // vaihe is a quieter root — used most often in "facing toward" or
+  // "the X side of Y" constructions. Sentence usage in L105 and L106.
+  l104_vocab_position: [
+    {lw:"hune", en:"right (side)", pos:"n",
+     canvas:{adj:"huni", adj_en:"right (or to the right)"},
+     pair:"mohune"},
+    {lw:"mohune", en:"left (side)", pos:"n",
+     canvas:{adj:"mohuni", adj_en:"left (or to the left)"},
+     pair:"hune"},
+    {lw:"moliane", en:"lowness", pos:"n",
+     canvas:{adj:"moliani", adj_en:"low",
+             v:"molianu",   v_en:"to lower (or descend)"}},
+    {lw:"vaihe", en:"side (face, aspect)", pos:"n",
+     canvas:{adj:"vaihi", adj_en:"sided (facing)",
+             v:"vaihu",   v_en:"to face (present a side)"}},
+  ],
+
+  // L105 — Sentence-based: spatial particles + washu
+  // Introduces the three spatial particles niwa, voi, moso, plus the
+  // A20 verb form washu "to move / flow" (drilled sentence-only —
+  // its canvas mates washe/washi appear in the intro card but aren't
+  // exercised). 7 sentences covering each particle 2+ times.
+  // Cloze on 4 sentences — particle placement is the payload.
+  l105_spatial_particles: [
+    {lw:["Moule","su","niwa","hiwe","sho","senehiwe"],
+     en:"The tree is between the house and the school.",
+     cloze:{blanks:[2,4], bank:["niwa","voi","moso","wo","sho","ko"]}},
+    {lw:["Ve","halu","voi","moule"],
+     en:"She walks around the tree.",
+     cloze:{blanks:[2], bank:["voi","niwa","moso","wo","ya","leu"]}},
+    {lw:["Paipe","wa","hairu","moso","hiwe"],
+     en:"The dog ran away from the house.",
+     cloze:{blanks:[3], bank:["moso","so","voi","niwa","mowo","wa"]}},
+    {lw:["Iwuhe","washu","taumi","mouleyahe"],
+     en:"Water flows through the garden.",
+     cloze:{blanks:[1,2], bank:["washu","halu","taumi","wo","ya","voi"]}},
+    {lw:["Nea","su","niwa","Yuna","sho","Maya"],
+     en:"We are between Yuna and Maya."},
+    {lw:["Ve","wa","halu","moso","shawome"],
+     en:"She went away from the ocean."},
+    {lw:["Ne","halu","voi","mouleyahe"],
+     en:"I walk around the garden."},
+  ],
+
+  // L106 — Unit 18 exam (checkpoint, sentence-based)
+  // 10 sentences mixing frequency and spatial adverbs/particles.
+  // Each major construction tested at least once:
+  //   - 5 frequency adverbs (each used at least once)
+  //   - mai naiweli / mai faiweli phrase patterns
+  //   - 3 spatial particles (niwa, voi, moso)
+  //   - canvas-form spatial adverbs (taumi, tasi, niani, moniani,
+  //     huni, mohuni, moliani, vaihi)
+  //   - canvas verb forms (taumu, tasu, nianu, hunu, vaihu, washu)
+  // Cloze on 4 sentences combining frequency + spatial — exactly the
+  // use case flagged in advanced_track_plan.md §8.
+  // 0 new roots — exam draws entirely on L100-L105 + already-taught
+  // core vocabulary.
+  l106_frequency_spatial_exam: [
+    {lw:["Ne","taiweli","halu","voi","mouleyahe"],
+     en:"I always walk around the garden.",
+     cloze:{blanks:[1,3], bank:["taiweli","naiweli","voi","niwa","moso","sho"]}},
+    {lw:["Yuna","naiweli","wa","tasu","mouleyahe"],
+     en:"Yuna often crossed the garden."},
+    {lw:["Hiwe","su","niwa","moule","sho","senehiwe"],
+     en:"The house is between the tree and the school.",
+     cloze:{blanks:[2], bank:["niwa","voi","moso","wo","leu","ya"]}},
+    {lw:["Paipe","saiweli","nianu","ne"],
+     en:"The dog sometimes approaches me."},
+    {lw:["Ne","nuliweli","wa","halu","mohuni"],
+     en:"I never went left.",
+     cloze:{blanks:[1,4], bank:["nuliweli","naiweli","mohuni","huni","tasi","voi"]}},
+    {lw:["Ki","te","faiweli","wa","koulu","Yuna"],
+     en:"Have you ever visited Yuna?"},
+    {lw:["Ve","mai","naiweli","wa","halu","huni"],
+     en:"She rarely went right."},
+    {lw:["Iwuhe","washu","moso","hiwe"],
+     en:"Water flows away from the house.",
+     cloze:{blanks:[1,2], bank:["washu","halu","moso","voi","wo","ya"]}},
+    {lw:["Maya","halu","taumi","mouleyahe"],
+     en:"Maya goes through the garden."},
+    {lw:["Hiwe","su","moniani","fa","senehiwe"],
+     en:"The house is far from the school."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2417,6 +2637,7 @@ const UNITS = [
   {name:"Unit 15 — Comparatives & Superlatives", start:78, track:"advanced"},
   {name:"Unit 16 — Conditional & Causal Conjunctions", start:82, track:"advanced"},
   {name:"Unit 17 — Relative & Complement Clauses", start:88, track:"advanced"},
+  {name:"Unit 18 — Frequency & Spatial Adverbs", start:93, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -3366,6 +3587,75 @@ const LESSONS = [
    unit:16,
    isSentence:true,
    isCheckpoint:true},
+
+  // ═══════════════════════════════════════════════════════════════
+  // Unit 18 (A4) — Frequency & Spatial Adverbs
+  // ═══════════════════════════════════════════════════════════════
+  {id:"l100_vocab_frequency_basic",
+   title:"How Often — Always, Often, Sometimes",
+   desc:"The three positive frequency adverbs",
+   icon:"🕒",
+   vocabKey:"l100_vocab_frequency_basic",
+   xp:22,
+   unit:17,
+   intro:`<h3>🕒 Frequency adverbs</h3><p>How often does something happen? Liru builds frequency adverbs from a quantifier plus <em>weli</em> (\"times\"):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> (all) + <em>weli</em></td><td style="padding:4px 12px">→ <em>taiweli</em> — always</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nai</em> (many) + <em>weli</em></td><td style="padding:4px 12px">→ <em>naiweli</em> — often</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> (some) + <em>weli</em></td><td style="padding:4px 12px">→ <em>saiweli</em> — sometimes</td></tr></table><p>The pattern is regular: <strong>quantifier + weli = how-often word</strong>. You'll meet the two polar members (<em>nuliweli</em> never, <em>faiweli</em> ever) in the next lesson.</p><h3>📍 Where they sit in the sentence</h3><p>Frequency adverbs go in the standard adverb slot — <strong>before the verb</strong> — the same slot <em>ori</em> (very) and <em>noihi</em> (almost) occupy:</p><span class="example">Ne taiweli tahu. <span class="gloss">I always eat.</span></span><span class="example">Maya naiweli halu so mouleyahe. <span class="gloss">Maya often goes to the garden.</span></span><span class="example">Yuna saiweli liru ko ne. <span class="gloss">Yuna sometimes speaks with me.</span></span><p>With past or future tense particles (<em>wa</em>, <em>wu</em>), the frequency adverb still sits before the verb — the tense particle comes between them:</p><span class="example">Ne taiweli wa tahu. <span class="gloss">I always ate.</span></span>`},
+
+  {id:"l101_vocab_frequency_polar",
+   title:"Never, Ever, and Visiting",
+   desc:"The polar frequency adverbs + a verb that loves them",
+   icon:"🔁",
+   vocabKey:"l101_vocab_frequency_polar",
+   xp:24,
+   unit:17,
+   intro:`<h3>🔁 The polar frequency adverbs</h3><p>Two more from the <em>quantifier + weli</em> pattern, at the two extremes:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> (zero) + <em>weli</em></td><td style="padding:4px 12px">→ <em>nuliweli</em> — never</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> (any) + <em>weli</em></td><td style="padding:4px 12px">→ <em>faiweli</em> — ever / at any time</td></tr></table><p><em>nuliweli</em> carries its own negation — you don't need <em>mai</em> with it. <em>faiweli</em> is the free-choice form most often seen in questions and after <em>mai</em>:</p><span class="example">Ne nuliweli wa koulu Yuna. <span class="gloss">I have never visited Yuna.</span></span><span class="example">Ki te faiweli wa koulu Maya? <span class="gloss">Have you ever visited Maya?</span></span><h3>📖 \"Rarely\" and emphatic \"never\"</h3><p>There's no single word for \"rarely.\" Liru uses <em>mai naiweli</em> — literally \"not often\":</p><span class="example">Ne mai naiweli halu so loya. <span class="gloss">I rarely come here.</span></span><p>An emphatic \"never\" can be rendered <em>mai faiweli</em> — \"not at any time, ever\":</p><span class="example">Ve mai faiweli wa liru ko ne. <span class="gloss">She has never (ever) spoken with me.</span></span><h3>🆕 A verb that loves frequency: <em>koulu</em></h3><p>Visiting is the prototypical \"how often\" verb. Its full canvas:</p><ul><li><em>koule</em> (n.) — a visit</li><li><em>kouli</em> (adj.) — visited</li><li><em>koulu</em> (v.) — to visit</li></ul><p>You'll meet all three; the verb does most of the work in conversation.</p>`},
+
+  {id:"l102_frequency_sentences",
+   title:"Putting Frequency to Work",
+   desc:"7 sentences drilling all five frequency adverbs in context",
+   icon:"⏱️",
+   vocabKey:"l102_frequency_sentences",
+   xp:24,
+   unit:17,
+   isSentence:true,
+   intro:`<h3>⏱️ All five together</h3><p>You now know the full set:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>taiweli</em></td><td style="padding:4px 12px">always</td></tr><tr><td style="padding:4px 12px"><em>naiweli</em></td><td style="padding:4px 12px">often</td></tr><tr><td style="padding:4px 12px"><em>saiweli</em></td><td style="padding:4px 12px">sometimes</td></tr><tr><td style="padding:4px 12px"><em>mai naiweli</em></td><td style="padding:4px 12px">rarely</td></tr><tr><td style="padding:4px 12px"><em>nuliweli</em></td><td style="padding:4px 12px">never</td></tr><tr><td style="padding:4px 12px"><em>faiweli</em></td><td style="padding:4px 12px">ever (in questions, or after <em>mai</em>)</td></tr></table><p>This lesson drills placement and pairing. Pay attention to where the adverb sits relative to the tense particle — <em>wa</em> and <em>wu</em> always come <strong>between</strong> the frequency adverb and the verb.</p>`},
+
+  {id:"l103_vocab_paths",
+   title:"Paths — Through, Across, Near, Far",
+   desc:"Four canvas-root spatial concepts",
+   icon:"🛤️",
+   vocabKey:"l103_vocab_paths",
+   xp:26,
+   unit:17,
+   intro:`<h3>🛤️ Path-shaped spatial adverbs</h3><p>Four spatial concepts, each a full canvas root: the noun names the abstract concept, the adjective/adverb describes manner, the verb names the action.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">noun</th><th style="padding:4px 8px;color:var(--dim)">adj./adv.</th><th style="padding:4px 8px;color:var(--dim)">verb</th><th style="padding:4px 8px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 8px"><em>taume</em></td><td style="padding:4px 8px"><em>taumi</em></td><td style="padding:4px 8px"><em>taumu</em></td><td style="padding:4px 8px">through / pass through</td></tr><tr><td style="padding:4px 8px"><em>tase</em></td><td style="padding:4px 8px"><em>tasi</em></td><td style="padding:4px 8px"><em>tasu</em></td><td style="padding:4px 8px">across / cross</td></tr><tr><td style="padding:4px 8px"><em>niane</em></td><td style="padding:4px 8px"><em>niani</em></td><td style="padding:4px 8px"><em>nianu</em></td><td style="padding:4px 8px">near / approach</td></tr><tr><td style="padding:4px 8px"><em>moniane</em></td><td style="padding:4px 8px"><em>moniani</em></td><td style="padding:4px 8px"><em>monianu</em></td><td style="padding:4px 8px">far / recede</td></tr></table><h3>⚖️ <em>niane</em> and <em>moniane</em> — a balancing pair</h3><p><em>moniane</em> is built from <em>niane</em> with the <em>mo-</em> prefix — the same balancing pattern you've seen with <em>nawu</em>/<em>monawu</em>, <em>houli</em>/<em>mohouli</em>, and many others.</p><h3>📝 In use</h3><span class="example">Ne taumu mouleyahe. <span class="gloss">I go through the garden.</span></span><span class="example">Nea wa tasu mouleyahe. <span class="gloss">We crossed the garden.</span></span><span class="example">Ve wa nianu hiwe. <span class="gloss">She approached the house.</span></span><span class="example">Hiwe su moniani fa senehiwe. <span class="gloss">The house is far from the school.</span></span><p>The verb form pairs directly with an object — <em>tasu mouleyahe</em>, <em>nianu hiwe</em>, no preposition. The adjective/adverb form modifies a verb or noun.</p>`},
+
+  {id:"l104_vocab_position",
+   title:"Position — Right, Left, Low, Side",
+   desc:"Four more canvas-root spatial concepts",
+   icon:"🧭",
+   vocabKey:"l104_vocab_position",
+   xp:26,
+   unit:17,
+   intro:`<h3>🧭 Position-shaped spatial adverbs</h3><p>Four more canvas roots covering basic directional position.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">noun</th><th style="padding:4px 8px;color:var(--dim)">adj./adv.</th><th style="padding:4px 8px;color:var(--dim)">verb</th><th style="padding:4px 8px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 8px"><em>hune</em></td><td style="padding:4px 8px"><em>huni</em></td><td style="padding:4px 8px">—</td><td style="padding:4px 8px">right (side / to the right)</td></tr><tr><td style="padding:4px 8px"><em>mohune</em></td><td style="padding:4px 8px"><em>mohuni</em></td><td style="padding:4px 8px">—</td><td style="padding:4px 8px">left (side / to the left)</td></tr><tr><td style="padding:4px 8px"><em>moliane</em></td><td style="padding:4px 8px"><em>moliani</em></td><td style="padding:4px 8px"><em>molianu</em></td><td style="padding:4px 8px">low / lower (or descend)</td></tr><tr><td style="padding:4px 8px"><em>vaihe</em></td><td style="padding:4px 8px"><em>vaihi</em></td><td style="padding:4px 8px"><em>vaihu</em></td><td style="padding:4px 8px">side / face (a direction)</td></tr></table><h3>⚖️ <em>hune</em> and <em>mohune</em> — a directional pair</h3><p><em>mohune</em> \"left\" is built from <em>hune</em> \"right\" with the <em>mo-</em> prefix. The pair forms the basic left/right axis. (\"Right\" in the sense of \"justice / fairness\" is a different word — <em>sheure</em> — which you'll meet later.)</p><p>Unlike most canvas roots, <em>hune</em> and <em>mohune</em> have no dedicated verb form. To say \"go right\" or \"go left,\" pair the adverb with a motion verb: <em>halu huni</em>, <em>halu mohuni</em>.</p><h3>📝 In use</h3><span class="example">Ne halu huni. <span class="gloss">I go right.</span></span><span class="example">Ve wa halu mohuni. <span class="gloss">She went left.</span></span><span class="example">Lo hiwe su moliani. <span class="gloss">This house is low.</span></span><span class="example">Hiwe vaihu moule. <span class="gloss">The house faces the tree.</span></span><p><em>moliani</em> contrasts with already-taught <em>liani</em> \"high / tall\" — the same canvas-root pattern, opposite values on the height axis.</p>`},
+
+  {id:"l105_spatial_particles",
+   title:"Spatial Particles — Between, Around, Away From",
+   desc:"Three new particles plus moving water (washu)",
+   icon:"🌀",
+   vocabKey:"l105_spatial_particles",
+   xp:24,
+   unit:17,
+   isSentence:true,
+   intro:`<h3>🌀 Three spatial particles</h3><p>Particles sit between phrases the way <em>wo</em> (in), <em>ya</em> (at), and <em>so</em> (to) do — they tell you a spatial relationship without naming a manner or action. Three new ones in this lesson:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>niwa</em></td><td style="padding:4px 12px">between</td></tr><tr><td style="padding:4px 12px"><em>voi</em></td><td style="padding:4px 12px">around</td></tr><tr><td style="padding:4px 12px"><em>moso</em></td><td style="padding:4px 12px">away from</td></tr></table><h3>📝 Usage notes</h3><p><strong><em>niwa</em></strong> takes two arguments joined by <em>sho</em>:</p><span class="example">Moule su niwa hiwe sho senehiwe. <span class="gloss">The tree is between the house and the school.</span></span><p><strong><em>voi</em></strong> takes a single argument — the thing being encircled:</p><span class="example">Ve halu voi moule. <span class="gloss">She walks around the tree.</span></span><p><strong><em>moso</em></strong> is the directional companion of already-taught <em>so</em> \"to.\" Where <em>so</em> marks motion toward, <em>moso</em> marks motion away from. (This is distinct from <em>fa</em> \"from / of,\" which marks static origin, not motion away.)</p><span class="example">Paipe wa hairu moso hiwe. <span class="gloss">The dog ran away from the house.</span></span><h3>🆕 A new verb: <em>washu</em></h3><p>Water and wind do it; people and ideas do it metaphorically. The verb <em>washu</em> \"to move / to flow\" is the natural partner of these spatial particles:</p><span class="example">Iwuhe washu taumi mouleyahe. <span class="gloss">Water flows through the garden.</span></span><p>Its full canvas — <em>washe</em> (movement/flow), <em>washi</em> (flowing/mobile), <em>washu</em> (to move/flow) — is in the dictionary for reference, but you'll only drill the verb here.</p>`},
+
+  {id:"l106_frequency_spatial_exam",
+   title:"Unit 18 Exam — Frequency & Spatial Adverbs",
+   desc:"Three hearts. All frequency adverbs, all spatial constructions.",
+   icon:"📝",
+   vocabKey:"l106_frequency_spatial_exam",
+   xp:32,
+   unit:17,
+   isSentence:true,
+   isCheckpoint:true},
 ];
 
 // Populate the landing-page lesson and word counts from live data.
@@ -4086,6 +4376,10 @@ const SRS_GLOSS_OVERRIDES = {
   "maivi": "unless (before/after clause)",
   // A3 (Unit 17): the case-that marker — placement determines reading.
   "lai":   "that / who / which (after noun=relative, after verb=complement)",
+  // A4 (Unit 18): spatial particles — placement and pairing patterns.
+  "niwa":  "between (takes two args joined by sho)",
+  "voi":   "around (encircles single arg)",
+  "moso":  "away from (motion, not static origin)",
 };
 
 const SRS_INITIAL_EASE = 2.5;
