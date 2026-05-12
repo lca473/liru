@@ -1989,6 +1989,25 @@ const V = {
     {lw:["Ne","mauhu","Liru","iwuhe","sho","ne","mihu","sove"],            en:"I am learning the Liru language and I need help."},
   ],
 
+  // ═══════════════════════════════════════════════════════════════
+  // ADVANCED TRACK — Unit 15 (A1): Comparatives & Superlatives
+  // ═══════════════════════════════════════════════════════════════
+
+  // L85 — Comparison Basics (sentence-based; introduces ata, ala)
+  // First lesson of the advanced track. Teaches the post-adjective particles
+  // *ata* (more than) and *ala* (as ___ as). Parallel-structure comparisons
+  // make the particle's role visually obvious on first encounter.
+  // Forms registered in preflight.js sentenceLessonNewForms as ['ata','ala'].
+  l85_comparison_basics: [
+    {lw:["Neo","mewe","su","piami","ata","teo","mewe"],          en:"My cat is smaller than your cat."},
+    {lw:["Lo","loiwe","su","mopiami","ata","falo","loiwe"],      en:"This book is bigger than that book."},
+    {lw:["Neo","mawe","su","houli","ala","neo","pawe"],          en:"My mother is as happy as my father."},
+    {lw:["Mewe","su","peri","ata","moule"],                      en:"The cat is softer than the tree."},
+    {lw:["Lo","nauye","su","nauyi","ala","falo","nauye"],        en:"This game is as fun as that game."},
+    {lw:["Teo","wahe","su","piami","ata","neo","wahe"],          en:"Your family is smaller than my family."},
+    {lw:["Yoye","su","sheyi","ala","loye"],                      en:"Sister is as healthy as brother."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2017,6 +2036,14 @@ const UNITS = [
   {name:"Unit 12 — Weather and Nature", start:61},
   {name:"Unit 13 — This and That", start:68},
   {name:"Unit 14 — Asking for Help; Final Review", start:74},
+  // ── Advanced track ───────────────────────────────────────
+  // Units with track:"advanced" are hidden from learners until
+  // they complete l84_finalreview (the core final test). Admin
+  // user sees them regardless. See advanced_track_plan.md §2.
+  // Note: `start` is the LESSONS array index, not the L-number.
+  // L85 is at LESSONS index 78 because lesson IDs include
+  // historical gaps (l6, l12, l18, etc. were never created).
+  {name:"Unit 15 — Comparatives & Superlatives", start:78, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -2798,6 +2825,21 @@ const LESSONS = [
    isSentence:true,
    isCheckpoint:true,
    intro:`<h3>🎓 Final Review</h3><p>This is the final review. Thirteen sentences from across all fourteen units. <strong>Three hearts — show what you've learned</strong> — and you've finished the core course.</p>`},
+
+  // ── UNIT 15 (A1): COMPARATIVES & SUPERLATIVES (L85–L88) ──────────────
+  // First advanced-track unit. Teaches the comparison particles ata (more than),
+  // ala (as ___ as), apa (most), moata (less than), moapa (least).
+  // See advanced_track_plan.md §4 for unit scope.
+
+  {id:"l85_comparison_basics",
+   title:"More than, As ___ as",
+   desc:"Comparing two things with ata and ala",
+   icon:"⚖️",
+   vocabKey:"l85_comparison_basics",
+   xp:22,
+   unit:14,
+   isSentence:true,
+   intro:`<h3>⚖️ Comparing two things</h3><p>Liru compares things by placing a small particle next to an adjective.</p><p>To say <em>more than</em>, put <em>ata</em> <em>after</em> the adjective:</p><span class="example">Mawe su <strong>wauli ata</strong> pawe. <span class="gloss">Mother is more beautiful than father.</span></span><p>To say <em>as ___ as</em> (equal), put <em>ala</em> in the same spot:</p><span class="example">Yoye su <strong>houli ala</strong> loye. <span class="gloss">Sister is as happy as brother.</span></span><p>The pattern is always: <strong>[subject] su [adjective] ata/ala [comparison]</strong>. The particle hugs the adjective from behind — never before it.</p>`},
 ];
 
 // Populate the landing-page lesson and word counts from live data.
@@ -4970,6 +5012,15 @@ function renderHome(){
   const completedSet=new Set(u.lessonsCompleted||[]);
   const isAdmin=(u.username||"").toLowerCase()==="admin";
 
+  // Advanced-track gating. Units tagged track:"advanced" are hidden until
+  // the learner completes l84_finalreview (the core final test). Admin
+  // always sees everything. This is the *minimum* gating — the full
+  // user-facing presentation (dedicated "✨ Advanced Liru" section divider,
+  // separate progress bars) ships with the A1 unit completion batch.
+  // See advanced_track_plan.md §6.
+  const coreComplete=isAdmin||completedSet.has("l84_finalreview");
+  const visibleUnits=UNITS.filter(unit=>coreComplete||unit.track!=="advanced");
+
   // Build per-unit lesson groups so units can be collapsed when complete
   const unitIcons=['🌱','🏠','🌍','💡','⚙️','🔥'];
   let lessonsHTML="";
@@ -4987,9 +5038,13 @@ function renderHome(){
       </div>
     </div>`;
   } else {
-    UNITS.forEach((unitDef,unitIdx)=>{
+    visibleUnits.forEach((unitDef,visIdx)=>{
       const start=unitDef.start;
-      const end=(unitIdx+1<UNITS.length)?UNITS[unitIdx+1].start:LESSONS.length;
+      // End of this unit = start of the next *visible* unit, or end of LESSONS.
+      // The original UNITS array index is also used for collapse-state overrides
+      // (state.unitToggleOverrides) to keep IDs stable across visibility changes.
+      const end=(visIdx+1<visibleUnits.length)?visibleUnits[visIdx+1].start:LESSONS.length;
+      const unitIdx=UNITS.indexOf(unitDef);
       const unitLessons=LESSONS.slice(start,end);
       const doneCount=unitLessons.filter(l=>completedSet.has(l.id)).length;
       const unitComplete=doneCount===unitLessons.length && unitLessons.length>0;
