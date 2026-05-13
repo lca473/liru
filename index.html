@@ -4164,6 +4164,196 @@ const V = {
      cloze:{blanks:[1,3], bank:["lai","lononu","vi","laihu","molononu","su"]}},
   ],
 
+  // ═════════════════════════════════════════════════════════════════
+  // UNIT 29 (A15) — SPECIALIZED EMOTIONS
+  // ═════════════════════════════════════════════════════════════════
+  // 5 lessons (L168-L172): 4 vocab + 1 unit exam.
+  // 16 roots / 34 drilled forms total: 9 A15 anchor roots drilled
+  // here + 7 weave-in roots (4 canvas-completion of already-taught
+  // roots from the NOT-in-any-unit bucket, 3 thematic A21 absorptions).
+  // Everyday-form filter (A14 precedent) applied throughout: drill
+  // the adjective for predicate uses ("I am X"), the noun for the
+  // everyday abstract emotion, the verb for transitive/reflexive
+  // everyday uses. Two A14-precedent canvas-slot drops:
+  // moyoulu "to shame someone" and nauhu "to feel guilt" — both
+  // rhetorical/redundant with adj+su; remain in Dictionary.md.
+  // No new SRS_GLOSS_OVERRIDES, no new exercise types, no new
+  // mechanisms, no dictionary changes. See DECISIONS.md "A15 —
+  // Specialized Emotions" for the full record.
+
+  // L168 — Pride, shame, guilt, sadness
+  // Anchor (3 roots): youle (pride), moyoule (shame), nauhe (guilt).
+  // Weave-in (1): mohoule "sadness" — canvas-completion noun sibling
+  // of taught mohouli (L19 sad), per A10 canvas-completion convention.
+  // 4 roots / 8 drilled forms.
+  //   youle (n) + youli (adj) + youlu (v) — full canvas drilled.
+  //   moyoule (n) + moyouli (adj) — drilled. Verb moyoulu DROPPED
+  //     (rhetorical "to shame someone" — rarely conversational).
+  //   nauhe (n) + nauhi (adj) — drilled. Verb nauhu DROPPED
+  //     (redundant with su nauhi; rarely used as a standalone verb).
+  //   mohoule (n standalone) — drilled. pair:houle (taught L120).
+  //     Canvas-completion: noun sibling of taught mohouli (L19).
+  // Theme: introspective negative-evaluation emotions (shame, guilt)
+  // bracketed by positive youle (pride); mohoule (sadness) closes
+  // as the noun sibling of already-taught mohouli.
+  l168_vocab_pride_shame_guilt: [
+    {lw:"youle", en:"pride", pos:"n",
+     canvas:{adj:"youli", adj_en:"proud (or proudly)",
+             v:"youlu", v_en:"to take pride"}},
+    {lw:"moyoule", en:"shame", pos:"n",
+     pair:"youle",
+     canvas:{adj:"moyouli", adj_en:"ashamed (or shamefully)"},
+     note:"Drilled noun + adj only. The verb moyoulu \"to shame (someone)\" remains in Dictionary.md but isn't everyday speech — su moyouli covers the predicate use."},
+    {lw:"nauhe", en:"guilt (or remorse)", pos:"n",
+     canvas:{adj:"nauhi", adj_en:"guilty (or remorsefully)"},
+     note:"Drilled noun + adj only. The verb nauhu \"to feel guilt\" remains in Dictionary.md but is redundant with the everyday predicate Ne su nauhi."},
+    {lw:"mohoule", en:"sadness", pos:"n",
+     pair:"houle",
+     note:"Canvas-completion weave-in: noun sibling of taught mohouli (L19 sad). The mo- pair of taught houle (joy, L120). Completes the joy/sadness pair across both canvas slots."},
+  ],
+
+  // L169 — Excitement, boredom, loneliness, joy
+  // Anchor (3 roots): faile (excitement), tuhe (boredom), faune
+  // (loneliness). Weave-in (1): houlu "to rejoice" — canvas-
+  // completion verb sibling of taught houle/houli (L120/L19).
+  // 4 roots / 9 drilled forms.
+  //   faile (n) + faili (adj) + failu (v) — full canvas drilled.
+  //   tuhe (n) + tuhi (adj) + tuhu (v) — full canvas drilled.
+  //   faune (n) + fauni (adj) — drilled. No verb form exists in
+  //     Dictionary.md for this root (per advanced_track_words.md A15:
+  //     "2 forms" — noun + adj only).
+  //   houlu (v standalone) — drilled. Canvas-completion: verb sibling
+  //     of taught houle/houli. Pairs naturally with mohoule (L168)
+  //     to anchor the joy/sadness cluster across two lessons.
+  l169_vocab_excitement_boredom_loneliness: [
+    {lw:"faile", en:"excitement", pos:"n",
+     canvas:{adj:"faili", adj_en:"excited (or eagerly)",
+             v:"failu", v_en:"to excite"}},
+    {lw:"tuhe", en:"boredom", pos:"n",
+     canvas:{adj:"tuhi", adj_en:"bored",
+             v:"tuhu", v_en:"to bore (or make bored)"}},
+    {lw:"faune", en:"loneliness", pos:"n",
+     canvas:{adj:"fauni", adj_en:"lonely"},
+     note:"This root has no verb form in Dictionary.md — loneliness is a state, not an action performed on others."},
+    {lw:"houlu", en:"to rejoice", pos:"v",
+     note:"Canvas-completion weave-in: verb sibling of taught houle (joy, L120) and houli (happy, L19). Together with L168's mohoule (sadness), the joy/sadness pair is now complete across both canvas slots."},
+  ],
+
+  // L170 — Curiosity, jealousy, surprise, fear
+  // Anchor (2 roots): piore (curiosity), feore (jealousy).
+  // Weave-in (2): kaumu "to surprise" — canvas-completion verb
+  // sibling of taught kaume/kaumi (L120/L19); moyere "fear" —
+  // canvas-completion noun sibling of taught moyeru (A3 L96).
+  // 4 roots / 8 drilled forms.
+  //   piore (n) + piori (adj) + pioru (v) — full canvas drilled.
+  //   feore (n) + feori (adj) + feoru (v) — full canvas drilled.
+  //   kaumu (v standalone) — drilled. Canvas-completion of taught
+  //     kaume/kaumi. Mechanical adj kaumi not re-drilled (already
+  //     in L19 V map). Completes the surprise root across all three
+  //     canvas slots.
+  //   moyere (n standalone) — drilled. Canvas-completion of taught
+  //     moyeru (verb already in A3 L96). Completes the fear root
+  //     across the n+v slots; mechanical adj moyeri not drilled.
+  // Theme: outward-facing social/cognitive feelings — curiosity
+  // and jealousy as anchors, surprise and fear as their kin.
+  l170_vocab_curiosity_jealousy_surprise: [
+    {lw:"piore", en:"curiosity", pos:"n",
+     canvas:{adj:"piori", adj_en:"curious",
+             v:"pioru", v_en:"to wonder about"}},
+    {lw:"feore", en:"jealousy", pos:"n",
+     canvas:{adj:"feori", adj_en:"jealous (or jealously)",
+             v:"feoru", v_en:"to envy (or be jealous of)"}},
+    {lw:"kaumu", en:"to surprise (or startle)", pos:"v",
+     note:"Canvas-completion weave-in: verb sibling of taught kaume (surprise, L120) and kaumi (surprised, L19). Completes the surprise canvas across all three slots."},
+    {lw:"moyere", en:"fear", pos:"n",
+     note:"Canvas-completion weave-in: noun sibling of taught moyeru (to fear, A3 L96). The everyday abstract noun for the emotion."},
+  ],
+
+  // L171 — Belonging, trust, hate, doubt
+  // Anchor (1 root): wauye (belonging). Weave-in (3): lene (trust),
+  // monawu/monawi (hate) — mo-pair completion of taught nawe/nawi/
+  // nawu (L18/A10), moroihu (to doubt) — both A21 absorptions per
+  // §14 maximize-weave-in.
+  // 4 roots / 9 drilled forms.
+  //   wauye (n) + wauyi (adj) + wauyu (v) — full canvas drilled.
+  //   lene (n) + leni (adj) + lenu (v) — full canvas drilled. All
+  //     three forms are everyday.
+  //   monawu (v) + monawi (adj) — drilled as separate V entries
+  //     (A14 precedent shape — "adj+v as separate entries when
+  //     noun is dropped"). The abstract noun monawe "hate" remains
+  //     in Dictionary.md but isn't everyday — su monawi covers the
+  //     predicate use, and the everyday transitive is the verb.
+  //   moroihu (v standalone) — drilled. The abstract noun moroihe
+  //     "doubt" and adj moroihi "doubtful" remain in Dictionary.md
+  //     but the everyday usage is the verb, especially with lai
+  //     complement clauses (Grammar.md §11): "Ne moroihu lai..."
+  //     "I doubt that..."
+  // Theme: the trust cluster — both positive (belonging, trust)
+  // and its shadows (hate, doubt). Closes the unit on the
+  // philosophical anchor of wauye (belonging).
+  l171_vocab_belonging_trust: [
+    {lw:"wauye", en:"belonging", pos:"n",
+     canvas:{adj:"wauyi", adj_en:"belonging (or rightful)",
+             v:"wauyu", v_en:"to belong"}},
+    {lw:"lene", en:"trust", pos:"n",
+     canvas:{adj:"leni", adj_en:"trustworthy",
+             v:"lenu", v_en:"to trust"},
+     note:"Weave-in from A21. All three canvas forms are everyday — trust as state, as quality of a person, as action."},
+    {lw:"monawu", en:"to hate", pos:"v",
+     pair:"nawu",
+     note:"Weave-in from A21. The mo- pair of taught nawu (to love, L18). Drilled as verb + adj only — the abstract noun monawe remains in Dictionary.md but isn't everyday; the predicate use is su monawi."},
+    {lw:"monawi", en:"hateful", pos:"adj",
+     note:"Adjective form of the monawe root. Everyday predicate: Ne su monawi \"I am hateful.\""},
+    {lw:"moroihu", en:"to doubt", pos:"v",
+     note:"Weave-in from A21. Drilled as verb only — the abstract noun moroihe and adj moroihi remain in Dictionary.md but aren't everyday. The everyday usage pairs naturally with lai complement clauses (L95): Ne moroihu lai... \"I doubt that...\""},
+  ],
+
+  // L172 — Unit Exam: Specialized Emotions
+  // 14 sentences covering all 16 drilled roots in L168-L171 plus
+  // the unit's grammatical patterns: predicate adj with su (L19),
+  // past wa (L25), attributive adj left-branching (L17), action
+  // verb (no su, L25), possessive -eo (L15), plural inflection
+  // implicit, quantifier nai adverbial (L60 + Grammar.md §14),
+  // conjunction ma (L34), wule "after" (L28/Grammar §10),
+  // embedded ki-question (Grammar §11), relative lai (L95),
+  // ahu (L53), comparative-context vocab. Cloze on 4 sentences
+  // (S3, S7, S10, S14) targeting the new emotion vocabulary in
+  // form-discrimination contexts. Three hearts checkpoint.
+  l172_emotions_exam: [
+    {lw:["Ne","su","youli"],
+     en:"I am proud."},
+    {lw:["Ne","moroihu","lai","ve","wu","vanu"],
+     en:"I doubt that she will come."},
+    {lw:["Veo","mohoule","su","mopiami"],
+     en:"Her sadness is big.",
+     cloze:{blanks:[1,3], bank:["mohoule","mopiami","mohouli","mopiame","houli","houle"]}},
+    {lw:["Ne","su","faili"],
+     en:"I am excited."},
+    {lw:["Lo","loiwe","tuhu","ne"],
+     en:"This book bores me."},
+    {lw:["Maya","su","fauni","sho","moyouli"],
+     en:"Maya is lonely and ashamed."},
+    {lw:["Ve","wa","houlu","wule","lononu"],
+     en:"She rejoiced after winning.",
+     cloze:{blanks:[2,4], bank:["houlu","lononu","houle","lonone","kaumu","moyere"]}},
+    {lw:["Ne","pioru","kiya","ve","halu"],
+     en:"I wonder where she's going."},
+    {lw:["Lo","lawe","ne","feoru","veo","houle"],
+     en:"Today I envy her joy."},
+    {lw:["Lo","loiwe","wa","kaumu","ne"],
+     en:"This book surprised me.",
+     cloze:{blanks:[2,3], bank:["wa","kaumu","su","kaumi","wu","kaume"]}},
+    {lw:["Ne","ahu","nai","moyere"],
+     en:"I have a lot of fear."},
+    {lw:["Wauye","su","wohimi"],
+     en:"Belonging is important."},
+    {lw:["Ne","wauyu","loya"],
+     en:"I belong here."},
+    {lw:["Ne","mai","lenu","pue","lai","monawu","ne"],
+     en:"I don't trust the person who hates me.",
+     cloze:{blanks:[2,5], bank:["lenu","monawu","leni","monawi","monawe","lene"]}},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -4213,6 +4403,7 @@ const UNITS = [
   {name:"Unit 26 — Animals", start:140, track:"advanced"},
   {name:"Unit 27 — Plants & Nature Taxonomy", start:149, track:"advanced"},
   {name:"Unit 28 — Specialized Verbs of Motion & Action", start:153, track:"advanced"},
+  {name:"Unit 29 — Specialized Emotions", start:161, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -5856,6 +6047,53 @@ const LESSONS = [
    vocabKey:"l167_motion_action_exam",
    xp:30,
    unit:27,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── UNIT 29 (A15): SPECIALIZED EMOTIONS (L168–L172) ──────────────────
+  {id:"l168_vocab_pride_shame_guilt",
+   title:"Pride, Shame, Guilt, Sadness",
+   desc:"youle (pride), moyoule (shame), nauhe (guilt), mohoule (sadness)",
+   icon:"😔",
+   vocabKey:"l168_vocab_pride_shame_guilt",
+   xp:18,
+   unit:28,
+   intro:`<h3>😔 Welcome to specialized emotions</h3><p>This unit teaches the emotional vocabulary you'd reach for beyond the basics. You already know <em>houli</em> (happy), <em>mohouli</em> (sad), <em>kaumi</em> (surprised), <em>tauki</em> (angry), <em>moyeru</em> (to fear), and <em>waihi</em> (hopeful). This unit adds the more specific feelings — pride, shame, guilt, excitement, boredom, loneliness, curiosity, jealousy, belonging, trust, and their shadows.</p><h3>🏆 Pride and shame — a balancing pair</h3><p><em>youle</em> (pride) and <em>moyoule</em> (shame) form a <em>mo-</em> pair. The pride/shame opposition is one of the cleanest balancing pairs in the emotional vocabulary — both are evaluations of the self, one positive, one negative.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>youle</em> (n.)</td><td style="padding:4px 12px">pride</td></tr><tr><td style="padding:4px 12px"><em>youli</em> (adj.)</td><td style="padding:4px 12px">proud (or proudly)</td></tr><tr><td style="padding:4px 12px"><em>youlu</em> (v.)</td><td style="padding:4px 12px">to take pride</td></tr><tr><td style="padding:4px 12px"><em>moyoule</em> (n.)</td><td style="padding:4px 12px">shame</td></tr><tr><td style="padding:4px 12px"><em>moyouli</em> (adj.)</td><td style="padding:4px 12px">ashamed (or shamefully)</td></tr></table><h3>😟 Guilt</h3><p><em>nauhe</em> (guilt) sits near shame but is distinct — guilt is about a specific action you took, while shame is about who you are. In Liru as in English, the most natural use is the adjective with the copula: <em>Ne su nauhi</em> "I feel guilty."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nauhe</em> (n.)</td><td style="padding:4px 12px">guilt (or remorse)</td></tr><tr><td style="padding:4px 12px"><em>nauhi</em> (adj.)</td><td style="padding:4px 12px">guilty (or remorsefully)</td></tr></table><h3>😢 Sadness — the noun behind <em>mohouli</em></h3><p>You already learned <em>mohouli</em> (sad) back in Unit 4 and <em>houle</em> (joy) in Unit 22. This lesson surfaces the noun <em>mohoule</em> — sadness as a state. Now you have the full <em>houle</em>/<em>mohoule</em> pair across both the noun and adjective slots.</p><span class="example">Ne su youli. <span class="gloss">I am proud.</span></span><span class="example">Veo nauhe su mopiami. <span class="gloss">Her guilt is big.</span></span><span class="example">Mohoule su kufi. <span class="gloss">Sadness is painful.</span></span>`},
+
+  {id:"l169_vocab_excitement_boredom_loneliness",
+   title:"Excitement, Boredom & Loneliness",
+   desc:"faile (excitement), tuhe (boredom), faune (loneliness), houlu (rejoice)",
+   icon:"🎉",
+   vocabKey:"l169_vocab_excitement_boredom_loneliness",
+   xp:18,
+   unit:28,
+   intro:`<h3>🎉 Three more emotional states</h3><p>Three roots covering the high/low energy spectrum (excitement and boredom) plus loneliness, the social-absence feeling. All three have natural transitive verb forms — things in the world can excite you, bore you, or (in the case of loneliness) leave you alone.</p><h3>⚡ Excitement</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>faile</em> (n.)</td><td style="padding:4px 12px">excitement</td></tr><tr><td style="padding:4px 12px"><em>faili</em> (adj.)</td><td style="padding:4px 12px">excited (or eagerly)</td></tr><tr><td style="padding:4px 12px"><em>failu</em> (v.)</td><td style="padding:4px 12px">to excite</td></tr></table><h3>😴 Boredom</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>tuhe</em> (n.)</td><td style="padding:4px 12px">boredom</td></tr><tr><td style="padding:4px 12px"><em>tuhi</em> (adj.)</td><td style="padding:4px 12px">bored</td></tr><tr><td style="padding:4px 12px"><em>tuhu</em> (v.)</td><td style="padding:4px 12px">to bore (or make bored)</td></tr></table><h3>😔 Loneliness</h3><p><em>faune</em> (loneliness) has only the noun and adjective forms — loneliness is a state, not something you do to others. Compare with <em>faile</em> and <em>tuhe</em> above, which both have transitive verb forms.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>faune</em> (n.)</td><td style="padding:4px 12px">loneliness</td></tr><tr><td style="padding:4px 12px"><em>fauni</em> (adj.)</td><td style="padding:4px 12px">lonely</td></tr></table><h3>🙌 Rejoicing — the verb behind <em>houle</em></h3><p>You learned the noun <em>houle</em> (joy) in Unit 22 and the adjective <em>houli</em> (happy) in Unit 4. This lesson surfaces the verb form <em>houlu</em> — to rejoice, to actively feel joy. Together with <em>mohoule</em> from the previous lesson, the joy/sadness root family is now complete.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>houlu</em> (v.)</td><td style="padding:4px 12px">to rejoice</td></tr></table><span class="example">Ne su faili. <span class="gloss">I am excited.</span></span><span class="example">Lo loiwe tuhu ne. <span class="gloss">This book bores me.</span></span><span class="example">Veo mawe wa houlu. <span class="gloss">Her mother rejoiced.</span></span>`},
+
+  {id:"l170_vocab_curiosity_jealousy_surprise",
+   title:"Curiosity, Jealousy, Surprise & Fear",
+   desc:"piore (curiosity), feore (jealousy), kaumu (surprise), moyere (fear)",
+   icon:"🤔",
+   vocabKey:"l170_vocab_curiosity_jealousy_surprise",
+   xp:18,
+   unit:28,
+   intro:`<h3>🤔 Outward-facing feelings</h3><p>This lesson covers four emotions that all point outward — at things, people, or events in the world. Curiosity points at what you don't yet know; jealousy points at what someone else has; surprise points at what you didn't expect; fear points at what threatens you.</p><h3>🧐 Curiosity</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>piore</em> (n.)</td><td style="padding:4px 12px">curiosity</td></tr><tr><td style="padding:4px 12px"><em>piori</em> (adj.)</td><td style="padding:4px 12px">curious</td></tr><tr><td style="padding:4px 12px"><em>pioru</em> (v.)</td><td style="padding:4px 12px">to wonder about</td></tr></table><p>The verb <em>pioru</em> pairs naturally with the embedded question pattern: <em>Ne pioru kiya ve halu</em> "I wonder where she's going."</p><h3>😒 Jealousy</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>feore</em> (n.)</td><td style="padding:4px 12px">jealousy</td></tr><tr><td style="padding:4px 12px"><em>feori</em> (adj.)</td><td style="padding:4px 12px">jealous (or jealously)</td></tr><tr><td style="padding:4px 12px"><em>feoru</em> (v.)</td><td style="padding:4px 12px">to envy (or be jealous of)</td></tr></table><h3>😲 The verb behind <em>kaume</em></h3><p>You learned <em>kaume</em> (surprise, n.) and <em>kaumi</em> (surprised, adj.) in earlier units. This lesson surfaces the verb form <em>kaumu</em> — what something does to you when it's surprising.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kaumu</em> (v.)</td><td style="padding:4px 12px">to surprise (or startle)</td></tr></table><h3>😨 The noun behind <em>moyeru</em></h3><p>You learned the verb <em>moyeru</em> (to fear) in an earlier unit. This lesson surfaces the noun form <em>moyere</em> — fear as a feeling you can have or describe.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moyere</em> (n.)</td><td style="padding:4px 12px">fear</td></tr></table><span class="example">Lo piwe su piori. <span class="gloss">This child is curious.</span></span><span class="example">Ne feoru veo houle. <span class="gloss">I envy her joy.</span></span><span class="example">Lo loiwe wa kaumu ne. <span class="gloss">This book surprised me.</span></span><span class="example">Ne ahu nai moyere. <span class="gloss">I have a lot of fear.</span></span>`},
+
+  {id:"l171_vocab_belonging_trust",
+   title:"Belonging, Trust, Hate & Doubt",
+   desc:"wauye (belonging), lene (trust), monawu (hate), moroihu (doubt)",
+   icon:"🤝",
+   vocabKey:"l171_vocab_belonging_trust",
+   xp:18,
+   unit:28,
+   intro:`<h3>🤝 The trust cluster — closing the unit</h3><p>The last lesson of the unit lands on the interpersonal-feeling cluster. Two positive — belonging and trust. Two shadows — hate and doubt. The four roots span the full range of how you orient toward other people.</p><h3>🏡 Belonging</h3><p><em>wauye</em> (belonging) is the philosophical anchor of the unit — the feeling of being where you should be, with whom you should be. The adjective <em>wauyi</em> carries the parenthetical alternative "rightful," reflecting the deeper sense: what belongs to you is what is rightfully yours.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>wauye</em> (n.)</td><td style="padding:4px 12px">belonging</td></tr><tr><td style="padding:4px 12px"><em>wauyi</em> (adj.)</td><td style="padding:4px 12px">belonging (or rightful)</td></tr><tr><td style="padding:4px 12px"><em>wauyu</em> (v.)</td><td style="padding:4px 12px">to belong</td></tr></table><h3>🙏 Trust</h3><p>All three canvas forms of <em>lene</em> (trust) are everyday — the state, the quality of a person, and the action itself.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lene</em> (n.)</td><td style="padding:4px 12px">trust</td></tr><tr><td style="padding:4px 12px"><em>leni</em> (adj.)</td><td style="padding:4px 12px">trustworthy</td></tr><tr><td style="padding:4px 12px"><em>lenu</em> (v.)</td><td style="padding:4px 12px">to trust</td></tr></table><h3>💔 Hate — the <em>mo-</em> pair of love</h3><p>You learned <em>nawu</em> (to love) in Unit 4 and the noun and adverb <em>nawe</em>/<em>nawi</em> in the extended family unit. <em>monawu</em> is its <em>mo-</em> pair — to hate — and <em>monawi</em> is the adjective "hateful."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>monawu</em> (v.)</td><td style="padding:4px 12px">to hate</td></tr><tr><td style="padding:4px 12px"><em>monawi</em> (adj.)</td><td style="padding:4px 12px">hateful</td></tr></table><h3>🤨 Doubt</h3><p><em>moroihu</em> (to doubt) is the natural partner of <em>lai</em> complement clauses (Unit 17): <em>Ne moroihu lai ve wu vanu</em> "I doubt that she will come."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moroihu</em> (v.)</td><td style="padding:4px 12px">to doubt</td></tr></table><span class="example">Wauye su wohimi. <span class="gloss">Belonging is important.</span></span><span class="example">Ne lenu veo mawe. <span class="gloss">I trust her mother.</span></span><span class="example">Ne mai monawu te. <span class="gloss">I do not hate you.</span></span><span class="example">Ne moroihu lai ve wu vanu. <span class="gloss">I doubt that she will come.</span></span>`},
+
+  {id:"l172_emotions_exam",
+   title:"Unit 29 Exam — Specialized Emotions",
+   desc:"Three hearts. Fourteen sentences spanning all four emotion lessons, plus cloze on four key constructions.",
+   icon:"💗",
+   vocabKey:"l172_emotions_exam",
+   xp:30,
+   unit:28,
    isSentence:true,
    isCheckpoint:true},
 ];
