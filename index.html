@@ -2902,6 +2902,166 @@ const V = {
      en:"You count four minutes."},
   ],
 
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 22 (A8) — HIGH-FREQUENCY VOCABULARY (advanced track)
+  // ════════════════════════════════════════════════════════════════
+  // Eighth advanced-track unit. Surfaces common, useful vocabulary
+  // that was deferred from core but doesn't fit any thematic breadth
+  // bucket — particles, quantifiers, concrete nouns, abstract nouns,
+  // and noun-of-taught-verb pairs. Re-routes the original A8 scope
+  // (Cardinal Directions & Geography) to the next slot (now A9).
+  //
+  // 7 lessons (L120–L126 vocab + L127 unit exam). 28 roots / 33 forms
+  // drilled across the unit. All vocab-based except the exam.
+  //
+  // Per advanced_track_plan.md §4 and DECISIONS.md "A8 (renumbered).
+  //
+  // L120: na, tae/tai, sai (3 roots — particles + quantifiers)
+  // L121: poye/poyi, taupoye, fere, fase (4 roots — concrete nouns)
+  // L122: houle, muhe/muhu, tauke, kaume (4 roots — emotion nouns)
+  // L123: wane, hoye, pire, lire (4 roots — noun forms of taught verbs)
+  // L124: sahe/sahi, shihe, mere, mihe (4 roots — abstract nouns)
+  // L125: kaise/kaisu, nawe, sene, yeihe (4 roots — learning cluster)
+  // L126: wali, wuli, rae/rai (3 roots — temporal modifiers + sleep noun)
+  // L127: unit exam, sentence-based, isCheckpoint
+  //
+  // Convention notes (per A6 selective-canvas-slot precedent):
+  //   - Many emotion roots (houle, tauke, kaume) and noun-of-verb
+  //     roots (wane, hoye, pire, lire, etc.) have full canvas in
+  //     Dictionary.md but we drill only the noun form here, because
+  //     the adj/verb forms are either already taught in core OR are
+  //     low-frequency siblings (e.g. tauku "to anger someone").
+  //   - L122 includes muhu (to worry) alongside muhe (worry) because
+  //     "I worry about X" is genuinely high-frequency conversation,
+  //     unlike the other three causative verbs.
+  //   - L121's taupoye (window) is a productive compound — taught
+  //     immediately after poye (door) so the composition is transparent.
+
+  // L120 — Particles and Quantifiers (vocab)
+  // 3 roots, 4 forms. Light teaching lesson establishing the relational
+  // particle `na` and completing the quantifier family with `tai` and `sai`.
+  // `tae` is the noun sibling of `tau` (taught L53); we teach it alongside
+  // `tai` so learners see the full root.
+  l120_vocab_particles_quantifiers: [
+    {lw:"na",  en:"for",                       pos:"particle"},
+    {lw:"tae", en:"the whole (or totality)",   pos:"n",
+     canvas:{adj:"tai", adj_en:"all (or every)"}},
+    {lw:"sai", en:"some",                      pos:"adj"},
+  ],
+
+  // L121 — Concrete Useful Nouns (vocab)
+  // 4 roots, 6 forms. Door + open canvas pair, window as productive
+  // compound, plus gift and work/job. Verbs (poyu, feru, fasu) are
+  // already taught in core — these are the noun siblings.
+  l121_vocab_concrete: [
+    {lw:"poye",    en:"door (or opening)", pos:"n",
+     canvas:{adj:"poyi", adj_en:"open"}},
+    {lw:"taupoye", en:"window",            pos:"n",
+     note:"From tauwe (wall) + poye (opening) — window"},
+    {lw:"fere",    en:"gift",              pos:"n"},
+    {lw:"fase",    en:"work (or job)",     pos:"n"},
+  ],
+
+  // L122 — Emotion Nouns (vocab)
+  // 4 roots, 5 forms. Adjectives houli/muhi/tauki/kaumi already taught
+  // in core (L18/L24). Here we add the noun forms — letting learners
+  // name the feelings as objects. muhu "to worry" added as the one
+  // high-frequency verb in this cluster; houlu/tauku/kaumu are rare
+  // causatives, skipped per selective-canvas-slot teaching (A6).
+  l122_vocab_emotion_nouns: [
+    {lw:"houle", en:"joy",      pos:"n"},
+    {lw:"muhe",  en:"worry",    pos:"n",
+     canvas:{v:"muhu", v_en:"to worry"}},
+    {lw:"tauke", en:"anger",    pos:"n"},
+    {lw:"kaume", en:"surprise", pos:"n"},
+  ],
+
+  // L123 — Noun Forms of Taught Verbs (vocab)
+  // 4 roots, 4 forms. All four verbs (wanu, hoyu, piru, liru) are
+  // already taught in core. This lesson establishes the canvas system
+  // as a productive tool: strip -u, add -e to get the sibling noun.
+  // CRITICAL TEACHING POINT (per Neal): these are NOUNS, not verbs.
+  // Intro card emphasizes the distinction explicitly.
+  l123_vocab_noun_of_verb: [
+    {lw:"wane", en:"want (or desire)", pos:"n"},
+    {lw:"hoye", en:"purchase",         pos:"n"},
+    {lw:"pire", en:"thought",          pos:"n"},
+    {lw:"lire", en:"song (or speech)", pos:"n"},
+  ],
+
+  // L124 — Abstract Nouns and Possibility (vocab)
+  // 4 roots, 5 forms. sahe and sahi taught together (same root).
+  // sahi "possible/maybe" is high-value as a standalone adverb reply.
+  // shihe noun only, no shihi (per Neal). mere and mihe noun-only;
+  // their verbs (meru, mihu) already taught in core.
+  l124_vocab_abstract_nouns: [
+    {lw:"sahe",  en:"ability (or possibility)", pos:"n",
+     canvas:{adj:"sahi", adj_en:"possible (or maybe)"}},
+    {lw:"shihe", en:"obligation",               pos:"n"},
+    {lw:"mere",  en:"memory",                   pos:"n"},
+    {lw:"mihe",  en:"need",                     pos:"n"},
+  ],
+
+  // L125 — Learning, Knowing, Understanding (vocab)
+  // 4 roots, 5 forms. kaise + kaisu canvas pair fixes the learn/teach
+  // asymmetry (mauhu was taught in L82 but kaisu was not). nawe, sene,
+  // yeihe are the noun siblings of already-taught verbs nawu (L8),
+  // senu (L9), yeihu (L81).
+  l125_vocab_learning_cluster: [
+    {lw:"kaise", en:"lesson",        pos:"n",
+     canvas:{v:"kaisu", v_en:"to teach"}},
+    {lw:"nawe",  en:"love",          pos:"n"},
+    {lw:"sene",  en:"knowledge",     pos:"n"},
+    {lw:"yeihe", en:"understanding", pos:"n"},
+  ],
+
+  // L126 — Temporal Modifiers and Sleep (vocab)
+  // 3 roots, 4 forms. wali/wuli pair with already-taught wale/wule
+  // (before/after, L28). rae/rai canvas pair connects to already-taught
+  // rau "to sleep" (L48). Cleanup batch of three useful roots that
+  // didn't fit other thematic lessons.
+  l126_vocab_time_state: [
+    {lw:"wali", en:"previous", pos:"adj"},
+    {lw:"wuli", en:"next",     pos:"adj"},
+    {lw:"rae",  en:"sleep",    pos:"n",
+     canvas:{adj:"rai", adj_en:"sleepy"}},
+  ],
+
+  // L127 — Unit 22 (A8) Exam — High-Frequency Vocabulary
+  // 10 sentences, sentence-based, isCheckpoint. Cloze on 4. Mixes
+  // representative spread of unit forms with already-taught vocab.
+  // Coverage: not exhaustive (10 sentences can't fit all 33 forms)
+  // but representative. Other forms get SRS coverage post-completion.
+  // See preflight.js sentenceLessonNewForms for budget (no new forms
+  // — all unit forms declared in V entries above).
+  l127_high_freq_exam: [
+    {lw:["Ne","wa","feru","lo","fere","so","Maya"],
+     en:"I gave this gift to Maya."},
+    {lw:["Tai","piwea","ahu","houle"],
+     en:"All children have joy.",
+     cloze:{blanks:[0,3], bank:["tai","houle","sai","kaume","muhe","tauke","mere","wane"]}},
+    {lw:["Neo","wane","su","sai","shawe"],
+     en:"My desire is some water.",
+     cloze:{blanks:[1], bank:["wane","hoye","pire","lire","mere","mihe","houle","nawe"]}},
+    {lw:["Lo","lire","su","na","neo","mawe"],
+     en:"This song is for my mother.",
+     cloze:{blanks:[3], bank:["na","ko","fa","la","so","wo","ya","leu"]}},
+    {lw:["Lo","poye","su","poyi"],
+     en:"This door is open.",
+     cloze:{blanks:[1,3], bank:["poye","poyi","taupoye","fere","fase","kaise","houle","muhe"]}},
+    {lw:["Yuna","wu","kaisu","lo","kaise"],
+     en:"Yuna will teach this lesson."},
+    {lw:["Ne","ahu","mihe","na","sai","rae"],
+     en:"I have a need for some sleep.",
+     cloze:{blanks:[2], bank:["mihe","mere","wane","houle","pire","sene","yeihe","sahe"]}},
+    {lw:["Veo","kaume","su","ori"],
+     en:"Her surprise was great."},
+    {lw:["Yuna","ahu","nai","sene"],
+     en:"Yuna has much knowledge."},
+    {lw:["Lo","wali","kaise","wa","nauyi"],
+     en:"The previous lesson was fun."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2944,6 +3104,7 @@ const UNITS = [
   {name:"Unit 19 — Existential Pronouns", start:100, track:"advanced"},
   {name:"Unit 20 — Colors", start:104, track:"advanced"},
   {name:"Unit 21 — Numbers Beyond 10, Ordinals & Months", start:109, track:"advanced"},
+  {name:"Unit 22 — High-Frequency Vocabulary", start:113, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -4097,6 +4258,85 @@ const LESSONS = [
    unit:20,
    isSentence:true,
    isCheckpoint:true},
+
+  // ── Unit 22 (A8) — High-Frequency Vocabulary ──────────────────
+  // 7 lessons (L120–L126 vocab + L127 unit exam). Surfaces 28 high-
+  // frequency roots / 33 forms that were deferred from core but
+  // don't fit any thematic breadth bucket. See V map block for the
+  // per-lesson breakdown, and advanced_track_plan.md §4.
+
+  {id:"l120_vocab_particles_quantifiers",
+   title:"For, All, and Some",
+   desc:"na (for), tae/tai (whole/all), sai (some)",
+   icon:"🔢",
+   vocabKey:"l120_vocab_particles_quantifiers",
+   xp:14,
+   unit:21,
+   intro:`<h3>🔗 The particle <em>na</em> — \"for\"</h3><p>Liru's relational particles (<em>fa</em>, <em>ko</em>, <em>wo</em>, <em>so</em>, <em>ya</em>) all sit between two nouns and show how they relate. <em>na</em> means <strong>for</strong>:</p><span class="example">Lo loiwe su na te. <span class="gloss">This book is for you.</span></span><span class="example">Lo lawe su na neo mawe. <span class="gloss">Today is for my mother.</span></span><p>Same position, same shape as the other particles.</p><h3>📊 The quantifier family</h3><p>You already know three of the five Liru quantifiers. Here's the full set:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>tai</em></td><td style="padding:4px 12px">all (or every)</td></tr><tr><td style="padding:4px 12px"><em>nai</em></td><td style="padding:4px 12px">many (or much) — known</td></tr><tr><td style="padding:4px 12px"><em>sai</em></td><td style="padding:4px 12px">some (or a few)</td></tr><tr><td style="padding:4px 12px"><em>fai</em></td><td style="padding:4px 12px">any — known via <em>faipue</em>/<em>faihue</em></td></tr><tr><td style="padding:4px 12px"><em>nuli</em></td><td style="padding:4px 12px">none — known via the number 0 and <em>nulipue</em>/<em>nulihue</em></td></tr></table><p>All five are adjectives — they sit before a noun:</p><span class="example">Tai piwea wa rau. <span class="gloss">All the children slept.</span></span><span class="example">Sai mewea su rai. <span class="gloss">Some cats are sleepy.</span></span><p>They can also sit <strong>after</strong> a verb as adverbs:</p><span class="example">Ne wa tahu sai. <span class="gloss">I ate some.</span></span><h3>🌐 The noun <em>tae</em> — \"the whole\"</h3><p><em>tai</em> (all) is the adjective form of root <em>tae</em>, which means <strong>the whole</strong> or <strong>totality</strong> as a noun. You already know its verb sibling <em>tau</em> \"to complete\" (from the age idiom in L53).</p><span class="example">Lo su tae. <span class="gloss">This is the whole (of it).</span></span>`},
+
+  {id:"l121_vocab_concrete",
+   title:"Door, Window, Gift, Work",
+   desc:"poye, taupoye (window), fere, fase",
+   icon:"🚪",
+   vocabKey:"l121_vocab_concrete",
+   xp:18,
+   unit:21,
+   intro:`<h3>🚪 Door and window</h3><p><em>poye</em> means <strong>door</strong> (or more abstractly, <em>opening</em>). Its adjective sibling <em>poyi</em> means <strong>open</strong>. You already know its verb form <em>poyu</em> (to open) from L78.</p><span class="example">Lo poye su poyi. <span class="gloss">This door is open.</span></span><p><strong>Window</strong> is built compositionally: <em>tauwe</em> (wall) + <em>poye</em> (opening) → <em>taupoye</em>. A window is literally a \"wall-opening\":</p><span class="example">Lo taupoye su piami. <span class="gloss">This window is small.</span></span><h3>🎁 Gift and work</h3><p>Two more useful nouns. Their verbs are already known: <em>feru</em> \"to give\" (L77) and <em>fasu</em> \"to work\" (L82). These are the noun siblings.</p><span class="example">Ne wa feru lo fere so te. <span class="gloss">I gave this gift to you.</span></span><span class="example">Neo fase su ori. <span class="gloss">My job is intense.</span></span><p>A small naming note: <em>fase</em> covers both the abstract concept (\"work\") and the concrete sense (\"a job\") — Liru doesn't split them.</p>`},
+
+  {id:"l122_vocab_emotion_nouns",
+   title:"Joy, Worry, Anger, Surprise",
+   desc:"houle, muhe + muhu, tauke, kaume — the noun forms of the emotions you know",
+   icon:"😊",
+   vocabKey:"l122_vocab_emotion_nouns",
+   xp:18,
+   unit:21,
+   intro:`<h3>😊 The feelings as objects</h3><p>You already know how to describe these feelings — the adjectives are from L18 and L24:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">known (adj.)</th><th style="padding:4px 12px;color:var(--dim)">new (n.)</th></tr><tr><td style="padding:4px 12px"><em>houli</em> — happy</td><td style="padding:4px 12px"><em>houle</em> — joy</td></tr><tr><td style="padding:4px 12px"><em>muhi</em> — anxious</td><td style="padding:4px 12px"><em>muhe</em> — worry</td></tr><tr><td style="padding:4px 12px"><em>tauki</em> — angry</td><td style="padding:4px 12px"><em>tauke</em> — anger</td></tr><tr><td style="padding:4px 12px"><em>kaumi</em> — surprised</td><td style="padding:4px 12px"><em>kaume</em> — surprise</td></tr></table><p>The noun lets you treat the feeling as a thing you have or talk about:</p><span class="example">Veo houle su ori. <span class="gloss">Her joy is great.</span></span><span class="example">Ne ahu nai muhe. <span class="gloss">I have a lot of worry.</span></span><h3>😟 A useful verb: <em>muhu</em></h3><p>\"To worry\" — <em>muhu</em> — is high-frequency on its own:</p><span class="example">Mai muhu. <span class="gloss">Don't worry.</span></span><span class="example">Neo mawe wa muhu. <span class="gloss">My mother worried.</span></span><p>The dictionary also has verb forms for joy, anger, and surprise (<em>houlu</em> to rejoice, <em>tauku</em> to anger someone, <em>kaumu</em> to surprise someone), but they're rarer than <em>muhu</em> — we'll let those wait.</p>`},
+
+  {id:"l123_vocab_noun_of_verb",
+   title:"Noun Forms of Verbs You Know",
+   desc:"wane (want), hoye (purchase), pire (thought), lire (song)",
+   icon:"💭",
+   vocabKey:"l123_vocab_noun_of_verb",
+   xp:18,
+   unit:21,
+   intro:`<h3>💭 These are nouns — not the verbs!</h3><p>This lesson teaches four <strong>noun</strong> forms of verbs you already know. They look almost identical to the verbs — only the final vowel changes:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">known verb</th><th style="padding:4px 12px;color:var(--dim)">new noun</th></tr><tr><td style="padding:4px 12px"><em>wanu</em> — to want (L7)</td><td style="padding:4px 12px"><em>wane</em> — a want, a desire</td></tr><tr><td style="padding:4px 12px"><em>hoyu</em> — to buy (L59)</td><td style="padding:4px 12px"><em>hoye</em> — a purchase</td></tr><tr><td style="padding:4px 12px"><em>piru</em> — to think (L78)</td><td style="padding:4px 12px"><em>pire</em> — a thought</td></tr><tr><td style="padding:4px 12px"><em>liru</em> — to speak, sing, say (L25)</td><td style="padding:4px 12px"><em>lire</em> — a song, speech</td></tr></table><h3>🔁 The pattern is productive</h3><p>This is the canvas system at work. Strip the <em>-u</em> from a verb, replace with <em>-e</em>, and you have its sibling noun. Once you internalize this, the dictionary essentially doubles.</p><span class="example">Ne nawu te. <span class="gloss">I love you. (verb)</span></span><span class="example">Neo nawe su ori. <span class="gloss">My love is great. (noun)</span></span><p>Heads-up: not every verb has a useful noun sibling (some sound natural, others are rare). But for these four, the noun form is everyday vocabulary:</p><span class="example">Lo lire su nai waihi. <span class="gloss">This song is very hopeful.</span></span><span class="example">Neo wane su rae. <span class="gloss">My desire is sleep.</span></span>`},
+
+  {id:"l124_vocab_abstract_nouns",
+   title:"Ability, Obligation, Memory, Need",
+   desc:"sahe + sahi (maybe), shihe, mere, mihe — abstract nouns paired with modals you know",
+   icon:"🧠",
+   vocabKey:"l124_vocab_abstract_nouns",
+   xp:20,
+   unit:21,
+   intro:`<h3>🧠 The abstract sibling of each modal verb</h3><p>The Liru modal verbs from L20 — <em>sahu</em> \"can\" and <em>shihu</em> \"must\" — both have noun siblings that name the underlying concept:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">verb</th><th style="padding:4px 12px;color:var(--dim)">noun</th></tr><tr><td style="padding:4px 12px"><em>sahu</em> — can, to be able to</td><td style="padding:4px 12px"><em>sahe</em> — ability, possibility</td></tr><tr><td style="padding:4px 12px"><em>shihu</em> — must, should</td><td style="padding:4px 12px"><em>shihe</em> — obligation</td></tr></table><span class="example">Veo sahe su ori. <span class="gloss">Her ability is great.</span></span><span class="example">Ne ahu shihe. <span class="gloss">I have an obligation.</span></span><h3>🤔 <em>sahi</em> — \"possible / maybe\"</h3><p>Root <em>sahe</em> has an adjective form too: <em>sahi</em>, meaning <strong>possible</strong> or, as a standalone reply, <strong>maybe</strong>:</p><span class="example">"Te wu vanu?" "Sahi." <span class="gloss">"Will you come?" "Maybe."</span></span><span class="example">Lo su sahi. <span class="gloss">This is possible.</span></span><h3>🧐 Memory and need</h3><p>Two more noun forms whose verbs you already know:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">verb</th><th style="padding:4px 12px;color:var(--dim)">noun</th></tr><tr><td style="padding:4px 12px"><em>meru</em> — to remember</td><td style="padding:4px 12px"><em>mere</em> — memory</td></tr><tr><td style="padding:4px 12px"><em>mihu</em> — to need</td><td style="padding:4px 12px"><em>mihe</em> — need</td></tr></table><span class="example">Neo mere su houli. <span class="gloss">My memory is happy.</span></span><span class="example">Ne ahu mihe. <span class="gloss">I have a need.</span></span>`},
+
+  {id:"l125_vocab_learning_cluster",
+   title:"Lesson, Teach, Love, Knowledge, Understanding",
+   desc:"kaise + kaisu (to teach), nawe, sene, yeihe",
+   icon:"📖",
+   vocabKey:"l125_vocab_learning_cluster",
+   xp:20,
+   unit:21,
+   intro:`<h3>📖 The matching verb for \"to learn\"</h3><p>You learned <em>mauhu</em> \"to learn\" in L82. Its partner verb has been missing until now: <em>kaisu</em> means <strong>to teach</strong>. And its noun sibling is <em>kaise</em> — <strong>a lesson</strong>:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kaise</em> (n.)</td><td style="padding:4px 12px">lesson</td></tr><tr><td style="padding:4px 12px"><em>kaisu</em> (v.)</td><td style="padding:4px 12px">to teach</td></tr></table><span class="example">Ne kaisu Liru. <span class="gloss">I teach Liru.</span></span><span class="example">Lo su neo kaise. <span class="gloss">This is my lesson.</span></span><h3>💞 Three more noun siblings</h3><p>Three abstract nouns whose verbs are old friends:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">verb (known)</th><th style="padding:4px 12px;color:var(--dim)">noun (new)</th></tr><tr><td style="padding:4px 12px"><em>nawu</em> — to love (L8)</td><td style="padding:4px 12px"><em>nawe</em> — love</td></tr><tr><td style="padding:4px 12px"><em>senu</em> — to know (L9)</td><td style="padding:4px 12px"><em>sene</em> — knowledge</td></tr><tr><td style="padding:4px 12px"><em>yeihu</em> — to understand (L81)</td><td style="padding:4px 12px"><em>yeihe</em> — understanding</td></tr></table><span class="example">Neo nawe na te su ori. <span class="gloss">My love for you is great.</span></span><span class="example">Veo sene su nai. <span class="gloss">Her knowledge is much.</span></span><p>You may notice the pattern by now — Liru lets you flip almost any taught verb into its sibling noun by swapping <em>-u</em> for <em>-e</em>. This is doubling your vocabulary every time you internalize a new verb.</p>`},
+
+  {id:"l126_vocab_time_state",
+   title:"Previous, Next, and Sleep",
+   desc:"wali (previous), wuli (next), rae + rai (sleep / sleepy)",
+   icon:"⏳",
+   vocabKey:"l126_vocab_time_state",
+   xp:14,
+   unit:21,
+   intro:`<h3>⏳ Previous and next as adjectives</h3><p>You already know <em>wale</em> \"before\" and <em>wule</em> \"after\" from L28 — used as time-anchor adverbs:</p><span class="example">Wale ne wa tahu. <span class="gloss">Before, I ate.</span></span><p>The matching adjectives are <em>wali</em> (<strong>previous</strong>) and <em>wuli</em> (<strong>next</strong>). They sit before a noun, modifying it:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">adverb (known)</th><th style="padding:4px 12px;color:var(--dim)">adjective (new)</th></tr><tr><td style="padding:4px 12px"><em>wale</em> — before</td><td style="padding:4px 12px"><em>wali</em> — previous</td></tr><tr><td style="padding:4px 12px"><em>wule</em> — after</td><td style="padding:4px 12px"><em>wuli</em> — next</td></tr></table><span class="example">Wali kaise wa nauyi. <span class="gloss">The previous lesson was fun.</span></span><span class="example">Wuli lawe ne wu vanu. <span class="gloss">The next day I will come.</span></span><h3>😴 Sleep as a noun and adjective</h3><p>You learned <em>rau</em> \"to sleep\" in L48. Its siblings:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>rae</em> (n.)</td><td style="padding:4px 12px">sleep</td></tr><tr><td style="padding:4px 12px"><em>rai</em> (adj.)</td><td style="padding:4px 12px">sleepy</td></tr></table><span class="example">Ne ahu mihe na rae. <span class="gloss">I have a need for sleep.</span></span><span class="example">Lo piwe su rai. <span class="gloss">This child is sleepy.</span></span>`},
+
+  {id:"l127_high_freq_exam",
+   title:"Unit 22 Exam — High-Frequency Vocabulary",
+   desc:"Three hearts. Mixed practice across particles, quantifiers, and the new nouns.",
+   icon:"🎯",
+   vocabKey:"l127_high_freq_exam",
+   xp:30,
+   unit:21,
+   isSentence:true,
+   isCheckpoint:true},
 ];
 
 // Populate the landing-page lesson and word counts from live data.
@@ -4821,6 +5061,8 @@ const SRS_GLOSS_OVERRIDES = {
   "niwa":  "between (takes two args joined by sho)",
   "voi":   "around (encircles single arg)",
   "moso":  "away from (motion, not static origin)",
+  // A8 (Unit 22): relational particle "for".
+  "na":    "for (particle, post-noun: X na Y = X for Y)",
 };
 
 const SRS_INITIAL_EASE = 2.5;
