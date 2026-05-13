@@ -3641,6 +3641,174 @@ const V = {
      en:"The bear slept in winter."},
   ],
 
+  // ═══════════════════════════════════════════════════════════════
+  // A12 / Unit 26 — Animals (L147–L155)
+  // ═══════════════════════════════════════════════════════════════
+  // 8 vocab lessons + 1 unit exam. 24 anchor animal roots + 7 weave-in
+  // roots from other A-buckets. Per advanced_track_plan.md §8, the A12
+  // manifest was first audited and cleaned (10 non-animal items moved
+  // to A13/A17/A19/A22). Per lesson_principles.md §14, weave-in was
+  // pulled to fill lessons to the 4-root cap. Selective canvas-slot
+  // policy (A6/A11 precedent): drop mechanical "X-related" adj for
+  // animals whose adj is purely derivational; keep adj where it carries
+  // distinct non-derivable meaning (louwi "woolly", shiwani "meaty").
+
+  // L147 — Animals & Farm Livestock
+  // Unit opener: shiwane is the meta-noun ("animal" as category),
+  // followed by three large farm livestock roots. louwi "woolly"
+  // is the unit's first selective-adj-kept example (per A6/A11).
+  l147_vocab_farm_livestock: [
+    {lw:"shiwane", en:"animal (or meat)", pos:"n",
+     canvas:{adj:"shiwani", adj_en:"animal-related (or meaty)"},
+     note:"Meta-noun for animals as a category. The adj form shiwani also covers the \"meaty\" sense (food vocabulary)."},
+    {lw:"kouwe", en:"goat", pos:"n"},
+    {lw:"louwe", en:"sheep", pos:"n",
+     canvas:{adj:"louwi", adj_en:"woolly (or sheep-related)"},
+     note:"The adj louwi carries the substantive \"woolly\" meaning — wool is the iconic sheep product."},
+    {lw:"maluwe", en:"cow", pos:"n"},
+  ],
+
+  // L148 — Horses, Pigs & Riding
+  // Anchor: mauwe (horse), poake (pig). Weave-in: taike/taiku
+  // (jump, A14) for horse motion, and waire/wairu (ride, A23)
+  // for the natural horse-riding compositional sentence frame.
+  l148_vocab_horses_pigs_riding: [
+    {lw:"mauwe", en:"horse", pos:"n"},
+    {lw:"poake", en:"pig", pos:"n"},
+    {lw:"taike", en:"jump", pos:"n",
+     canvas:{adj:"taiki", adj_en:"jumping", v:"taiku", v_en:"to jump (or leap)"},
+     note:"A14 weave-in — animals (especially horses and rabbits) jump as a natural mode of motion."},
+    {lw:"waire", en:"ride", pos:"n",
+     canvas:{adj:"wairi", adj_en:"riding", v:"wairu", v_en:"to ride"},
+     note:"A23 weave-in — the natural verb for riding horses."},
+  ],
+
+  // L149 — Poultry & Eggs
+  // Anchor: kuake (duck), pahule (chicken). Weave-in: owe/owi/owu
+  // (egg / to lay eggs, A22) — eggs are the iconic poultry product
+  // and the verb owu is a natural fit. paipile (puppy, A22) closes
+  // with the diminutive pattern (paipe → paipile, taught L44 → here).
+  l149_vocab_poultry_eggs: [
+    {lw:"kuake", en:"duck", pos:"n"},
+    {lw:"pahule", en:"chicken", pos:"n"},
+    {lw:"paipile", en:"puppy", pos:"n",
+     note:"Diminutive of paipe (dog, taught L44) via the -ile suffix. Pattern parallels piwile (baby, taught L137)."},
+    {lw:"owe", en:"egg", pos:"n",
+     canvas:{adj:"owi", adj_en:"egg-related", v:"owu", v_en:"to lay eggs"},
+     note:"A22 weave-in — eggs are the iconic poultry product. The verb owu \"to lay eggs\" enables the natural \"chickens lay eggs\" compositional sentence."},
+  ],
+
+  // L150 — Wild Mammals & Climbing
+  // Anchor: luwe (rabbit), yuhe (deer), loume (wolf). Weave-in:
+  // naike/naiku (climb, A14) — wild animals climbing trees, rocks.
+  l150_vocab_wild_mammals: [
+    {lw:"luwe", en:"rabbit", pos:"n"},
+    {lw:"yuhe", en:"deer", pos:"n"},
+    {lw:"loume", en:"wolf", pos:"n"},
+    {lw:"naike", en:"climb", pos:"n",
+     canvas:{adj:"naiki", adj_en:"climbing", v:"naiku", v_en:"to climb"},
+     note:"A14 weave-in — wild mammals climb (mountain goats, squirrels, etc.). Pairs with the wild-mammals theme."},
+  ],
+
+  // L151 — Sea Mammals & Catching
+  // Anchor: shakume (shark), shaupe (whale), shiawe (dolphin).
+  // Weave-in: moshife/moshifu (catch, A14) — sharks catch fish, the
+  // iconic sea-predation frame.
+  l151_vocab_sea_mammals: [
+    {lw:"shakume", en:"shark", pos:"n"},
+    {lw:"shaupe", en:"whale", pos:"n"},
+    {lw:"shiawe", en:"dolphin", pos:"n"},
+    {lw:"moshife", en:"catch", pos:"n",
+     canvas:{adj:"moshifi", adj_en:"caught", v:"moshifu", v_en:"to catch"},
+     note:"A14 weave-in — the natural verb for predation. Sharks catch fish; dolphins catch fish."},
+  ],
+
+  // L152 — Other Sea Creatures
+  // Anchor-only: 4 sea roots that don't fit the mammal grouping —
+  // kakepe (crab), shemahe (octopus), shoule (fish), wilare (turtle).
+  // Most compact lesson in the unit at 4r/4f (all noun-only after
+  // dropping mechanical X-related adj slots).
+  l152_vocab_sea_creatures: [
+    {lw:"kakepe", en:"crab", pos:"n"},
+    {lw:"shemahe", en:"octopus", pos:"n"},
+    {lw:"shoule", en:"fish", pos:"n"},
+    {lw:"wilare", en:"turtle (or tortoise)", pos:"n"},
+  ],
+
+  // L153 — Bees, Ants & Honey
+  // Anchor: niliwe (ant), ninuwe (bee), paihe (spider). Weave-in:
+  // nemue/nemui (honey, A21) — the direct semantic pairing with bees.
+  // ant, bee, spider are all noun-only; honey is noun+adj.
+  l153_vocab_bees_ants_honey: [
+    {lw:"niliwe", en:"ant", pos:"n"},
+    {lw:"ninuwe", en:"bee", pos:"n"},
+    {lw:"paihe", en:"spider", pos:"n"},
+    {lw:"nemue", en:"honey", pos:"n",
+     canvas:{adj:"nemui", adj_en:"honeyed (or honey-related)"},
+     note:"A21 weave-in — bees and honey are inseparable. Pairs with ninuwe directly."},
+  ],
+
+  // L154 — Butterflies, Insects & Groups
+  // Anchor: paiweme (butterfly), seure (insect, meta-noun). Weave-in:
+  // meuhe/meuhi/meuhu (group/together/gather, A21) — the universal
+  // animal-behavior root: herds, flocks, swarms, gatherings.
+  // 3 roots — under the 4-root cap. Per lesson_principles.md §14c
+  // closing rule: filling L154 with a 4th weave-in would require
+  // reaching beyond useful-and-practical territory.
+  l154_vocab_insects_groups: [
+    {lw:"paiweme", en:"butterfly", pos:"n"},
+    {lw:"seure", en:"insect", pos:"n",
+     canvas:{adj:"seuri", adj_en:"insect-related"},
+     note:"Meta-noun for insects. Adj seuri kept because it carries the substantive \"insect-like\" sense (useful for descriptive sentences)."},
+    {lw:"meuhe", en:"group (or team)", pos:"n",
+     canvas:{adj:"meuhi", adj_en:"grouped (or together)", v:"meuhu", v_en:"to gather (or assemble)"},
+     note:"A21 weave-in — the universal grouping root. Herds, flocks, swarms — every animal cluster lesson lands naturally here."},
+  ],
+
+  // L155 — Unit Exam: Animals
+  // 14 sentences covering every drilled root in L147–L154 plus
+  // the unit's grammatical patterns: predicate adj (L19), attributive
+  // adj (L20), plural -ea (L33), possessive -eo (L15), past wa (L25),
+  // future wu (L26), comparative ata (L85), superlative apa (L86),
+  // conditional vi (L90), relative lai (L95), locative wo (L41),
+  // sho (L34), tai universal quantifier (L120). Cloze on 4 sentences
+  // (sentences #3, #4, #8, #14 — those combining multiple constructions).
+  // Three hearts checkpoint.
+  l155_animals_exam: [
+    {lw:["Lo","kouwe","su","lewali"],
+     en:"This goat is white."},
+    {lw:["Tai","shoulea","wu","shauwu","wo","shaune"],
+     en:"All fish will swim in the lake."},
+    {lw:["Neo","mauwe","su","liani","apa"],
+     en:"My horse is the tallest.",
+     cloze:{blanks:[3,4], bank:["liani","apa","ata","mauwe","piami","mopiami"]}},
+    {lw:["Shakume","wa","moshifu","shoule"],
+     en:"The shark caught the fish.",
+     cloze:{blanks:[1,2], bank:["wa","moshifu","wu","mehu","moshifi","monoru"]}},
+    {lw:["Neo","mauwe","wu","taiku"],
+     en:"My horse will jump."},
+    {lw:["Lo","paipile","su","nohi"],
+     en:"This puppy is young."},
+    {lw:["Pahule","wu","owu","owea"],
+     en:"The chicken will lay eggs."},
+    {lw:["Vi","ninuwe","su","loya","ne","wu","meuhu","nemue"],
+     en:"If the bee is here, I will gather honey.",
+     cloze:{blanks:[0,6], bank:["vi","meuhu","ki","mai","meuhi","tinalu"]}},
+    {lw:["Loume","su","wo","melume"],
+     en:"The wolf is in the fog."},
+    {lw:["Shaupe","su","mopiami","ata","shiawe"],
+     en:"A whale is bigger than a dolphin."},
+    {lw:["Yuna","sho","Maya","wu","wairu","mauwea"],
+     en:"Yuna and Maya will ride horses."},
+    {lw:["Tai","paihea","su","meuhi"],
+     en:"All spiders are gathered together."},
+    {lw:["Lo","seure","wu","naiku"],
+     en:"This insect will climb."},
+    {lw:["Shiwane","lai","ne","wa","tiru","su","mauwe"],
+     en:"The animal that I saw is a horse.",
+     cloze:{blanks:[1,4], bank:["lai","tiru","vi","laihu","liwu","su"]}},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -3687,6 +3855,7 @@ const UNITS = [
   {name:"Unit 23 — Cardinal Directions & Geography", start:121, track:"advanced"},
   {name:"Unit 24 — Extended Family", start:126, track:"advanced"},
   {name:"Unit 25 — Seasons & Extended Weather", start:133, track:"advanced"},
+  {name:"Unit 26 — Animals", start:140, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -5126,6 +5295,89 @@ const LESSONS = [
    vocabKey:"l146_seasons_weather_exam",
    xp:30,
    unit:24,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── A12 / Unit 26 — Animals (L147–L155) ──
+  {id:"l147_vocab_farm_livestock",
+   title:"Animals & Farm Livestock",
+   desc:"shiwane (animal), kouwe (goat), louwe (sheep), maluwe (cow)",
+   icon:"🐄",
+   vocabKey:"l147_vocab_farm_livestock",
+   xp:18,
+   unit:25,
+   intro:`<h3>🐄 Welcome to animals</h3><p>This unit teaches the Liru animal vocabulary across eight lessons, covering farm livestock, poultry, wild mammals, sea creatures, and insects. We start with the meta-noun for "animal" itself and three of the most familiar farm livestock.</p><h3>🦌 The meta-noun: <em>shiwane</em></h3><p>The Liru word for "animal" as a category is <em>shiwane</em>. Its adjective form <em>shiwani</em> carries two senses: "animal-related" (general) and "meaty" (food vocabulary). This is the umbrella word you'd use to say "what is your favorite animal?" or "this restaurant has meat dishes."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shiwane</em> (n.)</td><td style="padding:4px 12px">animal (or meat)</td></tr><tr><td style="padding:4px 12px"><em>shiwani</em> (adj.)</td><td style="padding:4px 12px">animal-related (or meaty)</td></tr></table><h3>🐐 Three farm livestock</h3><p>Most Liru animal nouns follow a simple noun + "X-related" adjective pattern. We focus on the noun forms in this unit; the "X-related" adjectives remain in the dictionary for learners who need them. One exception worth noting: <em>louwi</em> (sheep-related) also means "woolly" — wool is the iconic sheep product, and that meaning earns the adjective its own teaching slot.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">meaning</th><th style="padding:4px 12px;color:var(--dim)">adj (if taught)</th></tr><tr><td style="padding:4px 12px"><em>kouwe</em></td><td style="padding:4px 12px">goat</td><td style="padding:4px 12px">—</td></tr><tr><td style="padding:4px 12px"><em>louwe</em></td><td style="padding:4px 12px">sheep</td><td style="padding:4px 12px"><em>louwi</em> (woolly)</td></tr><tr><td style="padding:4px 12px"><em>maluwe</em></td><td style="padding:4px 12px">cow</td><td style="padding:4px 12px">—</td></tr></table><span class="example">Shiwane su loya. <span class="gloss">The animal is here.</span></span><span class="example">Lo kouwe su lewali. <span class="gloss">This goat is white.</span></span><span class="example">Neo maluwe su mopiami. <span class="gloss">My cow is big.</span></span>`},
+
+  {id:"l148_vocab_horses_pigs_riding",
+   title:"Horses, Pigs & Riding",
+   desc:"mauwe (horse), poake (pig), taike (jump), waire (ride)",
+   icon:"🐎",
+   vocabKey:"l148_vocab_horses_pigs_riding",
+   xp:18,
+   unit:25,
+   intro:`<h3>🐎 Horses and pigs</h3><p>Two more farm animals, plus two action verbs that fit naturally around them — jumping (what horses do over fences) and riding (what humans do on horseback).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>mauwe</em> (n.)</td><td style="padding:4px 12px">horse</td></tr><tr><td style="padding:4px 12px"><em>poake</em> (n.)</td><td style="padding:4px 12px">pig</td></tr></table><h3>🏇 Two action verbs</h3><p><em>taike</em> (jump) and <em>waire</em> (ride) are full-canvas roots. <em>waire</em> uses the noun form to mean "a ride" (as in "a horseback ride"), the adjective form <em>wairi</em> for "riding" (the state of being on the animal), and the verb form <em>wairu</em> for the action itself.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>taike</em> (n.)</td><td style="padding:4px 12px">a jump</td></tr><tr><td style="padding:4px 12px"><em>taiki</em> (adj.)</td><td style="padding:4px 12px">jumping</td></tr><tr><td style="padding:4px 12px"><em>taiku</em> (v.)</td><td style="padding:4px 12px">to jump (or leap)</td></tr><tr><td style="padding:4px 12px"><em>waire</em> (n.)</td><td style="padding:4px 12px">a ride</td></tr><tr><td style="padding:4px 12px"><em>wairi</em> (adj.)</td><td style="padding:4px 12px">riding</td></tr><tr><td style="padding:4px 12px"><em>wairu</em> (v.)</td><td style="padding:4px 12px">to ride</td></tr></table><span class="example">Neo mauwe wu taiku. <span class="gloss">My horse will jump.</span></span><span class="example">Ne wairu mauwe. <span class="gloss">I ride a horse.</span></span><span class="example">Lo poake su piami. <span class="gloss">This pig is small.</span></span>`},
+
+  {id:"l149_vocab_poultry_eggs",
+   title:"Poultry & Eggs",
+   desc:"kuake (duck), pahule (chicken), paipile (puppy), owe (egg)",
+   icon:"🐔",
+   vocabKey:"l149_vocab_poultry_eggs",
+   xp:18,
+   unit:25,
+   intro:`<h3>🐔 Poultry</h3><p>Two birds you'd find on any farm: duck and chicken.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kuake</em> (n.)</td><td style="padding:4px 12px">duck</td></tr><tr><td style="padding:4px 12px"><em>pahule</em> (n.)</td><td style="padding:4px 12px">chicken</td></tr></table><h3>🥚 Eggs — what chickens and ducks do</h3><p><em>owe</em> (egg) is a full-canvas root. The verb form <em>owu</em> means "to lay eggs" — used naturally with poultry as the subject.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>owe</em> (n.)</td><td style="padding:4px 12px">egg</td></tr><tr><td style="padding:4px 12px"><em>owi</em> (adj.)</td><td style="padding:4px 12px">egg-related</td></tr><tr><td style="padding:4px 12px"><em>owu</em> (v.)</td><td style="padding:4px 12px">to lay eggs</td></tr></table><h3>🐶 <em>paipile</em> — diminutive of dog</h3><p>You learned <em>paipe</em> (dog) and <em>mewe</em> (cat) back in Unit 8. The <em>-ile</em> suffix marks diminutives — and <em>paipile</em> means "puppy" (literally "little dog"). This is the same pattern you saw with <em>piwile</em> (baby) in the family unit.</p><span class="example">Pahule wu owu owea. <span class="gloss">The chicken will lay eggs.</span></span><span class="example">Ne ahu runi kuakea. <span class="gloss">I have two ducks.</span></span><span class="example">Lo paipile su nohi. <span class="gloss">This puppy is young.</span></span>`},
+
+  {id:"l150_vocab_wild_mammals",
+   title:"Wild Mammals & Climbing",
+   desc:"luwe (rabbit), yuhe (deer), loume (wolf), naike (climb)",
+   icon:"🐺",
+   vocabKey:"l150_vocab_wild_mammals",
+   xp:18,
+   unit:25,
+   intro:`<h3>🐺 Wild mammals</h3><p>Three wild mammals — two prey species and one predator.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>luwe</em> (n.)</td><td style="padding:4px 12px">rabbit</td></tr><tr><td style="padding:4px 12px"><em>yuhe</em> (n.)</td><td style="padding:4px 12px">deer</td></tr><tr><td style="padding:4px 12px"><em>loume</em> (n.)</td><td style="padding:4px 12px">wolf</td></tr></table><h3>🧗 Climbing — what wild animals do</h3><p><em>naike</em> is a full-canvas root for the action of climbing. Mountain goats, squirrels, monkeys — wild animals climb constantly.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>naike</em> (n.)</td><td style="padding:4px 12px">a climb</td></tr><tr><td style="padding:4px 12px"><em>naiki</em> (adj.)</td><td style="padding:4px 12px">climbing</td></tr><tr><td style="padding:4px 12px"><em>naiku</em> (v.)</td><td style="padding:4px 12px">to climb</td></tr></table><span class="example">Loume wa tiru luwe. <span class="gloss">The wolf saw the rabbit.</span></span><span class="example">Yuhe wu rau. <span class="gloss">The deer will sleep.</span></span><span class="example">Ne wu naiku. <span class="gloss">I will climb.</span></span>`},
+
+  {id:"l151_vocab_sea_mammals",
+   title:"Sea Mammals & Catching",
+   desc:"shakume (shark), shaupe (whale), shiawe (dolphin), moshife (catch)",
+   icon:"🦈",
+   vocabKey:"l151_vocab_sea_mammals",
+   xp:18,
+   unit:25,
+   intro:`<h3>🦈 Sharks, whales, and dolphins</h3><p>Three creatures of the deep — only two of them mammals (sharks are fish), but they all live in the ocean and share thematic territory.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shakume</em> (n.)</td><td style="padding:4px 12px">shark</td></tr><tr><td style="padding:4px 12px"><em>shaupe</em> (n.)</td><td style="padding:4px 12px">whale</td></tr><tr><td style="padding:4px 12px"><em>shiawe</em> (n.)</td><td style="padding:4px 12px">dolphin</td></tr></table><h3>🎣 Catching — predator and prey</h3><p>The shark catches the fish; the dolphin catches the squid. <em>moshife</em> (catch) is a full-canvas root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moshife</em> (n.)</td><td style="padding:4px 12px">a catch</td></tr><tr><td style="padding:4px 12px"><em>moshifi</em> (adj.)</td><td style="padding:4px 12px">caught</td></tr><tr><td style="padding:4px 12px"><em>moshifu</em> (v.)</td><td style="padding:4px 12px">to catch</td></tr></table><span class="example">Shakume wa moshifu shoule. <span class="gloss">The shark caught the fish.</span></span><span class="example">Shaupe su mopiami ata shiawe. <span class="gloss">A whale is bigger than a dolphin.</span></span><span class="example">Shiawea su mopiami. <span class="gloss">Dolphins are big.</span></span>`},
+
+  {id:"l152_vocab_sea_creatures",
+   title:"Other Sea Creatures",
+   desc:"kakepe (crab), shemahe (octopus), shoule (fish), wilare (turtle)",
+   icon:"🐙",
+   vocabKey:"l152_vocab_sea_creatures",
+   xp:18,
+   unit:25,
+   intro:`<h3>🐙 Sea creatures beyond mammals</h3><p>Four more sea-dwellers: a crustacean, a cephalopod, the generic fish, and the turtle (which lives in both water and on land).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kakepe</em> (n.)</td><td style="padding:4px 12px">crab</td></tr><tr><td style="padding:4px 12px"><em>shemahe</em> (n.)</td><td style="padding:4px 12px">octopus</td></tr><tr><td style="padding:4px 12px"><em>shoule</em> (n.)</td><td style="padding:4px 12px">fish (the creature)</td></tr><tr><td style="padding:4px 12px"><em>wilare</em> (n.)</td><td style="padding:4px 12px">turtle (or tortoise)</td></tr></table><p>The Liru word <em>shoule</em> covers both the live fish and the food category in the same way English does. The <em>shouli</em> adjective ("fish-related") exists in the dictionary but isn't drilled — it's straightforwardly derivable from <em>shoule</em>.</p><span class="example">Kakepe su wo touhe. <span class="gloss">The crab is on the shore.</span></span><span class="example">Shemahe su mopiami. <span class="gloss">The octopus is big.</span></span><span class="example">Tai shoulea wu shauwu. <span class="gloss">All fish will swim.</span></span><span class="example">Wilare su piami. <span class="gloss">The turtle is small.</span></span>`},
+
+  {id:"l153_vocab_bees_ants_honey",
+   title:"Bees, Ants & Honey",
+   desc:"niliwe (ant), ninuwe (bee), paihe (spider), nemue (honey)",
+   icon:"🐝",
+   vocabKey:"l153_vocab_bees_ants_honey",
+   xp:18,
+   unit:25,
+   intro:`<h3>🐝 Small creatures with stings and webs</h3><p>Three small invertebrates — and the iconic product of one of them.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>niliwe</em> (n.)</td><td style="padding:4px 12px">ant</td></tr><tr><td style="padding:4px 12px"><em>ninuwe</em> (n.)</td><td style="padding:4px 12px">bee</td></tr><tr><td style="padding:4px 12px"><em>paihe</em> (n.)</td><td style="padding:4px 12px">spider</td></tr></table><h3>🍯 Honey — what bees make</h3><p>The Liru word for honey is <em>nemue</em>, with adjective <em>nemui</em> "honeyed" (used for honey-flavored or honey-colored things).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nemue</em> (n.)</td><td style="padding:4px 12px">honey</td></tr><tr><td style="padding:4px 12px"><em>nemui</em> (adj.)</td><td style="padding:4px 12px">honeyed (or honey-related)</td></tr></table><span class="example">Niliwea su piami. <span class="gloss">Ants are small.</span></span><span class="example">Ne wamu nemue. <span class="gloss">I want honey.</span></span><span class="example">Lo paihe su piami. <span class="gloss">This spider is small.</span></span>`},
+
+  {id:"l154_vocab_insects_groups",
+   title:"Butterflies, Insects & Groups",
+   desc:"paiweme (butterfly), seure (insect), meuhe (group / gather)",
+   icon:"🦋",
+   vocabKey:"l154_vocab_insects_groups",
+   xp:18,
+   unit:25,
+   intro:`<h3>🦋 Butterfly, the meta-insect, and grouping</h3><p>This lesson closes the animal unit with two more invertebrates — one specific (butterfly), one meta (insect-as-a-category) — and the universal animal-behavior root for grouping together: herds, flocks, swarms, schools.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>paiweme</em> (n.)</td><td style="padding:4px 12px">butterfly</td></tr><tr><td style="padding:4px 12px"><em>seure</em> (n.)</td><td style="padding:4px 12px">insect</td></tr><tr><td style="padding:4px 12px"><em>seuri</em> (adj.)</td><td style="padding:4px 12px">insect-related</td></tr></table><h3>🐝 Grouping — <em>meuhe</em></h3><p><em>meuhe</em> is a full-canvas root. The noun means "a group" (or team, or meeting); the adjective <em>meuhi</em> means "grouped" or "together"; the verb <em>meuhu</em> means "to gather" or "to assemble." This is the root behind <em>meuhekoire</em> (bus) — literally "group car."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meuhe</em> (n.)</td><td style="padding:4px 12px">group (or team)</td></tr><tr><td style="padding:4px 12px"><em>meuhi</em> (adj.)</td><td style="padding:4px 12px">grouped (or together)</td></tr><tr><td style="padding:4px 12px"><em>meuhu</em> (v.)</td><td style="padding:4px 12px">to gather (or assemble)</td></tr></table><span class="example">Paiweme su wauli. <span class="gloss">The butterfly is beautiful.</span></span><span class="example">Tai seurea su piami. <span class="gloss">All insects are small.</span></span><span class="example">Niliwea wu meuhu. <span class="gloss">The ants will gather.</span></span>`},
+
+  {id:"l155_animals_exam",
+   title:"Unit 26 Exam — Animals",
+   desc:"Three hearts. Fourteen sentences spanning all eight animal lessons, plus cloze on four key constructions.",
+   icon:"🦓",
+   vocabKey:"l155_animals_exam",
+   xp:30,
+   unit:25,
    isSentence:true,
    isCheckpoint:true},
 ];
