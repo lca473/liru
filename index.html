@@ -2509,12 +2509,14 @@ const V = {
   // Position-shaped spatial concepts. All four are full canvas roots.
   //   hune    right / right / go right
   //   mohune  left / left / go left
-  //   moliane lowness / low / lower (or descend)
+  //   moliane lowness / low (or down) / lower (or descend)
   //   vaihe   side / sided / face
   // hune and mohune are a directional pair (mo- prefix). Per
   // Grammar.md §16 they form the basic left/right directional axis.
-  // moliane is taught alone here; its pair (liane "highness/tall")
-  // is already taught as core vocabulary (L62 weather/nature).
+  // moliane is taught here; its mo- pair liane (height / tall or up)
+  // is surfaced in L128 (A9 compass-anchor lesson) via srsExtras and
+  // referenced in the L128 intro card as the morphological component
+  // of lianitowe "north" (literally "high-of-map").
   // vaihe is a quieter root — used most often in "facing toward" or
   // "the X side of Y" constructions. Sentence usage in L105 and L106.
   l104_vocab_position: [
@@ -2525,7 +2527,7 @@ const V = {
      canvas:{adj:"mohuni", adj_en:"left (or to the left)"},
      pair:"hune"},
     {lw:"moliane", en:"lowness", pos:"n",
-     canvas:{adj:"moliani", adj_en:"low",
+     canvas:{adj:"moliani", adj_en:"low (or down)",
              v:"molianu",   v_en:"to lower (or descend)"}},
     {lw:"vaihe", en:"side (face, aspect)", pos:"n",
      canvas:{adj:"vaihi", adj_en:"sided (facing)",
@@ -3062,6 +3064,157 @@ const V = {
      en:"The previous lesson was fun."},
   ],
 
+  // ═══════════════════════════════════════════════════════════════════
+  // UNIT 23 (A9): CARDINAL DIRECTIONS & GEOGRAPHY — ADVANCED TRACK
+  // ═══════════════════════════════════════════════════════════════════
+  // Fourth breadth unit (after A6 Colors, A7 Numbers, A8 High-Freq).
+  // 17 effectively drilled roots: 14 from the original A9 manifest plus
+  // 3 absorptions — toule (from A16 Body Parts, miscategorized) and
+  // pouwe + shafanile (from A23 City/Transport/Places, but more at
+  // home here alongside their geography siblings). Mini-fix: liane/liani
+  // (the missing mo- pair partner of moliane from L104) surfaces via
+  // L128 srsExtras alongside compass-direction teaching, completing the
+  // up/down axis. Glosses for liani and moliani revised in this batch
+  // ("tall (or up)" / "low (or down)") to surface the directional sense
+  // — see DECISIONS.md "A9 ship".
+  //
+  // Lesson plan (5 lessons — L128 to L132):
+  //   L128 — Vocab: compass anchor (towe + 3 directions: N, E, W).
+  //          Intro card teaches X+towe productive compositional pattern
+  //          using already-taught directional adjectives liani/huni/
+  //          mohuni. liane/liani routed via srsExtras to surface the
+  //          mini-fix root pair. 4 roots, 8 forms + 2 srsExtras.
+  //   L129 — Vocab: south + water terrain (molianitowe, nouwe, shafane,
+  //          shaune). Closes the compass quadrant and pivots to water-
+  //          adjacent geography. Intro card teaches the -ile diminutive
+  //          via shafanile "stream", which routes to srsExtras (parallel
+  //          to A7's selective-compositional-instance pattern with
+  //          months). 4 roots, 8 forms + 1 srsExtras.
+  //   L130 — Vocab: landform (toule, wouhe, pieme, tauhe). 4 absorbed/
+  //          original landform roots. Intro card anchors toule "ground/
+  //          earth" as the broad geographic substrate, then teaches
+  //          peaks/valleys/deserts as contrasting terrain types.
+  //          4 roots, 8 forms.
+  //   L131 — Vocab: terrain features (touhe, foule, wouhile, pouwe).
+  //          touhu verb deferred per selective-canvas-slot teaching
+  //          (A6/A8 convention). Intro card references shafanile from
+  //          L129 to re-anchor the -ile diminutive pattern as wouhile
+  //          "hill" surfaces. 4 roots, 7 forms (touhu deferred,
+  //          wouhile noun-only).
+  //   L132 — Unit exam (isCheckpoint:true). 10 sentences mixing all
+  //          A9 content with advanced grammar (A1 comparative/super-
+  //          lative, A2 conditional/concessive, A3 relative clause,
+  //          A4 frequency+spatial, A5 existential pronouns, A8 na).
+  //          Cloze on 4 sentences. 0 new roots.
+
+  // L128 — Vocab: compass anchor + 3 cardinal directions
+  // towe "map" is the morphological anchor — parallel to luone "moon/
+  // month" in L118 (A7). The 4 compass directions compose productively
+  // as [directional adj] + towe: liani(high) + towe → lianitowe (N).
+  // The 4th direction molianitowe (S) lands in L129 to complete the
+  // quadrant. srsExtras adds liane/liani — the missing mo- pair partner
+  // of moliane from L104, surfaced here because liani is the morpheme
+  // behind lianitowe.
+  l128_vocab_compass_anchor: [
+    {lw:"towe", en:"map", pos:"n",
+     canvas:{adj:"towi", adj_en:"mapped"}},
+    {lw:"lianitowe", en:"north", pos:"n",
+     canvas:{adj:"lianitowi", adj_en:"northern"}},
+    {lw:"hunitowe", en:"east", pos:"n",
+     canvas:{adj:"hunitowi", adj_en:"eastern"},
+     pair:"mohunitowe"},
+    {lw:"mohunitowe", en:"west", pos:"n",
+     canvas:{adj:"mohunitowi", adj_en:"western"},
+     pair:"hunitowe"},
+  ],
+
+  // L129 — Vocab: south completion + water terrain
+  // molianitowe closes the compass set; nouwe/shafane/shaune are the
+  // three water-adjacent landform roots. Intro card teaches the -ile
+  // diminutive pattern via shafanile "stream" (river + -ile = small
+  // river), routed to srsExtras for SRS retention.
+  l129_vocab_water_terrain: [
+    {lw:"molianitowe", en:"south", pos:"n",
+     canvas:{adj:"molianitowi", adj_en:"southern"},
+     pair:"lianitowe"},
+    {lw:"nouwe", en:"island", pos:"n",
+     canvas:{adj:"nouwi", adj_en:"island-related"}},
+    {lw:"shafane", en:"river", pos:"n",
+     canvas:{adj:"shafani", adj_en:"riverine"}},
+    {lw:"shaune", en:"lake", pos:"n",
+     canvas:{adj:"shauni", adj_en:"lake-related"}},
+  ],
+
+  // L130 — Vocab: landform (ground/mountain/valley/desert)
+  // toule "ground/earth" — absorbed from A16 Body Parts (miscategorized).
+  // Anchors the broad geographic-substrate concept; the other three roots
+  // are contrasting landforms. Intro card walks toule → wouhe → pieme →
+  // tauhe as a tour from "all dry land" down through specific terrain.
+  l130_vocab_landform: [
+    {lw:"toule", en:"ground (or earth)", pos:"n",
+     canvas:{adj:"touli", adj_en:"earth-related"}},
+    {lw:"wouhe", en:"mountain", pos:"n",
+     canvas:{adj:"wouhi", adj_en:"mountainous"}},
+    {lw:"pieme", en:"valley", pos:"n",
+     canvas:{adj:"piemi", adj_en:"valley-related"}},
+    {lw:"tauhe", en:"desert", pos:"n",
+     canvas:{adj:"tauhi", adj_en:"arid"}},
+  ],
+
+  // L131 — Vocab: terrain features (shore/field/hill/cave)
+  // touhe taught as noun + adj only — verb form touhu "to come ashore"
+  // deferred per selective-canvas-slot teaching (A6 convention; A8
+  // applied this to emotion-noun causatives, A9 applies it to a
+  // motion verb that's lower utility than its noun/adj siblings).
+  // wouhile is the second -ile diminutive of the unit (after shafanile
+  // L129 srsExtras), surfaced as drilled vocab here. pouwe "cave" is
+  // absorbed from A23 — pure landform, fits better here than with
+  // city/transport content.
+  l131_vocab_terrain_features: [
+    {lw:"touhe", en:"shore (or coast, beach)", pos:"n",
+     canvas:{adj:"touhi", adj_en:"coastal"}},
+    {lw:"foule", en:"field", pos:"n",
+     canvas:{adj:"fouli", adj_en:"field-related (or wide open)"}},
+    {lw:"wouhile", en:"hill", pos:"n",
+     note:"Diminutive of wouhe — little mountain"},
+    {lw:"pouwe", en:"cave", pos:"n",
+     canvas:{adj:"pouwi", adj_en:"cavernous"}},
+  ],
+
+  // L132 — Unit 23 Exam: Cardinal Directions & Geography
+  // 10 sentences covering A9 forms in context. Cloze on 4 sentences
+  // targeting compass-direction discrimination, relative-clause marker,
+  // conditional + new noun, and spatial-particle placement. Includes
+  // one sentence using liani "tall (or up)" from L128 srsExtras —
+  // same precedent as L119 using SRS-extras-only months in exam.
+  // 0 new roots; all forms drawn from cumulative budget through L131.
+  l132_geography_exam: [
+    {lw:["Faloa","wouhea","su","lianitowi"],
+     en:"Those mountains are northern."},
+    {lw:["Neo","shaune","su","leu","wouhile"],
+     en:"My lake is on the hill."},
+    {lw:["Ne","taiweli","wa","halu","na","hunitowe"],
+     en:"I always went east.",
+     cloze:{blanks:[1,5], bank:["taiweli","naiweli","hunitowe","mohunitowe","faiweli","saiweli"]}},
+    {lw:["Wouhe","su","liani","ata","wouhile"],
+     en:"The mountain is taller than the hill."},
+    {lw:["Ne","nawu","nouwe","lai","ahu","sai","shafanea"],
+     en:"I love an island that has some rivers.",
+     cloze:{blanks:[3,6], bank:["lai","vi","shafanea","shauni","nouwea","sho"]}},
+    {lw:["Vi","te","halu","na","foule","te","wu","tiru","sai","loshea"],
+     en:"If you go to the field, you will see some flowers.",
+     cloze:{blanks:[0,4], bank:["vi","mavi","foule","tauhe","nalai","na"]}},
+    {lw:["Ne","tiru","tauhe","lai","su","apa","tauhi"],
+     en:"I see a desert that is the most arid."},
+    {lw:["Neo","hiwe","su","niwa","shafane","sho","shaune"],
+     en:"My home is between the river and the lake.",
+     cloze:{blanks:[3,6], bank:["niwa","voi","moso","shaune","nouwe","shafane"]}},
+    {lw:["Lo","pouwe","ahu","nulihue"],
+     en:"This cave has nothing."},
+    {lw:["Mavi","nea","su","molianitowi","nea","nawu","lo","pieme"],
+     en:"Although we are southerners, we love this valley."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -3105,6 +3258,7 @@ const UNITS = [
   {name:"Unit 20 — Colors", start:104, track:"advanced"},
   {name:"Unit 21 — Numbers Beyond 10, Ordinals & Months", start:109, track:"advanced"},
   {name:"Unit 22 — High-Frequency Vocabulary", start:113, track:"advanced"},
+  {name:"Unit 23 — Cardinal Directions & Geography", start:121, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -4335,6 +4489,64 @@ const LESSONS = [
    vocabKey:"l127_high_freq_exam",
    xp:30,
    unit:21,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── Unit 23 (A9): Cardinal Directions & Geography ──────────
+  // Fourth breadth unit. 5 lessons (4 vocab + 1 unit exam).
+  // 17 effectively drilled roots / ~31 forms + 3 srsExtras (liane,
+  // liani, shafanile). All roots existed in Dictionary.md before this
+  // ship — no coinages. Manifest absorptions: toule (from A16),
+  // pouwe + shafanile (from A23). Mini-fix: liane/liani gloss revised
+  // to surface "up/down" directional sense; L104 comment fix re-points
+  // pair partner to L128. See DECISIONS.md "A9 — Cardinal Directions
+  // & Geography (shipped 2026-05-13)".
+
+  {id:"l128_vocab_compass_anchor",
+   title:"Compass Directions — the X+towe Pattern",
+   desc:"towe (map), lianitowe (N), hunitowe (E), mohunitowe (W)",
+   icon:"🧭",
+   vocabKey:"l128_vocab_compass_anchor",
+   xp:22,
+   unit:22,
+   srsExtras:["liane","liani"],
+   intro:`<h3>🧭 The morpheme behind every compass direction</h3><p>In Liru, the four cardinal directions are all built from one shared word: <em>towe</em> (<strong>map</strong>). It's a full canvas root:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>towe</em> (n.)</td><td style="padding:4px 12px">map</td></tr><tr><td style="padding:4px 12px"><em>towi</em> (adj.)</td><td style="padding:4px 12px">mapped</td></tr></table><h3>🗺️ Compass directions — directional adjective + <em>towe</em></h3><p>Liru locates the four directions on a map oriented north-up (the Pacific cartographic standard). Each compass word is a <strong>directional adjective + <em>towe</em></strong>, literally "X-of-map":</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">direction</th><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">composition</th><th style="padding:4px 12px;color:var(--dim)">literally</th></tr><tr><td style="padding:4px 8px">N</td><td style="padding:4px 12px"><em>lianitowe</em></td><td style="padding:4px 12px"><em>liani</em> (up) + <em>towe</em></td><td style="padding:4px 12px">up-of-map</td></tr><tr><td style="padding:4px 8px">E</td><td style="padding:4px 12px"><em>hunitowe</em></td><td style="padding:4px 12px"><em>huni</em> (right) + <em>towe</em></td><td style="padding:4px 12px">right-of-map</td></tr><tr><td style="padding:4px 8px">W</td><td style="padding:4px 12px"><em>mohunitowe</em></td><td style="padding:4px 12px"><em>mohuni</em> (left) + <em>towe</em></td><td style="padding:4px 12px">left-of-map</td></tr><tr><td style="padding:4px 8px">S</td><td style="padding:4px 12px"><em>molianitowe</em></td><td style="padding:4px 12px"><em>moliani</em> (down) + <em>towe</em></td><td style="padding:4px 12px">down-of-map</td></tr></table><p>You already know <em>huni</em>, <em>mohuni</em>, and <em>moliani</em> from L104. This lesson teaches the first three compass directions; <em>molianitowe</em> (south) lands in L129 and completes the set.</p><h3>↕️ <em>liani</em> — completing the up-down axis</h3><p>The new directional adjective in this lesson is <em>liani</em>, the <em>mo-</em> pair partner of <em>moliani</em> "low/down" you already know. <em>liani</em> means <strong>tall</strong> or <strong>up</strong>, depending on context:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>liane</em> (n.)</td><td style="padding:4px 12px">height</td></tr><tr><td style="padding:4px 12px"><em>liani</em> (adj./adv.)</td><td style="padding:4px 12px">tall (or up)</td></tr></table><p>So <em>lianitowe</em> "north" is literally "the up-on-map" — the high end of the compass.</p><span class="example">Lo wouhe su liani. <span class="gloss">This mountain is tall.</span></span><span class="example">Loea wouhea su lianitowi. <span class="gloss">Those mountains are northern.</span></span><p>Adjective forms of the compass directions follow the canvas rule — swap <em>-e</em> for <em>-i</em>: <em>lianitowe</em> → <em>lianitowi</em> (northern), <em>hunitowe</em> → <em>hunitowi</em> (eastern), and so on.</p>`},
+
+  {id:"l129_vocab_water_terrain",
+   title:"South and Water Terrain",
+   desc:"molianitowe (S), nouwe (island), shafane (river), shaune (lake)",
+   icon:"🏝️",
+   vocabKey:"l129_vocab_water_terrain",
+   xp:20,
+   unit:22,
+   srsExtras:["shafanile"],
+   intro:`<h3>🧭 South — completing the compass</h3><p><em>molianitowe</em> (south) closes the four-direction set started in L128. Same pattern: <em>moliani</em> (down) + <em>towe</em> (map) = "down-of-map."</p><span class="example">Lo lawe nea wa halu na molianitowe. <span class="gloss">Today we went south.</span></span><p>The compass is now complete: <em>lianitowe</em> N, <em>hunitowe</em> E, <em>molianitowe</em> S, <em>mohunitowe</em> W.</p><h3>🌊 Water terrain — three nouns</h3><p>Three of the most basic water-related landform words. All take the noun + adjective canvas — no verb forms:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>nouwe</em> — island</td><td style="padding:4px 12px"><em>nouwi</em> — island-related</td></tr><tr><td style="padding:4px 12px"><em>shafane</em> — river</td><td style="padding:4px 12px"><em>shafani</em> — riverine</td></tr><tr><td style="padding:4px 12px"><em>shaune</em> — lake</td><td style="padding:4px 12px"><em>shauni</em> — lake-related</td></tr></table><h3>💧 The <em>-ile</em> diminutive — making things small</h3><p>Liru turns a noun into its "small version" with the suffix <em>-ile</em>. You've seen this before in core (<em>komile</em> "pebble" from <em>kome</em> "stone," <em>tohilele</em> "second" from <em>tohile</em> "minute"). Now with <em>shafane</em>:</p><span class="example">shafane (river) + <em>-ile</em> → <em>shafanile</em> <span class="gloss">stream — literally "little river"</span></span><span class="example">Lo shafanile su shauni. <span class="gloss">This stream is lake-related.</span></span><p>The <em>-ile</em> pattern is fully productive — you can apply it to most concrete nouns. The next lesson will show another example with <em>wouhe</em> "mountain" → <em>wouhile</em> "hill."</p>`},
+
+  {id:"l130_vocab_landform",
+   title:"Ground, Mountain, Valley, Desert",
+   desc:"toule (ground/earth), wouhe (mountain), pieme (valley), tauhe (desert)",
+   icon:"⛰️",
+   vocabKey:"l130_vocab_landform",
+   xp:20,
+   unit:22,
+   intro:`<h3>⛰️ Four classic landforms</h3><p>Four roots covering the broad-to-specific structure of dry geography. The first one, <em>toule</em>, names the substrate itself — the ground underfoot, the earth as material. The other three are contrasting terrain shapes.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>toule</em> — ground (or earth)</td><td style="padding:4px 12px"><em>touli</em> — earth-related</td></tr><tr><td style="padding:4px 12px"><em>wouhe</em> — mountain</td><td style="padding:4px 12px"><em>wouhi</em> — mountainous</td></tr><tr><td style="padding:4px 12px"><em>pieme</em> — valley</td><td style="padding:4px 12px"><em>piemi</em> — valley-related</td></tr><tr><td style="padding:4px 12px"><em>tauhe</em> — desert</td><td style="padding:4px 12px"><em>tauhi</em> — arid</td></tr></table><span class="example">Neo hiwe su leu touli. <span class="gloss">My home is on the earth.</span></span><span class="example">Lo wouhe su liani. <span class="gloss">This mountain is tall.</span></span><span class="example">Wouhe su mopiame ata pieme. <span class="gloss">The mountain is bigger than the valley.</span></span><span class="example">Loa tauhea su apa tauhi. <span class="gloss">These deserts are the most arid.</span></span><p>A note on <em>toule</em>: the etymology is itself geographic — <em>towe</em> "map" was coined from <em>toule</em> + <em>raime</em> (picture), an "earth-picture." So when you hear <em>towe</em> in a compass word like <em>lianitowe</em>, the deeper root is the ground you're standing on.</p>`},
+
+  {id:"l131_vocab_terrain_features",
+   title:"Shore, Field, Hill, Cave",
+   desc:"touhe (shore), foule (field), wouhile (hill), pouwe (cave)",
+   icon:"🏖️",
+   vocabKey:"l131_vocab_terrain_features",
+   xp:20,
+   unit:22,
+   intro:`<h3>🏖️ Four more terrain features</h3><p>Four roots filling in the remaining terrain types — two coastal/open (shore, field) and two enclosed/contained (hill, cave):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>touhe</em> — shore (or coast, beach)</td><td style="padding:4px 12px"><em>touhi</em> — coastal</td></tr><tr><td style="padding:4px 12px"><em>foule</em> — field</td><td style="padding:4px 12px"><em>fouli</em> — field-related (or wide open)</td></tr><tr><td style="padding:4px 12px"><em>wouhile</em> — hill</td><td style="padding:4px 12px">(noun only)</td></tr><tr><td style="padding:4px 12px"><em>pouwe</em> — cave</td><td style="padding:4px 12px"><em>pouwi</em> — cavernous</td></tr></table><h3>⛰️ <em>wouhile</em> — the <em>-ile</em> diminutive returns</h3><p>You saw <em>shafanile</em> "stream" in L129 — <em>shafane</em> "river" plus the <em>-ile</em> diminutive. <em>wouhile</em> is the same pattern applied to <em>wouhe</em>:</p><span class="example">wouhe (mountain) + <em>-ile</em> → <em>wouhile</em> <span class="gloss">hill — literally "little mountain"</span></span><span class="example">Neo hiwe su leu wouhile. <span class="gloss">My home is on the hill.</span></span><p>Diminutive nouns like <em>wouhile</em> typically don't take an adjective form — the <em>-ile</em> already does descriptive work.</p><h3>🏖️ A note on <em>touhe</em></h3><p>The shore is a frequent setting in Liru — the Pacific coast is the backdrop the language grew up against. The noun and adjective forms are taught here; the verb form (<em>touhu</em> "to come ashore") is in the dictionary for lookup but isn't drilled.</p>`},
+
+  {id:"l132_geography_exam",
+   title:"Unit 23 Exam — Cardinal Directions & Geography",
+   desc:"Three hearts. Compass directions and landforms in context.",
+   icon:"🗺️",
+   vocabKey:"l132_geography_exam",
+   xp:30,
+   unit:22,
    isSentence:true,
    isCheckpoint:true},
 ];
@@ -9090,7 +9302,7 @@ const DICTIONARY_RAW = [
   {lw:"lewi", en:"laughing", pos:"adj"},
   {lw:"lewu", en:"to laugh", pos:"v"},
   {lw:"liane", en:"height", pos:"n"},
-  {lw:"liani", en:"tall (or highly)", pos:"adj"},
+  {lw:"liani", en:"tall (or up)", pos:"adj"},
   {lw:"lianu", en:"to rise", pos:"v"},
   {lw:"lianitowe", en:"north", pos:"n", note:"From liani (high) + towe (map) \u2014 high-of-map"},
   {lw:"lianitowi", en:"northern", pos:"adj"},
@@ -9343,7 +9555,7 @@ const DICTIONARY_RAW = [
   {lw:"molewi", en:"crying", pos:"adj"},
   {lw:"molewu", en:"to cry (or weep)", pos:"v"},
   {lw:"moliane", en:"lowness", pos:"n"},
-  {lw:"moliani", en:"low", pos:"adj"},
+  {lw:"moliani", en:"low (or down)", pos:"adj"},
   {lw:"molianu", en:"to lower (or descend)", pos:"v"},
   {lw:"molianitowe", en:"south", pos:"n", note:"From moliani (low) + towe (map) \u2014 low-of-map"},
   {lw:"molianitowi", en:"southern", pos:"adj"},
