@@ -3215,6 +3215,280 @@ const V = {
      en:"Although we are southerners, we love this valley."},
   ],
 
+  // ════════════════════════════════════════════════════════════════
+  // UNIT 24 (A10): EXTENDED FAMILY (L133–L139)
+  // ════════════════════════════════════════════════════════════════
+  // Tenth advanced-track unit, first compositional unit. The teaching
+  // payload is Grammar.md §"Extended Kinship via Possessive Chains" —
+  // the productive *X-eo Y* pattern that builds grandparents, aunts,
+  // uncles, nephews, nieces, and grandchildren from already-taught
+  // basic kin roots (mawe, pawe, loye, yoye, plus the L133-absorbed
+  // nowe, noye). Zero new dictionary roots; all 8 absorbed roots
+  // (nowe, noye, shuwe, paure, paurile, yaure, yaurile, piwile) were
+  // catalogued in A22 (Daily Nouns) manifest and pre-existed in
+  // Dictionary.md and DICTIONARY_RAW.
+  //
+  // Convention applied: maximize weave-in from future units subject
+  // to the 4-roots-per-lesson cap. A10 absorbs 8 roots from A22
+  // because they cluster thematically with kinship/life-cycle.
+  // Extends the A8/A9 "breadth units may absorb from other buckets
+  // when thematic fit is stronger" pattern from breadth → capability/
+  // compositional units. The cap-respecting principle is the same.
+  //
+  // Selective-canvas-slot teaching applied (A6/A8/A9 precedent):
+  // *nowi, noyi, pauri, yauri, shuwi* are not drilled. These rare
+  // adjective forms ("son-related," "manly," "spousal," etc.) live
+  // in DICTIONARY_RAW for lookup but add SRS cardspace without
+  // comprehension value. *shuwu* "to marry" IS drilled — a useful
+  // verb. Following A6's drop of color-change verbs and A9's drop
+  // of *touhu* "to come ashore."
+  //
+  // Lesson plan (7 lessons — L133 to L139):
+  //   L133 — Vocab: kinship base words for grandparent/grandchild
+  //          and in-law compositions. 3 roots / 4 forms drilled
+  //          (nowe, noye, shuwe, shuwu). Intro card explains why
+  //          these are appearing in A10 (anchors for compositions)
+  //          and previews the X-eo Y pattern.
+  //   L134 — Sentence: grandparents. 7 sentences covering all four
+  //          maternal/paternal × grandmother/grandfather. Cloze on
+  //          4 blanking the possessor token. 0 new roots.
+  //   L135 — Vocab: adult/child descriptors used as predicates in
+  //          subsequent sentence lessons. 4 roots / 4 forms drilled
+  //          (paure, paurile, yaure, yaurile). At the 4-root cap.
+  //          Intro card teaches the -ile diminutive applied to
+  //          paure/yaure for paurile/yaurile.
+  //   L136 — Sentence: aunts and uncles. 7 sentences across maternal/
+  //          paternal × aunt/uncle. Cloze on 4. 0 new roots.
+  //   L137 — Sentence: nephews and nieces. 8 sentences across via-
+  //          brother/via-sister × nephew/niece. Introduces *piwile*
+  //          sentence-only (registered in preflight's
+  //          sentenceLessonNewForms). Cloze on 4. 1 sentence-introduced
+  //          form.
+  //   L138 — Sentence: grandchildren. 7 sentences across via-son/via-
+  //          daughter × grandson/granddaughter. Cloze on 4. 0 new roots.
+  //   L139 — Unit exam (isCheckpoint:true). 10 sentences mixing all
+  //          composition types plus 1 great-grandparent recursive
+  //          chain (maweo maweo mawe) demonstrating Grammar.md's
+  //          "any further distance" extensibility claim. Cloze on 4.
+  //          0 new roots.
+  //
+  // Total unit lexical load: 8 absorbed roots / 13 drilled forms.
+  // Each lesson within the §2 cap (≤4 roots).
+  //
+  // No new SRS_GLOSS_OVERRIDES entries. The X-eo Y pattern is
+  // productive and self-glossing once internalized; the absorbed
+  // roots are direct concrete nouns/verbs with clean glosses.
+  //
+  // Forms registered in preflight.js sentenceLessonNewForms for
+  // L137 only (piwile). Other sentence lessons in A10 use no
+  // sentence-only new forms.
+
+  // L133 — Vocab: Son, Daughter, Spouse, Loving
+  // Three kinship roots absorbed from A22 Daily Nouns manifest into
+  // A10, plus the adjective form nawi "loving" (canvas sibling of
+  // already-taught nawu "to love" from L18) surfaced for use in the
+  // sentence lessons that follow (#L136 "my uncle is a loving man,"
+  // #L137 "her niece is a loving girl," #L139 "her aunt is a loving
+  // woman"). *nowe* and *noye* are required for the grandchildren and
+  // nephew/niece compositions that follow; *shuwe/shuwu* is added
+  // for thematic cluster (spouse fits family vocabulary) and because
+  // the verb shuwu "to marry" is genuinely useful in family-event
+  // sentences. *nawi* completes the L18 nawe/nawu canvas. Selective
+  // canvas: nowi, noyi, shuwi (the mechanical-tier adjectives) are
+  // not drilled — they remain in DICTIONARY_RAW.
+  // 3 roots / 5 forms (within 4-root cap).
+  l133_vocab_son_daughter_spouse: [
+    {lw:"nowe", en:"son", pos:"n"},
+    {lw:"noye", en:"daughter", pos:"n"},
+    {lw:"shuwe", en:"spouse", pos:"n",
+     canvas:{v:"shuwu", v_en:"to marry"}},
+    {lw:"nawi", en:"loving", pos:"adj",
+     note:"Adjective form of nawe (love) — completes the canvas of nawu (to love) from L18"},
+  ],
+
+  // L134 — Sentence: Grandparents
+  // First compositional sentence lesson. The 7 sentences cover all
+  // four maternal/paternal × grandmother/grandfather permutations,
+  // with #1 and #2 establishing the basic *maweo mawe* / *paweo pawe*
+  // patterns, #3 and #4 distributing the cross-axis combinations,
+  // and #5–#7 putting the compositions into natural sentence frames
+  // (cooking, talking, conditional well-wishes). Cloze on 4 sentences
+  // blanks the possessor (maweo / paweo) — the lineage marker IS the
+  // pedagogical payload.
+  // 0 new roots; all forms in budget through L133.
+  l134_grandparents: [
+    {lw:["Neo","maweo","mawe","su","sheyi"],
+     en:"My grandmother (maternal) is healthy.",
+     cloze:{blanks:[1], bank:["maweo","paweo","yoyeo","loyeo","noweo","noyeo"]}},
+    {lw:["Veo","paweo","pawe","wa","vanu","lo lawe"],
+     en:"Her grandfather (paternal) came today.",
+     cloze:{blanks:[1], bank:["paweo","maweo","loyeo","yoyeo","noweo","noyeo"]}},
+    {lw:["Neo","maweo","pawe","nawu","ne"],
+     en:"My grandfather (maternal) loves me."},
+    {lw:["Teo","paweo","mawe","su","apa","monohi"],
+     en:"Your grandmother (paternal) is the oldest."},
+    {lw:["Lo lawe","maweo","mawe","wa","nahu","na","nea"],
+     en:"Today grandmother (mother's mother) cooked for us.",
+     cloze:{blanks:[1,5], bank:["maweo","paweo","na","ko","fa","so"]}},
+    {lw:["Neo","paweo","pawe","taiweli","liru","ko","ne"],
+     en:"My grandfather (paternal) always talks with me."},
+    {lw:["Vi","te","wamu","maweo","pawe","ve","wu","houli"],
+     en:"If you like grandfather (maternal), he will be happy.",
+     cloze:{blanks:[0,3], bank:["vi","mavi","maweo","paweo","nalai","file"]}},
+  ],
+
+  // L135 — Vocab: Man, Woman, Boy, Girl
+  // Four roots absorbed from A22 Daily Nouns. Adult/child descriptors
+  // are used as predicates in the subsequent sentence lessons (L136–
+  // L138, L139 exam): "my uncle is a kind man," "her niece is a
+  // beautiful girl." Drilling them here gives those sentences natural
+  // English. The -ile diminutive pattern is the morphological focus
+  // of the intro card — paurile = paure + -ile ("little man" = boy),
+  // yaurile = yaure + -ile ("little woman" = girl). Same productive
+  // pattern as wouhile (L131), shafanile (L129 srsExtras), and
+  // tohilele in core. Selective canvas: pauri "manly" and yauri
+  // "womanly" are mechanical-tier adjectives — not drilled, kept in
+  // DICTIONARY_RAW for lookup. 4 roots / 4 forms (at cap).
+  l135_vocab_man_woman_children: [
+    {lw:"paure", en:"man (adult male)", pos:"n"},
+    {lw:"paurile", en:"boy", pos:"n",
+     note:"From paure + -ile (diminutive) — little man"},
+    {lw:"yaure", en:"woman (adult female)", pos:"n"},
+    {lw:"yaurile", en:"girl", pos:"n",
+     note:"From yaure + -ile (diminutive) — little woman"},
+  ],
+
+  // L136 — Sentence: Aunts and Uncles
+  // Second compositional sentence lesson. The *parent-eo sibling*
+  // pattern: maweo loye, maweo yoye, paweo loye, paweo yoye. Reuses
+  // L135's paure/yaure as natural predicates (#1 "my uncle is a kind
+  // man," #6 "that woman is her aunt"). Cloze on 4 mixes blanking
+  // the possessor and the relation noun (sibling-of-parent — loye vs
+  // yoye). 0 new roots; all forms in budget through L135.
+  l136_aunts_uncles: [
+    {lw:["Neo","maweo","loye","su","nawi","paure"],
+     en:"My uncle (maternal) is a loving man.",
+     cloze:{blanks:[1,5], bank:["maweo","paweo","paure","yaure","mawe","pawe"]}},
+    {lw:["Veo","paweo","yoye","wa","koulu","nea"],
+     en:"Her aunt (paternal) visited us.",
+     cloze:{blanks:[2], bank:["yoye","loye","mawe","pawe","nowe","noye"]}},
+    {lw:["Teo","maweo","yoye","nawu","teo","piwea"],
+     en:"Your aunt (maternal) loves your children."},
+    {lw:["Kai","su","veo","paweo","loye","ma","ve","mai","su","veo","pawe"],
+     en:"Kai is her uncle (paternal), but he is not her father.",
+     cloze:{blanks:[3,4], bank:["paweo","maweo","loye","yoye","pawe","mawe"]}},
+    {lw:["Lo","paure","su","neo","maweo","loye"],
+     en:"This man is my uncle (maternal)."},
+    {lw:["Falo","yaure","su","veo","paweo","yoye"],
+     en:"That woman is her aunt (paternal)."},
+    {lw:["Vi","ne","ahu","sai","wele","ne","wu","koulu","neo","maweo","yoye"],
+     en:"If I have some time, I will visit my aunt (maternal).",
+     cloze:{blanks:[0,9], bank:["vi","mavi","maweo","paweo","loyeo","yoyeo"]}},
+  ],
+
+  // L137 — Sentence: Nephews and Nieces
+  // Third compositional sentence lesson. The *sibling-eo child* pattern:
+  // loyeo nowe (nephew via brother), yoyeo nowe (nephew via sister),
+  // loyeo noye (niece via brother), yoyeo noye (niece via sister).
+  // Introduces *piwile* "baby" sentence-only (registered in preflight's
+  // sentenceLessonNewForms) — appears in sentence #5 predicating a
+  // niece's age. 8 sentences (one more than L134/L136) because the
+  // four-way matrix needs two sentences per pattern to feel exhaustive
+  // without forcing artificial single-pattern sentences. Cloze on 4
+  // alternates blanking the chain-possessor (loyeo / yoyeo) and the
+  // relation noun (nowe / noye). 0 new roots; piwile registered as
+  // sentence-only.
+  l137_nephews_nieces: [
+    {lw:["Neo","loyeo","nowe","su","paurile"],
+     en:"My nephew (via brother) is a boy.",
+     cloze:{blanks:[1,4], bank:["loyeo","yoyeo","paurile","yaurile","piwile","paure"]}},
+    {lw:["Veo","yoyeo","noye","su","nawi","yaurile"],
+     en:"Her niece (via sister) is a loving girl."},
+    {lw:["Teo","loyeo","noye","nawu","teo","piwea"],
+     en:"Your niece (via brother) loves your children.",
+     cloze:{blanks:[1,2], bank:["loyeo","yoyeo","noye","nowe","piwea","piwile"]}},
+    {lw:["Kai","su","neo","yoyeo","nowe"],
+     en:"Kai is my nephew (via sister)."},
+    {lw:["Lo","piwile","su","neo","loyeo","noye"],
+     en:"This baby is my niece (via brother).",
+     cloze:{blanks:[1,4], bank:["piwile","piwe","loyeo","yoyeo","paurile","yaurile"]}},
+    {lw:["Veo","yoyeo","nowe","wa","tahu","ko","ne"],
+     en:"Her nephew (via sister) ate with me."},
+    {lw:["Vi","te","tiru","neo","loyeo","nowe","te","wu","wamu","ve"],
+     en:"If you see my nephew (via brother), you will like him.",
+     cloze:{blanks:[0,4], bank:["vi","mavi","loyeo","yoyeo","noweo","noyeo"]}},
+    {lw:["Neo","yoyeo","noye","taiweli","liru","ko","veo","mawe"],
+     en:"My niece (via sister) always talks with her mother."},
+  ],
+
+  // L138 — Sentence: Grandchildren
+  // Fourth compositional sentence lesson. The *child-eo child* pattern:
+  // noweo nowe (grandson via son), noyeo nowe (grandson via daughter),
+  // noweo noye (granddaughter via son), noyeo noye (granddaughter via
+  // daughter). Heaviest reliance on L133's nowe/noye absorption.
+  // Sentence #2 reuses piwile from L137. Sentence #5 exercises plural-
+  // possessive productive inflection (neoa noweo nowe with first-pl
+  // possessive). Cloze on 4 targets the four-way matrix. 0 new roots;
+  // all forms in budget through L137.
+  l138_grandchildren: [
+    {lw:["Neo","noweo","nowe","su","paurile"],
+     en:"My grandson (via son) is a boy.",
+     cloze:{blanks:[1,4], bank:["noweo","noyeo","paurile","yaurile","piwile","paure"]}},
+    {lw:["Veo","noyeo","noye","su","piwile"],
+     en:"Her granddaughter (via daughter) is a baby.",
+     cloze:{blanks:[1,4], bank:["noyeo","noweo","piwile","piwe","paurile","yaurile"]}},
+    {lw:["Teo","noweo","noye","su","sheyi"],
+     en:"Your granddaughter (via son) is healthy."},
+    {lw:["Neo","noyeo","nowe","nawu","shawome"],
+     en:"My grandson (via daughter) loves the ocean."},
+    {lw:["Neoa","noweo","nowe","taiweli","koulu","nea"],
+     en:"Our grandson (via son) always visits us.",
+     cloze:{blanks:[1,3], bank:["noweo","noyeo","taiweli","saiweli","naiweli","nuliweli"]}},
+    {lw:["Lo lawe","neo","noweo","noye","wa","vanu","so","neo","hiwe"],
+     en:"Today, my granddaughter (via son) came to my house."},
+    {lw:["Vi","ne","wa","ahu","sai","wele","ne","wu","liru","ko","neo","noyeo","nowe"],
+     en:"If I had some time, I would talk with my grandson (via daughter).",
+     cloze:{blanks:[0,11], bank:["vi","mavi","noyeo","noweo","loyeo","yoyeo"]}},
+  ],
+
+  // L139 — Unit 24 Exam: Extended Family
+  // 10 sentences synthesizing all four composition types (grandparents
+  // L134, aunts/uncles L136, nephews/nieces L137, grandchildren L138)
+  // plus one great-grandparent recursive *X-eo X-eo Y* chain (#8) that
+  // demonstrates Grammar.md §"Extended Kinship"'s "any further distance"
+  // extensibility claim. Sentence #9 exercises productive plural-
+  // possessive (neoa loyeoa nowea — "our brothers' sons" = our nephews
+  // via brothers, plural). Sentence #10 layers A2 mavi concessive +
+  // grandparent + A9 touhe. Cloze on 4 — including #8's recursive
+  // chain — across mixed difficulty. 0 new roots; all forms in budget
+  // through L138.
+  l139_extended_family_exam: [
+    {lw:["Neo","maweo","mawe","nawu","ne"],
+     en:"My grandmother (maternal) loves me."},
+    {lw:["Veo","paweo","yoye","su","nawi","yaure"],
+     en:"Her aunt (paternal) is a loving woman.",
+     cloze:{blanks:[1,2], bank:["paweo","maweo","yoye","loye","yaure","paure"]}},
+    {lw:["Teo","loyeo","nowe","taiweli","koulu","te"],
+     en:"Your nephew (via brother) always visits you."},
+    {lw:["Neo","noyeo","noye","wa","tahu","lo lawe"],
+     en:"My granddaughter (via daughter) ate today."},
+    {lw:["Vi","te","tiru","neo","maweo","loye","te","wu","wamu","ve"],
+     en:"If you see my uncle (maternal), you will like him.",
+     cloze:{blanks:[0,4], bank:["vi","mavi","maweo","paweo","loyeo","noweo"]}},
+    {lw:["Veo","yoyeo","noye","su","apa","wauli","yaurile"],
+     en:"Her niece (via sister) is the most beautiful girl."},
+    {lw:["Lo lawe","neo","paweo","pawe","wa","nahu","na","nea"],
+     en:"Today, my grandfather (paternal) cooked for us."},
+    {lw:["Neo","maweo","maweo","mawe","taiweli","wa","liru","ko","ne"],
+     en:"My great-grandmother (mother's mother's mother) always spoke with me.",
+     cloze:{blanks:[1,2], bank:["maweo","paweo","loyeo","yoyeo","noweo","noyeo"]}},
+    {lw:["Faloa","piwea","su","neoa","loyeoa","nowea"],
+     en:"Those children are our nephews (via brothers).",
+     cloze:{blanks:[4,5], bank:["loyeoa","yoyeoa","nowea","noyea","paurilea","piwea"]}},
+    {lw:["Mavi","neo","paweo","mawe","su","monohi","ve","wu","halu","so","lo","touhe"],
+     en:"Although my grandmother (paternal) is old, she will go to this shore."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -3259,6 +3533,7 @@ const UNITS = [
   {name:"Unit 21 — Numbers Beyond 10, Ordinals & Months", start:109, track:"advanced"},
   {name:"Unit 22 — High-Frequency Vocabulary", start:113, track:"advanced"},
   {name:"Unit 23 — Cardinal Directions & Geography", start:121, track:"advanced"},
+  {name:"Unit 24 — Extended Family", start:126, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -4547,6 +4822,92 @@ const LESSONS = [
    vocabKey:"l132_geography_exam",
    xp:30,
    unit:22,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── Unit 24 (A10): Extended Family ──────────────────────────
+  // Tenth advanced-track unit, first compositional unit. 7 lessons
+  // (2 vocab + 4 sentence content + 1 unit exam). 0 new dictionary
+  // roots — the unit teaches Grammar.md §"Extended Kinship via
+  // Possessive Chains" productively. 8 roots / 13 forms absorbed
+  // from A22 Daily Nouns manifest under the cap-respecting
+  // maximum-weave-in convention (DECISIONS.md "A10 — Extended
+  // Family"): nowe, noye, shuwe (L133) and paure, paurile, yaure,
+  // yaurile (L135) drilled; piwile introduced sentence-only in L137.
+  // Selective-canvas-slot teaching applied (A6 precedent): nowi,
+  // noyi, shuwi, pauri, yauri not drilled — remain in DICTIONARY_RAW.
+  // shuwu "to marry" IS drilled (genuinely useful verb).
+  //
+  // No new exercise types, no new mechanisms — clean application
+  // of A1–A9 conventions. No new SRS_GLOSS_OVERRIDES entries.
+  // See DECISIONS.md "A10 — Extended Family (shipped 2026-05-13)"
+  // for the full convention record.
+
+  {id:"l133_vocab_son_daughter_spouse",
+   title:"Son, Daughter, Spouse",
+   desc:"nowe (son), noye (daughter), shuwe/shuwu (spouse/marry), nawi (loving)",
+   icon:"👪",
+   vocabKey:"l133_vocab_son_daughter_spouse",
+   xp:20,
+   unit:23,
+   intro:`<h3>👪 Three more kinship roots — and a useful adjective</h3><p>You already know the basic kin roots from Unit 3: <em>mawe</em> (mother), <em>pawe</em> (father), <em>loye</em> (brother), <em>yoye</em> (sister), and <em>piwe</em> (child). This lesson adds three more that anchor the rest of the family tree, plus one adjective that completes a canvas you've already met:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nowe</em></td><td style="padding:4px 12px">son</td></tr><tr><td style="padding:4px 12px"><em>noye</em></td><td style="padding:4px 12px">daughter</td></tr><tr><td style="padding:4px 12px"><em>shuwe</em></td><td style="padding:4px 12px">spouse</td></tr><tr><td style="padding:4px 12px"><em>shuwu</em></td><td style="padding:4px 12px">to marry</td></tr><tr><td style="padding:4px 12px"><em>nawi</em></td><td style="padding:4px 12px">loving</td></tr></table><h3>💗 <em>nawi</em> — completing the love canvas</h3><p>Way back in Unit 4 you met <em>nawu</em> (to love). The full canvas root is <em>nawe</em> (love, noun) / <em>nawi</em> (loving, adjective) / <em>nawu</em> (to love, verb). <em>nawi</em> is the descriptive form — useful for describing family members:</p><span class="example">Neo mawe su nawi yaure. <span class="gloss">My mother is a loving woman.</span></span><h3>🌳 A preview: building the extended family</h3><p>Liru doesn't have dedicated words for grandmother, uncle, niece, or grandson. Instead, it builds them productively using the possessive <em>-eo</em> ending you already know:</p><span class="example">maweo mawe <span class="gloss">mother's mother = grandmother (maternal)</span></span><span class="example">paweo loye <span class="gloss">father's brother = uncle (paternal)</span></span><span class="example">noweo nowe <span class="gloss">son's son = grandson (via son)</span></span><p>The next lesson teaches grandparents, then aunts and uncles, then nephews and nieces, then grandchildren. With these three new roots (plus the six you already know), every extended-family relation becomes constructible.</p><p>Note: <em>nowe</em> and <em>noye</em> are taught here as nouns only. Their adjective forms <em>nowi</em> "son-related" and <em>noyi</em> "daughter-related" exist in the dictionary for lookup but are rarely used in real speech.</p>`},
+
+  {id:"l134_grandparents",
+   title:"Grandparents — Mother's Mother, Father's Father",
+   desc:"7 sentences teaching the X-eo Y pattern via grandparents",
+   icon:"👵",
+   vocabKey:"l134_grandparents",
+   xp:24,
+   unit:23,
+   isSentence:true,
+   intro:`<h3>👵 Possessive chains for kinship</h3><p>To name a grandparent in Liru, take the parent who connects you to them and add the possessive <em>-eo</em>:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">English</th><th style="padding:4px 12px;color:var(--dim)">Liru</th><th style="padding:4px 12px;color:var(--dim)">literally</th></tr><tr><td style="padding:4px 8px">grandmother (maternal)</td><td style="padding:4px 12px"><em>maweo mawe</em></td><td style="padding:4px 12px">mother's mother</td></tr><tr><td style="padding:4px 8px">grandmother (paternal)</td><td style="padding:4px 12px"><em>paweo mawe</em></td><td style="padding:4px 12px">father's mother</td></tr><tr><td style="padding:4px 8px">grandfather (maternal)</td><td style="padding:4px 12px"><em>maweo pawe</em></td><td style="padding:4px 12px">mother's father</td></tr><tr><td style="padding:4px 8px">grandfather (paternal)</td><td style="padding:4px 12px"><em>paweo pawe</em></td><td style="padding:4px 12px">father's father</td></tr></table><h3>🎯 Why this is useful</h3><p>English collapses both maternal and paternal grandmothers into one word: "grandmother." Liru keeps the distinction at no extra vocabulary cost — <em>maweo mawe</em> is specifically your mother's mother. Lineage information comes built-in.</p><h3>📝 In a sentence</h3><span class="example">Neo maweo mawe wa vanu. <span class="gloss">My grandmother (maternal) came.</span></span><span class="example">Veo paweo pawe su monohi. <span class="gloss">Her grandfather (paternal) is old.</span></span><p>To add a personal pronoun ("my grandmother"), put the possessive pronoun (<em>neo</em>, <em>teo</em>, <em>veo</em>...) at the very front of the chain, then the kinship chain follows.</p>`},
+
+  {id:"l135_vocab_man_woman_children",
+   title:"Man, Woman, Boy, Girl",
+   desc:"paure (man), paurile (boy), yaure (woman), yaurile (girl)",
+   icon:"🧑",
+   vocabKey:"l135_vocab_man_woman_children",
+   xp:20,
+   unit:23,
+   intro:`<h3>🧑 Adult and child descriptors</h3><p>Four nouns naming people by age and gender — useful predicates when describing family members in the sentences that follow:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>paure</em></td><td style="padding:4px 12px">man (adult male)</td></tr><tr><td style="padding:4px 12px"><em>paurile</em></td><td style="padding:4px 12px">boy</td></tr><tr><td style="padding:4px 12px"><em>yaure</em></td><td style="padding:4px 12px">woman (adult female)</td></tr><tr><td style="padding:4px 12px"><em>yaurile</em></td><td style="padding:4px 12px">girl</td></tr></table><h3>🪺 The <em>-ile</em> diminutive returns</h3><p>You've seen the <em>-ile</em> diminutive before — <em>komile</em> (pebble) from <em>kome</em> (stone), <em>shafanile</em> (stream) from <em>shafane</em> (river), <em>wouhile</em> (hill) from <em>wouhe</em> (mountain). Same pattern here:</p><span class="example">paure (man) + <em>-ile</em> → <em>paurile</em> <span class="gloss">boy — literally "little man"</span></span><span class="example">yaure (woman) + <em>-ile</em> → <em>yaurile</em> <span class="gloss">girl — literally "little woman"</span></span><p>The adjective forms <em>pauri</em> "manly" and <em>yauri</em> "womanly" exist in the dictionary but aren't drilled — they're rare in real speech.</p>`},
+
+  {id:"l136_aunts_uncles",
+   title:"Aunts and Uncles — Mother's Sister, Father's Brother",
+   desc:"7 sentences extending the X-eo Y pattern to siblings of parents",
+   icon:"👨‍👩‍👧",
+   vocabKey:"l136_aunts_uncles",
+   xp:24,
+   unit:23,
+   isSentence:true,
+   intro:`<h3>👨‍👩‍👧 Siblings of parents</h3><p>An aunt is the sister of a parent. An uncle is the brother of a parent. In Liru, the chain is built exactly the same way as grandparents — possessor + relation:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">English</th><th style="padding:4px 12px;color:var(--dim)">Liru</th><th style="padding:4px 12px;color:var(--dim)">literally</th></tr><tr><td style="padding:4px 8px">aunt (maternal)</td><td style="padding:4px 12px"><em>maweo yoye</em></td><td style="padding:4px 12px">mother's sister</td></tr><tr><td style="padding:4px 8px">aunt (paternal)</td><td style="padding:4px 12px"><em>paweo yoye</em></td><td style="padding:4px 12px">father's sister</td></tr><tr><td style="padding:4px 8px">uncle (maternal)</td><td style="padding:4px 12px"><em>maweo loye</em></td><td style="padding:4px 12px">mother's brother</td></tr><tr><td style="padding:4px 8px">uncle (paternal)</td><td style="padding:4px 12px"><em>paweo loye</em></td><td style="padding:4px 12px">father's brother</td></tr></table><h3>🎯 Same precision payoff</h3><p>English's "aunt" covers both your mother's sister and your father's sister. Liru distinguishes them by default. If you don't need to specify, just pick the lineage that matters — the chain is short either way.</p>`},
+
+  {id:"l137_nephews_nieces",
+   title:"Nephews and Nieces — Brother's Son, Sister's Daughter",
+   desc:"8 sentences across the four sibling-eo-child combinations",
+   icon:"👦",
+   vocabKey:"l137_nephews_nieces",
+   xp:24,
+   unit:23,
+   isSentence:true,
+   intro:`<h3>👦 Children of siblings</h3><p>Liru turns the possessive chain in the other direction: a nephew is your sibling's son, a niece is your sibling's daughter. The four combinations:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">English</th><th style="padding:4px 12px;color:var(--dim)">Liru</th><th style="padding:4px 12px;color:var(--dim)">literally</th></tr><tr><td style="padding:4px 8px">nephew (via brother)</td><td style="padding:4px 12px"><em>loyeo nowe</em></td><td style="padding:4px 12px">brother's son</td></tr><tr><td style="padding:4px 8px">nephew (via sister)</td><td style="padding:4px 12px"><em>yoyeo nowe</em></td><td style="padding:4px 12px">sister's son</td></tr><tr><td style="padding:4px 8px">niece (via brother)</td><td style="padding:4px 12px"><em>loyeo noye</em></td><td style="padding:4px 12px">brother's daughter</td></tr><tr><td style="padding:4px 8px">niece (via sister)</td><td style="padding:4px 12px"><em>yoyeo noye</em></td><td style="padding:4px 12px">sister's daughter</td></tr></table><h3>🧒 One more useful word: <em>piwile</em></h3><p>You'll see <em>piwile</em> (baby) in this lesson too — the <em>-ile</em> diminutive of <em>piwe</em> (child). Literally "little child." A newborn niece or nephew is often described this way.</p>`},
+
+  {id:"l138_grandchildren",
+   title:"Grandchildren — Son's Son, Daughter's Daughter",
+   desc:"7 sentences across the four child-eo-child combinations",
+   icon:"👶",
+   vocabKey:"l138_grandchildren",
+   xp:24,
+   unit:23,
+   isSentence:true,
+   intro:`<h3>👶 Children of children</h3><p>One more direction. Grandchildren chain from your own children:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">English</th><th style="padding:4px 12px;color:var(--dim)">Liru</th><th style="padding:4px 12px;color:var(--dim)">literally</th></tr><tr><td style="padding:4px 8px">grandson (via son)</td><td style="padding:4px 12px"><em>noweo nowe</em></td><td style="padding:4px 12px">son's son</td></tr><tr><td style="padding:4px 8px">grandson (via daughter)</td><td style="padding:4px 12px"><em>noyeo nowe</em></td><td style="padding:4px 12px">daughter's son</td></tr><tr><td style="padding:4px 8px">granddaughter (via son)</td><td style="padding:4px 12px"><em>noweo noye</em></td><td style="padding:4px 12px">son's daughter</td></tr><tr><td style="padding:4px 8px">granddaughter (via daughter)</td><td style="padding:4px 12px"><em>noyeo noye</em></td><td style="padding:4px 12px">daughter's daughter</td></tr></table><p>You've now seen the four extended-family directions: up two generations (grandparents), up one and over (aunts and uncles), over and down (nephews and nieces), and down two (grandchildren). The next lesson is the unit exam.</p>`},
+
+  {id:"l139_extended_family_exam",
+   title:"Unit 24 Exam — Extended Family",
+   desc:"Three hearts. All four composition types plus great-grandparents.",
+   icon:"🌳",
+   vocabKey:"l139_extended_family_exam",
+   xp:30,
+   unit:23,
    isSentence:true,
    isCheckpoint:true},
 ];
