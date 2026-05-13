@@ -2810,6 +2810,98 @@ const V = {
      cloze:{blanks:[3,9], bank:["tinali","niwali","feyali","huyali","roumali","laumali"]}},
   ],
 
+  // ═══════════════════════════════════════════════════════════════
+  // UNIT 21 (A7) — NUMBERS BEYOND 10, ORDINALS & MONTHS (L116–L119)
+  // ═══════════════════════════════════════════════════════════════
+  // Second breadth unit. Big-number anchors (woni hundred, yoni
+  // thousand), the productive X+ni ordinal pattern, time units
+  // tohile/tohilele, and the productive X+luone month-name pattern.
+  // A20 weave-in: kiame (number) and weihe (repetition) per the
+  // productive-pattern-breadth-unit-may-carry-weave-in convention.
+  //
+  // Uses the new srsExtras mechanism on LESSONS entries to route
+  // additional forms to SRS (8 ordinals on L117, 9 months on L118)
+  // without drilling them in lesson vocab — see selective
+  // compositional-instance teaching in DECISIONS.md.
+
+  // L116 — Big numbers and counting (woni, yoni, kiame)
+  l116_vocab_big_numbers: [
+    {lw:"woni", en:"hundred", pos:"num",
+     note:"Compose like small numbers: runi woni = 200, kani woni = 500"},
+    {lw:"yoni", en:"thousand", pos:"num",
+     note:"Compose like small numbers: runi yoni = 2000, kani yoni = 5000"},
+    {lw:"kiame", en:"number", pos:"n",
+     canvas:{adj:"kiami", adj_en:"numeric", v:"kiamu", v_en:"to count"}},
+  ],
+
+  // L117 — Ordinals and time units
+  // Drilled: fanini (1st), runini (2nd), tohile/tohili (minute),
+  // tohilele/tohileli (second/momentary). tohile pulled forward
+  // from A23 to pair with tohilele. SRS-extras (via LESSONS entry):
+  // tenini, shanini, kanini, venini, menini, onini, yanini, hanini.
+  l117_vocab_ordinals_time_units: [
+    {lw:"fanini", en:"first", pos:"adj",
+     note:"From fani (one) + -ni ordinal suffix (Grammar §14)"},
+    {lw:"runini", en:"second", pos:"adj",
+     note:"From runi (two) + -ni ordinal suffix"},
+    {lw:"tohile", en:"minute", pos:"n",
+     canvas:{adj:"tohili", adj_en:"of a minute"}},
+    {lw:"tohilele", en:"second (of time)", pos:"n",
+     canvas:{adj:"tohileli", adj_en:"momentary"},
+     note:"Diminutive of tohile — a tiny minute"},
+  ],
+
+  // L118 — The twelve months
+  // Drilled: luone (the morpheme behind every month name), faniluone (Jan,
+  // simplest case), runiluone (Feb, parallels runilawe Monday), haniruniluone
+  // (Dec, trickiest composite hani-runi). SRS-extras (via LESSONS entry):
+  // teniluone, shaniluone, kaniluone, veniluone, meniluone, oniluone,
+  // yaniluone, haniluone, hanifaniluone.
+  l118_vocab_months: [
+    {lw:"luone", en:"moon (or month)", pos:"n",
+     canvas:{adj:"luoni", adj_en:"lunar"},
+     note:"The morpheme behind every month name. Carries both 'moon' and 'month' — context disambiguates."},
+    {lw:"faniluone", en:"January", pos:"n",
+     note:"fani (one) + luone (moon/month)"},
+    {lw:"runiluone", en:"February", pos:"n",
+     note:"runi (two) + luone"},
+    {lw:"haniruniluone", en:"December", pos:"n",
+     note:"hani-runi (12) + luone — hyphens fuse in derivations (Grammar §14)"},
+  ],
+
+  // L119 — Unit 21 Exam: numbers, ordinals, time units, months
+  // 10 sentences, cloze on 4. Mixes L116-L118 content plus SRS-extras
+  // forms (yaniluone, tenini, shanini, shaniluone) registered in
+  // preflight's sentenceLessonNewForms for L119. Sentence #4 is the
+  // bridge sentence (ordinal + month) demonstrating that SRS-extras
+  // forms reach into exam content.
+  l119_numbers_months_exam: [
+    {lw:["Lo","su","faniluone"],
+     en:"This is January."},
+    {lw:["Kaniluone","su","nauyi","luone"],
+     en:"May is a fun month.",
+     cloze:{blanks:[0], bank:["kaniluone","faniluone","runiluone","teniluone","shaniluone","yaniluone"]}},
+    {lw:["Runini","lawe","su","runilawe"],
+     en:"The second day is Monday."},
+    {lw:["Shanini","luone","su","shaniluone"],
+     en:"The fourth month is April.",
+     cloze:{blanks:[0], bank:["shanini","fanini","runini","tenini","kanini","hanini"]}},
+    {lw:["Te","wu","vanu","yaniluone"],
+     en:"You will come in September."},
+    {lw:["Ne","ahu","runi","woni","loiwea"],
+     en:"I have two hundred books.",
+     cloze:{blanks:[3], bank:["woni","yoni","hani","fani","kani","teni"]}},
+    {lw:["Lo","su","tenini","tohile"],
+     en:"This is the third minute."},
+    {lw:["Loime","fani","tohilele"],
+     en:"Wait one second."},
+    {lw:["Faniluone","su","fanini","luone"],
+     en:"January is the first month.",
+     cloze:{blanks:[2], bank:["fanini","runini","tenini","shanini","kanini","hanini"]}},
+    {lw:["Te","kiamu","shani","tohilea"],
+     en:"You count four minutes."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -2851,6 +2943,7 @@ const UNITS = [
   {name:"Unit 18 — Frequency & Spatial Adverbs", start:93, track:"advanced"},
   {name:"Unit 19 — Existential Pronouns", start:100, track:"advanced"},
   {name:"Unit 20 — Colors", start:104, track:"advanced"},
+  {name:"Unit 21 — Numbers Beyond 10, Ordinals & Months", start:109, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -3962,6 +4055,46 @@ const LESSONS = [
    vocabKey:"l115_color_exam",
    xp:30,
    unit:19,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── UNIT 21 (A7): NUMBERS BEYOND 10, ORDINALS & MONTHS (L116–L119) ──
+  {id:"l116_vocab_big_numbers",
+   title:"Big Numbers and Counting",
+   desc:"woni (hundred), yoni (thousand), kiame (number / to count)",
+   icon:"🔢",
+   vocabKey:"l116_vocab_big_numbers",
+   xp:18,
+   unit:20,
+   intro:`<h3>🔢 Big numbers and counting</h3><p>You already know numbers 1–10 (<em>fani, runi, teni, shani, kani, veni, meni, oni, yani, hani</em>) and how to combine them past ten (<em>hani-fani</em> 11, <em>runi-hani</em> 20). Two more anchors complete the system:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>woni</em></td><td style="padding:4px 12px">hundred</td></tr><tr><td style="padding:4px 12px"><em>yoni</em></td><td style="padding:4px 12px">thousand</td></tr></table><p>They compose the same way smaller numbers do:</p><span class="example">runi woni <span class="gloss">two hundred (200)</span></span><span class="example">kani woni teni-hani <span class="gloss">five hundred thirty (530)</span></span><span class="example">teni yoni <span class="gloss">three thousand (3000)</span></span><h3>📊 The word for "number"</h3><p>The Liru word for "number" itself is <em>kiame</em>. It's a full canvas root:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kiame</em> (n.)</td><td style="padding:4px 12px">number</td></tr><tr><td style="padding:4px 12px"><em>kiami</em> (adj.)</td><td style="padding:4px 12px">numeric</td></tr><tr><td style="padding:4px 12px"><em>kiamu</em> (v.)</td><td style="padding:4px 12px">to count</td></tr></table><span class="example">Te kiamu loiwea. <span class="gloss">You count the books.</span></span>`},
+
+  {id:"l117_vocab_ordinals_time_units",
+   title:"Ordinals and Time Units",
+   desc:"fanini, runini + the X+ni ordinal pattern, plus tohile / tohilele",
+   icon:"🥇",
+   vocabKey:"l117_vocab_ordinals_time_units",
+   xp:22,
+   unit:20,
+   srsExtras:["tenini","shanini","kanini","venini","menini","onini","yanini","hanini"],
+   intro:`<h3>🥇 Ordinals — the <em>-ni</em> pattern</h3><p>Add the suffix <em>-ni</em> to any number to make an ordinal. The pattern is fully productive — every number from 1 to 10 takes <em>-ni</em> the same way.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">cardinal</th><th style="padding:4px 12px;color:var(--dim)">ordinal</th></tr><tr><td style="padding:4px 12px"><em>fani</em> (1)</td><td style="padding:4px 12px"><em>fanini</em> — first</td></tr><tr><td style="padding:4px 12px"><em>runi</em> (2)</td><td style="padding:4px 12px"><em>runini</em> — second</td></tr><tr><td style="padding:4px 12px"><em>teni</em> (3)</td><td style="padding:4px 12px"><em>tenini</em> — third</td></tr><tr><td style="padding:4px 12px"><em>shani</em> (4)</td><td style="padding:4px 12px"><em>shanini</em> — fourth</td></tr><tr><td style="padding:4px 12px"><em>kani</em> (5)</td><td style="padding:4px 12px"><em>kanini</em> — fifth</td></tr><tr><td style="padding:4px 12px"><em>veni</em> (6)</td><td style="padding:4px 12px"><em>venini</em> — sixth</td></tr><tr><td style="padding:4px 12px"><em>meni</em> (7)</td><td style="padding:4px 12px"><em>menini</em> — seventh</td></tr><tr><td style="padding:4px 12px"><em>oni</em> (8)</td><td style="padding:4px 12px"><em>onini</em> — eighth</td></tr><tr><td style="padding:4px 12px"><em>yani</em> (9)</td><td style="padding:4px 12px"><em>yanini</em> — ninth</td></tr><tr><td style="padding:4px 12px"><em>hani</em> (10)</td><td style="padding:4px 12px"><em>hanini</em> — tenth</td></tr></table><p>Ordinals are adjectives and precede the noun, like cardinals:</p><span class="example">Fanini loiwe <span class="gloss">the first book</span></span><span class="example">Runini lawe su runilawe <span class="gloss">the second day is Monday</span></span><h3>⏱️ Time units — minute and second</h3><p>Two new words for short durations:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>tohile</em> — minute</td><td style="padding:4px 12px"><em>tohili</em> — of a minute</td></tr><tr><td style="padding:4px 12px"><em>tohilele</em> — second</td><td style="padding:4px 12px"><em>tohileli</em> — momentary</td></tr></table><p><em>tohilele</em> is the diminutive of <em>tohile</em> (the <em>-le</em> suffix makes things smaller, like <em>komile</em> "pebble" from <em>kome</em> "stone"). So a second is literally "a tiny minute."</p><span class="example">Loime fani tohilele. <span class="gloss">Wait one second.</span></span><span class="example">Ne wu vanu shani tohilea wuhi. <span class="gloss">I will arrive in four minutes.</span></span>`},
+
+  {id:"l118_vocab_months",
+   title:"The Twelve Months",
+   desc:"luone (moon/month) and the twelve compositional month names",
+   icon:"📅",
+   vocabKey:"l118_vocab_months",
+   xp:25,
+   unit:20,
+   srsExtras:["teniluone","shaniluone","kaniluone","veniluone","meniluone","oniluone","yaniluone","haniluone","hanifaniluone"],
+   intro:`<h3>🌙 The morpheme behind every month</h3><p>The Liru word <em>luone</em> carries both <strong>moon</strong> and <strong>month</strong> — context disambiguates. Its adjective form is <em>luoni</em> (lunar).</p><span class="example">Lo luone su laumali. <span class="gloss">This moon is blue.</span></span><span class="example">Faniluone su nauyi luone. <span class="gloss">January is a fun month.</span></span><h3>📅 The twelve months</h3><p>Month names follow a pattern you already know. They're formed from a <strong>number + <em>luone</em></strong> — the same shape as the day names you learned in core (<strong>number + <em>lawe</em></strong>).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">#</th><th style="padding:4px 12px;color:var(--dim)">month</th><th style="padding:4px 12px;color:var(--dim)">composition</th></tr><tr><td style="padding:4px 8px">1</td><td style="padding:4px 12px"><em>faniluone</em> — January</td><td style="padding:4px 12px"><em>fani</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">2</td><td style="padding:4px 12px"><em>runiluone</em> — February</td><td style="padding:4px 12px"><em>runi</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">3</td><td style="padding:4px 12px"><em>teniluone</em> — March</td><td style="padding:4px 12px"><em>teni</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">4</td><td style="padding:4px 12px"><em>shaniluone</em> — April</td><td style="padding:4px 12px"><em>shani</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">5</td><td style="padding:4px 12px"><em>kaniluone</em> — May</td><td style="padding:4px 12px"><em>kani</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">6</td><td style="padding:4px 12px"><em>veniluone</em> — June</td><td style="padding:4px 12px"><em>veni</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">7</td><td style="padding:4px 12px"><em>meniluone</em> — July</td><td style="padding:4px 12px"><em>meni</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">8</td><td style="padding:4px 12px"><em>oniluone</em> — August</td><td style="padding:4px 12px"><em>oni</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">9</td><td style="padding:4px 12px"><em>yaniluone</em> — September</td><td style="padding:4px 12px"><em>yani</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">10</td><td style="padding:4px 12px"><em>haniluone</em> — October</td><td style="padding:4px 12px"><em>hani</em> + <em>luone</em></td></tr><tr><td style="padding:4px 8px">11</td><td style="padding:4px 12px"><em>hanifaniluone</em> — November</td><td style="padding:4px 12px"><em>hani-fani</em> (11) + <em>luone</em></td></tr><tr><td style="padding:4px 8px">12</td><td style="padding:4px 12px"><em>haniruniluone</em> — December</td><td style="padding:4px 12px"><em>hani-runi</em> (12) + <em>luone</em></td></tr></table><p>The pattern is fully productive — once you have the rule, you have all twelve. In derived words like these, the hyphens of compound numbers fuse (so it's <em>hanifaniluone</em>, not <em>hani-faniluone</em>).</p>`},
+
+  {id:"l119_numbers_months_exam",
+   title:"Unit 21 Exam — Numbers, Ordinals, and Months",
+   desc:"Three hearts. Big numbers, ordinals, time units, and months in context.",
+   icon:"📆",
+   vocabKey:"l119_numbers_months_exam",
+   xp:30,
+   unit:20,
    isSentence:true,
    isCheckpoint:true},
 ];
@@ -5120,6 +5253,27 @@ function srsExtractLessonWords(lesson,V,DICTIONARY_RAW){
         const plEn = SRS_GLOSS_OVERRIDES[ent.plural] || ent.plural_en || ent.en;
         out.push({lw:ent.plural,en:plEn,pos:ent.pos||"n"});
       }
+    }
+  }
+  // srsExtras: forms listed on the LESSONS entry (not V) that should also
+  // enter the SRS deck on completion. Used by units with productive-pattern
+  // content where the full instance set deserves SRS coverage even though
+  // only a subset is drilled as lesson vocab (e.g., A7 routes 8 ordinals
+  // and 9 month names through srsExtras while drilling only a handful).
+  // Forms are looked up in DICTIONARY_RAW for canonical gloss + pos.
+  // See DECISIONS.md "A7 — Numbers Beyond 10, Ordinals & Months".
+  if(Array.isArray(lesson.srsExtras)&&lesson.srsExtras.length){
+    const dictLookup={};
+    for(const d of DICTIONARY_RAW){dictLookup[d.lw]=d;}
+    const seenExtras=new Set(out.map(w=>w.lw));
+    for(const extra of lesson.srsExtras){
+      const lw=String(extra).toLowerCase();
+      if(seenExtras.has(lw))continue;
+      const d=dictLookup[lw];
+      if(!d)continue;  // preflight should have caught this; defensive
+      const enForCard = SRS_GLOSS_OVERRIDES[d.lw] || d.en;
+      out.push({lw:d.lw,en:enForCard,pos:d.pos||"n"});
+      seenExtras.add(lw);
     }
   }
   return out;
@@ -8463,6 +8617,7 @@ const DICTIONARY_RAW = [
   {lw:"halu", en:"to go", pos:"v"},
   {lw:"hani", en:"ten", pos:"num"},
   {lw:"hanifaniluone", en:"November", pos:"n", note:"From hani (10) + fani (1) + luone (month) \u2014 November"},
+  {lw:"hanini", en:"tenth", pos:"adj", note:"From hani (10) + -ni ordinal suffix (Grammar §14)"},
   {lw:"haniluone", en:"October", pos:"n", note:"From hani (10) + luone (month)"},
   {lw:"haniruniluone", en:"December", pos:"n", note:"From hani (10) + runi (2) + luone (month) \u2014 December"},
   {lw:"hauhe", en:"heat", pos:"n"},
@@ -8561,6 +8716,7 @@ const DICTIONARY_RAW = [
   {lw:"kani", en:"five", pos:"num"},
   {lw:"kanilawe", en:"Thursday", pos:"n", note:"From kani (5) + lawe (day)"},
   {lw:"kaniluone", en:"May", pos:"n", note:"From kani (5) + luone (month)"},
+  {lw:"kanini", en:"fifth", pos:"adj", note:"From kani (5) + -ni ordinal suffix"},
   {lw:"kaniwime", en:"pinky (or little finger)", pos:"n", note:"From kani (five) + wime (finger) \u2014 five-finger / fifth finger"},
   {lw:"karuhe", en:"war", pos:"n"},
   {lw:"karuhi", en:"warlike (or war-related)", pos:"adj"},
@@ -8827,6 +8983,7 @@ const DICTIONARY_RAW = [
   {lw:"meni", en:"seven", pos:"num"},
   {lw:"menilawe", en:"Saturday", pos:"n", note:"From meni (7) + lawe (day)"},
   {lw:"meniluone", en:"July", pos:"n", note:"From meni (7) + luone (month)"},
+  {lw:"menini", en:"seventh", pos:"adj", note:"From meni (7) + -ni ordinal suffix"},
   {lw:"mere", en:"memory", pos:"n"},
   {lw:"meri", en:"memorable", pos:"adj"},
   {lw:"meru", en:"to remember", pos:"v"},
@@ -9290,6 +9447,7 @@ const DICTIONARY_RAW = [
   {lw:"oku", en:"to live (or be alive)", pos:"v"},
   {lw:"oni", en:"eight", pos:"num"},
   {lw:"oniluone", en:"August", pos:"n", note:"From oni (8) + luone (month)"},
+  {lw:"onini", en:"eighth", pos:"adj", note:"From oni (8) + -ni ordinal suffix"},
   {lw:"ore", en:"intensity", pos:"n"},
   {lw:"ori", en:"very (or really, intensely)", pos:"adj"},
   {lw:"oru", en:"to intensify", pos:"v"},
@@ -9538,6 +9696,7 @@ const DICTIONARY_RAW = [
   {lw:"shani", en:"four", pos:"num"},
   {lw:"shanilawe", en:"Wednesday", pos:"n", note:"From shani (4) + lawe (day)"},
   {lw:"shaniluone", en:"April", pos:"n", note:"From shani (4) + luone (month)"},
+  {lw:"shanini", en:"fourth", pos:"adj", note:"From shani (4) + -ni ordinal suffix"},
   {lw:"shaniwime", en:"ring finger", pos:"n", note:"From shani (four) + wime (finger) \u2014 four-finger / fourth finger"},
   {lw:"shauhe", en:"bathroom (or restroom)", pos:"n"},
   {lw:"shauhi", en:"bathroom-related", pos:"adj"},
@@ -9789,6 +9948,7 @@ const DICTIONARY_RAW = [
   {lw:"veni", en:"six", pos:"num"},
   {lw:"venilawe", en:"Friday", pos:"n", note:"From veni (6) + lawe (day)"},
   {lw:"veniluone", en:"June", pos:"n", note:"From veni (6) + luone (month)"},
+  {lw:"venini", en:"sixth", pos:"adj", note:"From veni (6) + -ni ordinal suffix"},
   {lw:"veo", en:"his/her/its/their sg.", pos:"pron"},
   {lw:"veoa", en:"their (pl.)", pos:"pron"},
   {lw:"vi", en:"if", pos:"conj"},
@@ -9899,6 +10059,7 @@ const DICTIONARY_RAW = [
   {lw:"yamu", en:"to lick (or taste)", pos:"v"},
   {lw:"yani", en:"nine", pos:"num"},
   {lw:"yaniluone", en:"September", pos:"n", note:"From yani (9) + luone (month)"},
+  {lw:"yanini", en:"ninth", pos:"adj", note:"From yani (9) + -ni ordinal suffix"},
   {lw:"yashe", en:"cleverness", pos:"n"},
   {lw:"yashi", en:"smart (or clever)", pos:"adj"},
   {lw:"yauhe", en:"morning", pos:"n"},
