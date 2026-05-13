@@ -3809,6 +3809,361 @@ const V = {
      cloze:{blanks:[1,4], bank:["lai","tiru","vi","laihu","liwu","su"]}},
   ],
 
+  // ── A13 / Unit 27 — Plants & Nature Taxonomy (L156–L159) ──
+  // Thirteenth advanced-track unit. Anchor: 6 roots from
+  // advanced_track_words.md §A13 (fohe, keuhe, loshile, moile, roume,
+  // yole). Weave-in (4 roots absorbed permanently): shauke (A23),
+  // take (A21), piehe (A17), lune (A19) — all natural pairings with
+  // plants and the plant environment. Per lesson_principles.md §14
+  // maximize-weave-in. 4 lessons (3 vocab + 1 unit exam).
+
+  // L156 — Wood, Branches & Plant Parts
+  // Anchor: moile, yole, roume. Weave-in: piehe/piehi/piehu (A17 —
+  // part/partial/to divide). Frames plant-parts payload: roots,
+  // branches, and leaves (already-taught meile L142) are all piehea
+  // of a plant. 4 roots / 9 forms.
+  l156_vocab_wood_parts: [
+    {lw:"moile", en:"wood", pos:"n",
+     canvas:{adj:"moili", adj_en:"wooden"},
+     note:"Mass noun for the material. Distinguished from moule (tree, L70) — moile is the substance, moule is the living plant."},
+    {lw:"yole", en:"branch", pos:"n",
+     canvas:{adj:"yoli", adj_en:"branch-related", adj_tier:"mechanical"}},
+    {lw:"roume", en:"root (of a plant)", pos:"n",
+     canvas:{adj:"roumi", adj_en:"rooted"},
+     note:"Absorbed from A12 cleanup into A13 manifest (plant anatomy, not animal)."},
+    {lw:"piehe", en:"part (or piece)", pos:"n",
+     canvas:{adj:"piehi", adj_en:"partial", v:"piehu", v_en:"to divide"},
+     note:"A17 weave-in. General \"part of a whole\" word, introduced here in the plant-parts context — roots, branches, and leaves are piehea of a plant."},
+  ],
+
+  // L157 — Bushes, Thorns, Moss & Petals
+  // Anchor: shauke (absorbed from A23), keuhe, loshile, fohe. Small
+  // plant features and lower-stature plants. loshile is the -ile
+  // diminutive of loshe (flower, L70) — parallel to L153 paipile.
+  // 4 roots / 9 forms.
+  l157_vocab_bushes_features: [
+    {lw:"shauke", en:"bush (or shrub)", pos:"n",
+     canvas:{adj:"shauki", adj_en:"bushy", adj_tier:"mechanical"},
+     note:"A23 weave-in. Smaller/lower kind of plant than moule (tree)."},
+    {lw:"keuhe", en:"thorn", pos:"n",
+     canvas:{adj:"keuhi", adj_en:"thorny", v:"keuhu", v_en:"to prickle"}},
+    {lw:"loshile", en:"petal", pos:"n",
+     note:"The -ile diminutive of loshe (flower, L70). Small feature of a flower. Parallel to L153 paipile (puppy from paipe \"dog\")."},
+    {lw:"fohe", en:"moss", pos:"n",
+     canvas:{adj:"fohi", adj_en:"mossy", adj_tier:"mechanical"}},
+  ],
+
+  // L158 — Light & Fire
+  // Anchor: lune (A19 weave-in), take (A21 weave-in). 2 roots / 6
+  // forms — under the 4-root cap, per lesson_principles.md §14c
+  // closing rule. Second under-cap-by-design lesson in the advanced
+  // track (A12 L154 set precedent). Closes the unit on the
+  // environment in which plants live — sunlight and fire.
+  l158_vocab_light_fire: [
+    {lw:"lune", en:"light", pos:"n",
+     canvas:{adj:"luni", adj_en:"bright (or brightly)", v:"lunu", v_en:"to shine"},
+     note:"A19 weave-in. The light-source noun, pairs with haule (sun, L70) and limu (to grow, L140) — plants need light to grow."},
+    {lw:"take", en:"fire", pos:"n",
+     canvas:{adj:"taki", adj_en:"fiery (or fire-related)", adj_tier:"mechanical", v:"taku", v_en:"to burn"},
+     note:"A21 weave-in. Natural pair with moile (wood) and mouleyahe (forest) — wood burns, forests can burn."},
+  ],
+
+  // L159 — Unit Exam: Plants & Nature Taxonomy
+  // 14 sentences covering every drilled root in L156–L158 plus the
+  // unit's grammatical patterns: predicate adj (L19), attributive
+  // adj, plural -ea (L33), possessive -eo (L15), past wa (L25),
+  // future wu (L26), conditional vi (L90), relative lai (L95),
+  // superlative apa (L86), locatives wo/moleu (L41/L71), tai (L120),
+  // ahu (L53), kavu (L95). Cloze on 4 sentences (S3, S6, S10, S14).
+  // Three hearts checkpoint.
+  l159_plants_exam: [
+    {lw:["Lo","moule","su","liani"],
+     en:"This tree is tall."},
+    {lw:["Yolea","su","wo","moule"],
+     en:"The branches are on the tree."},
+    {lw:["Roumea","su","moleu","liume"],
+     en:"The roots are below the plant.",
+     cloze:{blanks:[2,3], bank:["moleu","liume","leu","moule","su","lo"]}},
+    {lw:["Lo","loshile","su","lewali"],
+     en:"This petal is white."},
+    {lw:["Keuhe","wa","keuhu","ne"],
+     en:"The thorn pricked me."},
+    {lw:["Vi","haule","su","luni","liumea","wu","limu"],
+     en:"If the sun is bright, plants will grow.",
+     cloze:{blanks:[0,6], bank:["vi","limu","nalai","limi","lime","lunu"]}},
+    {lw:["Fohi","moule","su","wo","mouleyahe"],
+     en:"A mossy tree is in the forest."},
+    {lw:["Maya","wa","tiru","shauke"],
+     en:"Maya saw a bush."},
+    {lw:["Take","wa","taku","moule"],
+     en:"The fire burned the tree."},
+    {lw:["Lo","losheo","loshilea","su","apa","wauli"],
+     en:"This flower's petals are the most beautiful.",
+     cloze:{blanks:[1,4], bank:["losheo","apa","loshe","lo","ata","loshilea"]}},
+    {lw:["Yuna","wa","kavu","yole"],
+     en:"Yuna broke a branch."},
+    {lw:["Tai","liumea","ahu","roumea"],
+     en:"All plants have roots."},
+    {lw:["Lo","shauke","ahu","nai","keuhea"],
+     en:"This bush has many thorns."},
+    {lw:["Loshe","lai","ne","wa","tiru","su","mopiami"],
+     en:"The flower that I saw is small.",
+     cloze:{blanks:[1,4], bank:["lai","tiru","vi","laihu","liwu","su"]}},
+  ],
+
+  // ── A14 / Unit 28 — Specialized Verbs of Motion & Action (L160–L167) ──
+  // Fourteenth advanced-track unit. 22 A14 anchor roots + 5 weave-in
+  // roots (moseiwe, seuwe, lonone, mehe from A21; mokufe from A15) =
+  // 27 effectively drilled roots / 48 drilled forms. 7 vocab + 1 unit
+  // exam. Of the 28 A14 manifest roots, 4 were drilled in earlier
+  // units (eire/eiri/eiru in A11 L145; naike/naiki/naiku in A12 L150;
+  // taike/taiki/taiku in A12 L148; moshife/moshifi/moshifu in A12 L151)
+  // and shauwu in A11 L141. The shauwe/shauwi remainder is dropped
+  // from the unit (verb taught in A11; the remaining noun "a swim"
+  // and adj "swimming-related" fail the everyday-form filter). Per
+  // Neal's instruction during build, elore/elori/eloru "urge to
+  // squeeze" (the gigil-sensation gold-standard coinage) is also
+  // dropped from drilling — personal-aesthetic word, remains in
+  // Dictionary.md for reference but not a learner-essential. That
+  // leaves 22 A14 anchor roots drilled here.
+  //
+  // Per-form filter (applied throughout this unit, per lesson_principles.md
+  // §14 maximize-weave-in and the everyday-speech rule clarified during
+  // build): only forms used in everyday speech are drilled. Mechanical
+  // "X-related" adjectives of action-verb roots (e.g. fairi "dance-
+  // related") and abstract activity nouns rarely used in conversation
+  // (e.g. faire "a dance"; molonone "a loss") are NOT drilled. They
+  // remain in Dictionary.md and DICTIONARY_RAW for reference but do
+  // not appear as V entries or SRS cards. Forms drilled when:
+  //   (a) the verb is the everyday usage (most action verbs)
+  //   (b) the noun names a concrete/countable thing (joint, cough,
+  //       corner, kiss, finger, wave, smile, laugh, tears, hit,
+  //       push, pull, throw, shout, whisper, frown, mixture)
+  //   (c) the adjective is a genuine property/resultative state
+  //       (flexible, allowed, forbidden, angular, disappointed,
+  //       comforted, cute-squeezy)
+
+  // L160 — Body actions
+  // Anchor: faire (dance), woune (lift), hiehe (joint/flexible/bend),
+  // tuke (cough). 4 roots / 7 drilled forms.
+  //   fairu (v) — drilled. faire (n abstract), fairi (adj mechanical) DROPPED.
+  //   wounu (v) — drilled. woune (n abstract), wouni (adj mechanical) DROPPED.
+  //   hiehe (n anatomical), hiehi (adj "flexible"), hiehu (v) — all drilled.
+  //   tuke (n countable), tuku (v) — drilled. tuki (adj mechanical) DROPPED.
+  l160_vocab_body_actions: [
+    {lw:"fairu", en:"to dance", pos:"v",
+     note:"Verb form of the faire root. The abstract noun faire and the mechanical adj fairi remain in Dictionary.md but aren't drilled — they aren't everyday forms."},
+    {lw:"wounu", en:"to lift (or raise)", pos:"v",
+     note:"Verb form of the woune root. The abstract noun woune and the mechanical adj wouni remain in Dictionary.md but aren't drilled."},
+    {lw:"hiehe", en:"joint", pos:"n",
+     canvas:{adj:"hiehi", adj_en:"flexible",
+             v:"hiehu",   v_en:"to bend at a joint"},
+     note:"Anatomical noun (a body joint) with a real adjective sense (flexible) and a body-action verb (to bend at a joint). All three drill."},
+    {lw:"tuke", en:"a cough", pos:"n",
+     canvas:{v:"tuku", v_en:"to cough"},
+     note:"Concrete noun (\"I have a cough\") + verb. The mechanical adj tuki remains in Dictionary.md but isn't drilled."},
+  ],
+
+  // L161 — Expressive face
+  // Anchor: lewe (laugh), molewe (cry/tears), seiwe (smile). Weave-in
+  // (1): moseiwe (frown) from A21 — mo-pair partner of seiwe.
+  // 4 roots / 8 drilled forms.
+  //   lewe (n "laughter"/"a laugh"), lewu (v "to laugh") — drilled.
+  //   molewe (n "tears"), molewu (v "to cry") — drilled.
+  //   seiwe (n "a smile"), seiwu (v "to smile") — drilled.
+  //   moseiwe (n "a frown"), moseiwu (v "to frown") — drilled.
+  // Mechanical *-i adjs (lewi, molewi, seiwi, moseiwi) all DROPPED.
+  l161_vocab_face_expressions: [
+    {lw:"lewe", en:"a laugh (or laughter)", pos:"n",
+     canvas:{v:"lewu", v_en:"to laugh"}},
+    {lw:"molewe", en:"tears", pos:"n",
+     canvas:{v:"molewu", v_en:"to cry (or weep)"},
+     pair:"lewe",
+     note:"The mo- pair of lewe (laughter) — laughter and tears as the balanced face-expression pair. molewe is naturally plural in English (\"tears\") but Liru treats it as a base noun."},
+    {lw:"seiwe", en:"a smile", pos:"n",
+     canvas:{v:"seiwu", v_en:"to smile"}},
+    {lw:"moseiwe", en:"a frown", pos:"n",
+     canvas:{v:"moseiwu", v_en:"to frown"},
+     pair:"seiwe",
+     note:"Weave-in from A21. The mo- pair of seiwe (smile) — smile and frown as the balanced face-expression pair."},
+  ],
+
+  // L162 — Voice and permission
+  // Anchor: moseume (shout), seume (whisper), moseuwe (forbid).
+  // Weave-in (1): seuwe (allow) from A21 — mo-pair partner of moseuwe.
+  // 4 roots / 8 drilled forms.
+  //   moseume (n countable "a shout"), moseumu (v) — drilled.
+  //   seume (n countable "a whisper"), seumu (v) — drilled.
+  //   seuwi (adj "allowed"), seuwu (v "to allow") — drilled as separate
+  //     V entries (no canvas) because the noun seuwe "allowance" is
+  //     abstract and not everyday. Per L162 design notes below.
+  //   moseuwi (adj "forbidden"), moseuwu (v "to forbid") — same pattern.
+  // Mechanical *-i adjs moseumi, seumi DROPPED. Abstract nouns seuwe,
+  // moseuwe DROPPED. Note: moseume and seume have countable concrete
+  // readings ("a shout", "a whisper") that justify the noun drill.
+  l162_vocab_voice_permission: [
+    {lw:"moseume", en:"a shout", pos:"n",
+     canvas:{v:"moseumu", v_en:"to shout"}},
+    {lw:"seume", en:"a whisper", pos:"n",
+     canvas:{v:"seumu", v_en:"to whisper"}},
+    {lw:"seuwu", en:"to allow (or permit)", pos:"v",
+     note:"Weave-in from A21. Drilled as verb + adj seuwi only (separate entries) — the abstract noun seuwe \"allowance\" remains in Dictionary.md but isn't everyday."},
+    {lw:"seuwi", en:"allowed (or permitted)", pos:"adj",
+     note:"Adjective form of the seuwe root. The verb seuwu drills as its own V entry."},
+    {lw:"moseuwu", en:"to forbid", pos:"v",
+     pair:"seuwu",
+     note:"Drilled as verb + adj moseuwi only. The abstract noun moseuwe \"forbiddance\" remains in Dictionary.md but isn't everyday."},
+    {lw:"moseuwi", en:"forbidden", pos:"adj",
+     pair:"seuwi",
+     note:"Adjective form. The verb moseuwu drills as its own V entry."},
+  ],
+
+  // L163 — Strike and propel
+  // Anchor: paume (hit/strike), tawe (push), motawe (pull), shife (throw).
+  // 4 roots / 8 drilled forms.
+  //   paume (n countable "a hit"), paumu (v "to hit/strike") — drilled.
+  //   tawe (n countable "a push"), tawu (v "to push") — drilled.
+  //   motawe (n countable "a pull"), motawu (v "to pull") — drilled.
+  //   shife (n countable "a throw"), shifu (v "to throw") — drilled.
+  // Mechanical adjs paumi, tawi, motawi, shifi all DROPPED.
+  // tawe/motawe is an explicit mo-pair (push/pull).
+  l163_vocab_strike_propel: [
+    {lw:"paume", en:"a hit (or strike)", pos:"n",
+     canvas:{v:"paumu", v_en:"to hit (or strike)"}},
+    {lw:"tawe", en:"a push", pos:"n",
+     canvas:{v:"tawu", v_en:"to push"}},
+    {lw:"motawe", en:"a pull", pos:"n",
+     canvas:{v:"motawu", v_en:"to pull"},
+     pair:"tawe",
+     note:"The mo- pair of tawe (push) — push/pull as the balanced direction-of-force pair."},
+    {lw:"shife", en:"a throw", pos:"n",
+     canvas:{v:"shifu", v_en:"to throw"}},
+  ],
+
+  // L164 — Mix, corner, point, wave
+  // Anchor: muye (mix), koiwe (corner/angular), wime (finger/point),
+  // shaushe (wave). 4 roots / 7 drilled forms.
+  //   muye (n "a mixture"), muyu (v "to mix") — drilled.
+  //   koiwe (n "a corner"), koiwi (adj "angular") — drilled. Verb koiwu
+  //     "to corner someone" DROPPED (rare in English too).
+  //   wime (n "finger"), wimu (v "to point") — drilled. The mechanical
+  //     adj wimi "finger-related" DROPPED. wime is already implicit
+  //     in finger-naming compounds taught in earlier units (faniwime
+  //     thumb, runiwime index, etc., Dictionary.md).
+  //   shaushe (n "a wave") — drilled. shaushi DROPPED. No verb form
+  //     exists for this root.
+  l164_vocab_mix_corner_point_wave: [
+    {lw:"muye", en:"a mixture", pos:"n",
+     canvas:{v:"muyu", v_en:"to mix (or stir)"}},
+    {lw:"koiwe", en:"corner", pos:"n",
+     canvas:{adj:"koiwi", adj_en:"angular"},
+     note:"Spatial noun (\"corner of the room\") with a real shape-adjective sense (angular). The verb koiwu \"to corner someone\" remains in Dictionary.md but isn't drilled — rarely used."},
+    {lw:"wime", en:"finger", pos:"n",
+     canvas:{v:"wimu", v_en:"to point"},
+     note:"Body-part noun. Already implicit in the finger-naming compounds (faniwime thumb, runiwime index, teniwime middle, shaniwime ring, kaniwime pinky) — see DesignNotes.md \"Family: Fingers.\" The verb wimu \"to point\" uses the same root."},
+    {lw:"shaushe", en:"a wave", pos:"n",
+     note:"Ocean wave (concrete noun). This root has no canvas verb in Dictionary.md — waves are described, not performed."},
+  ],
+
+  // L165 — Win & lose, save & discard
+  // Anchor: molonone (lose), momehe (discard). Weave-in (2): lonone
+  // (win) and mehe (save) from A21 — mo-pair partners of the anchors.
+  // 4 roots / 4 drilled forms.
+  //   lononu (v "to win") — drilled. Abstract noun lonone "a win" and
+  //     mechanical adj lononi DROPPED.
+  //   molononu (v "to lose a game") — drilled. Same DROP pattern.
+  //   mehu (v "to save/reserve") — drilled. Same DROP pattern.
+  //   momehu (v "to discard/throw away") — drilled. Same DROP pattern.
+  // Both mo-pairs surface together — outcomes and stewardship as paired
+  // value-actions. Per DesignNotes "Etymology: mehe / momehe (save /
+  // discard)" the latter pair is one of three balancing decision-pairs.
+  // Per DesignNotes "Etymology: lonone / molonone" the former is
+  // competition outcome (distinct from loune/moloune general success/
+  // failure, not yet taught).
+  l165_vocab_win_lose_save_discard: [
+    {lw:"lononu", en:"to win", pos:"v",
+     note:"Weave-in from A21. Verb form of the lonone root. Competition outcome — winning a game, match, or contest. Per DesignNotes.md distinct from loune (general success). The abstract noun lonone and mechanical adj lononi remain in Dictionary.md but aren't drilled."},
+    {lw:"molononu", en:"to lose (a game)", pos:"v",
+     pair:"lononu",
+     note:"The mo- pair of lononu — losing a game/match. Per DesignNotes.md distinct from moloune (general failure)."},
+    {lw:"mehu", en:"to save (or reserve)", pos:"v",
+     note:"Weave-in from A21. Verb form of the mehe root. Setting something aside for later use."},
+    {lw:"momehu", en:"to discard (or throw away)", pos:"v",
+     pair:"mehu",
+     note:"The mo- pair of mehu — getting rid of something. Per DesignNotes.md \"Etymology: mehe / momehe\" this forms one of three balancing decision-pairs about how objects move: save/discard, share/keep (vihe/movihe), give/take (fere/mofere)."},
+  ],
+
+  // L166 — Affection (closer)
+  // Anchor: soume (kiss), pauhe (disappoint). Weave-in (1): mokufe
+  // (soothe/comfort) from A15 — fits affective-action cluster.
+  // 3 roots / 6 drilled forms — under-cap closer (A12 L154 / A13 L158
+  // precedent). The third A14 anchor for this cluster, elore, was
+  // dropped from drilling per Neal's instruction (personal aesthetic
+  // coinage, not everyday speech for most learners) — remains in
+  // Dictionary.md.
+  //   soume (n countable "a kiss"), soumu (v "to kiss") — drilled.
+  //   pauhi (adj "disappointed"), pauhu (v "to disappoint") — drilled
+  //     as separate V entries. Abstract noun pauhe DROPPED.
+  //   mokufi (adj "comforted"), mokufu (v "to soothe/comfort") — drilled
+  //     as separate V entries. Abstract noun mokufe DROPPED.
+  // Mechanical *-i adj soumi DROPPED.
+  l166_vocab_affection: [
+    {lw:"soume", en:"a kiss", pos:"n",
+     canvas:{v:"soumu", v_en:"to kiss"}},
+    {lw:"pauhu", en:"to disappoint", pos:"v",
+     note:"Drilled as verb + adj pauhi only (separate entries). The abstract noun pauhe \"disappointment\" remains in Dictionary.md but isn't everyday."},
+    {lw:"pauhi", en:"disappointed", pos:"adj",
+     note:"Adjective form (resultative state) of the pauhe root. Everyday predicate: \"I am disappointed\" → Ne su pauhi."},
+    {lw:"mokufu", en:"to soothe (or comfort)", pos:"v",
+     note:"Weave-in from A15. Drilled as verb + adj mokufi only. The abstract noun mokufe \"relief\" remains in Dictionary.md but isn't everyday."},
+    {lw:"mokufi", en:"comforted (or relieved)", pos:"adj",
+     note:"Adjective form (resultative state). Everyday predicate: \"I feel comforted\" → Ne su mokufi."},
+  ],
+
+  // L167 — Unit Exam: Specialized Verbs of Motion & Action
+  // 14 sentences covering every drilled root in L160–L166 plus the
+  // unit's grammatical patterns: predicate adj (L19), action verb
+  // (no su, L25 — verbs predicate directly), plural -ea (L33),
+  // possessive -eo (L15), past wa (L25), future wu (L26),
+  // conditional vi (L90), relative lai (L95), superlative apa (L86),
+  // comparative ata (L85), locatives wo/moleu (L41/L71), tai (L120),
+  // ahu (L53). Cloze on 4 sentences (S3, S7, S10, S14). Three hearts
+  // checkpoint.
+  l167_motion_action_exam: [
+    {lw:["Maya","wa","fairu"],
+     en:"Maya danced."},
+    {lw:["Neo","piwe","wu","wounu","lo","yole"],
+     en:"My child will lift this branch."},
+    {lw:["Ve","su","hiehi"],
+     en:"She is flexible.",
+     cloze:{blanks:[1,2], bank:["su","hiehi","wa","hiehu","wu","hiehe"]}},
+    {lw:["Lo","piwile","wu","tuku"],
+     en:"This baby will cough."},
+    {lw:["Yuna","wa","lewu"],
+     en:"Yuna laughed."},
+    {lw:["Lo","piwe","su","pauhi"],
+     en:"This child is disappointed."},
+    {lw:["Vi","ne","tiru","te","ne","wu","seiwu"],
+     en:"If I see you, I will smile.",
+     cloze:{blanks:[0,6], bank:["vi","seiwu","nalai","seiwe","mai","moseiwu"]}},
+    {lw:["Mawe","wa","mokufu","piwe"],
+     en:"The mother comforted the child."},
+    {lw:["Ne","mai","seuwu","lai","te","tahu","lo"],
+     en:"I do not allow you to eat this."},
+    {lw:["Lo","su","moseuwi"],
+     en:"This is forbidden.",
+     cloze:{blanks:[1,2], bank:["su","moseuwi","wa","moseuwu","wu","seuwi"]}},
+    {lw:["Ne","wa","shifu","lo","loiwe"],
+     en:"I threw this book."},
+    {lw:["Kai","sho","Maya","wa","soumu"],
+     en:"Kai and Maya kissed."},
+    {lw:["Ne","wu","muyu","tahe"],
+     en:"I will mix the food."},
+    {lw:["Pue","lai","wa","lononu","su","houli"],
+     en:"The person who won is happy.",
+     cloze:{blanks:[1,3], bank:["lai","lononu","vi","laihu","molononu","su"]}},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -3856,6 +4211,8 @@ const UNITS = [
   {name:"Unit 24 — Extended Family", start:126, track:"advanced"},
   {name:"Unit 25 — Seasons & Extended Weather", start:133, track:"advanced"},
   {name:"Unit 26 — Animals", start:140, track:"advanced"},
+  {name:"Unit 27 — Plants & Nature Taxonomy", start:149, track:"advanced"},
+  {name:"Unit 28 — Specialized Verbs of Motion & Action", start:153, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -5378,6 +5735,127 @@ const LESSONS = [
    vocabKey:"l155_animals_exam",
    xp:30,
    unit:25,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── UNIT 27 (A13): Plants & Nature Taxonomy (L156–L159) ──
+  // Thirteenth advanced-track unit. 3 vocab + 1 unit exam.
+  // 10 roots / ~24 drilled forms total.
+
+  {id:"l156_vocab_wood_parts",
+   title:"Wood, Branches & Plant Parts",
+   desc:"moile (wood), yole (branch), roume (root), piehe (part)",
+   icon:"🌳",
+   vocabKey:"l156_vocab_wood_parts",
+   xp:18,
+   unit:26,
+   intro:`<h3>🌳 The plant — and its parts</h3><p>You already know <em>liume</em> "plant," <em>moule</em> "tree," <em>loshe</em> "flower," and <em>meile</em> "leaf." This unit opens by naming the rest: the parts of a plant, and the material a tree is made of.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moile</em> (n.)</td><td style="padding:4px 12px">wood (the material)</td></tr><tr><td style="padding:4px 12px"><em>moili</em> (adj.)</td><td style="padding:4px 12px">wooden</td></tr><tr><td style="padding:4px 12px"><em>yole</em> (n.)</td><td style="padding:4px 12px">branch</td></tr><tr><td style="padding:4px 12px"><em>roume</em> (n.)</td><td style="padding:4px 12px">root (of a plant)</td></tr></table><p>Notice the distinction: <em>moule</em> is a tree (the living plant); <em>moile</em> is wood (the material it's made of). The two words look similar — the difference is just the vowel <em>u</em> vs. <em>i</em>.</p><h3>🧩 <em>piehe</em> — "part" as a framing word</h3><p><em>piehe</em> is a general word for "a part" or "a piece" of any whole. Here we introduce it in the plant context: the <em>piehea</em> "parts" of a plant include the <em>roume</em>, <em>yole</em>, and <em>meile</em>. But <em>piehe</em> works for any part-of-something — a piece of bread, part of a story, part of your day.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>piehe</em> (n.)</td><td style="padding:4px 12px">part (or piece)</td></tr><tr><td style="padding:4px 12px"><em>piehi</em> (adj.)</td><td style="padding:4px 12px">partial</td></tr><tr><td style="padding:4px 12px"><em>piehu</em> (v.)</td><td style="padding:4px 12px">to divide</td></tr></table><span class="example">Roume su moleu liume. <span class="gloss">The root is below the plant.</span></span><span class="example">Lo hiwe su moili. <span class="gloss">This house is wooden.</span></span><span class="example">Yolea su wo moule. <span class="gloss">The branches are on the tree.</span></span>`},
+
+  {id:"l157_vocab_bushes_features",
+   title:"Bushes, Thorns, Moss & Petals",
+   desc:"shauke (bush), keuhe (thorn), loshile (petal), fohe (moss)",
+   icon:"🌿",
+   vocabKey:"l157_vocab_bushes_features",
+   xp:18,
+   unit:26,
+   intro:`<h3>🌿 Smaller plants and small plant features</h3><p>Beyond trees and grass, the world has bushes, thorns, petals, and moss. Four small plant features and lower-stature plants.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shauke</em> (n.)</td><td style="padding:4px 12px">bush (or shrub)</td></tr><tr><td style="padding:4px 12px"><em>keuhe</em> (n.)</td><td style="padding:4px 12px">thorn</td></tr><tr><td style="padding:4px 12px"><em>keuhu</em> (v.)</td><td style="padding:4px 12px">to prickle</td></tr><tr><td style="padding:4px 12px"><em>fohe</em> (n.)</td><td style="padding:4px 12px">moss</td></tr></table><h3>🌸 <em>loshile</em> — petal as a diminutive of flower</h3><p><em>loshile</em> "petal" is the <em>-ile</em> diminutive of <em>loshe</em> "flower" — a small part of a flower. You've seen this pattern before: <em>paipile</em> "puppy" from <em>paipe</em> "dog," and <em>tohile</em> "minute" from <em>tohe</em> "hour." The <em>-ile</em> suffix is productive — it makes a smaller version of the noun it attaches to.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>loshe</em> (n.)</td><td style="padding:4px 12px">flower (the whole plant feature)</td></tr><tr><td style="padding:4px 12px"><em>loshile</em> (n.)</td><td style="padding:4px 12px">petal (a small part of the flower)</td></tr></table><span class="example">Lo shauke su shauki. <span class="gloss">This bush is bushy.</span></span><span class="example">Keuhe wa keuhu ne. <span class="gloss">The thorn pricked me.</span></span><span class="example">Lo loshe ahu nai loshilea. <span class="gloss">This flower has many petals.</span></span><span class="example">Fohi moule su wauli. <span class="gloss">A mossy tree is beautiful.</span></span>`},
+
+  {id:"l158_vocab_light_fire",
+   title:"Light & Fire",
+   desc:"lune (light), take (fire) — closing the unit",
+   icon:"🔥",
+   vocabKey:"l158_vocab_light_fire",
+   xp:18,
+   unit:26,
+   intro:`<h3>☀️ Light — what plants need to grow</h3><p>To close the unit, two roots about the environment plants live in. Plants need <em>lune</em> (light) to <em>limu</em> (grow); and <em>take</em> (fire) is what burns <em>moile</em> (wood) and <em>mouleyahe</em> (forests).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lune</em> (n.)</td><td style="padding:4px 12px">light</td></tr><tr><td style="padding:4px 12px"><em>luni</em> (adj.)</td><td style="padding:4px 12px">bright (or brightly)</td></tr><tr><td style="padding:4px 12px"><em>lunu</em> (v.)</td><td style="padding:4px 12px">to shine</td></tr></table><p><em>haule</em> "sun" is the original source of <em>lune</em> on earth, but light has many sources — the moon, a candle, a lamp. <em>luni</em> works both as adjective ("bright") and as adverb ("brightly").</p><h3>🔥 <em>take</em> — fire</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>take</em> (n.)</td><td style="padding:4px 12px">fire</td></tr><tr><td style="padding:4px 12px"><em>taku</em> (v.)</td><td style="padding:4px 12px">to burn</td></tr></table><p>The adjective <em>taki</em> "fire-related" exists in the dictionary but isn't drilled — it's straightforwardly derivable from <em>take</em>.</p><p>This lesson has two roots instead of the usual four — a short closer for the plants unit. You'll see this pattern again: when a closing lesson would have to reach beyond its theme to add more vocabulary, it stays small instead.</p><span class="example">Haule su luni. <span class="gloss">The sun is bright.</span></span><span class="example">Liumea wu limu vi haule su luni. <span class="gloss">Plants will grow if the sun is bright.</span></span><span class="example">Take wa taku moule. <span class="gloss">The fire burned the tree.</span></span>`},
+
+  {id:"l159_plants_exam",
+   title:"Unit 27 Exam — Plants & Nature",
+   desc:"Three hearts. Fourteen sentences spanning all three plant lessons, plus cloze on four key constructions.",
+   icon:"🌲",
+   vocabKey:"l159_plants_exam",
+   xp:30,
+   unit:26,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── UNIT 28 (A14): Specialized Verbs of Motion & Action (L160–L167) ──
+  // Fourteenth advanced-track unit. 7 vocab + 1 unit exam.
+  // 28 effectively drilled roots (23 A14 anchors + 5 weave-in:
+  // moseiwe, seuwe, lonone, mehe from A21; mokufe from A15) / 51
+  // drilled forms. Per-form filter applied throughout (everyday speech
+  // only — see V map block comment).
+
+  {id:"l160_vocab_body_actions",
+   title:"Body Actions — Dance, Lift, Bend, Cough",
+   desc:"fairu (to dance), wounu (to lift), hiehe (joint), tuke (cough)",
+   icon:"💃",
+   vocabKey:"l160_vocab_body_actions",
+   xp:18,
+   unit:27,
+   intro:`<h3>💃 The unit opens with body in motion</h3><p>This unit teaches a wide span of action verbs — what bodies do, what faces express, what voices call out, how objects are struck or moved, and how people feel. We open with four body-motion roots: dance, lift, bend, and cough.</p><h3>📝 A note on which forms you'll see</h3><p>For action-verb roots, Liru's canvas system gives three forms — noun, adjective, verb — but only one or two are actually used in everyday speech. This unit drills the everyday forms and leaves the rare ones in the dictionary for reference.</p><p>For example, the root <em>faire</em> has all three forms (<em>faire</em> "a dance," <em>fairi</em> "dance-related," <em>fairu</em> "to dance"), but only <em>fairu</em> shows up in real conversation. You won't be drilled on the abstract noun "a dance" or the mechanical adjective "dance-related" — they exist in the dictionary if you ever need them.</p><h3>🤸 The four roots</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>fairu</em> (v.)</td><td style="padding:4px 12px">to dance</td></tr><tr><td style="padding:4px 12px"><em>wounu</em> (v.)</td><td style="padding:4px 12px">to lift (or raise)</td></tr><tr><td style="padding:4px 12px"><em>hiehe</em> (n.)</td><td style="padding:4px 12px">joint (anatomical)</td></tr><tr><td style="padding:4px 12px"><em>hiehi</em> (adj.)</td><td style="padding:4px 12px">flexible</td></tr><tr><td style="padding:4px 12px"><em>hiehu</em> (v.)</td><td style="padding:4px 12px">to bend at a joint</td></tr><tr><td style="padding:4px 12px"><em>tuke</em> (n.)</td><td style="padding:4px 12px">a cough</td></tr><tr><td style="padding:4px 12px"><em>tuku</em> (v.)</td><td style="padding:4px 12px">to cough</td></tr></table><p><em>hiehe</em> is a full-canvas root because all three forms are everyday: the anatomical noun ("my joint hurts"), the property adjective ("she is flexible"), and the action verb ("the dancer bends at the knee").</p><span class="example">Maya fairu. <span class="gloss">Maya dances.</span></span><span class="example">Ne wu wounu lo loiwe. <span class="gloss">I will lift this book.</span></span><span class="example">Ve su hiehi. <span class="gloss">She is flexible.</span></span><span class="example">Lo piwile wa tuku. <span class="gloss">This baby coughed.</span></span>`},
+
+  {id:"l161_vocab_face_expressions",
+   title:"Expressive Face — Laugh, Cry, Smile, Frown",
+   desc:"lewe (laughter), molewe (tears), seiwe (smile), moseiwe (frown)",
+   icon:"😊",
+   vocabKey:"l161_vocab_face_expressions",
+   xp:18,
+   unit:27,
+   intro:`<h3>😊 Two balanced face-expression pairs</h3><p>Four roots, arranged as two <em>mo-</em> pairs. Laughter and tears are the inverse pair of vocalized emotion; smile and frown are the inverse pair of facial-only emotion.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lewe</em> (n.)</td><td style="padding:4px 12px">a laugh (or laughter)</td></tr><tr><td style="padding:4px 12px"><em>lewu</em> (v.)</td><td style="padding:4px 12px">to laugh</td></tr><tr><td style="padding:4px 12px"><em>molewe</em> (n.)</td><td style="padding:4px 12px">tears</td></tr><tr><td style="padding:4px 12px"><em>molewu</em> (v.)</td><td style="padding:4px 12px">to cry (or weep)</td></tr></table><p>Like the temperature triad in Unit 25 (cold / warm / hot), the <em>mo-</em> prefix marks balance rather than mere opposition — but here both members are simply named members of the pair, with no third balancing form between them. Laughter and tears live as twins; one body, two expressions of feeling.</p><h3>🙂 Smile and frown</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>seiwe</em> (n.)</td><td style="padding:4px 12px">a smile</td></tr><tr><td style="padding:4px 12px"><em>seiwu</em> (v.)</td><td style="padding:4px 12px">to smile</td></tr><tr><td style="padding:4px 12px"><em>moseiwe</em> (n.)</td><td style="padding:4px 12px">a frown</td></tr><tr><td style="padding:4px 12px"><em>moseiwu</em> (v.)</td><td style="padding:4px 12px">to frown</td></tr></table><p>The mechanical adjective forms (<em>lewi</em>, <em>molewi</em>, <em>seiwi</em>, <em>moseiwi</em>) exist in the dictionary as "X-related" but aren't drilled — they're rare in everyday speech.</p><span class="example">Yuna lewu. <span class="gloss">Yuna laughs.</span></span><span class="example">Lo piwile molewu. <span class="gloss">This baby cries.</span></span><span class="example">Ve wa seiwu. <span class="gloss">She smiled.</span></span><span class="example">Mawe wa moseiwu. <span class="gloss">The mother frowned.</span></span>`},
+
+  {id:"l162_vocab_voice_permission",
+   title:"Voice & Permission — Shout, Whisper, Allow, Forbid",
+   desc:"moseume (shout), seume (whisper), seuwu (to allow), moseuwu (to forbid)",
+   icon:"📢",
+   vocabKey:"l162_vocab_voice_permission",
+   xp:18,
+   unit:27,
+   intro:`<h3>📢 Voice acts — shouting and whispering</h3><p>Two volume-extremes of voice. <em>moseume</em> is the loud end; <em>seume</em> is the quiet end. Both are everyday — you shout to someone across a room, you whisper to someone next to you.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moseume</em> (n.)</td><td style="padding:4px 12px">a shout</td></tr><tr><td style="padding:4px 12px"><em>moseumu</em> (v.)</td><td style="padding:4px 12px">to shout</td></tr><tr><td style="padding:4px 12px"><em>seume</em> (n.)</td><td style="padding:4px 12px">a whisper</td></tr><tr><td style="padding:4px 12px"><em>seumu</em> (v.)</td><td style="padding:4px 12px">to whisper</td></tr></table><p><em>moseume</em> begins with <em>mo-</em>, but this isn't a productive balancing prefix — it's just the lexical shape of the root. There's no <em>seume</em>-as-quiet-shout pair; the volume contrast is its own thing.</p><h3>✋ Allow and forbid</h3><p>Two everyday social-verbal acts: granting permission, and refusing it. These form a real <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>seuwu</em> (v.)</td><td style="padding:4px 12px">to allow (or permit)</td></tr><tr><td style="padding:4px 12px"><em>seuwi</em> (adj.)</td><td style="padding:4px 12px">allowed (or permitted)</td></tr><tr><td style="padding:4px 12px"><em>moseuwu</em> (v.)</td><td style="padding:4px 12px">to forbid</td></tr><tr><td style="padding:4px 12px"><em>moseuwi</em> (adj.)</td><td style="padding:4px 12px">forbidden</td></tr></table><p>You'll notice the abstract nouns <em>seuwe</em> "allowance" and <em>moseuwe</em> "forbiddance" aren't drilled — they're rarely said in conversation. The adjective and verb carry all the everyday weight.</p><p>To say <strong>"X allows Y to do Z"</strong> in Liru, use the complement-clause structure from Unit 17: <em>X seuwu lai Y do-Z</em>.</p><span class="example">Ne mai seuwu lai te halu. <span class="gloss">I do not allow you to go.</span></span><span class="example">Lo su moseuwi. <span class="gloss">This is forbidden.</span></span><span class="example">Mawe wa moseumu. <span class="gloss">The mother shouted.</span></span><span class="example">Maya wa seumu wo Yuna. <span class="gloss">Maya whispered to Yuna.</span></span>`},
+
+  {id:"l163_vocab_strike_propel",
+   title:"Strike & Propel — Hit, Push, Pull, Throw",
+   desc:"paume (hit), tawe (push), motawe (pull), shife (throw)",
+   icon:"🥊",
+   vocabKey:"l163_vocab_strike_propel",
+   xp:18,
+   unit:27,
+   intro:`<h3>🥊 Four force-verbs</h3><p>Four ways of applying force to an object. The middle pair — push and pull — forms an explicit <em>mo-</em> opposition (direction of force). Hit and throw stand alone.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>paume</em> (n.)</td><td style="padding:4px 12px">a hit (or strike)</td></tr><tr><td style="padding:4px 12px"><em>paumu</em> (v.)</td><td style="padding:4px 12px">to hit (or strike)</td></tr><tr><td style="padding:4px 12px"><em>tawe</em> (n.)</td><td style="padding:4px 12px">a push</td></tr><tr><td style="padding:4px 12px"><em>tawu</em> (v.)</td><td style="padding:4px 12px">to push</td></tr><tr><td style="padding:4px 12px"><em>motawe</em> (n.)</td><td style="padding:4px 12px">a pull</td></tr><tr><td style="padding:4px 12px"><em>motawu</em> (v.)</td><td style="padding:4px 12px">to pull</td></tr><tr><td style="padding:4px 12px"><em>shife</em> (n.)</td><td style="padding:4px 12px">a throw</td></tr><tr><td style="padding:4px 12px"><em>shifu</em> (v.)</td><td style="padding:4px 12px">to throw</td></tr></table><p>The nouns are countable events — "that was a good hit," "give it a push" — and the verbs are the actions themselves. The mechanical adjective forms (e.g. <em>paumi</em> "hit-related") remain in the dictionary but aren't drilled.</p><span class="example">Ne wa shifu lo loiwe. <span class="gloss">I threw this book.</span></span><span class="example">Te tawu lo poye. <span class="gloss">You push this door.</span></span><span class="example">Ve wa motawu neo wime. <span class="gloss">She pulled my finger.</span></span>`},
+
+  {id:"l164_vocab_mix_corner_point_wave",
+   title:"Mix, Corner, Point, Wave",
+   desc:"muye (mixture), koiwe (corner), wime (finger), shaushe (wave)",
+   icon:"🌊",
+   vocabKey:"l164_vocab_mix_corner_point_wave",
+   xp:18,
+   unit:27,
+   intro:`<h3>🥄 Mixing things together</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>muye</em> (n.)</td><td style="padding:4px 12px">a mixture</td></tr><tr><td style="padding:4px 12px"><em>muyu</em> (v.)</td><td style="padding:4px 12px">to mix (or stir)</td></tr></table><h3>📐 Corners — spatial and shaped</h3><p><em>koiwe</em> covers both the spatial sense ("the corner of the room") and the shape sense ("angular").</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>koiwe</em> (n.)</td><td style="padding:4px 12px">corner</td></tr><tr><td style="padding:4px 12px"><em>koiwi</em> (adj.)</td><td style="padding:4px 12px">angular</td></tr></table><h3>👆 Fingers and pointing</h3><p>You already know the finger-naming compounds — <em>faniwime</em> (thumb), <em>runiwime</em> (index), <em>teniwime</em> (middle), <em>shaniwime</em> (ring), <em>kaniwime</em> (pinky), and the toe word <em>laupewime</em>. They all share the same root: <em>wime</em>, the generic word for "finger." Its verb form <em>wimu</em> means "to point," since pointing is what fingers do.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>wime</em> (n.)</td><td style="padding:4px 12px">finger</td></tr><tr><td style="padding:4px 12px"><em>wimu</em> (v.)</td><td style="padding:4px 12px">to point</td></tr></table><h3>🌊 Waves</h3><p><em>shaushe</em> "wave" is a noun-only root — waves are something you see, not something you do. Its sound-shape echoes <em>shawe</em> (water).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shaushe</em> (n.)</td><td style="padding:4px 12px">a wave</td></tr></table><span class="example">Mawe wa muyu shawe sho tahe. <span class="gloss">The mother mixed water and food.</span></span><span class="example">Lo hiwe ahu kani koiwea. <span class="gloss">This house has five corners.</span></span><span class="example">Ne wimu lo. <span class="gloss">I point at this.</span></span><span class="example">Shaushea su mopiami. <span class="gloss">The waves are big.</span></span>`},
+
+  {id:"l165_vocab_win_lose_save_discard",
+   title:"Win & Lose, Save & Discard",
+   desc:"lononu (win), molononu (lose), mehu (save), momehu (discard)",
+   icon:"🏆",
+   vocabKey:"l165_vocab_win_lose_save_discard",
+   xp:18,
+   unit:27,
+   intro:`<h3>🏆 Two balancing decision-pairs</h3><p>Four verbs, two <em>mo-</em> pairs. Both pairs are about outcomes and choices — but in different domains. Winning vs. losing is the outcome of competition. Saving vs. discarding is the choice you make when you encounter an object: keep it for later, or throw it away.</p><h3>🥇 Win and lose</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lononu</em> (v.)</td><td style="padding:4px 12px">to win</td></tr><tr><td style="padding:4px 12px"><em>molononu</em> (v.)</td><td style="padding:4px 12px">to lose (a game)</td></tr></table><p>Specifically about <strong>competition outcome</strong> — winning or losing a game, a match, a contest. This is distinct from the general success/failure sense (which is the root <em>loune</em>/<em>moloune</em> in the dictionary). A person can succeed without winning, or win without feeling successful — context determines which frame fits.</p><h3>♻️ Save and discard</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>mehu</em> (v.)</td><td style="padding:4px 12px">to save (or reserve)</td></tr><tr><td style="padding:4px 12px"><em>momehu</em> (v.)</td><td style="padding:4px 12px">to discard (or throw away)</td></tr></table><p>This pair is one of three Liru <strong>balancing decision-pairs</strong> about how objects move between people and time:</p><ul><li><em>mehu</em> / <em>momehu</em> — save / discard (you keep it or throw it away)</li><li><em>vihu</em> / <em>movihu</em> — share / keep (you give some to others or hold it for yourself)</li><li><em>feru</em> / <em>moferu</em> — give / take (you transfer it out or pull it in)</li></ul><p>All four verbs in this lesson drill the verb form only. The abstract nouns (<em>lonone</em> "a win," <em>molonone</em> "a loss," etc.) and mechanical adjectives remain in the dictionary but aren't drilled — they're rarely used in everyday speech.</p><span class="example">Yuna wa lononu. <span class="gloss">Yuna won.</span></span><span class="example">Neo meuhe wa molononu. <span class="gloss">My team lost.</span></span><span class="example">Ne wu mehu lo houme. <span class="gloss">I will save this bread.</span></span><span class="example">Ve wa momehu loa loiwea. <span class="gloss">She discarded the books.</span></span>`},
+
+  {id:"l166_vocab_affection",
+   title:"Affection — Kiss, Disappoint, Comfort",
+   desc:"soume (kiss), pauhu (disappoint), mokufu (comfort)",
+   icon:"💋",
+   vocabKey:"l166_vocab_affection",
+   xp:18,
+   unit:27,
+   intro:`<h3>💋 Affection and care — closing the unit</h3><p>Three roots about interpersonal feeling — what you do (kiss, comfort) and what gets undone (disappointment). A short closer for the unit.</p><h3>💋 Kiss</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>soume</em> (n.)</td><td style="padding:4px 12px">a kiss</td></tr><tr><td style="padding:4px 12px"><em>soumu</em> (v.)</td><td style="padding:4px 12px">to kiss</td></tr></table><h3>😔 Disappoint and comfort</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>pauhu</em> (v.)</td><td style="padding:4px 12px">to disappoint</td></tr><tr><td style="padding:4px 12px"><em>pauhi</em> (adj.)</td><td style="padding:4px 12px">disappointed</td></tr><tr><td style="padding:4px 12px"><em>mokufu</em> (v.)</td><td style="padding:4px 12px">to soothe (or comfort)</td></tr><tr><td style="padding:4px 12px"><em>mokufi</em> (adj.)</td><td style="padding:4px 12px">comforted (or relieved)</td></tr></table><p>The adjective forms describe resultative states (the way "tired" or "fallen" do): <em>Ne su pauhi</em> "I am disappointed"; <em>Ne su mokufi</em> "I feel comforted."</p><span class="example">Kai sho Maya wa soumu. <span class="gloss">Kai and Maya kissed.</span></span><span class="example">Ne su pauhi. <span class="gloss">I am disappointed.</span></span><span class="example">Mawe wa mokufu piwe. <span class="gloss">The mother comforted the child.</span></span>`},
+
+  {id:"l167_motion_action_exam",
+   title:"Unit 28 Exam — Motion & Action",
+   desc:"Three hearts. Fourteen sentences spanning all seven motion-and-action lessons, plus cloze on four key constructions.",
+   icon:"🏃",
+   vocabKey:"l167_motion_action_exam",
+   xp:30,
+   unit:27,
    isSentence:true,
    isCheckpoint:true},
 ];
