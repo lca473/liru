@@ -1339,13 +1339,13 @@ const V = {
   // ════════════════════════════════════════════════════════════════
   // L44: l44_sensory          — vocab; introduces tiru, liwu, paipe, mewe
   // L45: l45_sensesentences   — sentence-based; drills L44 (no new forms)
-  // L46: l46_routine          — vocab; introduces rau, fasu, puhu
+  // L46: l46_routine          — vocab; introduces rau, fasu, ihu
   // L47: l47_exchange         — vocab; introduces feru, moferu, riku
   // L48: l48_routinesentences — sentence-based; drills L46+L47 (no new forms)
   // L49: l49_exam             — Unit 8 exam (isCheckpoint:true)
   //
   // Canvas policy: teach only the verb form per root; mechanical-tag the
-  // adjective forms (tiri, liwi, rai, fasi, puhi, feri, moferi, riki) and
+  // adjective forms (tiri, liwi, rai, fasi, ihi, feri, moferi, riki) and
   // the animal-related adjectives (paipi, mewi). Per L40 precedent.
 
   // L44 — To See, To Hear (vocab)
@@ -1378,7 +1378,7 @@ const V = {
   l46_routine: [
     {lw:"rau",  en:"to sleep",           pos:"verb"},
     {lw:"fasu", en:"to work",            pos:"verb"},
-    {lw:"puhu", en:"to do (or perform)", pos:"verb"},
+    {lw:"ihu",  en:"to do (or perform)", pos:"verb"},
   ],
 
   // L47 — To Give, Take, Find (vocab)
@@ -1395,7 +1395,7 @@ const V = {
   l48_routinesentences: [
     {lw:["Ne","rau","wo","kewe"],                       en:"I sleep in the room."},
     {lw:["Maya","wa","fasu","lo lawe"],                 en:"Maya worked today."},
-    {lw:["Kiwa","te","puhu"],                           en:"What are you doing?"},
+    {lw:["Kiwa","te","ihu"],                            en:"What are you doing?"},
     {lw:["Ne","feru","lo","so","Yuna"],                 en:"I give this to Yuna."},
     {lw:["Kai","wa","moferu","lo","fa","ne"],           en:"Kai took this from me."},
     {lw:["Ne","wa","riku","Maya","ya","senehiwe"],      en:"I met Maya at the school."},
@@ -1408,7 +1408,7 @@ const V = {
   l49_exam: [
     {lw:["Ne","tiru","lo","paipe"],                     en:"I see this dog."},
     {lw:["Mewe","wa","rau","ya","hiwe"],                en:"The cat slept at the house."},
-    {lw:["Kiwa","te","puhu"],                           en:"What are you doing?"},
+    {lw:["Kiwa","te","ihu"],                            en:"What are you doing?"},
     {lw:["Ne","wa","riku","Maya"],                      en:"I found Maya."},
     {lw:["Tea","wa","fasu","lo lawe"],                  en:"You all worked today."},
     {lw:["Kipue","wa","moferu","lo","paipe"],           en:"Who took this dog?"},
@@ -3662,12 +3662,12 @@ const LESSONS = [
 
   {id:"l46_routine",
    title:"To Sleep, Work, Do",
-   desc:"rau, fasu, puhu",
+   desc:"rau, fasu, ihu",
    icon:"💤",
    vocabKey:"l46_routine",
    xp:18,
    unit:7,
-   intro:`<h3>💤 Daily-routine verbs</h3><p>Three high-frequency verbs for what people do all day:</p><ul><li><em>rau</em> — to sleep</li><li><em>fasu</em> — to work</li><li><em>puhu</em> — to do (or perform)</li></ul><p><em>puhu</em> is the general "to do" — useful for asking what someone is up to:</p><span class="example">Kiwa te puhu? <span class="gloss">What are you doing?</span></span>`},
+   intro:`<h3>💤 Daily-routine verbs</h3><p>Three high-frequency verbs for what people do all day:</p><ul><li><em>rau</em> — to sleep</li><li><em>fasu</em> — to work</li><li><em>ihu</em> — to do (or perform)</li></ul><p><em>ihu</em> is the general "to do" — useful for asking what someone is up to:</p><span class="example">Kiwa te ihu? <span class="gloss">What are you doing?</span></span>`},
 
   {id:"l47_exchange",
    title:"To Give, Take, Find",
@@ -3680,13 +3680,13 @@ const LESSONS = [
 
   {id:"l48_routinesentences",
    title:"Verbs in Sentences II",
-   desc:"Drilling rau, fasu, puhu, feru, moferu, riku",
+   desc:"Drilling rau, fasu, ihu, feru, moferu, riku",
    icon:"🛌",
    vocabKey:"l48_routinesentences",
    xp:22,
    unit:7,
    isSentence:true,
-   intro:`<h3>🛌 Drilling six more verbs</h3><p>You've got the routine verbs (<em>rau, fasu, puhu</em>) and the exchange verbs (<em>feru, moferu, riku</em>). <strong>No new words this lesson</strong> — just sentences.</p><h3>↔️ Give and take</h3><p>Watch for <em>feru</em> paired with <em>so</em> (to) and <em>moferu</em> paired with <em>fa</em> (from). Giving sends something <em>to</em> someone; taking pulls it <em>from</em> someone. The locatives match the direction.</p><span class="example">Ne feru lo so Yuna. <span class="gloss">I give this to Yuna.</span></span><span class="example">Kai wa moferu lo fa ne. <span class="gloss">Kai took this from me.</span></span>`},
+   intro:`<h3>🛌 Drilling six more verbs</h3><p>You've got the routine verbs (<em>rau, fasu, ihu</em>) and the exchange verbs (<em>feru, moferu, riku</em>). <strong>No new words this lesson</strong> — just sentences.</p><h3>↔️ Give and take</h3><p>Watch for <em>feru</em> paired with <em>so</em> (to) and <em>moferu</em> paired with <em>fa</em> (from). Giving sends something <em>to</em> someone; taking pulls it <em>from</em> someone. The locatives match the direction.</p><span class="example">Ne feru lo so Yuna. <span class="gloss">I give this to Yuna.</span></span><span class="example">Kai wa moferu lo fa ne. <span class="gloss">Kai took this from me.</span></span>`},
 
   {id:"l49_exam",
    title:"Unit 8 Exam: Action Verbs",
@@ -3697,7 +3697,7 @@ const LESSONS = [
    unit:7,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>✅ Unit 8 Exam</h3><p>This is your Unit 8 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across the eight new verbs (<em>tiru, liwu, rau, fasu, puhu, feru, moferu, riku</em>) and the two new animals (<em>paipe, mewe</em>). Past tense, locatives, questions — all fair game.</p>`},
+   intro:`<h3>✅ Unit 8 Exam</h3><p>This is your Unit 8 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across the eight new verbs (<em>tiru, liwu, rau, fasu, ihu, feru, moferu, riku</em>) and the two new animals (<em>paipe, mewe</em>). Past tense, locatives, questions — all fair game.</p>`},
 
   // ── UNIT 9: NUMBERS AND DAYS (L50–L54) ───────────────────────────────
   {id:"l50_numbers1",
@@ -8666,7 +8666,7 @@ const GRAMMAR_SECTIONS = [
       <li><em>tai</em> — all · <em>Tai moulea su liani.</em> (All trees are tall.)</li>
       <li><em>sai</em> — some · <em>Sai puea wa halu.</em> (Some people went.)</li>
       <li><em>nai</em> — many</li>
-      <li><em>fai</em> — any (free-choice) · <em>Fai pue sahu puhu lo.</em> (Anyone can do this.)</li>
+      <li><em>fai</em> — any (free-choice) · <em>Fai pue sahu ihu lo.</em> (Anyone can do this.)</li>
       <li><em>nuli</em> — none / zero · <em>Nuli pue su waihi.</em> (No one is hopeful.)</li>
     </ul>
     <div class="grammar-callout"><strong><em>sai</em> vs <em>fai</em>:</strong> <em>sai</em> means "some" — a specific-but-unnamed amount or referent the speaker has in mind. <em>fai</em> means "any" in the free-choice sense — no specific referent, whichever will do. <em>Sai loiwe</em> = "some book (a particular one)"; <em>fai loiwe</em> = "any book (doesn't matter which)."</div>
@@ -9142,6 +9142,9 @@ const DICTIONARY_RAW = [
   {lw:"huyale", en:"orange (the color)", pos:"n"},
   {lw:"huyali", en:"orange", pos:"adj"},
   {lw:"huyalu", en:"to turn orange", pos:"v"},
+  {lw:"ihe", en:"action", pos:"n"},
+  {lw:"ihi", en:"active", pos:"adj"},
+  {lw:"ihu", en:"to do (or perform)", pos:"v"},
   {lw:"ifuhe", en:"sentence", pos:"n"},
   {lw:"ifuhi", en:"sentence-related", pos:"adj"},
   {lw:"ifuhu", en:"to phrase", pos:"v"},
@@ -10027,9 +10030,6 @@ const DICTIONARY_RAW = [
   {lw:"poyi", en:"open", pos:"adj"},
   {lw:"poyu", en:"to open", pos:"v"},
   {lw:"pue", en:"person", pos:"n"},
-  {lw:"puhe", en:"action", pos:"n"},
-  {lw:"puhi", en:"active", pos:"adj"},
-  {lw:"puhu", en:"to do (or perform)", pos:"v"},
   {lw:"rae", en:"sleep", pos:"n"},
   {lw:"rahe", en:"bed", pos:"n"},
   {lw:"rahi", en:"bed-related", pos:"adj"},
@@ -10460,7 +10460,7 @@ const DICTIONARY_RAW = [
   {lw:"wauyi", en:"belonging (or rightful)", pos:"adj"},
   {lw:"wauyu", en:"to belong", pos:"v"},
   {lw:"weihe", en:"repetition", pos:"n"},
-  {lw:"weihi", en:"again", pos:"adv"},
+  {lw:"weihi", en:"again", pos:"adj"},
   {lw:"weihu", en:"to redo", pos:"v"},
   {lw:"wele", en:"time", pos:"n"},
   {lw:"weli", en:"timely (or temporal)", pos:"adj"},
