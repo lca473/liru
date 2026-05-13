@@ -3489,6 +3489,158 @@ const V = {
      en:"Although my grandmother (paternal) is old, she will go to this shore."},
   ],
 
+  // ═══════════════════════════════════════════════════════════════
+  // A11 — Seasons & Extended Weather (L140–L146)
+  // ═══════════════════════════════════════════════════════════════
+  // First unit built under lesson_principles.md §14 — fill every
+  // lesson to per-lesson cap with useful weave-in. 24 roots / ~49
+  // forms across 6 vocab lessons + 1 exam. Anchor manifest is
+  // 7 roots (the four seasons, mist, fog, mistake) per
+  // advanced_track_words.md §A11; remaining 17 roots are weave-in
+  // from A12 (haupe, yaihe), A13 (meile), A14 (eire/eiru),
+  // A15 (nouhe), A21 (haiwepiehe, lime, niame, keye, maune, kawe,
+  // houwe, moluhe, molime), and A22 (feure, shoume). All weave-in
+  // verified against §14c useful-and-practical bar.
+  //
+  // Selective canvas slots dropped (A6 precedent): limi, niami,
+  // mauni, haupi, yaihi (all mechanical-tag adjectives — X-related
+  // forms with low everyday-speech value); shauwe + shauwi
+  // (verb is summer-action focus).
+
+  // L140 — Spring + season meta-noun
+  // haiwepiehe (season, meta-noun) promoted to drilled root as the
+  // compositional anchor of the unit — A7 luone / A9 towe precedent.
+  l140_vocab_spring: [
+    {lw:"haiwepiehe", en:"season", pos:"n",
+     note:"From haiwe (year) + piehe (part) — meta-noun for season-as-a-category. The four specific seasons (foihe, hauwe, youhe, kaihe) are taught one per lesson across this unit."},
+    {lw:"foihe", en:"spring (season)", pos:"n",
+     canvas:{adj:"foihi", adj_en:"spring-related"},
+     note:"Sound-shape mnemonic: fo- onset of the flora family (foshe grass, fohe moss) — DesignNotes.md \"Family: Seasons\""},
+    {lw:"lime", en:"growth", pos:"n",
+     canvas:{v:"limu", v_en:"to grow"}},
+    {lw:"niame", en:"seed", pos:"n",
+     canvas:{v:"niamu", v_en:"to plant a seed"}},
+  ],
+
+  // L141 — Summer + warmth + summer imagery
+  // moluhi (warm) is the mo- pair of core-taught luhi (cold) —
+  // fills the warm-middle of the temperature triad alongside
+  // already-taught hauhi (hot) and luhi (cold).
+  l141_vocab_summer: [
+    {lw:"hauwe", en:"summer", pos:"n",
+     canvas:{adj:"hauwi", adj_en:"summery"},
+     note:"Sound-shape mnemonic: hauwe echoes haule (sun) — DesignNotes.md \"Family: Seasons\""},
+    {lw:"moluhe", en:"warmth", pos:"n",
+     canvas:{adj:"moluhi", adj_en:"warm (or warmly)", v:"moluhu", v_en:"to warm (or heat)"},
+     note:"The mo- pair of luhe/luhi (coldness/cold, taught Unit 12). Per DesignNotes.md \"Family: Temperature,\" moluhi covers warm-as-equilibrium; hauhi (hot, taught Unit 12) is the heat extreme."},
+    {lw:"shoume", en:"shirt", pos:"n"},
+    {lw:"shauwu", en:"to swim", pos:"v",
+     note:"Verb form of shauwe (swim) root — noun shauwe and adj. shauwi remain in Dictionary.md but aren't drilled here."},
+  ],
+
+  // L142 — Autumn + leaves + falling + grain
+  // keye/keyi/keyu = physical "fall" (gravity, dropping). NOT the
+  // season "fall" — that's youhe. Intro card calls out the false
+  // friend explicitly.
+  l142_vocab_autumn: [
+    {lw:"youhe", en:"autumn (or fall)", pos:"n",
+     canvas:{adj:"youhi", adj_en:"autumnal"},
+     note:"Sound-shape mnemonic: youhe associates with yole (branch) — falling-leaves season. DesignNotes.md \"Family: Seasons\""},
+    {lw:"meile", en:"leaf", pos:"n",
+     canvas:{adj:"meili", adj_en:"leafy"}},
+    {lw:"keye", en:"fall (a tumble)", pos:"n",
+     canvas:{adj:"keyi", adj_en:"fallen", v:"keyu", v_en:"to fall (drop, tumble)"},
+     note:"Physical fall — NOT the season. The season \"fall\" is youhe."},
+    {lw:"maune", en:"grain", pos:"n"},
+  ],
+
+  // L143 — Winter + ice + coat + bear
+  // kaihe (winter) and kawe (ice) share their k- onset per
+  // DesignNotes.md "Family: Seasons" — the cold-state sound cluster.
+  l143_vocab_winter: [
+    {lw:"kaihe", en:"winter", pos:"n",
+     canvas:{adj:"kaihi", adj_en:"wintry"},
+     note:"Sound-shape mnemonic: kaihe shares its k- onset with the cold-state family (kawe ice, kawu to freeze) — DesignNotes.md \"Family: Seasons\""},
+    {lw:"kawe", en:"ice", pos:"n",
+     canvas:{adj:"kawi", adj_en:"frozen", v:"kawu", v_en:"to freeze"}},
+    {lw:"feure", en:"coat", pos:"n"},
+    {lw:"haupe", en:"bear", pos:"n"},
+  ],
+
+  // L144 — Mist, fog, dryness, bird
+  // The unit's two anchor weather extensions (helume mist, melume
+  // fog) per advanced_track_words.md §A11 manifest. houwe (dryness)
+  // extends the weather toolkit. yaihe (bird) ties seasons together —
+  // migratory bird narratives span seasonal transitions.
+  l144_vocab_weather_extensions: [
+    {lw:"helume", en:"mist", pos:"n",
+     canvas:{adj:"helumi", adj_en:"misty"}},
+    {lw:"melume", en:"fog", pos:"n",
+     canvas:{adj:"melumi", adj_en:"foggy"}},
+    {lw:"houwe", en:"dryness", pos:"n",
+     canvas:{adj:"houwi", adj_en:"dry", v:"houwu", v_en:"to dry"}},
+    {lw:"yaihe", en:"bird", pos:"n"},
+  ],
+
+  // L145 — Close-of-season: decay, mistake, flight, peace
+  // molime is the mo- pair of lime (growth, L140). monove (mistake)
+  // is the unit's outlier root — fits here thematically because
+  // mistakes are things going wrong. eire/eiru pairs with bird
+  // migration (L144). nouhe rounds the cluster with the calm that
+  // follows seasonal change.
+  l145_vocab_seasonal_change: [
+    {lw:"molime", en:"decay", pos:"n",
+     canvas:{adj:"molimi", adj_en:"withered", v:"molimu", v_en:"to wither"},
+     note:"The mo- pair of lime (growth) — taught L140. Together they cover the full life-cycle of growing things."},
+    {lw:"monove", en:"mistake", pos:"n",
+     canvas:{adj:"monovi", adj_en:"incorrect", v:"monovu", v_en:"to err"}},
+    {lw:"eire", en:"flight", pos:"n",
+     canvas:{adj:"eiri", adj_en:"in flight (or flying)", v:"eiru", v_en:"to fly"}},
+    {lw:"nouhe", en:"peace (or calm)", pos:"n",
+     canvas:{adj:"nouhi", adj_en:"peaceful (or calmly)"}},
+  ],
+
+  // L146 — Unit Exam: Seasons & Weather
+  // 12 sentences covering every root in L140–L145. No cloze
+  // (per A11 plan — sentences are mostly single-pattern).
+  // Three hearts checkpoint.
+  l146_seasons_weather_exam: [
+    {lw:["Foihe","su","neo","haiwepiehe"],
+     en:"Spring is my season."},
+    {lw:["Hauwe","su","hauhi"],
+     en:"Summer is hot."},
+    {lw:["Ne","wa","shauwu","wo","hauwe"],
+     en:"I swam in summer."},
+    {lw:["Liumea","wu","limu","wo","foihe"],
+     en:"Plants will grow in spring."},
+    {lw:["Youhi","meilea","su","keyi"],
+     en:"The autumn leaves are fallen."},
+    {lw:["Kaihe","su","luhi","sho","nouhi"],
+     en:"Winter is cold and peaceful."},
+    {lw:["Ne","wa","niamu","maunea"],
+     en:"I planted grains."},
+    {lw:["Yaihea","wu","eiru","wo","youhe"],
+     en:"Birds will fly in autumn."},
+    {lw:["Shaune","wa","kawu","wo","kaihe"],
+     en:"The lake froze in winter."},
+    {lw:["Lo","lawe","su","helumi"],
+     en:"Today is misty."},
+    {lw:["Wa lawe","laime","wa","su","melumi"],
+     en:"Yesterday the sky was foggy."},
+    {lw:["Foshe","su","houwi","wo","hauwe"],
+     en:"The grass is dry in summer."},
+    {lw:["Liume","wa","molimu"],
+     en:"The plant withered."},
+    {lw:["Neo","feure","sho","neo","shoume","su","moluhi"],
+     en:"My coat and my shirt are warm."},
+    {lw:["Ne","moluhu","tahe"],
+     en:"I warm the food."},
+    {lw:["Ne","mai","wa","monovu"],
+     en:"I did not err."},
+    {lw:["Haupe","wa","rau","wo","kaihe"],
+     en:"The bear slept in winter."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -3534,6 +3686,7 @@ const UNITS = [
   {name:"Unit 22 — High-Frequency Vocabulary", start:113, track:"advanced"},
   {name:"Unit 23 — Cardinal Directions & Geography", start:121, track:"advanced"},
   {name:"Unit 24 — Extended Family", start:126, track:"advanced"},
+  {name:"Unit 25 — Seasons & Extended Weather", start:133, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -4908,6 +5061,71 @@ const LESSONS = [
    vocabKey:"l139_extended_family_exam",
    xp:30,
    unit:23,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── A11 / Unit 25 — Seasons & Extended Weather (L140–L146) ──
+  {id:"l140_vocab_spring",
+   title:"Spring & the Seasons",
+   desc:"haiwepiehe (season), foihe (spring), lime (growth), niame (seed)",
+   icon:"🌸",
+   vocabKey:"l140_vocab_spring",
+   xp:18,
+   unit:24,
+   intro:`<h3>🌸 Welcome to seasons</h3><p>The Liru word for season (as a category) is <em>haiwepiehe</em> — literally "a part of the year," from <em>haiwe</em> (year) + <em>piehe</em> (part). It's the umbrella word you'd use to say "what is your favorite season?" or "spring is my favorite season."</p><p>This unit teaches the four seasons one lesson at a time, starting with spring. The four-season cycle:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">season</th><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px">spring</td><td style="padding:4px 12px"><em>foihe</em></td><td style="padding:4px 12px"><em>foihi</em></td></tr><tr><td style="padding:4px 12px">summer</td><td style="padding:4px 12px"><em>hauwe</em></td><td style="padding:4px 12px"><em>hauwi</em></td></tr><tr><td style="padding:4px 12px">autumn</td><td style="padding:4px 12px"><em>youhe</em></td><td style="padding:4px 12px"><em>youhi</em></td></tr><tr><td style="padding:4px 12px">winter</td><td style="padding:4px 12px"><em>kaihe</em></td><td style="padding:4px 12px"><em>kaihi</em></td></tr></table><p>Each season's name has a sound-shape clue: <em>foihe</em> echoes the <em>fo-</em> flora family (<em>foshe</em> grass, <em>fohe</em> moss); <em>hauwe</em> echoes <em>haule</em> (sun); <em>youhe</em> associates with <em>yole</em> (branch — falling-leaves season); <em>kaihe</em> shares its <em>k-</em> onset with the cold-state family (<em>kawe</em> ice, taught in L143).</p><h3>🌱 Spring vocabulary</h3><p>Beyond the season name itself, two iconic spring concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lime</em> (n.)</td><td style="padding:4px 12px">growth</td></tr><tr><td style="padding:4px 12px"><em>limu</em> (v.)</td><td style="padding:4px 12px">to grow</td></tr><tr><td style="padding:4px 12px"><em>niame</em> (n.)</td><td style="padding:4px 12px">seed</td></tr><tr><td style="padding:4px 12px"><em>niamu</em> (v.)</td><td style="padding:4px 12px">to plant a seed</td></tr></table><span class="example">Foihe su neo haiwepiehe. <span class="gloss">Spring is my season.</span></span><span class="example">Liumea wu limu wo foihe. <span class="gloss">Plants will grow in spring.</span></span><span class="example">Ne wa niamu wa lawe. <span class="gloss">I planted a seed yesterday.</span></span>`},
+
+  {id:"l141_vocab_summer",
+   title:"Summer & Warmth",
+   desc:"hauwe (summer), moluhe (warmth), shoume (shirt), shauwu (to swim)",
+   icon:"☀️",
+   vocabKey:"l141_vocab_summer",
+   xp:18,
+   unit:24,
+   intro:`<h3>☀️ Summer</h3><p>The second season: <em>hauwe</em>. Its adjective form <em>hauwi</em> means "summery." The sound-shape echoes <em>haule</em> (sun) — summer is the season of strongest sunlight.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>hauwe</em> (n.)</td><td style="padding:4px 12px">summer</td></tr><tr><td style="padding:4px 12px"><em>hauwi</em> (adj.)</td><td style="padding:4px 12px">summery</td></tr></table><h3>🌡️ Warm — filling out the temperature triad</h3><p>You already know <em>hauhi</em> (hot) and <em>luhi</em> (cold) from Unit 12. The word for "warm" — the comfortable middle between them — is <em>moluhi</em>, formed as the <em>mo-</em> pair of <em>luhi</em>.</p><p>This is by design: <em>mo-</em> marks balance, not opposites. Warm (<em>moluhi</em>) is genuinely the equilibrium of cold (<em>luhi</em>); hot (<em>hauhi</em>) is the extreme. The full canvas:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moluhe</em> (n.)</td><td style="padding:4px 12px">warmth</td></tr><tr><td style="padding:4px 12px"><em>moluhi</em> (adj.)</td><td style="padding:4px 12px">warm</td></tr><tr><td style="padding:4px 12px"><em>moluhu</em> (v.)</td><td style="padding:4px 12px">to warm (or heat)</td></tr></table><h3>👕 Summer vocabulary</h3><p>Two everyday summer concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shoume</em> (n.)</td><td style="padding:4px 12px">shirt</td></tr><tr><td style="padding:4px 12px"><em>shauwu</em> (v.)</td><td style="padding:4px 12px">to swim</td></tr></table><span class="example">Hauwe su moluhi. <span class="gloss">Summer is warm.</span></span><span class="example">Ne moluhu tahe. <span class="gloss">I warm the food.</span></span><span class="example">Ve wa shauwu wo shawome. <span class="gloss">She swam in the ocean.</span></span>`},
+
+  {id:"l142_vocab_autumn",
+   title:"Autumn — Leaves, Falling, Harvest",
+   desc:"youhe (autumn), meile (leaf), keye (fall — the action), maune (grain)",
+   icon:"🍂",
+   vocabKey:"l142_vocab_autumn",
+   xp:18,
+   unit:24,
+   intro:`<h3>🍂 Autumn</h3><p>The third season: <em>youhe</em>. English uses the same word "fall" for both the season and the action of dropping; Liru keeps these separate. <em>youhe</em> is the season; <em>keyu</em> (taught below) is what leaves do when they drop from a branch.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>youhe</em> (n.)</td><td style="padding:4px 12px">autumn (or fall, the season)</td></tr><tr><td style="padding:4px 12px"><em>youhi</em> (adj.)</td><td style="padding:4px 12px">autumnal</td></tr></table><h3>🍃 Leaves, falling, harvest</h3><p>Three autumn-iconic concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meile</em> (n.)</td><td style="padding:4px 12px">leaf</td></tr><tr><td style="padding:4px 12px"><em>meili</em> (adj.)</td><td style="padding:4px 12px">leafy</td></tr><tr><td style="padding:4px 12px"><em>keye</em> (n.)</td><td style="padding:4px 12px">a fall (a tumble)</td></tr><tr><td style="padding:4px 12px"><em>keyi</em> (adj.)</td><td style="padding:4px 12px">fallen</td></tr><tr><td style="padding:4px 12px"><em>keyu</em> (v.)</td><td style="padding:4px 12px">to fall (drop, tumble)</td></tr><tr><td style="padding:4px 12px"><em>maune</em> (n.)</td><td style="padding:4px 12px">grain</td></tr></table><p><strong>Important:</strong> <em>keyu</em> is the physical action of falling — gravity, dropping, tumbling. It is <em>not</em> the season "fall." English uses one word for both meanings; Liru does not.</p><span class="example">Meilea wu keyu wo youhe. <span class="gloss">Leaves will fall in autumn.</span></span><span class="example">Youhi meilea su wauli. <span class="gloss">Autumn leaves are beautiful.</span></span><span class="example">Maune su tahe. <span class="gloss">Grain is food.</span></span>`},
+
+  {id:"l143_vocab_winter",
+   title:"Winter — Ice, Coat, Bear",
+   desc:"kaihe (winter), kawe (ice), feure (coat), haupe (bear)",
+   icon:"❄️",
+   vocabKey:"l143_vocab_winter",
+   xp:18,
+   unit:24,
+   intro:`<h3>❄️ Winter</h3><p>The fourth season: <em>kaihe</em>. It shares its <em>k-</em> onset with the cold-state family — including <em>kawe</em> (ice), which you'll learn in this same lesson.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kaihe</em> (n.)</td><td style="padding:4px 12px">winter</td></tr><tr><td style="padding:4px 12px"><em>kaihi</em> (adj.)</td><td style="padding:4px 12px">wintry</td></tr></table><h3>🧊 Ice, coat, bear</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kawe</em> (n.)</td><td style="padding:4px 12px">ice</td></tr><tr><td style="padding:4px 12px"><em>kawi</em> (adj.)</td><td style="padding:4px 12px">frozen</td></tr><tr><td style="padding:4px 12px"><em>kawu</em> (v.)</td><td style="padding:4px 12px">to freeze</td></tr><tr><td style="padding:4px 12px"><em>feure</em> (n.)</td><td style="padding:4px 12px">coat</td></tr><tr><td style="padding:4px 12px"><em>haupe</em> (n.)</td><td style="padding:4px 12px">bear</td></tr></table><span class="example">Kaihe su luhi. <span class="gloss">Winter is cold.</span></span><span class="example">Shaune wu kawu wo kaihe. <span class="gloss">The lake will freeze in winter.</span></span><span class="example">Haupe wa rau wo kaihe. <span class="gloss">The bear slept in winter.</span></span>`},
+
+  {id:"l144_vocab_weather_extensions",
+   title:"Mist, Fog, Dryness, Bird",
+   desc:"helume (mist), melume (fog), houwe (dryness), yaihe (bird)",
+   icon:"🌫️",
+   vocabKey:"l144_vocab_weather_extensions",
+   xp:18,
+   unit:24,
+   intro:`<h3>🌫️ Mist and fog</h3><p>Two weather phenomena deferred from core Unit 12, now formally taught:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>helume</em> (n.)</td><td style="padding:4px 12px">mist</td></tr><tr><td style="padding:4px 12px"><em>helumi</em> (adj.)</td><td style="padding:4px 12px">misty</td></tr><tr><td style="padding:4px 12px"><em>melume</em> (n.)</td><td style="padding:4px 12px">fog</td></tr><tr><td style="padding:4px 12px"><em>melumi</em> (adj.)</td><td style="padding:4px 12px">foggy</td></tr></table><p>Both are low-visibility moisture in the air. Mist is lighter; fog is denser. Liru distinguishes them the same way English does.</p><h3>☀️ Dry — the opposite of wet weather</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>houwe</em> (n.)</td><td style="padding:4px 12px">dryness</td></tr><tr><td style="padding:4px 12px"><em>houwi</em> (adj.)</td><td style="padding:4px 12px">dry</td></tr><tr><td style="padding:4px 12px"><em>houwu</em> (v.)</td><td style="padding:4px 12px">to dry</td></tr></table><h3>🦅 Bird — across the seasons</h3><p><em>yaihe</em> (bird) is the connective tissue of seasonal storytelling — birds appear in spring, sing in summer, migrate in autumn, return after winter.</p><span class="example">Laime su helumi. <span class="gloss">The sky is misty.</span></span><span class="example">Foshe su houwi. <span class="gloss">The grass is dry.</span></span><span class="example">Yaihea wu vanu wo foihe. <span class="gloss">Birds will come in spring.</span></span>`},
+
+  {id:"l145_vocab_seasonal_change",
+   title:"Decay, Mistake, Flight, Peace",
+   desc:"molime (decay), monove (mistake), eire (flight), nouhe (peace)",
+   icon:"🍃",
+   vocabKey:"l145_vocab_seasonal_change",
+   xp:18,
+   unit:24,
+   intro:`<h3>🍃 The close of seasons</h3><p>This lesson pulls together four concepts that tie the seasonal cycle together: things that end, depart, go wrong, and the peace that follows.</p><h3>🥀 Decay — the <em>mo-</em> pair of growth</h3><p>You learned <em>lime</em> (growth) in L140. Its <em>mo-</em> pair is <em>molime</em> — decay, the opposite phase of the life cycle. Both are full-canvas roots:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>molime</em> (n.)</td><td style="padding:4px 12px">decay</td></tr><tr><td style="padding:4px 12px"><em>molimi</em> (adj.)</td><td style="padding:4px 12px">withered</td></tr><tr><td style="padding:4px 12px"><em>molimu</em> (v.)</td><td style="padding:4px 12px">to wither</td></tr></table><h3>❌ Mistake — when things go wrong</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>monove</em> (n.)</td><td style="padding:4px 12px">mistake</td></tr><tr><td style="padding:4px 12px"><em>monovi</em> (adj.)</td><td style="padding:4px 12px">incorrect</td></tr><tr><td style="padding:4px 12px"><em>monovu</em> (v.)</td><td style="padding:4px 12px">to err</td></tr></table><h3>🦋 Flight — bird migration and departure</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>eire</em> (n.)</td><td style="padding:4px 12px">flight</td></tr><tr><td style="padding:4px 12px"><em>eiri</em> (adj.)</td><td style="padding:4px 12px">in flight (or flying)</td></tr><tr><td style="padding:4px 12px"><em>eiru</em> (v.)</td><td style="padding:4px 12px">to fly</td></tr></table><h3>☮️ Peace — what comes after</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nouhe</em> (n.)</td><td style="padding:4px 12px">peace (or calm)</td></tr><tr><td style="padding:4px 12px"><em>nouhi</em> (adj.)</td><td style="padding:4px 12px">peaceful (or calmly)</td></tr></table><span class="example">Meilea wu molimu wo youhe. <span class="gloss">Leaves will wither in autumn.</span></span><span class="example">Ne wa monovu. <span class="gloss">I made a mistake.</span></span><span class="example">Yaihea wu eiru wo youhe. <span class="gloss">Birds will fly in autumn.</span></span><span class="example">Kaihe su nouhi. <span class="gloss">Winter is peaceful.</span></span>`},
+
+  {id:"l146_seasons_weather_exam",
+   title:"Unit 25 Exam — Seasons & Weather",
+   desc:"Three hearts. Twelve sentences spanning all four seasons, mist, fog, and the close-of-season cluster.",
+   icon:"🏔️",
+   vocabKey:"l146_seasons_weather_exam",
+   xp:30,
+   unit:24,
    isSentence:true,
    isCheckpoint:true},
 ];
