@@ -4354,6 +4354,196 @@ const V = {
      cloze:{blanks:[2,5], bank:["lenu","monawu","leni","monawi","monawe","lene"]}},
   ],
 
+  // ── UNIT 30 (A16): BODY PARTS BEYOND CORE FIVE (L173–L180) ───────
+  // Sixteenth advanced-track unit. Covers anatomy beyond the L62
+  // core five (head, eye, hand, foot, arm, leg). Anchor: 28 anatomy
+  // roots from advanced_track_words.md §A16 (after 7 non-anatomy
+  // entries relocated to A21/A22/A24 — cross-cutting fix shipped
+  // in same batch, A12 precedent).
+  // Weave-in (3): sole "throat" (A22 — body part better fitted here);
+  // hawe/hawi/hawu "breath" (A21 — pairs with mune chest L173 and
+  // huhe lung L176); liwe/liwi "sound/audible" canvas-completion
+  // of taught liwu "to hear" L67, routed to L179 srsExtras.
+  //
+  // Everyday-form filter (A14/A15 precedent): Mechanical "X-related"
+  // adjectives (muni, tami, rivi, mevi, huhi, kowi, tiki, yami, soli)
+  // NOT drilled; remain in Dictionary.md. Verbs drilled only when
+  // they're the everyday English usage. Already-taught L62 canvas
+  // siblings (tuni, hemi, hipi, misi, lauhi, lauhu, laupi, laupu,
+  // hipu, misu) not re-surfaced.
+
+  // L173 — Body, Torso (vocab)
+  // Anchor (4 roots): meiwe (body), mune (chest), poke (back),
+  // tame (stomach). meiwi "bodily" descriptive — kept. poki carries
+  // both mechanical "back-related" AND directional "behind"
+  // (Grammar.md §16) — the directional sense earns the drill.
+  // muni, tami dropped (mechanical only). 4 roots / 6 forms.
+  l173_vocab_body_torso: [
+    {lw:"meiwe", en:"body", pos:"n",
+     canvas:{adj:"meiwi", adj_en:"bodily"}},
+    {lw:"mune", en:"chest", pos:"n",
+     note:"Mechanical adj muni \"chest-related\" remains in Dictionary.md but not drilled per A14 filter."},
+    {lw:"poke", en:"back (body part)", pos:"n",
+     canvas:{adj:"poki", adj_en:"back (or behind)"},
+     note:"poki carries both \"back-related\" and the directional sense \"behind\" (Grammar.md §16: pohi/poki front/back). The directional use earns the drill."},
+    {lw:"tame", en:"stomach (or belly)", pos:"n",
+     note:"Mechanical adj tami \"stomach-related\" remains in Dictionary.md."},
+  ],
+
+  // L174 — Neck, Shoulder, Bone, Blood (vocab)
+  // rivi, mevi dropped (mechanical). koli kept ("bony" descriptive).
+  // shewe full canvas — all three everyday. 4 roots / 8 forms.
+  l174_vocab_neck_shoulder_bone_blood: [
+    {lw:"rive", en:"neck", pos:"n",
+     note:"Mechanical adj rivi \"neck-related\" remains in Dictionary.md."},
+    {lw:"meve", en:"shoulder", pos:"n",
+     note:"Mechanical adj mevi \"shoulder-related\" remains in Dictionary.md."},
+    {lw:"kole", en:"bone", pos:"n",
+     canvas:{adj:"koli", adj_en:"bony (or bone-related)"}},
+    {lw:"shewe", en:"blood", pos:"n",
+     canvas:{adj:"shewi", adj_en:"bloody (or blood-related)",
+             v:"shewu", v_en:"to bleed"}},
+  ],
+
+  // L175 — Face Features: Ear, Nose, Mouth, Tongue (vocab)
+  // laihe + laihi + laihu full canvas (all everyday). nuve + nuvi
+  // + nuvu full canvas (all everyday). powe + powi — powi has
+  // descriptive use ("oral exam"). yame + yamu — yamu everyday,
+  // yami mechanical (drop). 4 roots / 10 forms.
+  l175_vocab_face_features: [
+    {lw:"laihe", en:"ear", pos:"n",
+     canvas:{adj:"laihi", adj_en:"aural",
+             v:"laihu", v_en:"to listen"}},
+    {lw:"nuve", en:"nose", pos:"n",
+     canvas:{adj:"nuvi", adj_en:"nasal",
+             v:"nuvu", v_en:"to smell (or sniff)"}},
+    {lw:"powe", en:"mouth", pos:"n",
+     canvas:{adj:"powi", adj_en:"oral"}},
+    {lw:"yame", en:"tongue", pos:"n",
+     canvas:{v:"yamu", v_en:"to lick (or taste)"},
+     note:"Mechanical adj yami \"tongue-related\" dropped per A14 filter — verb is the everyday form."},
+  ],
+
+  // L176 — Inner Anatomy: Brain, Heart, Lung, Skin (vocab)
+  // miehe + miehi + miehu full canvas (all everyday — mind/mental/
+  // contemplate). nure + nuri + nuru full canvas (all everyday —
+  // heart/heartfelt/take to heart). huhi "pulmonary" technical-
+  // mechanical drop. kowi "skin-related" mechanical drop.
+  // 4 roots / 8 forms.
+  l176_vocab_inner_anatomy: [
+    {lw:"miehe", en:"brain (or mind)", pos:"n",
+     canvas:{adj:"miehi", adj_en:"mental",
+             v:"miehu", v_en:"to contemplate"}},
+    {lw:"nure", en:"heart", pos:"n",
+     canvas:{adj:"nuri", adj_en:"heartfelt",
+             v:"nuru", v_en:"to take to heart"}},
+    {lw:"huhe", en:"lung", pos:"n",
+     note:"Mechanical adj huhi \"pulmonary\" remains in Dictionary.md but is technical, not everyday."},
+    {lw:"kowe", en:"skin", pos:"n",
+     note:"Mechanical adj kowi \"skin-related\" remains in Dictionary.md."},
+  ],
+
+  // L177 — Joints & Limb Extremities (vocab)
+  // hemehiehe (elbow = arm-joint), lauhehiehe (wrist = hand-joint),
+  // laupehiehe (ankle = foot-joint) — all -hiehe compounds with
+  // single forms (no canvas siblings in Dictionary.md). yore + yoru
+  // — yori mechanical drop; yoru "to kneel" everyday keep.
+  // 4 roots / 5 forms.
+  l177_vocab_joints_extremities: [
+    {lw:"hemehiehe", en:"elbow", pos:"n",
+     note:"Compound: heme (arm, L62) + hiehe (joint, L160) — arm-joint."},
+    {lw:"lauhehiehe", en:"wrist", pos:"n",
+     note:"Compound: lauhe (hand, L62) + hiehe (joint) — hand-joint."},
+    {lw:"yore", en:"knee", pos:"n",
+     canvas:{v:"yoru", v_en:"to kneel"},
+     note:"Mechanical adj yori \"knee-related\" dropped per A14 filter."},
+    {lw:"laupehiehe", en:"ankle", pos:"n",
+     note:"Compound: laupe (foot, L62) + hiehe (joint) — foot-joint."},
+  ],
+
+  // L178 — Fingers (vocab, productive number+wime pattern)
+  // Anchor 4 (faniwime thumb, runiwime index, teniwime middle,
+  // shaniwime ring); srsExtras routes kaniwime pinky and laupewime
+  // toe. A7 precedent: surface anchor instances of a productive
+  // class, route remainder via srsExtras (the intro card explains
+  // the productive number+wime pattern in full).
+  // 4 drilled roots / 4 drilled forms + 2 srsExtras.
+  l178_vocab_fingers: [
+    {lw:"faniwime", en:"thumb", pos:"n",
+     note:"Compound: fani (1) + wime (finger) — 1-finger."},
+    {lw:"runiwime", en:"index finger", pos:"n",
+     note:"Compound: runi (2) + wime (finger) — 2-finger."},
+    {lw:"teniwime", en:"middle finger", pos:"n",
+     note:"Compound: teni (3) + wime (finger) — 3-finger."},
+    {lw:"shaniwime", en:"ring finger", pos:"n",
+     note:"Compound: shani (4) + wime (finger) — 4-finger."},
+  ],
+
+  // L179 — Hair, Tooth + Weave-in: Throat, Breath (vocab)
+  // Anchor (2): lehe + lehi (hair / hairy — both everyday). tike +
+  // tiku — verb everyday; tiki mechanical drop.
+  // Weave-in (2): sole + solu (A22 absorption — body part with
+  // everyday verb; soli mechanical drop). hawe + hawi + hawu
+  // (A21 absorption — pairs thematically with mune chest L173 and
+  // huhe lung L176; all three forms everyday).
+  // srsExtras: liwe (sound, n.) + liwi (audible, adj.) — canvas-
+  // completion siblings of taught liwu "to hear" L67. The hearing/
+  // sound family lands across L175 (laihe ear) and L179 srsExtras.
+  // 4 drilled roots / 9 drilled forms + 2 srsExtras.
+  l179_vocab_hair_tooth_breath: [
+    {lw:"lehe", en:"hair", pos:"n",
+     canvas:{adj:"lehi", adj_en:"hairy (or hair-related)"}},
+    {lw:"tike", en:"tooth", pos:"n",
+     canvas:{v:"tiku", v_en:"to bite (or chew)"},
+     note:"Mechanical adj tiki \"tooth-related\" dropped per A14 filter."},
+    {lw:"sole", en:"throat", pos:"n",
+     canvas:{v:"solu", v_en:"to swallow"},
+     note:"Weave-in from A22 Daily Nouns — body part thematically belongs with A16. Mechanical adj soli dropped."},
+    {lw:"hawe", en:"breath", pos:"n",
+     canvas:{adj:"hawi", adj_en:"breathing",
+             v:"hawu", v_en:"to breathe"},
+     note:"Weave-in from A21 Useful Verbs. Pairs thematically with mune (chest, L173) and huhe (lung, L176). All three forms everyday."},
+  ],
+
+  // L180 — Unit 30 Exam: Body Parts Beyond Core Five
+  // isCheckpoint:true, isSentence:true. 14 sentences spanning all
+  // 7 vocab lessons. Cloze on 4 sentences (S4, S7, S10, S13)
+  // testing form discrimination (canvas slots and mo-pairs).
+  l180_body_exam: [
+    {lw:["Neo","poke","kufu"],
+     en:"My back hurts."},
+    {lw:["Neo","paweo","meve","kufu"],
+     en:"My father's shoulder hurts."},
+    {lw:["Mewe","su","poki","hiwe"],
+     en:"The cat is behind the house."},
+    {lw:["Ne","wa","laihu","lai","ve","wa","liru"],
+     en:"I heard that she sang.",
+     cloze:{blanks:[2,3], bank:["laihu","liwu","laihe","laihi","lai","wa","su","ki"]}},
+    {lw:["Neo","laupe","wa","shewu"],
+     en:"My foot bled."},
+    {lw:["Veo","paipe","su","piami","sho","koli"],
+     en:"Her dog is small and bony."},
+    {lw:["Ne","yamu","lo","tahe","ko","neo","yame"],
+     en:"I taste this food with my tongue.",
+     cloze:{blanks:[1,6], bank:["yamu","yame","yami","powe","powi","laihe","tahu","yoru"]}},
+    {lw:["Ve","miehu","lai","te","wa","vanu"],
+     en:"She contemplates that you came."},
+    {lw:["Neo","runiwime","kufu"],
+     en:"My index finger hurts."},
+    {lw:["Veo","sole","kufu","wule","ve","solu","mashe"],
+     en:"Her throat hurts after she swallows medicine.",
+     cloze:{blanks:[1,5], bank:["sole","solu","soli","powe","tahu","mashe","wule","wale"]}},
+    {lw:["Ve","ahu","nai","lehe"],
+     en:"She has a lot of hair."},
+    {lw:["Ne","hawu","wo","mouleyahe"],
+     en:"I breathe in the forest."},
+    {lw:["Lo","paipe","wa","tiku","neo","heme"],
+     en:"This dog bit my arm.",
+     cloze:{blanks:[3,5], bank:["tiku","tike","tiki","heme","hipe","laupe","tahu","yamu"]}},
+    {lw:["Veo","mawe","wa","yoru","wo","hiwe"],
+     en:"Her mother knelt in the house."},
+  ],
+
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -4404,6 +4594,7 @@ const UNITS = [
   {name:"Unit 27 — Plants & Nature Taxonomy", start:149, track:"advanced"},
   {name:"Unit 28 — Specialized Verbs of Motion & Action", start:153, track:"advanced"},
   {name:"Unit 29 — Specialized Emotions", start:161, track:"advanced"},
+  {name:"Unit 30 — Body Parts Beyond Core Five", start:166, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -6094,6 +6285,84 @@ const LESSONS = [
    vocabKey:"l172_emotions_exam",
    xp:30,
    unit:28,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── UNIT 30 (A16): BODY PARTS BEYOND CORE FIVE (L173–L180) ───────
+  // Sixteenth advanced-track unit. 8 lessons total: 7 vocab + 1 exam.
+
+  {id:"l173_vocab_body_torso",
+   title:"Body, Chest, Back, Stomach",
+   desc:"meiwe (body), mune (chest), poke (back), tame (stomach)",
+   icon:"🫁",
+   vocabKey:"l173_vocab_body_torso",
+   xp:18,
+   unit:29,
+   intro:`<h3>🫁 Welcome to body parts beyond the core five</h3><p>You already know the most common body words from earlier in the course: <em>tune</em> (head), <em>mise</em> (eye), <em>lauhe</em> (hand), <em>laupe</em> (foot), <em>heme</em> (arm), <em>hipe</em> (leg), <em>pohe</em> (face), and <em>wime</em> (finger). This unit opens up the rest of the body — torso, joints, face features, organs, fingers and toes, hair, teeth, and the breath and sound vocabulary that goes with them.</p><h3>🫂 The torso: body, chest, back, stomach</h3><p>This first lesson lands the broad anatomy. <em>meiwe</em> (body) is the umbrella term — the whole physical form. <em>mune</em> (chest), <em>poke</em> (back), and <em>tame</em> (stomach) cover the three large regions.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meiwe</em> (n.)</td><td style="padding:4px 12px">body</td></tr><tr><td style="padding:4px 12px"><em>meiwi</em> (adj.)</td><td style="padding:4px 12px">bodily</td></tr><tr><td style="padding:4px 12px"><em>mune</em> (n.)</td><td style="padding:4px 12px">chest</td></tr><tr><td style="padding:4px 12px"><em>poke</em> (n.)</td><td style="padding:4px 12px">back (body part)</td></tr><tr><td style="padding:4px 12px"><em>poki</em> (adj.)</td><td style="padding:4px 12px">back (or behind)</td></tr><tr><td style="padding:4px 12px"><em>tame</em> (n.)</td><td style="padding:4px 12px">stomach (or belly)</td></tr></table><h3>🧭 <em>poki</em> does double duty</h3><p>The adjective <em>poki</em> means both "back-related" (as in "back muscle") and "behind" as a position word. You may remember <em>pohi</em> (front) and <em>poki</em> (behind) from the directional adverbs unit — that's exactly this same <em>poki</em>. The body-part word and the position word share one form because the position grew out of the body word.</p><span class="example">Neo meiwe su kufi. <span class="gloss">My body is in pain.</span></span><span class="example">Neo mune kufu. <span class="gloss">My chest hurts.</span></span><span class="example">Mewe su poki hiwe. <span class="gloss">The cat is behind the house.</span></span>`},
+
+  {id:"l174_vocab_neck_shoulder_bone_blood",
+   title:"Neck, Shoulder, Bone & Blood",
+   desc:"rive (neck), meve (shoulder), kole (bone), shewe (blood)",
+   icon:"🦴",
+   vocabKey:"l174_vocab_neck_shoulder_bone_blood",
+   xp:18,
+   unit:29,
+   intro:`<h3>🦴 Two body parts and two materials</h3><p>This lesson combines two surface body parts (neck, shoulder) with two things that fill the body inside (bone, blood). The two materials both carry full adjective forms — you can describe something as <em>koli</em> (bony) or <em>shewi</em> (bloody) — and <em>shewe</em> also has the everyday verb <em>shewu</em> (to bleed).</p><h3>💪 Neck and shoulder</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>rive</em> (n.)</td><td style="padding:4px 12px">neck</td></tr><tr><td style="padding:4px 12px"><em>meve</em> (n.)</td><td style="padding:4px 12px">shoulder</td></tr></table><h3>🦴 Bone — full canvas almost</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kole</em> (n.)</td><td style="padding:4px 12px">bone</td></tr><tr><td style="padding:4px 12px"><em>koli</em> (adj.)</td><td style="padding:4px 12px">bony (or bone-related)</td></tr></table><h3>🩸 Blood — full canvas</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shewe</em> (n.)</td><td style="padding:4px 12px">blood</td></tr><tr><td style="padding:4px 12px"><em>shewi</em> (adj.)</td><td style="padding:4px 12px">bloody (or blood-related)</td></tr><tr><td style="padding:4px 12px"><em>shewu</em> (v.)</td><td style="padding:4px 12px">to bleed</td></tr></table><span class="example">Neo rive kufu. <span class="gloss">My neck hurts.</span></span><span class="example">Veo paipe su koli. <span class="gloss">Her dog is bony.</span></span><span class="example">Neo laupe wa shewu. <span class="gloss">My foot bled.</span></span>`},
+
+  {id:"l175_vocab_face_features",
+   title:"Ear, Nose, Mouth & Tongue",
+   desc:"laihe (ear), nuve (nose), powe (mouth), yame (tongue)",
+   icon:"👃",
+   vocabKey:"l175_vocab_face_features",
+   xp:18,
+   unit:29,
+   intro:`<h3>👂 The face up close</h3><p>You already know <em>pohe</em> (face) and <em>mise</em> (eye) from earlier units. This lesson lands the rest of the face — ear, nose, mouth, and tongue — and surfaces the sense-verbs that go with them. Three of the four roots have full canvas: <em>laihu</em> (to listen), <em>nuvu</em> (to smell), <em>yamu</em> (to taste). The fourth, <em>powe</em> (mouth), pairs with adjective <em>powi</em> (oral) but has no everyday verb.</p><h3>👂 Ear — full canvas</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>laihe</em> (n.)</td><td style="padding:4px 12px">ear</td></tr><tr><td style="padding:4px 12px"><em>laihi</em> (adj.)</td><td style="padding:4px 12px">aural</td></tr><tr><td style="padding:4px 12px"><em>laihu</em> (v.)</td><td style="padding:4px 12px">to listen</td></tr></table><p>The verb <em>laihu</em> (to listen) is distinct from <em>liwu</em> (to hear) — listening is active and intentional, while hearing is passive and automatic. English has the same split.</p><h3>👃 Nose — full canvas</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nuve</em> (n.)</td><td style="padding:4px 12px">nose</td></tr><tr><td style="padding:4px 12px"><em>nuvi</em> (adj.)</td><td style="padding:4px 12px">nasal</td></tr><tr><td style="padding:4px 12px"><em>nuvu</em> (v.)</td><td style="padding:4px 12px">to smell (or sniff)</td></tr></table><h3>👄 Mouth</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>powe</em> (n.)</td><td style="padding:4px 12px">mouth</td></tr><tr><td style="padding:4px 12px"><em>powi</em> (adj.)</td><td style="padding:4px 12px">oral</td></tr></table><h3>👅 Tongue</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>yame</em> (n.)</td><td style="padding:4px 12px">tongue</td></tr><tr><td style="padding:4px 12px"><em>yamu</em> (v.)</td><td style="padding:4px 12px">to lick (or taste)</td></tr></table><span class="example">Ne laihu lo liwe. <span class="gloss">I listen to this sound.</span></span><span class="example">Ne nuvu kupe. <span class="gloss">I smell coffee.</span></span><span class="example">Ne yamu lo tahe. <span class="gloss">I taste this food.</span></span>`},
+
+  {id:"l176_vocab_inner_anatomy",
+   title:"Brain, Heart, Lung & Skin",
+   desc:"miehe (brain), nure (heart), huhe (lung), kowe (skin)",
+   icon:"🧠",
+   vocabKey:"l176_vocab_inner_anatomy",
+   xp:18,
+   unit:29,
+   intro:`<h3>🧠 What's inside</h3><p>This lesson goes under the surface — brain, heart, lungs — plus the skin that wraps them. Two of the four roots have full canvas with real, everyday meanings: <em>miehu</em> (to contemplate) and <em>nuru</em> (to take to heart). The other two are body-part nouns only — <em>huhe</em> (lung) and <em>kowe</em> (skin) — because their adjective forms (<em>huhi</em> "pulmonary," <em>kowi</em> "skin-related") are technical or mechanical rather than everyday speech.</p><h3>🧠 Brain — the seat of thought</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>miehe</em> (n.)</td><td style="padding:4px 12px">brain (or mind)</td></tr><tr><td style="padding:4px 12px"><em>miehi</em> (adj.)</td><td style="padding:4px 12px">mental</td></tr><tr><td style="padding:4px 12px"><em>miehu</em> (v.)</td><td style="padding:4px 12px">to contemplate</td></tr></table><p>Liru treats <em>miehe</em> as both the physical organ and the seat of the mind — like English "mind" and "brain" rolled into one. The verb <em>miehu</em> pairs naturally with complement clauses (<em>lai</em>): "I contemplate that..."</p><h3>❤️ Heart — body and feeling</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nure</em> (n.)</td><td style="padding:4px 12px">heart</td></tr><tr><td style="padding:4px 12px"><em>nuri</em> (adj.)</td><td style="padding:4px 12px">heartfelt</td></tr><tr><td style="padding:4px 12px"><em>nuru</em> (v.)</td><td style="padding:4px 12px">to take to heart</td></tr></table><p>Like English, Liru's <em>nure</em> covers both the physical organ and the emotional center.</p><h3>🫁 Lung & 🤚 Skin</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>huhe</em> (n.)</td><td style="padding:4px 12px">lung</td></tr><tr><td style="padding:4px 12px"><em>kowe</em> (n.)</td><td style="padding:4px 12px">skin</td></tr></table><span class="example">Ne miehu lai te wa vanu. <span class="gloss">I contemplate that you came.</span></span><span class="example">Veo nure su nuri. <span class="gloss">Her heart is heartfelt.</span></span><span class="example">Lo kowe su shawi. <span class="gloss">This skin is wet.</span></span>`},
+
+  {id:"l177_vocab_joints_extremities",
+   title:"Elbow, Wrist, Knee & Ankle",
+   desc:"hemehiehe (elbow), lauhehiehe (wrist), yore (knee), laupehiehe (ankle)",
+   icon:"🦵",
+   vocabKey:"l177_vocab_joints_extremities",
+   xp:18,
+   unit:29,
+   intro:`<h3>🦵 The joints are compounds</h3><p>This lesson teaches a small but important word-building trick. <em>hiehe</em> (joint) — which you saw in Unit 28 — combines with the limb names you already know to form the major joints. The pattern is <strong>limb + hiehe = joint of that limb</strong>:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">limb</th><th style="padding:4px 12px;color:var(--dim)">+ joint</th><th style="padding:4px 12px;color:var(--dim)">=</th></tr><tr><td style="padding:4px 12px"><em>heme</em> (arm)</td><td style="padding:4px 12px">+ <em>hiehe</em></td><td style="padding:4px 12px"><em>hemehiehe</em> — elbow</td></tr><tr><td style="padding:4px 12px"><em>lauhe</em> (hand)</td><td style="padding:4px 12px">+ <em>hiehe</em></td><td style="padding:4px 12px"><em>lauhehiehe</em> — wrist</td></tr><tr><td style="padding:4px 12px"><em>laupe</em> (foot)</td><td style="padding:4px 12px">+ <em>hiehe</em></td><td style="padding:4px 12px"><em>laupehiehe</em> — ankle</td></tr></table><p>These compounds follow Liru's compound-word rules from Grammar §19: the second element (<em>-hiehe</em>) sets the part of speech, and the first element keeps its noun form because the limb is the thing the joint belongs to.</p><h3>🦵 Knee — the outlier</h3><p>The knee has its own root, <em>yore</em>, because it's culturally salient (kneeling is a gesture). Its verb <em>yoru</em> means "to kneel."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>yore</em> (n.)</td><td style="padding:4px 12px">knee</td></tr><tr><td style="padding:4px 12px"><em>yoru</em> (v.)</td><td style="padding:4px 12px">to kneel</td></tr></table><span class="example">Neo hemehiehe kufu. <span class="gloss">My elbow hurts.</span></span><span class="example">Veo lauhehiehe su kavi. <span class="gloss">Her wrist is broken.</span></span><span class="example">Ne yoru wo hiwe. <span class="gloss">I kneel in the house.</span></span>`},
+
+  {id:"l178_vocab_fingers",
+   title:"Fingers — A Productive Pattern",
+   desc:"faniwime (thumb), runiwime (index), teniwime (middle), shaniwime (ring)",
+   icon:"👆",
+   vocabKey:"l178_vocab_fingers",
+   xp:18,
+   unit:29,
+   srsExtras:["kaniwime","laupewime"],
+   intro:`<h3>👆 Number + finger = finger name</h3><p>The five fingers in Liru are built productively from the number words you learned in earlier units. The pattern is <strong>number + <em>wime</em> (finger)</strong>, counted from the thumb:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">finger</th><th style="padding:4px 12px;color:var(--dim)">composition</th><th style="padding:4px 12px;color:var(--dim)">word</th></tr><tr><td style="padding:4px 12px">thumb</td><td style="padding:4px 12px"><em>fani</em> (1) + <em>wime</em></td><td style="padding:4px 12px"><em>faniwime</em></td></tr><tr><td style="padding:4px 12px">index finger</td><td style="padding:4px 12px"><em>runi</em> (2) + <em>wime</em></td><td style="padding:4px 12px"><em>runiwime</em></td></tr><tr><td style="padding:4px 12px">middle finger</td><td style="padding:4px 12px"><em>teni</em> (3) + <em>wime</em></td><td style="padding:4px 12px"><em>teniwime</em></td></tr><tr><td style="padding:4px 12px">ring finger</td><td style="padding:4px 12px"><em>shani</em> (4) + <em>wime</em></td><td style="padding:4px 12px"><em>shaniwime</em></td></tr><tr><td style="padding:4px 12px">pinky</td><td style="padding:4px 12px"><em>kani</em> (5) + <em>wime</em></td><td style="padding:4px 12px"><em>kaniwime</em></td></tr></table><h3>🦶 The toe is the foot-finger</h3><p>Liru extends the pattern one step further. A toe is just a <strong>foot-finger</strong>: <em>laupe</em> (foot) + <em>wime</em> (finger) → <em>laupewime</em> (toe).</p><p>This lesson drills the four most-distinct fingers; pinky and toe go straight to your review deck. The pattern is fully productive — once you know the numbers, you know the fingers.</p><span class="example">Neo faniwime kufu. <span class="gloss">My thumb hurts.</span></span><span class="example">Neo runiwime su koli. <span class="gloss">My index finger is bony.</span></span><span class="example">Ve wa shewu wo veo teniwime. <span class="gloss">She bled on her middle finger.</span></span>`},
+
+  {id:"l179_vocab_hair_tooth_breath",
+   title:"Hair, Tooth, Throat & Breath",
+   desc:"lehe (hair), tike (tooth), sole (throat), hawe (breath)",
+   icon:"💨",
+   vocabKey:"l179_vocab_hair_tooth_breath",
+   xp:18,
+   unit:29,
+   srsExtras:["liwe","liwi"],
+   intro:`<h3>💨 Closing the unit on what comes in and out</h3><p>The last vocab lesson lands four roots that didn't fit the earlier clusters but belong in the body unit. Hair and tooth round out the head; throat and breath cover what moves through the body when you breathe and swallow.</p><h3>💇 Hair</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lehe</em> (n.)</td><td style="padding:4px 12px">hair</td></tr><tr><td style="padding:4px 12px"><em>lehi</em> (adj.)</td><td style="padding:4px 12px">hairy (or hair-related)</td></tr></table><h3>🦷 Tooth</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>tike</em> (n.)</td><td style="padding:4px 12px">tooth</td></tr><tr><td style="padding:4px 12px"><em>tiku</em> (v.)</td><td style="padding:4px 12px">to bite (or chew)</td></tr></table><h3>😮 Throat</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>sole</em> (n.)</td><td style="padding:4px 12px">throat</td></tr><tr><td style="padding:4px 12px"><em>solu</em> (v.)</td><td style="padding:4px 12px">to swallow</td></tr></table><h3>🫁 Breath — full canvas</h3><p>The breath root completes the lung/chest cluster from L173 and L176 — now you can talk about the organ (<em>huhe</em>), the chest it sits in (<em>mune</em>), and the breath that moves through it (<em>hawe</em>).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>hawe</em> (n.)</td><td style="padding:4px 12px">breath</td></tr><tr><td style="padding:4px 12px"><em>hawi</em> (adj.)</td><td style="padding:4px 12px">breathing</td></tr><tr><td style="padding:4px 12px"><em>hawu</em> (v.)</td><td style="padding:4px 12px">to breathe</td></tr></table><span class="example">Ve ahu nai lehe. <span class="gloss">She has a lot of hair.</span></span><span class="example">Lo paipe wa tiku ne. <span class="gloss">This dog bit me.</span></span><span class="example">Neo sole kufu. <span class="gloss">My throat hurts.</span></span><span class="example">Ne hawu wo mouleyahe. <span class="gloss">I breathe in the forest.</span></span>`},
+
+  {id:"l180_body_exam",
+   title:"Unit 30 Exam — Body Parts Beyond Core Five",
+   desc:"Three hearts. Fourteen sentences covering all body-part lessons, plus cloze on four key constructions.",
+   icon:"🫀",
+   vocabKey:"l180_body_exam",
+   xp:30,
+   unit:29,
    isSentence:true,
    isCheckpoint:true},
 ];
