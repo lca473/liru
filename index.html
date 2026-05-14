@@ -2182,7 +2182,7 @@ const V = {
   //         (put/place). 4 roots, 10 forms in sentences.
   //   L96 — Complement clauses (cognitive/reportive/emotive verbs).
   //         8 sentences. Introduces: waihu (hope), moyeru (fear), feihu
-  //         (promise), oihu (expect). 4 roots, 4 verb forms in sentences
+  //         (promise), houpu (expect). 4 roots, 4 verb forms in sentences
   //         (canvas mates surfaced in intro card only).
   //   L97 — Advanced complement (absolute embedded tense, to-infinitive,
   //         ambiguity). 8 sentences. Introduces: piruhu (plan), seuwu
@@ -2193,7 +2193,7 @@ const V = {
   // A20 vocabulary woven in (per A2 capability-unit convention):
   //   • L95: kavu, hairu, launu (concrete action verbs — good relative-
   //          clause heads for pictures of objects and people)
-  //   • L96: waihu, moyeru, feihu, oihu (the four canonical complement-
+  //   • L96: waihu, moyeru, feihu, houpu (the four canonical complement-
   //          taking verbs from Grammar.md §11 examples)
   //   • L97: piruhu, seuwu, lenu (verbs that pair with same-subject
   //          to-infinitive and trust-claim patterns)
@@ -2237,12 +2237,12 @@ const V = {
   // L96 — Complement clauses (sentence-based)
   // Introduces complement reading of *lai* (verb + lai + full embedded
   // clause). Four new A20 complement-taking verbs: waihu (hope), moyeru
-  // (fear), feihu (promise), oihu (expect). Each verb appears in 1-2
+  // (fear), feihu (promise), houpu (expect). Each verb appears in 1-2
   // sentences. The canvas mates (waihe/waihi, moyere, feihe/feihi,
-  // oihe/oihi) are mentioned in the intro card for context but don't
+  // houpe/houpi) are mentioned in the intro card for context but don't
   // appear in sentences. moyeri is already taught (L26). Forms registered
-  // in preflight.js as ['waihu','moyeru','feihu','oihu','waihe','waihi',
-  // 'moyere','feihe','feihi','oihe','oihi'] — the canvas mates are
+  // in preflight.js as ['waihu','moyeru','feihu','houpu','waihe','waihi',
+  // 'moyere','feihe','feihi','houpe','houpi'] — the canvas mates are
   // registered so they're available as cloze bank distractors and for
   // SRS sourcing even though no sentence uses them. 4 cloze sentences.
   l96_complement_clauses: [
@@ -2258,12 +2258,12 @@ const V = {
      en:"Yuna fears that Maya is angry."},
     {lw:["Ne","feihu","lai","ne","wu","vanu"],
      en:"I promise that I will come.",
-     cloze:{blanks:[1,5], bank:["feihu","oihu","vanu","halu","movanu","lai"]}},
+     cloze:{blanks:[1,5], bank:["feihu","houpu","vanu","halu","movanu","lai"]}},
     {lw:["Maya","wa","feihu","lai","ve","wu","sovu","ne"],
      en:"Maya promised that she will help me."},
-    {lw:["Ne","oihu","lai","te","wu","liru"],
+    {lw:["Ne","houpu","lai","te","wu","liru"],
      en:"I expect that you will speak.",
-     cloze:{blanks:[1,5], bank:["oihu","waihu","liru","vanu","lai","su"]}},
+     cloze:{blanks:[1,5], bank:["houpu","waihu","liru","vanu","lai","su"]}},
     {lw:["Nea","waihu","lai","neo","wame","su","sheyi"],
      en:"We hope that our friend is healthy."},
   ],
@@ -2347,7 +2347,7 @@ const V = {
   //   • Combined patterns × 2 (sentences 11, 12)
   // Each new A20 verb from the unit appears at least once (hairu s1,
   // kavu s3, launu s4, waihu s6, moyeru s7, feihu s8, piruhu s9, lenu
-  // s11, oihu s12). 4 cloze exercises.
+  // s11, houpu s12). 4 cloze exercises.
   l99_lai_exam: [
     {lw:["Piwe","lai","hairu","su","houli"],
      en:"The child who runs is happy."},
@@ -2375,7 +2375,7 @@ const V = {
     {lw:["Ne","lenu","lai","pue","lai","te","wa","riku","wamu","te"],
      en:"I trust that the person you met likes you.",
      cloze:{blanks:[2,4], bank:["lai","sho","wa","ne","ko","lo"]}},
-    {lw:["Yuna","oihu","lai","loiwe","lai","ne","loisu","su","teuhi"],
+    {lw:["Yuna","houpu","lai","loiwe","lai","ne","loisu","su","teuhi"],
      en:"Yuna expects that the book I am reading is easy."},
   ],
 
@@ -5986,7 +5986,7 @@ const LESSONS = [
    xp:26,
    unit:16,
    isSentence:true,
-   intro:`<h3>💭 Complement clauses with <em>lai</em></h3><p>Same particle, different position. When <em>lai</em> sits <strong>after a verb</strong>, the clause that follows is a <strong>complement</strong> — a full embedded sentence with its own subject, verb, and tense. No gap:</p><span class="example">Ne senu lai ve wa liru. <span class="gloss">I know that she sang.</span></span><span class="example">Ve wa liru lai ne wa halu. <span class="gloss">She said that I left.</span></span><p>Compare with relative clauses from last lesson — there's no "missing piece" inside the embedded clause. <em>ve wa liru</em> is a complete sentence on its own; <em>lai</em> just glues it into the matrix sentence as the object of <em>senu</em>.</p><h3>📖 The verbs that take complements</h3><p>Four new A20 verbs, each takes a "that…" complement. Each has the full canvas:</p><ul><li><em>waihe</em> (hope) → <em>waihi</em> (hopeful) → <em>waihu</em> (to hope) — the second half of <em>LiruWaihe</em>, the language's full name</li><li><em>moyere</em> (fear) → <em>moyeri</em> (afraid — you know this one) → <em>moyeru</em> (to fear)</li><li><em>feihe</em> (promise) → <em>feihi</em> (promised) → <em>feihu</em> (to promise)</li><li><em>oihe</em> (expectation) → <em>oihi</em> (expected) → <em>oihu</em> (to expect)</li></ul><p>Already-taught complement verbs you already know how to use this way: <em>senu</em> (know), <em>liru</em> (say), <em>meru</em> (remember). They all work identically.</p><h3>⚖️ Soft default for ambiguity</h3><p>What if the matrix verb is followed by an object, and <em>then</em> <em>lai</em>? Both readings are possible:</p><ul><li>Relative: "I know <strong>the person who sang</strong>"</li><li>Complement: "I know <strong>that the person sang</strong>"</li></ul><p>The soft rule: <strong>cognitive, reportive, and emotive verbs</strong> (know, say, hope, fear) default to complement. <strong>Physical verbs</strong> default to relative. Context settles the rest. We'll come back to this next lesson.</p>`},
+   intro:`<h3>💭 Complement clauses with <em>lai</em></h3><p>Same particle, different position. When <em>lai</em> sits <strong>after a verb</strong>, the clause that follows is a <strong>complement</strong> — a full embedded sentence with its own subject, verb, and tense. No gap:</p><span class="example">Ne senu lai ve wa liru. <span class="gloss">I know that she sang.</span></span><span class="example">Ve wa liru lai ne wa halu. <span class="gloss">She said that I left.</span></span><p>Compare with relative clauses from last lesson — there's no "missing piece" inside the embedded clause. <em>ve wa liru</em> is a complete sentence on its own; <em>lai</em> just glues it into the matrix sentence as the object of <em>senu</em>.</p><h3>📖 The verbs that take complements</h3><p>Four new A20 verbs, each takes a "that…" complement. Each has the full canvas:</p><ul><li><em>waihe</em> (hope) → <em>waihi</em> (hopeful) → <em>waihu</em> (to hope) — the second half of <em>LiruWaihe</em>, the language's full name</li><li><em>moyere</em> (fear) → <em>moyeri</em> (afraid — you know this one) → <em>moyeru</em> (to fear)</li><li><em>feihe</em> (promise) → <em>feihi</em> (promised) → <em>feihu</em> (to promise)</li><li><em>houpe</em> (expectation) → <em>houpi</em> (expected) → <em>houpu</em> (to expect)</li></ul><p>Already-taught complement verbs you already know how to use this way: <em>senu</em> (know), <em>liru</em> (say), <em>meru</em> (remember). They all work identically.</p><h3>⚖️ Soft default for ambiguity</h3><p>What if the matrix verb is followed by an object, and <em>then</em> <em>lai</em>? Both readings are possible:</p><ul><li>Relative: "I know <strong>the person who sang</strong>"</li><li>Complement: "I know <strong>that the person sang</strong>"</li></ul><p>The soft rule: <strong>cognitive, reportive, and emotive verbs</strong> (know, say, hope, fear) default to complement. <strong>Physical verbs</strong> default to relative. Context settles the rest. We'll come back to this next lesson.</p>`},
 
   {id:"l97_complement_advanced",
    title:"Embedded Tense and To-Infinitives",
@@ -7817,7 +7817,7 @@ function srsMergeCloudCards(localCards,cloudCards){
 // for review.
 //
 // Rule: a card is stale if card.lw is not present in DICTIONARY_RAW. Phrases
-// with spaces (e.g. "wule oihi") aren't enrolled as cards, so the simple
+// with spaces (e.g. "wule houpi") aren't enrolled as cards, so the simple
 // single-word forms-set is sufficient.
 //
 // This runs at two points (defense in depth):
@@ -8751,6 +8751,9 @@ function srsMigratePoniMolaweToOniNoneIfNeeded(username){
 const SRS_FORM_RENAMES={
   kime:'kile',
   kifa:'kinai',
+  oihe:'houpe',
+  oihi:'houpi',
+  oihu:'houpu',
 };
 function srsMigrateRenamedFormsIfNeeded(username){
   if(!username)return 0;
@@ -11156,7 +11159,7 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>nohili</em></td><td>just (recently)</td></tr>
     <tr><td><em>wuhi</em></td><td>soon</td></tr>
     <tr><td><em>feuhi</em></td><td>eventually</td></tr>
-    <tr><td><em>oihi</em></td><td>expected</td></tr>
+    <tr><td><em>houpi</em></td><td>expected</td></tr>
     <tr><td><em>taiweli</em></td><td>always</td></tr>
     <tr><td><em>naiweli</em></td><td>often</td></tr>
     <tr><td><em>saiweli</em></td><td>sometimes</td></tr>
@@ -11166,7 +11169,7 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>ori</em></td><td>very / really</td></tr>
     </tbody></table></div>
     <p>"Rarely" is just <em>mai naiweli</em> (not often). "Not yet" is <em>mai yauwi</em>. Emphatic "never" can also be <em>mai faiweli</em> (not ever).</p>
-    <p>"Early" and "late" are compositional: <em>wale oihi</em> (before expected) and <em>wule oihi</em> (after expected).</p>`
+    <p>"Early" and "late" are compositional: <em>wale houpi</em> (before expected) and <em>wule houpi</em> (after expected).</p>`
   },
   {
     icon:"🧭", title:"Direction & Space",
@@ -11547,6 +11550,9 @@ const DICTIONARY_RAW = [
   {lw:"houme", en:"bread", pos:"n"},
   {lw:"houmetieme", en:"bakery", pos:"n", note:"From houme (bread) + -tieme (store) \u2014 bakery"},
   {lw:"houmi", en:"bread-related", pos:"adj"},
+  {lw:"houpe", en:"expectation", pos:"n"},
+  {lw:"houpi", en:"expected", pos:"adj"},
+  {lw:"houpu", en:"to expect", pos:"v"},
   {lw:"houwe", en:"dryness", pos:"n"},
   {lw:"houwi", en:"dry", pos:"adj"},
   {lw:"houwu", en:"to dry", pos:"v"},
@@ -12321,9 +12327,16 @@ const DICTIONARY_RAW = [
   {lw:"nuve", en:"nose", pos:"n"},
   {lw:"nuvi", en:"nasal", pos:"adj"},
   {lw:"nuvu", en:"to smell (or sniff)", pos:"v"},
-  {lw:"oihe", en:"expectation", pos:"n"},
-  {lw:"oihi", en:"expected", pos:"adj"},
-  {lw:"oihu", en:"to expect", pos:"v"},
+  {lw:"oihe", en:"spirit (or soul)", pos:"n"},
+  {lw:"oihi", en:"spiritual", pos:"adj"},
+  {lw:"oime", en:"the sacred (or holiness)", pos:"n"},
+  {lw:"oimi", en:"sacred (or holy)", pos:"adj"},
+  {lw:"oimi loiwe", en:"scripture (or holy book)", pos:"phrase", note:"From oimi (sacred) + loiwe (book)"},
+  {lw:"oise", en:"worship", pos:"n"},
+  {lw:"oiseyahe", en:"temple (or place of worship)", pos:"n", note:"From oise (worship) + yahe (place)"},
+  {lw:"oisu", en:"to worship", pos:"v"},
+  {lw:"oiwe", en:"god (or deity)", pos:"n"},
+  {lw:"oiwi", en:"divine", pos:"adj"},
   {lw:"oke", en:"life", pos:"n"},
   {lw:"okelawe", en:"birthday", pos:"n", note:"From oke (life) + lawe (day) \u2014 life-day"},
   {lw:"oki", en:"alive", pos:"adj"},
@@ -12860,7 +12873,7 @@ const DICTIONARY_RAW = [
   {lw:"waiyi", en:"protective", pos:"adj"},
   {lw:"waiyu", en:"to protect", pos:"v"},
   {lw:"wale", en:"before", pos:"conj", note:"From wa (past) + -le \u2014 before"},
-  {lw:"wale oihi", en:"early (before expected)", pos:"phrase", note:"From wale (before) + oihi (expected)"},
+  {lw:"wale houpi", en:"early (before expected)", pos:"phrase", note:"From wale (before) + houpi (expected)"},
   {lw:"wali", en:"previous", pos:"adj"},
   {lw:"wame", en:"friend", pos:"n"},
   {lw:"wami", en:"likeable", pos:"adj"},
@@ -12923,7 +12936,7 @@ const DICTIONARY_RAW = [
   {lw:"wuhi", en:"soon (or imminent)", pos:"adj"},
   {lw:"wule", en:"after (or afterward/later)", pos:"conj", note:"From wu (future) + -le \u2014 after; used bare and clause-finally, means afterward/later"},
   {lw:"wule meshilawe", en:"afternoon (lit. after midday)", pos:"phrase", note:"From wule (after) + meshilawe (midday) \u2014 afternoon"},
-  {lw:"wule oihi", en:"late (after expected)", pos:"phrase", note:"From wule (after) + oihi (expected)"},
+  {lw:"wule houpi", en:"late (after expected)", pos:"phrase", note:"From wule (after) + houpi (expected)"},
   {lw:"wuli", en:"next", pos:"adj"},
   {lw:"ya", en:"at", pos:"prep"},
   {lw:"yahe", en:"place (or location)", pos:"n"},
