@@ -1993,18 +1993,18 @@ const V = {
   // ADVANCED TRACK — Unit 15 (A1): Comparatives & Superlatives
   // ═══════════════════════════════════════════════════════════════
 
-  // L85 — Comparison Basics (sentence-based; introduces ata, ala)
-  // First lesson of the advanced track. Teaches the post-adjective particles
-  // *ata* (more than) and *ala* (as ___ as). Parallel-structure comparisons
-  // make the particle's role visually obvious on first encounter.
-  // Forms registered in preflight.js sentenceLessonNewForms as ['ata','ala'].
+  // L85 — Comparison Basics (sentence-based; introduces apa post-adj, ala)
+  // First lesson of the advanced track. Teaches *apa* post-adjective (more than)
+  // and *ala* (as ___ as). Parallel-structure comparisons make the particle's role
+  // visually obvious on first encounter. apa pre-adj (superlative) taught in L86.
+  // Forms registered in preflight.js sentenceLessonNewForms as ['apa','ala'].
   l85_comparison_basics: [
-    {lw:["Neo","mewe","su","piami","ata","teo","mewe"],          en:"My cat is smaller than your cat."},
-    {lw:["Lo","loiwe","su","mopiami","ata","falo","loiwe"],      en:"This book is bigger than that book."},
+    {lw:["Neo","mewe","su","piami","apa","teo","mewe"],          en:"My cat is smaller than your cat."},
+    {lw:["Lo","loiwe","su","mopiami","apa","falo","loiwe"],      en:"This book is bigger than that book."},
     {lw:["Neo","mawe","su","houli","ala","neo","pawe"],          en:"My mother is as happy as my father."},
-    {lw:["Mewe","su","peri","ata","moule"],                      en:"The cat is softer than the tree."},
+    {lw:["Mewe","su","peri","apa","moule"],                      en:"The cat is softer than the tree."},
     {lw:["Lo","nauye","su","nauyi","ala","falo","nauye"],        en:"This game is as fun as that game."},
-    {lw:["Teo","wahe","su","piami","ata","neo","wahe"],          en:"Your family is smaller than my family."},
+    {lw:["Teo","wahe","su","piami","apa","neo","wahe"],          en:"Your family is smaller than my family."},
     {lw:["Yoye","su","sheyi","ala","loye"],                      en:"Sister is as healthy as brother."},
   ],
 
@@ -2024,37 +2024,38 @@ const V = {
     {lw:["Falo","paipe","su","apa","mopiami"],                   en:"That dog is the biggest."},
   ],
 
-  // L87 — mo- Comparison (sentence-based; introduces moata, moapa)
-  // Teaches the mo- counterparts of ata and apa: *moata* (less than) and
-  // *moapa* (least). Reuses the already-internalized mo- pattern from core
-  // (Unit 4 onward). Intro card notes the asymmetry: *ala* has no mo- form
-  // (asymmetric equality is not a thing — see Grammar.md §13).
-  // 4 moata sentences (post-adj), 3 moapa sentences (pre-adj).
-  // Forms registered in preflight.js sentenceLessonNewForms as ['moata','moapa'].
+  // L87 — mo- Comparison (sentence-based; introduces moapa)
+  // Teaches *moapa* in both positions: post-adj = less than (comparative),
+  // pre-adj = the least (superlative). Mirrors the apa dual-role from L85/L86.
+  // Reuses the internalized mo- pattern from core (Unit 4 onward).
+  // Intro card notes the asymmetry: *ala* has no mo- form (see Grammar.md §13).
+  // 4 moapa post-adj sentences, 3 moapa pre-adj sentences.
+  // Forms registered in preflight.js sentenceLessonNewForms as ['moapa'].
   l87_mo_comparison: [
-    {lw:["Lo","loiwe","su","moata","wauli","ata","falo","loiwe"], en:"This book is less beautiful than that book."},
-    {lw:["Mewe","su","moata","yashi","ata","paipe"],              en:"The cat is less smart than the dog."},
-    {lw:["Yuna","su","moata","houli","ata","Kai"],                en:"Yuna is less happy than Kai."},
-    {lw:["Neo","mewe","su","moata","nauyi","ata","teo","paipe"],  en:"My cat is less fun than your dog."},
+    {lw:["Lo","loiwe","su","wauli","moapa","falo","loiwe"],       en:"This book is less beautiful than that book."},
+    {lw:["Mewe","su","yashi","moapa","paipe"],                    en:"The cat is less smart than the dog."},
+    {lw:["Yuna","su","houli","moapa","Kai"],                      en:"Yuna is less happy than Kai."},
+    {lw:["Neo","mewe","su","nauyi","moapa","teo","paipe"],        en:"My cat is less fun than your dog."},
     {lw:["Falo","loiwe","su","moapa","wauli"],                    en:"That book is the least beautiful."},
     {lw:["Lo","nauye","su","moapa","nauyi"],                      en:"This game is the least fun."},
     {lw:["Maya","su","moapa","muhi","fa","neoa","wahe"],          en:"Maya is the least anxious of our family."},
   ],
 
   // L88 — Unit Exam (sentence-based, isCheckpoint:true; no new forms)
-  // Tests all 5 comparison particles (ata, ala, apa, moata, moapa) plus the
+  // Tests all 3 comparison particles (apa, ala, moapa) in all positions plus the
   // *fa* "of [set]" extension. Fresh sentence content — not copies of L85–L87
   // exercises — so the test is recombination, not muscle memory. Symmetric
-  // distribution: ata×2, ala×2, apa×2 (one with fa), moata×2, moapa×2 (one with fa).
+  // distribution: apa post-adj×2, ala×2, apa pre-adj×2 (one with fa),
+  // moapa post-adj×2, moapa pre-adj×2 (one with fa).
   l88_comparison_exam: [
-    {lw:["Mawe","su","wauli","ata","pawe"],                      en:"Mother is more beautiful than father."},
-    {lw:["Teo","paipe","su","mopiami","ata","neo","mewe"],       en:"Your dog is bigger than my cat."},
+    {lw:["Mawe","su","wauli","apa","pawe"],                      en:"Mother is more beautiful than father."},
+    {lw:["Teo","paipe","su","mopiami","apa","neo","mewe"],       en:"Your dog is bigger than my cat."},
     {lw:["Kai","su","houli","ala","Yuna"],                       en:"Kai is as happy as Yuna."},
     {lw:["Lo","loiwe","su","nauyi","ala","falo","loiwe"],        en:"This book is as fun as that book."},
     {lw:["Neo","wame","su","apa","houli"],                       en:"My friend is the happiest."},
     {lw:["Maya","su","apa","yashi","fa","neoa","wahe"],          en:"Maya is the smartest of our family."},
-    {lw:["Lo","mewe","su","moata","yashi","ata","falo","paipe"], en:"This cat is less smart than that dog."},
-    {lw:["Yoye","su","moata","muhi","ata","loye"],               en:"Sister is less anxious than brother."},
+    {lw:["Lo","mewe","su","yashi","moapa","falo","paipe"],       en:"This cat is less smart than that dog."},
+    {lw:["Yoye","su","muhi","moapa","loye"],                     en:"Sister is less anxious than brother."},
     {lw:["Falo","loiwe","su","moapa","nauyi"],                   en:"That book is the least fun."},
     {lw:["Kai","su","moapa","muhi","fa","neoa","wamea"],         en:"Kai is the least anxious of our friends."},
   ],
@@ -2798,7 +2799,7 @@ const V = {
      en:"This coffee is brown."},
     {lw:["Ne","wa","tiru","huyali","haule","sho","lewali","felume"],
      en:"I saw an orange sun and a white cloud."},
-    {lw:["Felume","su","felali","ata","laime"],
+    {lw:["Felume","su","felali","apa","laime"],
      en:"The cloud is grayer than the sky.",
      cloze:{blanks:[2], bank:["felali","noumali","lewali","laumali","huyali","touhali"]}},
     {lw:["Ki","lo","loiwe","su","roumali"],
@@ -3196,7 +3197,7 @@ const V = {
     {lw:["Ne","taiweli","wa","halu","na","hunitowe"],
      en:"I always went east.",
      cloze:{blanks:[1,5], bank:["taiweli","naiweli","hunitowe","mohunitowe","faiweli","saiweli"]}},
-    {lw:["Wouhe","su","liani","ata","wouhile"],
+    {lw:["Wouhe","su","liani","apa","wouhile"],
      en:"The mountain is taller than the hill."},
     {lw:["Ne","nawu","nouwe","lai","ahu","sai","shafanea"],
      en:"I love an island that has some rivers.",
@@ -3781,7 +3782,7 @@ const V = {
      en:"All fish will swim in the lake."},
     {lw:["Neo","mauwe","su","liani","apa"],
      en:"My horse is the tallest.",
-     cloze:{blanks:[3,4], bank:["liani","apa","ata","mauwe","piami","mopiami"]}},
+     cloze:{blanks:[3,4], bank:["liani","apa","ala","mauwe","piami","mopiami"]}},
     {lw:["Shakume","wa","moshifu","shoule"],
      en:"The shark caught the fish.",
      cloze:{blanks:[1,2], bank:["wa","moshifu","wu","mehu","moshifi","monoru"]}},
@@ -3796,7 +3797,7 @@ const V = {
      cloze:{blanks:[0,6], bank:["vi","meuhu","ki","mai","meuhi","tinalu"]}},
     {lw:["Loume","su","wo","melume"],
      en:"The wolf is in the fog."},
-    {lw:["Shaupe","su","mopiami","ata","shiawe"],
+    {lw:["Shaupe","su","mopiami","apa","shiawe"],
      en:"A whale is bigger than a dolphin."},
     {lw:["Yuna","sho","Maya","wu","wairu","mauwea"],
      en:"Yuna and Maya will ride horses."},
@@ -3899,7 +3900,7 @@ const V = {
      en:"The fire burned the tree."},
     {lw:["Lo","losheo","loshilea","su","apa","wauli"],
      en:"This flower's petals are the most beautiful.",
-     cloze:{blanks:[1,4], bank:["losheo","apa","loshe","lo","ata","loshilea"]}},
+     cloze:{blanks:[1,4], bank:["losheo","apa","loshe","lo","ala","loshilea"]}},
     {lw:["Yuna","wa","kavu","yole"],
      en:"Yuna broke a branch."},
     {lw:["Tai","liumea","ahu","roumea"],
@@ -5228,7 +5229,7 @@ const V = {
     {lw:["Ne","kiliru","nalai","ne","mai","senu"],
      en:"I ask because I do not know.",
      cloze:{blanks:[1,5], bank:["kiliru","kilire","senu","roihu","nalai","mai"]}},
-    {lw:["Waihe","su","mopiami","ata","mowaihe"],
+    {lw:["Waihe","su","mopiami","apa","mowaihe"],
      en:"Hope is bigger than despair."},
   ],
 
@@ -5914,9 +5915,9 @@ const V = {
      en:"This tree is thick."},
     {lw:["Lo","lire","su","souni"],
      en:"This song is short."},
-    {lw:["Lo","lawe","su","mosouni","ata","wa lawe"],
+    {lw:["Lo","lawe","su","mosouni","apa","wa lawe"],
      en:"This day is longer than yesterday.",
-     cloze:{blanks:[3,4], bank:["mosouni","ata","souni","ala","su","lawe"]}},
+     cloze:{blanks:[3,4], bank:["mosouni","apa","souni","ala","su","lawe"]}},
     {lw:["Lo","shafane","su","wauni"],
      en:"This river is narrow."},
     {lw:["Lo","hiwe","su","mowauni"],
@@ -6434,9 +6435,9 @@ const V = {
      en:"She went to the city by bicycle."},
     {lw:["Nea","halu","so","meshe","fa","lo","heule"],
      en:"We go to the centre of this city."},
-    {lw:["Roheme","su","mopiami","ata","meuhekoire"],
+    {lw:["Roheme","su","mopiami","apa","meuhekoire"],
      en:"A train is bigger than a bus.",
-     cloze:{blanks:[2,4], bank:["mopiami","meuhekoire","piami","runipoime","ata","su"]}},
+     cloze:{blanks:[2,4], bank:["mopiami","meuhekoire","piami","runipoime","apa","su"]}},
     {lw:["Lo","poime","su","piami"],
      en:"This wheel is small."},
     {lw:["Ne","wanu","wairu","eirupauwe"],
@@ -6573,7 +6574,7 @@ const V = {
   l255_vocab_closing: [
     {lw:"la", en:"like (or as)", pos:"particle",
      note:"Comparison/simile particle meaning \"like / as\". Recognition-only — the generator skips particles in production exercises.",
-     intro:"<p><em>La</em> means &ldquo;like&rdquo; or &ldquo;as&rdquo; — it marks comparisons of manner or resemblance: <em>Ve halu la lune.</em> (She moves like light.) It complements the comparative particles <em>ata</em> (than) and <em>ala</em> (equally as) from A1.</p>"},
+     intro:"<p><em>La</em> means &ldquo;like&rdquo; or &ldquo;as&rdquo; — it marks comparisons of manner or resemblance: <em>Ve halu la lune.</em> (She moves like light.) It complements the comparative particles <em>apa</em> (more/less than) and <em>ala</em> (equally as) from A1.</p>"},
     {lw:"laimele", en:"weather", pos:"n",
      note:"Lexicalized compound: laime (sky) + ele (feeling) — sky-feeling. Noun only.",
      intro:"<p><em>Laimele</em> is weather — literally &ldquo;sky-feeling&rdquo; (<em>laime</em> + <em>ele</em>). Ask about the weather with <em>kiwa</em>: <em>Kiwa laimele lo lawe?</em> (What is the weather today?) It pairs naturally with the weather roots from A10 (rain, snow, storm, wind).</p>"},
@@ -6631,7 +6632,7 @@ const V = {
   // S15 (emotion + lai), S18 (useful verbs).
   // All forms in cumulative budget through L256.
   l257_advanced_final: [
-    {lw:["Ne","su","houli","ata","Maya"],
+    {lw:["Ne","su","houli","apa","Maya"],
      en:"I am happier than Maya."},
     {lw:["Lo","moule","su","apa","wauli","wo","mouleyahe"],
      en:"This tree is the most beautiful in the forest."},
@@ -7531,19 +7532,20 @@ const LESSONS = [
    intro:`<h3>🎓 Final Review</h3><p>This is the final review. Thirteen sentences from across all fourteen units. <strong>Three hearts — show what you've learned</strong> — and you've finished the core course.</p>`},
 
   // ── UNIT 15 (A1): COMPARATIVES & SUPERLATIVES (L85–L88) ──────────────
-  // First advanced-track unit. Teaches the comparison particles ata (more than),
-  // ala (as ___ as), apa (most), moata (less than), moapa (least).
+  // First advanced-track unit. Teaches the comparison particles apa (more than
+  // post-adj / the most pre-adj), ala (as ___ as), moapa (less than post-adj /
+  // the least pre-adj). ata and moata retired.
   // See advanced_track_plan.md §4 for unit scope.
 
   {id:"l85_comparison_basics",
    title:"More than, As ___ as",
-   desc:"Comparing two things with ata and ala",
+   desc:"Comparing two things with apa and ala",
    icon:"⚖️",
    vocabKey:"l85_comparison_basics",
    xp:22,
    unit:14,
    isSentence:true,
-   intro:`<h3>⚖️ Comparing two things</h3><p>Liru compares things by placing a small particle next to an adjective.</p><p>To say <em>more than</em>, put <em>ata</em> <em>after</em> the adjective:</p><span class="example">Mawe su <strong>wauli ata</strong> pawe. <span class="gloss">Mother is more beautiful than father.</span></span><p>To say <em>as ___ as</em> (equal), put <em>ala</em> in the same spot:</p><span class="example">Yoye su <strong>houli ala</strong> loye. <span class="gloss">Sister is as happy as brother.</span></span><p>The pattern is always: <strong>[subject] su [adjective] ata/ala [comparison]</strong>. The particle hugs the adjective from behind — never before it.</p>`},
+   intro:`<h3>⚖️ Comparing two things</h3><p>Liru compares things by placing a small particle next to an adjective.</p><p>To say <em>more than</em>, put <em>apa</em> <em>after</em> the adjective:</p><span class="example">Mawe su <strong>wauli apa</strong> pawe. <span class="gloss">Mother is more beautiful than father.</span></span><p>To say <em>as ___ as</em> (equal), put <em>ala</em> in the same spot:</p><span class="example">Yoye su <strong>houli ala</strong> loye. <span class="gloss">Sister is as happy as brother.</span></span><p>The pattern is always: <strong>[subject] su [adjective] apa/ala [comparison]</strong>. The particle hugs the adjective from behind — never before it.</p>`},
 
   {id:"l86_superlative_apa",
    title:"The Most",
@@ -7553,21 +7555,21 @@ const LESSONS = [
    xp:22,
    unit:14,
    isSentence:true,
-   intro:`<h3>🏆 The most ___</h3><p><em>apa</em> means "the most." Unlike <em>ata</em> and <em>ala</em>, <em>apa</em> goes <em>before</em> the adjective:</p><span class="example">Neo mawe su <strong>apa wauli</strong>. <span class="gloss">My mother is the most beautiful.</span></span><p>Watch the placement carefully — it's the reverse of last lesson:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>ata, ala</em></td><td style="padding:4px 12px">go <strong>after</strong> the adjective</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>apa</em></td><td style="padding:4px 12px">goes <strong>before</strong> the adjective</td></tr></table><p>To say <em>the most ___ of [group]</em>, add <em>fa</em> (of) plus the group:</p><span class="example">Yuna su <strong>apa houli fa</strong> neo wahe. <span class="gloss">Yuna is the happiest of my family.</span></span><p>You already know <em>fa</em> from Unit 7 (where it meant "from"). Here it does double duty as "of [a set]."</p>`},
+   intro:`<h3>🏆 The most ___</h3><p><em>apa</em> does double duty depending on where it sits. You learned it <em>after</em> the adjective in the last lesson — that means "more than." Put it <em>before</em> the adjective and it means "the most":</p><span class="example">Neo mawe su <strong>apa wauli</strong>. <span class="gloss">My mother is the most beautiful.</span></span><p>Position is everything:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>adj</em> <strong>apa</strong> <em>X</em></td><td style="padding:4px 12px">more ___ than X</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>apa</strong> <em>adj</em></td><td style="padding:4px 12px">the most ___</td></tr></table><p>To say <em>the most ___ of [group]</em>, add <em>fa</em> (of) plus the group:</p><span class="example">Yuna su <strong>apa houli fa</strong> neo wahe. <span class="gloss">Yuna is the happiest of my family.</span></span><p>You already know <em>fa</em> from Unit 7 (where it meant "from"). Here it does double duty as "of [a set]."</p>`},
 
   {id:"l87_mo_comparison",
-   title:"Less than, Least",
-   desc:"The mo- counterparts: moata and moapa",
+   title:"Less than, The Least",
+   desc:"The mo- counterpart: moapa in both positions",
    icon:"🔻",
    vocabKey:"l87_mo_comparison",
    xp:22,
    unit:14,
    isSentence:true,
-   intro:`<h3>🔻 Less than, the least</h3><p>You already know the <em>mo-</em> prefix from across the course — it creates the balancing counterpart of a word (<em>houli</em> → <em>mohouli</em>, <em>nawu</em> → <em>monawu</em>). The same pattern works on the comparison particles:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>ata</em> (more than)</td><td style="padding:4px 12px">→</td><td style="padding:4px 12px"><strong>moata</strong> (less than)</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>apa</em> (the most)</td><td style="padding:4px 12px">→</td><td style="padding:4px 12px"><strong>moapa</strong> (the least)</td></tr></table><p>Placement is identical to their positive counterparts: <em>moata</em> goes after the adjective, <em>moapa</em> goes before.</p><span class="example">Mewe su <strong>moata yashi ata</strong> paipe. <span class="gloss">The cat is less smart than the dog.</span></span><span class="example">Lo nauye su <strong>moapa nauyi</strong>. <span class="gloss">This game is the least fun.</span></span><p style="color:var(--mid);font-size:13px;font-style:italic;margin-top:14px">Note: there's no <em>moala</em>. Equality doesn't have a "less equal" counterpart — if two things aren't equal, you'd use <em>moata</em> or <em>ata</em> instead.</p>`},
+   intro:`<h3>🔻 Less than, the least</h3><p>You already know the <em>mo-</em> prefix — it creates the balancing counterpart of a word. The same applies to <em>apa</em>:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>adj</em> <strong>apa</strong> <em>X</em></td><td style="padding:4px 12px">more ___ than X</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>adj</em> <strong>moapa</strong> <em>X</em></td><td style="padding:4px 12px">less ___ than X</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>apa</strong> <em>adj</em></td><td style="padding:4px 12px">the most ___</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>moapa</strong> <em>adj</em></td><td style="padding:4px 12px">the least ___</td></tr></table><span class="example">Mewe su <strong>yashi moapa</strong> paipe. <span class="gloss">The cat is less smart than the dog.</span></span><span class="example">Lo nauye su <strong>moapa nauyi</strong>. <span class="gloss">This game is the least fun.</span></span><p style="color:var(--mid);font-size:13px;font-style:italic;margin-top:14px">Note: there's no <em>moala</em>. Equality doesn't have a "less equal" counterpart — if two things aren't equal, use <em>moapa</em> or <em>apa</em> instead.</p>`},
 
   {id:"l88_comparison_exam",
    title:"Unit 15 Exam — Comparatives",
-   desc:"Three hearts. All five particles.",
+   desc:"Three hearts. All three particles.",
    icon:"📝",
    vocabKey:"l88_comparison_exam",
    xp:30,
@@ -7841,7 +7843,7 @@ const LESSONS = [
    vocabKey:"l113_vocab_color_neutral",
    xp:22,
    unit:19,
-   intro:`<h3>⚫ Three neutral colors</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>lewale</em></td><td style="padding:4px 12px"><em>lewali</em> — white</td></tr><tr><td style="padding:4px 12px"><em>noumale</em></td><td style="padding:4px 12px"><em>noumali</em> — black</td></tr><tr><td style="padding:4px 12px"><em>felale</em></td><td style="padding:4px 12px"><em>felali</em> — gray</td></tr></table><h3>⚖️ White and black aren't a <em>mo-</em> pair</h3><p>You might expect <em>lewale</em> and <em>noumale</em> to be linked by the <em>mo-</em> prefix the way <em>nawu</em>/<em>monawu</em> (love/hate) or <em>houli</em>/<em>mohouli</em> (happy/sad) are. They aren't — and that's deliberate. The <em>mo-</em> prefix marks a balanced opposite on a value axis (the joyful kind of opposite). White and black are a culturally paired set rather than that kind of opposition, so each one is its own root.</p><h3>📝 In use</h3><span class="example">Felume su lewali. <span class="gloss">The cloud is white.</span></span><span class="example">Lo kupe su noumali. <span class="gloss">This coffee is black.</span></span><span class="example">Felume su felali ata laime. <span class="gloss">The cloud is grayer than the sky.</span></span>`},
+   intro:`<h3>⚫ Three neutral colors</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>lewale</em></td><td style="padding:4px 12px"><em>lewali</em> — white</td></tr><tr><td style="padding:4px 12px"><em>noumale</em></td><td style="padding:4px 12px"><em>noumali</em> — black</td></tr><tr><td style="padding:4px 12px"><em>felale</em></td><td style="padding:4px 12px"><em>felali</em> — gray</td></tr></table><h3>⚖️ White and black aren't a <em>mo-</em> pair</h3><p>You might expect <em>lewale</em> and <em>noumale</em> to be linked by the <em>mo-</em> prefix the way <em>nawu</em>/<em>monawu</em> (love/hate) or <em>houli</em>/<em>mohouli</em> (happy/sad) are. They aren't — and that's deliberate. The <em>mo-</em> prefix marks a balanced opposite on a value axis (the joyful kind of opposite). White and black are a culturally paired set rather than that kind of opposition, so each one is its own root.</p><h3>📝 In use</h3><span class="example">Felume su lewali. <span class="gloss">The cloud is white.</span></span><span class="example">Lo kupe su noumali. <span class="gloss">This coffee is black.</span></span><span class="example">Felume su felali apa laime. <span class="gloss">The cloud is grayer than the sky.</span></span>`},
 
   {id:"l114_vocab_color_tertiary",
    title:"Tertiary Colors",
@@ -8018,7 +8020,7 @@ const LESSONS = [
    vocabKey:"l130_vocab_landform",
    xp:20,
    unit:22,
-   intro:`<h3>⛰️ Four classic landforms</h3><p>Four roots covering the broad-to-specific structure of dry geography. The first one, <em>toule</em>, names the substrate itself — the ground underfoot, the earth as material. The other three are contrasting terrain shapes.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>toule</em> — ground (or earth)</td><td style="padding:4px 12px"><em>touli</em> — earth-related</td></tr><tr><td style="padding:4px 12px"><em>wouhe</em> — mountain</td><td style="padding:4px 12px"><em>wouhi</em> — mountainous</td></tr><tr><td style="padding:4px 12px"><em>pieme</em> — valley</td><td style="padding:4px 12px"><em>piemi</em> — valley-related</td></tr><tr><td style="padding:4px 12px"><em>tauhe</em> — desert</td><td style="padding:4px 12px"><em>tauhi</em> — arid</td></tr></table><span class="example">Neo hiwe su leu touli. <span class="gloss">My home is on the earth.</span></span><span class="example">Lo wouhe su liani. <span class="gloss">This mountain is tall.</span></span><span class="example">Wouhe su mopiame ata pieme. <span class="gloss">The mountain is bigger than the valley.</span></span><span class="example">Loa tauhea su apa tauhi. <span class="gloss">These deserts are the most arid.</span></span><p>A note on <em>toule</em>: the etymology is itself geographic — <em>towe</em> "map" was coined from <em>toule</em> + <em>raime</em> (picture), an "earth-picture." So when you hear <em>towe</em> in a compass word like <em>lianitowe</em>, the deeper root is the ground you're standing on.</p>`},
+   intro:`<h3>⛰️ Four classic landforms</h3><p>Four roots covering the broad-to-specific structure of dry geography. The first one, <em>toule</em>, names the substrate itself — the ground underfoot, the earth as material. The other three are contrasting terrain shapes.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>toule</em> — ground (or earth)</td><td style="padding:4px 12px"><em>touli</em> — earth-related</td></tr><tr><td style="padding:4px 12px"><em>wouhe</em> — mountain</td><td style="padding:4px 12px"><em>wouhi</em> — mountainous</td></tr><tr><td style="padding:4px 12px"><em>pieme</em> — valley</td><td style="padding:4px 12px"><em>piemi</em> — valley-related</td></tr><tr><td style="padding:4px 12px"><em>tauhe</em> — desert</td><td style="padding:4px 12px"><em>tauhi</em> — arid</td></tr></table><span class="example">Neo hiwe su leu touli. <span class="gloss">My home is on the earth.</span></span><span class="example">Lo wouhe su liani. <span class="gloss">This mountain is tall.</span></span><span class="example">Wouhe su mopiame apa pieme. <span class="gloss">The mountain is bigger than the valley.</span></span><span class="example">Loa tauhea su apa tauhi. <span class="gloss">These deserts are the most arid.</span></span><p>A note on <em>toule</em>: the etymology is itself geographic — <em>towe</em> "map" was coined from <em>toule</em> + <em>raime</em> (picture), an "earth-picture." So when you hear <em>towe</em> in a compass word like <em>lianitowe</em>, the deeper root is the ground you're standing on.</p>`},
 
   {id:"l131_vocab_terrain_features",
    title:"Shore, Field, Hill, Cave",
@@ -8234,7 +8236,7 @@ const LESSONS = [
    vocabKey:"l151_vocab_sea_mammals",
    xp:18,
    unit:25,
-   intro:`<h3>🦈 Sharks, whales, and dolphins</h3><p>Three creatures of the deep — only two of them mammals (sharks are fish), but they all live in the ocean and share thematic territory.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shakume</em> (n.)</td><td style="padding:4px 12px">shark</td></tr><tr><td style="padding:4px 12px"><em>shaupe</em> (n.)</td><td style="padding:4px 12px">whale</td></tr><tr><td style="padding:4px 12px"><em>shiawe</em> (n.)</td><td style="padding:4px 12px">dolphin</td></tr></table><h3>🎣 Catching — predator and prey</h3><p>The shark catches the fish; the dolphin catches the squid. <em>moshife</em> (catch) is a full-canvas root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moshife</em> (n.)</td><td style="padding:4px 12px">a catch</td></tr><tr><td style="padding:4px 12px"><em>moshifi</em> (adj.)</td><td style="padding:4px 12px">caught</td></tr><tr><td style="padding:4px 12px"><em>moshifu</em> (v.)</td><td style="padding:4px 12px">to catch</td></tr></table><span class="example">Shakume wa moshifu shoule. <span class="gloss">The shark caught the fish.</span></span><span class="example">Shaupe su mopiami ata shiawe. <span class="gloss">A whale is bigger than a dolphin.</span></span><span class="example">Shiawea su mopiami. <span class="gloss">Dolphins are big.</span></span>`},
+   intro:`<h3>🦈 Sharks, whales, and dolphins</h3><p>Three creatures of the deep — only two of them mammals (sharks are fish), but they all live in the ocean and share thematic territory.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shakume</em> (n.)</td><td style="padding:4px 12px">shark</td></tr><tr><td style="padding:4px 12px"><em>shaupe</em> (n.)</td><td style="padding:4px 12px">whale</td></tr><tr><td style="padding:4px 12px"><em>shiawe</em> (n.)</td><td style="padding:4px 12px">dolphin</td></tr></table><h3>🎣 Catching — predator and prey</h3><p>The shark catches the fish; the dolphin catches the squid. <em>moshife</em> (catch) is a full-canvas root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moshife</em> (n.)</td><td style="padding:4px 12px">a catch</td></tr><tr><td style="padding:4px 12px"><em>moshifi</em> (adj.)</td><td style="padding:4px 12px">caught</td></tr><tr><td style="padding:4px 12px"><em>moshifu</em> (v.)</td><td style="padding:4px 12px">to catch</td></tr></table><span class="example">Shakume wa moshifu shoule. <span class="gloss">The shark caught the fish.</span></span><span class="example">Shaupe su mopiami apa shiawe. <span class="gloss">A whale is bigger than a dolphin.</span></span><span class="example">Shiawea su mopiami. <span class="gloss">Dolphins are big.</span></span>`},
 
   {id:"l152_vocab_sea_creatures",
    title:"Other Sea Creatures",
@@ -8697,7 +8699,7 @@ const LESSONS = [
    vocabKey:"l199_reflection_certainty",
    xp:18,
    unit:32,
-   intro:`<h3>🤔 The questioning mind</h3><p>This lesson closes the unit on the act of inquiry and the feelings that come with not knowing.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kilire</em> (n.)</td><td style="padding:4px 12px">question</td></tr><tr><td style="padding:4px 12px"><em>kiliru</em> (v.)</td><td style="padding:4px 12px">to ask</td></tr><tr><td style="padding:4px 12px"><em>roihe</em> (n.)</td><td style="padding:4px 12px">certainty</td></tr><tr><td style="padding:4px 12px"><em>roihi</em> (adj.)</td><td style="padding:4px 12px">certain (or certainly)</td></tr><tr><td style="padding:4px 12px"><em>roihu</em> (v.)</td><td style="padding:4px 12px">to confirm (or make certain)</td></tr></table><p><em>kilire</em> is built from pieces you know: the question-prefix <em>ki-</em> on the root <em>lire</em> (speech). To <em>kiliru</em> is to "question-speak" — to ask.</p><h3>🌅 Hope and despair</h3><p><em>waihe</em> — hope — is the second half of the language's own name: <em>LiruWaihe</em>, the song of hope. You met the verb <em>waihu</em> (to hope) in the complement-clause unit; here you meet the noun and adjective. And its <em>mo-</em> pair, <em>mowaihe</em> (despair), is the shadow it casts.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>waihe</em> (n.)</td><td style="padding:4px 12px">hope</td></tr><tr><td style="padding:4px 12px"><em>waihi</em> (adj.)</td><td style="padding:4px 12px">hopeful (or hopefully)</td></tr><tr><td style="padding:4px 12px"><em>mowaihe</em> (n.)</td><td style="padding:4px 12px">despair</td></tr><tr><td style="padding:4px 12px"><em>mowaihi</em> (adj.)</td><td style="padding:4px 12px">hopeless (or hopelessly)</td></tr><tr><td style="padding:4px 12px"><em>mowaihu</em> (v.)</td><td style="padding:4px 12px">to despair</td></tr></table><span class="example">Ne kiliru naiweli. <span class="gloss">I often ask.</span></span><span class="example">Neo mawe su roihi. <span class="gloss">My mother is certain.</span></span><span class="example">Waihe su mopiami ata mowaihe. <span class="gloss">Hope is bigger than despair.</span></span>`},
+   intro:`<h3>🤔 The questioning mind</h3><p>This lesson closes the unit on the act of inquiry and the feelings that come with not knowing.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kilire</em> (n.)</td><td style="padding:4px 12px">question</td></tr><tr><td style="padding:4px 12px"><em>kiliru</em> (v.)</td><td style="padding:4px 12px">to ask</td></tr><tr><td style="padding:4px 12px"><em>roihe</em> (n.)</td><td style="padding:4px 12px">certainty</td></tr><tr><td style="padding:4px 12px"><em>roihi</em> (adj.)</td><td style="padding:4px 12px">certain (or certainly)</td></tr><tr><td style="padding:4px 12px"><em>roihu</em> (v.)</td><td style="padding:4px 12px">to confirm (or make certain)</td></tr></table><p><em>kilire</em> is built from pieces you know: the question-prefix <em>ki-</em> on the root <em>lire</em> (speech). To <em>kiliru</em> is to "question-speak" — to ask.</p><h3>🌅 Hope and despair</h3><p><em>waihe</em> — hope — is the second half of the language's own name: <em>LiruWaihe</em>, the song of hope. You met the verb <em>waihu</em> (to hope) in the complement-clause unit; here you meet the noun and adjective. And its <em>mo-</em> pair, <em>mowaihe</em> (despair), is the shadow it casts.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>waihe</em> (n.)</td><td style="padding:4px 12px">hope</td></tr><tr><td style="padding:4px 12px"><em>waihi</em> (adj.)</td><td style="padding:4px 12px">hopeful (or hopefully)</td></tr><tr><td style="padding:4px 12px"><em>mowaihe</em> (n.)</td><td style="padding:4px 12px">despair</td></tr><tr><td style="padding:4px 12px"><em>mowaihi</em> (adj.)</td><td style="padding:4px 12px">hopeless (or hopelessly)</td></tr><tr><td style="padding:4px 12px"><em>mowaihu</em> (v.)</td><td style="padding:4px 12px">to despair</td></tr></table><span class="example">Ne kiliru naiweli. <span class="gloss">I often ask.</span></span><span class="example">Neo mawe su roihi. <span class="gloss">My mother is certain.</span></span><span class="example">Waihe su mopiami apa mowaihe. <span class="gloss">Hope is bigger than despair.</span></span>`},
 
   {id:"l200_religion_philosophy_exam",
    title:"Unit 33 Exam — Religion, Philosophy & Reflection",
@@ -9155,7 +9157,7 @@ const LESSONS = [
    vocabKey:"l247_vocab_road_transport",
    xp:18,
    unit:39,
-   intro:`<h3>\ud83d\ude8c Four ways to get there</h3><p>Four vehicles, all compounds you can now read. <em>meuhekoire</em> "bus" is <em>meuhe</em> (group) + <em>koire</em> (car) \\u2014 a group car; <em>runipoime</em> "bicycle" is <em>runi</em> (two) + <em>poime</em> (wheel) \\u2014 a two-wheel; <em>eirupauwe</em> "airplane" is <em>eiru</em> (to fly) + <em>-pauwe</em> (device) \\u2014 a flying machine. <em>roheme</em> "train" is a plain root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meuhekoire</em> (n.)</td><td style="padding:4px 12px">bus</td></tr><tr><td style="padding:4px 12px"><em>runipoime</em> (n.)</td><td style="padding:4px 12px">bicycle</td></tr><tr><td style="padding:4px 12px"><em>roheme</em> (n.)</td><td style="padding:4px 12px">train</td></tr><tr><td style="padding:4px 12px"><em>eirupauwe</em> (n.)</td><td style="padding:4px 12px">airplane</td></tr></table><span class="example">Ne wairu meuhekoire so fase. <span class="gloss">I ride the bus to work.</span></span><span class="example">Roheme su mopiami ata meuhekoire. <span class="gloss">A train is bigger than a bus.</span></span><span class="example">Ne wanu wairu eirupauwe. <span class="gloss">I want to ride an airplane.</span></span>`},
+   intro:`<h3>\ud83d\ude8c Four ways to get there</h3><p>Four vehicles, all compounds you can now read. <em>meuhekoire</em> "bus" is <em>meuhe</em> (group) + <em>koire</em> (car) \\u2014 a group car; <em>runipoime</em> "bicycle" is <em>runi</em> (two) + <em>poime</em> (wheel) \\u2014 a two-wheel; <em>eirupauwe</em> "airplane" is <em>eiru</em> (to fly) + <em>-pauwe</em> (device) \\u2014 a flying machine. <em>roheme</em> "train" is a plain root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meuhekoire</em> (n.)</td><td style="padding:4px 12px">bus</td></tr><tr><td style="padding:4px 12px"><em>runipoime</em> (n.)</td><td style="padding:4px 12px">bicycle</td></tr><tr><td style="padding:4px 12px"><em>roheme</em> (n.)</td><td style="padding:4px 12px">train</td></tr><tr><td style="padding:4px 12px"><em>eirupauwe</em> (n.)</td><td style="padding:4px 12px">airplane</td></tr></table><span class="example">Ne wairu meuhekoire so fase. <span class="gloss">I ride the bus to work.</span></span><span class="example">Roheme su mopiami apa meuhekoire. <span class="gloss">A train is bigger than a bus.</span></span><span class="example">Ne wanu wairu eirupauwe. <span class="gloss">I want to ride an airplane.</span></span>`},
 
   {id:"l248_vocab_water_and_day",
    title:"By Water, and Points in the Day",
@@ -9952,11 +9954,11 @@ const SRS_PARTICLE_SKIP = new Set(["ki","wa","wu","mai","lai"]);
 // queue-build, so existing user decks regloss automatically). Scoped narrowly
 // — not a general-purpose gloss override system. See DECISIONS.md SRS section.
 const SRS_GLOSS_OVERRIDES = {
-  "ata":   "more than (after adj.)",
+  // "ata" removed — particle retired
   "ala":   "as ___ as (after adj.)",
-  "apa":   "the most (before adj.)",
-  "moata": "less than (after adj.)",
-  "moapa": "the least (before adj.)",
+  "apa":   "the most (before adj.) / more than (after adj.)",
+  // "moata" removed — particle retired
+  "moapa": "the least (before adj.) / less than (after adj.)",
   "vi":    "if (before clause)",
   "nalai": "because (particle, before/after clause)",
   "file":  "until (before clause)",
@@ -13327,17 +13329,19 @@ const GRAMMAR_SECTIONS = [
   {
     icon:"⚖️", title:"Comparisons",
     body:`<p>Three particles handle all ranking:</p>
-    <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Particle</th><th>Meaning</th><th>Placement</th></tr></thead><tbody>
-    <tr><td><em>ata</em></td><td>than / more than</td><td>after the adjective</td></tr>
-    <tr><td><em>ala</em></td><td>as … as (equal)</td><td>after the adjective</td></tr>
-    <tr><td><em>apa</em></td><td>the most</td><td>before the adjective</td></tr>
+    <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Particle</th><th>Placement</th><th>Meaning</th></tr></thead><tbody>
+    <tr><td><em>apa</em></td><td>after the adjective</td><td>more than</td></tr>
+    <tr><td><em>apa</em></td><td>before the adjective</td><td>the most</td></tr>
+    <tr><td><em>ala</em></td><td>after the adjective</td><td>as … as (equal)</td></tr>
+    <tr><td><em>moapa</em></td><td>after the adjective</td><td>less than</td></tr>
+    <tr><td><em>moapa</em></td><td>before the adjective</td><td>the least</td></tr>
     </tbody></table></div>
-    <p>The <em>mo-</em> prefix inverts: <em>moata</em> (less than), <em>moapa</em> (least).</p>
+    <p>Position determines meaning for <em>apa</em> and <em>moapa</em>. <em>ala</em> (equal) has no <em>mo-</em> counterpart.</p>
     <ul>
-      <li><em>Foihe su wauli ata kaihe.</em> — Spring is more beautiful than winter.</li>
+      <li><em>Foihe su wauli apa kaihe.</em> — Spring is more beautiful than winter.</li>
       <li><em>Moule su liani ala wouhe.</em> — The tree is as tall as the mountain.</li>
       <li><em>Waihe su apa wohimi hue.</em> — Hope is the most important thing.</li>
-      <li><em>Kaihe su wauli moata foihe.</em> — Winter is less beautiful than spring.</li>
+      <li><em>Kaihe su wauli moapa foihe.</em> — Winter is less beautiful than spring.</li>
     </ul>
     <p>For "the X-est of Y," use <em>fa</em> (from/of): <em>Waihe su apa wohimi fa taihue.</em> — Hope is the most important of everything.</p>`
   },
@@ -13378,7 +13382,7 @@ const GRAMMAR_SECTIONS = [
     <p>Two further roots measure quantity along different axes — increase/decrease and sufficiency. These are full canvas roots, not bare adjectives.</p>
     <ul>
       <li><em>awi</em> — more · <em>Nea wanu awi houme.</em> (We want more bread.)</li>
-      <li><em>moawi</em> — less · <em>Ve wa tahu moawi ata ne.</em> (She ate less than me.)</li>
+      <li><em>moawi</em> — less · <em>Ve wa tahu moawi apa ne.</em> (She ate less than me.)</li>
       <li><em>ahimi</em> — enough · <em>Lo mohe su ahimi.</em> (This cup is enough.)</li>
       <li><em>moahimi</em> — not enough</li>
     </ul>
@@ -13670,8 +13674,8 @@ const DICTIONARY_RAW = [
   {lw:"ahimu", en:"to suffice", pos:"v"},
   {lw:"ai", en:"yes", pos:"particle"},
   {lw:"ala", en:"equally-as (equality comparative)", pos:"particle"},
-  {lw:"apa", en:"most (superlative)", pos:"particle"},
-  {lw:"ata", en:"than / more than (comparative)", pos:"particle"},
+  {lw:"apa", en:"the most / more than (before adj = superlative; after adj = comparative)", pos:"particle"},
+  // ata retired — apa post-adjective now serves the comparative role
   {lw:"au", en:"or", pos:"conj"},
   {lw:"awe", en:"increase", pos:"n"},
   {lw:"awi", en:"more", pos:"adj"},
@@ -14189,8 +14193,8 @@ const DICTIONARY_RAW = [
   {lw:"moahime", en:"insufficiency", pos:"n"},
   {lw:"moahimi", en:"not enough", pos:"adj"},
   {lw:"moahimu", en:"to fall short", pos:"v"},
-  {lw:"moapa", en:"least (superlative of inferiority)", pos:"particle"},
-  {lw:"moata", en:"less than (comparative of inferiority)", pos:"particle"},
+  {lw:"moapa", en:"the least / less than (before adj = least; after adj = less than)", pos:"particle"},
+  // moata retired — moapa post-adjective now serves the "less than" role
   {lw:"moawe", en:"decrease", pos:"n"},
   {lw:"moawi", en:"less", pos:"adj"},
   {lw:"moawu", en:"to decrease", pos:"v"},
