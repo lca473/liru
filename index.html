@@ -2032,10 +2032,10 @@ const V = {
   // 4 moata sentences (post-adj), 3 moapa sentences (pre-adj).
   // Forms registered in preflight.js sentenceLessonNewForms as ['moata','moapa'].
   l87_mo_comparison: [
-    {lw:["Lo","loiwe","su","wauli","moata","falo","loiwe"], en:"This book is less beautiful than that book."},
-    {lw:["Mewe","su","yashi","moata","paipe"],              en:"The cat is less smart than the dog."},
-    {lw:["Yuna","su","houli","moata","Kai"],                en:"Yuna is less happy than Kai."},
-    {lw:["Neo","mewe","su","nauyi","moata","teo","paipe"],  en:"My cat is less fun than your dog."},
+    {lw:["Lo","loiwe","su","moata","wauli","ata","falo","loiwe"], en:"This book is less beautiful than that book."},
+    {lw:["Mewe","su","moata","yashi","ata","paipe"],              en:"The cat is less smart than the dog."},
+    {lw:["Yuna","su","moata","houli","ata","Kai"],                en:"Yuna is less happy than Kai."},
+    {lw:["Neo","mewe","su","moata","nauyi","ata","teo","paipe"],  en:"My cat is less fun than your dog."},
     {lw:["Falo","loiwe","su","moapa","wauli"],                    en:"That book is the least beautiful."},
     {lw:["Lo","nauye","su","moapa","nauyi"],                      en:"This game is the least fun."},
     {lw:["Maya","su","moapa","muhi","fa","neoa","wahe"],          en:"Maya is the least anxious of our family."},
@@ -2053,8 +2053,8 @@ const V = {
     {lw:["Lo","loiwe","su","nauyi","ala","falo","loiwe"],        en:"This book is as fun as that book."},
     {lw:["Neo","wame","su","apa","houli"],                       en:"My friend is the happiest."},
     {lw:["Maya","su","apa","yashi","fa","neoa","wahe"],          en:"Maya is the smartest of our family."},
-    {lw:["Lo","mewe","su","yashi","moata","falo","paipe"], en:"This cat is less smart than that dog."},
-    {lw:["Yoye","su","muhi","moata","loye"],               en:"Sister is less anxious than brother."},
+    {lw:["Lo","mewe","su","moata","yashi","ata","falo","paipe"], en:"This cat is less smart than that dog."},
+    {lw:["Yoye","su","moata","muhi","ata","loye"],               en:"Sister is less anxious than brother."},
     {lw:["Falo","loiwe","su","moapa","nauyi"],                   en:"That book is the least fun."},
     {lw:["Kai","su","moapa","muhi","fa","neoa","wamea"],         en:"Kai is the least anxious of our friends."},
   ],
@@ -6381,6 +6381,81 @@ const V = {
     {lw:["Lo","liawe","su","lohi"],
      en:"This experience is good."},
   ],
+
+  // ── Unit 40 (A23): City, Transport & Places (L245–L249) ──
+  // 4 vocab lessons + 1 unit exam. 13 effective anchor roots (the 14-root
+  // manifest minus waire, already drilled in A12 L148) + 2 weave-in roots
+  // (meshe full-canvas, hale noun+adj — halu "to go" already taught).
+  // sairi/sairu and liohu were considered as weave-in but are already
+  // drilled (A19 L193, A21 L212) — scoping reconciliation against the V
+  // map. Everyday-form filter drops mechanical "X-related" adjectives and
+  // rare verbs — all kept in Dictionary.md. L248 is the unit's one
+  // under-cap closer (3 roots).
+  l245_vocab_the_city: [
+    {lw:"heule", en:"city", pos:"n",
+     canvas:{adj:"heuli", adj_en:"urban"}},
+    {lw:"heulile", en:"town", pos:"n"},
+    {lw:"meshe", en:"middle", pos:"n",
+     canvas:{adj:"meshi", adj_en:"central",
+             v:"meshu", v_en:"to center"},
+     note:"Weave-in — untaught full-canvas root, useful for describing where things sit in a city."},
+    {lw:"toure", en:"edge (or border)", pos:"n",
+     canvas:{v:"touru", v_en:"to border (or skirt)"}},
+  ],
+  l246_vocab_streets_wheels: [
+    {lw:"luere", en:"road (or path)", pos:"n"},
+    {lw:"poime", en:"wheel", pos:"n"},
+    {lw:"poiwe", en:"turn (or rotation)", pos:"n",
+     canvas:{v:"poiwu", v_en:"to turn (or spin, rotate)"}},
+    {lw:"hale", en:"journey", pos:"n",
+     canvas:{adj:"hali", adj_en:"going"},
+     note:"Weave-in — noun+adj of the already-taught verb halu \"to go\"; completes the travel cluster."},
+  ],
+  l247_vocab_road_transport: [
+    {lw:"meuhekoire", en:"bus", pos:"n"},
+    {lw:"runipoime", en:"bicycle", pos:"n"},
+    {lw:"roheme", en:"train", pos:"n"},
+    {lw:"eirupauwe", en:"airplane", pos:"n"},
+  ],
+  l248_vocab_water_and_day: [
+    {lw:"shaihile", en:"canoe", pos:"n"},
+    {lw:"meshilawe", en:"noon", pos:"n"},
+    {lw:"meshinone", en:"midnight", pos:"n"},
+  ],
+  l249_city_transport_exam: [
+    {lw:["Lo","heule","su","ori","mopiami"],
+     en:"This city is very big."},
+    {lw:["Neo","hiwe","su","wo","heulile"],
+     en:"My house is in a town."},
+    {lw:["Ne","wamu","lo","luere","nalai","ve","su","souni"],
+     en:"I like this road because it is short.",
+     cloze:{blanks:[3,7], bank:["luere","souni","heule","poime","nalai","su"]}},
+    {lw:["Ve","wa","halu","so","heule","ko","runipoime"],
+     en:"She went to the city by bicycle."},
+    {lw:["Nea","halu","so","meshe","fa","lo","heule"],
+     en:"We go to the centre of this city."},
+    {lw:["Roheme","su","mopiami","ata","meuhekoire"],
+     en:"A train is bigger than a bus.",
+     cloze:{blanks:[2,4], bank:["mopiami","meuhekoire","piami","runipoime","ata","su"]}},
+    {lw:["Lo","poime","su","piami"],
+     en:"This wheel is small."},
+    {lw:["Ne","wanu","wairu","eirupauwe"],
+     en:"I want to ride an airplane."},
+    {lw:["Vea","wa","halu","so","shaune","ko","shaihile"],
+     en:"They went to the lake by canoe."},
+    {lw:["Lo","luere","touru","neo","heule"],
+     en:"This road borders my city.",
+     cloze:{blanks:[2,4], bank:["touru","heule","meshu","heulile","luere","neo"]}},
+    {lw:["Ne","wa","tiru","nai","poimea","wo","lo","koire"],
+     en:"I saw many wheels on this car."},
+    {lw:["Neo","hale","so","heule","su","souni"],
+     en:"My journey to the city is short."},
+    {lw:["Ne","wu","halu","so","heule","wo","meshilawe"],
+     en:"I will go to the city at noon.",
+     cloze:{blanks:[4,6], bank:["heule","meshilawe","heulile","meshinone","so","wo"]}},
+    {lw:["Vi","te","vanu","wo","meshinone","ne","wu","su","loya"],
+     en:"If you come at midnight, I will be here."},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -6445,6 +6520,7 @@ const UNITS = [
   {name:"Unit 37 — Useful Verbs IV: Dimension & Texture", start:213, track:"advanced"},
   {name:"Unit 38 — Useful Verbs V: Food, Quantity & Closing", start:219, track:"advanced"},
   {name:"Unit 39 — Daily Nouns", start:226, track:"advanced"},
+  {name:"Unit 40 — City, Transport & Places", start:238, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -8819,6 +8895,57 @@ const LESSONS = [
    vocabKey:"l244_daily_nouns_exam",
    xp:30,
    unit:38,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── UNIT 40 (A23): CITY, TRANSPORT & PLACES (L245–L249) ──────────────
+  // 4 vocab lessons + 1 unit exam. 13 effective anchor roots (manifest's
+  // 14 minus waire, already drilled in A12 L148) + 2 weave-in roots
+  // (meshe full-canvas, hale noun+adj). L248 is the unit's one
+  // deliberate under-cap closer (3 roots).
+  {id:"l245_vocab_the_city",
+   title:"The City",
+   desc:"heule (city), heulile (town), meshe (middle), toure (edge)",
+   icon:"\ud83c\udfd9\ufe0f",
+   vocabKey:"l245_vocab_the_city",
+   xp:18,
+   unit:39,
+   intro:`<h3>\ud83c\udfd9\ufe0f Around the city</h3><p>This unit covers the city and the ways you move through it \\u2014 streets, transport, and a couple of points in the day for arranging when to travel. It opens with the city itself and how it's laid out. <em>heulile</em> "town" is the diminutive of <em>heule</em> "city" \\u2014 a small city. <em>meshe</em> "middle" is a full-canvas root: <em>meshi</em> "central" and <em>meshu</em> "to center" come along with it.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>heule</em> (n.)</td><td style="padding:4px 12px">city</td></tr><tr><td style="padding:4px 12px"><em>heuli</em> (adj.)</td><td style="padding:4px 12px">urban</td></tr><tr><td style="padding:4px 12px"><em>heulile</em> (n.)</td><td style="padding:4px 12px">town</td></tr><tr><td style="padding:4px 12px"><em>meshe</em> (n.)</td><td style="padding:4px 12px">middle</td></tr><tr><td style="padding:4px 12px"><em>meshi</em> (adj.)</td><td style="padding:4px 12px">central</td></tr><tr><td style="padding:4px 12px"><em>meshu</em> (v.)</td><td style="padding:4px 12px">to center</td></tr><tr><td style="padding:4px 12px"><em>toure</em> (n.)</td><td style="padding:4px 12px">edge (or border)</td></tr><tr><td style="padding:4px 12px"><em>touru</em> (v.)</td><td style="padding:4px 12px">to border (or skirt)</td></tr></table><span class="example">Lo heule su mopiami. <span class="gloss">This city is big.</span></span><span class="example">Neo hiwe su wo meshe fa heule. <span class="gloss">My house is in the middle of the city.</span></span><span class="example">Lo heulile su piami. <span class="gloss">This town is small.</span></span>`},
+
+  {id:"l246_vocab_streets_wheels",
+   title:"Streets, Wheels & the Journey",
+   desc:"luere (road), poime (wheel), poiwe (turn), hale (journey)",
+   icon:"\ud83d\udee3\ufe0f",
+   vocabKey:"l246_vocab_streets_wheels",
+   xp:18,
+   unit:39,
+   intro:`<h3>\ud83d\udee3\ufe0f Streets, wheels, and the trip itself</h3><p>The road, the wheels and turns that carry you along it, and a word for the journey as a whole. <em>poiwu</em> "to turn" is the verb form of <em>poiwe</em> "a turn"; <em>poime</em> "wheel" is a separate root \\u2014 the round thing itself. <em>hale</em> "journey" pairs with the verb <em>halu</em> "to go" you've known since Unit 7 \\u2014 here is its noun, plus the adjective <em>hali</em> "going."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>luere</em> (n.)</td><td style="padding:4px 12px">road (or path)</td></tr><tr><td style="padding:4px 12px"><em>poime</em> (n.)</td><td style="padding:4px 12px">wheel</td></tr><tr><td style="padding:4px 12px"><em>poiwe</em> (n.)</td><td style="padding:4px 12px">turn (or rotation)</td></tr><tr><td style="padding:4px 12px"><em>poiwu</em> (v.)</td><td style="padding:4px 12px">to turn (or spin)</td></tr><tr><td style="padding:4px 12px"><em>hale</em> (n.)</td><td style="padding:4px 12px">journey</td></tr><tr><td style="padding:4px 12px"><em>hali</em> (adj.)</td><td style="padding:4px 12px">going</td></tr></table><span class="example">Lo luere su mosouni. <span class="gloss">This road is long.</span></span><span class="example">Koire ahu shani poimea. <span class="gloss">A car has four wheels.</span></span><span class="example">Neo hale su souni. <span class="gloss">My journey is short.</span></span>`},
+
+  {id:"l247_vocab_road_transport",
+   title:"Ways to Travel",
+   desc:"meuhekoire (bus), runipoime (bicycle), roheme (train), eirupauwe (airplane)",
+   icon:"\ud83d\ude8c",
+   vocabKey:"l247_vocab_road_transport",
+   xp:18,
+   unit:39,
+   intro:`<h3>\ud83d\ude8c Four ways to get there</h3><p>Four vehicles, all compounds you can now read. <em>meuhekoire</em> "bus" is <em>meuhe</em> (group) + <em>koire</em> (car) \\u2014 a group car; <em>runipoime</em> "bicycle" is <em>runi</em> (two) + <em>poime</em> (wheel) \\u2014 a two-wheel; <em>eirupauwe</em> "airplane" is <em>eiru</em> (to fly) + <em>-pauwe</em> (device) \\u2014 a flying machine. <em>roheme</em> "train" is a plain root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meuhekoire</em> (n.)</td><td style="padding:4px 12px">bus</td></tr><tr><td style="padding:4px 12px"><em>runipoime</em> (n.)</td><td style="padding:4px 12px">bicycle</td></tr><tr><td style="padding:4px 12px"><em>roheme</em> (n.)</td><td style="padding:4px 12px">train</td></tr><tr><td style="padding:4px 12px"><em>eirupauwe</em> (n.)</td><td style="padding:4px 12px">airplane</td></tr></table><span class="example">Ne wairu meuhekoire so fase. <span class="gloss">I ride the bus to work.</span></span><span class="example">Roheme su mopiami ata meuhekoire. <span class="gloss">A train is bigger than a bus.</span></span><span class="example">Ne wanu wairu eirupauwe. <span class="gloss">I want to ride an airplane.</span></span>`},
+
+  {id:"l248_vocab_water_and_day",
+   title:"By Water, and Points in the Day",
+   desc:"shaihile (canoe), meshilawe (noon), meshinone (midnight)",
+   icon:"\ud83d\udef6",
+   vocabKey:"l248_vocab_water_and_day",
+   xp:16,
+   unit:39,
+   intro:`<h3>\ud83d\udef6 Closing the unit \\u2014 water travel and two times of day</h3><p>A short closing lesson. <em>shaihile</em> "canoe" is the diminutive of <em>shaihe</em> "boat" \\u2014 a little boat. The two time-of-day words are both built on <em>meshi</em> "central," the same root behind <em>meshe</em> "middle" from this unit's first lesson: <em>meshilawe</em> "noon" is the middle of the day (<em>lawe</em>), and <em>meshinone</em> "midnight" is the middle of the night (<em>none</em>). They're handy for arranging when to travel.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shaihile</em> (n.)</td><td style="padding:4px 12px">canoe</td></tr><tr><td style="padding:4px 12px"><em>meshilawe</em> (n.)</td><td style="padding:4px 12px">noon</td></tr><tr><td style="padding:4px 12px"><em>meshinone</em> (n.)</td><td style="padding:4px 12px">midnight</td></tr></table><span class="example">Vea wa halu ko shaihile. <span class="gloss">They went by canoe.</span></span><span class="example">Ne tahu wo meshilawe. <span class="gloss">I eat at noon.</span></span><span class="example">Ve rau wo meshinone. <span class="gloss">She sleeps at midnight.</span></span>`},
+
+  {id:"l249_city_transport_exam",
+   title:"Unit 40 Exam \\u2014 City, Transport & Places",
+   desc:"Three hearts. Fourteen sentences covering all four vocab lessons, plus cloze on four key constructions.",
+   icon:"\ud83c\udfd9\ufe0f",
+   vocabKey:"l249_city_transport_exam",
+   xp:30,
+   unit:39,
    isSentence:true,
    isCheckpoint:true},
 ];
