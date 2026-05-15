@@ -5231,6 +5231,908 @@ const V = {
     {lw:["Waihe","su","mopiami","ata","mowaihe"],
      en:"Hope is bigger than despair."},
   ],
+
+  // ═══════════════════════════════════════════════════════════════
+  // A21 — Useful Verbs (general). The largest advanced unit. Splits
+  // into five internal sub-units (A21a–A21e), each a thematic
+  // cluster ending in its own checkpoint exam. L201–L232.
+  // 105 anchor roots, all already in Dictionary.md — pure
+  // teaching-surface unit, no coinage. Everyday-form filter
+  // (A14/A17/A19 precedent) drops participial/mechanical adjectives
+  // from drilling; they remain in Dictionary.md. See the A21
+  // internal scoping document and DECISIONS.md "A21" ship entry.
+  // ═══════════════════════════════════════════════════════════════
+
+  // ── A21a / Unit 34 — Communication & Cognition Verbs (L201–L207) ──
+
+  // L201 — Words & Messages (vocab). 4 roots / 7 drilled forms.
+  //   iruhe (n) + iruhu (v) — n+v. Word / to word (phrase). iruhi
+  //     "word-related" dropped (mechanical X-related).
+  //   ifuhe (n) + ifuhu (v) — n+v. Sentence / to phrase. ifuhi
+  //     "sentence-related" dropped (mechanical X-related).
+  //   maihe (n) + maihu (v) — n+v. Message / to send a message.
+  //     maihi "sent" dropped (participial).
+  //   maihupue — messenger. Noun-only (the -pue agent of maihu).
+  l201_vocab_words_messages: [
+    {lw:"iruhe", en:"word", pos:"n",
+     canvas:{v:"iruhu", v_en:"to word (phrase)"},
+     note:"iruhi \"word-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"ifuhe", en:"sentence", pos:"n",
+     canvas:{v:"ifuhu", v_en:"to phrase"},
+     note:"ifuhi \"sentence-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"maihe", en:"message", pos:"n",
+     canvas:{v:"maihu", v_en:"to send a message"},
+     note:"maihi \"sent (as a message)\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"maihupue", en:"messenger", pos:"n",
+     note:"The -pue agent of maihu (to send a message). Noun-only."},
+  ],
+
+  // L202 — Asking, Warning, Inviting (vocab). 4 roots / 10 drilled
+  // forms including the vouru/vouri canvas-completion weave-in.
+  //   mokilire (n) + mokiliru (v) — n+v. Answer / to answer.
+  //     mokiliri "answered" dropped (participial).
+  //   nauke (n) + nauku (v) — n+v. Warning / to warn. nauki
+  //     "warned" dropped (participial).
+  //   poule (n) + poulu (v) — n+v. Invitation / to invite. pouli
+  //     "invited" dropped (participial).
+  //   shoinulire (n) + shoinuliru (v) — n+v. Translation / to
+  //     translate. shoinuliri "translated" dropped (participial).
+  //   vouru (v) + vouri (adj) — canvas-completion weave-in. The
+  //     root voure "phone" was taught core (Unit 13); this surfaces
+  //     the untaught verb "to call" + adjective. Does not count
+  //     against the 4-root cap (A20 houpe/waihe precedent).
+  l202_vocab_ask_warn_invite: [
+    {lw:"mokilire", en:"answer", pos:"n",
+     canvas:{v:"mokiliru", v_en:"to answer (or reply)"},
+     note:"mokiliri \"answered\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"nauke", en:"warning", pos:"n",
+     canvas:{v:"nauku", v_en:"to warn"},
+     note:"nauki \"warned\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"poule", en:"invitation", pos:"n",
+     canvas:{v:"poulu", v_en:"to invite"},
+     note:"pouli \"invited\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"shoinulire", en:"translation", pos:"n",
+     canvas:{v:"shoinuliru", v_en:"to translate"},
+     note:"Lexicalized compound — shoinu (to change) + lire (speech). shoinuliri \"translated\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"vouru", en:"to call (or phone someone)", pos:"v",
+     note:"Canvas-completion weave-in (A10) — the root voure \"phone\" is already taught core (Unit 13). Surfaces the untaught verb. Does not count against the 4-root cap. vouri \"phone-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+  ],
+
+  // L203 — Planning & Solving (vocab). 4 roots / 10 drilled forms.
+  //   piruhe (n) + piruhu (v) — n+v. Plan / to plan. piruhi
+  //     "planned" dropped (participial).
+  //   seihe (n) + seihi (adj) + seihu (v) — full canvas. Study /
+  //     studious / to study.
+  //   shire (n) + shiri (adj) + shiru (v) — full canvas. Creation /
+  //     creative / to make (or create).
+  //   soile (n) + soilu (v) — n+v. Solution / to solve. soili
+  //     "solved" dropped (participial).
+  l203_vocab_plan_solve: [
+    {lw:"piruhe", en:"plan", pos:"n",
+     canvas:{v:"piruhu", v_en:"to plan"},
+     note:"piruhi \"planned\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"seihe", en:"study", pos:"n",
+     canvas:{adj:"seihi", adj_en:"studious",
+             v:"seihu", v_en:"to study"}},
+    {lw:"shire", en:"creation", pos:"n",
+     canvas:{adj:"shiri", adj_en:"creative (or creatively)",
+             v:"shiru", v_en:"to make (or create)"}},
+    {lw:"soile", en:"solution", pos:"n",
+     canvas:{v:"soilu", v_en:"to solve (or resolve)"},
+     note:"soili \"solved\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+  ],
+
+  // L204 — Change & Sameness (vocab). 4 roots / 12 drilled forms.
+  //   shoine (n) + shoini (adj) + shoinu (v) — full canvas. Change
+  //     / changed (or instead) / to change.
+  //   weihe (n) + weihi (adj) + weihu (v) — full canvas.
+  //     Repetition / again / to redo.
+  //   lame (n) + lami (adj) + lamu (v) — full canvas. Sameness /
+  //     same / to copy.
+  //   molame (n) + molami (adj) + molamu (v) — full canvas. The
+  //     mo- pair of lame: difference / different / to differ.
+  l204_vocab_change_sameness: [
+    {lw:"shoine", en:"change", pos:"n",
+     canvas:{adj:"shoini", adj_en:"changed (or instead)",
+             v:"shoinu", v_en:"to change (or transform)"}},
+    {lw:"weihe", en:"repetition", pos:"n",
+     canvas:{adj:"weihi", adj_en:"again",
+             v:"weihu", v_en:"to redo"}},
+    {lw:"lame", en:"sameness", pos:"n",
+     canvas:{adj:"lami", adj_en:"same",
+             v:"lamu", v_en:"to copy (or duplicate)"}},
+    {lw:"molame", en:"difference", pos:"n",
+     canvas:{adj:"molami", adj_en:"different",
+             v:"molamu", v_en:"to differ"},
+     pair:"lame",
+     note:"The mo- pair of lame (sameness/difference)."},
+  ],
+
+  // L205 — Success & Correction (vocab). 4 roots / 12 drilled forms.
+  //   nove (n) + novi (adj) + novu (v) — full canvas. Correctness /
+  //     correct / to correct.
+  //   lohure (n) + lohuri (adj) + lohuru (v) — full canvas.
+  //     Perfection / perfect / to perfect.
+  //   loune (n) + louni (adj) + lounu (v) — full canvas. Success /
+  //     successful / to succeed.
+  //   moloune (n) + molouni (adj) + molounu (v) — full canvas. The
+  //     mo- pair of loune: failure / failed / to fail.
+  l205_vocab_success_correction: [
+    {lw:"nove", en:"correctness (or correction)", pos:"n",
+     canvas:{adj:"novi", adj_en:"correct",
+             v:"novu", v_en:"to correct"}},
+    {lw:"lohure", en:"perfection", pos:"n",
+     canvas:{adj:"lohuri", adj_en:"perfect",
+             v:"lohuru", v_en:"to perfect"}},
+    {lw:"loune", en:"success", pos:"n",
+     canvas:{adj:"louni", adj_en:"successful (or successfully)",
+             v:"lounu", v_en:"to succeed"}},
+    {lw:"moloune", en:"failure", pos:"n",
+     canvas:{adj:"molouni", adj_en:"failed (or unsuccessfully)",
+             v:"molounu", v_en:"to fail"},
+     pair:"loune",
+     note:"The mo- pair of loune (success/failure)."},
+  ],
+
+  // L206 — Avoidance & Hindrance (vocab). 4 roots / 10 drilled forms.
+  //   motere (n) + moteri (adj) + moteru (v) — full canvas.
+  //     Aversion / averse / to avoid (or flinch).
+  //   mosene (n) + mosenu (v) — n+v. Ignorance / to not know.
+  //     moseni "unknown" dropped (mechanical).
+  //   mosove (n) + mosovi (adj) + mosovu (v) — full canvas.
+  //     Hindrance / unhelpful / to hinder.
+  //   molahe (n) + molahu (v) — n+v. Disturbance / to disturb.
+  //     molahi "disturbed" dropped (participial).
+  l206_vocab_avoid_hinder: [
+    {lw:"motere", en:"aversion", pos:"n",
+     canvas:{adj:"moteri", adj_en:"averse",
+             v:"moteru", v_en:"to avoid (or flinch)"}},
+    {lw:"mosene", en:"ignorance", pos:"n",
+     canvas:{v:"mosenu", v_en:"to not know"},
+     note:"moseni \"unknown\" remains in Dictionary.md but not drilled (mechanical — everyday-form filter, A14)."},
+    {lw:"mosove", en:"hindrance", pos:"n",
+     canvas:{adj:"mosovi", adj_en:"unhelpful",
+             v:"mosovu", v_en:"to hinder"}},
+    {lw:"molahe", en:"disturbance", pos:"n",
+     canvas:{v:"molahu", v_en:"to disturb"},
+     note:"molahi \"disturbed\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+  ],
+
+  // L207 — Unit 34 Exam: Communication & Cognition Verbs.
+  // isCheckpoint:true, isSentence:true. 14 sentences spanning
+  // L201–L206. Cloze on 4 (S3, S6, S10, S13).
+  l207_communication_exam: [
+    {lw:["Ne","iruhu","neo","pire"],
+     en:"I word my thought."},
+    {lw:["Maihupue","wa","maihu","lo","iruhe"],
+     en:"The messenger sent this word."},
+    {lw:["Ne","mokiliru","teo","kilire"],
+     en:"I answer your question.",
+     cloze:{blanks:[1,3], bank:["mokiliru","kilire","mokilire","nauku","teo","ne"]}},
+    {lw:["Ve","wa","nauku","nea"],
+     en:"She warned us."},
+    {lw:["Nea","poulu","neo","wame"],
+     en:"We invite my friend."},
+    {lw:["Ne","piruhu","lai","ne","wu","seihu"],
+     en:"I plan to study.",
+     cloze:{blanks:[1,5], bank:["piruhu","seihu","shiru","lai","wu","soilu"]}},
+    {lw:["Ve","su","shiri"],
+     en:"She is creative."},
+    {lw:["Ne","soilu","lo"],
+     en:"I solve this."},
+    {lw:["Loa","loiwea","su","lami"],
+     en:"These books are the same."},
+    {lw:["Ne","weihu","neo","piruhe"],
+     en:"I redo my plan.",
+     cloze:{blanks:[1,3], bank:["weihu","piruhe","shoine","lame","neo","ne"]}},
+    {lw:["Teo","iruhe","su","novi"],
+     en:"Your word is correct."},
+    {lw:["Ne","wa","lounu","nalai","ne","wa","seihu"],
+     en:"I succeeded because I studied."},
+    {lw:["Ne","moteru","lo"],
+     en:"I avoid this.",
+     cloze:{blanks:[1,2], bank:["moteru","mosenu","molahu","lo","ne","ve"]}},
+    {lw:["Ve","mosovu","neo","shire"],
+     en:"She hinders my creation."},
+  ],
+
+  // ── A21b / Unit 35 — Physical Action & Handling Verbs (L208–L213) ──
+
+  // L208 — Picking Up & Setting Down (vocab). 4 roots / 8 drilled
+  // forms. All four are action verbs whose participial adjectives
+  // (toihi, motoihi, muwi, mowouni) are dropped per the
+  // everyday-form filter — drilled as n+v pairs.
+  l208_vocab_pickup_setdown: [
+    {lw:"toihe", en:"pickup", pos:"n",
+     canvas:{v:"toihu", v_en:"to pick up (or retrieve)"},
+     note:"toihi \"picked-up\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"motoihe", en:"drop-off", pos:"n",
+     canvas:{v:"motoihu", v_en:"to drop off (or set down, hand off)"},
+     note:"motoihi \"dropped-off\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"muwe", en:"sending", pos:"n",
+     canvas:{v:"muwu", v_en:"to send (or dispatch)"},
+     note:"muwi \"sent\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"mowoune", en:"lowering", pos:"n",
+     canvas:{v:"mowounu", v_en:"to lower (or set down)"},
+     note:"mowouni \"lowered\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+  ],
+
+  // L209 — Securing & Concealing (vocab). 4 roots / 10 drilled forms.
+  //   rume (n) + rumi (adj) + rumu (v) — full canvas. Lock / locked
+  //     / to lock.
+  //   morume (n) + morumu (v) — n+v. Key / to unlock. morumi
+  //     "unlocked" dropped (mechanical).
+  //   movehe (n) + movehu (v) — n+v. Hiding / to hide. movehi
+  //     "hidden" dropped (participial).
+  //   movihe (n) + movihi (adj) + movihu (v) — full canvas. Keeping
+  //     / kept (or stingy) / to keep. movihi kept — a real
+  //     property sense ("stingy"), so retained.
+  l209_vocab_secure_conceal: [
+    {lw:"rume", en:"lock", pos:"n",
+     canvas:{adj:"rumi", adj_en:"locked",
+             v:"rumu", v_en:"to lock"}},
+    {lw:"morume", en:"key", pos:"n",
+     canvas:{v:"morumu", v_en:"to unlock"},
+     note:"morumi \"unlocked\" remains in Dictionary.md but not drilled (mechanical — everyday-form filter, A14)."},
+    {lw:"movehe", en:"hiding", pos:"n",
+     canvas:{v:"movehu", v_en:"to hide (or conceal)"},
+     note:"movehi \"hidden\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"movihe", en:"keeping", pos:"n",
+     canvas:{adj:"movihi", adj_en:"kept (or stingy)",
+             v:"movihu", v_en:"to keep (or retain)"}},
+  ],
+
+  // L210 — Searching & Cleaning (vocab). 4 roots / 10 drilled forms.
+  //   riwe (n) + riwu (v) — n+v. Search / to search (seek). riwi
+  //     "sought" dropped (participial).
+  //   saye (n) + sayi (adj) + sayu (v) — full canvas. Cleanliness /
+  //     clean / to clean (or wash).
+  //   mosaye (n) + mosayi (adj) + mosayu (v) — full canvas. The
+  //     mo- pair of saye: dirt / dirty / to dirty (or soil).
+  //   mokave (n) + mokavu (v) — n+v. Repair / to mend. mokavi
+  //     "mended" dropped (participial).
+  l210_vocab_search_clean: [
+    {lw:"riwe", en:"search", pos:"n",
+     canvas:{v:"riwu", v_en:"to search (or seek)"},
+     note:"riwi \"sought\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"saye", en:"cleanliness", pos:"n",
+     canvas:{adj:"sayi", adj_en:"clean",
+             v:"sayu", v_en:"to clean (or wash)"}},
+    {lw:"mosaye", en:"dirt", pos:"n",
+     canvas:{adj:"mosayi", adj_en:"dirty",
+             v:"mosayu", v_en:"to dirty (or soil)"},
+     pair:"saye",
+     note:"The mo- pair of saye (cleanliness/dirt)."},
+    {lw:"mokave", en:"repair", pos:"n",
+     canvas:{v:"mokavu", v_en:"to mend (or repair)"},
+     note:"mokavi \"mended\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+  ],
+
+  // L211 — Leading & Connecting (vocab). 4 roots / 10 drilled forms.
+  //   tole (n) + toli (adj) + tolu (v) — full canvas. Leadership /
+  //     leading / to lead.
+  //   motole (n) + motoli (adj) + motolu (v) — full canvas. The
+  //     mo- pair of tole: following / loyal / to follow. motoli
+  //     "loyal" is a real property, retained.
+  //   mohese (n) + mohesu (v) — n+v. Bond (or connection) / to join
+  //     (connect). mohesi "joined" dropped (participial).
+  //   mowahe (n) + mowahu (v) — n+v. Estrangement / to estrange.
+  //     mowahi "estranged" dropped (participial).
+  l211_vocab_lead_connect: [
+    {lw:"tole", en:"leadership", pos:"n",
+     canvas:{adj:"toli", adj_en:"leading",
+             v:"tolu", v_en:"to lead"}},
+    {lw:"motole", en:"following", pos:"n",
+     canvas:{adj:"motoli", adj_en:"loyal",
+             v:"motolu", v_en:"to follow"},
+     pair:"tole",
+     note:"The mo- pair of tole (leadership/following)."},
+    {lw:"mohese", en:"bond (or connection)", pos:"n",
+     canvas:{v:"mohesu", v_en:"to join (or connect)"},
+     note:"mohesi \"joined\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"mowahe", en:"estrangement", pos:"n",
+     canvas:{v:"mowahu", v_en:"to estrange"},
+     note:"mowahi \"estranged\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+  ],
+
+  // L212 — Steps & Water (vocab). 4 roots / 7 drilled forms.
+  //   liohe (n) + liohu (v) — n+v. Step (stair) / to step up.
+  //     liohi "stepped" dropped (mechanical).
+  //   pishe (n) + pishu (v) — n+v. Drop (of water) / to drip.
+  //     pishi "droplet-sized" dropped (mechanical).
+  //   pishawe (n) + pishawu (v) — n+v. Splash / to splash. pishawi
+  //     "splashed" dropped (participial).
+  //   shalome — puddle. Noun-only.
+  l212_vocab_steps_water: [
+    {lw:"liohe", en:"step (stair)", pos:"n",
+     canvas:{v:"liohu", v_en:"to step up"},
+     note:"liohi \"stepped\" remains in Dictionary.md but not drilled (mechanical — everyday-form filter, A14)."},
+    {lw:"pishe", en:"drop (of water)", pos:"n",
+     canvas:{v:"pishu", v_en:"to drip"},
+     note:"pishi \"droplet-sized\" remains in Dictionary.md but not drilled (mechanical — everyday-form filter, A14)."},
+    {lw:"pishawe", en:"splash", pos:"n",
+     canvas:{v:"pishawu", v_en:"to splash"},
+     note:"pishawi \"splashed\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"shalome", en:"puddle", pos:"n",
+     note:"Noun-only."},
+  ],
+
+  // L213 — Unit 35 Exam: Physical Action & Handling Verbs.
+  // isCheckpoint:true, isSentence:true. 14 sentences spanning
+  // L208–L212. Cloze on 4 (S3, S5, S8, S12).
+  l213_handling_exam: [
+    {lw:["Ne","toihu","lo","loiwe"],
+     en:"I pick up this book."},
+    {lw:["Ve","wa","motoihu","neo","maihe"],
+     en:"She dropped off my message."},
+    {lw:["Nea","muwu","houme","so","neo","wame"],
+     en:"We send bread to my friend.",
+     cloze:{blanks:[1,2], bank:["muwu","motoihu","houme","loiwe","so","nea"]}},
+    {lw:["Neo","hiwe","su","rumi"],
+     en:"My house is locked."},
+    {lw:["Ne","movehu","neo","morume"],
+     en:"I hide my key.",
+     cloze:{blanks:[1,3], bank:["movehu","morume","movihu","rume","neo","ne"]}},
+    {lw:["Ve","movihu","neo","loiwe"],
+     en:"She keeps my book."},
+    {lw:["Ne","riwu","neo","morume"],
+     en:"I search for my key."},
+    {lw:["Lo","mohe","su","sayi","ma","neo","lauhe","su","mosayi"],
+     en:"This cup is clean but my hand is dirty.",
+     cloze:{blanks:[3,8], bank:["sayi","mosayi","sayu","mosayu","su","ma"]}},
+    {lw:["Ne","wa","mokavu","neo","voure"],
+     en:"I repaired my phone."},
+    {lw:["Ve","tolu","nea","sho","nea","motolu","ve"],
+     en:"She leads us and we follow her."},
+    {lw:["Ne","mohesu","ko","neo","wame"],
+     en:"I connect with my friend."},
+    {lw:["Ne","liohu","so","neo","hiwe"],
+     en:"I step up to my house.",
+     cloze:{blanks:[1,4], bank:["liohu","pishu","hiwe","shalome","so","ne"]}},
+    {lw:["Shawe","pishu","so","shalome"],
+     en:"Water drips into a puddle."},
+    {lw:["Piwe","wa","pishawu","shawe"],
+     en:"The child splashed water."},
+  ],
+
+  // ── A21c / Unit 36 — State, Body & Life-Cycle Verbs (L214–L219) ──
+
+  // L214 — Waking & Resting (vocab). 4 roots / 12 drilled forms.
+  //   morae (n) + morai (adj) + morau (v) — full canvas.
+  //     Wakefulness / awake / to wake up.
+  //   lahe (n) + lahi (adj) + lahu (v) — full canvas. Rest /
+  //     restful / to rest.
+  //   mohiye (n) + mohiyi (adj) + mohiyu (v) — full canvas.
+  //     Dreamless sleep / dreamless / to sleep without dreams.
+  //   moele (n) + moeli (adj) + moelu (v) — full canvas. Numbness /
+  //     numb / to numb.
+  l214_vocab_wake_rest: [
+    {lw:"morae", en:"wakefulness", pos:"n",
+     canvas:{adj:"morai", adj_en:"awake",
+             v:"morau", v_en:"to wake up"}},
+    {lw:"lahe", en:"rest", pos:"n",
+     canvas:{adj:"lahi", adj_en:"restful",
+             v:"lahu", v_en:"to rest"}},
+    {lw:"mohiye", en:"dreamless sleep", pos:"n",
+     canvas:{adj:"mohiyi", adj_en:"dreamless",
+             v:"mohiyu", v_en:"to sleep without dreams"}},
+    {lw:"moele", en:"numbness", pos:"n",
+     canvas:{adj:"moeli", adj_en:"numb",
+             v:"moelu", v_en:"to numb (or make numb)"}},
+  ],
+
+  // L215 — Strength & Birth (vocab). 4 roots / 12 drilled forms.
+  //   tuwe (n) + tuwi (adj) + tuwu (v) — full canvas. Strength /
+  //     strong / to strengthen.
+  //   motuwe (n) + motuwi (adj) + motuwu (v) — full canvas. The
+  //     mo- pair of tuwe: weakness / weak / to weaken.
+  //   mohawe (n) + mohawi (adj) + mohawu (v) — full canvas.
+  //     Suffocation / breathless / to suffocate.
+  //   nore (n) + nori (adj) + noru (v) — full canvas. Birth / born
+  //     / to give birth.
+  l215_vocab_strength_birth: [
+    {lw:"tuwe", en:"strength", pos:"n",
+     canvas:{adj:"tuwi", adj_en:"strong",
+             v:"tuwu", v_en:"to strengthen"}},
+    {lw:"motuwe", en:"weakness", pos:"n",
+     canvas:{adj:"motuwi", adj_en:"weak",
+             v:"motuwu", v_en:"to weaken"},
+     pair:"tuwe",
+     note:"The mo- pair of tuwe (strength/weakness)."},
+    {lw:"mohawe", en:"suffocation", pos:"n",
+     canvas:{adj:"mohawi", adj_en:"breathless",
+             v:"mohawu", v_en:"to suffocate"}},
+    {lw:"nore", en:"birth", pos:"n",
+     canvas:{adj:"nori", adj_en:"born",
+             v:"noru", v_en:"to give birth"}},
+  ],
+
+  // L216 — Fighting & Destruction (vocab). 4 roots / 10 drilled forms.
+  //   monauye (n) + monauyi (adj) + monauyu (v) — full canvas.
+  //     Fight / hostile / to fight (combat).
+  //   monore (n) + monoru (v) — n+v. Killing / to kill. monori
+  //     "killed" dropped (participial).
+  //   moshire (n) + moshiru (v) — n+v. Destruction / to destroy.
+  //     moshiri "destroyed" dropped (participial). pair: shire.
+  //   rouwe (n) + rouwi (adj) + rouwu (v) — full canvas. Harm (or
+  //     damage) / harmful / to harm.
+  l216_vocab_fight_destroy: [
+    {lw:"monauye", en:"fight", pos:"n",
+     canvas:{adj:"monauyi", adj_en:"hostile",
+             v:"monauyu", v_en:"to fight (or combat)"}},
+    {lw:"monore", en:"killing", pos:"n",
+     canvas:{v:"monoru", v_en:"to kill"},
+     note:"monori \"killed\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"moshire", en:"destruction", pos:"n",
+     canvas:{v:"moshiru", v_en:"to destroy"},
+     pair:"shire",
+     note:"The mo- pair of shire (creation/destruction, taught L203). moshiri \"destroyed\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"rouwe", en:"harm (or damage)", pos:"n",
+     canvas:{adj:"rouwi", adj_en:"harmful",
+             v:"rouwu", v_en:"to harm (or damage)"}},
+  ],
+
+  // L217 — Enemies & Safety (vocab). 4 roots / 12 drilled forms.
+  //   mowame (n) + mowami (adj) + mowamu (v) — full canvas. Enemy /
+  //     dislikable / to dislike.
+  //   molene (n) + moleni (adj) + molenu (v) — full canvas.
+  //     Betrayal / untrustworthy / to betray.
+  //   moyohe (n) + moyohi (adj) + moyohu (v) — full canvas. Danger
+  //     / dangerous / to endanger.
+  //   yohe (n) + yohi (adj) + yohu (v) — full canvas. The mo- pair
+  //     partner of moyohe: safety / safe (or secure) / to make safe.
+  l217_vocab_enemy_safety: [
+    {lw:"mowame", en:"enemy", pos:"n",
+     canvas:{adj:"mowami", adj_en:"dislikable",
+             v:"mowamu", v_en:"to dislike"}},
+    {lw:"molene", en:"betrayal", pos:"n",
+     canvas:{adj:"moleni", adj_en:"untrustworthy",
+             v:"molenu", v_en:"to betray (or distrust)"}},
+    {lw:"moyohe", en:"danger", pos:"n",
+     canvas:{adj:"moyohi", adj_en:"dangerous",
+             v:"moyohu", v_en:"to endanger"}},
+    {lw:"yohe", en:"safety", pos:"n",
+     canvas:{adj:"yohi", adj_en:"safe (or secure)",
+             v:"yohu", v_en:"to make safe (or secure)"},
+     pair:"moyohe",
+     note:"The mo- pair of moyohe (danger/safety)."},
+  ],
+
+  // L218 — Standing & Stopping (vocab). 4 roots / 9 drilled forms.
+  //   moseme (n) + mosemu (v) — n+v. Standing / to stand. mosemi
+  //     "standing" (adj) dropped (mechanical — same surface form).
+  //   mowashi (adj) + mowashu (v) — adj+v. Still (stationary) / to
+  //     stop. No noun form in Dictionary.md. mowashu is documented
+  //     in Grammar.md §5 as the stop-verb.
+  //   motahe (n) + motahi (adj) + motahu (v) — full canvas. Fast
+  //     (the act of not eating) / fasting / to fast.
+  //   moshahi (adj) + moshahu (v) — adj+v. Undrinkable / to abstain
+  //     from drink. No noun form in Dictionary.md.
+  l218_vocab_stand_stop: [
+    {lw:"moseme", en:"standing", pos:"n",
+     canvas:{v:"mosemu", v_en:"to stand"},
+     note:"mosemi \"standing\" (adj) remains in Dictionary.md but not drilled (mechanical — everyday-form filter, A14)."},
+    {lw:"mowashu", en:"to stop", pos:"v",
+     note:"adj+v root — no noun form in Dictionary.md; the adjective mowashi is a separate V entry (A14 adj+v-as-separate-entries pattern). mowashu is documented in Grammar.md §5 as the stop-verb (covers physical and action cessation, leads a verb chain like a modal)."},
+    {lw:"mowashi", en:"still (stationary)", pos:"adj",
+     note:"adj+v root — paired with the separate verb entry mowashu."},
+    {lw:"motahe", en:"fast (the act of not eating)", pos:"n",
+     canvas:{adj:"motahi", adj_en:"fasting (not eating)",
+             v:"motahu", v_en:"to fast (not eat)"}},
+    {lw:"moshahu", en:"to abstain from drink", pos:"v",
+     note:"adj+v root — no noun form in Dictionary.md; the adjective moshahi is a separate V entry (A14 adj+v-as-separate-entries pattern)."},
+    {lw:"moshahi", en:"undrinkable", pos:"adj",
+     note:"adj+v root — paired with the separate verb entry moshahu."},
+  ],
+
+  // L219 — Unit 36 Exam: State, Body & Life-Cycle Verbs.
+  // isCheckpoint:true, isSentence:true. 14 sentences spanning
+  // L214–L218. Cloze on 4 (S3, S4, S8, S11).
+  l219_state_body_exam: [
+    {lw:["Ne","morau","lole"],
+     en:"I wake up now."},
+    {lw:["Lo","none","su","lahi"],
+     en:"This night is restful."},
+    {lw:["Neo","lauhe","su","moeli"],
+     en:"My hand is numb.",
+     cloze:{blanks:[1,3], bank:["lauhe","moeli","moele","morai","su","neo"]}},
+    {lw:["Neo","pawe","su","tuwi","ma","ne","su","motuwi"],
+     en:"My father is strong but I am weak.",
+     cloze:{blanks:[3,7], bank:["tuwi","motuwi","tuwe","motuwe","su","ma"]}},
+    {lw:["Neo","mawe","wa","noru"],
+     en:"My mother gave birth."},
+    {lw:["Vea","wa","monauyu","nalai","vea","su","monauyi"],
+     en:"They fought because they are hostile."},
+    {lw:["Lo","shawe","su","rouwi"],
+     en:"This water is harmful."},
+    {lw:["Mowame","wa","moshiru","neo","hiwe"],
+     en:"The enemy destroyed my house.",
+     cloze:{blanks:[0,2], bank:["mowame","moshiru","monoru","molene","neo","wa"]}},
+    {lw:["Ne","mai","molenu","neo","wame"],
+     en:"I do not betray my friend."},
+    {lw:["Lo","moule","su","moyohi"],
+     en:"This tree is dangerous."},
+    {lw:["Neo","hiwe","su","yohi"],
+     en:"My house is safe.",
+     cloze:{blanks:[1,3], bank:["hiwe","yohi","yohe","moyohi","su","neo"]}},
+    {lw:["Ne","mosemu","wo","neo","hiwe"],
+     en:"I stand in my house."},
+    {lw:["Ve","wa","mowashu","wale","ve","halu"],
+     en:"She stopped before she goes."},
+    {lw:["Ne","motahu","lo lawe"],
+     en:"I fast today."},
+  ],
+
+  // ── A21d / Unit 37 — Dimension & Texture Roots (L220–L225) ──
+
+  // L220 — Weight & Thickness (vocab). 4 roots / 12 drilled forms.
+  // Two mo- pairs taught within the lesson for contrast (A19/A20
+  // abstract-pair convention).
+  //   kauwe (n) + kauwi (adj) + kauwu (v) — full canvas. Lightness
+  //     (in weight) / light (not heavy) / to lighten.
+  //   mokauwe (n) + mokauwi (adj) + mokauwu (v) — full canvas. The
+  //     mo- pair of kauwe: weight / heavy / to weigh.
+  //   kouhe (n) + kouhi (adj) + kouhu (v) — full canvas. Thinness /
+  //     thin / to thin.
+  //   mokouhe (n) + mokouhi (adj) + mokouhu (v) — full canvas. The
+  //     mo- pair of kouhe: thickness / thick / to thicken.
+  l220_vocab_weight_thickness: [
+    {lw:"kauwe", en:"lightness (in weight)", pos:"n",
+     canvas:{adj:"kauwi", adj_en:"light (not heavy)",
+             v:"kauwu", v_en:"to lighten"}},
+    {lw:"mokauwe", en:"weight", pos:"n",
+     canvas:{adj:"mokauwi", adj_en:"heavy",
+             v:"mokauwu", v_en:"to weigh (or be heavy)"},
+     pair:"kauwe",
+     note:"The mo- pair of kauwe (lightness/weight)."},
+    {lw:"kouhe", en:"thinness", pos:"n",
+     canvas:{adj:"kouhi", adj_en:"thin",
+             v:"kouhu", v_en:"to thin"}},
+    {lw:"mokouhe", en:"thickness", pos:"n",
+     canvas:{adj:"mokouhi", adj_en:"thick",
+             v:"mokouhu", v_en:"to thicken"},
+     pair:"kouhe",
+     note:"The mo- pair of kouhe (thinness/thickness)."},
+  ],
+
+  // L221 — Length & Width (vocab). 4 roots / 12 drilled forms.
+  // Two mo- pairs taught within the lesson for contrast.
+  //   soune (n) + souni (adj) + sounu (v) — full canvas. Shortness
+  //     / short / to shorten.
+  //   mosoune (n) + mosouni (adj) + mosounu (v) — full canvas. The
+  //     mo- pair of soune: length / long / to lengthen.
+  //   waune (n) + wauni (adj) + waunu (v) — full canvas. Narrowness
+  //     / narrow / to narrow.
+  //   mowaune (n) + mowauni (adj) + mowaunu (v) — full canvas. The
+  //     mo- pair of waune: width / wide / to widen.
+  l221_vocab_length_width: [
+    {lw:"soune", en:"shortness", pos:"n",
+     canvas:{adj:"souni", adj_en:"short",
+             v:"sounu", v_en:"to shorten"}},
+    {lw:"mosoune", en:"length", pos:"n",
+     canvas:{adj:"mosouni", adj_en:"long (or at length)",
+             v:"mosounu", v_en:"to lengthen"},
+     pair:"soune",
+     note:"The mo- pair of soune (shortness/length)."},
+    {lw:"waune", en:"narrowness", pos:"n",
+     canvas:{adj:"wauni", adj_en:"narrow",
+             v:"waunu", v_en:"to narrow"}},
+    {lw:"mowaune", en:"width", pos:"n",
+     canvas:{adj:"mowauni", adj_en:"wide",
+             v:"mowaunu", v_en:"to widen"},
+     pair:"waune",
+     note:"The mo- pair of waune (narrowness/width)."},
+  ],
+
+  // L222 — Shape & Height (vocab). 4 roots / 11 drilled forms.
+  //   leume (n) + leumi (adj) + leumu (v) — full canvas. Roundness
+  //     / round / to round.
+  //   moleume (n) + moleumi (adj) + moleumu (v) — full canvas. The
+  //     mo- pair of leume: flatness / flat / to flatten.
+  //   liane (n) + liani (adj) + lianu (v) — full canvas. Height /
+  //     tall (or up) / to rise.
+  //   shouhe (n) + shouhi (adj) — n+adj. Shallowness / shallow. No
+  //     verb form in Dictionary.md.
+  l222_vocab_shape_height: [
+    {lw:"leume", en:"roundness", pos:"n",
+     canvas:{adj:"leumi", adj_en:"round",
+             v:"leumu", v_en:"to round (make round)"}},
+    {lw:"moleume", en:"flatness", pos:"n",
+     canvas:{adj:"moleumi", adj_en:"flat",
+             v:"moleumu", v_en:"to flatten"},
+     pair:"leume",
+     note:"The mo- pair of leume (roundness/flatness)."},
+    {lw:"liane", en:"height", pos:"n",
+     canvas:{adj:"liani", adj_en:"tall (or up)",
+             v:"lianu", v_en:"to rise"}},
+    {lw:"shouhe", en:"shallowness", pos:"n",
+     canvas:{adj:"shouhi", adj_en:"shallow"},
+     note:"No verb form in Dictionary.md for this root."},
+  ],
+
+  // L223 — Texture & Touch (vocab). 4 roots / 12 drilled forms.
+  //   shiwe (n) + shiwi (adj) + shiwu (v) — full canvas.
+  //     Smoothness / smooth / to polish (or smooth).
+  //   moshiwe (n) + moshiwi (adj) + moshiwu (v) — full canvas. The
+  //     mo- pair of shiwe: roughness / rough / to roughen.
+  //   tere (n) + teri (adj) + teru (v) — full canvas. Touch (or
+  //     contact) / tangible / to touch.
+  //   haime (n) + haimi (adj) + haimu (v) — full canvas. Mirror /
+  //     reflective / to reflect. A strictly physical root (the
+  //     -aime cluster of flat reflective surfaces) — see A20 L199
+  //     scoping note; the contemplative reading is not in scope.
+  l223_vocab_texture_touch: [
+    {lw:"shiwe", en:"smoothness", pos:"n",
+     canvas:{adj:"shiwi", adj_en:"smooth",
+             v:"shiwu", v_en:"to polish (or smooth)"}},
+    {lw:"moshiwe", en:"roughness", pos:"n",
+     canvas:{adj:"moshiwi", adj_en:"rough",
+             v:"moshiwu", v_en:"to roughen"},
+     pair:"shiwe",
+     note:"The mo- pair of shiwe (smoothness/roughness)."},
+    {lw:"tere", en:"touch (or contact)", pos:"n",
+     canvas:{adj:"teri", adj_en:"tangible",
+             v:"teru", v_en:"to touch"}},
+    {lw:"haime", en:"mirror", pos:"n",
+     canvas:{adj:"haimi", adj_en:"reflective",
+             v:"haimu", v_en:"to reflect"},
+     note:"A strictly physical root — the -aime cluster of flat reflective surfaces (paime glass, raime picture). The contemplative \"reflect on\" reading is not in scope; see DECISIONS.md A20 L199 scoping note."},
+  ],
+
+  // L224 — Stone & Darkness (vocab). 4 roots / 8 drilled forms.
+  //   kome (n) + komi (adj) + komu (v) — full canvas. Stone /
+  //     stony (or stone-related) / to make solid.
+  //   komile — pebble. Noun-only (diminutive of kome).
+  //   komilele — grain of sand. Noun-only (double diminutive).
+  //   molune (n) + moluni (adj) + molunu (v) — full canvas. The
+  //     mo- pair of lune (light, taught core): darkness / dark / to
+  //     darken. The diminutive chain kome → komile → komilele is
+  //     surfaced in the intro card.
+  l224_vocab_stone_darkness: [
+    {lw:"kome", en:"stone", pos:"n",
+     canvas:{adj:"komi", adj_en:"stony (or stone-related)",
+             v:"komu", v_en:"to make solid"}},
+    {lw:"komile", en:"pebble", pos:"n",
+     note:"Diminutive of kome (stone). Noun-only."},
+    {lw:"komilele", en:"grain of sand", pos:"n",
+     note:"Double diminutive of kome (stone → pebble → grain of sand). Noun-only."},
+    {lw:"molune", en:"darkness", pos:"n",
+     canvas:{adj:"moluni", adj_en:"dark (or darkly)",
+             v:"molunu", v_en:"to darken"},
+     pair:"lune",
+     note:"The mo- pair of lune (light, taught core)."},
+  ],
+
+  // L225 — Unit 37 Exam: Dimension & Texture Roots.
+  // isCheckpoint:true, isSentence:true. 14 sentences spanning
+  // L220–L224. Cloze on 4 (S1, S4, S8, S11).
+  l225_dimension_texture_exam: [
+    {lw:["Lo","loiwe","su","mokauwi","ma","neo","loiwe","su","kauwi"],
+     en:"This book is heavy but my book is light.",
+     cloze:{blanks:[3,8], bank:["mokauwi","kauwi","mokauwe","kauwe","su","ma"]}},
+    {lw:["Lo","moule","su","mokouhi"],
+     en:"This tree is thick."},
+    {lw:["Lo","lire","su","souni"],
+     en:"This song is short."},
+    {lw:["Lo","lawe","su","mosouni","ata","wa lawe"],
+     en:"This day is longer than yesterday.",
+     cloze:{blanks:[3,4], bank:["mosouni","ata","souni","ala","su","lawe"]}},
+    {lw:["Lo","shafane","su","wauni"],
+     en:"This river is narrow."},
+    {lw:["Lo","hiwe","su","mowauni"],
+     en:"This house is wide."},
+    {lw:["Lo","mohe","su","leumi"],
+     en:"This cup is round."},
+    {lw:["Lo","pahe","su","moleumi"],
+     en:"This table is flat.",
+     cloze:{blanks:[1,3], bank:["pahe","moleumi","leumi","moleume","su","lo"]}},
+    {lw:["Lo","moule","su","liani"],
+     en:"This tree is tall."},
+    {lw:["Lo","shawe","su","shouhi"],
+     en:"This water is shallow."},
+    {lw:["Lo","pahe","su","shiwi","ma","lo","moule","su","moshiwi"],
+     en:"This table is smooth but this tree is rough.",
+     cloze:{blanks:[3,8], bank:["shiwi","moshiwi","shiwe","moshiwe","su","ma"]}},
+    {lw:["Ne","teru","lo","kome"],
+     en:"I touch this stone."},
+    {lw:["Lo","kome","su","mokauwi","sho","komi"],
+     en:"This stone is heavy and stony."},
+    {lw:["Lo","none","su","moluni"],
+     en:"This night is dark."},
+  ],
+
+  // ── A21e / Unit 38 — Food, Quantity & Closing Roots (L226–L232) ──
+
+  // L226 — Sour, Bitter & Spicy (vocab). 4 roots / 12 drilled forms.
+  //   feule (n) + feuli (adj) + feulu (v) — full canvas. Sourness /
+  //     sour / to turn sour.
+  //   kure (n) + kuri (adj) + kuru (v) — full canvas. Bitterness /
+  //     bitter / to turn bitter.
+  //   pike (n) + piki (adj) + piku (v) — full canvas. Pepper /
+  //     peppery / to pepper.
+  //   pikale (n) + pikali (adj) + pikalu (v) — full canvas.
+  //     Spiciness / spicy / to make spicy.
+  l226_vocab_sour_bitter_spicy: [
+    {lw:"feule", en:"sourness", pos:"n",
+     canvas:{adj:"feuli", adj_en:"sour",
+             v:"feulu", v_en:"to turn sour"}},
+    {lw:"kure", en:"bitterness", pos:"n",
+     canvas:{adj:"kuri", adj_en:"bitter",
+             v:"kuru", v_en:"to turn bitter (or embitter)"}},
+    {lw:"pike", en:"pepper", pos:"n",
+     canvas:{adj:"piki", adj_en:"peppery (or pepper-related)",
+             v:"piku", v_en:"to pepper"}},
+    {lw:"pikale", en:"spiciness", pos:"n",
+     canvas:{adj:"pikali", adj_en:"spicy",
+             v:"pikalu", v_en:"to make spicy"}},
+  ],
+
+  // L227 — Foods & the Boat (vocab). 4 roots / 6 drilled forms.
+  // Food nouns are noun-heavy by nature (A17 L182 tableware
+  // precedent — an at-cap lesson with few forms is fine).
+  //   miafe (n) + miafi (adj) — n+adj. Cheese / cheesy.
+  //   roine — rice. roini "rice-related" dropped (mechanical),
+  //     drilled as noun-only.
+  //   tahishawe — soup. tahishawi "soupy" dropped (mechanical),
+  //     drilled as noun-only.
+  //   shaihe (n) + shaihu (v) — n+v. Boat / to sail. shaihi
+  //     "boat-related" dropped (mechanical).
+  l227_vocab_foods_boat: [
+    {lw:"miafe", en:"cheese", pos:"n",
+     canvas:{adj:"miafi", adj_en:"cheesy (or cheese-related)"}},
+    {lw:"roine", en:"rice", pos:"n",
+     note:"roini \"rice-related\" remains in Dictionary.md but not drilled (mechanical — everyday-form filter, A14)."},
+    {lw:"tahishawe", en:"soup", pos:"n",
+     note:"tahishawi \"soupy (or soup-related)\" remains in Dictionary.md but not drilled (mechanical — everyday-form filter, A14)."},
+    {lw:"shaihe", en:"boat", pos:"n",
+     canvas:{v:"shaihu", v_en:"to sail"},
+     note:"shaihi \"boat-related\" remains in Dictionary.md but not drilled (mechanical — everyday-form filter, A14)."},
+  ],
+
+  // L228 — Increase, Decrease, Full & Empty (vocab). 4 roots / 12
+  // drilled forms. Two mo- pairs. Note: awi "more" and moawi "less"
+  // are already familiar as quantifiers (Grammar.md §14); this
+  // lesson teaches the full awe/moawe roots — the noun and verb
+  // forms are the new content.
+  //   awe (n) + awi (adj) + awu (v) — full canvas. Increase / more
+  //     / to increase.
+  //   moawe (n) + moawi (adj) + moawu (v) — full canvas. The mo-
+  //     pair of awe: decrease / less / to decrease.
+  //   nomae (n) + nomai (adj) + nomau (v) — full canvas. Fullness /
+  //     full / to fill.
+  //   monomae (n) + monomai (adj) + monomau (v) — full canvas. The
+  //     mo- pair of nomae: emptiness / empty / to empty.
+  l228_vocab_more_less_full_empty: [
+    {lw:"awe", en:"increase", pos:"n",
+     canvas:{adj:"awi", adj_en:"more",
+             v:"awu", v_en:"to increase"}},
+    {lw:"moawe", en:"decrease", pos:"n",
+     canvas:{adj:"moawi", adj_en:"less",
+             v:"moawu", v_en:"to decrease"},
+     pair:"awe",
+     note:"The mo- pair of awe (increase/decrease). awi \"more\" and moawi \"less\" are already familiar as quantifiers (Grammar.md §14)."},
+    {lw:"nomae", en:"fullness", pos:"n",
+     canvas:{adj:"nomai", adj_en:"full",
+             v:"nomau", v_en:"to fill"}},
+    {lw:"monomae", en:"emptiness", pos:"n",
+     canvas:{adj:"monomai", adj_en:"empty",
+             v:"monomau", v_en:"to empty"},
+     pair:"nomae",
+     note:"The mo- pair of nomae (fullness/emptiness)."},
+  ],
+
+  // L229 — Loss, Blindness & the World (vocab). 4 roots / 10 drilled
+  // forms.
+  //   morike (n) + moriku (v) — n+v. Loss / to lose (misplace).
+  //     moriki "lost" dropped (participial).
+  //   motire (n) + motiri (adj) + motiru (v) — full canvas.
+  //     Blindness / unseen (or invisible) / to not see.
+  //   mouhe (n) + mouhi (adj) — n+adj. World / worldly. No verb.
+  //   pohe (n) + pohi (adj) + pohu (v) — full canvas. Face (or
+  //     screen) / forward-facing (or on-screen) / to face.
+  l229_vocab_loss_world: [
+    {lw:"morike", en:"loss", pos:"n",
+     canvas:{v:"moriku", v_en:"to lose (or misplace)"},
+     note:"moriki \"lost\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"motire", en:"blindness", pos:"n",
+     canvas:{adj:"motiri", adj_en:"unseen (or invisible)",
+             v:"motiru", v_en:"to not see"}},
+    {lw:"mouhe", en:"world", pos:"n",
+     canvas:{adj:"mouhi", adj_en:"worldly"},
+     note:"No verb form in Dictionary.md for this root."},
+    {lw:"pohe", en:"face (or screen)", pos:"n",
+     canvas:{adj:"pohi", adj_en:"forward-facing (or on-screen)",
+             v:"pohu", v_en:"to face (turn toward)"}},
+  ],
+
+  // L230 — Continuing, Eventually & Other (vocab). 4 roots / 9
+  // drilled forms.
+  //   yauwe (n) + yauwi (adj) + yauwu (v) — full canvas.
+  //     Continuing-state / still / to continue.
+  //   feuhe (n) + feuhi (adj) — n+adj. Eventuality / eventually. No
+  //     verb form in Dictionary.md.
+  //   ouhe (n) + ouhi (adj) — n+adj. Prior-completion / already. No
+  //     verb form in Dictionary.md.
+  //   sohe (n) + sohi (adj) — n+adj. Other / another. No verb form.
+  l230_vocab_continue_other: [
+    {lw:"yauwe", en:"continuing-state", pos:"n",
+     canvas:{adj:"yauwi", adj_en:"still",
+             v:"yauwu", v_en:"to continue"}},
+    {lw:"feuhe", en:"eventuality", pos:"n",
+     canvas:{adj:"feuhi", adj_en:"eventually"},
+     note:"No verb form in Dictionary.md for this root."},
+    {lw:"ouhe", en:"prior-completion", pos:"n",
+     canvas:{adj:"ouhi", adj_en:"already"},
+     note:"No verb form in Dictionary.md for this root. ouhi \"already\" is documented as a temporal adverb in Grammar.md §15."},
+    {lw:"sohe", en:"other", pos:"n",
+     canvas:{adj:"sohi", adj_en:"another"},
+     note:"No verb form in Dictionary.md for this root."},
+  ],
+
+  // L231 — While, and Closing Weave-in (vocab). 1 anchor root
+  // (wole) + 3 canvas-completion weave-in roots. Per the §14b
+  // maximize-weave-in rule, the unit's last vocab lesson is filled
+  // with useful weave-in — here, canvas-completion (A10) of three
+  // already-taught verb roots.
+  //   wole — particle "while / during". Recognition-only (the
+  //     generator skips particles in production). Documented in
+  //     Grammar.md §10.
+  //   feihe (n) — canvas-completion: the verb feihu "to promise"
+  //     was taught A3 L96. feihi "promised" dropped (participial).
+  //   washe (n) + washi (adj) — canvas-completion: the verb washu
+  //     "to move (or flow)" was taught A4 L105.
+  //   kave (n) + kavi (adj) — canvas-completion: the verb kavu "to
+  //     break" was taught A3 L95.
+  l231_vocab_while_closing: [
+    {lw:"wole", en:"while (or during)", pos:"particle",
+     note:"Conjunction documented in Grammar.md §10. Recognition-only — the generator skips particles in production exercises."},
+    {lw:"feihe", en:"promise", pos:"n",
+     note:"Canvas-completion weave-in (A10) — the verb feihu \"to promise\" is already taught A3 L96. feihi \"promised\" remains in Dictionary.md but not drilled (participial)."},
+    {lw:"washe", en:"movement (or flow)", pos:"n",
+     canvas:{adj:"washi", adj_en:"flowing (or mobile)"},
+     note:"Canvas-completion weave-in (A10) — the verb washu \"to move (or flow)\" is already taught A4 L105."},
+    {lw:"kave", en:"fracture", pos:"n",
+     canvas:{adj:"kavi", adj_en:"broken"},
+     note:"Canvas-completion weave-in (A10) — the verb kavu \"to break\" is already taught A3 L95."},
+  ],
+
+  // L232 — Unit 38 Exam: Food, Quantity & Closing Roots.
+  // isCheckpoint:true, isSentence:true. 14 sentences spanning
+  // L226–L231. Cloze on 4 (S1, S4, S7, S9, S12 → choose 4: S1,S4,S7,S12).
+  l232_food_quantity_exam: [
+    {lw:["Lo","pome","su","feuli","sho","lo","kupe","su","kuri"],
+     en:"This fruit is sour and this coffee is bitter.",
+     cloze:{blanks:[3,8], bank:["feuli","kuri","feule","kure","su","sho"]}},
+    {lw:["Lo","tahe","su","pikali"],
+     en:"This food is spicy."},
+    {lw:["Ne","tahu","miafe","sho","roine"],
+     en:"I eat cheese and rice."},
+    {lw:["Ne","shaihu","so","shawome"],
+     en:"I sail to the sea.",
+     cloze:{blanks:[1,3], bank:["shaihu","shawome","shaihe","shawe","so","ne"]}},
+    {lw:["Neo","tahishawe","su","nomai"],
+     en:"My soup is full."},
+    {lw:["Neo","loune","wa","awu"],
+     en:"My success increased."},
+    {lw:["Lo","mohe","su","nomai","ma","neo","mohe","su","monomai"],
+     en:"This cup is full but my cup is empty.",
+     cloze:{blanks:[3,8], bank:["nomai","monomai","nomae","monomae","su","ma"]}},
+    {lw:["Ne","wa","moriku","neo","morume"],
+     en:"I lost my key."},
+    {lw:["Lo","mouhe","su","mopiami"],
+     en:"This world is big."},
+    {lw:["Ne","motiru","neo","voure"],
+     en:"I do not see my phone."},
+    {lw:["Ne","yauwu","neo","seihe"],
+     en:"I continue my study."},
+    {lw:["Ne","ouhi","wa","toyu","neo","piruhe"],
+     en:"I already finished my plan.",
+     cloze:{blanks:[1,5], bank:["ouhi","piruhe","yauwi","feuhe","wa","neo"]}},
+    {lw:["Ne","liru","wole","ne","halu"],
+     en:"I sing while I go."},
+    {lw:["Lo","voure","su","kavi","ma","ne","wu","mokavu","ve"],
+     en:"This phone is broken but I will repair it."},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -5285,6 +6187,15 @@ const UNITS = [
   {name:"Unit 31 — Tools, Music & Art", start:174, track:"advanced"},
   {name:"Unit 32 — Cultural & Abstract Roots", start:181, track:"advanced"},
   {name:"Unit 33 — Religion, Philosophy & Reflection", start:188, track:"advanced"},
+  // A21 — Useful Verbs splits into five internal sub-units (A21a–e).
+  // Each is its own UNITS entry so the collapsible-unit UI stays
+  // navigable; together they are the single A21 unit in
+  // advanced_track_plan.md. See the A21 internal scoping document.
+  {name:"Unit 34 — Useful Verbs I: Communication & Cognition", start:194, track:"advanced"},
+  {name:"Unit 35 — Useful Verbs II: Physical Action & Handling", start:201, track:"advanced"},
+  {name:"Unit 36 — Useful Verbs III: State, Body & Life-Cycle", start:207, track:"advanced"},
+  {name:"Unit 37 — Useful Verbs IV: Dimension & Texture", start:213, track:"advanced"},
+  {name:"Unit 38 — Useful Verbs V: Food, Quantity & Closing", start:219, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -7243,6 +8154,312 @@ const LESSONS = [
    vocabKey:"l200_religion_philosophy_exam",
    xp:30,
    unit:32,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ═══════════════════════════════════════════════════════════════
+  // A21 — Useful Verbs (general). L201–L232. The largest advanced
+  // unit, split into five internal sub-units (A21a–A21e / display
+  // Units 34–38), each a thematic cluster ending in its own
+  // checkpoint exam. 105 anchor roots, all already in Dictionary.md.
+  // See the A21 internal scoping document and DECISIONS.md "A21".
+  // ═══════════════════════════════════════════════════════════════
+
+  // ── A21a / Unit 34 — Communication & Cognition Verbs ──
+  {id:"l201_vocab_words_messages",
+   title:"Words & Messages",
+   desc:"iruhe (word), ifuhe (sentence), maihe (message), maihupue (messenger)",
+   icon:"\u2709\ufe0f",
+   vocabKey:"l201_vocab_words_messages",
+   xp:18,
+   unit:33,
+   intro:`<h3>\u2709\ufe0f Welcome to Useful Verbs</h3><p>This unit is the largest in the advanced track \u2014 a broad sweep of everyday verbs and the roots behind them, grouped into five themed sub-units. We open with the words for language itself: the pieces you speak and the messages you send.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>iruhe</em> (n.)</td><td style="padding:4px 12px">word</td></tr><tr><td style="padding:4px 12px"><em>iruhu</em> (v.)</td><td style="padding:4px 12px">to word (phrase)</td></tr><tr><td style="padding:4px 12px"><em>ifuhe</em> (n.)</td><td style="padding:4px 12px">sentence</td></tr><tr><td style="padding:4px 12px"><em>ifuhu</em> (v.)</td><td style="padding:4px 12px">to phrase</td></tr><tr><td style="padding:4px 12px"><em>maihe</em> (n.)</td><td style="padding:4px 12px">message</td></tr><tr><td style="padding:4px 12px"><em>maihu</em> (v.)</td><td style="padding:4px 12px">to send a message</td></tr><tr><td style="padding:4px 12px"><em>maihupue</em> (n.)</td><td style="padding:4px 12px">messenger</td></tr></table><p><em>maihupue</em> is the <em>-pue</em> agent of <em>maihu</em> \u2014 \"one who sends messages.\" The same productive pattern you've seen in <em>lirupue</em> (singer) and <em>kaisupue</em> (teacher).</p><span class="example">Lo iruhe su nohi. <span class="gloss">This word is new.</span></span><span class="example">Ne maihu so neo mawe. <span class="gloss">I send a message to my mother.</span></span><span class="example">Maihupue wa vanu. <span class="gloss">The messenger came.</span></span>`},
+
+  {id:"l202_vocab_ask_warn_invite",
+   title:"Asking, Warning, Inviting",
+   desc:"mokilire (answer), nauke (warning), poule (invitation), shoinulire (translation)",
+   icon:"\ud83d\udce2",
+   vocabKey:"l202_vocab_ask_warn_invite",
+   xp:18,
+   unit:33,
+   intro:`<h3>\ud83d\udce2 Reaching out</h3><p>Four roots for the things you do <em>toward</em> other people \u2014 answering, warning, inviting, translating \u2014 plus one more verb that completes a root you already half-know.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>mokilire</em> (n.)</td><td style="padding:4px 12px">answer</td></tr><tr><td style="padding:4px 12px"><em>mokiliru</em> (v.)</td><td style="padding:4px 12px">to answer</td></tr><tr><td style="padding:4px 12px"><em>nauke</em> (n.)</td><td style="padding:4px 12px">warning</td></tr><tr><td style="padding:4px 12px"><em>nauku</em> (v.)</td><td style="padding:4px 12px">to warn</td></tr><tr><td style="padding:4px 12px"><em>poule</em> (n.)</td><td style="padding:4px 12px">invitation</td></tr><tr><td style="padding:4px 12px"><em>poulu</em> (v.)</td><td style="padding:4px 12px">to invite</td></tr><tr><td style="padding:4px 12px"><em>shoinulire</em> (n.)</td><td style="padding:4px 12px">translation</td></tr><tr><td style="padding:4px 12px"><em>shoinuliru</em> (v.)</td><td style="padding:4px 12px">to translate</td></tr></table><p><em>mokilire</em> is <em>mo-</em> + <em>kilire</em> (question) \u2014 an answer is the balancing pair of a question. And <em>shoinulire</em> is built transparently from <em>shoinu</em> (to change) + <em>lire</em> (speech): translation is \"changing-speech.\"</p><h3>\ud83d\udcde One more \u2014 <em>vouru</em></h3><p>You learned <em>voure</em> (phone) back in the core course. Here is its verb: <em>vouru</em>, to call someone \u2014 and the adjective <em>vouri</em>, phone-related.</p><span class="example">Ne mokiliru teo kilire. <span class="gloss">I answer your question.</span></span><span class="example">Ve wa nauku nea. <span class="gloss">She warned us.</span></span><span class="example">Ne vouru neo loye. <span class="gloss">I call my brother.</span></span>`},
+
+  {id:"l203_vocab_plan_solve",
+   title:"Planning & Solving",
+   desc:"piruhe (plan), seihe (study), shire (creation), soile (solution)",
+   icon:"\ud83e\udde9",
+   vocabKey:"l203_vocab_plan_solve",
+   xp:18,
+   unit:33,
+   intro:`<h3>\ud83e\udde9 The working mind</h3><p>Four roots for getting things done \u2014 making a plan, studying, creating, solving a problem.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>piruhe</em> (n.)</td><td style="padding:4px 12px">plan</td></tr><tr><td style="padding:4px 12px"><em>piruhu</em> (v.)</td><td style="padding:4px 12px">to plan</td></tr><tr><td style="padding:4px 12px"><em>seihe</em> (n.)</td><td style="padding:4px 12px">study</td></tr><tr><td style="padding:4px 12px"><em>seihi</em> (adj.)</td><td style="padding:4px 12px">studious</td></tr><tr><td style="padding:4px 12px"><em>seihu</em> (v.)</td><td style="padding:4px 12px">to study</td></tr><tr><td style="padding:4px 12px"><em>shire</em> (n.)</td><td style="padding:4px 12px">creation</td></tr><tr><td style="padding:4px 12px"><em>shiri</em> (adj.)</td><td style="padding:4px 12px">creative</td></tr><tr><td style="padding:4px 12px"><em>shiru</em> (v.)</td><td style="padding:4px 12px">to make (or create)</td></tr><tr><td style="padding:4px 12px"><em>soile</em> (n.)</td><td style="padding:4px 12px">solution</td></tr><tr><td style="padding:4px 12px"><em>soilu</em> (v.)</td><td style="padding:4px 12px">to solve</td></tr></table><p><em>piruhu</em> pairs naturally with <em>lai</em> complement clauses: <em>Ne piruhu lai ne wu halu</em> \u2014 \"I plan to go.\"</p><span class="example">Ne piruhu lai ne wu halu. <span class="gloss">I plan to go.</span></span><span class="example">Ve su seihi. <span class="gloss">She is studious.</span></span><span class="example">Nea soilu lo. <span class="gloss">We solve this.</span></span>`},
+
+  {id:"l204_vocab_change_sameness",
+   title:"Change & Sameness",
+   desc:"shoine (change), weihe (repetition), lame (sameness), molame (difference)",
+   icon:"\ud83d\udd04",
+   vocabKey:"l204_vocab_change_sameness",
+   xp:18,
+   unit:33,
+   intro:`<h3>\ud83d\udd04 The same and the different</h3><p>Four full-canvas roots about whether things stay the same or change \u2014 including a <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shoine</em> (n.)</td><td style="padding:4px 12px">change</td></tr><tr><td style="padding:4px 12px"><em>shoini</em> (adj.)</td><td style="padding:4px 12px">changed (or instead)</td></tr><tr><td style="padding:4px 12px"><em>shoinu</em> (v.)</td><td style="padding:4px 12px">to change</td></tr><tr><td style="padding:4px 12px"><em>weihe</em> (n.)</td><td style="padding:4px 12px">repetition</td></tr><tr><td style="padding:4px 12px"><em>weihi</em> (adj.)</td><td style="padding:4px 12px">again</td></tr><tr><td style="padding:4px 12px"><em>weihu</em> (v.)</td><td style="padding:4px 12px">to redo</td></tr><tr><td style="padding:4px 12px"><em>lame</em> (n.)</td><td style="padding:4px 12px">sameness</td></tr><tr><td style="padding:4px 12px"><em>lami</em> (adj.)</td><td style="padding:4px 12px">same</td></tr><tr><td style="padding:4px 12px"><em>lamu</em> (v.)</td><td style="padding:4px 12px">to copy</td></tr><tr><td style="padding:4px 12px"><em>molame</em> (n.)</td><td style="padding:4px 12px">difference</td></tr><tr><td style="padding:4px 12px"><em>molami</em> (adj.)</td><td style="padding:4px 12px">different</td></tr><tr><td style="padding:4px 12px"><em>molamu</em> (v.)</td><td style="padding:4px 12px">to differ</td></tr></table><p><em>molame</em> is the <em>mo-</em> pair of <em>lame</em>: where <em>lame</em> is sameness, <em>molame</em> is difference.</p><span class="example">Loa loiwea su lami. <span class="gloss">These books are the same.</span></span><span class="example">Neo hiwe su molami. <span class="gloss">My house is different.</span></span><span class="example">Ne weihu lo. <span class="gloss">I redo this.</span></span>`},
+
+  {id:"l205_vocab_success_correction",
+   title:"Success & Correction",
+   desc:"nove (correctness), lohure (perfection), loune (success), moloune (failure)",
+   icon:"\ud83c\udfaf",
+   vocabKey:"l205_vocab_success_correction",
+   xp:18,
+   unit:33,
+   intro:`<h3>\ud83c\udfaf Getting it right</h3><p>Four full-canvas roots about correctness and outcome \u2014 including the <em>loune</em>\u2009/\u2009<em>moloune</em> success-and-failure <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nove</em> (n.)</td><td style="padding:4px 12px">correctness</td></tr><tr><td style="padding:4px 12px"><em>novi</em> (adj.)</td><td style="padding:4px 12px">correct</td></tr><tr><td style="padding:4px 12px"><em>novu</em> (v.)</td><td style="padding:4px 12px">to correct</td></tr><tr><td style="padding:4px 12px"><em>lohure</em> (n.)</td><td style="padding:4px 12px">perfection</td></tr><tr><td style="padding:4px 12px"><em>lohuri</em> (adj.)</td><td style="padding:4px 12px">perfect</td></tr><tr><td style="padding:4px 12px"><em>lohuru</em> (v.)</td><td style="padding:4px 12px">to perfect</td></tr><tr><td style="padding:4px 12px"><em>loune</em> (n.)</td><td style="padding:4px 12px">success</td></tr><tr><td style="padding:4px 12px"><em>louni</em> (adj.)</td><td style="padding:4px 12px">successful</td></tr><tr><td style="padding:4px 12px"><em>lounu</em> (v.)</td><td style="padding:4px 12px">to succeed</td></tr><tr><td style="padding:4px 12px"><em>moloune</em> (n.)</td><td style="padding:4px 12px">failure</td></tr><tr><td style="padding:4px 12px"><em>molouni</em> (adj.)</td><td style="padding:4px 12px">failed</td></tr><tr><td style="padding:4px 12px"><em>molounu</em> (v.)</td><td style="padding:4px 12px">to fail</td></tr></table><span class="example">Teo iruhe su novi. <span class="gloss">Your word is correct.</span></span><span class="example">Ne wa lounu. <span class="gloss">I succeeded.</span></span><span class="example">Ve mai wa molounu. <span class="gloss">She did not fail.</span></span>`},
+
+  {id:"l206_vocab_avoid_hinder",
+   title:"Avoidance & Hindrance",
+   desc:"motere (aversion), mosene (ignorance), mosove (hindrance), molahe (disturbance)",
+   icon:"\ud83d\udeab",
+   vocabKey:"l206_vocab_avoid_hinder",
+   xp:18,
+   unit:33,
+   intro:`<h3>\ud83d\udeab Getting in the way</h3><p>Four roots for the negative side of action \u2014 avoiding, not knowing, hindering, disturbing. Each starts with <em>mo-</em>, but here that's part of the root, not a balancing pair you need to track.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>motere</em> (n.)</td><td style="padding:4px 12px">aversion</td></tr><tr><td style="padding:4px 12px"><em>moteri</em> (adj.)</td><td style="padding:4px 12px">averse</td></tr><tr><td style="padding:4px 12px"><em>moteru</em> (v.)</td><td style="padding:4px 12px">to avoid (or flinch)</td></tr><tr><td style="padding:4px 12px"><em>mosene</em> (n.)</td><td style="padding:4px 12px">ignorance</td></tr><tr><td style="padding:4px 12px"><em>mosenu</em> (v.)</td><td style="padding:4px 12px">to not know</td></tr><tr><td style="padding:4px 12px"><em>mosove</em> (n.)</td><td style="padding:4px 12px">hindrance</td></tr><tr><td style="padding:4px 12px"><em>mosovi</em> (adj.)</td><td style="padding:4px 12px">unhelpful</td></tr><tr><td style="padding:4px 12px"><em>mosovu</em> (v.)</td><td style="padding:4px 12px">to hinder</td></tr><tr><td style="padding:4px 12px"><em>molahe</em> (n.)</td><td style="padding:4px 12px">disturbance</td></tr><tr><td style="padding:4px 12px"><em>molahu</em> (v.)</td><td style="padding:4px 12px">to disturb</td></tr></table><span class="example">Ne moteru lo. <span class="gloss">I avoid this.</span></span><span class="example">Ve mosenu. <span class="gloss">She does not know.</span></span><span class="example">Lo su mosovi. <span class="gloss">This is unhelpful.</span></span>`},
+
+  {id:"l207_communication_exam",
+   title:"Unit 34 Exam \u2014 Communication & Cognition Verbs",
+   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus cloze on four key constructions.",
+   icon:"\u2709\ufe0f",
+   vocabKey:"l207_communication_exam",
+   xp:30,
+   unit:33,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── A21b / Unit 35 — Physical Action & Handling Verbs ──
+  {id:"l208_vocab_pickup_setdown",
+   title:"Picking Up & Setting Down",
+   desc:"toihe (pickup), motoihe (drop-off), muwe (sending), mowoune (lowering)",
+   icon:"\ud83d\udce6",
+   vocabKey:"l208_vocab_pickup_setdown",
+   xp:18,
+   unit:34,
+   intro:`<h3>\ud83d\udce6 Handling things</h3><p>The second sub-unit turns to the body and the hands \u2014 verbs of moving objects around. We start with picking up and setting down.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>toihe</em> (n.)</td><td style="padding:4px 12px">pickup</td></tr><tr><td style="padding:4px 12px"><em>toihu</em> (v.)</td><td style="padding:4px 12px">to pick up (or retrieve)</td></tr><tr><td style="padding:4px 12px"><em>motoihe</em> (n.)</td><td style="padding:4px 12px">drop-off</td></tr><tr><td style="padding:4px 12px"><em>motoihu</em> (v.)</td><td style="padding:4px 12px">to drop off (or hand off)</td></tr><tr><td style="padding:4px 12px"><em>muwe</em> (n.)</td><td style="padding:4px 12px">sending</td></tr><tr><td style="padding:4px 12px"><em>muwu</em> (v.)</td><td style="padding:4px 12px">to send (or dispatch)</td></tr><tr><td style="padding:4px 12px"><em>mowoune</em> (n.)</td><td style="padding:4px 12px">lowering</td></tr><tr><td style="padding:4px 12px"><em>mowounu</em> (v.)</td><td style="padding:4px 12px">to lower (or set down)</td></tr></table><p>These are drilled as noun-and-verb pairs \u2014 their participial adjectives (\"picked-up,\" \"sent\") aren't everyday speech, so they stay in the dictionary but off the flashcards.</p><span class="example">Ne toihu lo loiwe. <span class="gloss">I pick up this book.</span></span><span class="example">Ve motoihu neo maihe. <span class="gloss">She drops off my message.</span></span><span class="example">Nea muwu houme. <span class="gloss">We send bread.</span></span>`},
+
+  {id:"l209_vocab_secure_conceal",
+   title:"Securing & Concealing",
+   desc:"rume (lock), morume (key), movehe (hiding), movihe (keeping)",
+   icon:"\ud83d\udd12",
+   vocabKey:"l209_vocab_secure_conceal",
+   xp:18,
+   unit:34,
+   intro:`<h3>\ud83d\udd12 Keeping things safe</h3><p>Four roots for locking, hiding, and holding on to things.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>rume</em> (n.)</td><td style="padding:4px 12px">lock</td></tr><tr><td style="padding:4px 12px"><em>rumi</em> (adj.)</td><td style="padding:4px 12px">locked</td></tr><tr><td style="padding:4px 12px"><em>rumu</em> (v.)</td><td style="padding:4px 12px">to lock</td></tr><tr><td style="padding:4px 12px"><em>morume</em> (n.)</td><td style="padding:4px 12px">key</td></tr><tr><td style="padding:4px 12px"><em>morumu</em> (v.)</td><td style="padding:4px 12px">to unlock</td></tr><tr><td style="padding:4px 12px"><em>movehe</em> (n.)</td><td style="padding:4px 12px">hiding</td></tr><tr><td style="padding:4px 12px"><em>movehu</em> (v.)</td><td style="padding:4px 12px">to hide (or conceal)</td></tr><tr><td style="padding:4px 12px"><em>movihe</em> (n.)</td><td style="padding:4px 12px">keeping</td></tr><tr><td style="padding:4px 12px"><em>movihi</em> (adj.)</td><td style="padding:4px 12px">kept (or stingy)</td></tr><tr><td style="padding:4px 12px"><em>movihu</em> (v.)</td><td style="padding:4px 12px">to keep (or retain)</td></tr></table><p>Notice <em>rume</em> (lock) and <em>morume</em> (key) \u2014 the key is the <em>mo-</em> partner of the lock, the thing that undoes it.</p><span class="example">Neo hiwe su rumi. <span class="gloss">My house is locked.</span></span><span class="example">Ne movehu neo morume. <span class="gloss">I hide my key.</span></span><span class="example">Ve movihu neo loiwe. <span class="gloss">She keeps my book.</span></span>`},
+
+  {id:"l210_vocab_search_clean",
+   title:"Searching & Cleaning",
+   desc:"riwe (search), saye (cleanliness), mosaye (dirt), mokave (repair)",
+   icon:"\ud83e\uddf9",
+   vocabKey:"l210_vocab_search_clean",
+   xp:18,
+   unit:34,
+   intro:`<h3>\ud83e\uddf9 Setting things right</h3><p>Four roots for everyday upkeep \u2014 searching, cleaning, and fixing \u2014 including the <em>saye</em>\u2009/\u2009<em>mosaye</em> clean-and-dirty <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>riwe</em> (n.)</td><td style="padding:4px 12px">search</td></tr><tr><td style="padding:4px 12px"><em>riwu</em> (v.)</td><td style="padding:4px 12px">to search (or seek)</td></tr><tr><td style="padding:4px 12px"><em>saye</em> (n.)</td><td style="padding:4px 12px">cleanliness</td></tr><tr><td style="padding:4px 12px"><em>sayi</em> (adj.)</td><td style="padding:4px 12px">clean</td></tr><tr><td style="padding:4px 12px"><em>sayu</em> (v.)</td><td style="padding:4px 12px">to clean (or wash)</td></tr><tr><td style="padding:4px 12px"><em>mosaye</em> (n.)</td><td style="padding:4px 12px">dirt</td></tr><tr><td style="padding:4px 12px"><em>mosayi</em> (adj.)</td><td style="padding:4px 12px">dirty</td></tr><tr><td style="padding:4px 12px"><em>mosayu</em> (v.)</td><td style="padding:4px 12px">to dirty (or soil)</td></tr><tr><td style="padding:4px 12px"><em>mokave</em> (n.)</td><td style="padding:4px 12px">repair</td></tr><tr><td style="padding:4px 12px"><em>mokavu</em> (v.)</td><td style="padding:4px 12px">to mend (or repair)</td></tr></table><span class="example">Ne riwu neo morume. <span class="gloss">I search for my key.</span></span><span class="example">Lo mohe su sayi. <span class="gloss">This cup is clean.</span></span><span class="example">Neo lauhe su mosayi. <span class="gloss">My hand is dirty.</span></span>`},
+
+  {id:"l211_vocab_lead_connect",
+   title:"Leading & Connecting",
+   desc:"tole (leadership), motole (following), mohese (bond), mowahe (estrangement)",
+   icon:"\ud83e\udd1d",
+   vocabKey:"l211_vocab_lead_connect",
+   xp:18,
+   unit:34,
+   intro:`<h3>\ud83e\udd1d People and bonds</h3><p>Four roots for how people relate \u2014 leading and following, connecting and drifting apart. <em>tole</em> and <em>motole</em> are a <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>tole</em> (n.)</td><td style="padding:4px 12px">leadership</td></tr><tr><td style="padding:4px 12px"><em>toli</em> (adj.)</td><td style="padding:4px 12px">leading</td></tr><tr><td style="padding:4px 12px"><em>tolu</em> (v.)</td><td style="padding:4px 12px">to lead</td></tr><tr><td style="padding:4px 12px"><em>motole</em> (n.)</td><td style="padding:4px 12px">following</td></tr><tr><td style="padding:4px 12px"><em>motoli</em> (adj.)</td><td style="padding:4px 12px">loyal</td></tr><tr><td style="padding:4px 12px"><em>motolu</em> (v.)</td><td style="padding:4px 12px">to follow</td></tr><tr><td style="padding:4px 12px"><em>mohese</em> (n.)</td><td style="padding:4px 12px">bond (or connection)</td></tr><tr><td style="padding:4px 12px"><em>mohesu</em> (v.)</td><td style="padding:4px 12px">to join (or connect)</td></tr><tr><td style="padding:4px 12px"><em>mowahe</em> (n.)</td><td style="padding:4px 12px">estrangement</td></tr><tr><td style="padding:4px 12px"><em>mowahu</em> (v.)</td><td style="padding:4px 12px">to estrange</td></tr></table><span class="example">Ve tolu nea. <span class="gloss">She leads us.</span></span><span class="example">Ne motolu neo mawe. <span class="gloss">I follow my mother.</span></span><span class="example">Ne mohesu ko neo wame. <span class="gloss">I connect with my friend.</span></span>`},
+
+  {id:"l212_vocab_steps_water",
+   title:"Steps & Water",
+   desc:"liohe (step), pishe (drop), pishawe (splash), shalome (puddle)",
+   icon:"\ud83d\udca7",
+   vocabKey:"l212_vocab_steps_water",
+   xp:18,
+   unit:34,
+   intro:`<h3>\ud83d\udca7 Small motions</h3><p>Four concrete roots to close the handling sub-unit \u2014 stepping up, and the small motions of water.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>liohe</em> (n.)</td><td style="padding:4px 12px">step (stair)</td></tr><tr><td style="padding:4px 12px"><em>liohu</em> (v.)</td><td style="padding:4px 12px">to step up</td></tr><tr><td style="padding:4px 12px"><em>pishe</em> (n.)</td><td style="padding:4px 12px">drop (of water)</td></tr><tr><td style="padding:4px 12px"><em>pishu</em> (v.)</td><td style="padding:4px 12px">to drip</td></tr><tr><td style="padding:4px 12px"><em>pishawe</em> (n.)</td><td style="padding:4px 12px">splash</td></tr><tr><td style="padding:4px 12px"><em>pishawu</em> (v.)</td><td style="padding:4px 12px">to splash</td></tr><tr><td style="padding:4px 12px"><em>shalome</em> (n.)</td><td style="padding:4px 12px">puddle</td></tr></table><p><em>pishe</em>, <em>pishawe</em>, and <em>shalome</em> all sit in Liru's water-vocabulary neighborhood \u2014 small cousins of <em>shawe</em> (water) and <em>shafane</em> (river). <em>shalome</em> is noun-only \u2014 a puddle is a thing, not an action.</p><span class="example">Ne liohu. <span class="gloss">I step up.</span></span><span class="example">Shawe pishu. <span class="gloss">Water drips.</span></span><span class="example">Ne tiru shalome. <span class="gloss">I see a puddle.</span></span>`},
+
+  {id:"l213_handling_exam",
+   title:"Unit 35 Exam \u2014 Physical Action & Handling Verbs",
+   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus cloze on four key constructions.",
+   icon:"\ud83d\udce6",
+   vocabKey:"l213_handling_exam",
+   xp:30,
+   unit:34,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── A21c / Unit 36 — State, Body & Life-Cycle Verbs ──
+  {id:"l214_vocab_wake_rest",
+   title:"Waking & Resting",
+   desc:"morae (wakefulness), lahe (rest), mohiye (dreamless sleep), moele (numbness)",
+   icon:"\ud83d\ude34",
+   vocabKey:"l214_vocab_wake_rest",
+   xp:18,
+   unit:35,
+   intro:`<h3>\ud83d\ude34 The body's states</h3><p>The third sub-unit covers the body, consciousness, and the life cycle. It opens with the states between sleep and waking.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>morae</em> (n.)</td><td style="padding:4px 12px">wakefulness</td></tr><tr><td style="padding:4px 12px"><em>morai</em> (adj.)</td><td style="padding:4px 12px">awake</td></tr><tr><td style="padding:4px 12px"><em>morau</em> (v.)</td><td style="padding:4px 12px">to wake up</td></tr><tr><td style="padding:4px 12px"><em>lahe</em> (n.)</td><td style="padding:4px 12px">rest</td></tr><tr><td style="padding:4px 12px"><em>lahi</em> (adj.)</td><td style="padding:4px 12px">restful</td></tr><tr><td style="padding:4px 12px"><em>lahu</em> (v.)</td><td style="padding:4px 12px">to rest</td></tr><tr><td style="padding:4px 12px"><em>mohiye</em> (n.)</td><td style="padding:4px 12px">dreamless sleep</td></tr><tr><td style="padding:4px 12px"><em>mohiyi</em> (adj.)</td><td style="padding:4px 12px">dreamless</td></tr><tr><td style="padding:4px 12px"><em>mohiyu</em> (v.)</td><td style="padding:4px 12px">to sleep without dreams</td></tr><tr><td style="padding:4px 12px"><em>moele</em> (n.)</td><td style="padding:4px 12px">numbness</td></tr><tr><td style="padding:4px 12px"><em>moeli</em> (adj.)</td><td style="padding:4px 12px">numb</td></tr><tr><td style="padding:4px 12px"><em>moelu</em> (v.)</td><td style="padding:4px 12px">to numb</td></tr></table><p><em>mohiye</em> builds on <em>hiye</em> (dream) from the last unit: <em>mo-</em> + <em>hiye</em> is sleep <em>without</em> dreams.</p><span class="example">Ne morai. <span class="gloss">I am awake.</span></span><span class="example">Lo none su lahi. <span class="gloss">This night is restful.</span></span><span class="example">Neo lauhe su moeli. <span class="gloss">My hand is numb.</span></span>`},
+
+  {id:"l215_vocab_strength_birth",
+   title:"Strength & Birth",
+   desc:"tuwe (strength), motuwe (weakness), mohawe (suffocation), nore (birth)",
+   icon:"\ud83d\udcaa",
+   vocabKey:"l215_vocab_strength_birth",
+   xp:18,
+   unit:35,
+   intro:`<h3>\ud83d\udcaa Body and breath</h3><p>Four roots about the body's power and its beginnings \u2014 including the <em>tuwe</em>\u2009/\u2009<em>motuwe</em> strength-and-weakness <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>tuwe</em> (n.)</td><td style="padding:4px 12px">strength</td></tr><tr><td style="padding:4px 12px"><em>tuwi</em> (adj.)</td><td style="padding:4px 12px">strong</td></tr><tr><td style="padding:4px 12px"><em>tuwu</em> (v.)</td><td style="padding:4px 12px">to strengthen</td></tr><tr><td style="padding:4px 12px"><em>motuwe</em> (n.)</td><td style="padding:4px 12px">weakness</td></tr><tr><td style="padding:4px 12px"><em>motuwi</em> (adj.)</td><td style="padding:4px 12px">weak</td></tr><tr><td style="padding:4px 12px"><em>motuwu</em> (v.)</td><td style="padding:4px 12px">to weaken</td></tr><tr><td style="padding:4px 12px"><em>mohawe</em> (n.)</td><td style="padding:4px 12px">suffocation</td></tr><tr><td style="padding:4px 12px"><em>mohawi</em> (adj.)</td><td style="padding:4px 12px">breathless</td></tr><tr><td style="padding:4px 12px"><em>mohawu</em> (v.)</td><td style="padding:4px 12px">to suffocate</td></tr><tr><td style="padding:4px 12px"><em>nore</em> (n.)</td><td style="padding:4px 12px">birth</td></tr><tr><td style="padding:4px 12px"><em>nori</em> (adj.)</td><td style="padding:4px 12px">born</td></tr><tr><td style="padding:4px 12px"><em>noru</em> (v.)</td><td style="padding:4px 12px">to give birth</td></tr></table><p><em>mohawe</em> builds on <em>hawe</em> (breath), which you met among the body parts: <em>mo-</em> + <em>hawe</em> is the loss of breath.</p><span class="example">Neo pawe su tuwi. <span class="gloss">My father is strong.</span></span><span class="example">Ne su motuwi. <span class="gloss">I am weak.</span></span><span class="example">Neo mawe wa noru. <span class="gloss">My mother gave birth.</span></span>`},
+
+  {id:"l216_vocab_fight_destroy",
+   title:"Fighting & Destruction",
+   desc:"monauye (fight), monore (killing), moshire (destruction), rouwe (harm)",
+   icon:"\u2694\ufe0f",
+   vocabKey:"l216_vocab_fight_destroy",
+   xp:18,
+   unit:35,
+   intro:`<h3>\u2694\ufe0f Conflict and damage</h3><p>Four roots for harm and conflict. <em>moshire</em> is the <em>mo-</em> pair of <em>shire</em> (creation) from the first sub-unit \u2014 destruction is unmaking.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>monauye</em> (n.)</td><td style="padding:4px 12px">fight</td></tr><tr><td style="padding:4px 12px"><em>monauyi</em> (adj.)</td><td style="padding:4px 12px">hostile</td></tr><tr><td style="padding:4px 12px"><em>monauyu</em> (v.)</td><td style="padding:4px 12px">to fight (or combat)</td></tr><tr><td style="padding:4px 12px"><em>monore</em> (n.)</td><td style="padding:4px 12px">killing</td></tr><tr><td style="padding:4px 12px"><em>monoru</em> (v.)</td><td style="padding:4px 12px">to kill</td></tr><tr><td style="padding:4px 12px"><em>moshire</em> (n.)</td><td style="padding:4px 12px">destruction</td></tr><tr><td style="padding:4px 12px"><em>moshiru</em> (v.)</td><td style="padding:4px 12px">to destroy</td></tr><tr><td style="padding:4px 12px"><em>rouwe</em> (n.)</td><td style="padding:4px 12px">harm (or damage)</td></tr><tr><td style="padding:4px 12px"><em>rouwi</em> (adj.)</td><td style="padding:4px 12px">harmful</td></tr><tr><td style="padding:4px 12px"><em>rouwu</em> (v.)</td><td style="padding:4px 12px">to harm</td></tr></table><span class="example">Vea wa monauyu. <span class="gloss">They fought.</span></span><span class="example">Lo su rouwi. <span class="gloss">This is harmful.</span></span><span class="example">Ne mai moshiru neo hiwe. <span class="gloss">I do not destroy my house.</span></span>`},
+
+  {id:"l217_vocab_enemy_safety",
+   title:"Enemies & Safety",
+   desc:"mowame (enemy), molene (betrayal), moyohe (danger), yohe (safety)",
+   icon:"\ud83d\udee1\ufe0f",
+   vocabKey:"l217_vocab_enemy_safety",
+   xp:18,
+   unit:35,
+   intro:`<h3>\ud83d\udee1\ufe0f Danger and protection</h3><p>Four roots about threat and security \u2014 closing with the <em>moyohe</em>\u2009/\u2009<em>yohe</em> danger-and-safety <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>mowame</em> (n.)</td><td style="padding:4px 12px">enemy</td></tr><tr><td style="padding:4px 12px"><em>mowami</em> (adj.)</td><td style="padding:4px 12px">dislikable</td></tr><tr><td style="padding:4px 12px"><em>mowamu</em> (v.)</td><td style="padding:4px 12px">to dislike</td></tr><tr><td style="padding:4px 12px"><em>molene</em> (n.)</td><td style="padding:4px 12px">betrayal</td></tr><tr><td style="padding:4px 12px"><em>moleni</em> (adj.)</td><td style="padding:4px 12px">untrustworthy</td></tr><tr><td style="padding:4px 12px"><em>molenu</em> (v.)</td><td style="padding:4px 12px">to betray</td></tr><tr><td style="padding:4px 12px"><em>moyohe</em> (n.)</td><td style="padding:4px 12px">danger</td></tr><tr><td style="padding:4px 12px"><em>moyohi</em> (adj.)</td><td style="padding:4px 12px">dangerous</td></tr><tr><td style="padding:4px 12px"><em>moyohu</em> (v.)</td><td style="padding:4px 12px">to endanger</td></tr><tr><td style="padding:4px 12px"><em>yohe</em> (n.)</td><td style="padding:4px 12px">safety</td></tr><tr><td style="padding:4px 12px"><em>yohi</em> (adj.)</td><td style="padding:4px 12px">safe (or secure)</td></tr><tr><td style="padding:4px 12px"><em>yohu</em> (v.)</td><td style="padding:4px 12px">to make safe</td></tr></table><p><em>mowame</em> (enemy) is the <em>mo-</em> pair of <em>wame</em> (friend) \u2014 a relationship you've known since the early lessons.</p><span class="example">Ve su neo mowame. <span class="gloss">He is my enemy.</span></span><span class="example">Lo shawe su moyohi. <span class="gloss">This water is dangerous.</span></span><span class="example">Neo hiwe su yohi. <span class="gloss">My house is safe.</span></span>`},
+
+  {id:"l218_vocab_stand_stop",
+   title:"Standing & Stopping",
+   desc:"moseme (standing), mowashu (to stop), motahe (fasting), moshahu (to abstain)",
+   icon:"\u270b",
+   vocabKey:"l218_vocab_stand_stop",
+   xp:18,
+   unit:35,
+   intro:`<h3>\u270b Holding still</h3><p>Four roots for stopping and holding back. Two of them \u2014 <em>mowashu</em> and <em>moshahu</em> \u2014 have no noun form: they are pure verbs (with <em>mowashi</em> \"still\" alongside).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moseme</em> (n.)</td><td style="padding:4px 12px">standing</td></tr><tr><td style="padding:4px 12px"><em>mosemu</em> (v.)</td><td style="padding:4px 12px">to stand</td></tr><tr><td style="padding:4px 12px"><em>mowashi</em> (adj.)</td><td style="padding:4px 12px">still (stationary)</td></tr><tr><td style="padding:4px 12px"><em>mowashu</em> (v.)</td><td style="padding:4px 12px">to stop</td></tr><tr><td style="padding:4px 12px"><em>motahe</em> (n.)</td><td style="padding:4px 12px">fast (not eating)</td></tr><tr><td style="padding:4px 12px"><em>motahi</em> (adj.)</td><td style="padding:4px 12px">fasting</td></tr><tr><td style="padding:4px 12px"><em>motahu</em> (v.)</td><td style="padding:4px 12px">to fast</td></tr><tr><td style="padding:4px 12px"><em>moshahu</em> (v.)</td><td style="padding:4px 12px">to abstain from drink</td></tr></table><p><em>mowashu</em> \u2014 \"to stop\" \u2014 is a verb you'll lean on constantly; it can lead a verb chain like a modal: <em>Ne mowashu tahu</em>, \"I stop eating.\" <em>motahu</em> (to fast) and <em>moshahu</em> (to abstain from drink) are the <em>mo-</em> pairs of <em>tahu</em> (to eat) and <em>shahu</em> (to drink).</p><span class="example">Ne mosemu. <span class="gloss">I stand.</span></span><span class="example">Ve wa mowashu. <span class="gloss">She stopped.</span></span><span class="example">Ne motahu lo lawe. <span class="gloss">I fast today.</span></span>`},
+
+  {id:"l219_state_body_exam",
+   title:"Unit 36 Exam \u2014 State, Body & Life-Cycle Verbs",
+   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus cloze on four key constructions.",
+   icon:"\ud83d\ude34",
+   vocabKey:"l219_state_body_exam",
+   xp:30,
+   unit:35,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── A21d / Unit 37 — Dimension & Texture Roots ──
+  {id:"l220_vocab_weight_thickness",
+   title:"Weight & Thickness",
+   desc:"kauwe (lightness), mokauwe (weight), kouhe (thinness), mokouhe (thickness)",
+   icon:"\u2696\ufe0f",
+   vocabKey:"l220_vocab_weight_thickness",
+   xp:18,
+   unit:36,
+   intro:`<h3>\u2696\ufe0f Describing things</h3><p>The fourth sub-unit is property roots \u2014 the dimensions and textures you use to describe the physical world. Many come in <em>mo-</em> pairs taught together for contrast. This lesson: weight and thickness.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kauwe</em> (n.)</td><td style="padding:4px 12px">lightness (in weight)</td></tr><tr><td style="padding:4px 12px"><em>kauwi</em> (adj.)</td><td style="padding:4px 12px">light (not heavy)</td></tr><tr><td style="padding:4px 12px"><em>kauwu</em> (v.)</td><td style="padding:4px 12px">to lighten</td></tr><tr><td style="padding:4px 12px"><em>mokauwe</em> (n.)</td><td style="padding:4px 12px">weight</td></tr><tr><td style="padding:4px 12px"><em>mokauwi</em> (adj.)</td><td style="padding:4px 12px">heavy</td></tr><tr><td style="padding:4px 12px"><em>mokauwu</em> (v.)</td><td style="padding:4px 12px">to weigh</td></tr><tr><td style="padding:4px 12px"><em>kouhe</em> (n.)</td><td style="padding:4px 12px">thinness</td></tr><tr><td style="padding:4px 12px"><em>kouhi</em> (adj.)</td><td style="padding:4px 12px">thin</td></tr><tr><td style="padding:4px 12px"><em>kouhu</em> (v.)</td><td style="padding:4px 12px">to thin</td></tr><tr><td style="padding:4px 12px"><em>mokouhe</em> (n.)</td><td style="padding:4px 12px">thickness</td></tr><tr><td style="padding:4px 12px"><em>mokouhi</em> (adj.)</td><td style="padding:4px 12px">thick</td></tr><tr><td style="padding:4px 12px"><em>mokouhu</em> (v.)</td><td style="padding:4px 12px">to thicken</td></tr></table><span class="example">Lo loiwe su mokauwi. <span class="gloss">This book is heavy.</span></span><span class="example">Neo loiwe su kauwi. <span class="gloss">My book is light.</span></span><span class="example">Lo moule su mokouhi. <span class="gloss">This tree is thick.</span></span>`},
+
+  {id:"l221_vocab_length_width",
+   title:"Length & Width",
+   desc:"soune (shortness), mosoune (length), waune (narrowness), mowaune (width)",
+   icon:"\ud83d\udccf",
+   vocabKey:"l221_vocab_length_width",
+   xp:18,
+   unit:36,
+   intro:`<h3>\ud83d\udccf How long, how wide</h3><p>Two more <em>mo-</em> pairs for measuring things \u2014 short and long, narrow and wide.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>soune</em> (n.)</td><td style="padding:4px 12px">shortness</td></tr><tr><td style="padding:4px 12px"><em>souni</em> (adj.)</td><td style="padding:4px 12px">short</td></tr><tr><td style="padding:4px 12px"><em>sounu</em> (v.)</td><td style="padding:4px 12px">to shorten</td></tr><tr><td style="padding:4px 12px"><em>mosoune</em> (n.)</td><td style="padding:4px 12px">length</td></tr><tr><td style="padding:4px 12px"><em>mosouni</em> (adj.)</td><td style="padding:4px 12px">long</td></tr><tr><td style="padding:4px 12px"><em>mosounu</em> (v.)</td><td style="padding:4px 12px">to lengthen</td></tr><tr><td style="padding:4px 12px"><em>waune</em> (n.)</td><td style="padding:4px 12px">narrowness</td></tr><tr><td style="padding:4px 12px"><em>wauni</em> (adj.)</td><td style="padding:4px 12px">narrow</td></tr><tr><td style="padding:4px 12px"><em>waunu</em> (v.)</td><td style="padding:4px 12px">to narrow</td></tr><tr><td style="padding:4px 12px"><em>mowaune</em> (n.)</td><td style="padding:4px 12px">width</td></tr><tr><td style="padding:4px 12px"><em>mowauni</em> (adj.)</td><td style="padding:4px 12px">wide</td></tr><tr><td style="padding:4px 12px"><em>mowaunu</em> (v.)</td><td style="padding:4px 12px">to widen</td></tr></table><span class="example">Lo lire su souni. <span class="gloss">This song is short.</span></span><span class="example">Lo lawe su mosouni. <span class="gloss">This day is long.</span></span><span class="example">Lo shafane su wauni. <span class="gloss">This river is narrow.</span></span>`},
+
+  {id:"l222_vocab_shape_height",
+   title:"Shape & Height",
+   desc:"leume (roundness), moleume (flatness), liane (height), shouhe (shallowness)",
+   icon:"\u2b55",
+   vocabKey:"l222_vocab_shape_height",
+   xp:18,
+   unit:36,
+   intro:`<h3>\u2b55 Shape and rise</h3><p>The <em>leume</em>\u2009/\u2009<em>moleume</em> round-and-flat <em>mo-</em> pair, plus two more shape roots.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>leume</em> (n.)</td><td style="padding:4px 12px">roundness</td></tr><tr><td style="padding:4px 12px"><em>leumi</em> (adj.)</td><td style="padding:4px 12px">round</td></tr><tr><td style="padding:4px 12px"><em>leumu</em> (v.)</td><td style="padding:4px 12px">to round</td></tr><tr><td style="padding:4px 12px"><em>moleume</em> (n.)</td><td style="padding:4px 12px">flatness</td></tr><tr><td style="padding:4px 12px"><em>moleumi</em> (adj.)</td><td style="padding:4px 12px">flat</td></tr><tr><td style="padding:4px 12px"><em>moleumu</em> (v.)</td><td style="padding:4px 12px">to flatten</td></tr><tr><td style="padding:4px 12px"><em>liane</em> (n.)</td><td style="padding:4px 12px">height</td></tr><tr><td style="padding:4px 12px"><em>liani</em> (adj.)</td><td style="padding:4px 12px">tall (or up)</td></tr><tr><td style="padding:4px 12px"><em>lianu</em> (v.)</td><td style="padding:4px 12px">to rise</td></tr><tr><td style="padding:4px 12px"><em>shouhe</em> (n.)</td><td style="padding:4px 12px">shallowness</td></tr><tr><td style="padding:4px 12px"><em>shouhi</em> (adj.)</td><td style="padding:4px 12px">shallow</td></tr></table><p>You've met <em>liani</em> before as a directional adjective \u2014 here it's the full root: <em>liane</em> the height, <em>lianu</em> to rise. <em>shouhe</em> has noun and adjective only.</p><span class="example">Lo mohe su leumi. <span class="gloss">This cup is round.</span></span><span class="example">Lo pahe su moleumi. <span class="gloss">This table is flat.</span></span><span class="example">Lo moule su liani. <span class="gloss">This tree is tall.</span></span>`},
+
+  {id:"l223_vocab_texture_touch",
+   title:"Texture & Touch",
+   desc:"shiwe (smoothness), moshiwe (roughness), tere (touch), haime (mirror)",
+   icon:"\u270b",
+   vocabKey:"l223_vocab_texture_touch",
+   xp:18,
+   unit:36,
+   intro:`<h3>\u270b How things feel</h3><p>The <em>shiwe</em>\u2009/\u2009<em>moshiwe</em> smooth-and-rough <em>mo-</em> pair, plus the root for touch itself and one for mirrors.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shiwe</em> (n.)</td><td style="padding:4px 12px">smoothness</td></tr><tr><td style="padding:4px 12px"><em>shiwi</em> (adj.)</td><td style="padding:4px 12px">smooth</td></tr><tr><td style="padding:4px 12px"><em>shiwu</em> (v.)</td><td style="padding:4px 12px">to polish (or smooth)</td></tr><tr><td style="padding:4px 12px"><em>moshiwe</em> (n.)</td><td style="padding:4px 12px">roughness</td></tr><tr><td style="padding:4px 12px"><em>moshiwi</em> (adj.)</td><td style="padding:4px 12px">rough</td></tr><tr><td style="padding:4px 12px"><em>moshiwu</em> (v.)</td><td style="padding:4px 12px">to roughen</td></tr><tr><td style="padding:4px 12px"><em>tere</em> (n.)</td><td style="padding:4px 12px">touch (or contact)</td></tr><tr><td style="padding:4px 12px"><em>teri</em> (adj.)</td><td style="padding:4px 12px">tangible</td></tr><tr><td style="padding:4px 12px"><em>teru</em> (v.)</td><td style="padding:4px 12px">to touch</td></tr><tr><td style="padding:4px 12px"><em>haime</em> (n.)</td><td style="padding:4px 12px">mirror</td></tr><tr><td style="padding:4px 12px"><em>haimi</em> (adj.)</td><td style="padding:4px 12px">reflective</td></tr><tr><td style="padding:4px 12px"><em>haimu</em> (v.)</td><td style="padding:4px 12px">to reflect</td></tr></table><p><em>tere</em> is the sense of touch \u2014 unlike the other senses, which use a body-part noun, touch has its own root. <em>haime</em> (mirror) is a physical object: a flat surface that throws light back.</p><span class="example">Lo pahe su shiwi. <span class="gloss">This table is smooth.</span></span><span class="example">Lo moule su moshiwi. <span class="gloss">This tree is rough.</span></span><span class="example">Ne teru teo lauhe. <span class="gloss">I touch your hand.</span></span>`},
+
+  {id:"l224_vocab_stone_darkness",
+   title:"Stone & Darkness",
+   desc:"kome (stone), komile (pebble), komilele (grain of sand), molune (darkness)",
+   icon:"\ud83e\udea8",
+   vocabKey:"l224_vocab_stone_darkness",
+   xp:18,
+   unit:36,
+   intro:`<h3>\ud83e\udea8 Stone, smaller and smaller</h3><p>The closing lesson of the property sub-unit. <em>kome</em> (stone) shows the diminutive suffix at work, twice over: a pebble is a little stone, a grain of sand is a little pebble.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kome</em> (n.)</td><td style="padding:4px 12px">stone</td></tr><tr><td style="padding:4px 12px"><em>komi</em> (adj.)</td><td style="padding:4px 12px">stony</td></tr><tr><td style="padding:4px 12px"><em>komu</em> (v.)</td><td style="padding:4px 12px">to make solid</td></tr><tr><td style="padding:4px 12px"><em>komile</em> (n.)</td><td style="padding:4px 12px">pebble</td></tr><tr><td style="padding:4px 12px"><em>komilele</em> (n.)</td><td style="padding:4px 12px">grain of sand</td></tr><tr><td style="padding:4px 12px"><em>molune</em> (n.)</td><td style="padding:4px 12px">darkness</td></tr><tr><td style="padding:4px 12px"><em>moluni</em> (adj.)</td><td style="padding:4px 12px">dark</td></tr><tr><td style="padding:4px 12px"><em>molunu</em> (v.)</td><td style="padding:4px 12px">to darken</td></tr></table><p><em>kome</em> \u2192 <em>komile</em> (pebble) \u2192 <em>komilele</em> (grain of sand): the <em>-ile</em> suffix stacks. And <em>molune</em> is the <em>mo-</em> pair of <em>lune</em> (light), a pairing you've known since the early lessons.</p><span class="example">Lo kome su mokauwi. <span class="gloss">This stone is heavy.</span></span><span class="example">Ne tiru komile. <span class="gloss">I see a pebble.</span></span><span class="example">Lo none su moluni. <span class="gloss">This night is dark.</span></span>`},
+
+  {id:"l225_dimension_texture_exam",
+   title:"Unit 37 Exam \u2014 Dimension & Texture Roots",
+   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus cloze on four key constructions.",
+   icon:"\u2696\ufe0f",
+   vocabKey:"l225_dimension_texture_exam",
+   xp:30,
+   unit:36,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── A21e / Unit 38 — Food, Quantity & Closing Roots ──
+  {id:"l226_vocab_sour_bitter_spicy",
+   title:"Sour, Bitter & Spicy",
+   desc:"feule (sourness), kure (bitterness), pike (pepper), pikale (spiciness)",
+   icon:"\ud83c\udf36\ufe0f",
+   vocabKey:"l226_vocab_sour_bitter_spicy",
+   xp:18,
+   unit:37,
+   intro:`<h3>\ud83c\udf36\ufe0f The last sub-unit \u2014 tastes</h3><p>The fifth and final sub-unit gathers food roots, quantity roots, and the residual closers. We open with the strong tastes.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>feule</em> (n.)</td><td style="padding:4px 12px">sourness</td></tr><tr><td style="padding:4px 12px"><em>feuli</em> (adj.)</td><td style="padding:4px 12px">sour</td></tr><tr><td style="padding:4px 12px"><em>feulu</em> (v.)</td><td style="padding:4px 12px">to turn sour</td></tr><tr><td style="padding:4px 12px"><em>kure</em> (n.)</td><td style="padding:4px 12px">bitterness</td></tr><tr><td style="padding:4px 12px"><em>kuri</em> (adj.)</td><td style="padding:4px 12px">bitter</td></tr><tr><td style="padding:4px 12px"><em>kuru</em> (v.)</td><td style="padding:4px 12px">to turn bitter</td></tr><tr><td style="padding:4px 12px"><em>pike</em> (n.)</td><td style="padding:4px 12px">pepper</td></tr><tr><td style="padding:4px 12px"><em>piki</em> (adj.)</td><td style="padding:4px 12px">peppery</td></tr><tr><td style="padding:4px 12px"><em>piku</em> (v.)</td><td style="padding:4px 12px">to pepper</td></tr><tr><td style="padding:4px 12px"><em>pikale</em> (n.)</td><td style="padding:4px 12px">spiciness</td></tr><tr><td style="padding:4px 12px"><em>pikali</em> (adj.)</td><td style="padding:4px 12px">spicy</td></tr><tr><td style="padding:4px 12px"><em>pikalu</em> (v.)</td><td style="padding:4px 12px">to make spicy</td></tr></table><span class="example">Lo pome su feuli. <span class="gloss">This fruit is sour.</span></span><span class="example">Lo kupe su kuri. <span class="gloss">This coffee is bitter.</span></span><span class="example">Lo tahe su pikali. <span class="gloss">This food is spicy.</span></span>`},
+
+  {id:"l227_vocab_foods_boat",
+   title:"Foods & the Boat",
+   desc:"miafe (cheese), roine (rice), tahishawe (soup), shaihe (boat)",
+   icon:"\ud83e\uddc0",
+   vocabKey:"l227_vocab_foods_boat",
+   xp:18,
+   unit:37,
+   intro:`<h3>\ud83e\uddc0 More on the table</h3><p>Three everyday foods, plus one more root \u2014 the boat \u2014 to round out the lesson.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>miafe</em> (n.)</td><td style="padding:4px 12px">cheese</td></tr><tr><td style="padding:4px 12px"><em>miafi</em> (adj.)</td><td style="padding:4px 12px">cheesy (or cheese-related)</td></tr><tr><td style="padding:4px 12px"><em>roine</em> (n.)</td><td style="padding:4px 12px">rice</td></tr><tr><td style="padding:4px 12px"><em>tahishawe</em> (n.)</td><td style="padding:4px 12px">soup</td></tr><tr><td style="padding:4px 12px"><em>shaihe</em> (n.)</td><td style="padding:4px 12px">boat</td></tr><tr><td style="padding:4px 12px"><em>shaihu</em> (v.)</td><td style="padding:4px 12px">to sail</td></tr></table><p><em>tahishawe</em> (soup) is built transparently: <em>tahe</em> (food) + <em>shawe</em> (water) \u2014 food-water. And <em>shaihe</em> (boat) sits in the water-vocabulary family with its verb <em>shaihu</em>, to sail.</p><span class="example">Lo miafe su lohi. <span class="gloss">This cheese is good.</span></span><span class="example">Ne tahu roine. <span class="gloss">I eat rice.</span></span><span class="example">Ne shaihu so shawome. <span class="gloss">I sail to the sea.</span></span>`},
+
+  {id:"l228_vocab_more_less_full_empty",
+   title:"Increase, Decrease, Full & Empty",
+   desc:"awe (increase), moawe (decrease), nomae (fullness), monomae (emptiness)",
+   icon:"\ud83d\udc08",
+   vocabKey:"l228_vocab_more_less_full_empty",
+   xp:18,
+   unit:37,
+   intro:`<h3>\ud83d\udc08 More and less, full and empty</h3><p>Two <em>mo-</em> pairs about quantity. You already know <em>awi</em> (more) and <em>moawi</em> (less) as quantifiers \u2014 this lesson teaches the full roots, so the noun and verb forms are the new content.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>awe</em> (n.)</td><td style="padding:4px 12px">increase</td></tr><tr><td style="padding:4px 12px"><em>awi</em> (adj.)</td><td style="padding:4px 12px">more</td></tr><tr><td style="padding:4px 12px"><em>awu</em> (v.)</td><td style="padding:4px 12px">to increase</td></tr><tr><td style="padding:4px 12px"><em>moawe</em> (n.)</td><td style="padding:4px 12px">decrease</td></tr><tr><td style="padding:4px 12px"><em>moawi</em> (adj.)</td><td style="padding:4px 12px">less</td></tr><tr><td style="padding:4px 12px"><em>moawu</em> (v.)</td><td style="padding:4px 12px">to decrease</td></tr><tr><td style="padding:4px 12px"><em>nomae</em> (n.)</td><td style="padding:4px 12px">fullness</td></tr><tr><td style="padding:4px 12px"><em>nomai</em> (adj.)</td><td style="padding:4px 12px">full</td></tr><tr><td style="padding:4px 12px"><em>nomau</em> (v.)</td><td style="padding:4px 12px">to fill</td></tr><tr><td style="padding:4px 12px"><em>monomae</em> (n.)</td><td style="padding:4px 12px">emptiness</td></tr><tr><td style="padding:4px 12px"><em>monomai</em> (adj.)</td><td style="padding:4px 12px">empty</td></tr><tr><td style="padding:4px 12px"><em>monomau</em> (v.)</td><td style="padding:4px 12px">to empty</td></tr></table><span class="example">Neo loune wa awu. <span class="gloss">My success increased.</span></span><span class="example">Lo mohe su nomai. <span class="gloss">This cup is full.</span></span><span class="example">Neo mohe su monomai. <span class="gloss">My cup is empty.</span></span>`},
+
+  {id:"l229_vocab_loss_world",
+   title:"Loss, Blindness & the World",
+   desc:"morike (loss), motire (blindness), mouhe (world), pohe (face)",
+   icon:"\ud83c\udf0d",
+   vocabKey:"l229_vocab_loss_world",
+   xp:18,
+   unit:37,
+   intro:`<h3>\ud83c\udf0d Losing, seeing, facing</h3><p>Four roots, a mix of the abstract and the concrete \u2014 losing something, not seeing, the world itself, and the face.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>morike</em> (n.)</td><td style="padding:4px 12px">loss</td></tr><tr><td style="padding:4px 12px"><em>moriku</em> (v.)</td><td style="padding:4px 12px">to lose (or misplace)</td></tr><tr><td style="padding:4px 12px"><em>motire</em> (n.)</td><td style="padding:4px 12px">blindness</td></tr><tr><td style="padding:4px 12px"><em>motiri</em> (adj.)</td><td style="padding:4px 12px">unseen (or invisible)</td></tr><tr><td style="padding:4px 12px"><em>motiru</em> (v.)</td><td style="padding:4px 12px">to not see</td></tr><tr><td style="padding:4px 12px"><em>mouhe</em> (n.)</td><td style="padding:4px 12px">world</td></tr><tr><td style="padding:4px 12px"><em>mouhi</em> (adj.)</td><td style="padding:4px 12px">worldly</td></tr><tr><td style="padding:4px 12px"><em>pohe</em> (n.)</td><td style="padding:4px 12px">face (or screen)</td></tr><tr><td style="padding:4px 12px"><em>pohi</em> (adj.)</td><td style="padding:4px 12px">forward-facing (or on-screen)</td></tr><tr><td style="padding:4px 12px"><em>pohu</em> (v.)</td><td style="padding:4px 12px">to face</td></tr></table><p><em>motire</em> is the <em>mo-</em> pair of <em>tire</em> (sight) \u2014 not-seeing. <em>pohe</em> covers both the face and a screen \u2014 the surface you look at.</p><span class="example">Ne wa moriku neo morume. <span class="gloss">I lost my key.</span></span><span class="example">Lo mouhe su mopiami. <span class="gloss">This world is big.</span></span><span class="example">Ne pohu so neo mawe. <span class="gloss">I face my mother.</span></span>`},
+
+  {id:"l230_vocab_continue_other",
+   title:"Continuing, Eventually & Other",
+   desc:"yauwe (continuing-state), feuhe (eventuality), ouhe (prior-completion), sohe (other)",
+   icon:"\u23ed\ufe0f",
+   vocabKey:"l230_vocab_continue_other",
+   xp:18,
+   unit:37,
+   intro:`<h3>\u23ed\ufe0f Carrying on</h3><p>Four roots about continuation and sequence. <em>feuhi</em> (eventually), <em>ouhi</em> (already), and <em>yauwi</em> (still) are temporal adverbs you may have seen in passing \u2014 here they come with their noun roots.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>yauwe</em> (n.)</td><td style="padding:4px 12px">continuing-state</td></tr><tr><td style="padding:4px 12px"><em>yauwi</em> (adj.)</td><td style="padding:4px 12px">still</td></tr><tr><td style="padding:4px 12px"><em>yauwu</em> (v.)</td><td style="padding:4px 12px">to continue</td></tr><tr><td style="padding:4px 12px"><em>feuhe</em> (n.)</td><td style="padding:4px 12px">eventuality</td></tr><tr><td style="padding:4px 12px"><em>feuhi</em> (adv.)</td><td style="padding:4px 12px">eventually</td></tr><tr><td style="padding:4px 12px"><em>ouhe</em> (n.)</td><td style="padding:4px 12px">prior-completion</td></tr><tr><td style="padding:4px 12px"><em>ouhi</em> (adv.)</td><td style="padding:4px 12px">already</td></tr><tr><td style="padding:4px 12px"><em>sohe</em> (n.)</td><td style="padding:4px 12px">other</td></tr><tr><td style="padding:4px 12px"><em>sohi</em> (adj.)</td><td style="padding:4px 12px">another</td></tr></table><p><em>feuhe</em>, <em>ouhe</em>, and <em>sohe</em> have noun and adjective forms only \u2014 no verbs.</p><span class="example">Ne yauwu neo seihe. <span class="gloss">I continue my study.</span></span><span class="example">Ne ouhi wa tahu. <span class="gloss">I already ate.</span></span><span class="example">Ne wanu sohe loiwe. <span class="gloss">I want another book.</span></span>`},
+
+  {id:"l231_vocab_while_closing",
+   title:"While \u2014 and Closing Roots",
+   desc:"wole (while), feihe (promise), washe (movement), kave (fracture)",
+   icon:"\ud83d\udd17",
+   vocabKey:"l231_vocab_while_closing",
+   xp:18,
+   unit:37,
+   intro:`<h3>\ud83d\udd17 The last lesson</h3><p>The final vocab lesson of the unit. It teaches one more particle \u2014 <em>wole</em>, \"while\" \u2014 and rounds out three roots whose verbs you already know, by giving you their noun and adjective forms.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>wole</em> (particle)</td><td style="padding:4px 12px">while (or during)</td></tr><tr><td style="padding:4px 12px"><em>feihe</em> (n.)</td><td style="padding:4px 12px">promise</td></tr><tr><td style="padding:4px 12px"><em>washe</em> (n.)</td><td style="padding:4px 12px">movement (or flow)</td></tr><tr><td style="padding:4px 12px"><em>washi</em> (adj.)</td><td style="padding:4px 12px">flowing (or mobile)</td></tr><tr><td style="padding:4px 12px"><em>kave</em> (n.)</td><td style="padding:4px 12px">fracture</td></tr><tr><td style="padding:4px 12px"><em>kavi</em> (adj.)</td><td style="padding:4px 12px">broken</td></tr></table><p><em>wole</em> joins a clause to a verb: <em>Ne liru wole ne halu</em> \u2014 \"I sing while I go.\" And <em>feihe</em> (promise), <em>washe</em> (movement), <em>kave</em> (fracture) complete roots whose verbs \u2014 <em>feihu</em>, <em>washu</em>, <em>kavu</em> \u2014 you learned earlier in the advanced track.</p><span class="example">Ne liru wole ne halu. <span class="gloss">I sing while I go.</span></span><span class="example">Neo feihe su wohimi. <span class="gloss">My promise is important.</span></span><span class="example">Lo voure su kavi. <span class="gloss">This phone is broken.</span></span>`},
+
+  {id:"l232_food_quantity_exam",
+   title:"Unit 38 Exam \u2014 Food, Quantity & Closing Roots",
+   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus cloze on four key constructions.",
+   icon:"\ud83c\udf36\ufe0f",
+   vocabKey:"l232_food_quantity_exam",
+   xp:30,
+   unit:37,
    isSentence:true,
    isCheckpoint:true},
 ];
