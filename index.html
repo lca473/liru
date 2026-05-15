@@ -6624,6 +6624,59 @@ const V = {
     {lw:["Toilea","toilu","ya","none"],
      en:"Stars sparkle at night."},
   ],
+
+  // L257 — Advanced Final Test (sentence-based, isCheckpoint:true, isFinalTest:true)
+  // 20 sentences spanning the full advanced track A1–A24.
+  // Cloze on 5 sentences: S5 (lai relative), S9 (color adj), S13 (possessive chain),
+  // S15 (emotion + lai), S18 (useful verbs).
+  // All forms in cumulative budget through L256.
+  l257_advanced_final: [
+    {lw:["Ne","su","houli","ata","Maya"],
+     en:"I am happier than Maya."},
+    {lw:["Lo","moule","su","apa","wauli","wo","mouleyahe"],
+     en:"This tree is the most beautiful in the forest."},
+    {lw:["Vi","te","sahu","fairu","ne","wu","wamu","te"],
+     en:"If you can dance, I will like you."},
+    {lw:["Ne","su","houli","nalai","nea","wa","toyu","soile"],
+     en:"I am happy because we finished the solution."},
+    {lw:["Pue","lai","ne","wamu","wu","vanu","lo","rouhe"],
+     en:"The person I like will come this week.",
+     cloze:{blanks:[1,3], bank:["lai","wamu","sho","vi","nawu","vanu","ne","wu"]}},
+    {lw:["Ne","lenu","lai","te","wu","vanu"],
+     en:"I trust that you will come."},
+    {lw:["Ne","naiweli","liru","ko","neo","wame"],
+     en:"I often speak with my friend."},
+    {lw:["Saipue","wa","vehu","ne","saihue","wauli"],
+     en:"Someone showed me something beautiful."},
+    {lw:["Lo","moule","su","foshali","sho","laumali"],
+     en:"This tree is green and blue.",
+     cloze:{blanks:[3], bank:["foshali","haumali","laumali","felali","feyali","foshale"]}},
+    {lw:["Lo","su","neo","runini","haiwe","wo","lo","heule"],
+     en:"This is my second year in this city."},
+    {lw:["Lo","moteuhile","su","wohimi","sho","nea","mihu","soilu","ve"],
+     en:"This problem is important and we need to solve it."},
+    {lw:["Halu","huni","sho","tasu","lo","shafane"],
+     en:"Go right and cross this river."},
+    {lw:["Neo","maweo","mawe","su","waihi","lo lawe"],
+     en:"My grandmother is hopeful today.",
+     cloze:{blanks:[0,2], bank:["maweo","paweo","mawe","pawe","neo","veo","su","waihi"]}},
+    {lw:["Mavi","shaliru","neo","paipe","wa","fairu"],
+     en:"Although it was raining, my dog danced."},
+    {lw:["Ve","waihu","lai","nulipue","wu","moyeru"],
+     en:"She hopes that no one will be afraid.",
+     cloze:{blanks:[1,3], bank:["waihu","muhu","nulipue","saipue","lai","sho","moyeru","moyeri"]}},
+    {lw:["Yuna","wamu","luhimu","sho","fairu"],
+     en:"Yuna likes music and dancing."},
+    {lw:["Taihue","su","moi"],
+     en:"Everything is balanced."},
+    {lw:["Ne","wa","shamu","sho","ne","wa","soilu","lo","moteuhile"],
+     en:"I tried and I solved this problem.",
+     cloze:{blanks:[2,6], bank:["shamu","seuhu","soilu","soile","moteuhile","rohe","wa","nalai"]}},
+    {lw:["Nea","wa","wairu","roheme","so","heule"],
+     en:"We rode the train to the city."},
+    {lw:["Nea","niohu","sho","nea","su","youmi"],
+     en:"We agree and we are lucky."},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -6690,6 +6743,7 @@ const UNITS = [
   {name:"Unit 39 — Daily Nouns", start:226, track:"advanced"},
   {name:"Unit 40 — City, Transport & Places", start:238, track:"advanced"},
   {name:"Unit 41 — Time, Agreement & Residual Roots", start:243, track:"advanced"},
+  {name:"Advanced Final Test", start:250, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -9171,7 +9225,7 @@ const LESSONS = [
    unit:40,
    track:"advanced"},
   {id:"l256_a24_exam",
-   title:"Unit 41 Exam \\u2014 Time, Agreement & Residual Roots",
+   title:"Unit 41 Exam \u2014 Time, Agreement & Residual Roots",
    desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus cloze on four key constructions.",
    icon:"\u23f3",
    vocabKey:"l256_a24_exam",
@@ -9179,6 +9233,17 @@ const LESSONS = [
    unit:40,
    isSentence:true,
    isCheckpoint:true},
+  // ── Advanced Final Test ───────────────────────────────────────
+  {id:"l257_advanced_final",
+   title:"Advanced Final Test",
+   desc:"Three hearts. Twenty sentences spanning the full advanced track — A1 through A24.",
+   icon:"\ud83c\udf93",
+   vocabKey:"l257_advanced_final",
+   xp:50,
+   unit:41,
+   isSentence:true,
+   isCheckpoint:true,
+   isFinalTest:true},
 ];
 
 // Populate the landing-page lesson and word counts from live data.
@@ -12934,8 +12999,14 @@ function renderComplete(){
     if(isFinal){
       innerHTML=`
       <div style="font-size:72px;margin-bottom:16px">🎓</div>
-      <div style="font-family:var(--display);font-size:28px;font-weight:800;color:#4A7A9E;margin-bottom:8px">You did it!</div>
-      <div style="color:var(--dim);font-size:15px;margin-bottom:28px">+${state.accXP} XP earned · ${state.correct}/${state.exercises.length} correct</div>`;
+      <div style="font-family:var(--display);font-size:26px;font-weight:800;color:var(--gold);margin-bottom:4px">Liru — Lire su toyi.</div>
+      <div style="color:var(--dim);font-size:14px;font-style:italic;margin-bottom:20px">Liru — The song is finished.</div>
+      <div style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px">Te wa mauhu Liru iwuhe. Neo houle su nai.</div>
+      <div style="color:var(--dim);font-size:13px;font-style:italic;margin-bottom:20px">You have learned Liru. My joy is great.</div>
+      <div style="color:var(--text);font-size:15px;line-height:1.6;margin-bottom:20px;max-width:340px;margin-left:auto;margin-right:auto">You've reached the end of the Advanced Liru course — every unit, every word, every construction. Keep practicing with your SRS flashcards, and reach out to others in the Liru community to keep speaking. The language lives in conversation.</div>
+      <div style="font-family:var(--display);font-size:16px;font-weight:700;color:var(--text);margin-bottom:2px">Reiwa. Weriko. Nea liru wuhi.</div>
+      <div style="color:var(--dim);font-size:13px;font-style:italic;margin-bottom:24px">Thank you. Farewell. We will speak soon.</div>
+      <div style="color:var(--dim);font-size:14px;margin-bottom:28px">+${state.accXP} XP earned · ${state.correct}/${state.exercises.length} correct</div>`;
     } else if(isCheckpoint){
       const nextUnitNum=examUnitNum+1;
       innerHTML=`
