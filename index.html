@@ -4177,8 +4177,11 @@ const V = {
   // the adjective for predicate uses ("I am X"), the noun for the
   // everyday abstract emotion, the verb for transitive/reflexive
   // everyday uses. Two A14-precedent canvas-slot drops:
-  // moyoulu "to shame someone" and nauhu "to feel guilt" — both
-  // rhetorical/redundant with adj+su; remain in Dictionary.md.
+  // moyoulu "to shame someone" and nauhu "to guilt someone" — both
+  // causative verbs, rhetorical and lower-frequency than the
+  // noun/adjective forms; remain in Dictionary.md. Experiencer
+  // reading for guilt goes through Ne elu nauhi (see DesignNotes.md
+  // "Construction: elu + emotion-adjective for experiencer states").
   // No new SRS_GLOSS_OVERRIDES, no new exercise types, no new
   // mechanisms, no dictionary changes. See DECISIONS.md "A15 —
   // Specialized Emotions" for the full record.
@@ -4192,7 +4195,8 @@ const V = {
   //   moyoule (n) + moyouli (adj) — drilled. Verb moyoulu DROPPED
   //     (rhetorical "to shame someone" — rarely conversational).
   //   nauhe (n) + nauhi (adj) — drilled. Verb nauhu DROPPED
-  //     (redundant with su nauhi; rarely used as a standalone verb).
+  //     (causative "to guilt someone" — lower-frequency than the
+  //     noun/adj; experiencer reading goes through Ne elu nauhi).
   //   mohoule (n standalone) — drilled. pair:houle (taught L120).
   //     Canvas-completion: noun sibling of taught mohouli (L19).
   // Theme: introspective negative-evaluation emotions (shame, guilt)
@@ -4208,7 +4212,7 @@ const V = {
      note:"Drilled noun + adj only. The verb moyoulu \"to shame (someone)\" remains in Dictionary.md but isn't everyday speech — su moyouli covers the predicate use."},
     {lw:"nauhe", en:"guilt (or remorse)", pos:"n",
      canvas:{adj:"nauhi", adj_en:"guilty (or remorsefully)"},
-     note:"Drilled noun + adj only. The verb nauhu \"to feel guilt\" remains in Dictionary.md but is redundant with the everyday predicate Ne su nauhi."},
+     note:"Drilled noun + adj only. The verb nauhu \"to guilt (or make feel guilty)\" remains in Dictionary.md as a causative; the everyday experiencer reading uses Ne elu nauhi \"I feel guilty\"."},
     {lw:"mohoule", en:"sadness", pos:"n",
      pair:"houle",
      note:"Canvas-completion weave-in: noun sibling of taught mohouli (L19 sad). The mo- pair of taught houle (joy, L120). Completes the joy/sadness pair across both canvas slots."},
@@ -5271,8 +5275,11 @@ const V = {
 
   // L202 — Asking, Warning, Inviting (vocab). 4 roots / 10 drilled
   // forms including the vouru/vouri canvas-completion weave-in.
-  //   mokilire (n) + mokiliru (v) — n+v. Answer / to answer.
-  //     mokiliri "answered" dropped (participial).
+  //   luiwe (n) + luiwu (v) — n+v. Answer / to answer. luiwi
+  //     "answered" dropped (participial). Replaced retired
+  //     mokilire/i/u (2026-05-15) to avoid compound misread of
+  //     mokilire as moki + lire ("dead-speech"). See DECISIONS.md
+  //     "Rename: mokilire/i/u → luiwe/i/u (2026-05-15)".
   //   nauke (n) + nauku (v) — n+v. Warning / to warn. nauki
   //     "warned" dropped (participial).
   //   poule (n) + poulu (v) — n+v. Invitation / to invite. pouli
@@ -5284,9 +5291,9 @@ const V = {
   //     the untaught verb "to call" + adjective. Does not count
   //     against the 4-root cap (A20 houpe/waihe precedent).
   l202_vocab_ask_warn_invite: [
-    {lw:"mokilire", en:"answer", pos:"n",
-     canvas:{v:"mokiliru", v_en:"to answer (or reply)"},
-     note:"mokiliri \"answered\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"luiwe", en:"answer", pos:"n",
+     canvas:{v:"luiwu", v_en:"to answer (or reply)"},
+     note:"luiwi \"answered\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
     {lw:"nauke", en:"warning", pos:"n",
      canvas:{v:"nauku", v_en:"to warn"},
      note:"nauki \"warned\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
@@ -5408,9 +5415,9 @@ const V = {
      en:"I word my thought."},
     {lw:["Maihupue","wa","maihu","lo","iruhe"],
      en:"The messenger sent this word."},
-    {lw:["Ne","mokiliru","teo","kilire"],
+    {lw:["Ne","luiwu","teo","kilire"],
      en:"I answer your question.",
-     cloze:{blanks:[1,3], bank:["mokiliru","kilire","mokilire","nauku","teo","ne"]}},
+     cloze:{blanks:[1,3], bank:["luiwu","kilire","luiwe","nauku","teo","ne"]}},
     {lw:["Ve","wa","nauku","nea"],
      en:"She warned us."},
     {lw:["Nea","poulu","neo","wame"],
@@ -6597,9 +6604,9 @@ const V = {
      en:"I eat in the morning and read in the evening."},
     {lw:["Lo","laohe","wu","laohu","ya","wuli","rouhe"],
      en:"This event will happen next week."},
-    {lw:["Ve","wa","vanu","nohili","sho","ne","wa","mokiliru","ve"],
+    {lw:["Ve","wa","vanu","nohili","sho","ne","wa","luiwu","ve"],
      en:"She came recently, and I answered her.",
-     cloze:{blanks:[3,7], bank:["nohili","mokiliru","noihi","kiliru","sho","ne"]}},
+     cloze:{blanks:[3,7], bank:["nohili","luiwu","noihi","kiliru","sho","ne"]}},
     {lw:["Lo","su","tohe","shani"],
      en:"It is four o'clock."},
     {lw:["Ne","wa","noihi","toyu","neo","piruhe"],
@@ -8405,7 +8412,7 @@ const LESSONS = [
    vocabKey:"l168_vocab_pride_shame_guilt",
    xp:18,
    unit:28,
-   intro:`<h3>😔 Welcome to specialized emotions</h3><p>This unit teaches the emotional vocabulary you'd reach for beyond the basics. You already know <em>houli</em> (happy), <em>mohouli</em> (sad), <em>kaumi</em> (surprised), <em>tauki</em> (angry), <em>moyeru</em> (to fear), and <em>waihi</em> (hopeful). This unit adds the more specific feelings — pride, shame, guilt, excitement, boredom, loneliness, curiosity, jealousy, belonging, trust, and their shadows.</p><h3>🏆 Pride and shame — a balancing pair</h3><p><em>youle</em> (pride) and <em>moyoule</em> (shame) form a <em>mo-</em> pair. The pride/shame opposition is one of the cleanest balancing pairs in the emotional vocabulary — both are evaluations of the self, one positive, one negative.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>youle</em> (n.)</td><td style="padding:4px 12px">pride</td></tr><tr><td style="padding:4px 12px"><em>youli</em> (adj.)</td><td style="padding:4px 12px">proud (or proudly)</td></tr><tr><td style="padding:4px 12px"><em>youlu</em> (v.)</td><td style="padding:4px 12px">to take pride</td></tr><tr><td style="padding:4px 12px"><em>moyoule</em> (n.)</td><td style="padding:4px 12px">shame</td></tr><tr><td style="padding:4px 12px"><em>moyouli</em> (adj.)</td><td style="padding:4px 12px">ashamed (or shamefully)</td></tr></table><h3>😟 Guilt</h3><p><em>nauhe</em> (guilt) sits near shame but is distinct — guilt is about a specific action you took, while shame is about who you are. In Liru as in English, the most natural use is the adjective with the copula: <em>Ne su nauhi</em> "I feel guilty."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nauhe</em> (n.)</td><td style="padding:4px 12px">guilt (or remorse)</td></tr><tr><td style="padding:4px 12px"><em>nauhi</em> (adj.)</td><td style="padding:4px 12px">guilty (or remorsefully)</td></tr></table><h3>😢 Sadness — the noun behind <em>mohouli</em></h3><p>You already learned <em>mohouli</em> (sad) back in Unit 4 and <em>houle</em> (joy) in Unit 22. This lesson surfaces the noun <em>mohoule</em> — sadness as a state. Now you have the full <em>houle</em>/<em>mohoule</em> pair across both the noun and adjective slots.</p><span class="example">Ne su youli. <span class="gloss">I am proud.</span></span><span class="example">Veo nauhe su mopiami. <span class="gloss">Her guilt is big.</span></span><span class="example">Mohoule su kufi. <span class="gloss">Sadness is painful.</span></span>`},
+   intro:`<h3>😔 Welcome to specialized emotions</h3><p>This unit teaches the emotional vocabulary you'd reach for beyond the basics. You already know <em>houli</em> (happy), <em>mohouli</em> (sad), <em>kaumi</em> (surprised), <em>tauki</em> (angry), <em>moyeru</em> (to fear), and <em>waihi</em> (hopeful). This unit adds the more specific feelings — pride, shame, guilt, excitement, boredom, loneliness, curiosity, jealousy, belonging, trust, and their shadows.</p><h3>🏆 Pride and shame — a balancing pair</h3><p><em>youle</em> (pride) and <em>moyoule</em> (shame) form a <em>mo-</em> pair. The pride/shame opposition is one of the cleanest balancing pairs in the emotional vocabulary — both are evaluations of the self, one positive, one negative.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>youle</em> (n.)</td><td style="padding:4px 12px">pride</td></tr><tr><td style="padding:4px 12px"><em>youli</em> (adj.)</td><td style="padding:4px 12px">proud (or proudly)</td></tr><tr><td style="padding:4px 12px"><em>youlu</em> (v.)</td><td style="padding:4px 12px">to take pride</td></tr><tr><td style="padding:4px 12px"><em>moyoule</em> (n.)</td><td style="padding:4px 12px">shame</td></tr><tr><td style="padding:4px 12px"><em>moyouli</em> (adj.)</td><td style="padding:4px 12px">ashamed (or shamefully)</td></tr></table><h3>😟 Guilt</h3><p><em>nauhe</em> (guilt) sits near shame but is distinct — guilt is about a specific action you took, while shame is about who you are. The verb <em>nauhu</em> means "to guilt (someone)" — to make them feel guilty — so to say "I feel guilty," Liru uses <em>elu</em> (to feel) plus the adjective: <em>Ne elu nauhi.</em> The plain copula <em>Ne su nauhi</em> means "I am guilty" — a stronger, more accusatory claim about the state of being, distinct from the felt experience.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nauhe</em> (n.)</td><td style="padding:4px 12px">guilt (or remorse)</td></tr><tr><td style="padding:4px 12px"><em>nauhi</em> (adj.)</td><td style="padding:4px 12px">guilty (or remorsefully)</td></tr></table><h3>😢 Sadness — the noun behind <em>mohouli</em></h3><p>You already learned <em>mohouli</em> (sad) back in Unit 4 and <em>houle</em> (joy) in Unit 22. This lesson surfaces the noun <em>mohoule</em> — sadness as a state. Now you have the full <em>houle</em>/<em>mohoule</em> pair across both the noun and adjective slots.</p><span class="example">Ne su youli. <span class="gloss">I am proud.</span></span><span class="example">Veo nauhe su mopiami. <span class="gloss">Her guilt is big.</span></span><span class="example">Mohoule su kufi. <span class="gloss">Sadness is painful.</span></span>`},
 
   {id:"l169_vocab_excitement_boredom_loneliness",
    title:"Excitement, Boredom & Loneliness",
@@ -8732,12 +8739,12 @@ const LESSONS = [
 
   {id:"l202_vocab_ask_warn_invite",
    title:"Asking, Warning, Inviting",
-   desc:"mokilire (answer), nauke (warning), poule (invitation), shoinulire (translation)",
+   desc:"luiwe (answer), nauke (warning), poule (invitation), shoinulire (translation)",
    icon:"\ud83d\udce2",
    vocabKey:"l202_vocab_ask_warn_invite",
    xp:18,
    unit:33,
-   intro:`<h3>\ud83d\udce2 Reaching out</h3><p>Four roots for the things you do <em>toward</em> other people \u2014 answering, warning, inviting, translating \u2014 plus one more verb that completes a root you already half-know.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>mokilire</em> (n.)</td><td style="padding:4px 12px">answer</td></tr><tr><td style="padding:4px 12px"><em>mokiliru</em> (v.)</td><td style="padding:4px 12px">to answer</td></tr><tr><td style="padding:4px 12px"><em>nauke</em> (n.)</td><td style="padding:4px 12px">warning</td></tr><tr><td style="padding:4px 12px"><em>nauku</em> (v.)</td><td style="padding:4px 12px">to warn</td></tr><tr><td style="padding:4px 12px"><em>poule</em> (n.)</td><td style="padding:4px 12px">invitation</td></tr><tr><td style="padding:4px 12px"><em>poulu</em> (v.)</td><td style="padding:4px 12px">to invite</td></tr><tr><td style="padding:4px 12px"><em>shoinulire</em> (n.)</td><td style="padding:4px 12px">translation</td></tr><tr><td style="padding:4px 12px"><em>shoinuliru</em> (v.)</td><td style="padding:4px 12px">to translate</td></tr></table><p><em>mokilire</em> is <em>mo-</em> + <em>kilire</em> (question) \u2014 an answer is the balancing pair of a question. And <em>shoinulire</em> is built transparently from <em>shoinu</em> (to change) + <em>lire</em> (speech): translation is \"changing-speech.\"</p><h3>\ud83d\udcde One more \u2014 <em>vouru</em></h3><p>You learned <em>voure</em> (phone) back in the core course. Here is its verb: <em>vouru</em>, to call someone \u2014 and the adjective <em>vouri</em>, phone-related.</p><span class="example">Ne mokiliru teo kilire. <span class="gloss">I answer your question.</span></span><span class="example">Ve wa nauku nea. <span class="gloss">She warned us.</span></span><span class="example">Ne vouru neo loye. <span class="gloss">I call my brother.</span></span>`},
+   intro:`<h3>\ud83d\udce2 Reaching out</h3><p>Four roots for the things you do <em>toward</em> other people \u2014 answering, warning, inviting, translating \u2014 plus one more verb that completes a root you already half-know.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>luiwe</em> (n.)</td><td style="padding:4px 12px">answer</td></tr><tr><td style="padding:4px 12px"><em>luiwu</em> (v.)</td><td style="padding:4px 12px">to answer</td></tr><tr><td style="padding:4px 12px"><em>nauke</em> (n.)</td><td style="padding:4px 12px">warning</td></tr><tr><td style="padding:4px 12px"><em>nauku</em> (v.)</td><td style="padding:4px 12px">to warn</td></tr><tr><td style="padding:4px 12px"><em>poule</em> (n.)</td><td style="padding:4px 12px">invitation</td></tr><tr><td style="padding:4px 12px"><em>poulu</em> (v.)</td><td style="padding:4px 12px">to invite</td></tr><tr><td style="padding:4px 12px"><em>shoinulire</em> (n.)</td><td style="padding:4px 12px">translation</td></tr><tr><td style="padding:4px 12px"><em>shoinuliru</em> (v.)</td><td style="padding:4px 12px">to translate</td></tr></table><p><em>luiwe</em> is its own root \u2014 it shares the <em>l-</em> onset with <em>lire</em> (speech) and <em>liru</em> (to speak), so an answer feels like kin to other speaking-words without being built from them. And <em>shoinulire</em> is built transparently from <em>shoinu</em> (to change) + <em>lire</em> (speech): translation is \"changing-speech.\"</p><h3>\ud83d\udcde One more \u2014 <em>vouru</em></h3><p>You learned <em>voure</em> (phone) back in the core course. Here is its verb: <em>vouru</em>, to call someone \u2014 and the adjective <em>vouri</em>, phone-related.</p><span class="example">Ne luiwu teo kilire. <span class="gloss">I answer your question.</span></span><span class="example">Ve wa nauku nea. <span class="gloss">She warned us.</span></span><span class="example">Ne vouru neo loye. <span class="gloss">I call my brother.</span></span>`},
 
   {id:"l203_vocab_plan_solve",
    title:"Planning & Solving",
@@ -11030,6 +11037,9 @@ const SRS_FORM_RENAMES={
   oihi:'houpi',
   oihu:'houpu',
   fa:'ka',
+  mokilire:'luiwe',
+  mokiliri:'luiwi',
+  mokiliru:'luiwu',
 };
 function srsMigrateRenamedFormsIfNeeded(username){
   if(!username)return 0;
@@ -13513,7 +13523,6 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-sub-header"><em>ki-</em> — interrogative</div>
     <ul>
       <li><em>liru</em> (speak) → <em>kiliru</em> (ask); <em>kilire</em> (question)</li>
-      <li>Stacks: <em>mo-</em> + <em>ki-</em> + <em>liru</em> = <em>mokiliru</em> (to answer — "balance + question + speak")</li>
     </ul>
     <div class="grammar-sub-header"><em>-pue</em> — agent ("one who does X")</div>
     <p>Attaches to a verb stem. This is fully productive — speakers can freely coin new agent nouns.</p>
@@ -14101,6 +14110,9 @@ const DICTIONARY_RAW = [
   {lw:"luhimu", en:"to play music (or make music)", pos:"v"},
   {lw:"luhu", en:"to make cold", pos:"v"},
   {lw:"luhupauwe", en:"refrigerator", pos:"n", note:"From luhu (to make cold) + -pauwe (device) \u2014 refrigerator"},
+  {lw:"luiwe", en:"answer", pos:"n"},
+  {lw:"luiwi", en:"answered", pos:"adj"},
+  {lw:"luiwu", en:"to answer (or reply)", pos:"v"},
   {lw:"lune", en:"light", pos:"n"},
   {lw:"lunekahe", en:"lamp", pos:"n", note:"From lune (light) + kahe (hold) \u2014 light-holder"},
   {lw:"luni", en:"bright (or brightly)", pos:"adj"},
@@ -14243,9 +14255,6 @@ const DICTIONARY_RAW = [
   {lw:"mokavu", en:"to mend (or repair)", pos:"v"},
   {lw:"moke", en:"death", pos:"n"},
   {lw:"moki", en:"dead", pos:"adj"},
-  {lw:"mokilire", en:"answer", pos:"n"},
-  {lw:"mokiliri", en:"answered", pos:"adj"},
-  {lw:"mokiliru", en:"to answer (or reply)", pos:"v", note:"From mo- + ki- + liru \u2014 to answer"},
   {lw:"moko", en:"without", pos:"prep"},
   {lw:"moko pue", en:"alone (by oneself)", pos:"phrase", note:"From moko (without) + pue (person) \u2014 without another person, by oneself"},
   {lw:"moko puea", en:"alone (in solitude)", pos:"phrase", note:"From moko (without) + puea (people) \u2014 without people around, in solitude"},
@@ -14520,7 +14529,7 @@ const DICTIONARY_RAW = [
   {lw:"nau", en:"to abound", pos:"v"},
   {lw:"nauhe", en:"guilt (or remorse)", pos:"n"},
   {lw:"nauhi", en:"guilty (or remorsefully)", pos:"adj"},
-  {lw:"nauhu", en:"to feel guilt", pos:"v"},
+  {lw:"nauhu", en:"to guilt (or make feel guilty)", pos:"v"},
   {lw:"nauke", en:"warning", pos:"n"},
   {lw:"nauki", en:"warned", pos:"adj"},
   {lw:"nauku", en:"to warn", pos:"v"},
@@ -14731,6 +14740,9 @@ const DICTIONARY_RAW = [
   {lw:"poime", en:"wheel", pos:"n", note:"Shortened from poiwi (rotating) + leume (roundness) \u2014 a rotating round thing"},
   {lw:"poimi", en:"wheel-related", pos:"adj"},
   {lw:"poimu", en:"to wheel (roll on wheels)", pos:"v"},
+  {lw:"poihe", en:"mail", pos:"n"},
+  {lw:"poihi", en:"postal", pos:"adj"},
+  {lw:"poihu", en:"to mail (or send by post)", pos:"v"},
   {lw:"poiwe", en:"turn (or rotation)", pos:"n"},
   {lw:"poiwi", en:"rotated", pos:"adj"},
   {lw:"poiwu", en:"to turn (or spin, rotate)", pos:"v"},
