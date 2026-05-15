@@ -6133,6 +6133,254 @@ const V = {
     {lw:["Lo","voure","su","kavi","ma","ne","wu","mokavu","ve"],
      en:"This phone is broken but I will repair it."},
   ],
+
+  // ═══════════════════════════════════════════════════════════════
+  // A22 / Unit 39 — Daily Nouns (clothing, household, food, life-cycle)
+  // 12 lessons L233–L244: 11 vocab + 1 unit exam. 41 anchor roots +
+  // liawe weave-in + towu canvas-completion. Every vocab lesson at the
+  // 4-root cap (Option A — no under-cap lesson). Everyday-form filter
+  // (A14 precedent): mechanical "X-related" adjectives dropped from
+  // drilling, kept in Dictionary.md. No new SRS_GLOSS_OVERRIDES, no
+  // lexicon changes — all roots already in Dictionary.md.
+  // ═══════════════════════════════════════════════════════════════
+
+  // L233 — Clothing I: things you wear (vocab). 4 roots / 6 drilled forms.
+  //   vauhe (n) + vauhi (adj) + vauhu (v) — full canvas. The general
+  //     clothing root; vauhu "to wear" anchors the cluster.
+  //   laiwe (n) — noun-only. Pants.
+  //   paiwe (n) — noun-only. Shoe.
+  //   pime (n) — noun-only. Hat.
+  l233_vocab_clothing_worn: [
+    {lw:"vauhe", en:"clothing (or wearing)", pos:"n",
+     canvas:{adj:"vauhi", adj_en:"worn (or clothed)",
+             v:"vauhu", v_en:"to wear (or put on)"}},
+    {lw:"laiwe", en:"pants", pos:"n"},
+    {lw:"paiwe", en:"shoe", pos:"n"},
+    {lw:"pime", en:"hat", pos:"n"},
+  ],
+
+  // L234 — Clothing II: more garments + cloth (vocab). 4 roots / 5
+  // drilled forms.
+  //   paiwile (n) — noun-only. Sock (diminutive of paiwe shoe).
+  //   waine (n) — noun. waini "belt-related" dropped (mechanical
+  //     X-related — everyday-form filter, A14).
+  //   woulime (n) — noun-only. Dress.
+  //   woile (n) + woili (adj) — n+adj. Cloth (or blanket) / cloth-
+  //     related. woili kept: a genuine descriptive property.
+  l234_vocab_clothing_more: [
+    {lw:"paiwile", en:"sock", pos:"n",
+     note:"Diminutive of paiwe (shoe) via -ile — little shoe."},
+    {lw:"waine", en:"belt", pos:"n",
+     note:"waini \"belt-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"woulime", en:"dress", pos:"n"},
+    {lw:"woile", en:"cloth (or blanket)", pos:"n",
+     canvas:{adj:"woili", adj_en:"cloth-related"}},
+  ],
+
+  // L235 — Kitchen appliances: the -pauwe device family (vocab).
+  // 4 roots / 4 drilled forms — all noun-only -pauwe compounds.
+  // The intro card makes the X-pauwe "device" pattern transparent.
+  l235_vocab_kitchen_appliances: [
+    {lw:"hauhupauwe", en:"oven", pos:"n",
+     note:"From hauhu (to heat up) + -pauwe (device) — oven."},
+    {lw:"nahupauwe", en:"stove", pos:"n",
+     note:"From nahu (to cook) + -pauwe (device) — stove."},
+    {lw:"luhupauwe", en:"refrigerator", pos:"n",
+     note:"From luhu (to make cold) + -pauwe (device) — refrigerator."},
+    {lw:"sayupauwe", en:"washing machine", pos:"n",
+     note:"From sayu (to wash) + -pauwe (device) — washing machine."},
+  ],
+
+  // L236 — Kitchen vessels & light (vocab). 4 roots / 4 drilled forms.
+  //   shome (n) — noun. shomi "bottle-related" dropped (mechanical).
+  //   pole (n) — noun. poli "bowl-related" dropped (mechanical).
+  //   paime (n) — noun. paimi "glassy" dropped (mechanical).
+  //   lunekahe (n) — noun-only compound. Lamp.
+  l236_vocab_kitchen_vessels: [
+    {lw:"shome", en:"bottle", pos:"n",
+     note:"shomi \"bottle-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"pole", en:"bowl", pos:"n",
+     note:"poli \"bowl-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"paime", en:"glass", pos:"n",
+     note:"paimi \"glassy\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"lunekahe", en:"lamp", pos:"n",
+     note:"From lune (light) + kahe (hold) — light-holder."},
+  ],
+
+  // L237 — Containers (vocab). 4 roots / 7 drilled forms. The three
+  // verb-bearing container roots cluster naturally.
+  //   nome (n) + nomu (v) — n+v. Box / to contain. nomi "contained"
+  //     dropped (participial).
+  //   poume (n) + poumu (v) — n+v. Bag / to bag. poumi "bag-related"
+  //     dropped (mechanical).
+  //   wauwe (n) — noun. wauwi "basket-related" dropped (mechanical).
+  //   soime (n) + soimu (v) — n+v. Shelf / to shelve. soimi "shelf-
+  //     related" dropped (mechanical).
+  l237_vocab_containers: [
+    {lw:"nome", en:"box", pos:"n",
+     canvas:{v:"nomu", v_en:"to contain"},
+     note:"nomi \"contained\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"poume", en:"bag", pos:"n",
+     canvas:{v:"poumu", v_en:"to bag (put in a bag)"},
+     note:"poumi \"bag-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"wauwe", en:"basket", pos:"n",
+     note:"wauwi \"basket-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"soime", en:"shelf", pos:"n",
+     canvas:{v:"soimu", v_en:"to shelve (or put away)"},
+     note:"soimi \"shelf-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+  ],
+
+  // L238 — Bathroom & hygiene (vocab). 4 roots / 4 drilled forms.
+  //   sauwe (n) — noun. sauwi "toilet-related" dropped (mechanical).
+  //   shauhe (n) — noun. shauhi "bathroom-related" dropped (mechanical).
+  //   shouwe (n) — noun. shouwi "soapy" dropped (mechanical).
+  //   raule (n) — noun. rauli "pillow-related" dropped (mechanical).
+  l238_vocab_bath_hygiene: [
+    {lw:"sauwe", en:"toilet", pos:"n",
+     note:"sauwi \"toilet-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"shauhe", en:"bathroom (or restroom)", pos:"n",
+     note:"shauhi \"bathroom-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"shouwe", en:"soap", pos:"n",
+     note:"shouwi \"soapy\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"raule", en:"pillow", pos:"n",
+     note:"rauli \"pillow-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+  ],
+
+  // L239 — House structure (vocab). 4 roots / 4 drilled forms.
+  //   keuwe (n) — noun. keuwi "roof-related" dropped (mechanical).
+  //   tauwe (n) — noun. tauwi "wall-related" dropped (mechanical).
+  //   touwe (n) — noun. touwi "floor-related" dropped (mechanical).
+  //   naohe (n) — noun. naohi "bridge-related" dropped (mechanical).
+  l239_vocab_house_structure: [
+    {lw:"keuwe", en:"roof", pos:"n",
+     note:"keuwi \"roof-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"tauwe", en:"wall", pos:"n",
+     note:"tauwi \"wall-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"touwe", en:"floor", pos:"n",
+     note:"touwi \"floor-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"naohe", en:"bridge", pos:"n",
+     note:"naohi \"bridge-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+  ],
+
+  // L240 — Buildings & places (vocab). 4 roots / 4 drilled forms —
+  // all noun-only compounds. The intro card makes the X-tieme "store"
+  // and X-yahe "place" compound patterns transparent (Grammar.md §18).
+  l240_vocab_house_places: [
+    {lw:"pokihiwe", en:"backyard", pos:"n",
+     note:"From poki (back) + hiwe (house) — backyard."},
+    {lw:"sheyahe", en:"hospital", pos:"n",
+     note:"From sheye (health) + yahe (place) — hospital."},
+    {lw:"mashetieme", en:"pharmacy", pos:"n",
+     note:"From mashe (medicine) + -tieme (store) — pharmacy."},
+    {lw:"loiwetieme", en:"bookstore", pos:"n",
+     note:"From loiwe (book) + -tieme (store) — bookstore."},
+  ],
+
+  // L241 — Media & time-telling (vocab). 4 roots / 7 drilled forms,
+  // including the towu canvas-completion weave-in.
+  //   une (n) + uni (adj) — n+adj. Movie / cinematic.
+  //   unile (n) — noun. unili "TV-show-related" dropped (mechanical).
+  //   wainoe (n) + wainoi (adj) — n+adj. Internet / online. wainoi
+  //     kept: "online" is a genuine everyday descriptive property.
+  //   weye (n) + weyu (v) — n+v. Clock / to check the time. weyi
+  //     "clock-related" dropped (mechanical).
+  //   towu (v) — canvas-completion weave-in. The root towe "map" +
+  //     towi "mapped" were taught A8/A9; this surfaces the untaught
+  //     verb. Does not count against the 4-root cap (A20 houpe/
+  //     waihe, A21 vouru precedent).
+  l241_vocab_media_time: [
+    {lw:"une", en:"movie", pos:"n",
+     canvas:{adj:"uni", adj_en:"cinematic (or movie-related)"}},
+    {lw:"unile", en:"TV show", pos:"n",
+     note:"From une (movie) + -ile (diminutive). unili \"TV-show-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"wainoe", en:"internet", pos:"n",
+     canvas:{adj:"wainoi", adj_en:"online (or internet-related)"}},
+    {lw:"weye", en:"clock (or timepiece)", pos:"n",
+     canvas:{v:"weyu", v_en:"to check the time"},
+     note:"weyi \"clock-related\" remains in Dictionary.md but not drilled (mechanical X-related — everyday-form filter, A14)."},
+    {lw:"towu", en:"to map", pos:"v",
+     note:"Canvas-completion weave-in: towe \"map\" + towi \"mapped\" were taught in A8/A9; towu \"to map\" was never drilled. Does not count against the 4-root cap (A20/A21 canvas-completion precedent)."},
+  ],
+
+  // L242 — Paper & light objects (vocab). 4 roots / 6 drilled forms.
+  //   loiye (n) + loiyu (v) — n+v. Letter / to spell. loiyi "spelled"
+  //     dropped (participial).
+  //   loiwile (n) — noun-only. Booklet (diminutive of loiwe book).
+  //   takilune (n) — noun-only compound. Candle.
+  //   weyile (n) — noun-only. Wristwatch (diminutive of weye clock).
+  l242_vocab_paper_light: [
+    {lw:"loiye", en:"letter", pos:"n",
+     canvas:{v:"loiyu", v_en:"to spell"},
+     note:"loiyi \"spelled\" remains in Dictionary.md but not drilled (participial — everyday-form filter, A14)."},
+    {lw:"loiwile", en:"booklet", pos:"n",
+     note:"From loiwe (book) + -ile — little book."},
+    {lw:"takilune", en:"candle", pos:"n",
+     note:"From taki (fiery) + lune (light) — fire-kind-of light."},
+    {lw:"weyile", en:"wristwatch", pos:"n",
+     note:"From weye (clock) + -ile (diminutive) — wristwatch."},
+  ],
+
+  // L243 — People & abstract closer (vocab). 3 roots / 5 drilled
+  // forms. EXPLICIT UNDER-CAP-BY-DESIGN CLOSER (A12 L154 / A20 L196
+  // precedent): the people/abstract closer genuinely yields only
+  // this much. haime "mirror" was originally scoped here but is
+  // already taught in A21 L223 (texture & touch) — caught at
+  // preflight; dropped rather than quota-filling with a mechanical
+  // sibling.
+  //   mosenipue (n) — noun-only -pue agent. Stranger.
+  //   movehisene (n) — noun-only compound. Secret.
+  //   liawe (n) + liawi (adj) + liawu (v) — full canvas weave-in.
+  //     Experience / experienced / to experience. Coined 2026-05-14;
+  //     full canvas taught per DesignNotes.md.
+  l243_vocab_people_misc: [
+    {lw:"mosenipue", en:"stranger", pos:"n",
+     note:"From moseni (unknown) + -pue (agent) — stranger. Noun-only."},
+    {lw:"movehisene", en:"secret", pos:"n",
+     note:"From movehi (hidden) + sene (knowledge) — secret. Noun-only."},
+    {lw:"liawe", en:"experience", pos:"n",
+     canvas:{adj:"liawi", adj_en:"experienced",
+             v:"liawu", v_en:"to experience"},
+     note:"Weave-in: coined 2026-05-14 to fill the experience gap. Full canvas taught per DesignNotes.md."},
+  ],
+
+  // L244 — Unit 39 Exam: Daily Nouns. isCheckpoint:true,
+  // isSentence:true. 14 sentences spanning L233–L243. Cloze on 4
+  // (S2, S6, S9, S13). All content words introduced L233–L243 or
+  // in prior units (token-audited against Dictionary.md + budget).
+  l244_daily_nouns_exam: [
+    {lw:["Ne","wu","vauhu","neo","laiwe"],
+     en:"I will wear my pants."},
+    {lw:["Lo","pime","su","feyali","ma","lo","paiwe","su","laumali"],
+     en:"This hat is red but this shoe is blue.",
+     cloze:{blanks:[1,6], bank:["pime","paiwe","waine","laiwe","su","ma"]}},
+    {lw:["Neo","woulime","su","mopiami"],
+     en:"My dress is big."},
+    {lw:["Ne","sayu","neo","woile","wo","sayupauwe"],
+     en:"I wash my cloth in the washing machine."},
+    {lw:["Veo","nahupauwe","sho","veo","luhupauwe","su","nohi"],
+     en:"Her stove and her refrigerator are new."},
+    {lw:["Ne","nomu","neo","fere","wo","lo","nome"],
+     en:"I contain my gift in this box.",
+     cloze:{blanks:[1,6], bank:["nomu","nome","poumu","poume","wo","neo"]}},
+    {lw:["Lo","shome","su","wo","lo","soime"],
+     en:"This bottle is on this shelf."},
+    {lw:["Ne","wu","halu","so","mashetieme"],
+     en:"I will go to the pharmacy."},
+    {lw:["Lo","sheyahe","su","ori","mopiami","sho","su","nohi"],
+     en:"This hospital is very big and new.",
+     cloze:{blanks:[1,4], bank:["sheyahe","mopiami","loiwetieme","piami","su","ori"]}},
+    {lw:["Ne","tiru","une","wo","wainoe"],
+     en:"I watch a movie on the internet."},
+    {lw:["Neo","mawe","wu","weyu"],
+     en:"My mother will check the time."},
+    {lw:["Ne","wa","loiyu","neo","loiye"],
+     en:"I spelled my letter."},
+    {lw:["Lo","mosenipue","su","wo","neo","hiwe"],
+     en:"This stranger is in my house.",
+     cloze:{blanks:[1,5], bank:["mosenipue","hiwe","movehisene","yahe","su","wo"]}},
+    {lw:["Lo","liawe","su","lohi"],
+     en:"This experience is good."},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -6196,6 +6444,7 @@ const UNITS = [
   {name:"Unit 36 — Useful Verbs III: State, Body & Life-Cycle", start:207, track:"advanced"},
   {name:"Unit 37 — Useful Verbs IV: Dimension & Texture", start:213, track:"advanced"},
   {name:"Unit 38 — Useful Verbs V: Food, Quantity & Closing", start:219, track:"advanced"},
+  {name:"Unit 39 — Daily Nouns", start:226, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -8460,6 +8709,116 @@ const LESSONS = [
    vocabKey:"l232_food_quantity_exam",
    xp:30,
    unit:37,
+   isSentence:true,
+   isCheckpoint:true},
+
+  // ── A22 / Unit 39 — Daily Nouns ──
+  {id:"l233_vocab_clothing_worn",
+   title:"Clothing — Things You Wear",
+   desc:"vauhe (clothing), laiwe (pants), paiwe (shoe), pime (hat)",
+   icon:"\ud83d\udc55",
+   vocabKey:"l233_vocab_clothing_worn",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83d\udc55 Getting dressed</h3><p>This unit covers the everyday objects of a Liru-speaker's life \u2014 clothing, household things, places, and a few people. It opens with clothing. The general root <em>vauhe</em> carries the whole idea of being clothed, and its verb <em>vauhu</em> "to wear" is the one you'll reach for most.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>vauhe</em> (n.)</td><td style="padding:4px 12px">clothing (or wearing)</td></tr><tr><td style="padding:4px 12px"><em>vauhi</em> (adj.)</td><td style="padding:4px 12px">worn (or clothed)</td></tr><tr><td style="padding:4px 12px"><em>vauhu</em> (v.)</td><td style="padding:4px 12px">to wear (or put on)</td></tr><tr><td style="padding:4px 12px"><em>laiwe</em> (n.)</td><td style="padding:4px 12px">pants</td></tr><tr><td style="padding:4px 12px"><em>paiwe</em> (n.)</td><td style="padding:4px 12px">shoe</td></tr><tr><td style="padding:4px 12px"><em>pime</em> (n.)</td><td style="padding:4px 12px">hat</td></tr></table><span class="example">Ne vauhu neo laiwe. <span class="gloss">I wear my pants.</span></span><span class="example">Lo pime su feyali. <span class="gloss">This hat is red.</span></span><span class="example">Neo paiwe su nohi. <span class="gloss">My shoe is new.</span></span>`},
+
+  {id:"l234_vocab_clothing_more",
+   title:"Clothing — More Garments",
+   desc:"paiwile (sock), waine (belt), woulime (dress), woile (cloth)",
+   icon:"\ud83e\udde6",
+   vocabKey:"l234_vocab_clothing_more",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83e\udde6 More to wear</h3><p>Four more clothing words. Notice <em>paiwile</em> "sock" \u2014 it's <em>paiwe</em> "shoe" plus the diminutive <em>-ile</em>, literally a "little shoe." And <em>woile</em> "cloth" doubles as "blanket": one material word for both.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>paiwile</em> (n.)</td><td style="padding:4px 12px">sock</td></tr><tr><td style="padding:4px 12px"><em>waine</em> (n.)</td><td style="padding:4px 12px">belt</td></tr><tr><td style="padding:4px 12px"><em>woulime</em> (n.)</td><td style="padding:4px 12px">dress</td></tr><tr><td style="padding:4px 12px"><em>woile</em> (n.)</td><td style="padding:4px 12px">cloth (or blanket)</td></tr><tr><td style="padding:4px 12px"><em>woili</em> (adj.)</td><td style="padding:4px 12px">cloth-related</td></tr></table><span class="example">Neo woulime su laumali. <span class="gloss">My dress is blue.</span></span><span class="example">Ne vauhu neo waine. <span class="gloss">I wear my belt.</span></span><span class="example">Lo woile su peri. <span class="gloss">This blanket is soft.</span></span>`},
+
+  {id:"l235_vocab_kitchen_appliances",
+   title:"Kitchen Appliances",
+   desc:"hauhupauwe (oven), nahupauwe (stove), luhupauwe (refrigerator), sayupauwe (washing machine)",
+   icon:"\ud83d\udd25",
+   vocabKey:"l235_vocab_kitchen_appliances",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83d\udd25 The <em>-pauwe</em> device family</h3><p>All four words in this lesson are built the same way: a verb root plus <em>-pauwe</em> "device." The verb tells you what the device does. <em>hauhu</em> "to heat up" + <em>-pauwe</em> = oven. Once you see the pattern, these words read themselves.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">device</th><th style="padding:4px 12px;color:var(--dim)">built from</th></tr><tr><td style="padding:4px 12px"><em>hauhupauwe</em> oven</td><td style="padding:4px 12px"><em>hauhu</em> (to heat up) + <em>-pauwe</em></td></tr><tr><td style="padding:4px 12px"><em>nahupauwe</em> stove</td><td style="padding:4px 12px"><em>nahu</em> (to cook) + <em>-pauwe</em></td></tr><tr><td style="padding:4px 12px"><em>luhupauwe</em> refrigerator</td><td style="padding:4px 12px"><em>luhu</em> (to make cold) + <em>-pauwe</em></td></tr><tr><td style="padding:4px 12px"><em>sayupauwe</em> washing machine</td><td style="padding:4px 12px"><em>sayu</em> (to wash) + <em>-pauwe</em></td></tr></table><span class="example">Neo hauhupauwe su mopiami. <span class="gloss">My oven is big.</span></span><span class="example">Ne nahu tahe wo nahupauwe. <span class="gloss">I cook food on the stove.</span></span><span class="example">Lo luhupauwe su nohi. <span class="gloss">This refrigerator is new.</span></span>`},
+
+  {id:"l236_vocab_kitchen_vessels",
+   title:"Vessels & Light",
+   desc:"shome (bottle), pole (bowl), paime (glass), lunekahe (lamp)",
+   icon:"\ud83c\udf7e",
+   vocabKey:"l236_vocab_kitchen_vessels",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83c\udf7e Things on the table</h3><p>Three vessels and a lamp. <em>paime</em> is the material "glass" \u2014 the same word covers a drinking glass and the substance. <em>lunekahe</em> "lamp" is <em>lune</em> "light" + <em>kahe</em> "hold": a light-holder.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shome</em> (n.)</td><td style="padding:4px 12px">bottle</td></tr><tr><td style="padding:4px 12px"><em>pole</em> (n.)</td><td style="padding:4px 12px">bowl</td></tr><tr><td style="padding:4px 12px"><em>paime</em> (n.)</td><td style="padding:4px 12px">glass</td></tr><tr><td style="padding:4px 12px"><em>lunekahe</em> (n.)</td><td style="padding:4px 12px">lamp</td></tr></table><span class="example">Lo shome su monomai. <span class="gloss">This bottle is empty.</span></span><span class="example">Neo pole su wo lo soime. <span class="gloss">My bowl is on this shelf.</span></span><span class="example">Lo lunekahe su luni. <span class="gloss">This lamp is bright.</span></span>`},
+
+  {id:"l237_vocab_containers",
+   title:"Containers",
+   desc:"nome (box), poume (bag), wauwe (basket), soime (shelf)",
+   icon:"\ud83d\udce6",
+   vocabKey:"l237_vocab_containers",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83d\udce6 Holding things</h3><p>Four ways to store things. Three of these roots carry their own verb: <em>nomu</em> "to contain," <em>poumu</em> "to bag," <em>soimu</em> "to shelve (or put away)." So you can name the container and the act of using it with the same root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nome</em> (n.)</td><td style="padding:4px 12px">box</td></tr><tr><td style="padding:4px 12px"><em>nomu</em> (v.)</td><td style="padding:4px 12px">to contain</td></tr><tr><td style="padding:4px 12px"><em>poume</em> (n.)</td><td style="padding:4px 12px">bag</td></tr><tr><td style="padding:4px 12px"><em>poumu</em> (v.)</td><td style="padding:4px 12px">to bag (put in a bag)</td></tr><tr><td style="padding:4px 12px"><em>wauwe</em> (n.)</td><td style="padding:4px 12px">basket</td></tr><tr><td style="padding:4px 12px"><em>soime</em> (n.)</td><td style="padding:4px 12px">shelf</td></tr><tr><td style="padding:4px 12px"><em>soimu</em> (v.)</td><td style="padding:4px 12px">to shelve (or put away)</td></tr></table><span class="example">Ne nomu neo fere wo lo nome. <span class="gloss">I contain my gift in this box.</span></span><span class="example">Neo wauwe su nomai. <span class="gloss">My basket is full.</span></span><span class="example">Ne soimu neo loiwe. <span class="gloss">I put away my book.</span></span>`},
+
+  {id:"l238_vocab_bath_hygiene",
+   title:"Bathroom & Hygiene",
+   desc:"sauwe (toilet), shauhe (bathroom), shouwe (soap), raule (pillow)",
+   icon:"\ud83d\udec1",
+   vocabKey:"l238_vocab_bath_hygiene",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83d\udec1 The bathroom</h3><p>Everyday hygiene words. <em>shauhe</em> is the room \u2014 "bathroom" or "restroom" \u2014 and <em>sauwe</em> is the toilet itself. <em>raule</em> "pillow" rounds out the lesson with a bedroom comfort.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>sauwe</em> (n.)</td><td style="padding:4px 12px">toilet</td></tr><tr><td style="padding:4px 12px"><em>shauhe</em> (n.)</td><td style="padding:4px 12px">bathroom (or restroom)</td></tr><tr><td style="padding:4px 12px"><em>shouwe</em> (n.)</td><td style="padding:4px 12px">soap</td></tr><tr><td style="padding:4px 12px"><em>raule</em> (n.)</td><td style="padding:4px 12px">pillow</td></tr></table><span class="example">Lo shauhe su sayi. <span class="gloss">This bathroom is clean.</span></span><span class="example">Ne mihu shouwe. <span class="gloss">I need soap.</span></span><span class="example">Neo raule su peri. <span class="gloss">My pillow is soft.</span></span>`},
+
+  {id:"l239_vocab_house_structure",
+   title:"House Structure",
+   desc:"keuwe (roof), tauwe (wall), touwe (floor), naohe (bridge)",
+   icon:"\ud83c\udfe0",
+   vocabKey:"l239_vocab_house_structure",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83c\udfe0 The parts of a building</h3><p>The bones of a house \u2014 roof, wall, floor \u2014 plus <em>naohe</em> "bridge," a structure you cross. You already know <em>taupoye</em> "window" is <em>tauwe</em> "wall" + <em>poye</em> "opening": now you have the wall root on its own.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>keuwe</em> (n.)</td><td style="padding:4px 12px">roof</td></tr><tr><td style="padding:4px 12px"><em>tauwe</em> (n.)</td><td style="padding:4px 12px">wall</td></tr><tr><td style="padding:4px 12px"><em>touwe</em> (n.)</td><td style="padding:4px 12px">floor</td></tr><tr><td style="padding:4px 12px"><em>naohe</em> (n.)</td><td style="padding:4px 12px">bridge</td></tr></table><span class="example">Lo keuwe su mopiami. <span class="gloss">This roof is big.</span></span><span class="example">Neo touwe su sayi. <span class="gloss">My floor is clean.</span></span><span class="example">Ne wu tasu lo naohe. <span class="gloss">I will cross this bridge.</span></span>`},
+
+  {id:"l240_vocab_house_places",
+   title:"Buildings & Places",
+   desc:"pokihiwe (backyard), sheyahe (hospital), mashetieme (pharmacy), loiwetieme (bookstore)",
+   icon:"\ud83c\udfe5",
+   vocabKey:"l240_vocab_house_places",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83c\udfe5 Places around town</h3><p>Four place words, all compounds. Two patterns are at work: <em>-yahe</em> "place" (as in <em>sheyahe</em> "hospital," from <em>sheye</em> health) and <em>-tieme</em> "store" (as in <em>mashetieme</em> "pharmacy," from <em>mashe</em> medicine). Spot the pattern and you can read \u2014 and build \u2014 many more.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">place</th><th style="padding:4px 12px;color:var(--dim)">built from</th></tr><tr><td style="padding:4px 12px"><em>pokihiwe</em> backyard</td><td style="padding:4px 12px"><em>poki</em> (back) + <em>hiwe</em> (house)</td></tr><tr><td style="padding:4px 12px"><em>sheyahe</em> hospital</td><td style="padding:4px 12px"><em>sheye</em> (health) + <em>yahe</em> (place)</td></tr><tr><td style="padding:4px 12px"><em>mashetieme</em> pharmacy</td><td style="padding:4px 12px"><em>mashe</em> (medicine) + <em>-tieme</em> (store)</td></tr><tr><td style="padding:4px 12px"><em>loiwetieme</em> bookstore</td><td style="padding:4px 12px"><em>loiwe</em> (book) + <em>-tieme</em> (store)</td></tr></table><span class="example">Ne wu halu so sheyahe. <span class="gloss">I will go to the hospital.</span></span><span class="example">Lo mashetieme su piami. <span class="gloss">This pharmacy is small.</span></span><span class="example">Neo paipe su wo pokihiwe. <span class="gloss">My dog is in the backyard.</span></span>`},
+
+  {id:"l241_vocab_media_time",
+   title:"Media & Telling Time",
+   desc:"une (movie), unile (TV show), wainoe (internet), weye (clock)",
+   icon:"\ud83c\udfac",
+   vocabKey:"l241_vocab_media_time",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83c\udfac Screens and clocks</h3><p>Modern daily life. <em>unile</em> "TV show" is the diminutive of <em>une</em> "movie" \u2014 a bounded, episodic movie. This lesson also completes a root you've half-met: <em>towe</em> "map" and <em>towi</em> "mapped" you know, and here is the verb <em>towu</em> "to map."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>une</em> (n.)</td><td style="padding:4px 12px">movie</td></tr><tr><td style="padding:4px 12px"><em>uni</em> (adj.)</td><td style="padding:4px 12px">cinematic (or movie-related)</td></tr><tr><td style="padding:4px 12px"><em>unile</em> (n.)</td><td style="padding:4px 12px">TV show</td></tr><tr><td style="padding:4px 12px"><em>wainoe</em> (n.)</td><td style="padding:4px 12px">internet</td></tr><tr><td style="padding:4px 12px"><em>wainoi</em> (adj.)</td><td style="padding:4px 12px">online (or internet-related)</td></tr><tr><td style="padding:4px 12px"><em>weye</em> (n.)</td><td style="padding:4px 12px">clock (or timepiece)</td></tr><tr><td style="padding:4px 12px"><em>weyu</em> (v.)</td><td style="padding:4px 12px">to check the time</td></tr><tr><td style="padding:4px 12px"><em>towu</em> (v.)</td><td style="padding:4px 12px">to map</td></tr></table><span class="example">Ne tiru une wo wainoe. <span class="gloss">I watch a movie on the internet.</span></span><span class="example">Neo mawe wu weyu. <span class="gloss">My mother will check the time.</span></span><span class="example">Ne wu towu lo yahe. <span class="gloss">I will map this place.</span></span>`},
+
+  {id:"l242_vocab_paper_light",
+   title:"Paper & Small Objects",
+   desc:"loiye (letter), loiwile (booklet), takilune (candle), weyile (wristwatch)",
+   icon:"\u2709\ufe0f",
+   vocabKey:"l242_vocab_paper_light",
+   xp:18,
+   unit:38,
+   intro:`<h3>\u2709\ufe0f Letters and little things</h3><p>Small everyday objects. Two of them are diminutives of words you know: <em>loiwile</em> "booklet" is a little <em>loiwe</em> "book," and <em>weyile</em> "wristwatch" is a little <em>weye</em> "clock." <em>loiye</em> "letter" carries the verb <em>loiyu</em> "to spell."</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>loiye</em> (n.)</td><td style="padding:4px 12px">letter</td></tr><tr><td style="padding:4px 12px"><em>loiyu</em> (v.)</td><td style="padding:4px 12px">to spell</td></tr><tr><td style="padding:4px 12px"><em>loiwile</em> (n.)</td><td style="padding:4px 12px">booklet</td></tr><tr><td style="padding:4px 12px"><em>takilune</em> (n.)</td><td style="padding:4px 12px">candle</td></tr><tr><td style="padding:4px 12px"><em>weyile</em> (n.)</td><td style="padding:4px 12px">wristwatch</td></tr></table><span class="example">Ne wa loiyu neo loiye. <span class="gloss">I spelled my letter.</span></span><span class="example">Lo takilune su luni. <span class="gloss">This candle is bright.</span></span><span class="example">Neo weyile su nohi. <span class="gloss">My wristwatch is new.</span></span>`},
+
+  {id:"l243_vocab_people_misc",
+   title:"People & Closing Roots",
+   desc:"mosenipue (stranger), movehisene (secret), liawe (experience)",
+   icon:"\ud83e\ude9e",
+   vocabKey:"l243_vocab_people_misc",
+   xp:18,
+   unit:38,
+   intro:`<h3>\ud83e\ude9e Closing the unit</h3><p>The last vocab lesson \u2014 a short one. <em>mosenipue</em> "stranger" is <em>moseni</em> "unknown" + <em>-pue</em> "agent" \u2014 an unknown one. <em>movehisene</em> "secret" is <em>movehi</em> "hidden" + <em>sene</em> "knowledge." The unit closes with one more full-canvas root: <em>liawe</em> "experience," and the verb <em>liawu</em> "to experience" \u2014 the act of living through something.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>mosenipue</em> (n.)</td><td style="padding:4px 12px">stranger</td></tr><tr><td style="padding:4px 12px"><em>movehisene</em> (n.)</td><td style="padding:4px 12px">secret</td></tr><tr><td style="padding:4px 12px"><em>liawe</em> (n.)</td><td style="padding:4px 12px">experience</td></tr><tr><td style="padding:4px 12px"><em>liawi</em> (adj.)</td><td style="padding:4px 12px">experienced</td></tr><tr><td style="padding:4px 12px"><em>liawu</em> (v.)</td><td style="padding:4px 12px">to experience</td></tr></table><span class="example">Lo mosenipue su wo neo hiwe. <span class="gloss">This stranger is in my house.</span></span><span class="example">Neo mawe su liawi. <span class="gloss">My mother is experienced.</span></span><span class="example">Ne wa liawu ori mopiami liawe. <span class="gloss">I experienced a very big experience.</span></span>`},
+
+  {id:"l244_daily_nouns_exam",
+   title:"Unit 39 Exam \u2014 Daily Nouns",
+   desc:"Three hearts. Fourteen sentences covering all eleven vocab lessons, plus cloze on four key constructions.",
+   icon:"\ud83c\udfe0",
+   vocabKey:"l244_daily_nouns_exam",
+   xp:30,
+   unit:38,
    isSentence:true,
    isCheckpoint:true},
 ];
@@ -13228,6 +13587,9 @@ const DICTIONARY_RAW = [
   {lw:"lianu", en:"to rise", pos:"v"},
   {lw:"lianitowe", en:"north", pos:"n", note:"From liani (high) + towe (map) \u2014 high-of-map"},
   {lw:"lianitowi", en:"northern", pos:"adj"},
+  {lw:"liawe", en:"experience", pos:"n"},
+  {lw:"liawi", en:"experienced", pos:"adj"},
+  {lw:"liawu", en:"to experience", pos:"v"},
   {lw:"lime", en:"growth", pos:"n"},
   {lw:"limi", en:"mature", pos:"adj"},
   {lw:"limu", en:"to grow", pos:"v"},
