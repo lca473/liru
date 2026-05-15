@@ -1250,7 +1250,7 @@ const V = {
   // ════════════════════════════════════════════════════════════════
   // L39: l39_goingcoming — sentence-based; introduces halu, vanu, movanu
   // L40: l40_places      — vocab; hiwe (+hiwu), kewe, yahe, tieme, senehiwe, kupetieme
-  // L41: l41_locatives   — sentence-based; introduces ya, wo, mowo, so, fa
+  // L41: l41_locatives   — sentence-based; introduces ya, wo, mowo, so, ka
   //                        (leu, moleu deferred to Unit 12 where natural pairings exist)
   // L42: l42_herethere   — sentence-based; introduces loya, faloya, kiya
   // L43: l43_exam        — Unit 7 exam (isCheckpoint:true)
@@ -1308,7 +1308,7 @@ const V = {
   // L42 — Here, There, and Where (sentence-based)
   // Locative-extended demonstratives loya/faloya plus the question word kiya.
   // Particle-drop in *kiya* questions is shown in the intro card and
-  // exercised in sentences 4, 7 (so/fa drop respectively).
+  // exercised in sentences 4, 7 (so/ka drop respectively).
   l42_herethere: [
     {lw:["Ne","su","loya"],                      en:"I am here."},
     {lw:["Maya","su","faloya"],                  en:"Maya is there."},
@@ -1391,7 +1391,7 @@ const V = {
 
   // L48 — Verbs in Sentences II (sentence-based, no new forms)
   // Drills L46 + L47 verbs. Sentences 4+5 deliberately pair feru/so and
-  // moferu/fa to reinforce the give/take + to/from symmetry.
+  // moferu/ka to reinforce the give/take + to/from symmetry.
   l48_routinesentences: [
     {lw:["Ne","rau","wo","kewe"],                       en:"I sleep in the room."},
     {lw:["Maya","wa","fasu","lo lawe"],                 en:"Maya worked today."},
@@ -1576,7 +1576,7 @@ const V = {
   // Introduces nai (many/much) as a quantifier adjective. Drills the
   // canonical price-asking pattern (Kinai tonea su X?) per Grammar.md §12 —
   // uses productive grammar, not a new idiom. Reinforces L59 transactional
-  // verbs (hoyu, mohoyu) with so/fa locative particles from L41.
+  // verbs (hoyu, mohoyu) with so/ka locative particles from L41.
   // Uses pometieme (productive compound, free in budget) for transactional
   // setting. Note: tone is a count noun and pluralizes regularly (tonea);
   // English mass-noun reflex is the key error pattern to drill against.
@@ -2009,10 +2009,11 @@ const V = {
   ],
 
   // L86 — Superlative apa (sentence-based; introduces apa)
-  // Teaches *apa* (the most, BEFORE adjective — contrast with L85's *ata*/*ala*
-  // which come AFTER). Also introduces the *apa…fa* "most of [set]" construction
+  // Teaches *apa* (pre-adj, the most). L85 already taught *apa* post-adj
+  // (more than) and *ala* (as ___ as). This lesson teaches the placement
+  // reversal. Also introduces the *apa…ka* "most of [set]" construction
   // using already-taught preposition *ka* (L41) in a new grammatical role.
-  // 4 sentences with bare apa, 3 with apa…fa, so both patterns get drilled.
+  // 4 sentences with bare apa, 3 with apa…ka, so both patterns get drilled.
   // Forms registered in preflight.js sentenceLessonNewForms as ['apa'].
   l86_superlative_apa: [
     {lw:["Neo","mawe","su","apa","wauli"],                       en:"My mother is the most beautiful."},
@@ -2045,8 +2046,8 @@ const V = {
   // Tests all 3 comparison particles (apa, ala, moapa) in all positions plus the
   // *ka* "of [set]" extension. Fresh sentence content — not copies of L85–L87
   // exercises — so the test is recombination, not muscle memory. Symmetric
-  // distribution: apa post-adj×2, ala×2, apa pre-adj×2 (one with fa),
-  // moapa post-adj×2, moapa pre-adj×2 (one with fa).
+  // distribution: apa post-adj×2, ala×2, apa pre-adj×2 (one with ka),
+  // moapa post-adj×2, moapa pre-adj×2 (one with ka).
   l88_comparison_exam: [
     {lw:["Mawe","su","wauli","apa","pawe"],                      en:"Mother is more beautiful than father."},
     {lw:["Teo","paipe","su","mopiami","apa","neo","mewe"],       en:"Your dog is bigger than my cat."},
@@ -2783,7 +2784,7 @@ const V = {
   // other A6 color adjectives). Patterns drilled: predicate adj with
   // copula su (Grammar §6), attributive adj (Grammar §7 left-branching),
   // attributive + plural -ea, yes/no question with ki (§12),
-  // comparative ata (§13), superlative apa (§13), negation mai (§5),
+  // comparative apa post-adj (§13), superlative apa pre-adj (§13), negation mai (§5),
   // past wa (§5), conditional vi (Grammar §10, introduced L90).
   // Every non-color token verified V-taught at or before L115.
   l115_color_exam: [
@@ -3770,7 +3771,7 @@ const V = {
   // 14 sentences covering every drilled root in L147–L154 plus
   // the unit's grammatical patterns: predicate adj (L19), attributive
   // adj (L20), plural -ea (L33), possessive -eo (L15), past wa (L25),
-  // future wu (L26), comparative ata (L85), superlative apa (L86),
+  // future wu (L26), comparative apa post-adj (L85), superlative apa pre-adj (L86),
   // conditional vi (L90), relative lai (L95), locative wo (L41),
   // sho (L34), tai universal quantifier (L120). Cloze on 4 sentences
   // (sentences #3, #4, #8, #14 — those combining multiple constructions).
@@ -4126,8 +4127,8 @@ const V = {
   // unit's grammatical patterns: predicate adj (L19), action verb
   // (no su, L25 — verbs predicate directly), plural -ea (L33),
   // possessive -eo (L15), past wa (L25), future wu (L26),
-  // conditional vi (L90), relative lai (L95), superlative apa (L86),
-  // comparative ata (L85), locatives wo/moleu (L41/L71), tai (L120),
+  // conditional vi (L90), relative lai (L95), superlative apa pre-adj (L86),
+  // comparative apa post-adj (L85), locatives wo/moleu (L41/L71), tai (L120),
   // ahu (L53). Cloze on 4 sentences (S3, S7, S10, S14). Three hearts
   // checkpoint.
   l167_motion_action_exam: [
@@ -6487,7 +6488,7 @@ const V = {
     {lw:"meshifane", en:"half", pos:"n",
      canvas:{adj:"meshifani", adj_en:"half-of"},
      note:"Lexicalized compound: meshe (middle) + fane.",
-     intro:"<p><em>Meshifane</em> is half. The adjective <em>meshifani</em> means &ldquo;half-of&rdquo;: <em>meshifani tohe</em> (half an hour). As a noun: <em>Ne wa tahu meshifane fa lo tahe.</em> (I ate half the food.)</p>"},
+     intro:"<p><em>Meshifane</em> is half. The adjective <em>meshifani</em> means &ldquo;half-of&rdquo;: <em>meshifani tohe</em> (half an hour). As a noun: <em>Ne wa tahu meshifane ka lo tahe.</em> (I ate half the food.)</p>"},
     {lw:"nohile", en:"recentness", pos:"n",
      canvas:{adj:"nohili", adj_en:"recent (or just recently)"},
      note:"Derived from nohi (new/recent) + -le time-particle suffix. nohili is the everyday adverbial form.",
@@ -7394,7 +7395,7 @@ const LESSONS = [
    xp:22,
    unit:11,
    isSentence:true,
-   intro:`<h3>⬆️ Where things are vertically</h3><p>Liru has two more locative particles for vertical position:</p><ul><li><em>leu</em> — above, on</li><li><em>moleu</em> — below, under</li></ul><p>Like the locatives you already know (<em>ya, wo, mowo, so, fa</em> from Unit 7), these come between the subject and the place noun:</p><ul><li><em>Loshe su leu moule.</em> — The flower is on the tree.</li><li><em>Foshe su moleu moule.</em> — The grass is below the tree.</li></ul><p>Notice that <em>moleu</em> is the <em>mo-</em> derivation of <em>leu</em> — they form a balancing pair, just like <em>mowo</em> (out) balances <em>wo</em> (in).</p><p>One thing to know: Liru uses <em>leu</em> for both English "above" (when not touching) and "on" (when contacting the surface). The English gloss adapts to context, but the Liru is one word.</p>`},
+   intro:`<h3>⬆️ Where things are vertically</h3><p>Liru has two more locative particles for vertical position:</p><ul><li><em>leu</em> — above, on</li><li><em>moleu</em> — below, under</li></ul><p>Like the locatives you already know (<em>ya, wo, mowo, so, ka</em> from Unit 7), these come between the subject and the place noun:</p><ul><li><em>Loshe su leu moule.</em> — The flower is on the tree.</li><li><em>Foshe su moleu moule.</em> — The grass is below the tree.</li></ul><p>Notice that <em>moleu</em> is the <em>mo-</em> derivation of <em>leu</em> — they form a balancing pair, just like <em>mowo</em> (out) balances <em>wo</em> (in).</p><p>One thing to know: Liru uses <em>leu</em> for both English "above" (when not touching) and "on" (when contacting the surface). The English gloss adapts to context, but the Liru is one word.</p>`},
 
   {id:"l72_dramaticweather",
    title:"Thunder, Lightning, Storm, Ocean",
@@ -7555,7 +7556,7 @@ const LESSONS = [
    xp:22,
    unit:14,
    isSentence:true,
-   intro:`<h3>🏆 The most ___</h3><p><em>apa</em> does double duty depending on where it sits. You learned it <em>after</em> the adjective in the last lesson — that means "more than." Put it <em>before</em> the adjective and it means "the most":</p><span class="example">Neo mawe su <strong>apa wauli</strong>. <span class="gloss">My mother is the most beautiful.</span></span><p>Position is everything:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>adj</em> <strong>apa</strong> <em>X</em></td><td style="padding:4px 12px">more ___ than X</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>apa</strong> <em>adj</em></td><td style="padding:4px 12px">the most ___</td></tr></table><p>To say <em>the most ___ of [group]</em>, add <em>ka</em> (of) plus the group:</p><span class="example">Yuna su <strong>apa houli fa</strong> neo wahe. <span class="gloss">Yuna is the happiest of my family.</span></span><p>You already know <em>ka</em> from Unit 7 (where it meant "from"). Here it does double duty as "of [a set]."</p>`},
+   intro:`<h3>🏆 The most ___</h3><p><em>apa</em> does double duty depending on where it sits. You learned it <em>after</em> the adjective in the last lesson — that means "more than." Put it <em>before</em> the adjective and it means "the most":</p><span class="example">Neo mawe su <strong>apa wauli</strong>. <span class="gloss">My mother is the most beautiful.</span></span><p>Position is everything:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>adj</em> <strong>apa</strong> <em>X</em></td><td style="padding:4px 12px">more ___ than X</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>apa</strong> <em>adj</em></td><td style="padding:4px 12px">the most ___</td></tr></table><p>To say <em>the most ___ of [group]</em>, add <em>ka</em> (of) plus the group:</p><span class="example">Yuna su <strong>apa houli ka</strong> neo wahe. <span class="gloss">Yuna is the happiest of my family.</span></span><p>You already know <em>ka</em> from Unit 7 (where it meant "from"). Here it does double duty as "of [a set]."</p>`},
 
   {id:"l87_mo_comparison",
    title:"Less than, The Least",
@@ -10210,8 +10211,8 @@ function srsBuildVGlossMap(){
   // SRS_GLOSS_OVERRIDES — last-write-wins overlay. Applied after V and
   // DICTIONARY_RAW so overrides always win regardless of which layer
   // contributed the form's previous gloss. This is what causes an existing
-  // user's *ata* card (enrolled before overrides existed) to regloss to
-  // "more than (after adj.)" on next login. See SRS_GLOSS_OVERRIDES definition
+  // user's *apa* card (enrolled before overrides existed) to regloss to
+  // the dual-role gloss on next login. See SRS_GLOSS_OVERRIDES definition
   // near SRS constants for the full rationale.
   if(typeof SRS_GLOSS_OVERRIDES!=="undefined"){
     for(const lw in SRS_GLOSS_OVERRIDES){
@@ -13613,8 +13614,8 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-sub-header">Fractions are phrasal</div>
     <p><em>meshifane</em> (half) is the only single-word fraction. All others are built with <em>piehe ka X</em> (part of X):</p>
     <ul>
-      <li><em>fani piehe fa teni</em> — one third</li>
-      <li><em>fani piehe fa shani</em> — one quarter</li>
+      <li><em>fani piehe ka teni</em> — one third</li>
+      <li><em>fani piehe ka shani</em> — one quarter</li>
       <li><em>runi piehe ka kani</em> — two fifths</li>
     </ul>
     <div class="grammar-sub-header">Three-way temperature</div>
@@ -15435,7 +15436,7 @@ function renderDictEnResults() {
     // Split on slash or comma to get gloss pieces. Parentheticals are treated
     // as separate alternate-sense pieces so "from (or of)" yields two pieces:
     // "from" and "of" (with the leading "or"/"also" stripped). This lets a
-    // search for "of" rank-0 match fa's "(or of)" sense, while glosses that
+    // search for "of" rank-0 match ka's "(or of)" sense, while glosses that
     // merely contain "of" as a connector ("afraid of") don't.
     const rawPieces = e.en.split(/\s*\/\s*|,\s*/).map(g => g.trim());
     const pieces = [];
