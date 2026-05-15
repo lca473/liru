@@ -1878,7 +1878,7 @@ const V = {
     {lw:"teuhi",   en:"easy (or easily)",             pos:"adj"},
     {lw:"moteuhi", en:"difficult",                    pos:"adj", pair:"teuhi"},
     {lw:"peri",    en:"soft",                        pos:"adj"},
-    {lw:"moperi",  en:"hard",                        pos:"adj", pair:"peri"},
+    {lw:"moperi",  en:"hard (physical)",             pos:"adj", pair:"peri"},
     {lw:"yashi",   en:"smart (or clever)",           pos:"adj"},
   ],
 
@@ -1910,7 +1910,7 @@ const V = {
     {lw:["Lo","paipe","su","piami","sho","wauli"],
      en:"This dog is small and beautiful."},
     {lw:["Veo","koire","su","mopiami","sho","monohi"],
-     en:"Their car is big and old."},
+     en:"Their (sg.) car is big and old."},
     {lw:["Lo","nauye","su","moteuhi","ma","falo","nauye","su","teuhi"],
      en:"This game is difficult, but that game is easy."},
     {lw:["Lo","seme","su","peri","ma","lo","pahe","su","moperi"],
@@ -1967,7 +1967,7 @@ const V = {
     {lw:["Weliru","moa"],                                 en:"Please repeat."},
     {lw:["Mosairi","moa"],                                en:"Slowly, please."},
     {lw:["Laime","su","paili","lo lawe"],                 en:"The sky is clear today."},
-    {lw:["Ne","mauhu","Liru","iwuhe"],                    en:"I am learning Liru."},
+    {lw:["Ne","mauhu","Liru","iwuhe"],                    en:"I am learning the Liru language."},
   ],
 
   // L84 — Final Review: All 14 Units (capstone, sentence-based, isCheckpoint)
@@ -3611,9 +3611,9 @@ const V = {
      en:"Spring is my season."},
     {lw:["Hauwe","su","hauhi"],
      en:"Summer is hot."},
-    {lw:["Ne","wa","shauwu","wo","hauwe"],
+    {lw:["Ne","wa","shauwu","hauwe"],
      en:"I swam in summer."},
-    {lw:["Liumea","wu","limu","wo","foihe"],
+    {lw:["Liumea","wu","limu","foihe"],
      en:"Plants will grow in spring."},
     {lw:["Youhi","meilea","su","keyi"],
      en:"The autumn leaves are fallen."},
@@ -3621,15 +3621,15 @@ const V = {
      en:"Winter is cold and peaceful."},
     {lw:["Ne","wa","niamu","maunea"],
      en:"I planted grains."},
-    {lw:["Yaihea","wu","eiru","wo","youhe"],
+    {lw:["Yaihea","wu","eiru","youhe"],
      en:"Birds will fly in autumn."},
-    {lw:["Shaune","wa","kawu","wo","kaihe"],
+    {lw:["Shaune","wa","kawu","kaihe"],
      en:"The lake froze in winter."},
     {lw:["Lo","lawe","su","helumi"],
      en:"Today is misty."},
     {lw:["Wa lawe","laime","wa","su","melumi"],
      en:"Yesterday the sky was foggy."},
-    {lw:["Foshe","su","houwi","wo","hauwe"],
+    {lw:["Foshe","su","houwi","hauwe"],
      en:"The grass is dry in summer."},
     {lw:["Liume","wa","molimu"],
      en:"The plant withered."},
@@ -3639,7 +3639,7 @@ const V = {
      en:"I warm the food."},
     {lw:["Ne","mai","wa","monovu"],
      en:"I did not err."},
-    {lw:["Haupe","wa","rau","wo","kaihe"],
+    {lw:["Haupe","wa","rau","kaihe"],
      en:"The bear slept in winter."},
   ],
 
@@ -6459,10 +6459,10 @@ const V = {
      en:"I saw many wheels on this car."},
     {lw:["Neo","hale","so","heule","su","souni"],
      en:"My journey to the city is short."},
-    {lw:["Ne","wu","halu","so","heule","wo","meshilawe"],
+    {lw:["Ne","wu","halu","so","heule","meshilawe"],
      en:"I will go to the city at noon.",
-     cloze:{blanks:[4,6], bank:["heule","meshilawe","heulile","meshinone","so","wo"]}},
-    {lw:["Vi","te","vanu","wo","meshinone","ne","wu","su","loya"],
+     cloze:{blanks:[4,5], bank:["heule","meshilawe","heulile","meshinone","so","wo"]}},
+    {lw:["Vi","te","vanu","meshinone","ne","wu","su","loya"],
      en:"If you come at midnight, I will be here."},
   ],
 
@@ -6475,13 +6475,13 @@ const V = {
   l250_vocab_time_of_day: [
     {lw:"tohe", en:"hour", pos:"n",
      canvas:{adj:"tohi", adj_en:"hourly"},
-     intro:"<p>Liru marks time of day with a small cluster of noun roots. <em>Tohe</em> is the hour — combine it with a number to say the time: <em>Lo su tohe shani.</em> (It is four o'clock — lit. &ldquo;this is hour four.&rdquo;) <em>Tohi</em> as an adjective means &ldquo;hourly.&rdquo;</p>"},
+     intro:"<p>Liru marks time of day with a small cluster of noun roots. <em>Tohe</em> is the hour — combine it with a number after <em>su</em> to say the time: <em>Su tohe shani.</em> (It is four o'clock.) Liru drops the dummy &ldquo;it&rdquo; that English needs — the copula <em>su</em> leads the clause directly, just like the existential pattern <em>Su shoulea wo shaune</em> (There are fish in the lake). <em>Tohi</em> as an adjective means &ldquo;hourly.&rdquo;</p>"},
     {lw:"rouhe", en:"week", pos:"n",
      canvas:{adj:"rouhi", adj_en:"weekly"},
      intro:"<p><em>Rouhe</em> is the week. Combine it with numbers and particles the same way as other time nouns: <em>Ne wu halu wule rouhe fani.</em> (I will go in one week.) <em>Rouhi</em> means &ldquo;weekly.&rdquo;</p>"},
     {lw:"yauhe", en:"morning", pos:"n",
      canvas:{adj:"yauhi", adj_en:"of the morning"},
-     intro:"<p><em>Yauhe</em> is the morning. Use it with <em>ya</em> for &ldquo;in the morning&rdquo;: <em>Ne tahu ya yauhe.</em> (I eat in the morning.) The adjective <em>yauhi</em> means &ldquo;of the morning.&rdquo;</p>"},
+     intro:"<p><em>Yauhe</em> is the morning. Used bare as a time anchor — no preposition: <em>Ne tahu yauhe.</em> (I eat in the morning.) The adjective <em>yauhi</em> means &ldquo;of the morning.&rdquo;</p>"},
     {lw:"pouhe", en:"evening", pos:"n",
      canvas:{adj:"pouhi", adj_en:"of the evening"},
      intro:"<p><em>Pouhe</em> is the evening — the partner of <em>yauhe</em>. Together with <em>meshilawe</em> (noon) and <em>meshinone</em> (midnight) from A23, Liru now covers the full arc of the day.</p>"},
@@ -6491,7 +6491,7 @@ const V = {
   l251_vocab_calendar_markers: [
     {lw:"okelawe", en:"birthday", pos:"n",
      note:"Lexicalized compound: oke (life) + lawe (day) — life-day. Noun only.",
-     intro:"<p><em>Okelawe</em> is birthday — literally &ldquo;life-day&rdquo; (<em>oke</em> + <em>lawe</em>). It works like any noun: <em>Neo okelawe su ya wuli rouhe.</em> (My birthday is next week.)</p>"},
+     intro:"<p><em>Okelawe</em> is birthday — literally &ldquo;life-day&rdquo; (<em>oke</em> + <em>lawe</em>). It works like any noun: <em>Neo okelawe su wuli rouhe.</em> (My birthday is next week.)</p>"},
     {lw:"meshifane", en:"half", pos:"n",
      canvas:{adj:"meshifani", adj_en:"half-of"},
      note:"Lexicalized compound: meshe (middle) + fane.",
@@ -6589,7 +6589,7 @@ const V = {
     {lw:"toile", en:"star", pos:"n",
      canvas:{v:"toilu", v_en:"to sparkle (or twinkle)"},
      note:"Everyday-form filter: toili (starry/star-related) is a mechanical X-related adjective — not drilled, kept in Dictionary.md.",
-     intro:"<p><em>Toile</em> is a star. The verb <em>toilu</em> means &ldquo;to sparkle&rdquo; or &ldquo;to twinkle&rdquo;: <em>Toilea toilu ya none.</em> (Stars sparkle at night.) The adjective <em>toili</em> (starry) stays in the dictionary for reference but is not drilled.</p>"},
+     intro:"<p><em>Toile</em> is a star. The verb <em>toilu</em> means &ldquo;to sparkle&rdquo; or &ldquo;to twinkle&rdquo;: <em>Toilea toilu none.</em> (Stars sparkle at night.) The adjective <em>toili</em> (starry) stays in the dictionary for reference but is not drilled.</p>"},
     {lw:"youme", en:"luck", pos:"n",
      canvas:{adj:"youmi", adj_en:"lucky (or luckily)",
              v:"youmu", v_en:"to luck out"},
@@ -6600,14 +6600,14 @@ const V = {
   // isCheckpoint:true, isSentence:true. 14 sentences spanning L250–L255.
   // Cloze on 4: S3 (blanks 3,7), S7 (blanks 2,5), S10 (blanks 3,8), S13 (blanks 3,5).
   l256_a24_exam: [
-    {lw:["Ne","tahu","ya","yauhe","sho","loisu","ya","pouhe"],
+    {lw:["Ne","tahu","yauhe","sho","loisu","pouhe"],
      en:"I eat in the morning and read in the evening."},
-    {lw:["Lo","laohe","wu","laohu","ya","wuli","rouhe"],
+    {lw:["Lo","laohe","wu","laohu","wuli","rouhe"],
      en:"This event will happen next week."},
     {lw:["Ve","wa","vanu","nohili","sho","ne","wa","luiwu","ve"],
      en:"She came recently, and I answered her.",
      cloze:{blanks:[3,7], bank:["nohili","luiwu","noihi","kiliru","sho","ne"]}},
-    {lw:["Lo","su","tohe","shani"],
+    {lw:["Su","tohe","shani"],
      en:"It is four o'clock."},
     {lw:["Ne","wa","noihi","toyu","neo","piruhe"],
      en:"I almost finished my plan."},
@@ -6630,7 +6630,7 @@ const V = {
     {lw:["Lo","moteuhile","su","moteuhi","ma","nea","sahu","soilu","lo"],
      en:"This problem is difficult, but we can solve it.",
      cloze:{blanks:[3,5], bank:["moteuhi","soilu","moteuhile","ahimi","ma","nea"]}},
-    {lw:["Toilea","toilu","ya","none"],
+    {lw:["Toilea","toilu","none"],
      en:"Stars sparkle at night."},
   ],
 
@@ -7000,7 +7000,7 @@ const LESSONS = [
    xp:22,
    unit:4,
    isSentence:true,
-   intro:`<h3>📅 The everyday time anchors</h3><p>Liru builds today, yesterday, and tomorrow transparently from words you already know:</p><ul><li><em>lo lawe</em> (this + day) → today</li><li><em>wa lawe</em> (past + day) → yesterday</li><li><em>wu lawe</em> (future + day) → tomorrow</li></ul><p>Three more particles round out the toolkit:</p><ul><li><em>lole</em> — now</li><li><em>wale</em> — before</li><li><em>wule</em> — after</li></ul><p><em>Note: these end in -e but they're particles, not nouns — the <strong>-le</strong> suffix marks them as time words.</em></p><span class="example">Ne wa tahu lo lawe. <span class="gloss">I ate today.</span></span><span class="example">Lole, ne tahu. <span class="gloss">Now, I'm eating.</span></span>`},
+   intro:`<h3>📅 The everyday time anchors</h3><p>Liru builds today, yesterday, and tomorrow transparently from words you already know:</p><ul><li><em>lo lawe</em> (this + day) → today</li><li><em>wa lawe</em> (past + day) → yesterday</li><li><em>wu lawe</em> (future + day) → tomorrow</li></ul><p>Three more particles round out the toolkit:</p><ul><li><em>lole</em> — now</li><li><em>wale</em> — before</li><li><em>wule</em> — after</li></ul><p><em>Note: these end in -e but they're particles, not nouns — the <strong>-le</strong> suffix marks them as time words.</em></p><span class="example">Ne wa tahu lo lawe. <span class="gloss">I ate today.</span></span><span class="example">Lole, ne tahu. <span class="gloss">Now, I'm eating.</span></span><h3>🌙 Bare time-nouns work too</h3><p>Any time-noun can stand alone in a sentence as a time anchor — <strong>no preposition needed</strong>. You already saw this with <em>lo lawe</em>; the same works with <em>none</em> (night) from the last lesson:</p><span class="example">Wa shaliru none. <span class="gloss">It rained at night.</span></span><p>Liru doesn't borrow English's "at" or "in" for time — the time-noun does the work by itself. This rule will come back when you meet more time-nouns later (morning, evening, noon, seasons).</p>`},
 
   {id:"l29_negation",
    title:"Past & Future Negation",
@@ -7392,7 +7392,7 @@ const LESSONS = [
    vocabKey:"l70_nature",
    xp:20,
    unit:11,
-   intro:`<h3>🌳 The growing world</h3><p>Four nature nouns: <em>moule</em> (tree), <em>loshe</em> (flower), <em>foshe</em> (grass), <em>liume</em> (plant). Plus a productive compound: <em>mouleyahe</em> (forest).</p><p><em>mouleyahe</em> follows the productive-compound pattern from Grammar §19: <em>moule</em> (tree) + <em>yahe</em> (place) = "tree-place" = forest. Like <em>senehiwe</em> (school = teaching-place) and <em>kupetieme</em> (café = drink-store), it's built from parts you already know — and you can recognize others like it as you encounter them.</p><p><em>loshu</em> "to bloom" surfaces because flowers blooming is everyday vocabulary worth keeping.</p>`},
+   intro:`<h3>🌳 The growing world</h3><p>Four nature nouns: <em>moule</em> (tree), <em>loshe</em> (flower), <em>foshe</em> (grass), <em>liume</em> (plant). Plus a productive compound: <em>mouleyahe</em> (forest).</p><p><em>mouleyahe</em> follows the productive-compound pattern from Grammar §19: <em>moule</em> (tree) + <em>yahe</em> (place) = "tree-place" = forest. Like <em>senehiwe</em> (school = knowledge-house) and <em>kupetieme</em> (café = coffee-store), it's built from parts you already know — and you can recognize others like it as you encounter them.</p><p><em>loshu</em> "to bloom" surfaces because flowers blooming is everyday vocabulary worth keeping.</p>`},
 
   {id:"l71_locatives",
    title:"Above and Below",
@@ -7421,7 +7421,7 @@ const LESSONS = [
    xp:22,
    unit:11,
    isSentence:true,
-   intro:`<h3>🌧️ Subjectless weather</h3><p>In English, we say "it's raining" — but the "it" doesn't refer to anything. It's a placeholder. Liru handles this differently: it just drops the placeholder.</p><ul><li><em>Shaliru.</em> — It is raining. <em>(literally: "rains.")</em></li><li><em>Iroumu.</em> — It is snowing.</li><li><em>Fiwu.</em> — It is windy.</li></ul><p>The verb stands alone. Tense particles work the same as with any verb:</p><ul><li><em>Wa shaliru.</em> — It rained.</li><li><em>Wu iroumu wuhi.</em> — It will snow soon.</li></ul><p>And time anchors slot in naturally:</p><ul><li><em>Shaliru lo lawe.</em> — It is raining today.</li><li><em>Wa fiwu wa lawe.</em> — It was windy yesterday.</li></ul>`},
+   intro:`<h3>🌧️ Subjectless weather</h3><p>In English, we say "it's raining" — but the "it" doesn't refer to anything. It's a placeholder. Liru handles this differently: it just drops the placeholder.</p><ul><li><em>Shaliru.</em> — It is raining. <em>(literally: "rains.")</em></li><li><em>Iroumu.</em> — It is snowing.</li><li><em>Fiwu.</em> — It is windy.</li></ul><p>The verb stands alone. Tense particles work the same as with any verb:</p><ul><li><em>Wa shaliru.</em> — It rained.</li><li><em>Wu iroumu wuhi.</em> — It will snow soon.</li></ul><p>And time anchors slot in naturally:</p><ul><li><em>Shaliru lo lawe.</em> — It is raining today.</li><li><em>Wa fiwu wa lawe.</em> — It was windy yesterday.</li></ul><p>Remember from L28 — bare time-nouns work as anchors too, no preposition needed:</p><ul><li><em>Wa shaliru none.</em> — It rained at night.</li></ul>`},
 
   {id:"l74_exam",
    title:"Unit 12 Exam: Weather and Nature",
@@ -7484,7 +7484,7 @@ const LESSONS = [
    xp:20,
    unit:12,
    srsExtras:["semu","koiru"],
-   intro:`<h3>🏠 Common Objects</h3><p>Six everyday things — three around your home, three modern devices.</p><p><em>koire</em>, <em>voure</em>, <em>tiere</em>, and <em>neule</em> are recent additions to Liru's lexicon — the language treats modern technology with the same simple noun patterns as anything else. There's no special "tech" vocabulary register.</p><p>Two of these roots have everyday verb forms worth knowing: <em>semu</em> — "to sit" (from <em>seme</em> "chair"), and <em>koiru</em> — "to drive" (from <em>koire</em> "car").</p><span class="example">Ne semu ya seme. <span class="gloss">I sit in the chair.</span></span><span class="example">Ve koiru so yahe. <span class="gloss">He drives to the place.</span></span>`},
+   intro:`<h3>🏠 Common Objects</h3><p>Six everyday things — three around your home, three modern devices.</p><p>Two of these roots have everyday verb forms worth knowing: <em>semu</em> — "to sit" (from <em>seme</em> "chair"), and <em>koiru</em> — "to drive" (from <em>koire</em> "car").</p><span class="example">Ne semu ya seme. <span class="gloss">I sit in the chair.</span></span><span class="example">Ve koiru so yahe. <span class="gloss">He drives to the place.</span></span>`},
 
   {id:"l80_exam",
    title:"Unit 13 Exam: This and That",
@@ -8143,7 +8143,7 @@ const LESSONS = [
    vocabKey:"l140_vocab_spring",
    xp:18,
    unit:24,
-   intro:`<h3>🌸 Welcome to seasons</h3><p>The Liru word for season (as a category) is <em>haiwepiehe</em> — literally "a part of the year," from <em>haiwe</em> (year) + <em>piehe</em> (part). It's the umbrella word you'd use to say "what is your favorite season?" or "spring is my favorite season."</p><p>This unit teaches the four seasons one lesson at a time, starting with spring. The four-season cycle:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">season</th><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px">spring</td><td style="padding:4px 12px"><em>foihe</em></td><td style="padding:4px 12px"><em>foihi</em></td></tr><tr><td style="padding:4px 12px">summer</td><td style="padding:4px 12px"><em>hauwe</em></td><td style="padding:4px 12px"><em>hauwi</em></td></tr><tr><td style="padding:4px 12px">autumn</td><td style="padding:4px 12px"><em>youhe</em></td><td style="padding:4px 12px"><em>youhi</em></td></tr><tr><td style="padding:4px 12px">winter</td><td style="padding:4px 12px"><em>kaihe</em></td><td style="padding:4px 12px"><em>kaihi</em></td></tr></table><p>Each season's name has a sound-shape clue: <em>foihe</em> echoes the <em>fo-</em> flora family (<em>foshe</em> grass, <em>fohe</em> moss); <em>hauwe</em> echoes <em>haule</em> (sun); <em>youhe</em> associates with <em>yole</em> (branch — falling-leaves season); <em>kaihe</em> shares its <em>k-</em> onset with the cold-state family (<em>kawe</em> ice, taught in L143).</p><h3>🌱 Spring vocabulary</h3><p>Beyond the season name itself, two iconic spring concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lime</em> (n.)</td><td style="padding:4px 12px">growth</td></tr><tr><td style="padding:4px 12px"><em>limu</em> (v.)</td><td style="padding:4px 12px">to grow</td></tr><tr><td style="padding:4px 12px"><em>niame</em> (n.)</td><td style="padding:4px 12px">seed</td></tr><tr><td style="padding:4px 12px"><em>niamu</em> (v.)</td><td style="padding:4px 12px">to plant a seed</td></tr></table><span class="example">Foihe su neo haiwepiehe. <span class="gloss">Spring is my season.</span></span><span class="example">Liumea wu limu wo foihe. <span class="gloss">Plants will grow in spring.</span></span><span class="example">Ne wa niamu wa lawe. <span class="gloss">I planted a seed yesterday.</span></span>`},
+   intro:`<h3>🌸 Welcome to seasons</h3><p>The Liru word for season (as a category) is <em>haiwepiehe</em> — literally "a part of the year," from <em>haiwe</em> (year) + <em>piehe</em> (part). It's the umbrella word you'd use to say "what is your favorite season?" or "spring is my favorite season."</p><p>This unit teaches the four seasons one lesson at a time, starting with spring. The four-season cycle:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">season</th><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px">spring</td><td style="padding:4px 12px"><em>foihe</em></td><td style="padding:4px 12px"><em>foihi</em></td></tr><tr><td style="padding:4px 12px">summer</td><td style="padding:4px 12px"><em>hauwe</em></td><td style="padding:4px 12px"><em>hauwi</em></td></tr><tr><td style="padding:4px 12px">autumn</td><td style="padding:4px 12px"><em>youhe</em></td><td style="padding:4px 12px"><em>youhi</em></td></tr><tr><td style="padding:4px 12px">winter</td><td style="padding:4px 12px"><em>kaihe</em></td><td style="padding:4px 12px"><em>kaihi</em></td></tr></table><p>Each season's name has a sound-shape clue: <em>foihe</em> echoes the <em>fo-</em> flora family (<em>foshe</em> grass, <em>fohe</em> moss); <em>hauwe</em> echoes <em>haule</em> (sun); <em>youhe</em> associates with <em>yole</em> (branch — falling-leaves season); <em>kaihe</em> shares its <em>k-</em> onset with the cold-state family (<em>kawe</em> ice, taught in L143).</p><h3>🌱 Spring vocabulary</h3><p>Beyond the season name itself, two iconic spring concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lime</em> (n.)</td><td style="padding:4px 12px">growth</td></tr><tr><td style="padding:4px 12px"><em>limu</em> (v.)</td><td style="padding:4px 12px">to grow</td></tr><tr><td style="padding:4px 12px"><em>niame</em> (n.)</td><td style="padding:4px 12px">seed</td></tr><tr><td style="padding:4px 12px"><em>niamu</em> (v.)</td><td style="padding:4px 12px">to plant a seed</td></tr></table><span class="example">Foihe su neo haiwepiehe. <span class="gloss">Spring is my season.</span></span><span class="example">Liumea wu limu foihe. <span class="gloss">Plants will grow in spring.</span></span><span class="example">Ne wa niamu wa lawe. <span class="gloss">I planted a seed yesterday.</span></span>`},
 
   {id:"l141_vocab_summer",
    title:"Summer & Warmth",
@@ -8161,7 +8161,7 @@ const LESSONS = [
    vocabKey:"l142_vocab_autumn",
    xp:18,
    unit:24,
-   intro:`<h3>🍂 Autumn</h3><p>The third season: <em>youhe</em>. English uses the same word "fall" for both the season and the action of dropping; Liru keeps these separate. <em>youhe</em> is the season; <em>keyu</em> (taught below) is what leaves do when they drop from a branch.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>youhe</em> (n.)</td><td style="padding:4px 12px">autumn (or fall, the season)</td></tr><tr><td style="padding:4px 12px"><em>youhi</em> (adj.)</td><td style="padding:4px 12px">autumnal</td></tr></table><h3>🍃 Leaves, falling, harvest</h3><p>Three autumn-iconic concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meile</em> (n.)</td><td style="padding:4px 12px">leaf</td></tr><tr><td style="padding:4px 12px"><em>meili</em> (adj.)</td><td style="padding:4px 12px">leafy</td></tr><tr><td style="padding:4px 12px"><em>keye</em> (n.)</td><td style="padding:4px 12px">a fall (a tumble)</td></tr><tr><td style="padding:4px 12px"><em>keyi</em> (adj.)</td><td style="padding:4px 12px">fallen</td></tr><tr><td style="padding:4px 12px"><em>keyu</em> (v.)</td><td style="padding:4px 12px">to fall (drop, tumble)</td></tr><tr><td style="padding:4px 12px"><em>maune</em> (n.)</td><td style="padding:4px 12px">grain</td></tr></table><p><strong>Important:</strong> <em>keyu</em> is the physical action of falling — gravity, dropping, tumbling. It is <em>not</em> the season "fall." English uses one word for both meanings; Liru does not.</p><span class="example">Meilea wu keyu wo youhe. <span class="gloss">Leaves will fall in autumn.</span></span><span class="example">Youhi meilea su wauli. <span class="gloss">Autumn leaves are beautiful.</span></span><span class="example">Maune su tahe. <span class="gloss">Grain is food.</span></span>`},
+   intro:`<h3>🍂 Autumn</h3><p>The third season: <em>youhe</em>. English uses the same word "fall" for both the season and the action of dropping; Liru keeps these separate. <em>youhe</em> is the season; <em>keyu</em> (taught below) is what leaves do when they drop from a branch.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>youhe</em> (n.)</td><td style="padding:4px 12px">autumn (or fall, the season)</td></tr><tr><td style="padding:4px 12px"><em>youhi</em> (adj.)</td><td style="padding:4px 12px">autumnal</td></tr></table><h3>🍃 Leaves, falling, harvest</h3><p>Three autumn-iconic concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meile</em> (n.)</td><td style="padding:4px 12px">leaf</td></tr><tr><td style="padding:4px 12px"><em>meili</em> (adj.)</td><td style="padding:4px 12px">leafy</td></tr><tr><td style="padding:4px 12px"><em>keye</em> (n.)</td><td style="padding:4px 12px">a fall (a tumble)</td></tr><tr><td style="padding:4px 12px"><em>keyi</em> (adj.)</td><td style="padding:4px 12px">fallen</td></tr><tr><td style="padding:4px 12px"><em>keyu</em> (v.)</td><td style="padding:4px 12px">to fall (drop, tumble)</td></tr><tr><td style="padding:4px 12px"><em>maune</em> (n.)</td><td style="padding:4px 12px">grain</td></tr></table><p><strong>Important:</strong> <em>keyu</em> is the physical action of falling — gravity, dropping, tumbling. It is <em>not</em> the season "fall." English uses one word for both meanings; Liru does not.</p><span class="example">Meilea wu keyu youhe. <span class="gloss">Leaves will fall in autumn.</span></span><span class="example">Youhi meilea su wauli. <span class="gloss">Autumn leaves are beautiful.</span></span><span class="example">Maune su tahe. <span class="gloss">Grain is food.</span></span>`},
 
   {id:"l143_vocab_winter",
    title:"Winter — Ice, Coat, Bear",
@@ -8170,7 +8170,7 @@ const LESSONS = [
    vocabKey:"l143_vocab_winter",
    xp:18,
    unit:24,
-   intro:`<h3>❄️ Winter</h3><p>The fourth season: <em>kaihe</em>. It shares its <em>k-</em> onset with the cold-state family — including <em>kawe</em> (ice), which you'll learn in this same lesson.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kaihe</em> (n.)</td><td style="padding:4px 12px">winter</td></tr><tr><td style="padding:4px 12px"><em>kaihi</em> (adj.)</td><td style="padding:4px 12px">wintry</td></tr></table><h3>🧊 Ice, coat, bear</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kawe</em> (n.)</td><td style="padding:4px 12px">ice</td></tr><tr><td style="padding:4px 12px"><em>kawi</em> (adj.)</td><td style="padding:4px 12px">frozen</td></tr><tr><td style="padding:4px 12px"><em>kawu</em> (v.)</td><td style="padding:4px 12px">to freeze</td></tr><tr><td style="padding:4px 12px"><em>feure</em> (n.)</td><td style="padding:4px 12px">coat</td></tr><tr><td style="padding:4px 12px"><em>haupe</em> (n.)</td><td style="padding:4px 12px">bear</td></tr></table><span class="example">Kaihe su luhi. <span class="gloss">Winter is cold.</span></span><span class="example">Shaune wu kawu wo kaihe. <span class="gloss">The lake will freeze in winter.</span></span><span class="example">Haupe wa rau wo kaihe. <span class="gloss">The bear slept in winter.</span></span>`},
+   intro:`<h3>❄️ Winter</h3><p>The fourth season: <em>kaihe</em>. It shares its <em>k-</em> onset with the cold-state family — including <em>kawe</em> (ice), which you'll learn in this same lesson.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kaihe</em> (n.)</td><td style="padding:4px 12px">winter</td></tr><tr><td style="padding:4px 12px"><em>kaihi</em> (adj.)</td><td style="padding:4px 12px">wintry</td></tr></table><h3>🧊 Ice, coat, bear</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kawe</em> (n.)</td><td style="padding:4px 12px">ice</td></tr><tr><td style="padding:4px 12px"><em>kawi</em> (adj.)</td><td style="padding:4px 12px">frozen</td></tr><tr><td style="padding:4px 12px"><em>kawu</em> (v.)</td><td style="padding:4px 12px">to freeze</td></tr><tr><td style="padding:4px 12px"><em>feure</em> (n.)</td><td style="padding:4px 12px">coat</td></tr><tr><td style="padding:4px 12px"><em>haupe</em> (n.)</td><td style="padding:4px 12px">bear</td></tr></table><span class="example">Kaihe su luhi. <span class="gloss">Winter is cold.</span></span><span class="example">Shaune wu kawu kaihe. <span class="gloss">The lake will freeze in winter.</span></span><span class="example">Haupe wa rau kaihe. <span class="gloss">The bear slept in winter.</span></span>`},
 
   {id:"l144_vocab_weather_extensions",
    title:"Mist, Fog, Dryness, Bird",
@@ -8179,7 +8179,7 @@ const LESSONS = [
    vocabKey:"l144_vocab_weather_extensions",
    xp:18,
    unit:24,
-   intro:`<h3>🌫️ Mist and fog</h3><p>Two weather phenomena deferred from core Unit 12, now formally taught:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>helume</em> (n.)</td><td style="padding:4px 12px">mist</td></tr><tr><td style="padding:4px 12px"><em>helumi</em> (adj.)</td><td style="padding:4px 12px">misty</td></tr><tr><td style="padding:4px 12px"><em>melume</em> (n.)</td><td style="padding:4px 12px">fog</td></tr><tr><td style="padding:4px 12px"><em>melumi</em> (adj.)</td><td style="padding:4px 12px">foggy</td></tr></table><p>Both are low-visibility moisture in the air. Mist is lighter; fog is denser. Liru distinguishes them the same way English does.</p><h3>☀️ Dry — the opposite of wet weather</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>houwe</em> (n.)</td><td style="padding:4px 12px">dryness</td></tr><tr><td style="padding:4px 12px"><em>houwi</em> (adj.)</td><td style="padding:4px 12px">dry</td></tr><tr><td style="padding:4px 12px"><em>houwu</em> (v.)</td><td style="padding:4px 12px">to dry</td></tr></table><h3>🦅 Bird — across the seasons</h3><p><em>yaihe</em> (bird) is the connective tissue of seasonal storytelling — birds appear in spring, sing in summer, migrate in autumn, return after winter.</p><span class="example">Laime su helumi. <span class="gloss">The sky is misty.</span></span><span class="example">Foshe su houwi. <span class="gloss">The grass is dry.</span></span><span class="example">Yaihea wu vanu wo foihe. <span class="gloss">Birds will come in spring.</span></span>`},
+   intro:`<h3>🌫️ Mist and fog</h3><p>Two weather phenomena deferred from core Unit 12, now formally taught:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>helume</em> (n.)</td><td style="padding:4px 12px">mist</td></tr><tr><td style="padding:4px 12px"><em>helumi</em> (adj.)</td><td style="padding:4px 12px">misty</td></tr><tr><td style="padding:4px 12px"><em>melume</em> (n.)</td><td style="padding:4px 12px">fog</td></tr><tr><td style="padding:4px 12px"><em>melumi</em> (adj.)</td><td style="padding:4px 12px">foggy</td></tr></table><p>Both are low-visibility moisture in the air. Mist is lighter; fog is denser. Liru distinguishes them the same way English does.</p><h3>☀️ Dry — the opposite of wet weather</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>houwe</em> (n.)</td><td style="padding:4px 12px">dryness</td></tr><tr><td style="padding:4px 12px"><em>houwi</em> (adj.)</td><td style="padding:4px 12px">dry</td></tr><tr><td style="padding:4px 12px"><em>houwu</em> (v.)</td><td style="padding:4px 12px">to dry</td></tr></table><h3>🦅 Bird — across the seasons</h3><p><em>yaihe</em> (bird) is the connective tissue of seasonal storytelling — birds appear in spring, sing in summer, migrate in autumn, return after winter.</p><span class="example">Laime su helumi. <span class="gloss">The sky is misty.</span></span><span class="example">Foshe su houwi. <span class="gloss">The grass is dry.</span></span><span class="example">Yaihea wu vanu foihe. <span class="gloss">Birds will come in spring.</span></span>`},
 
   {id:"l145_vocab_seasonal_change",
    title:"Decay, Mistake, Flight, Peace",
@@ -8188,7 +8188,7 @@ const LESSONS = [
    vocabKey:"l145_vocab_seasonal_change",
    xp:18,
    unit:24,
-   intro:`<h3>🍃 The close of seasons</h3><p>This lesson pulls together four concepts that tie the seasonal cycle together: things that end, depart, go wrong, and the peace that follows.</p><h3>🥀 Decay — the <em>mo-</em> pair of growth</h3><p>You learned <em>lime</em> (growth) in L140. Its <em>mo-</em> pair is <em>molime</em> — decay, the opposite phase of the life cycle. Both are full-canvas roots:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>molime</em> (n.)</td><td style="padding:4px 12px">decay</td></tr><tr><td style="padding:4px 12px"><em>molimi</em> (adj.)</td><td style="padding:4px 12px">withered</td></tr><tr><td style="padding:4px 12px"><em>molimu</em> (v.)</td><td style="padding:4px 12px">to wither</td></tr></table><h3>❌ Mistake — when things go wrong</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>monove</em> (n.)</td><td style="padding:4px 12px">mistake</td></tr><tr><td style="padding:4px 12px"><em>monovi</em> (adj.)</td><td style="padding:4px 12px">incorrect</td></tr><tr><td style="padding:4px 12px"><em>monovu</em> (v.)</td><td style="padding:4px 12px">to err</td></tr></table><h3>🦋 Flight — bird migration and departure</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>eire</em> (n.)</td><td style="padding:4px 12px">flight</td></tr><tr><td style="padding:4px 12px"><em>eiri</em> (adj.)</td><td style="padding:4px 12px">in flight (or flying)</td></tr><tr><td style="padding:4px 12px"><em>eiru</em> (v.)</td><td style="padding:4px 12px">to fly</td></tr></table><h3>☮️ Peace — what comes after</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nouhe</em> (n.)</td><td style="padding:4px 12px">peace (or calm)</td></tr><tr><td style="padding:4px 12px"><em>nouhi</em> (adj.)</td><td style="padding:4px 12px">peaceful (or calmly)</td></tr></table><span class="example">Meilea wu molimu wo youhe. <span class="gloss">Leaves will wither in autumn.</span></span><span class="example">Ne wa monovu. <span class="gloss">I made a mistake.</span></span><span class="example">Yaihea wu eiru wo youhe. <span class="gloss">Birds will fly in autumn.</span></span><span class="example">Kaihe su nouhi. <span class="gloss">Winter is peaceful.</span></span>`},
+   intro:`<h3>🍃 The close of seasons</h3><p>This lesson pulls together four concepts that tie the seasonal cycle together: things that end, depart, go wrong, and the peace that follows.</p><h3>🥀 Decay — the <em>mo-</em> pair of growth</h3><p>You learned <em>lime</em> (growth) in L140. Its <em>mo-</em> pair is <em>molime</em> — decay, the opposite phase of the life cycle. Both are full-canvas roots:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>molime</em> (n.)</td><td style="padding:4px 12px">decay</td></tr><tr><td style="padding:4px 12px"><em>molimi</em> (adj.)</td><td style="padding:4px 12px">withered</td></tr><tr><td style="padding:4px 12px"><em>molimu</em> (v.)</td><td style="padding:4px 12px">to wither</td></tr></table><h3>❌ Mistake — when things go wrong</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>monove</em> (n.)</td><td style="padding:4px 12px">mistake</td></tr><tr><td style="padding:4px 12px"><em>monovi</em> (adj.)</td><td style="padding:4px 12px">incorrect</td></tr><tr><td style="padding:4px 12px"><em>monovu</em> (v.)</td><td style="padding:4px 12px">to err</td></tr></table><h3>🦋 Flight — bird migration and departure</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>eire</em> (n.)</td><td style="padding:4px 12px">flight</td></tr><tr><td style="padding:4px 12px"><em>eiri</em> (adj.)</td><td style="padding:4px 12px">in flight (or flying)</td></tr><tr><td style="padding:4px 12px"><em>eiru</em> (v.)</td><td style="padding:4px 12px">to fly</td></tr></table><h3>☮️ Peace — what comes after</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nouhe</em> (n.)</td><td style="padding:4px 12px">peace (or calm)</td></tr><tr><td style="padding:4px 12px"><em>nouhi</em> (adj.)</td><td style="padding:4px 12px">peaceful (or calmly)</td></tr></table><span class="example">Meilea wu molimu youhe. <span class="gloss">Leaves will wither in autumn.</span></span><span class="example">Ne wa monovu. <span class="gloss">I made a mistake.</span></span><span class="example">Yaihea wu eiru youhe. <span class="gloss">Birds will fly in autumn.</span></span><span class="example">Kaihe su nouhi. <span class="gloss">Winter is peaceful.</span></span>`},
 
   {id:"l146_seasons_weather_exam",
    title:"Unit 25 Exam — Seasons & Weather",
@@ -9174,7 +9174,7 @@ const LESSONS = [
    vocabKey:"l248_vocab_water_and_day",
    xp:16,
    unit:39,
-   intro:`<h3>\ud83d\udef6 Closing the unit \\u2014 water travel and two times of day</h3><p>A short closing lesson. <em>shaihile</em> "canoe" is the diminutive of <em>shaihe</em> "boat" \\u2014 a little boat. The two time-of-day words are both built on <em>meshi</em> "central," the same root behind <em>meshe</em> "middle" from this unit's first lesson: <em>meshilawe</em> "noon" is the middle of the day (<em>lawe</em>), and <em>meshinone</em> "midnight" is the middle of the night (<em>none</em>). They're handy for arranging when to travel.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shaihile</em> (n.)</td><td style="padding:4px 12px">canoe</td></tr><tr><td style="padding:4px 12px"><em>meshilawe</em> (n.)</td><td style="padding:4px 12px">noon</td></tr><tr><td style="padding:4px 12px"><em>meshinone</em> (n.)</td><td style="padding:4px 12px">midnight</td></tr></table><span class="example">Vea wa halu ko shaihile. <span class="gloss">They went by canoe.</span></span><span class="example">Ne tahu wo meshilawe. <span class="gloss">I eat at noon.</span></span><span class="example">Ve rau wo meshinone. <span class="gloss">She sleeps at midnight.</span></span>`},
+   intro:`<h3>\ud83d\udef6 Closing the unit \\u2014 water travel and two times of day</h3><p>A short closing lesson. <em>shaihile</em> "canoe" is the diminutive of <em>shaihe</em> "boat" \\u2014 a little boat. The two time-of-day words are both built on <em>meshi</em> "central," the same root behind <em>meshe</em> "middle" from this unit's first lesson: <em>meshilawe</em> "noon" is the middle of the day (<em>lawe</em>), and <em>meshinone</em> "midnight" is the middle of the night (<em>none</em>). They're handy for arranging when to travel.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shaihile</em> (n.)</td><td style="padding:4px 12px">canoe</td></tr><tr><td style="padding:4px 12px"><em>meshilawe</em> (n.)</td><td style="padding:4px 12px">noon</td></tr><tr><td style="padding:4px 12px"><em>meshinone</em> (n.)</td><td style="padding:4px 12px">midnight</td></tr></table><span class="example">Vea wa halu ko shaihile. <span class="gloss">They went by canoe.</span></span><span class="example">Ne tahu meshilawe. <span class="gloss">I eat at noon.</span></span><span class="example">Ve rau meshinone. <span class="gloss">She sleeps at midnight.</span></span>`},
 
   {id:"l249_city_transport_exam",
    title:"Unit 40 Exam \\u2014 City, Transport & Places",
@@ -13214,6 +13214,11 @@ const GRAMMAR_SECTIONS = [
       <li><strong>Existence:</strong> <em>Su shoulea wo shaune.</em> — There are fish in the lake.</li>
     </ul>
     <p>Tense works normally: <em>Ne wa su waihi.</em> — I was hopeful.</p>
+    <p>When English uses a dummy "it" subject, Liru drops it and leads with <em>su</em> — the same way it drops "it" before impersonal verbs like <em>shaliru</em> (it is raining):</p>
+    <ul>
+      <li><em>Su tohe shani.</em> — It is four o'clock.</li>
+      <li><em>Su meshilawe.</em> — It is noon.</li>
+    </ul>
     <div class="grammar-callout"><strong>Don't</strong> use <em>su</em> with an action verb. <em>Ne halu</em> (I go) — not "Ne su halu."</div>`
   },
   {
@@ -13420,6 +13425,14 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>lo luone / wa luone / wu luone</em></td><td>this / last / next month</td></tr>
     <tr><td><em>lo haiwe / wa haiwe / wu haiwe</em></td><td>this / last / next year</td></tr>
     </tbody></table></div>
+    <div class="grammar-sub-header">Bare time-nouns work as anchors</div>
+    <p>Any time-noun can stand bare in a clause as a time anchor — <strong>no preposition needed</strong>. Spatial particles like <em>ya</em> "at" and <em>wo</em> "in" govern places, not moments.</p>
+    <ul>
+      <li><em>Wa shaliru none.</em> — It rained at night.</li>
+      <li><em>Ne tahu yauhe sho loisu pouhe.</em> — I eat in the morning and read in the evening.</li>
+      <li><em>Ve wa vanu meshinone.</em> — She came at midnight.</li>
+    </ul>
+    <p>The rule applies to parts of the day, seasons, days, weeks, months, years, and the <em>lo / wa / wu</em> + time-noun compounds above.</p>
     <div class="grammar-sub-header">Days of the week</div>
     <p>Built as numeral + <em>lawe</em> (day). Sunday is day 1.</p>
     <ul>
@@ -14351,7 +14364,7 @@ const DICTIONARY_RAW = [
   {lw:"monovi", en:"incorrect", pos:"adj"},
   {lw:"monovu", en:"to err", pos:"v"},
   {lw:"mopere", en:"hardness", pos:"n"},
-  {lw:"moperi", en:"hard", pos:"adj"},
+  {lw:"moperi", en:"hard (physical)", pos:"adj"},
   {lw:"moperu", en:"to harden", pos:"v"},
   {lw:"mopiame", en:"bigness (or size)", pos:"n"},
   {lw:"mopiami", en:"big (or large)", pos:"adj"},
