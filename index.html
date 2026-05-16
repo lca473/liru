@@ -888,14 +888,22 @@ const V = {
     {lw:"nawu", en:"to love",                     pos:"verb"},
   ],
 
-  // L9 — To Eat, To Drink, To Know
-  // Three verbs reinforcing the L8 pattern. Only the verb (-u) form of each
+  // L9 — To Eat, Drink, Know, Speak
+  // Four verbs reinforcing the L8 pattern. Only the verb (-u) form of each
   // canvas root is taught here per lesson_principles.md §5; noun and adj forms
   // remain in Dictionary.md for dictionary lookup.
+  //
+  // liru is the umbrella verb for spoken utterance (see DesignNotes "the
+  // spoken-communication family"). It is the verb form of the same root as
+  // Liru, the language's name. Surfaced here in the first verb batch so the
+  // foundational word is taught before it appears in sentences from L25
+  // onward, and so the *we-* prefix in weliru (L82) and the language's own
+  // name have a teaching anchor.
   l9_verbs2: [
-    {lw:"tahu", en:"to eat",                      pos:"verb"},
-    {lw:"shahu",en:"to drink",                    pos:"verb"},
-    {lw:"senu", en:"to know",                     pos:"verb"},
+    {lw:"tahu", en:"to eat",                              pos:"verb"},
+    {lw:"shahu",en:"to drink",                            pos:"verb"},
+    {lw:"senu", en:"to know",                             pos:"verb"},
+    {lw:"liru", en:"to speak (or sing, say, talk)",       pos:"verb"},
   ],
 
   // L10 — Who? (sentence-based; introduces kipue)
@@ -6834,13 +6842,13 @@ const LESSONS = [
    intro:`<h3>❤️ Your first action verb</h3><p><em>nawu</em> means "to love." Every Liru verb ends in <em>-u</em>.</p><p>Verbs don't change for person — <em>Ne nawu</em> (I love), <em>Te nawu</em> (you love), <em>Ve nawu</em> (he/she/they loves) all use the same form.</p><p>And action verbs go directly, without <em>su</em>:</p><span class="example">Ne nawu te. <span class="gloss">I love you.</span></span><p>Never <em>Ne su nawu te</em>. Reserve <em>su</em> for "is/are" statements.</p>`},
 
   {id:"l9_verbs2",
-   title:"To Eat, To Drink, To Know",
-   desc:"tahu, shahu, senu",
+   title:"To Eat, Drink, Know, Speak",
+   desc:"tahu, shahu, senu, liru",
    icon:"🍽️",
    vocabKey:"l9_verbs2",
    xp:18,
    unit:1,
-   intro:`<h3>🍽️ Three more verbs</h3><p>Same rule as <em>nawu</em>: <em>-u</em> ending, no person-conjugation, no <em>su</em>.</p><ul><li><em>tahu</em> — to eat</li><li><em>shahu</em> — to drink</li><li><em>senu</em> — to know</li></ul><span class="example">Ne tahu. <span class="gloss">I am eating.</span></span><span class="example">Te shahu. <span class="gloss">You are drinking.</span></span><span class="example">Ve senu Yuna. <span class="gloss">He knows Yuna.</span></span>`},
+   intro:`<h3>🍽️ Four more verbs</h3><p>Same rule as <em>nawu</em>: <em>-u</em> ending, no person-conjugation, no <em>su</em>.</p><ul><li><em>tahu</em> — to eat</li><li><em>shahu</em> — to drink</li><li><em>senu</em> — to know</li><li><em>liru</em> — to speak (or sing, say, talk)</li></ul><span class="example">Ne tahu. <span class="gloss">I am eating.</span></span><span class="example">Te shahu. <span class="gloss">You are drinking.</span></span><span class="example">Ve senu Yuna. <span class="gloss">He knows Yuna.</span></span><span class="example">Maya liru. <span class="gloss">Maya is speaking.</span></span><p>One last note about <em>liru</em>: this is the same word as the name of the language you're learning. <em>Liru</em> means "speech" or "song" — the umbrella verb for any spoken utterance. The language is named after the verb its speakers use.</p>`},
 
   {id:"l10_who",
    title:"Who?",
