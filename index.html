@@ -2127,9 +2127,9 @@ const V = {
     {lw:"toye", en:"end", pos:"n",
      canvas:{adj:"toyi", adj_en:"finished",
              v:"toyu",   v_en:"to finish (or end)"}},
-    {lw:"loime", en:"wait", pos:"n",
+    {lw:"loime", en:"wait (or stay)", pos:"n",
      canvas:{adj:"loimi", adj_en:"waiting",
-             v:"loimu",   v_en:"to wait"}},
+             v:"loimu",   v_en:"to wait (or stay)"}},
   ],
 
   // L92 — Causal nalae/nalai/nalau (sentence-based; introduces all three)
@@ -4584,8 +4584,9 @@ const V = {
   // Weave-in absorptions:
   //   - loike/loiki/loiku (writing/written/to write) from A21 →
   //     L181, paired with paper/pen/pencil anchors.
-  //   - siehe/siehi/siehu (power/electric/energize) from A19 →
-  //     L184, paired with machines/AI cluster.
+  //   - pake/paki/paku (power/on/to-turn-on) from A19 →
+  //     L184, paired with machines/AI cluster. Renamed from siehe
+  //     2026-05-16 for phonetic clarity.
   //   - hoile/hoili/hoilu (oil/oily/to oil) from A21 →
   //     L184, paired with kitchen-machine context.
   //   - kahime/kahimi (metal/metallic) from A21 →
@@ -4678,11 +4679,14 @@ const V = {
   //   shirimiehe — AI (noun only). Indivisible root — not a productive
   //     compound the learner needs to decompose. Mechanical adj
   //     shirimiehi "AI-related" dropped per A14 filter.
-  //   siehe (n) + siehi (adj) + siehu (v) — full canvas, A19 absorption.
-  //     Power/electricity, powered/electric, to energize/power on.
-  //     Pairs naturally with machines (the pauwe in L183 needs siehe
-  //     to run; siehu "to power on" is the action verb for switching
-  //     a device on).
+  //   pake (n) + paki (adj) + paku (v) — full canvas, A19 absorption.
+  //     Power/electricity, on/powered, to turn on/power up. The mo-
+  //     prefix gives mopaki "off" and mopaku "to turn off." Pairs
+  //     naturally with machines (the pauwe in L183 needs pake to
+  //     run; paku "to turn on" is the action verb for switching
+  //     a device on). Renamed from siehe (2026-05-16) — siehe was
+  //     phonetically friction-y (si.eh transition); pake is shorter
+  //     and crisper for a high-frequency state word.
   //   hoile (n) + hoili (adj) + hoilu (v) — full canvas, A21 absorption.
   //     Oil/oily/to oil. Pairs with kitchen-machine context (a plate
   //     gets hoili after a meal; a machine needs hoile to run).
@@ -4692,10 +4696,10 @@ const V = {
   l184_vocab_modern_tech: [
     {lw:"shirimiehe", en:"AI (artificial intelligence)", pos:"n",
      note:"Indivisible root — not a productive compound. Mechanical adj shirimiehi \"AI-related\" remains in Dictionary.md."},
-    {lw:"siehe", en:"power (or electricity)", pos:"n",
-     canvas:{adj:"siehi", adj_en:"powered (or electric)",
-             v:"siehu", v_en:"to energize (or power on)"},
-     note:"Weave-in from A19. Pairs naturally with pauwe (L183) — machines need siehe to run."},
+    {lw:"pake", en:"power (or electricity)", pos:"n",
+     canvas:{adj:"paki", adj_en:"on (or powered)",
+             v:"paku", v_en:"to turn on (or power up)"},
+     note:"Weave-in from A19. Pairs naturally with pauwe (L183) — machines need pake to run."},
     {lw:"hoile", en:"oil", pos:"n",
      canvas:{adj:"hoili", adj_en:"oily (or oil-related)",
              v:"hoilu", v_en:"to oil (or grease)"},
@@ -4793,9 +4797,9 @@ const V = {
      en:"AI can write a song."},
     {lw:["Fole","su","hoili","wule","tahu"],
      en:"The plate is oily after eating."},
-    {lw:["Vi","te","siehu","lo","pauwe","ve","wu","fasu"],
+    {lw:["Vi","te","paku","lo","pauwe","ve","wu","fasu"],
      en:"If you power on this machine, it will work.",
-     cloze:{blanks:[2,4], bank:["siehu","pauwe","siehe","pauwu","fasu","vi","te"]}},
+     cloze:{blanks:[2,4], bank:["paku","pauwe","pake","pauwu","fasu","vi","te"]}},
     {lw:["Luhime","su","apa","wauli","ka","taihue"],
      en:"Music is the most beautiful of everything."},
     {lw:["Ki","teo","loye","su","foili"],
@@ -6709,6 +6713,35 @@ const V = {
     {lw:["Nea","niohu","sho","nea","su","youmi"],
      en:"We agree and we are lucky."},
   ],
+
+  // ── Living Liru ──────────────────────────────────────────
+  // L258 — May 2026 Additions. First post-course lesson. Five new
+  // root families: shaise (bathing vessel + verb to bathe), shase
+  // (sink), tape (switch + verb to toggle), tume (lid + verb to
+  // cover), mame (hug + verb to hug). Also surfaces the loime
+  // gloss refresh ("wait or stay"). The siehe→pake rename is NOT
+  // in this lesson — it's an in-place fix to A19/L184 vocab.
+  l258_living_may2026: [
+    {lw:"shaise", en:"bathing vessel (tub or shower)", pos:"n",
+     canvas:{adj:"shaisi", adj_en:"bathing-related",
+             v:"shaisu", v_en:"to bathe (or shower)"},
+     intro:"<p><em>Shaise</em> covers both a tub and a shower — Liru doesn't distinguish them. The verb <em>shaisu</em> means &ldquo;to bathe&rdquo; or &ldquo;to shower&rdquo; — cleaner than using <em>sayu</em> (the generic verb &ldquo;to wash/clean&rdquo;) for body-bathing.</p>"},
+    {lw:"shase", en:"sink (or basin)", pos:"n",
+     canvas:{adj:"shasi", adj_en:"sink-related"},
+     intro:"<p><em>Shase</em> is a sink — a kitchen sink, bathroom sink, or any basin. No verb form: actions involving a sink use the verbs that already cover them (<em>sayu</em> to wash, <em>shawe</em> for water, etc.). <em>Shase</em> joins the <em>sh-</em> water family (<em>shawe</em>, <em>shahe</em>, <em>shaihe</em>, <em>shafane</em>, <em>shauhe</em>) and is paired aesthetically with <em>shaise</em>.</p>"},
+    {lw:"tape", en:"switch (or toggle, control)", pos:"n",
+     canvas:{adj:"tapi", adj_en:"switchable (or toggleable)",
+             v:"tapu", v_en:"to switch (or toggle, flip, change state)"},
+     intro:"<p><em>Tape</em> is the physical switch on a wall or any toggle/control. The verb <em>tapu</em> means &ldquo;to switch&rdquo; or &ldquo;to toggle&rdquo; — to change states or flip a control. Pairs with <em>pake</em>: <em>tapu lo tape</em> (flip the switch) results in <em>paki</em> (on) or <em>mopaki</em> (off).</p>"},
+    {lw:"tume", en:"lid (or cover, top)", pos:"n",
+     canvas:{adj:"tumi", adj_en:"topmost (or covering)",
+             v:"tumu", v_en:"to cover (or put a lid on)"},
+     intro:"<p><em>Tume</em> is the lid, cover, or upper piece of something — a jar lid, a pot lid, the top of a box, a blanket as a cover. Distinct from <em>leu</em> (the spatial particle &ldquo;above/on&rdquo;) and <em>shoume</em> (a shirt or top garment). The <em>mo-</em> prefix gives <em>motume</em> (uncovered) and <em>motumu</em> (to uncover).</p>"},
+    {lw:"mame", en:"hug (or embrace)", pos:"n",
+     canvas:{adj:"mami", adj_en:"affectionate (or embracing)",
+             v:"mamu", v_en:"to hug (or embrace)"},
+     intro:"<p><em>Mame</em> is a hug or embrace. The verb <em>mamu</em> is &ldquo;to hug&rdquo; — transitive: <em>Ne wu mamu te</em> (I will hug you). The adjective <em>mami</em> describes someone affectionate by nature. Sits warmly in the lexicon alongside <em>nawe</em> (love) and <em>louhe</em> (respect).</p>"},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -6777,6 +6810,13 @@ const UNITS = [
   {name:"Unit 40 — City, Transport & Places", start:239, track:"advanced"},
   {name:"Unit 41 — Time, Agreement & Residual Roots", start:244, track:"advanced"},
   {name:"Advanced Final Test", start:251, track:"advanced"},
+  // ── Living Liru ──────────────────────────────────────────
+  // Post-course tier. Unlocked entirely after L257 (Advanced Final Test)
+  // is completed. Admin sees it regardless. Lessons unlock as a group
+  // (not sequentially) once the section is visible. Each lesson
+  // represents a batch of new vocabulary added after the main course
+  // shipped. See lesson_principles.md §14.
+  {name:"May 2026 Additions", start:252, track:"living"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -8606,12 +8646,12 @@ const LESSONS = [
 
   {id:"l184_vocab_modern_tech",
    title:"AI, Power, Oil & Metal",
-   desc:"shirimiehe (AI), siehe (power), hoile (oil), kahime (metal)",
+   desc:"shirimiehe (AI), pake (power), hoile (oil), kahime (metal)",
    icon:"⚡",
    vocabKey:"l184_vocab_modern_tech",
    xp:18,
    unit:30,
-   intro:`<h3>⚡ What machines are made of and what runs them</h3><p>Four roots that complete the tools picture from the last lesson. <em>shirimiehe</em> names the newest machine of all (AI). <em>siehe</em> is the power that runs machines. <em>hoile</em> is the oil that lubricates them. <em>kahime</em> is the metal they're built from.</p><h3>🤖 AI</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shirimiehe</em> (n.)</td><td style="padding:4px 12px">AI (artificial intelligence)</td></tr></table><p><em>shirimiehe</em> is a single indivisible root — don't try to break it apart. The word's etymology references "artificial mind," but treat it like <em>peire</em> (camera): one word, one meaning.</p><h3>🔌 Power</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>siehe</em> (n.)</td><td style="padding:4px 12px">power (or electricity)</td></tr><tr><td style="padding:4px 12px"><em>siehi</em> (adj.)</td><td style="padding:4px 12px">powered (or electric)</td></tr><tr><td style="padding:4px 12px"><em>siehu</em> (v.)</td><td style="padding:4px 12px">to energize (or power on)</td></tr></table><p><em>siehe</em> covers both physical power (strength, energy) and electricity. The verb <em>siehu</em> is what you do when you switch a device on.</p><h3>🛢️ Oil</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>hoile</em> (n.)</td><td style="padding:4px 12px">oil</td></tr><tr><td style="padding:4px 12px"><em>hoili</em> (adj.)</td><td style="padding:4px 12px">oily</td></tr><tr><td style="padding:4px 12px"><em>hoilu</em> (v.)</td><td style="padding:4px 12px">to oil (or grease)</td></tr></table><h3>🔩 Metal</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kahime</em> (n.)</td><td style="padding:4px 12px">metal</td></tr><tr><td style="padding:4px 12px"><em>kahimi</em> (adj.)</td><td style="padding:4px 12px">metallic (or metal-related)</td></tr></table><p>No verb for this root — metal isn't an action.</p><span class="example">Hese su kahimi. <span class="gloss">The knife is metallic.</span></span><span class="example">Vi te siehu lo pauwe, ve wu fasu. <span class="gloss">If you power on this machine, it will work.</span></span><span class="example">Fole su hoili wule tahu. <span class="gloss">The plate is oily after eating.</span></span>`},
+   intro:`<h3>⚡ What machines are made of and what runs them</h3><p>Four roots that complete the tools picture from the last lesson. <em>shirimiehe</em> names the newest machine of all (AI). <em>pake</em> is the power that runs machines. <em>hoile</em> is the oil that lubricates them. <em>kahime</em> is the metal they're built from.</p><h3>🤖 AI</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>shirimiehe</em> (n.)</td><td style="padding:4px 12px">AI (artificial intelligence)</td></tr></table><p><em>shirimiehe</em> is a single indivisible root — don't try to break it apart. The word's etymology references "artificial mind," but treat it like <em>peire</em> (camera): one word, one meaning.</p><h3>🔌 Power</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>pake</em> (n.)</td><td style="padding:4px 12px">power (or electricity)</td></tr><tr><td style="padding:4px 12px"><em>paki</em> (adj.)</td><td style="padding:4px 12px">on (or powered)</td></tr><tr><td style="padding:4px 12px"><em>paku</em> (v.)</td><td style="padding:4px 12px">to turn on (or power up)</td></tr></table><p><em>pake</em> covers both physical power (strength, energy) and electricity. The verb <em>paku</em> is what you do when you turn a device on. Add the <em>mo-</em> prefix and you get the opposite: <em>mopaki</em> (off), <em>mopaku</em> (to turn off).</p><h3>🛢️ Oil</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>hoile</em> (n.)</td><td style="padding:4px 12px">oil</td></tr><tr><td style="padding:4px 12px"><em>hoili</em> (adj.)</td><td style="padding:4px 12px">oily</td></tr><tr><td style="padding:4px 12px"><em>hoilu</em> (v.)</td><td style="padding:4px 12px">to oil (or grease)</td></tr></table><h3>🔩 Metal</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kahime</em> (n.)</td><td style="padding:4px 12px">metal</td></tr><tr><td style="padding:4px 12px"><em>kahimi</em> (adj.)</td><td style="padding:4px 12px">metallic (or metal-related)</td></tr></table><p>No verb for this root — metal isn't an action.</p><span class="example">Hese su kahimi. <span class="gloss">The knife is metallic.</span></span><span class="example">Vi te paku lo pauwe, ve wu fasu. <span class="gloss">If you power on this machine, it will work.</span></span><span class="example">Fole su hoili wule tahu. <span class="gloss">The plate is oily after eating.</span></span>`},
 
   {id:"l185_vocab_arts_leisure",
    title:"Music, Joke & Jiu-jitsu",
@@ -9295,11 +9335,23 @@ const LESSONS = [
    desc:"Three hearts. Twenty sentences spanning the full advanced track — A1 through A24.",
    icon:"\ud83c\udf93",
    vocabKey:"l257_advanced_final",
-   xp:50,
+   xp:100,
    unit:41,
    isSentence:true,
    isCheckpoint:true,
    isFinalTest:true},
+  // ── Living Liru ────────────────────────────────────────
+  // Post-course content. Lessons here are unlocked as a group when
+  // L257 is complete (or admin). They do not affect core/advanced
+  // completion stats. New batches are added chronologically over time.
+  {id:"l258_living_may2026",
+   title:"May 2026 Additions",
+   desc:"shaise (bath/shower), shase (sink), tape (switch), tume (lid), mame (hug) — five new roots and a loime gloss refresh.",
+   icon:"\ud83c\udf31",
+   vocabKey:"l258_living_may2026",
+   xp:20,
+   unit:42,
+   track:"living"},
 ];
 
 // Populate the landing-page lesson and word counts from live data.
@@ -11086,6 +11138,9 @@ const SRS_FORM_RENAMES={
   mokilire:'luiwe',
   mokiliri:'luiwi',
   mokiliru:'luiwu',
+  siehe:'pake',
+  siehi:'paki',
+  siehu:'paku',
 };
 function srsMigrateRenamedFormsIfNeeded(username){
   if(!username)return 0;
@@ -11570,13 +11625,16 @@ function renderHome(){
   const isAdmin=(u.username||"").toLowerCase()==="admin";
 
   // Advanced-track gating + section presentation. Units tagged track:"advanced"
-  // are hidden until the learner completes l84_finalreview. Admin always sees
-  // everything. When advanced units are visible, they render in their own
-  // labeled section ("✨ Advanced Liru") below the core section, each with
-  // independent progress bars. See advanced_track_plan.md §2, §6.
+  // are hidden until the learner completes l84_finalreview. Units tagged
+  // track:"living" are post-course content, hidden until l257_advanced_final
+  // is complete. Admin always sees everything. Each section renders below
+  // the previous with its own divider banner. See advanced_track_plan.md §2,
+  // §6 and lesson_principles.md §14.
   const coreComplete=isAdmin||completedSet.has("l84_finalreview");
-  const coreUnits=UNITS.filter(u=>u.track!=="advanced");
+  const livingComplete=isAdmin||completedSet.has("l257_advanced_final");
+  const coreUnits=UNITS.filter(u=>!u.track);
   const advancedUnits=coreComplete?UNITS.filter(u=>u.track==="advanced"):[];
+  const livingUnits=livingComplete?UNITS.filter(u=>u.track==="living"):[];
 
   // Aggregate progress per section (lessons-completed across the section's units).
   // Core stays at done_core/84 — when complete, freezes at 84/84 ✓ 100% rather
@@ -11622,10 +11680,16 @@ function renderHome(){
     const collapsed=(override===undefined)?unitComplete:!override;
 
     let innerHTML="";
+    const isLiving=unitDef.track==="living";
     unitLessons.forEach((l,offset)=>{
       const i=start+offset;
       const completed=completedSet.has(l.id);
-      const unlocked=isAdmin||i===0||completedSet.has(LESSONS[i-1].id);
+      // Living-track lessons unlock as a group (any lesson in the section
+      // is open once the section is visible). Other tracks unlock
+      // sequentially: the first lesson of the section opens when the
+      // immediately preceding lesson is complete, and each subsequent
+      // lesson opens when its predecessor is complete.
+      const unlocked=isAdmin||isLiving||i===0||completedSet.has(LESSONS[i-1].id);
       const cls=completed?"completed":unlocked?"":"locked";
       const icon=completed?'<span style="color:#4A7A9E;font-size:28px;font-weight:800;line-height:1">✓</span>':unlocked?l.icon:"🔒";
       const isFinal=l.isFinalTest||l.isCoreFinal;
@@ -11691,6 +11755,24 @@ function renderHome(){
       advancedUnits.forEach(unitDef=>{
         const unitIdx=UNITS.indexOf(unitDef);
         lessonsHTML+=renderUnit(unitDef,unitIdx,advancedUnits);
+      });
+    }
+
+    // ── Living Liru section ───────────────────────────────────
+    // Hidden when livingComplete is false. Post-course content —
+    // batches of new vocabulary added chronologically over time as
+    // the language continues to develop. Lessons here unlock as a
+    // group (see isLiving in renderUnit) once the section is visible.
+    // No progress bar in the header — this section sits outside core
+    // and advanced completion metrics by design.
+    if(livingUnits.length>0){
+      lessonsHTML+=`<div style="margin:32px 0 16px;padding:14px 16px;background:linear-gradient(135deg,rgba(120,200,140,0.12),rgba(80,170,230,0.08));border:1.5px solid #6FB68A;border-radius:14px;text-align:center">
+        <div style="font-family:var(--display);font-size:18px;font-weight:800;color:#6FB68A;letter-spacing:0.5px">🌱 Living Liru</div>
+        <div style="color:var(--mid);font-size:12px;font-weight:600;margin-top:2px">The language continues to grow — here's what's been added since you finished</div>
+      </div>`;
+      livingUnits.forEach(unitDef=>{
+        const unitIdx=UNITS.indexOf(unitDef);
+        lessonsHTML+=renderUnit(unitDef,unitIdx,livingUnits);
       });
     }
   }
@@ -14136,9 +14218,9 @@ const DICTIONARY_RAW = [
   {lw:"loike", en:"writing", pos:"n"},
   {lw:"loiki", en:"written", pos:"adj"},
   {lw:"loiku", en:"to write", pos:"v"},
-  {lw:"loime", en:"wait", pos:"n"},
+  {lw:"loime", en:"wait (or stay)", pos:"n"},
   {lw:"loimi", en:"waiting", pos:"adj"},
-  {lw:"loimu", en:"to wait", pos:"v"},
+  {lw:"loimu", en:"to wait (or stay)", pos:"v"},
   {lw:"loine", en:"pen", pos:"n"},
   {lw:"loini", en:"pen-related", pos:"adj"},
   {lw:"loinile", en:"pencil", pos:"n", note:"From loine (pen) + -ile \u2014 little pen"},
@@ -14210,6 +14292,9 @@ const DICTIONARY_RAW = [
   {lw:"maiwali", en:"rainbow-related", pos:"adj"},
   {lw:"maluwe", en:"cow", pos:"n"},
   {lw:"maluwi", en:"cow-related", pos:"adj"},
+  {lw:"mame", en:"hug (or embrace)", pos:"n"},
+  {lw:"mami", en:"affectionate (or embracing)", pos:"adj"},
+  {lw:"mamu", en:"to hug (or embrace)", pos:"v"},
   {lw:"mashe", en:"medicine", pos:"n"},
   {lw:"mashetieme", en:"pharmacy", pos:"n", note:"From mashe (medicine) + -tieme (store) \u2014 pharmacy"},
   {lw:"mashi", en:"medicinal", pos:"adj"},
@@ -14423,6 +14508,9 @@ const DICTIONARY_RAW = [
   {lw:"monove", en:"mistake", pos:"n"},
   {lw:"monovi", en:"incorrect", pos:"adj"},
   {lw:"monovu", en:"to err", pos:"v"},
+  {lw:"mopake", en:"the off state", pos:"n"},
+  {lw:"mopaki", en:"off (or unpowered)", pos:"adj"},
+  {lw:"mopaku", en:"to turn off (or power down)", pos:"v"},
   {lw:"mopere", en:"hardness", pos:"n"},
   {lw:"moperi", en:"hard (physical)", pos:"adj"},
   {lw:"moperu", en:"to harden", pos:"v"},
@@ -14516,6 +14604,9 @@ const DICTIONARY_RAW = [
   {lw:"motole", en:"following", pos:"n"},
   {lw:"motoli", en:"loyal", pos:"adj"},
   {lw:"motolu", en:"to follow", pos:"v"},
+  {lw:"motume", en:"the uncovered state", pos:"n"},
+  {lw:"motumi", en:"uncovered", pos:"adj"},
+  {lw:"motumu", en:"to uncover (or remove the lid)", pos:"v"},
   {lw:"motuwe", en:"weakness", pos:"n"},
   {lw:"motuwi", en:"weak", pos:"adj"},
   {lw:"motuwu", en:"to weaken", pos:"v"},
@@ -14740,6 +14831,9 @@ const DICTIONARY_RAW = [
   {lw:"paiwe", en:"shoe", pos:"n"},
   {lw:"paiwile", en:"sock", pos:"n", note:"From paiwe (shoe) + -ile \u2014 little shoe"},
   {lw:"paiweme", en:"butterfly", pos:"n"},
+  {lw:"pake", en:"power (or electricity)", pos:"n"},
+  {lw:"paki", en:"on (or powered)", pos:"adj"},
+  {lw:"paku", en:"to turn on (or power up)", pos:"v"},
   {lw:"pauhe", en:"disappointment", pos:"n"},
   {lw:"pauhi", en:"disappointed", pos:"adj"},
   {lw:"pauhu", en:"to disappoint", pos:"v"},
@@ -14951,6 +15045,9 @@ const DICTIONARY_RAW = [
   {lw:"shaihile", en:"canoe", pos:"n", note:"From shaihe (boat) + -ile \u2014 little boat"},
   {lw:"shaihu", en:"to sail", pos:"v"},
   {lw:"shaihupue", en:"sailor", pos:"n", note:"From shaihu + -pue (agent)"},
+  {lw:"shaise", en:"bathing vessel (tub or shower)", pos:"n"},
+  {lw:"shaisi", en:"bathing-related", pos:"adj"},
+  {lw:"shaisu", en:"to bathe (or shower)", pos:"v"},
   {lw:"shakume", en:"shark", pos:"n"},
   {lw:"shakumi", en:"shark-related", pos:"adj"},
   {lw:"shalire", en:"rain", pos:"n"},
@@ -14965,6 +15062,8 @@ const DICTIONARY_RAW = [
   {lw:"shaniluone", en:"April", pos:"n", note:"From shani (4) + luone (month)"},
   {lw:"shanini", en:"fourth", pos:"adj", note:"From shani (4) + -ni ordinal suffix"},
   {lw:"shaniwime", en:"ring finger", pos:"n", note:"From shani (four) + wime (finger) \u2014 four-finger / fourth finger"},
+  {lw:"shase", en:"sink (or basin)", pos:"n"},
+  {lw:"shasi", en:"sink-related", pos:"adj"},
   {lw:"shauhe", en:"bathroom (or restroom)", pos:"n"},
   {lw:"shauhi", en:"bathroom-related", pos:"adj"},
   {lw:"shauke", en:"bush (or shrub)", pos:"n"},
@@ -15039,9 +15138,6 @@ const DICTIONARY_RAW = [
   {lw:"shuwe", en:"spouse", pos:"n"},
   {lw:"shuwi", en:"spousal", pos:"adj"},
   {lw:"shuwu", en:"to marry", pos:"v"},
-  {lw:"siehe", en:"power (or electricity)", pos:"n"},
-  {lw:"siehi", en:"powered (or electric)", pos:"adj"},
-  {lw:"siehu", en:"to energize (or power on)", pos:"v"},
   {lw:"so", en:"to", pos:"prep"},
   {lw:"sohe", en:"other", pos:"n"},
   {lw:"sohi", en:"another", pos:"adj"},
@@ -15084,6 +15180,9 @@ const DICTIONARY_RAW = [
   {lw:"taku", en:"to burn", pos:"v"},
   {lw:"tame", en:"stomach (or belly)", pos:"n"},
   {lw:"tami", en:"stomach-related", pos:"adj"},
+  {lw:"tape", en:"switch (or toggle, control)", pos:"n"},
+  {lw:"tapi", en:"switchable (or toggleable)", pos:"adj"},
+  {lw:"tapu", en:"to switch (or toggle, flip, change state)", pos:"v"},
   {lw:"tarume", en:"thunder", pos:"n"},
   {lw:"tarumi", en:"thunderous (or thunder-related)", pos:"adj"},
   {lw:"tarumu", en:"to thunder (or rumble)", pos:"v"},
@@ -15188,6 +15287,9 @@ const DICTIONARY_RAW = [
   {lw:"tuke", en:"cough", pos:"n"},
   {lw:"tuki", en:"coughing", pos:"adj"},
   {lw:"tuku", en:"to cough", pos:"v"},
+  {lw:"tume", en:"lid (or cover, top)", pos:"n"},
+  {lw:"tumi", en:"topmost (or covering)", pos:"adj"},
+  {lw:"tumu", en:"to cover (or put a lid on)", pos:"v"},
   {lw:"tune", en:"head", pos:"n"},
   {lw:"tuni", en:"head-related", pos:"adj"},
   {lw:"tuwe", en:"strength", pos:"n"},
