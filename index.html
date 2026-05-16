@@ -1978,9 +1978,24 @@ const V = {
     {lw:["Ne","mauhu","Liru","iwuhe"],                    en:"I am learning the Liru language."},
   ],
 
-  // L84 — Final Review: All 14 Units (capstone, sentence-based, isCheckpoint)
+  // L84a — Unit 14 Exam: Asking for Help (sentence-based, isCheckpoint:true)
+  // Comprehensive review of L81–L83. 8 sentences mixing Unit 14 help-vocabulary
+  // (L81/L82) with prior-unit grammar (pronouns, possessives, conjunctions,
+  // negation, modal chains, ki-questions). No new forms.
+  l84a_unit14exam: [
+    {lw:["Maya","sovu","Yuna"],                          en:"Maya helps Yuna."},
+    {lw:["Ne","mai","yeihu","te"],                       en:"I don't understand you."},
+    {lw:["Kai","su","moyeihi","sho","ve","mihu","sove"], en:"Kai is confused and he needs help."},
+    {lw:["Ve","weliru","veo","nile"],                    en:"She repeats her name."},
+    {lw:["Yuna","mauhu","mosairi"],                      en:"Yuna learns slowly."},
+    {lw:["Ki","te","yeihu","Liru","iwuhe"],              en:"Do you understand the Liru language?"},
+    {lw:["Mosairi","sho","paili","moa"],                 en:"Slowly and clearly, please."},
+    {lw:["Ne","wanu","mauhu","Liru","iwuhe"],            en:"I want to learn the Liru language."},
+  ],
+
+  // L84 — Core Course Final Exam (capstone, sentence-based, isCheckpoint, isFinalTest)
   // 13 sentences spanning all 14 units. Final lesson of the core course.
-  // 🎉 Passing this completes the core Liru course.
+  // Passing this completes the core course and unlocks the advanced track.
   l84_finalreview: [
     {lw:["Reiwa","Maya"],                                                  en:"Thank you, Maya."},
     {lw:["Neo","wahe","su","wauli"],                                       en:"My family is beautiful."},
@@ -6727,40 +6742,41 @@ const UNITS = [
   // they complete l84_finalreview (the core final test). Admin
   // user sees them regardless. See advanced_track_plan.md §2.
   // Note: `start` is the LESSONS array index, not the L-number.
-  // L85 is at LESSONS index 78 because lesson IDs include
-  // historical gaps (l6, l12, l18, etc. were never created).
-  {name:"Unit 15 — Comparatives & Superlatives", start:78, track:"advanced"},
-  {name:"Unit 16 — Conditional & Causal Conjunctions", start:82, track:"advanced"},
-  {name:"Unit 17 — Relative & Complement Clauses", start:88, track:"advanced"},
-  {name:"Unit 18 — Frequency & Spatial Adverbs", start:93, track:"advanced"},
-  {name:"Unit 19 — Existential Pronouns", start:100, track:"advanced"},
-  {name:"Unit 20 — Colors", start:104, track:"advanced"},
-  {name:"Unit 21 — Numbers Beyond 10, Ordinals & Months", start:109, track:"advanced"},
-  {name:"Unit 22 — High-Frequency Vocabulary", start:113, track:"advanced"},
-  {name:"Unit 23 — Cardinal Directions & Geography", start:121, track:"advanced"},
-  {name:"Unit 24 — Extended Family", start:126, track:"advanced"},
-  {name:"Unit 25 — Seasons & Extended Weather", start:133, track:"advanced"},
-  {name:"Unit 26 — Animals", start:140, track:"advanced"},
-  {name:"Unit 27 — Plants & Nature Taxonomy", start:149, track:"advanced"},
-  {name:"Unit 28 — Specialized Verbs of Motion & Action", start:153, track:"advanced"},
-  {name:"Unit 29 — Specialized Emotions", start:161, track:"advanced"},
-  {name:"Unit 30 — Body Parts Beyond Core Five", start:166, track:"advanced"},
-  {name:"Unit 31 — Tools, Music & Art", start:174, track:"advanced"},
-  {name:"Unit 32 — Cultural & Abstract Roots", start:181, track:"advanced"},
-  {name:"Unit 33 — Religion, Philosophy & Reflection", start:188, track:"advanced"},
+  // L85 is at LESSONS index 79 because lesson IDs include
+  // historical gaps (l6, l12, l18, etc. were never created), and a
+  // Unit 14 exam (l84a_unit14exam) sits between L83 and L84 at index 77.
+  {name:"Unit 15 — Comparatives & Superlatives", start:79, track:"advanced"},
+  {name:"Unit 16 — Conditional & Causal Conjunctions", start:83, track:"advanced"},
+  {name:"Unit 17 — Relative & Complement Clauses", start:89, track:"advanced"},
+  {name:"Unit 18 — Frequency & Spatial Adverbs", start:94, track:"advanced"},
+  {name:"Unit 19 — Existential Pronouns", start:101, track:"advanced"},
+  {name:"Unit 20 — Colors", start:105, track:"advanced"},
+  {name:"Unit 21 — Numbers Beyond 10, Ordinals & Months", start:110, track:"advanced"},
+  {name:"Unit 22 — High-Frequency Vocabulary", start:114, track:"advanced"},
+  {name:"Unit 23 — Cardinal Directions & Geography", start:122, track:"advanced"},
+  {name:"Unit 24 — Extended Family", start:127, track:"advanced"},
+  {name:"Unit 25 — Seasons & Extended Weather", start:134, track:"advanced"},
+  {name:"Unit 26 — Animals", start:141, track:"advanced"},
+  {name:"Unit 27 — Plants & Nature Taxonomy", start:150, track:"advanced"},
+  {name:"Unit 28 — Specialized Verbs of Motion & Action", start:154, track:"advanced"},
+  {name:"Unit 29 — Specialized Emotions", start:162, track:"advanced"},
+  {name:"Unit 30 — Body Parts Beyond Core Five", start:167, track:"advanced"},
+  {name:"Unit 31 — Tools, Music & Art", start:175, track:"advanced"},
+  {name:"Unit 32 — Cultural & Abstract Roots", start:182, track:"advanced"},
+  {name:"Unit 33 — Religion, Philosophy & Reflection", start:189, track:"advanced"},
   // A21 — Useful Verbs splits into five internal sub-units (A21a–e).
   // Each is its own UNITS entry so the collapsible-unit UI stays
   // navigable; together they are the single A21 unit in
   // advanced_track_plan.md. See the A21 internal scoping document.
-  {name:"Unit 34 — Useful Verbs I: Communication & Cognition", start:194, track:"advanced"},
-  {name:"Unit 35 — Useful Verbs II: Physical Action & Handling", start:201, track:"advanced"},
-  {name:"Unit 36 — Useful Verbs III: State, Body & Life-Cycle", start:207, track:"advanced"},
-  {name:"Unit 37 — Useful Verbs IV: Dimension & Texture", start:213, track:"advanced"},
-  {name:"Unit 38 — Useful Verbs V: Food, Quantity & Closing", start:219, track:"advanced"},
-  {name:"Unit 39 — Daily Nouns", start:226, track:"advanced"},
-  {name:"Unit 40 — City, Transport & Places", start:238, track:"advanced"},
-  {name:"Unit 41 — Time, Agreement & Residual Roots", start:243, track:"advanced"},
-  {name:"Advanced Final Test", start:250, track:"advanced"},
+  {name:"Unit 34 — Useful Verbs I: Communication & Cognition", start:195, track:"advanced"},
+  {name:"Unit 35 — Useful Verbs II: Physical Action & Handling", start:202, track:"advanced"},
+  {name:"Unit 36 — Useful Verbs III: State, Body & Life-Cycle", start:208, track:"advanced"},
+  {name:"Unit 37 — Useful Verbs IV: Dimension & Texture", start:214, track:"advanced"},
+  {name:"Unit 38 — Useful Verbs V: Food, Quantity & Closing", start:220, track:"advanced"},
+  {name:"Unit 39 — Daily Nouns", start:227, track:"advanced"},
+  {name:"Unit 40 — City, Transport & Places", start:239, track:"advanced"},
+  {name:"Unit 41 — Time, Agreement & Residual Roots", start:244, track:"advanced"},
+  {name:"Advanced Final Test", start:251, track:"advanced"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -7536,16 +7552,28 @@ const LESSONS = [
    isSentence:true,
    intro:`<h3>💬 Asking for Help</h3><p>This lesson teaches the phrases a Liru learner uses most: asking for help, saying you don't understand, asking for repetition.</p><p><em>Moa</em> ("please") usually goes at the end of a request, after a comma. <em>Sovu</em> is the verb "to help" — the noun <em>sove</em> means "help" itself.</p>`},
 
-  {id:"l84_finalreview",
-   title:"Final Review — All 14 Units",
+  {id:"l84a_unit14exam",
+   title:"Unit 14 Exam: Asking for Help",
    desc:"Three hearts. Show what you know.",
-   icon:"🎓",
-   vocabKey:"l84_finalreview",
-   xp:50,
+   icon:"✅",
+   vocabKey:"l84a_unit14exam",
+   xp:30,
    unit:13,
    isSentence:true,
    isCheckpoint:true,
-   intro:`<h3>🎓 Final Review</h3><p>This is the final review. Thirteen sentences from across all fourteen units. <strong>Three hearts — show what you've learned</strong> — and you've finished the core course.</p>`},
+   intro:`<h3>✅ Unit 14 Exam</h3><p>This is your Unit 14 exam. <strong>Three hearts — show what you've learned.</strong> Pass it to complete the unit.</p><p>Mixed practice across the unit's help vocabulary and language-learning words — plus prior-unit grammar (pronouns, possessives, conjunctions, negation, modal chains, ki-questions).</p>`},
+
+  {id:"l84_finalreview",
+   title:"Core Course Final Exam",
+   desc:"Three hearts. The capstone of the core course.",
+   icon:"🎓",
+   vocabKey:"l84_finalreview",
+   xp:75,
+   unit:13,
+   isSentence:true,
+   isCheckpoint:true,
+   isCoreFinal:true,
+   intro:`<h3>🎓 Core Course Final Exam</h3><p>You've reached the capstone of the core course. Thirteen sentences spanning all fourteen units — the breadth of what you've learned.</p><p><strong>Three hearts.</strong> Pass it to complete the core course.</p>`},
 
   // ── UNIT 15 (A1): COMPARATIVES & SUPERLATIVES (L85–L88) ──────────────
   // First advanced-track unit. Teaches the comparison particles apa (more than
@@ -11590,7 +11618,7 @@ function renderHome(){
       const unlocked=isAdmin||i===0||completedSet.has(LESSONS[i-1].id);
       const cls=completed?"completed":unlocked?"":"locked";
       const icon=completed?'<span style="color:#4A7A9E;font-size:28px;font-weight:800;line-height:1">✓</span>':unlocked?l.icon:"🔒";
-      const isFinal=l.isFinalTest;
+      const isFinal=l.isFinalTest||l.isCoreFinal;
       let cardStyle="";
       if(isFinal){cardStyle=`background:linear-gradient(135deg,rgba(255,200,0,0.12),rgba(206,130,255,0.08));border:2.5px solid var(--gold);`;}
       innerHTML+=`<button class="lesson-card ${cls}" data-idx="${i}" ${!unlocked?'disabled':''} style="${cardStyle}">
@@ -13018,7 +13046,21 @@ function renderComplete(){
 
   let innerHTML="";
   if(passed){
-    if(isFinal){
+    if(state.lesson&&state.lesson.isCoreFinal){
+      // Core Course Final — completion of the 14-unit core course.
+      // Distinct from the advanced final (L257). Celebrates the
+      // milestone and reveals the now-unlocked advanced section.
+      innerHTML=`
+      <div style="font-size:80px;margin-bottom:16px">🎉</div>
+      <div style="font-family:var(--display);font-size:34px;font-weight:800;color:#4A7A9E;margin-bottom:4px">Reiwa.</div>
+      <div style="color:var(--dim);font-size:14px;font-style:italic;margin-bottom:24px">Thank you.</div>
+      <div style="color:var(--text);font-size:15px;line-height:1.6;margin-bottom:24px;max-width:340px;margin-left:auto;margin-right:auto">You've completed the Core Liru Course — every unit, every lesson. Keep practicing what you've learned with your SRS flashcards. The more you speak Liru, the more it becomes yours.</div>
+      <div style="background:linear-gradient(135deg,rgba(255,200,0,0.15),rgba(206,130,255,0.10));border:2px solid var(--gold);border-radius:14px;padding:16px 18px;margin:0 auto 24px;max-width:340px;box-shadow:0 0 20px rgba(255,200,0,0.15)">
+        <div style="font-size:13px;font-weight:800;color:var(--gold);letter-spacing:0.5px;text-transform:uppercase;margin-bottom:6px">✨ A new chapter awaits</div>
+        <div style="color:var(--text);font-size:15px;font-weight:700"><strong>Advanced Liru</strong> is now open.</div>
+      </div>
+      <div style="color:var(--dim);font-size:14px;margin-bottom:28px">+${state.accXP} XP earned · ${state.correct}/${state.exercises.length} correct</div>`;
+    } else if(isFinal){
       innerHTML=`
       <div style="font-size:72px;margin-bottom:16px">🎓</div>
       <div style="font-family:var(--display);font-size:26px;font-weight:800;color:var(--gold);margin-bottom:4px">Liru — Lire su toyi.</div>
