@@ -2313,7 +2313,7 @@ const V = {
     {lw:["Ne","seuwu","lai","te","halu"],
      en:"I allow you to go.",
      cloze:{blanks:[1,4], bank:["seuwu","piruhu","halu","vanu","lenu","lai"]}},
-    {lw:["Maya","mai","seuwu","lai","veo","piwe","wu","hairu"],
+    {lw:["Maya","mai","seuwu","lai","veo","piwe","hairu"],
      en:"Maya doesn't allow her child to run."},
     {lw:["Ne","lenu","lai","te","su","yashi"],
      en:"I trust that you are smart."},
@@ -6779,14 +6779,14 @@ const UNITS = [
   // historical gaps (l6, l12, l18, etc. were never created), and a
   // Unit 14 exam (l84a_unit14exam) sits between L83 and L84 at index 77.
   {name:"Unit 15 — Comparatives & Superlatives", start:79, track:"advanced"},
-  {name:"Unit 16 — Conditional & Causal Conjunctions", start:83, track:"advanced"},
-  {name:"Unit 17 — Relative & Complement Clauses", start:89, track:"advanced"},
-  {name:"Unit 18 — Frequency & Spatial Adverbs", start:94, track:"advanced"},
-  {name:"Unit 19 — Existential Pronouns", start:101, track:"advanced"},
+  {name:"Unit 16 — Connecting Ideas: If, Because, Until", start:83, track:"advanced"},
+  {name:"Unit 17 — Sentences Inside Sentences", start:89, track:"advanced"},
+  {name:"Unit 18 — How Often & Where", start:94, track:"advanced"},
+  {name:"Unit 19 — Something, Anyone, Nothing, Everyone", start:101, track:"advanced"},
   {name:"Unit 20 — Colors", start:105, track:"advanced"},
   {name:"Unit 21 — Numbers Beyond 10, Ordinals & Months", start:110, track:"advanced"},
   {name:"Unit 22 — High-Frequency Vocabulary", start:114, track:"advanced"},
-  {name:"Unit 23 — Cardinal Directions & Geography", start:122, track:"advanced"},
+  {name:"Unit 23 — Compass Directions & Geography", start:122, track:"advanced"},
   {name:"Unit 24 — Extended Family", start:127, track:"advanced"},
   {name:"Unit 25 — Seasons & Extended Weather", start:134, track:"advanced"},
   {name:"Unit 26 — Animals", start:141, track:"advanced"},
@@ -6801,10 +6801,10 @@ const UNITS = [
   // Each is its own UNITS entry so the collapsible-unit UI stays
   // navigable; together they are the single A21 unit in
   // advanced_track_plan.md. See the A21 internal scoping document.
-  {name:"Unit 34 — Useful Verbs I: Communication & Cognition", start:195, track:"advanced"},
+  {name:"Unit 34 — Useful Verbs I: Talking & Thinking", start:195, track:"advanced"},
   {name:"Unit 35 — Useful Verbs II: Physical Action & Handling", start:202, track:"advanced"},
-  {name:"Unit 36 — Useful Verbs III: State, Body & Life-Cycle", start:208, track:"advanced"},
-  {name:"Unit 37 — Useful Verbs IV: Dimension & Texture", start:214, track:"advanced"},
+  {name:"Unit 36 — Useful Verbs III: Being, Body & Living", start:208, track:"advanced"},
+  {name:"Unit 37 — Useful Verbs IV: Size, Shape & Texture", start:214, track:"advanced"},
   {name:"Unit 38 — Useful Verbs V: Food, Quantity & Closing", start:220, track:"advanced"},
   {name:"Unit 39 — Daily Nouns", start:227, track:"advanced"},
   {name:"Unit 40 — City, Transport & Places", start:239, track:"advanced"},
@@ -7689,7 +7689,7 @@ const LESSONS = [
 
   {id:"l91_vocab_finish_wait",
    title:"Finish and Wait",
-   desc:"toye (finish) and loime (wait)",
+   desc:"Two everyday verbs: toye (finish), loime (wait)",
    icon:"⏳",
    vocabKey:"l91_vocab_finish_wait",
    xp:20,
@@ -7717,7 +7717,7 @@ const LESSONS = [
    intro:`<h3>🪢 Three more conjunctions</h3><p>Three conjunctions, each joining two clauses. <em>file</em> first — it marks an endpoint:</p><span class="example">Ne wu loimu file te vanu. <span class="gloss">I will wait until you come.</span></span><span class="example">Maya wa tahu file ve su toyi. <span class="gloss">Maya ate until she was finished.</span></span><p>Then the two that look almost identical but mean opposite things:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>mavi</em></td><td style="padding:4px 12px">although / even though (from <em>ma</em> "but" + <em>vi</em> "if")</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>maivi</em></td><td style="padding:4px 12px">unless (from <em>mai</em> "not" + <em>vi</em> "if")</td></tr></table><p><strong>One letter, opposite worlds.</strong> Watch the <em>i</em>:</p><span class="example">Mavi shaliru, Yuna su houli. <span class="gloss">Although it is raining, Yuna is happy.</span></span><span class="example">Ne mai wu halu maivi te vanu. <span class="gloss">I will not go unless you come.</span></span><p>Notice the decomposition: <em>mavi</em> is "but-if" (a concession — "but even if this is true"), while <em>maivi</em> is "not-if" (a negative condition — "if this is not true"). Both come from familiar pieces.</p>`},
 
   {id:"l94_conjunctions_exam",
-   title:"Unit 16 Exam — Conjunctions",
+   title:"Unit 16 Exam — Connecting Ideas",
    desc:"Three hearts. Five particles plus nalae and nalau.",
    icon:"📝",
    vocabKey:"l94_conjunctions_exam",
@@ -7736,7 +7736,7 @@ const LESSONS = [
 
   {id:"l95_relative_clauses",
    title:"Relative Clauses — lai",
-   desc:"Noun + lai + clause: subject, object, and oblique gaps",
+   desc:"Building 'the X that…' phrases with lai",
    icon:"🔗",
    vocabKey:"l95_relative_clauses",
    xp:26,
@@ -7747,7 +7747,7 @@ const LESSONS = [
 
   {id:"l96_complement_clauses",
    title:"Complement Clauses — lai",
-   desc:"Verb + lai + full embedded clause",
+   desc:"Saying 'I know that…' and 'I hope that…' with lai",
    icon:"💭",
    vocabKey:"l96_complement_clauses",
    xp:26,
@@ -7757,19 +7757,19 @@ const LESSONS = [
    srsExtras:["feihi"]},
 
   {id:"l97_complement_advanced",
-   title:"Embedded Tense and To-Infinitives",
-   desc:"Absolute embedded tense; same-subject to-V patterns",
+   title:"Reported Speech and Plans",
+   desc:"How tense works inside 'she said that…' — and saying 'I plan to go'",
    icon:"⏱️",
    vocabKey:"l97_complement_advanced",
    xp:28,
    unit:16,
    isSentence:true,
-   intro:`<h3>⏱️ Embedded tense is absolute</h3><p>One of the trickiest English-to-Liru differences. When a complement clause has its own tense particle, that tense is <strong>anchored to the speaker's now</strong> — not to the matrix verb's time. Compare:</p><span class="example">Yuna wa liru lai ve su kufi. <span class="gloss">Yuna said that she is [now] in pain.</span></span><span class="example">Yuna wa liru lai ve wa su kufi. <span class="gloss">Yuna said that she was [earlier] in pain.</span></span><p>English usually "backshifts" — when the matrix is past, English makes the embedded past too ("she said that she <strong>was</strong> in pain") even when the pain is still happening now. Liru doesn't backshift. The embedded <em>wa</em> means past from <em>your</em> standpoint, not from Yuna's.</p><p>This matters for the future too:</p><span class="example">Ne wa lenu lai te wu sovu ne. <span class="gloss">I trusted that you would help me.</span></span><p>Literally: "I trusted that you <em>will</em> help me." The <em>wu</em> embedded says the helping is future from your now. English calls it "would" because English backshifts; Liru just says <em>wu</em>.</p><h3>🎯 The "to-V" equivalent</h3><p>English uses "to + verb" for same-subject complements: "I plan to eat," "I decide to go," "she remembers to write." Liru handles all of these with the complement <em>lai</em> pattern and the future particle <em>wu</em>:</p><span class="example">Ne piruhu lai ne wu tahu. <span class="gloss">I plan to eat.</span></span><span class="example">Ve seuhu lai ve wu halu. <span class="gloss">She decides to go.</span></span><p>The subject of the embedded clause repeats — there's no "raising." This stays explicit and grammatical.</p><h3>🆕 Three new verbs</h3><ul><li><em>piruhe</em> (plan, n.) → <em>piruhi</em> (planned, adj.) → <em>piruhu</em> (to plan)</li><li><em>seuwe</em> (allowance) → <em>seuwi</em> (allowed, adj.) → <em>seuwu</em> (to allow / permit)</li><li><em>lene</em> (trust, n.) → <em>leni</em> (trustworthy) → <em>lenu</em> (to trust)</li></ul><p><em>seuwu</em> takes a <strong>different-subject</strong> complement most naturally: "I allow <em>you</em> to go" — <em>Ne seuwu lai te halu</em>. <em>lenu</em> is a classic complement verb: "I trust <em>that</em>…".</p>`,
+   intro:`<h3>⏱️ The rule for <em>wu</em> inside <em>lai</em>-clauses</h3><p>Here's the rule, plainly: <strong>use <em>wu</em> in a <em>lai</em>-clause only when the embedded action will actually happen <em>later</em> than now.</strong> The matrix verb's tense doesn't matter — what matters is whether the inner event is in the future from <strong>your</strong> (the speaker's) standpoint.</p><p>Two examples make this concrete.</p><h3>✅ <em>wu</em> is needed: planning</h3><p>Planning inherently points forward — the planned thing hasn't happened yet:</p><span class="example">Ne piruhu lai ne wu tahu. <span class="gloss">I plan to eat.</span></span><p>The eating is in the future, so <em>wu</em> appears. Same pattern for <em>feihu</em> (promise), <em>waihu</em> (hope), <em>seuhu</em> (decide), <em>moyeru</em> (fear) — these all describe an attitude toward something still to come.</p><h3>❌ <em>wu</em> is <em>not</em> used: granting permission</h3><p>Permission is different. When you allow someone to do something, you're granting <em>general permission</em> — not committing to a specific future event. The allowed activity is enabled in principle, not scheduled for later:</p><span class="example">Ne seuwu lai te halu. <span class="gloss">I allow you to go.</span></span><span class="example">Maya mai seuwu lai veo piwe hairu. <span class="gloss">Maya doesn't allow her child to run.</span></span><p>No <em>wu</em>. You're granting (or refusing) blanket permission. The same goes for <em>moseuwu</em> (forbid).</p><p><strong>Quick test:</strong> If the English could be rephrased as "I plan/hope/promise that X <em>will</em> happen," use <em>wu</em>. If the English is more like "I permit X to happen," skip <em>wu</em>.</p><h3>📌 Trust: it depends on what's embedded</h3><p><em>lenu</em> (trust) works either way, depending on whether you trust a <em>state</em> or a <em>future action</em>:</p><span class="example">Ne lenu lai te su yashi. <span class="gloss">I trust that you are smart.</span></span><span class="example">Ne wa lenu lai te wu sovu ne. <span class="gloss">I trusted that you would help me.</span></span><p>The first trusts a present state — no <em>wu</em>. The second trusts a future event — <em>wu</em>. (The English "would" is just English backshifting "will" because the matrix is past; Liru keeps the <em>wu</em>.)</p><h3>🔁 Embedded tense is anchored to <em>your</em> now</h3><p>This is the other tricky bit. When a complement clause has its own tense, that tense is read from <strong>your present</strong> — not from the matrix verb's time. Compare:</p><span class="example">Yuna wa liru lai ve su kufi. <span class="gloss">Yuna said that she is [now] in pain.</span></span><span class="example">Yuna wa liru lai ve wa su kufi. <span class="gloss">Yuna said that she was [earlier] in pain.</span></span><p>English usually "backshifts" — when the matrix is past, English makes the embedded past too ("she said that she <strong>was</strong> in pain") even if the pain is happening right now. Liru doesn't backshift. The embedded particle means what it says from your standpoint.</p><h3>🆕 Three new verbs</h3><ul><li><em>piruhe</em> (plan, n.) → <em>piruhi</em> (planned, adj.) → <em>piruhu</em> (to plan)</li><li><em>seuwe</em> (allowance) → <em>seuwi</em> (allowed, adj.) → <em>seuwu</em> (to allow / permit)</li><li><em>lene</em> (trust, n.) → <em>leni</em> (trustworthy) → <em>lenu</em> (to trust)</li></ul>`,
    srsExtras:["seuwe"]},
 
   {id:"l98_lai_combined",
-   title:"Combined Patterns",
-   desc:"Relative inside complement, complement inside relative, chained clauses",
+   title:"Stacking lai Sentences",
+   desc:"Putting one 'that…' or 'who…' clause inside another",
    icon:"🧬",
    vocabKey:"l98_lai_combined",
    xp:30,
@@ -7778,7 +7778,7 @@ const LESSONS = [
    intro:`<h3>🧬 Putting it all together</h3><p>You now know everything <em>lai</em> can do. This lesson is about putting the pieces together — clauses inside clauses. No new vocabulary; the cognitive load is structural.</p><h3>🪆 Relative inside complement</h3><p>The matrix clause has a complement <em>lai</em>; the embedded clause contains a noun with its own relative <em>lai</em>:</p><span class="example">Ne senu lai pue lai wa liru su moyeri. <span class="gloss">I know that the person who sang is afraid.</span></span><p>Parse it outside-in: <em>Ne senu lai [X]</em> — "I know that [X]." The [X] is itself a sentence: <em>pue lai wa liru su moyeri</em> — "the person who sang is afraid." Two <em>lai</em>'s, two roles.</p><h3>🔁 Complement inside relative</h3><p>The reverse — a relative clause whose embedded clause contains a complement:</p><span class="example">Ne wamu pue lai senu lai ne su moyeri. <span class="gloss">I like the person who knows that I am afraid.</span></span><p>Outside-in: <em>Ne wamu pue lai [Y]</em> — "I like the person who [Y]s." The [Y] is <em>senu lai ne su moyeri</em> — "knows that I am afraid."</p><h3>🪢 Chained relatives</h3><p>Two relative clauses describing the same noun. The first runs straight after the noun; the second usually attaches with a coordinator like <em>sho</em> "and":</p><span class="example">Loiwe lai ne wa loisu sho Maya wa launu leu pahe su nohi. <span class="gloss">The book that I read and that Maya put on the table is new.</span></span><p>Both <em>lai</em> clauses modify <em>loiwe</em>. The <em>sho</em> separates them. The final <em>su nohi</em> is the matrix predicate — "is new."</p><h3>💡 Reading strategy</h3><p>When you hit a long <em>lai</em>-heavy sentence:</p><ol><li>Find the <strong>outermost</strong> matrix verb (usually the leftmost one with no <em>lai</em> directly before it).</li><li>For each <em>lai</em>, decide if the word before it is a noun (→ relative) or verb (→ complement).</li><li>Build inward.</li></ol><p>You'll work through 8 such sentences. The complexity is real; take them one at a time.</p>`},
 
   {id:"l99_lai_exam",
-   title:"Unit 17 Exam — Relative & Complement Clauses",
+   title:"Unit 17 Exam — Sentences Inside Sentences",
    desc:"Three hearts. All gap types, all complement patterns.",
    icon:"📝",
    vocabKey:"l99_lai_exam",
@@ -7849,7 +7849,7 @@ const LESSONS = [
    intro:`<h3>🌀 Three spatial particles</h3><p>Particles sit between phrases the way <em>wo</em> (in), <em>ya</em> (at), and <em>so</em> (to) do — they tell you a spatial relationship without naming a manner or action. Three new ones in this lesson:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>niwa</em></td><td style="padding:4px 12px">between</td></tr><tr><td style="padding:4px 12px"><em>voi</em></td><td style="padding:4px 12px">around</td></tr><tr><td style="padding:4px 12px"><em>moso</em></td><td style="padding:4px 12px">away from</td></tr></table><h3>📝 Usage notes</h3><p><strong><em>niwa</em></strong> takes two arguments joined by <em>sho</em>:</p><span class="example">Moule su niwa hiwe sho senehiwe. <span class="gloss">The tree is between the house and the school.</span></span><p><strong><em>voi</em></strong> takes a single argument — the thing being encircled:</p><span class="example">Ve halu voi moule. <span class="gloss">She walks around the tree.</span></span><p><strong><em>moso</em></strong> is the directional companion of already-taught <em>so</em> \"to.\" Where <em>so</em> marks motion toward, <em>moso</em> marks motion away from. (This is distinct from <em>ka</em> \"from / of,\" which marks static origin, not motion away.)</p><span class="example">Paipe wa hairu moso hiwe. <span class="gloss">The dog ran away from the house.</span></span><h3>🆕 A new verb: <em>washu</em></h3><p>Water and wind do it; people and ideas do it metaphorically. The verb <em>washu</em> \"to move / to flow\" is the natural partner of these spatial particles:</p><span class="example">Iwuhe washu taumi mouleyahe. <span class="gloss">Water flows through the garden.</span></span><p>Its full canvas — <em>washe</em> (movement/flow), <em>washi</em> (flowing/mobile), <em>washu</em> (to move/flow) — is in the dictionary for reference, but you'll only drill the verb here.</p>`},
 
   {id:"l106_frequency_spatial_exam",
-   title:"Unit 18 Exam — Frequency & Spatial Adverbs",
+   title:"Unit 18 Exam — How Often & Where",
    desc:"Three hearts. All frequency adverbs, all spatial constructions.",
    icon:"📝",
    vocabKey:"l106_frequency_spatial_exam",
@@ -7890,7 +7890,7 @@ const LESSONS = [
    intro:`<h3>👥 Existential pronouns — the <em>-pue</em> series</h3><p>Same pattern as the <em>-hue</em> series from L107, but with <em>pue</em> (person) instead of <em>hue</em> (thing):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> + <em>pue</em></td><td style="padding:4px 12px">→ <em>saipue</em> — someone</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> + <em>pue</em></td><td style="padding:4px 12px">→ <em>faipue</em> — anyone (free-choice)</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> + <em>pue</em></td><td style="padding:4px 12px">→ <em>nulipue</em> — no one</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> + <em>pue</em></td><td style="padding:4px 12px">→ <em>taipue</em> — everyone</td></tr></table><h3>⚖️ <em>sai-</em> vs. <em>fai-</em>: specific vs. free-choice</h3><p>This distinction matters and pairs the same way as in English's <em>something</em>/<em>anything</em> and <em>someone</em>/<em>anyone</em>:</p><ul><li><em>sai-</em> picks out a specific-but-unnamed referent. Use in plain assertions.</li><li><em>fai-</em> is free-choice. Use in questions, after <em>mai</em>, and in conditional/hypothetical clauses.</li></ul><span class="example">Ne wa tiru saipue. <span class="gloss">I saw someone. (specific, didn't name them)</span></span><span class="example">Ki te wa tiru faipue? <span class="gloss">Did you see anyone? (at all)</span></span><span class="example">Ne mai wa tiru faipue. <span class="gloss">I didn't see anyone. (emphatic)</span></span><h3>📝 More in use</h3><span class="example">Saipue wa vanu. <span class="gloss">Someone came.</span></span><span class="example">Nulipue wa nahu. <span class="gloss">No one cooked.</span></span><span class="example">Taipue wamu Yuna. <span class="gloss">Everyone likes Yuna.</span></span><span class="example">Vihu lo loiwe ko saipue wohimi. <span class="gloss">Share this book with an important person.</span></span><p>Like <em>nulihue</em>, <em>nulipue</em> carries negation natively — no <em>mai</em> needed.</p>`},
 
   {id:"l110_existentials_exam",
-   title:"Unit 19 Exam — Existential Pronouns",
+   title:"Unit 19 Exam — Something, Anyone, Nothing, Everyone",
    desc:"Three hearts. All eight existentials in context.",
    icon:"✅",
    vocabKey:"l110_existentials_exam",
@@ -7909,7 +7909,7 @@ const LESSONS = [
   // exam sentences (not distractor-only). No weave-in vocab.
   {id:"l111_vocab_color_meta",
    title:"Colors — Meta Root and Warm Colors",
-   desc:"tinale (color), feyale (red), haumale (yellow)",
+   desc:"Your first colors: tinale (color), feyale (red), haumale (yellow)",
    icon:"🎨",
    vocabKey:"l111_vocab_color_meta",
    xp:24,
@@ -7918,7 +7918,7 @@ const LESSONS = [
 
   {id:"l112_vocab_color_cool",
    title:"Cool Colors",
-   desc:"foshale (green), laumale (blue), roumale (purple)",
+   desc:"Colors of sea and sky: foshale (green), laumale (blue), roumale (purple)",
    icon:"💧",
    vocabKey:"l112_vocab_color_cool",
    xp:22,
@@ -7927,7 +7927,7 @@ const LESSONS = [
 
   {id:"l113_vocab_color_neutral",
    title:"Neutral Colors",
-   desc:"lewale (white), noumale (black), felale (gray)",
+   desc:"Day and night, shadow and stone: lewale (white), noumale (black), felale (gray)",
    icon:"⚫",
    vocabKey:"l113_vocab_color_neutral",
    xp:22,
@@ -7936,7 +7936,7 @@ const LESSONS = [
 
   {id:"l114_vocab_color_tertiary",
    title:"Tertiary Colors",
-   desc:"niwale (pink), touhale (brown), huyale (orange)",
+   desc:"Rounding out the palette: niwale (pink), touhale (brown), huyale (orange)",
    icon:"🟠",
    vocabKey:"l114_vocab_color_tertiary",
    xp:22,
@@ -7956,7 +7956,7 @@ const LESSONS = [
   // ── UNIT 21 (A7): NUMBERS BEYOND 10, ORDINALS & MONTHS (L116–L119) ──
   {id:"l116_vocab_big_numbers",
    title:"Big Numbers and Counting",
-   desc:"woni (hundred), yoni (thousand), kiame (number / to count)",
+   desc:"Counting beyond ten: woni (hundred), yoni (thousand), kiame (number / to count)",
    icon:"🔢",
    vocabKey:"l116_vocab_big_numbers",
    xp:18,
@@ -7965,7 +7965,7 @@ const LESSONS = [
 
   {id:"l117_vocab_ordinals_time_units",
    title:"Ordinals and Time Units",
-   desc:"fanini, runini + the X+ni ordinal pattern, plus tohile / tohilele",
+   desc:"First, second, and so on: fanini, runini, the X+ni ordinal pattern, plus tohile / tohilele",
    icon:"🥇",
    vocabKey:"l117_vocab_ordinals_time_units",
    xp:22,
@@ -7975,7 +7975,7 @@ const LESSONS = [
 
   {id:"l118_vocab_months",
    title:"The Twelve Months",
-   desc:"luone (moon/month) and the twelve compositional month names",
+   desc:"Marking the year: luone (moon/month) and the twelve compositional month names",
    icon:"📅",
    vocabKey:"l118_vocab_months",
    xp:25,
@@ -8001,7 +8001,7 @@ const LESSONS = [
 
   {id:"l120_vocab_particles_quantifiers",
    title:"For, All, and Some",
-   desc:"na (for), tae/tai (whole/all), sai (some)",
+   desc:"Tiny words that do a lot: na (for), tae/tai (whole/all), sai (some)",
    icon:"🔢",
    vocabKey:"l120_vocab_particles_quantifiers",
    xp:14,
@@ -8010,7 +8010,7 @@ const LESSONS = [
 
   {id:"l121_vocab_concrete",
    title:"Door, Window, Gift, Work",
-   desc:"poye, taupoye (window), fere, fase",
+   desc:"Around the house: poye (door), taupoye (window), fere (gift), fase (work)",
    icon:"🚪",
    vocabKey:"l121_vocab_concrete",
    xp:18,
@@ -8019,7 +8019,7 @@ const LESSONS = [
 
   {id:"l122_vocab_emotion_nouns",
    title:"Joy, Worry, Anger, Surprise",
-   desc:"houle, muhe + muhu, tauke, kaume — the noun forms of the emotions you know",
+   desc:"Noun forms of emotions you already know: houle (joy), muhe (worry), tauke (anger), kaume (surprise)",
    icon:"😊",
    vocabKey:"l122_vocab_emotion_nouns",
    xp:18,
@@ -8028,7 +8028,7 @@ const LESSONS = [
 
   {id:"l123_vocab_noun_of_verb",
    title:"Noun Forms of Verbs You Know",
-   desc:"wane (want), hoye (purchase), pire (thought), lire (song)",
+   desc:"More noun forms from familiar verbs: wane (want), hoye (purchase), pire (thought), lire (song)",
    icon:"💭",
    vocabKey:"l123_vocab_noun_of_verb",
    xp:18,
@@ -8037,7 +8037,7 @@ const LESSONS = [
 
   {id:"l124_vocab_abstract_nouns",
    title:"Ability, Obligation, Memory, Need",
-   desc:"sahe + sahi (maybe), shihe, mere, mihe — abstract nouns paired with modals you know",
+   desc:"Abstract nouns paired with modals: sahe + sahi (maybe), shihe (obligation), mere (memory), mihe (need)",
    icon:"🧠",
    vocabKey:"l124_vocab_abstract_nouns",
    xp:20,
@@ -8046,7 +8046,7 @@ const LESSONS = [
 
   {id:"l125_vocab_learning_cluster",
    title:"Lesson, Teach, Love, Knowledge, Understanding",
-   desc:"kaise + kaisu (to teach), nawe, sene, yeihe",
+   desc:"Words for learning and connection: kaise + kaisu (to teach), nawe (love), sene (knowledge), yeihe (understanding)",
    icon:"📖",
    vocabKey:"l125_vocab_learning_cluster",
    xp:20,
@@ -8055,7 +8055,7 @@ const LESSONS = [
 
   {id:"l126_vocab_time_state",
    title:"Previous, Next, and Sleep",
-   desc:"wali (previous), wuli (next), rae + rai (sleep / sleepy)",
+   desc:"Before, after, and bedtime: wali (previous), wuli (next), rae + rai (sleep / sleepy)",
    icon:"⏳",
    vocabKey:"l126_vocab_time_state",
    xp:14,
@@ -8084,7 +8084,7 @@ const LESSONS = [
 
   {id:"l128_vocab_compass_anchor",
    title:"Compass Directions — the X+towe Pattern",
-   desc:"towe (map), lianitowe (N), hunitowe (E), mohunitowe (W)",
+   desc:"Pointing the way: towe (map), lianitowe (N), hunitowe (E), mohunitowe (W)",
    icon:"🧭",
    vocabKey:"l128_vocab_compass_anchor",
    xp:22,
@@ -8094,7 +8094,7 @@ const LESSONS = [
 
   {id:"l129_vocab_water_terrain",
    title:"South and Water Terrain",
-   desc:"molianitowe (S), nouwe (island), shafane (river), shaune (lake)",
+   desc:"South, and water that shapes the land: molianitowe (S), nouwe (island), shafane (river), shaune (lake)",
    icon:"🏝️",
    vocabKey:"l129_vocab_water_terrain",
    xp:20,
@@ -8104,7 +8104,7 @@ const LESSONS = [
 
   {id:"l130_vocab_landform",
    title:"Ground, Mountain, Valley, Desert",
-   desc:"toule (ground/earth), wouhe (mountain), pieme (valley), tauhe (desert)",
+   desc:"The big shapes of the land: toule (ground/earth), wouhe (mountain), pieme (valley), tauhe (desert)",
    icon:"⛰️",
    vocabKey:"l130_vocab_landform",
    xp:20,
@@ -8113,7 +8113,7 @@ const LESSONS = [
 
   {id:"l131_vocab_terrain_features",
    title:"Shore, Field, Hill, Cave",
-   desc:"touhe (shore), foule (field), wouhile (hill), pouwe (cave)",
+   desc:"Smaller places to explore: touhe (shore), foule (field), wouhile (hill), pouwe (cave)",
    icon:"🏖️",
    vocabKey:"l131_vocab_terrain_features",
    xp:20,
@@ -8121,7 +8121,7 @@ const LESSONS = [
    intro:`<h3>🏖️ Four more terrain features</h3><p>Four roots filling in the remaining terrain types — two coastal/open (shore, field) and two enclosed/contained (hill, cave):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>touhe</em> — shore (or coast, beach)</td><td style="padding:4px 12px"><em>touhi</em> — coastal</td></tr><tr><td style="padding:4px 12px"><em>foule</em> — field</td><td style="padding:4px 12px"><em>fouli</em> — field-related (or wide open)</td></tr><tr><td style="padding:4px 12px"><em>wouhile</em> — hill</td><td style="padding:4px 12px">(noun only)</td></tr><tr><td style="padding:4px 12px"><em>pouwe</em> — cave</td><td style="padding:4px 12px"><em>pouwi</em> — cavernous</td></tr></table><h3>⛰️ <em>wouhile</em> — the <em>-ile</em> diminutive returns</h3><p>You saw <em>shafanile</em> "stream (n.)" in L129 — <em>shafane</em> "river" plus the <em>-ile</em> diminutive. <em>wouhile</em> is the same pattern applied to <em>wouhe</em>:</p><span class="example">wouhe (mountain) + <em>-ile</em> → <em>wouhile</em> <span class="gloss">hill — literally "little mountain"</span></span><span class="example">Neo hiwe su leu wouhile. <span class="gloss">My home is on the hill.</span></span><p>Diminutive nouns like <em>wouhile</em> typically don't take an adjective form — the <em>-ile</em> already does descriptive work.</p><h3>🏖️ A note on <em>touhe</em></h3><p>The shore is a frequent setting in Liru — the Pacific coast is the backdrop the language grew up against. The noun and adjective forms are taught here; the verb form (<em>touhu</em> "to come ashore") is in the dictionary for lookup but isn't drilled.</p>`},
 
   {id:"l132_geography_exam",
-   title:"Unit 23 Exam — Cardinal Directions & Geography",
+   title:"Unit 23 Exam — Compass Directions & Geography",
    desc:"Three hearts. Compass directions and landforms in context.",
    icon:"🗺️",
    vocabKey:"l132_geography_exam",
@@ -8150,7 +8150,7 @@ const LESSONS = [
 
   {id:"l133_vocab_son_daughter_spouse",
    title:"Son, Daughter, Spouse",
-   desc:"nowe (son), noye (daughter), shuwe/shuwu (spouse/marry), nawi (loving)",
+   desc:"Building out the family tree: nowe (son), noye (daughter), shuwe/shuwu (spouse/marry), nawi (loving)",
    icon:"👪",
    vocabKey:"l133_vocab_son_daughter_spouse",
    xp:20,
@@ -8169,7 +8169,7 @@ const LESSONS = [
 
   {id:"l135_vocab_man_woman_children",
    title:"Man, Woman, Boy, Girl",
-   desc:"paure (man), paurile (boy), yaure (woman), yaurile (girl)",
+   desc:"Adults and children: paure (man), paurile (boy), yaure (woman), yaurile (girl)",
    icon:"🧑",
    vocabKey:"l135_vocab_man_woman_children",
    xp:20,
@@ -8219,7 +8219,7 @@ const LESSONS = [
   // ── A11 / Unit 25 — Seasons & Extended Weather (L140–L146) ──
   {id:"l140_vocab_spring",
    title:"Spring & the Seasons",
-   desc:"haiwepiehe (season), foihe (spring), lime (growth), niame (seed)",
+   desc:"New growth, new year: haiwepiehe (season), foihe (spring), lime (growth), niame (seed)",
    icon:"🌸",
    vocabKey:"l140_vocab_spring",
    xp:18,
@@ -8228,7 +8228,7 @@ const LESSONS = [
 
   {id:"l141_vocab_summer",
    title:"Summer & Warmth",
-   desc:"hauwe (summer), moluhe (warmth), shoume (shirt), shauwu (to swim)",
+   desc:"Sun, sea, and warm days: hauwe (summer), moluhe (warmth), shoume (shirt), shauwu (to swim)",
    icon:"☀️",
    vocabKey:"l141_vocab_summer",
    xp:18,
@@ -8237,7 +8237,7 @@ const LESSONS = [
 
   {id:"l142_vocab_autumn",
    title:"Autumn — Leaves, Falling, Harvest",
-   desc:"youhe (autumn), meile (leaf), keye (fall — the action), maune (grain)",
+   desc:"Leaves turning, harvest coming in: youhe (autumn), meile (leaf), keye (fall — the action), maune (grain)",
    icon:"🍂",
    vocabKey:"l142_vocab_autumn",
    xp:18,
@@ -8246,7 +8246,7 @@ const LESSONS = [
 
   {id:"l143_vocab_winter",
    title:"Winter — Ice, Coat, Bear",
-   desc:"kaihe (winter), kawe (ice), feure (coat), haupe (bear)",
+   desc:"Cold and bundled up: kaihe (winter), kawe (ice), feure (coat), haupe (bear)",
    icon:"❄️",
    vocabKey:"l143_vocab_winter",
    xp:18,
@@ -8255,7 +8255,7 @@ const LESSONS = [
 
   {id:"l144_vocab_weather_extensions",
    title:"Mist, Fog, Dryness, Bird",
-   desc:"helume (mist), melume (fog), houwe (dryness), yaihe (bird)",
+   desc:"Soft weather and a familiar visitor: helume (mist), melume (fog), houwe (dryness), yaihe (bird)",
    icon:"🌫️",
    vocabKey:"l144_vocab_weather_extensions",
    xp:18,
@@ -8264,7 +8264,7 @@ const LESSONS = [
 
   {id:"l145_vocab_seasonal_change",
    title:"Decay, Mistake, Flight, Peace",
-   desc:"molime (decay), monove (mistake), eire (flight), nouhe (peace)",
+   desc:"Closing out the season cycle: molime (decay), monove (mistake), eire (flight), nouhe (peace)",
    icon:"🍃",
    vocabKey:"l145_vocab_seasonal_change",
    xp:18,
@@ -8284,7 +8284,7 @@ const LESSONS = [
   // ── A12 / Unit 26 — Animals (L147–L155) ──
   {id:"l147_vocab_farm_livestock",
    title:"Animals & Farm Livestock",
-   desc:"shiwane (animal), kouwe (goat), louwe (sheep), maluwe (cow)",
+   desc:"Down on the farm: shiwane (animal), kouwe (goat), louwe (sheep), maluwe (cow)",
    icon:"🐄",
    vocabKey:"l147_vocab_farm_livestock",
    xp:18,
@@ -8293,7 +8293,7 @@ const LESSONS = [
 
   {id:"l148_vocab_horses_pigs_riding",
    title:"Horses, Pigs & Riding",
-   desc:"mauwe (horse), poake (pig), taike (jump), waire (ride)",
+   desc:"Bigger animals and how to move with them: mauwe (horse), poake (pig), taike (jump), waire (ride)",
    icon:"🐎",
    vocabKey:"l148_vocab_horses_pigs_riding",
    xp:18,
@@ -8302,7 +8302,7 @@ const LESSONS = [
 
   {id:"l149_vocab_poultry_eggs",
    title:"Poultry & Eggs",
-   desc:"kuake (duck), pahule (chicken), paipile (puppy), owe (egg)",
+   desc:"Feathered and tiny: kuake (duck), pahule (chicken), paipile (puppy), owe (egg)",
    icon:"🐔",
    vocabKey:"l149_vocab_poultry_eggs",
    xp:18,
@@ -8311,7 +8311,7 @@ const LESSONS = [
 
   {id:"l150_vocab_wild_mammals",
    title:"Wild Mammals & Climbing",
-   desc:"luwe (rabbit), yuhe (deer), loume (wolf), naike (climb)",
+   desc:"Out in the forest: luwe (rabbit), yuhe (deer), loume (wolf), naike (climb)",
    icon:"🐺",
    vocabKey:"l150_vocab_wild_mammals",
    xp:18,
@@ -8320,7 +8320,7 @@ const LESSONS = [
 
   {id:"l151_vocab_sea_mammals",
    title:"Sea Mammals & Catching",
-   desc:"shakume (shark), shaupe (whale), shiawe (dolphin), moshife (catch)",
+   desc:"Giants of the sea: shakume (shark), shaupe (whale), shiawe (dolphin), moshife (catch)",
    icon:"🦈",
    vocabKey:"l151_vocab_sea_mammals",
    xp:18,
@@ -8329,7 +8329,7 @@ const LESSONS = [
 
   {id:"l152_vocab_sea_creatures",
    title:"Other Sea Creatures",
-   desc:"kakepe (crab), shemahe (octopus), shoule (fish), wilare (turtle)",
+   desc:"Smaller creatures of the sea: kakepe (crab), shemahe (octopus), shoule (fish), wilare (turtle)",
    icon:"🐙",
    vocabKey:"l152_vocab_sea_creatures",
    xp:18,
@@ -8338,7 +8338,7 @@ const LESSONS = [
 
   {id:"l153_vocab_bees_ants_honey",
    title:"Bees, Ants & Honey",
-   desc:"niliwe (ant), ninuwe (bee), paihe (spider), nemue (honey)",
+   desc:"Tiny crawlers and what they make: niliwe (ant), ninuwe (bee), paihe (spider), nemue (honey)",
    icon:"🐝",
    vocabKey:"l153_vocab_bees_ants_honey",
    xp:18,
@@ -8347,7 +8347,7 @@ const LESSONS = [
 
   {id:"l154_vocab_insects_groups",
    title:"Butterflies, Insects & Groups",
-   desc:"paiweme (butterfly), seure (insect), meuhe (group / gather)",
+   desc:"Wings and gatherings: paiweme (butterfly), seure (insect), meuhe (group / gather)",
    icon:"🦋",
    vocabKey:"l154_vocab_insects_groups",
    xp:18,
@@ -8356,7 +8356,7 @@ const LESSONS = [
 
   {id:"l155_animals_exam",
    title:"Unit 26 Exam — Animals",
-   desc:"Three hearts. Fourteen sentences spanning all eight animal lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences spanning all eight animal lessons, plus four fill-in-the-blank challenges.",
    icon:"🦓",
    vocabKey:"l155_animals_exam",
    xp:30,
@@ -8370,7 +8370,7 @@ const LESSONS = [
 
   {id:"l156_vocab_wood_parts",
    title:"Wood, Branches & Plant Parts",
-   desc:"moile (wood), yole (branch), roume (root), piehe (part)",
+   desc:"The pieces that make a tree: moile (wood), yole (branch), roume (root), piehe (part)",
    icon:"🌳",
    vocabKey:"l156_vocab_wood_parts",
    xp:18,
@@ -8379,7 +8379,7 @@ const LESSONS = [
 
   {id:"l157_vocab_bushes_features",
    title:"Bushes, Thorns, Moss & Petals",
-   desc:"shauke (bush), keuhe (thorn), loshile (petal), fohe (moss)",
+   desc:"Low and soft growth: shauke (bush), keuhe (thorn), loshile (petal), fohe (moss)",
    icon:"🌿",
    vocabKey:"l157_vocab_bushes_features",
    xp:18,
@@ -8388,7 +8388,7 @@ const LESSONS = [
 
   {id:"l158_vocab_light_fire",
    title:"Light & Fire",
-   desc:"lune (light), take (fire) — closing the unit",
+   desc:"Warmth and brightness: lune (light), take (fire)",
    icon:"🔥",
    vocabKey:"l158_vocab_light_fire",
    xp:18,
@@ -8397,7 +8397,7 @@ const LESSONS = [
 
   {id:"l159_plants_exam",
    title:"Unit 27 Exam — Plants & Nature",
-   desc:"Three hearts. Fourteen sentences spanning all three plant lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences spanning all three plant lessons, plus four fill-in-the-blank challenges.",
    icon:"🌲",
    vocabKey:"l159_plants_exam",
    xp:30,
@@ -8414,7 +8414,7 @@ const LESSONS = [
 
   {id:"l160_vocab_body_actions",
    title:"Body Actions — Dance, Lift, Bend, Cough",
-   desc:"fairu (to dance), wounu (to lift), hiehe (joint), tuke (cough)",
+   desc:"Moving the body: fairu (to dance), wounu (to lift), hiehe (joint), tuke (cough)",
    icon:"💃",
    vocabKey:"l160_vocab_body_actions",
    xp:18,
@@ -8424,7 +8424,7 @@ const LESSONS = [
 
   {id:"l161_vocab_face_expressions",
    title:"Expressive Face — Laugh, Cry, Smile, Frown",
-   desc:"lewe (laughter), molewe (tears), seiwe (smile), moseiwe (frown)",
+   desc:"What faces do: lewe (laughter), molewe (tears), seiwe (smile), moseiwe (frown)",
    icon:"😊",
    vocabKey:"l161_vocab_face_expressions",
    xp:18,
@@ -8433,16 +8433,16 @@ const LESSONS = [
 
   {id:"l162_vocab_voice_permission",
    title:"Voice & Permission — Shout, Whisper, Allow, Forbid",
-   desc:"moseume (shout), seume (whisper), seuwu (to allow), moseuwu (to forbid)",
+   desc:"Loud, quiet, yes, and no: moseume (shout), seume (whisper), seuwu (to allow), moseuwu (to forbid)",
    icon:"📢",
    vocabKey:"l162_vocab_voice_permission",
    xp:18,
    unit:27,
-   intro:`<h3>📢 Voice acts — shouting and whispering</h3><p>Two volume-extremes of voice. <em>moseume</em> is the loud end; <em>seume</em> is the quiet end. Both are everyday — you shout to someone across a room, you whisper to someone next to you.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moseume</em> (n.)</td><td style="padding:4px 12px">a shout</td></tr><tr><td style="padding:4px 12px"><em>moseumu</em> (v.)</td><td style="padding:4px 12px">to shout</td></tr><tr><td style="padding:4px 12px"><em>seume</em> (n.)</td><td style="padding:4px 12px">a whisper</td></tr><tr><td style="padding:4px 12px"><em>seumu</em> (v.)</td><td style="padding:4px 12px">to whisper</td></tr></table><p><em>moseume</em> begins with <em>mo-</em>, but this isn't a productive balancing prefix — it's just the lexical shape of the root. There's no <em>seume</em>-as-quiet-shout pair; the volume contrast is its own thing.</p><h3>✋ Allow and forbid</h3><p>Two everyday social-verbal acts: granting permission, and refusing it. These form a real <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>seuwu</em> (v.)</td><td style="padding:4px 12px">to allow (or permit)</td></tr><tr><td style="padding:4px 12px"><em>seuwi</em> (adj.)</td><td style="padding:4px 12px">allowed (or permitted)</td></tr><tr><td style="padding:4px 12px"><em>moseuwu</em> (v.)</td><td style="padding:4px 12px">to forbid</td></tr><tr><td style="padding:4px 12px"><em>moseuwi</em> (adj.)</td><td style="padding:4px 12px">forbidden</td></tr></table><p>You'll notice the abstract nouns <em>seuwe</em> "allowance" and <em>moseuwe</em> "forbiddance" aren't drilled — they're rarely said in conversation. The adjective and verb carry all the everyday weight.</p><p>To say <strong>"X allows Y to do Z"</strong> in Liru, use the complement-clause structure from Unit 17: <em>X seuwu lai Y do-Z</em>.</p><span class="example">Ne mai seuwu lai te halu. <span class="gloss">I do not allow you to go.</span></span><span class="example">Lo su moseuwi. <span class="gloss">This is forbidden.</span></span><span class="example">Mawe wa moseumu. <span class="gloss">The mother shouted.</span></span><span class="example">Maya wa seumu wo Yuna. <span class="gloss">Maya whispered to Yuna.</span></span>`},
+   intro:`<h3>📢 Voice acts — shouting and whispering</h3><p>Two volume-extremes of voice. <em>moseume</em> is the loud end; <em>seume</em> is the quiet end. Both are everyday — you shout to someone across a room, you whisper to someone next to you.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moseume</em> (n.)</td><td style="padding:4px 12px">a shout</td></tr><tr><td style="padding:4px 12px"><em>moseumu</em> (v.)</td><td style="padding:4px 12px">to shout</td></tr><tr><td style="padding:4px 12px"><em>seume</em> (n.)</td><td style="padding:4px 12px">a whisper</td></tr><tr><td style="padding:4px 12px"><em>seumu</em> (v.)</td><td style="padding:4px 12px">to whisper</td></tr></table><p><em>moseume</em> begins with <em>mo-</em>, but this isn't a productive balancing prefix — it's just the lexical shape of the root. There's no <em>seume</em>-as-quiet-shout pair; the volume contrast is its own thing.</p><h3>✋ Allow and forbid</h3><p>Two everyday social-verbal acts: granting permission, and refusing it. These form a real <em>mo-</em> pair.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>seuwu</em> (v.)</td><td style="padding:4px 12px">to allow (or permit)</td></tr><tr><td style="padding:4px 12px"><em>seuwi</em> (adj.)</td><td style="padding:4px 12px">allowed (or permitted)</td></tr><tr><td style="padding:4px 12px"><em>moseuwu</em> (v.)</td><td style="padding:4px 12px">to forbid</td></tr><tr><td style="padding:4px 12px"><em>moseuwi</em> (adj.)</td><td style="padding:4px 12px">forbidden</td></tr></table><p>You'll notice the abstract nouns <em>seuwe</em> "allowance" and <em>moseuwe</em> "forbiddance" aren't drilled — they're rarely said in conversation. The adjective and verb carry all the everyday weight.</p><p>To say <strong>"X allows Y to do Z"</strong> in Liru, use the complement-clause structure from Unit 17: <em>X seuwu lai Y do-Z</em>. Note: no <em>wu</em> appears before the embedded verb — permission grants <em>general</em> access to an action, not a specific future event.</p><span class="example">Ne mai seuwu lai te halu. <span class="gloss">I do not allow you to go.</span></span><span class="example">Lo su moseuwi. <span class="gloss">This is forbidden.</span></span><span class="example">Mawe wa moseumu. <span class="gloss">The mother shouted.</span></span><span class="example">Maya wa seumu wo Yuna. <span class="gloss">Maya whispered to Yuna.</span></span>`},
 
   {id:"l163_vocab_strike_propel",
    title:"Strike & Propel — Hit, Push, Pull, Throw",
-   desc:"paume (hit), tawe (push), motawe (pull), shife (throw)",
+   desc:"Putting force into motion: paume (hit), tawe (push), motawe (pull), shife (throw)",
    icon:"🥊",
    vocabKey:"l163_vocab_strike_propel",
    xp:18,
@@ -8451,7 +8451,7 @@ const LESSONS = [
 
   {id:"l164_vocab_mix_corner_point_wave",
    title:"Mix, Corner, Point, Wave",
-   desc:"muye (mixture), koiwe (corner), wime (finger), shaushe (wave)",
+   desc:"Shapes, gestures, and ocean motion: muye (mixture), koiwe (corner), wime (finger), shaushe (wave)",
    icon:"🌊",
    vocabKey:"l164_vocab_mix_corner_point_wave",
    xp:18,
@@ -8460,7 +8460,7 @@ const LESSONS = [
 
   {id:"l165_vocab_win_lose_save_discard",
    title:"Win & Lose, Save & Discard",
-   desc:"lononu (win), molononu (lose), mehu (save), momehu (discard)",
+   desc:"Keeping and letting go: lononu (win), molononu (lose), mehu (save), momehu (discard)",
    icon:"🏆",
    vocabKey:"l165_vocab_win_lose_save_discard",
    xp:18,
@@ -8469,7 +8469,7 @@ const LESSONS = [
 
   {id:"l166_vocab_affection",
    title:"Affection — Kiss, Disappoint, Comfort",
-   desc:"soume (kiss), pauhu (disappoint), mokufu (comfort)",
+   desc:"Closeness, in three flavors: soume (kiss), pauhu (disappoint), mokufu (comfort)",
    icon:"💋",
    vocabKey:"l166_vocab_affection",
    xp:18,
@@ -8478,7 +8478,7 @@ const LESSONS = [
 
   {id:"l167_motion_action_exam",
    title:"Unit 28 Exam — Motion & Action",
-   desc:"Three hearts. Fourteen sentences spanning all seven motion-and-action lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences spanning all seven motion-and-action lessons, plus four fill-in-the-blank challenges.",
    icon:"🏃",
    vocabKey:"l167_motion_action_exam",
    xp:30,
@@ -8489,7 +8489,7 @@ const LESSONS = [
   // ── UNIT 29 (A15): SPECIALIZED EMOTIONS (L168–L172) ──────────────────
   {id:"l168_vocab_pride_shame_guilt",
    title:"Pride, Shame, Guilt, Sadness",
-   desc:"youle (pride), moyoule (shame), nauhe (guilt), mohoule (sadness)",
+   desc:"Feelings that turn inward: youle (pride), moyoule (shame), nauhe (guilt), mohoule (sadness)",
    icon:"😔",
    vocabKey:"l168_vocab_pride_shame_guilt",
    xp:18,
@@ -8499,7 +8499,7 @@ const LESSONS = [
 
   {id:"l169_vocab_excitement_boredom_loneliness",
    title:"Excitement, Boredom & Loneliness",
-   desc:"faile (excitement), tuhe (boredom), faune (loneliness), houlu (rejoice)",
+   desc:"High energy, low energy, alone: faile (excitement), tuhe (boredom), faune (loneliness), houlu (rejoice)",
    icon:"🎉",
    vocabKey:"l169_vocab_excitement_boredom_loneliness",
    xp:18,
@@ -8508,7 +8508,7 @@ const LESSONS = [
 
   {id:"l170_vocab_curiosity_jealousy_surprise",
    title:"Curiosity, Jealousy, Surprise & Fear",
-   desc:"piore (curiosity), feore (jealousy), kaumu (surprise), moyere (fear)",
+   desc:"Sharper feelings about other people: piore (curiosity), feore (jealousy), kaumu (surprise), moyere (fear)",
    icon:"🤔",
    vocabKey:"l170_vocab_curiosity_jealousy_surprise",
    xp:18,
@@ -8517,7 +8517,7 @@ const LESSONS = [
 
   {id:"l171_vocab_belonging_trust",
    title:"Belonging, Trust, Hate & Doubt",
-   desc:"wauye (belonging), lene (trust), monawu (hate), moroihu (doubt)",
+   desc:"How we hold each other: wauye (belonging), lene (trust), monawu (hate), moroihu (doubt)",
    icon:"🤝",
    vocabKey:"l171_vocab_belonging_trust",
    xp:18,
@@ -8526,7 +8526,7 @@ const LESSONS = [
 
   {id:"l172_emotions_exam",
    title:"Unit 29 Exam — Specialized Emotions",
-   desc:"Three hearts. Fourteen sentences spanning all four emotion lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences spanning all four emotion lessons, plus four fill-in-the-blank challenges.",
    icon:"💗",
    vocabKey:"l172_emotions_exam",
    xp:30,
@@ -8539,7 +8539,7 @@ const LESSONS = [
 
   {id:"l173_vocab_body_torso",
    title:"Body, Chest, Back, Stomach",
-   desc:"meiwe (body), mune (chest), poke (back), tame (stomach)",
+   desc:"The torso: meiwe (body), mune (chest), poke (back), tame (stomach)",
    icon:"🫁",
    vocabKey:"l173_vocab_body_torso",
    xp:18,
@@ -8548,7 +8548,7 @@ const LESSONS = [
 
   {id:"l174_vocab_neck_shoulder_bone_blood",
    title:"Neck, Shoulder, Bone & Blood",
-   desc:"rive (neck), meve (shoulder), kole (bone), shewe (blood)",
+   desc:"Above the shoulders and underneath the skin: rive (neck), meve (shoulder), kole (bone), shewe (blood)",
    icon:"🦴",
    vocabKey:"l174_vocab_neck_shoulder_bone_blood",
    xp:18,
@@ -8557,7 +8557,7 @@ const LESSONS = [
 
   {id:"l175_vocab_face_features",
    title:"Ear, Nose, Mouth & Tongue",
-   desc:"laihe (ear), nuve (nose), powe (mouth), yame (tongue)",
+   desc:"The face's senses: laihe (ear), nuve (nose), powe (mouth), yame (tongue)",
    icon:"👃",
    vocabKey:"l175_vocab_face_features",
    xp:18,
@@ -8566,7 +8566,7 @@ const LESSONS = [
 
   {id:"l176_vocab_inner_anatomy",
    title:"Brain, Heart, Lung & Skin",
-   desc:"miehe (brain), nure (heart), huhe (lung), kowe (skin)",
+   desc:"The organs that keep you running: miehe (brain), nure (heart), huhe (lung), kowe (skin)",
    icon:"🧠",
    vocabKey:"l176_vocab_inner_anatomy",
    xp:18,
@@ -8575,7 +8575,7 @@ const LESSONS = [
 
   {id:"l177_vocab_joints_extremities",
    title:"Elbow, Wrist, Knee & Ankle",
-   desc:"hemehiehe (elbow), lauhehiehe (wrist), yore (knee), laupehiehe (ankle)",
+   desc:"Where the body bends: hemehiehe (elbow), lauhehiehe (wrist), yore (knee), laupehiehe (ankle)",
    icon:"🦵",
    vocabKey:"l177_vocab_joints_extremities",
    xp:18,
@@ -8584,7 +8584,7 @@ const LESSONS = [
 
   {id:"l178_vocab_fingers",
    title:"Fingers — A Productive Pattern",
-   desc:"faniwime (thumb), runiwime (index), teniwime (middle), shaniwime (ring)",
+   desc:"Naming each finger by number: faniwime (thumb), runiwime (index), teniwime (middle), shaniwime (ring)",
    icon:"👆",
    vocabKey:"l178_vocab_fingers",
    xp:18,
@@ -8594,7 +8594,7 @@ const LESSONS = [
 
   {id:"l179_vocab_hair_tooth_breath",
    title:"Hair, Tooth, Throat & Breath",
-   desc:"lehe (hair), tike (tooth), sole (throat), hawe (breath)",
+   desc:"Smaller parts you use every day: lehe (hair), tike (tooth), sole (throat), hawe (breath)",
    icon:"💨",
    vocabKey:"l179_vocab_hair_tooth_breath",
    xp:18,
@@ -8604,7 +8604,7 @@ const LESSONS = [
 
   {id:"l180_body_exam",
    title:"Unit 30 Exam — Body Parts Beyond Core Five",
-   desc:"Three hearts. Fourteen sentences covering all body-part lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all body-part lessons, plus four fill-in-the-blank challenges.",
    icon:"🫀",
    vocabKey:"l180_body_exam",
    xp:30,
@@ -8619,7 +8619,7 @@ const LESSONS = [
 
   {id:"l181_vocab_writing_tools",
    title:"Paper, Pen & Writing",
-   desc:"loihe (paper), loine (pen), loinile (pencil), loike (writing)",
+   desc:"Tools for putting words down: loihe (paper), loine (pen), loinile (pencil), loike (writing)",
    icon:"✍️",
    vocabKey:"l181_vocab_writing_tools",
    xp:18,
@@ -8628,7 +8628,7 @@ const LESSONS = [
 
   {id:"l182_vocab_tableware",
    title:"Plate, Cup, Spoon & Fork",
-   desc:"fole (plate), mohe (cup), shohe (spoon), tishe (fork)",
+   desc:"Setting the table: fole (plate), mohe (cup), shohe (spoon), tishe (fork)",
    icon:"🍽️",
    vocabKey:"l182_vocab_tableware",
    xp:18,
@@ -8637,7 +8637,7 @@ const LESSONS = [
 
   {id:"l183_vocab_cutting_capture",
    title:"Knife, Camera & Picture",
-   desc:"hese (knife/cut), peire (camera), raime (picture), pauwe (machine)",
+   desc:"Tools for cutting and capturing: hese (knife/cut), peire (camera), raime (picture), pauwe (machine)",
    icon:"📸",
    vocabKey:"l183_vocab_cutting_capture",
    xp:18,
@@ -8646,7 +8646,7 @@ const LESSONS = [
 
   {id:"l184_vocab_modern_tech",
    title:"AI, Power, Oil & Metal",
-   desc:"shirimiehe (AI), pake (power), hoile (oil), kahime (metal)",
+   desc:"What powers the modern world: shirimiehe (AI), pake (power), hoile (oil), kahime (metal)",
    icon:"⚡",
    vocabKey:"l184_vocab_modern_tech",
    xp:18,
@@ -8655,7 +8655,7 @@ const LESSONS = [
 
   {id:"l185_vocab_arts_leisure",
    title:"Music, Joke & Jiu-jitsu",
-   desc:"luhime (music), foile (joke), toulimonauye (jiu-jitsu), toulimonauyupue (practitioner)",
+   desc:"Art, humor, and sport: luhime (music), foile (joke), toulimonauye (jiu-jitsu), toulimonauyupue (practitioner)",
    icon:"🎵",
    vocabKey:"l185_vocab_arts_leisure",
    xp:18,
@@ -8665,7 +8665,7 @@ const LESSONS = [
 
   {id:"l186_vocab_abstract_closers",
    title:"Start, Depth, Event & Then",
-   desc:"poaye (start), fale (then), laohe (event), moshouhe (depth)",
+   desc:"Words for marking moments: poaye (start), fale (then), laohe (event), moshouhe (depth)",
    icon:"🕰️",
    vocabKey:"l186_vocab_abstract_closers",
    xp:18,
@@ -8674,7 +8674,7 @@ const LESSONS = [
 
   {id:"l187_arts_tools_exam",
    title:"Unit 31 Exam — Tools, Music & Art",
-   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"🎨",
    vocabKey:"l187_arts_tools_exam",
    xp:30,
@@ -8685,7 +8685,7 @@ const LESSONS = [
   // ── A19 / Unit 32 — Cultural & Abstract Roots (L188–L194) ──
   {id:"l188_vocab_truth_honesty",
    title:"Truth, Lie, Honesty & Belief",
-   desc:"noire (truth), monoire (lie), peihe (honesty), fele (belief)",
+   desc:"What we say and what's real: noire (truth), monoire (lie), peihe (honesty), fele (belief)",
    icon:"⚖️",
    vocabKey:"l188_vocab_truth_honesty",
    xp:18,
@@ -8694,7 +8694,7 @@ const LESSONS = [
 
   {id:"l189_vocab_good_bad",
    title:"Good, Bad, Balance & Foolishness",
-   desc:"lohe (goodness), molohe (badness), moe (balance), moyashe (foolishness)",
+   desc:"Big ideas about right and wrong: lohe (goodness), molohe (badness), moe (balance), moyashe (foolishness)",
    icon:"☯️",
    vocabKey:"l189_vocab_good_bad",
    xp:18,
@@ -8703,7 +8703,7 @@ const LESSONS = [
 
   {id:"l190_vocab_respect_justice",
    title:"Respect, Disrespect, Justice & Duty",
-   desc:"louhe (respect), molouhe (disrespect), sheure (justice), miohe (duty)",
+   desc:"How people treat each other: louhe (respect), molouhe (disrespect), sheure (justice), miohe (duty)",
    icon:"🤲",
    vocabKey:"l190_vocab_respect_justice",
    xp:18,
@@ -8712,7 +8712,7 @@ const LESSONS = [
 
   {id:"l191_vocab_freedom_courage",
    title:"Freedom, Bravery, Protection & War",
-   desc:"waume (freedom), yere (bravery), waiye (protection), karuhe (war)",
+   desc:"The weight of conflict and courage: waume (freedom), yere (bravery), waiye (protection), karuhe (war)",
    icon:"🕊️",
    vocabKey:"l191_vocab_freedom_courage",
    xp:18,
@@ -8721,7 +8721,7 @@ const LESSONS = [
 
   {id:"l192_vocab_opinion_mind",
    title:"Opinion, Rejection, Focus & Result",
-   desc:"moihe (opinion), mowane (rejection), nuhe (focus), raihe (result)",
+   desc:"Thinking about thinking: moihe (opinion), mowane (rejection), nuhe (focus), raihe (result)",
    icon:"💭",
    vocabKey:"l192_vocab_opinion_mind",
    xp:18,
@@ -8730,7 +8730,7 @@ const LESSONS = [
 
   {id:"l193_vocab_speed_learning",
    title:"Speed, Bed, Teacher & Student",
-   desc:"saire (speed), rahe (bed), kaisupue (teacher), mauhupue (student)",
+   desc:"Daily life and the classroom: saire (speed), rahe (bed), kaisupue (teacher), mauhupue (student)",
    icon:"🏫",
    vocabKey:"l193_vocab_speed_learning",
    xp:18,
@@ -8739,7 +8739,7 @@ const LESSONS = [
 
   {id:"l194_cultural_abstract_exam",
    title:"Unit 32 Exam — Cultural & Abstract Roots",
-   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"⚖️",
    vocabKey:"l194_cultural_abstract_exam",
    xp:30,
@@ -8750,7 +8750,7 @@ const LESSONS = [
   // ── A20 / Unit 33 — Religion, Philosophy & Reflection (L195–L200) ──
   {id:"l195_religion_core",
    title:"Religion I — The Divine",
-   desc:"oiwe (god), oihe (spirit), oilaine (angel), houpe (expectation)",
+   desc:"Words for things beyond ourselves: oiwe (god), oihe (spirit), oilaine (angel), houpe (expectation)",
    icon:"🕊️",
    vocabKey:"l195_religion_core",
    xp:18,
@@ -8759,7 +8759,7 @@ const LESSONS = [
 
   {id:"l196_religion_practice",
    title:"Religion II — Worship & the Sacred",
-   desc:"oise (worship), oime (the sacred), oiseyahe (temple)",
+   desc:"Reverence and sacred places: oise (worship), oime (the sacred), oiseyahe (temple)",
    icon:"🙏",
    vocabKey:"l196_religion_practice",
    xp:18,
@@ -8768,7 +8768,7 @@ const LESSONS = [
 
   {id:"l197_life_and_death",
    title:"Life & Death",
-   desc:"oke (life), moke (death), yuhime (meaning), nouye (patience)",
+   desc:"The biggest questions: oke (life), moke (death), yuhime (meaning), nouye (patience)",
    icon:"🌱",
    vocabKey:"l197_life_and_death",
    xp:18,
@@ -8777,7 +8777,7 @@ const LESSONS = [
 
   {id:"l198_thought_and_dream",
    title:"Thought, Dream & Imagination",
-   desc:"hiye (dream), mopire (thoughtlessness), piretire (imagination), yoihe (idea)",
+   desc:"Where the mind wanders: hiye (dream), mopire (thoughtlessness), piretire (imagination), yoihe (idea)",
    icon:"🌙",
    vocabKey:"l198_thought_and_dream",
    xp:18,
@@ -8786,7 +8786,7 @@ const LESSONS = [
 
   {id:"l199_reflection_certainty",
    title:"Reflection, Certainty & Hope",
-   desc:"kilire (question), roihe (certainty), waihe (hope), mowaihe (despair)",
+   desc:"Sitting with what you don't know: kilire (question), roihe (certainty), waihe (hope), mowaihe (despair)",
    icon:"🤔",
    vocabKey:"l199_reflection_certainty",
    xp:18,
@@ -8795,7 +8795,7 @@ const LESSONS = [
 
   {id:"l200_religion_philosophy_exam",
    title:"Unit 33 Exam — Religion, Philosophy & Reflection",
-   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"🕊️",
    vocabKey:"l200_religion_philosophy_exam",
    xp:30,
@@ -8814,7 +8814,7 @@ const LESSONS = [
   // ── A21a / Unit 34 — Communication & Cognition Verbs ──
   {id:"l201_vocab_words_messages",
    title:"Words & Messages",
-   desc:"iruhe (word), ifuhe (sentence), maihe (message), maihupue (messenger)",
+   desc:"How language is built up: iruhe (word), ifuhe (sentence), maihe (message), maihupue (messenger)",
    icon:"\u2709\ufe0f",
    vocabKey:"l201_vocab_words_messages",
    xp:18,
@@ -8823,7 +8823,7 @@ const LESSONS = [
 
   {id:"l202_vocab_ask_warn_invite",
    title:"Asking, Warning, Inviting",
-   desc:"luiwe (answer), nauke (warning), poule (invitation), shoinulire (translation)",
+   desc:"Reaching out to other people: luiwe (answer), nauke (warning), poule (invitation), shoinulire (translation)",
    icon:"\ud83d\udce2",
    vocabKey:"l202_vocab_ask_warn_invite",
    xp:18,
@@ -8832,7 +8832,7 @@ const LESSONS = [
 
   {id:"l203_vocab_plan_solve",
    title:"Planning & Solving",
-   desc:"piruhe (plan), seihe (study), shire (creation), soile (solution)",
+   desc:"Figuring things out: piruhe (plan), seihe (study), shire (creation), soile (solution)",
    icon:"\ud83e\udde9",
    vocabKey:"l203_vocab_plan_solve",
    xp:18,
@@ -8841,7 +8841,7 @@ const LESSONS = [
 
   {id:"l204_vocab_change_sameness",
    title:"Change & Sameness",
-   desc:"shoine (change), weihe (repetition), lame (sameness), molame (difference)",
+   desc:"What stays and what shifts: shoine (change), weihe (repetition), lame (sameness), molame (difference)",
    icon:"\ud83d\udd04",
    vocabKey:"l204_vocab_change_sameness",
    xp:18,
@@ -8850,7 +8850,7 @@ const LESSONS = [
 
   {id:"l205_vocab_success_correction",
    title:"Success & Correction",
-   desc:"nove (correctness), lohure (perfection), loune (success), moloune (failure)",
+   desc:"Getting it right (and not): nove (correctness), lohure (perfection), loune (success), moloune (failure)",
    icon:"\ud83c\udfaf",
    vocabKey:"l205_vocab_success_correction",
    xp:18,
@@ -8859,7 +8859,7 @@ const LESSONS = [
 
   {id:"l206_vocab_avoid_hinder",
    title:"Avoidance & Hindrance",
-   desc:"motere (aversion), mosene (ignorance), mosove (hindrance), molahe (disturbance)",
+   desc:"Things that get in the way: motere (aversion), mosene (ignorance), mosove (hindrance), molahe (disturbance)",
    icon:"\ud83d\udeab",
    vocabKey:"l206_vocab_avoid_hinder",
    xp:18,
@@ -8867,8 +8867,8 @@ const LESSONS = [
    intro:`<h3>\ud83d\udeab Getting in the way</h3><p>Four roots for the negative side of action \u2014 avoiding, not knowing, hindering, disturbing. Each starts with <em>mo-</em>, but here that's part of the root, not a balancing pair you need to track.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>motere</em> (n.)</td><td style="padding:4px 12px">aversion</td></tr><tr><td style="padding:4px 12px"><em>moteri</em> (adj.)</td><td style="padding:4px 12px">averse</td></tr><tr><td style="padding:4px 12px"><em>moteru</em> (v.)</td><td style="padding:4px 12px">to avoid (or flinch)</td></tr><tr><td style="padding:4px 12px"><em>mosene</em> (n.)</td><td style="padding:4px 12px">ignorance</td></tr><tr><td style="padding:4px 12px"><em>mosenu</em> (v.)</td><td style="padding:4px 12px">to not know</td></tr><tr><td style="padding:4px 12px"><em>mosove</em> (n.)</td><td style="padding:4px 12px">hindrance</td></tr><tr><td style="padding:4px 12px"><em>mosovi</em> (adj.)</td><td style="padding:4px 12px">unhelpful</td></tr><tr><td style="padding:4px 12px"><em>mosovu</em> (v.)</td><td style="padding:4px 12px">to hinder</td></tr><tr><td style="padding:4px 12px"><em>molahe</em> (n.)</td><td style="padding:4px 12px">disturbance</td></tr><tr><td style="padding:4px 12px"><em>molahu</em> (v.)</td><td style="padding:4px 12px">to disturb</td></tr></table><span class="example">Ne moteru lo. <span class="gloss">I avoid this.</span></span><span class="example">Ve mosenu. <span class="gloss">She does not know.</span></span><span class="example">Lo su mosovi. <span class="gloss">This is unhelpful.</span></span>`},
 
   {id:"l207_communication_exam",
-   title:"Unit 34 Exam \u2014 Communication & Cognition Verbs",
-   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus cloze on four key constructions.",
+   title:"Unit 34 Exam \u2014 Talking & Thinking Verbs",
+   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"\u2709\ufe0f",
    vocabKey:"l207_communication_exam",
    xp:30,
@@ -8879,7 +8879,7 @@ const LESSONS = [
   // ── A21b / Unit 35 — Physical Action & Handling Verbs ──
   {id:"l208_vocab_pickup_setdown",
    title:"Picking Up & Setting Down",
-   desc:"toihe (pickup), motoihe (drop-off), muwe (sending), mowoune (lowering)",
+   desc:"Moving things from here to there: toihe (pickup), motoihe (drop-off), muwe (sending), mowoune (lowering)",
    icon:"\ud83d\udce6",
    vocabKey:"l208_vocab_pickup_setdown",
    xp:18,
@@ -8888,7 +8888,7 @@ const LESSONS = [
 
   {id:"l209_vocab_secure_conceal",
    title:"Securing & Concealing",
-   desc:"rume (lock), morume (key), movehe (hiding), movihe (keeping)",
+   desc:"Locking up and tucking away: rume (lock), morume (key), movehe (hiding), movihe (keeping)",
    icon:"\ud83d\udd12",
    vocabKey:"l209_vocab_secure_conceal",
    xp:18,
@@ -8897,7 +8897,7 @@ const LESSONS = [
 
   {id:"l210_vocab_search_clean",
    title:"Searching & Cleaning",
-   desc:"riwe (search), saye (cleanliness), mosaye (dirt), mokave (repair)",
+   desc:"Finding what's lost, fixing what's broken: riwe (search), saye (cleanliness), mosaye (dirt), mokave (repair)",
    icon:"\ud83e\uddf9",
    vocabKey:"l210_vocab_search_clean",
    xp:18,
@@ -8906,7 +8906,7 @@ const LESSONS = [
 
   {id:"l211_vocab_lead_connect",
    title:"Leading & Connecting",
-   desc:"tole (leadership), motole (following), mohese (bond), mowahe (estrangement)",
+   desc:"How people stay close or drift apart: tole (leadership), motole (following), mohese (bond), mowahe (estrangement)",
    icon:"\ud83e\udd1d",
    vocabKey:"l211_vocab_lead_connect",
    xp:18,
@@ -8915,7 +8915,7 @@ const LESSONS = [
 
   {id:"l212_vocab_steps_water",
    title:"Steps & Water",
-   desc:"liohe (step), pishe (drop), pishawe (splash), shalome (puddle)",
+   desc:"Small motions, small splashes: liohe (step), pishe (drop), pishawe (splash), shalome (puddle)",
    icon:"\ud83d\udca7",
    vocabKey:"l212_vocab_steps_water",
    xp:18,
@@ -8924,7 +8924,7 @@ const LESSONS = [
 
   {id:"l213_handling_exam",
    title:"Unit 35 Exam \u2014 Physical Action & Handling Verbs",
-   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"\ud83d\udce6",
    vocabKey:"l213_handling_exam",
    xp:30,
@@ -8935,7 +8935,7 @@ const LESSONS = [
   // ── A21c / Unit 36 — State, Body & Life-Cycle Verbs ──
   {id:"l214_vocab_wake_rest",
    title:"Waking & Resting",
-   desc:"morae (wakefulness), lahe (rest), mohiye (dreamless sleep), moele (numbness)",
+   desc:"States in and out of sleep: morae (wakefulness), lahe (rest), mohiye (dreamless sleep), moele (numbness)",
    icon:"\ud83d\ude34",
    vocabKey:"l214_vocab_wake_rest",
    xp:18,
@@ -8944,7 +8944,7 @@ const LESSONS = [
 
   {id:"l215_vocab_strength_birth",
    title:"Strength & Birth",
-   desc:"tuwe (strength), motuwe (weakness), mohawe (suffocation), nore (birth)",
+   desc:"The beginnings and limits of the body: tuwe (strength), motuwe (weakness), mohawe (suffocation), nore (birth)",
    icon:"\ud83d\udcaa",
    vocabKey:"l215_vocab_strength_birth",
    xp:18,
@@ -8953,7 +8953,7 @@ const LESSONS = [
 
   {id:"l216_vocab_fight_destroy",
    title:"Fighting & Destruction",
-   desc:"monauye (fight), monore (killing), moshire (destruction), rouwe (harm)",
+   desc:"When things come apart: monauye (fight), monore (killing), moshire (destruction), rouwe (harm)",
    icon:"\u2694\ufe0f",
    vocabKey:"l216_vocab_fight_destroy",
    xp:18,
@@ -8962,7 +8962,7 @@ const LESSONS = [
 
   {id:"l217_vocab_enemy_safety",
    title:"Enemies & Safety",
-   desc:"mowame (enemy), molene (betrayal), moyohe (danger), yohe (safety)",
+   desc:"Danger and protection: mowame (enemy), molene (betrayal), moyohe (danger), yohe (safety)",
    icon:"\ud83d\udee1\ufe0f",
    vocabKey:"l217_vocab_enemy_safety",
    xp:18,
@@ -8971,7 +8971,7 @@ const LESSONS = [
 
   {id:"l218_vocab_stand_stop",
    title:"Standing & Stopping",
-   desc:"moseme (standing), mowashu (to stop), motahe (fasting), moshahu (to abstain)",
+   desc:"Holding still, holding back: moseme (standing), mowashu (to stop), motahe (fasting), moshahu (to abstain)",
    icon:"\u270b",
    vocabKey:"l218_vocab_stand_stop",
    xp:18,
@@ -8979,8 +8979,8 @@ const LESSONS = [
    intro:`<h3>\u270b Holding still</h3><p>Four roots for stopping and holding back. Two of them \u2014 <em>mowashu</em> and <em>moshahu</em> \u2014 have no noun form: they are pure verbs (with <em>mowashi</em> \"still\" alongside).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>moseme</em> (n.)</td><td style="padding:4px 12px">standing</td></tr><tr><td style="padding:4px 12px"><em>mosemu</em> (v.)</td><td style="padding:4px 12px">to stand</td></tr><tr><td style="padding:4px 12px"><em>mowashi</em> (adj.)</td><td style="padding:4px 12px">still (stationary)</td></tr><tr><td style="padding:4px 12px"><em>mowashu</em> (v.)</td><td style="padding:4px 12px">to stop</td></tr><tr><td style="padding:4px 12px"><em>motahe</em> (n.)</td><td style="padding:4px 12px">fast (not eating)</td></tr><tr><td style="padding:4px 12px"><em>motahi</em> (adj.)</td><td style="padding:4px 12px">fasting</td></tr><tr><td style="padding:4px 12px"><em>motahu</em> (v.)</td><td style="padding:4px 12px">to fast</td></tr><tr><td style="padding:4px 12px"><em>moshahu</em> (v.)</td><td style="padding:4px 12px">to abstain from drink</td></tr></table><p><em>mowashu</em> \u2014 \"to stop\" \u2014 is a verb you'll lean on constantly; it can lead a verb chain like a modal: <em>Ne mowashu tahu</em>, \"I stop eating.\" <em>motahu</em> (to fast) and <em>moshahu</em> (to abstain from drink) are the <em>mo-</em> pairs of <em>tahu</em> (to eat) and <em>shahu</em> (to drink).</p><span class="example">Ne mosemu. <span class="gloss">I stand.</span></span><span class="example">Ve wa mowashu. <span class="gloss">She stopped.</span></span><span class="example">Ne motahu lo lawe. <span class="gloss">I fast today.</span></span>`},
 
   {id:"l219_state_body_exam",
-   title:"Unit 36 Exam \u2014 State, Body & Life-Cycle Verbs",
-   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus cloze on four key constructions.",
+   title:"Unit 36 Exam \u2014 Being, Body & Living Verbs",
+   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"\ud83d\ude34",
    vocabKey:"l219_state_body_exam",
    xp:30,
@@ -8991,7 +8991,7 @@ const LESSONS = [
   // ── A21d / Unit 37 — Dimension & Texture Roots ──
   {id:"l220_vocab_weight_thickness",
    title:"Weight & Thickness",
-   desc:"kauwe (lightness), mokauwe (weight), kouhe (thinness), mokouhe (thickness)",
+   desc:"How heavy, how thick: kauwe (lightness), mokauwe (weight), kouhe (thinness), mokouhe (thickness)",
    icon:"\u2696\ufe0f",
    vocabKey:"l220_vocab_weight_thickness",
    xp:18,
@@ -9000,7 +9000,7 @@ const LESSONS = [
 
   {id:"l221_vocab_length_width",
    title:"Length & Width",
-   desc:"soune (shortness), mosoune (length), waune (narrowness), mowaune (width)",
+   desc:"How long, how wide: soune (shortness), mosoune (length), waune (narrowness), mowaune (width)",
    icon:"\ud83d\udccf",
    vocabKey:"l221_vocab_length_width",
    xp:18,
@@ -9009,7 +9009,7 @@ const LESSONS = [
 
   {id:"l222_vocab_shape_height",
    title:"Shape & Height",
-   desc:"leume (roundness), moleume (flatness), liane (height), shouhe (shallowness)",
+   desc:"Round or flat, tall or shallow: leume (roundness), moleume (flatness), liane (height), shouhe (shallowness)",
    icon:"\u2b55",
    vocabKey:"l222_vocab_shape_height",
    xp:18,
@@ -9018,7 +9018,7 @@ const LESSONS = [
 
   {id:"l223_vocab_texture_touch",
    title:"Texture & Touch",
-   desc:"shiwe (smoothness), moshiwe (roughness), tere (touch), haime (mirror)",
+   desc:"How things feel under your hand: shiwe (smoothness), moshiwe (roughness), tere (touch), haime (mirror)",
    icon:"\u270b",
    vocabKey:"l223_vocab_texture_touch",
    xp:18,
@@ -9027,7 +9027,7 @@ const LESSONS = [
 
   {id:"l224_vocab_stone_darkness",
    title:"Stone & Darkness",
-   desc:"kome (stone), komile (pebble), komilele (grain of sand), molune (darkness)",
+   desc:"From boulders to sand grains, in the dark: kome (stone), komile (pebble), komilele (grain of sand), molune (darkness)",
    icon:"\ud83e\udea8",
    vocabKey:"l224_vocab_stone_darkness",
    xp:18,
@@ -9035,8 +9035,8 @@ const LESSONS = [
    intro:`<h3>\ud83e\udea8 Stone, smaller and smaller</h3><p>The closing lesson of the property sub-unit. <em>kome</em> (stone) shows the diminutive suffix at work, twice over: a pebble is a little stone, a grain of sand is a little pebble.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kome</em> (n.)</td><td style="padding:4px 12px">stone</td></tr><tr><td style="padding:4px 12px"><em>komi</em> (adj.)</td><td style="padding:4px 12px">stony</td></tr><tr><td style="padding:4px 12px"><em>komu</em> (v.)</td><td style="padding:4px 12px">to make solid</td></tr><tr><td style="padding:4px 12px"><em>komile</em> (n.)</td><td style="padding:4px 12px">pebble</td></tr><tr><td style="padding:4px 12px"><em>komilele</em> (n.)</td><td style="padding:4px 12px">grain of sand</td></tr><tr><td style="padding:4px 12px"><em>molune</em> (n.)</td><td style="padding:4px 12px">darkness</td></tr><tr><td style="padding:4px 12px"><em>moluni</em> (adj.)</td><td style="padding:4px 12px">dark</td></tr><tr><td style="padding:4px 12px"><em>molunu</em> (v.)</td><td style="padding:4px 12px">to darken</td></tr></table><p><em>kome</em> \u2192 <em>komile</em> (pebble) \u2192 <em>komilele</em> (grain of sand): the <em>-ile</em> suffix stacks. And <em>molune</em> is the <em>mo-</em> pair of <em>lune</em> (light), a pairing you've known since the early lessons.</p><span class="example">Lo kome su mokauwi. <span class="gloss">This stone is heavy.</span></span><span class="example">Ne tiru komile. <span class="gloss">I see a pebble.</span></span><span class="example">Lo none su moluni. <span class="gloss">This night is dark.</span></span>`},
 
   {id:"l225_dimension_texture_exam",
-   title:"Unit 37 Exam \u2014 Dimension & Texture Roots",
-   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus cloze on four key constructions.",
+   title:"Unit 37 Exam \u2014 Size, Shape & Texture Roots",
+   desc:"Three hearts. Fourteen sentences covering all five vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"\u2696\ufe0f",
    vocabKey:"l225_dimension_texture_exam",
    xp:30,
@@ -9047,7 +9047,7 @@ const LESSONS = [
   // ── A21e / Unit 38 — Food, Quantity & Closing Roots ──
   {id:"l226_vocab_sour_bitter_spicy",
    title:"Sour, Bitter & Spicy",
-   desc:"feule (sourness), kure (bitterness), pike (pepper), pikale (spiciness)",
+   desc:"Sharp flavors: feule (sourness), kure (bitterness), pike (pepper), pikale (spiciness)",
    icon:"\ud83c\udf36\ufe0f",
    vocabKey:"l226_vocab_sour_bitter_spicy",
    xp:18,
@@ -9056,7 +9056,7 @@ const LESSONS = [
 
   {id:"l227_vocab_foods_boat",
    title:"Foods & the Boat",
-   desc:"miafe (cheese), roine (rice), tahishawe (soup), shaihe (boat)",
+   desc:"Food on the table, and how it crossed the water: miafe (cheese), roine (rice), tahishawe (soup), shaihe (boat)",
    icon:"\ud83e\uddc0",
    vocabKey:"l227_vocab_foods_boat",
    xp:18,
@@ -9065,7 +9065,7 @@ const LESSONS = [
 
   {id:"l228_vocab_more_less_full_empty",
    title:"Increase, Decrease, Full & Empty",
-   desc:"awe (increase), moawe (decrease), nomae (fullness), monomae (emptiness)",
+   desc:"More, less, full, empty: awe (increase), moawe (decrease), nomae (fullness), monomae (emptiness)",
    icon:"\ud83d\udc08",
    vocabKey:"l228_vocab_more_less_full_empty",
    xp:18,
@@ -9074,7 +9074,7 @@ const LESSONS = [
 
   {id:"l229_vocab_loss_world",
    title:"Loss, Blindness & the World",
-   desc:"morike (loss), motire (blindness), mouhe (world), pohe (face)",
+   desc:"Loss, sight, and the world around: morike (loss), motire (blindness), mouhe (world), pohe (face)",
    icon:"\ud83c\udf0d",
    vocabKey:"l229_vocab_loss_world",
    xp:18,
@@ -9084,7 +9084,7 @@ const LESSONS = [
 
   {id:"l230_vocab_continue_other",
    title:"Continuing, Eventually & Other",
-   desc:"yauwe (continuing-state), feuhe (eventuality), ouhe (prior-completion), sohe (other)",
+   desc:"How time and things flow on: yauwe (continuing-state), feuhe (eventuality), ouhe (prior-completion), sohe (other)",
    icon:"\u23ed\ufe0f",
    vocabKey:"l230_vocab_continue_other",
    xp:18,
@@ -9093,7 +9093,7 @@ const LESSONS = [
 
   {id:"l231_vocab_while_closing",
    title:"While \u2014 and Closing Roots",
-   desc:"wole (while), feihe (promise), washe (movement), kave (fracture)",
+   desc:"Holding two things at once: wole (while), feihe (promise), washe (movement), kave (fracture)",
    icon:"\ud83d\udd17",
    vocabKey:"l231_vocab_while_closing",
    xp:18,
@@ -9102,7 +9102,7 @@ const LESSONS = [
 
   {id:"l232_food_quantity_exam",
    title:"Unit 38 Exam \u2014 Food, Quantity & Closing Roots",
-   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"\ud83c\udf36\ufe0f",
    vocabKey:"l232_food_quantity_exam",
    xp:30,
@@ -9113,7 +9113,7 @@ const LESSONS = [
   // ── A22 / Unit 39 — Daily Nouns ──
   {id:"l233_vocab_clothing_worn",
    title:"Clothing — Things You Wear",
-   desc:"vauhe (clothing), laiwe (pants), paiwe (shoe), pime (hat)",
+   desc:"Getting dressed: vauhe (clothing), laiwe (pants), paiwe (shoe), pime (hat)",
    icon:"\ud83d\udc55",
    vocabKey:"l233_vocab_clothing_worn",
    xp:18,
@@ -9122,7 +9122,7 @@ const LESSONS = [
 
   {id:"l234_vocab_clothing_more",
    title:"Clothing — More Garments",
-   desc:"paiwile (sock), waine (belt), woulime (dress), woile (cloth)",
+   desc:"Filling out the wardrobe: paiwile (sock), waine (belt), woulime (dress), woile (cloth)",
    icon:"\ud83e\udde6",
    vocabKey:"l234_vocab_clothing_more",
    xp:18,
@@ -9131,7 +9131,7 @@ const LESSONS = [
 
   {id:"l235_vocab_kitchen_appliances",
    title:"Kitchen Appliances",
-   desc:"hauhupauwe (oven), nahupauwe (stove), luhupauwe (refrigerator), sayupauwe (washing machine)",
+   desc:"The big machines in the kitchen: hauhupauwe (oven), nahupauwe (stove), luhupauwe (refrigerator), sayupauwe (washing machine)",
    icon:"\ud83d\udd25",
    vocabKey:"l235_vocab_kitchen_appliances",
    xp:18,
@@ -9140,7 +9140,7 @@ const LESSONS = [
 
   {id:"l236_vocab_kitchen_vessels",
    title:"Vessels & Light",
-   desc:"shome (bottle), pole (bowl), paime (glass), lunekahe (lamp)",
+   desc:"Things you fill, and a light to see by: shome (bottle), pole (bowl), paime (glass), lunekahe (lamp)",
    icon:"\ud83c\udf7e",
    vocabKey:"l236_vocab_kitchen_vessels",
    xp:18,
@@ -9149,7 +9149,7 @@ const LESSONS = [
 
   {id:"l237_vocab_containers",
    title:"Containers",
-   desc:"nome (box), poume (bag), wauwe (basket), soime (shelf)",
+   desc:"Places to put things: nome (box), poume (bag), wauwe (basket), soime (shelf)",
    icon:"\ud83d\udce6",
    vocabKey:"l237_vocab_containers",
    xp:18,
@@ -9158,7 +9158,7 @@ const LESSONS = [
 
   {id:"l238_vocab_bath_hygiene",
    title:"Bathroom & Hygiene",
-   desc:"sauwe (toilet), shauhe (bathroom), shouwe (soap), raule (pillow)",
+   desc:"The room with the sink: sauwe (toilet), shauhe (bathroom), shouwe (soap), raule (pillow)",
    icon:"\ud83d\udec1",
    vocabKey:"l238_vocab_bath_hygiene",
    xp:18,
@@ -9167,7 +9167,7 @@ const LESSONS = [
 
   {id:"l239_vocab_house_structure",
    title:"House Structure",
-   desc:"keuwe (roof), tauwe (wall), touwe (floor), naohe (bridge)",
+   desc:"The bones of a building: keuwe (roof), tauwe (wall), touwe (floor), naohe (bridge)",
    icon:"\ud83c\udfe0",
    vocabKey:"l239_vocab_house_structure",
    xp:18,
@@ -9176,7 +9176,7 @@ const LESSONS = [
 
   {id:"l240_vocab_house_places",
    title:"Buildings & Places",
-   desc:"pokihiwe (backyard), sheyahe (hospital), mashetieme (pharmacy), loiwetieme (bookstore)",
+   desc:"Out and about in town: pokihiwe (backyard), sheyahe (hospital), mashetieme (pharmacy), loiwetieme (bookstore)",
    icon:"\ud83c\udfe5",
    vocabKey:"l240_vocab_house_places",
    xp:18,
@@ -9185,7 +9185,7 @@ const LESSONS = [
 
   {id:"l241_vocab_media_time",
    title:"Media & Telling Time",
-   desc:"une (movie), unile (TV show), wainoe (internet), weye (clock)",
+   desc:"Screens, signals, and the clock: une (movie), unile (TV show), wainoe (internet), weye (clock)",
    icon:"\ud83c\udfac",
    vocabKey:"l241_vocab_media_time",
    xp:18,
@@ -9194,7 +9194,7 @@ const LESSONS = [
 
   {id:"l242_vocab_paper_light",
    title:"Paper & Small Objects",
-   desc:"loiye (letter), loiwile (booklet), takilune (candle), weyile (wristwatch)",
+   desc:"Things small enough to carry: loiye (letter), loiwile (booklet), takilune (candle), weyile (wristwatch)",
    icon:"\u2709\ufe0f",
    vocabKey:"l242_vocab_paper_light",
    xp:18,
@@ -9203,7 +9203,7 @@ const LESSONS = [
 
   {id:"l243_vocab_people_misc",
    title:"People & Closing Roots",
-   desc:"mosenipue (stranger), movehisene (secret), liawe (experience)",
+   desc:"Strangers, secrets, and what you've lived through: mosenipue (stranger), movehisene (secret), liawe (experience)",
    icon:"\ud83e\ude9e",
    vocabKey:"l243_vocab_people_misc",
    xp:18,
@@ -9213,7 +9213,7 @@ const LESSONS = [
 
   {id:"l244_daily_nouns_exam",
    title:"Unit 39 Exam \u2014 Daily Nouns",
-   desc:"Three hearts. Fourteen sentences covering all eleven vocab lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all eleven vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"\ud83c\udfe0",
    vocabKey:"l244_daily_nouns_exam",
    xp:30,
@@ -9228,7 +9228,7 @@ const LESSONS = [
   // deliberate under-cap closer (3 roots).
   {id:"l245_vocab_the_city",
    title:"The City",
-   desc:"heule (city), heulile (town), meshe (middle), toure (edge)",
+   desc:"Big places and small: heule (city), heulile (town), meshe (middle), toure (edge)",
    icon:"\ud83c\udfd9\ufe0f",
    vocabKey:"l245_vocab_the_city",
    xp:18,
@@ -9237,7 +9237,7 @@ const LESSONS = [
 
   {id:"l246_vocab_streets_wheels",
    title:"Streets, Wheels & the Journey",
-   desc:"luere (road), poime (wheel), poiwe (turn), hale (journey)",
+   desc:"Roads and getting somewhere: luere (road), poime (wheel), poiwe (turn), hale (journey)",
    icon:"\ud83d\udee3\ufe0f",
    vocabKey:"l246_vocab_streets_wheels",
    xp:18,
@@ -9246,7 +9246,7 @@ const LESSONS = [
 
   {id:"l247_vocab_road_transport",
    title:"Ways to Travel",
-   desc:"meuhekoire (bus), runipoime (bicycle), roheme (train), eirupauwe (airplane)",
+   desc:"Big ways to get around: meuhekoire (bus), runipoime (bicycle), roheme (train), eirupauwe (airplane)",
    icon:"\ud83d\ude8c",
    vocabKey:"l247_vocab_road_transport",
    xp:18,
@@ -9255,7 +9255,7 @@ const LESSONS = [
 
   {id:"l248_vocab_water_and_day",
    title:"By Water, and Points in the Day",
-   desc:"shaihile (canoe), meshilawe (noon), meshinone (midnight)",
+   desc:"Travel by paddle and the middle of the day: shaihile (canoe), meshilawe (noon), meshinone (midnight)",
    icon:"\ud83d\udef6",
    vocabKey:"l248_vocab_water_and_day",
    xp:16,
@@ -9264,7 +9264,7 @@ const LESSONS = [
 
   {id:"l249_city_transport_exam",
    title:"Unit 40 Exam \\u2014 City, Transport & Places",
-   desc:"Three hearts. Fourteen sentences covering all four vocab lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all four vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"\ud83c\udfd9\ufe0f",
    vocabKey:"l249_city_transport_exam",
    xp:30,
@@ -9322,7 +9322,7 @@ const LESSONS = [
    track:"advanced"},
   {id:"l256_a24_exam",
    title:"Unit 41 Exam \u2014 Time, Agreement & Residual Roots",
-   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus cloze on four key constructions.",
+   desc:"Three hearts. Fourteen sentences covering all six vocab lessons, plus four fill-in-the-blank challenges.",
    icon:"\u23f3",
    vocabKey:"l256_a24_exam",
    xp:30,
@@ -9346,7 +9346,7 @@ const LESSONS = [
   // completion stats. New batches are added chronologically over time.
   {id:"l258_living_may2026",
    title:"May 2026 Additions",
-   desc:"shaise (bath/shower), shase (sink), tape (switch), tume (lid), mame (hug) — five new roots and a loime gloss refresh.",
+   desc:"Five fresh roots and a small gloss tune-up: shaise (bath/shower), shase (sink), tape (switch), tume (lid), mame (hug)",
    icon:"\ud83c\udf31",
    vocabKey:"l258_living_may2026",
    xp:20,
@@ -11819,14 +11819,16 @@ function renderHome(){
       </div>`;
     } else {
       // Cards available.
-      const newWaveLabel=newAvail>0?` · <span style="color:var(--blue);font-weight:800">${newAvail}</span> new`:"";
+      const newOverflow=Math.max(0,queue.totalNew-newAvail);
+      const newWaveLabel=newAvail>0?` · <span style="color:var(--blue);font-weight:800">${newAvail}</span> new today`:"";
+      const overflowLabel=newOverflow>0?` · <span style="color:var(--mid);font-weight:800">${newOverflow}</span> more waiting`:"";
       reviewTileHTML=`<div style="background:linear-gradient(135deg,var(--card),var(--bg2));border:1.5px solid var(--blue);border-radius:var(--radius);padding:18px 20px;margin-bottom:16px;box-shadow:0 0 24px var(--blue-glow)">
         <div style="display:flex;align-items:center;gap:14px;margin-bottom:14px">
           <span style="font-size:28px">🌊</span>
           <div style="flex:1;min-width:0">
             <div style="color:var(--dim);font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase">Ocean of knowledge</div>
             <div style="font-size:17px;font-weight:800;margin-top:4px">A new wave of words</div>
-            <div style="color:var(--mid);font-size:13px;font-weight:700;margin-top:2px"><span style="color:var(--blue);font-weight:800">${dueCount}</span> ready to review${newWaveLabel}</div>
+            <div style="color:var(--mid);font-size:13px;font-weight:700;margin-top:2px"><span style="color:var(--blue);font-weight:800">${dueCount}</span> ready to review${newWaveLabel}${overflowLabel}</div>
           </div>
           <button id="startReviewBtn" class="btn-primary" style="flex-shrink:0;width:auto;padding:12px 22px;font-size:14px;box-shadow:none">Start review</button>
         </div>
@@ -11844,7 +11846,7 @@ function renderHome(){
             <div style="font-size:15px;font-weight:800;margin-top:2px">${stats.shallows}</div>
           </div>
           <div style="flex:1;background:var(--bg2);border-radius:10px;padding:8px 10px;display:flex;flex-direction:column;justify-content:space-between;min-height:54px">
-            <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">New</div>
+            <div style="color:var(--dim);font-size:10px;font-weight:800;letter-spacing:0.5px;text-transform:uppercase">Tide pool</div>
             <div style="font-size:15px;font-weight:800;margin-top:2px">${stats.fresh}</div>
           </div>
         </div>
