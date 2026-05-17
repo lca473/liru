@@ -2483,24 +2483,24 @@ const V = {
   // adverb itself in the blank — the placement IS the payload.
   // 0 new roots; all forms in budget from L100/L101 and earlier core.
   l102_frequency_sentences: [
-    {lw:["Ne","taiweli","wa","tahu","wule","Yuna","vanu"],
+    {lw:["Ne","wa","tahu","taiweli","wule","Yuna","vanu"],
      en:"I always ate after Yuna came.",
-     cloze:{blanks:[1], bank:["taiweli","naiweli","saiweli","nuliweli","faiweli","mai"]}},
-    {lw:["Maya","naiweli","koulu","neo","wame"],
+     cloze:{blanks:[3], bank:["taiweli","naiweli","saiweli","nuliweli","faiweli","mai"]}},
+    {lw:["Maya","koulu","neo","wame","naiweli"],
      en:"Maya often visits my friend.",
-     cloze:{blanks:[1,2], bank:["naiweli","saiweli","koulu","halu","ko","wa"]}},
-    {lw:["Ne","saiweli","liru","ko","Yuna"],
+     cloze:{blanks:[1,4], bank:["naiweli","saiweli","koulu","halu","ko","wa"]}},
+    {lw:["Ne","liru","ko","Yuna","saiweli"],
      en:"I sometimes speak with Yuna."},
-    {lw:["Ve","nuliweli","wa","liru","ko","ne"],
+    {lw:["Ve","wa","liru","ko","ne","nuliweli"],
      en:"She never spoke with me.",
-     cloze:{blanks:[1], bank:["nuliweli","naiweli","taiweli","mai","saiweli","faiweli"]}},
-    {lw:["Ki","te","faiweli","wa","nahu","kupe"],
-     en:"Have you ever cooked fish?",
-     cloze:{blanks:[2], bank:["faiweli","taiweli","saiweli","nuliweli","naiweli","mai"]}},
-    {lw:["Ne","mai","naiweli","halu","so","loya"],
+     cloze:{blanks:[5], bank:["nuliweli","naiweli","taiweli","mai","saiweli","faiweli"]}},
+    {lw:["Ki","te","wa","nahu","houme","faiweli"],
+     en:"Have you ever cooked bread?",
+     cloze:{blanks:[5], bank:["faiweli","taiweli","saiweli","nuliweli","naiweli","mai"]}},
+    {lw:["Ne","mai","halu","so","loya","naiweli"],
      en:"I rarely come here."},
-    {lw:["Yuna","mai","faiweli","wa","tahu","kupe"],
-     en:"Yuna has never eaten fish."},
+    {lw:["Yuna","mai","wa","tahu","houme","faiweli"],
+     en:"Yuna has never eaten bread."},
   ],
 
   // L103 — Vocab: spatial paths (4 canvas roots)
@@ -2600,22 +2600,22 @@ const V = {
   // 0 new roots — exam draws entirely on L100-L105 + already-taught
   // core vocabulary.
   l106_frequency_spatial_exam: [
-    {lw:["Ne","taiweli","halu","voi","mouleyahe"],
+    {lw:["Ne","halu","voi","mouleyahe","taiweli"],
      en:"I always walk around the garden.",
-     cloze:{blanks:[1,3], bank:["taiweli","naiweli","voi","niwa","moso","sho"]}},
-    {lw:["Yuna","naiweli","wa","tasu","mouleyahe"],
+     cloze:{blanks:[2,4], bank:["taiweli","naiweli","voi","niwa","moso","sho"]}},
+    {lw:["Yuna","wa","tasu","mouleyahe","naiweli"],
      en:"Yuna often crossed the garden."},
     {lw:["Hiwe","su","niwa","moule","sho","senehiwe"],
      en:"The house is between the tree and the school.",
      cloze:{blanks:[2], bank:["niwa","voi","moso","wo","leu","ya"]}},
-    {lw:["Paipe","saiweli","nianu","ne"],
+    {lw:["Paipe","nianu","ne","saiweli"],
      en:"The dog sometimes approaches me."},
-    {lw:["Ne","nuliweli","wa","halu","mohuni"],
+    {lw:["Ne","wa","halu","mohuni","nuliweli"],
      en:"I never went left.",
-     cloze:{blanks:[1,4], bank:["nuliweli","naiweli","mohuni","huni","tasi","voi"]}},
-    {lw:["Ki","te","faiweli","wa","koulu","Yuna"],
+     cloze:{blanks:[3,4], bank:["nuliweli","naiweli","mohuni","huni","tasi","voi"]}},
+    {lw:["Ki","te","wa","koulu","Yuna","faiweli"],
      en:"Have you ever visited Yuna?"},
-    {lw:["Ve","mai","naiweli","wa","halu","huni"],
+    {lw:["Ve","mai","wa","halu","huni","naiweli"],
      en:"She rarely went right."},
     {lw:["Iwuhe","washu","moso","hiwe"],
      en:"Water flows away from the house.",
@@ -3218,9 +3218,9 @@ const V = {
      en:"Those mountains are northern."},
     {lw:["Neo","shaune","su","leu","wouhile"],
      en:"My lake is on the hill."},
-    {lw:["Ne","taiweli","wa","halu","na","hunitowe"],
+    {lw:["Ne","wa","halu","na","hunitowe","taiweli"],
      en:"I always went east.",
-     cloze:{blanks:[1,5], bank:["taiweli","naiweli","hunitowe","mohunitowe","faiweli","saiweli"]}},
+     cloze:{blanks:[4,5], bank:["taiweli","naiweli","hunitowe","mohunitowe","faiweli","saiweli"]}},
     {lw:["Wouhe","su","liani","apa","wouhile"],
      en:"The mountain is taller than the hill."},
     {lw:["Ne","nawu","nouwe","lai","ahu","sai","shafanea"],
@@ -3355,7 +3355,7 @@ const V = {
     {lw:["Lo lawe","maweo","mawe","wa","nahu","na","nea"],
      en:"Today grandmother (mother's mother) cooked for us.",
      cloze:{blanks:[1,5], bank:["maweo","paweo","na","ko","ka","so"]}},
-    {lw:["Neo","paweo","pawe","taiweli","liru","ko","ne"],
+    {lw:["Neo","paweo","pawe","liru","ko","ne","taiweli"],
      en:"My grandfather (paternal) always talks with me."},
     {lw:["Vi","te","wamu","maweo","pawe","ve","wu","houli"],
      en:"If you like grandfather (maternal), he will be happy.",
@@ -3442,7 +3442,7 @@ const V = {
     {lw:["Vi","te","tiru","neo","loyeo","nowe","te","wu","wamu","ve"],
      en:"If you see my nephew (via brother), you will like him.",
      cloze:{blanks:[0,4], bank:["vi","mavi","loyeo","yoyeo","noweo","noyeo"]}},
-    {lw:["Neo","yoyeo","noye","taiweli","liru","ko","veo","mawe"],
+    {lw:["Neo","yoyeo","noye","liru","ko","veo","mawe","taiweli"],
      en:"My niece (via sister) always talks with her mother."},
   ],
 
@@ -3466,9 +3466,9 @@ const V = {
      en:"Your granddaughter (via son) is healthy."},
     {lw:["Neo","noyeo","nowe","nawu","shawome"],
      en:"My grandson (via daughter) loves the ocean."},
-    {lw:["Neoa","noweo","nowe","taiweli","koulu","nea"],
+    {lw:["Neoa","noweo","nowe","koulu","nea","taiweli"],
      en:"Our grandson (via son) always visits us.",
-     cloze:{blanks:[1,3], bank:["noweo","noyeo","taiweli","saiweli","naiweli","nuliweli"]}},
+     cloze:{blanks:[1,5], bank:["noweo","noyeo","taiweli","saiweli","naiweli","nuliweli"]}},
     {lw:["Lo lawe","neo","noweo","noye","wa","vanu","so","neo","hiwe"],
      en:"Today, my granddaughter (via son) came to my house."},
     {lw:["Vi","ne","wa","ahu","sai","wele","ne","wu","liru","ko","neo","noyeo","nowe"],
@@ -3493,7 +3493,7 @@ const V = {
     {lw:["Veo","paweo","yoye","su","nawi","yaure"],
      en:"Her aunt (paternal) is a loving woman.",
      cloze:{blanks:[1,2], bank:["paweo","maweo","yoye","loye","yaure","paure"]}},
-    {lw:["Teo","loyeo","nowe","taiweli","koulu","te"],
+    {lw:["Teo","loyeo","nowe","koulu","te","taiweli"],
      en:"Your nephew (via brother) always visits you."},
     {lw:["Neo","noyeo","noye","wa","tahu","lo lawe"],
      en:"My granddaughter (via daughter) ate today."},
@@ -3504,7 +3504,7 @@ const V = {
      en:"Her niece (via sister) is the most beautiful girl."},
     {lw:["Lo lawe","neo","paweo","pawe","wa","nahu","na","nea"],
      en:"Today, my grandfather (paternal) cooked for us."},
-    {lw:["Neo","maweo","maweo","mawe","taiweli","wa","liru","ko","ne"],
+    {lw:["Neo","maweo","maweo","mawe","wa","liru","ko","ne","taiweli"],
      en:"My great-grandmother (mother's mother's mother) always spoke with me.",
      cloze:{blanks:[1,2], bank:["maweo","paweo","loyeo","yoyeo","noweo","noyeo"]}},
     {lw:["Faloa","piwea","su","neoa","loyeoa","nowea"],
@@ -5015,9 +5015,9 @@ const V = {
   // 6 vocab lessons. Cloze on 4 sentences (S1, S4, S7, S10) testing
   // L188, L189, L191, and L192 anchor forms.
   l194_cultural_abstract_exam: [
-    {lw:["Peihi","pue","taiweli","noiru"],
+    {lw:["Peihi","pue","noiru","taiweli"],
      en:"An honest person always tells the truth.",
-     cloze:{blanks:[0,3], bank:["peihi","noiru","noire","monoiru","peihe","pue"]}},
+     cloze:{blanks:[0,2], bank:["peihi","noiru","noire","monoiru","peihe","pue"]}},
     {lw:["Ne","mai","felu","veo","monoire"],
      en:"I do not believe his lie."},
     {lw:["Moe","su","niwa","lohe","sho","molohe"],
@@ -6161,9 +6161,9 @@ const V = {
      en:"I do not see my phone."},
     {lw:["Ne","yauwu","neo","seihe"],
      en:"I continue my study."},
-    {lw:["Ne","ouhi","wa","toyu","neo","piruhe"],
+    {lw:["Ne","wa","toyu","neo","piruhe","ouhi"],
      en:"I already finished my plan.",
-     cloze:{blanks:[1,5], bank:["ouhi","piruhe","yauwi","feuhe","wa","neo"]}},
+     cloze:{blanks:[5,4], bank:["ouhi","piruhe","yauwi","feuhe","wa","neo"]}},
     {lw:["Ne","liru","wole","ne","halu"],
      en:"I sing while I go."},
     {lw:["Lo","voure","su","kavi","ma","ne","wu","mokavu","ve"],
@@ -6530,7 +6530,7 @@ const V = {
     {lw:"noihe", en:"almostness (or near-miss)", pos:"n",
      canvas:{adj:"noihi", adj_en:"almost (or nearly)",
              v:"noihu", v_en:"to come close to"},
-     intro:"<p><em>Noihi</em> means &ldquo;almost&rdquo; — an adverb that sits before or after the verb: <em>Ne wa noihi toyu.</em> (I almost finished.) The verb <em>noihu</em> means &ldquo;to come close to&rdquo; achieving something.</p>"},
+     intro:"<p><em>Noihi</em> means &ldquo;almost&rdquo; — an adverb that follows the verb (and any object), like every other adverb: <em>Ne wa toyu neo piruhe noihi.</em> (I almost finished my plan.) The verb <em>noihu</em> means &ldquo;to come close to&rdquo; achieving something.</p>"},
   ],
 
   // L252 — Agreement & Carefulness (vocab; 4 roots, 11 forms)
@@ -6636,7 +6636,7 @@ const V = {
      cloze:{blanks:[3,7], bank:["nohili","luiwu","noihi","kiliru","sho","ne"]}},
     {lw:["Su","tohe","shani"],
      en:"It is four o'clock."},
-    {lw:["Ne","wa","noihi","toyu","neo","piruhe"],
+    {lw:["Ne","wa","toyu","neo","piruhe","noihi"],
      en:"I almost finished my plan."},
     {lw:["Nea","niohu","lai","lo","laohe","su","lohi"],
      en:"We agree that this event is good."},
@@ -6680,7 +6680,7 @@ const V = {
      cloze:{blanks:[1,3], bank:["lai","wamu","sho","vi","nawu","vanu","ne","wu"]}},
     {lw:["Ne","lenu","lai","te","wu","vanu"],
      en:"I trust that you will come."},
-    {lw:["Ne","naiweli","liru","ko","neo","wame"],
+    {lw:["Ne","liru","ko","neo","wame","naiweli"],
      en:"I often speak with my friend."},
     {lw:["Saipue","wa","vehu","ne","saihue","wauli"],
      en:"Someone showed me something beautiful."},
@@ -7797,7 +7797,7 @@ const LESSONS = [
    vocabKey:"l100_vocab_frequency_basic",
    xp:22,
    unit:17,
-   intro:`<h3>🕒 Frequency adverbs</h3><p>How often does something happen? Liru builds frequency adverbs from a quantifier plus <em>weli</em> (\"times\"):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> (all) + <em>weli</em></td><td style="padding:4px 12px">→ <em>taiweli</em> — always</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nai</em> (many) + <em>weli</em></td><td style="padding:4px 12px">→ <em>naiweli</em> — often</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> (some) + <em>weli</em></td><td style="padding:4px 12px">→ <em>saiweli</em> — sometimes</td></tr></table><p>The pattern is regular: <strong>quantifier + weli = how-often word</strong>. You'll meet the two polar members (<em>nuliweli</em> never, <em>faiweli</em> ever) in the next lesson.</p><h3>📍 Where they sit in the sentence</h3><p>Frequency adverbs go in the standard adverb slot — <strong>before the verb</strong> — the same slot <em>ori</em> (very) and <em>noihi</em> (almost) occupy:</p><span class="example">Ne taiweli tahu. <span class="gloss">I always eat.</span></span><span class="example">Maya naiweli halu so mouleyahe. <span class="gloss">Maya often goes to the garden.</span></span><span class="example">Yuna saiweli liru ko ne. <span class="gloss">Yuna sometimes speaks with me.</span></span><p>With past or future tense particles (<em>wa</em>, <em>wu</em>), the frequency adverb still sits before the verb — the tense particle comes between them:</p><span class="example">Ne taiweli wa tahu. <span class="gloss">I always ate.</span></span>`,
+   intro:`<h3>🕒 Frequency adverbs</h3><p>How often does something happen? Liru builds frequency adverbs from a quantifier plus <em>weli</em> (\"times\"):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> (all) + <em>weli</em></td><td style="padding:4px 12px">→ <em>taiweli</em> — always</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nai</em> (many) + <em>weli</em></td><td style="padding:4px 12px">→ <em>naiweli</em> — often</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> (some) + <em>weli</em></td><td style="padding:4px 12px">→ <em>saiweli</em> — sometimes</td></tr></table><p>The pattern is regular: <strong>quantifier + weli = how-often word</strong>. You'll meet the two polar members (<em>nuliweli</em> never, <em>faiweli</em> ever) in the next lesson.</p><h3>📍 Where they sit in the sentence</h3><p>Frequency adverbs follow the verb and any object — the same position every adverb takes in Liru:</p><span class="example">Ne tahu taiweli. <span class="gloss">I always eat.</span></span><span class="example">Maya halu so mouleyahe naiweli. <span class="gloss">Maya often goes to the garden.</span></span><span class="example">Yuna liru ko ne saiweli. <span class="gloss">Yuna sometimes speaks with me.</span></span><p>With past or future tense particles (<em>wa</em>, <em>wu</em>), the tense particle stays right before the verb. The frequency adverb still sits at the end:</p><span class="example">Ne wa tahu taiweli. <span class="gloss">I always ate.</span></span>`,
    srsExtras:["weli"]},
 
   {id:"l101_vocab_frequency_polar",
@@ -7807,7 +7807,7 @@ const LESSONS = [
    vocabKey:"l101_vocab_frequency_polar",
    xp:24,
    unit:17,
-   intro:`<h3>🔁 The polar frequency adverbs</h3><p>Two more from the <em>quantifier + weli</em> pattern, at the two extremes:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> (zero) + <em>weli</em></td><td style="padding:4px 12px">→ <em>nuliweli</em> — never</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> (any) + <em>weli</em></td><td style="padding:4px 12px">→ <em>faiweli</em> — ever / at any time</td></tr></table><p><em>nuliweli</em> carries its own negation — you don't need <em>mai</em> with it. <em>faiweli</em> is the free-choice form most often seen in questions and after <em>mai</em>:</p><span class="example">Ne nuliweli wa koulu Yuna. <span class="gloss">I have never visited Yuna.</span></span><span class="example">Ki te faiweli wa koulu Maya? <span class="gloss">Have you ever visited Maya?</span></span><h3>📖 \"Rarely\" and emphatic \"never\"</h3><p>There's no single word for \"rarely.\" Liru uses <em>mai naiweli</em> — literally \"not often\":</p><span class="example">Ne mai naiweli halu so loya. <span class="gloss">I rarely come here.</span></span><p>An emphatic \"never\" can be rendered <em>mai faiweli</em> — \"not at any time, ever\":</p><span class="example">Ve mai faiweli wa liru ko ne. <span class="gloss">She has never (ever) spoken with me.</span></span><h3>🆕 A verb that loves frequency: <em>koulu</em></h3><p>Visiting is the prototypical \"how often\" verb. Its full canvas:</p><ul><li><em>koule</em> (n.) — a visit</li><li><em>kouli</em> (adj.) — visited</li><li><em>koulu</em> (v.) — to visit</li></ul><p>You'll meet all three; the verb does most of the work in conversation.</p>`,
+   intro:`<h3>🔁 The polar frequency adverbs</h3><p>Two more from the <em>quantifier + weli</em> pattern, at the two extremes:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> (zero) + <em>weli</em></td><td style="padding:4px 12px">→ <em>nuliweli</em> — never</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> (any) + <em>weli</em></td><td style="padding:4px 12px">→ <em>faiweli</em> — ever / at any time</td></tr></table><p><em>nuliweli</em> carries its own negation — you don't need <em>mai</em> with it. <em>faiweli</em> is the free-choice form most often seen in questions and after <em>mai</em>:</p><span class="example">Ne wa koulu Yuna nuliweli. <span class="gloss">I have never visited Yuna.</span></span><span class="example">Ki te wa koulu Maya faiweli? <span class="gloss">Have you ever visited Maya?</span></span><h3>📖 \"Rarely\" and emphatic \"never\"</h3><p>There's no single word for \"rarely\" in Liru. You build it by negating \"often\": <em>mai</em> sits right before the verb, <em>naiweli</em> sits at the end of the clause. The two pieces are not adjacent — you assemble \"rarely\" from both ends of the sentence:</p><span class="example">Ne mai halu so loya naiweli. <span class="gloss">I rarely come here. (lit. \"I do not come here often.\")</span></span><p>Emphatic \"never\" works the same way with <em>faiweli</em> — literally \"not at any time, ever\":</p><span class="example">Ve mai wa liru ko ne faiweli. <span class="gloss">She has never (ever) spoken with me.</span></span><h3>🆕 A verb that loves frequency: <em>koulu</em></h3><p>Visiting is the prototypical \"how often\" verb. Its full canvas:</p><ul><li><em>koule</em> (n.) — a visit</li><li><em>kouli</em> (adj.) — visited</li><li><em>koulu</em> (v.) — to visit</li></ul><p>You'll meet all three; the verb does most of the work in conversation.</p>`,
    srsExtras:["fai"]},
 
   {id:"l102_frequency_sentences",
@@ -7818,7 +7818,7 @@ const LESSONS = [
    xp:24,
    unit:17,
    isSentence:true,
-   intro:`<h3>⏱️ All five together</h3><p>You now know the full set:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>taiweli</em></td><td style="padding:4px 12px">always</td></tr><tr><td style="padding:4px 12px"><em>naiweli</em></td><td style="padding:4px 12px">often</td></tr><tr><td style="padding:4px 12px"><em>saiweli</em></td><td style="padding:4px 12px">sometimes</td></tr><tr><td style="padding:4px 12px"><em>mai naiweli</em></td><td style="padding:4px 12px">rarely</td></tr><tr><td style="padding:4px 12px"><em>nuliweli</em></td><td style="padding:4px 12px">never</td></tr><tr><td style="padding:4px 12px"><em>faiweli</em></td><td style="padding:4px 12px">ever (in questions, or after <em>mai</em>)</td></tr></table><p>This lesson drills placement and pairing. Pay attention to where the adverb sits relative to the tense particle — <em>wa</em> and <em>wu</em> always come <strong>between</strong> the frequency adverb and the verb.</p>`},
+   intro:`<h3>⏱️ All five together</h3><p>You now know the full set:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>taiweli</em></td><td style="padding:4px 12px">always</td></tr><tr><td style="padding:4px 12px"><em>naiweli</em></td><td style="padding:4px 12px">often</td></tr><tr><td style="padding:4px 12px"><em>saiweli</em></td><td style="padding:4px 12px">sometimes</td></tr><tr><td style="padding:4px 12px"><em>mai ... naiweli</em></td><td style="padding:4px 12px">rarely (split across the clause)</td></tr><tr><td style="padding:4px 12px"><em>nuliweli</em></td><td style="padding:4px 12px">never</td></tr><tr><td style="padding:4px 12px"><em>faiweli</em></td><td style="padding:4px 12px">ever (in questions, or paired with <em>mai</em>)</td></tr></table><p>This lesson drills placement and pairing. The frequency adverb sits at the <strong>end</strong> of the clause, after the verb and any object. When the sentence is negated, <em>mai</em> stays right before the verb and the adverb still goes at the end — \"rarely\" and emphatic \"never\" are discontinuous constructions, not adjacent phrases.</p>`},
 
   {id:"l103_vocab_paths",
    title:"Paths — Through, Across, Near, Far",
@@ -13382,6 +13382,20 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>Ve wa liru lire.</em></td><td>She sang a song.</td></tr>
     <tr><td><em>Nea wu tahu houme.</em></td><td>We will eat bread.</td></tr>
     </tbody></table></div>
+    <div class="grammar-sub-header">Adverbs come after the verb</div>
+    <p>All adverbs follow the verb (and the object, if there is one). This applies uniformly — manner ("how"), temporal ("when"), frequency ("how often"), and approximative ("almost").</p>
+    <ul>
+      <li><em>Ne loisu loiwe sairi.</em> — I read the book quickly.</li>
+      <li><em>Ne wu su peiwi wuhi.</em> — I will be ready soon.</li>
+      <li><em>Ne loisu loiwea taiweli.</em> — I always read books.</li>
+      <li><em>Ne wa keyu noihi.</em> — I almost fell.</li>
+    </ul>
+    <p>The negator <em>mai</em> keeps its own placement — right before the verb or tense particle. When you negate a frequency adverb to mean "rarely," "not yet," or emphatic "never," <em>mai</em> stays glued to the verb and the adverb still goes at the end. The two pieces are not adjacent.</p>
+    <ul>
+      <li><em>Ne mai halu so loya naiweli.</em> — I rarely come here.</li>
+      <li><em>Ne mai wa loisu lo loiwe yauwi.</em> — I haven't read this book yet.</li>
+    </ul>
+    <p>The intensifier <em>ori</em> ("very") is different — it modifies adjectives, not verbs, and sits <strong>before</strong> the adjective: <em>Lo loshe su ori wauli</em> (this flower is very beautiful).</p>
     <div class="grammar-sub-header">Modifiers come before the noun</div>
     <p>Adjectives and possessors both sit <strong>before</strong> the noun.</p>
     <ul>
@@ -13628,7 +13642,7 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>noihi</em></td><td>almost</td></tr>
     <tr><td><em>ori</em></td><td>very / really</td></tr>
     </tbody></table></div>
-    <p>"Rarely" is just <em>mai naiweli</em> (not often). "Not yet" is <em>mai yauwi</em>. Emphatic "never" can also be <em>mai faiweli</em> (not ever).</p>
+    <p>"Rarely," "not yet," and emphatic "never" are <strong>discontinuous</strong> in Liru: <em>mai</em> sits before the verb and the adverb sits at the end of the clause. The two pieces are not adjacent — for example, "I rarely come here" is <em>Ne mai halu so loya naiweli</em>, with <em>mai</em> and <em>naiweli</em> on opposite ends. Same pattern for <em>mai ... yauwi</em> ("not yet") and <em>mai ... faiweli</em> (emphatic "never").</p>
     <p>"Early" and "late" are compositional: <em>wale houpi</em> (before expected) and <em>wule houpi</em> (after expected).</p>`
   },
   {
@@ -14297,8 +14311,6 @@ const DICTIONARY_RAW = [
   {lw:"luwi", en:"rabbit-related", pos:"adj", adj_tier:"mechanical"},
   {lw:"ma", en:"but", pos:"conj"},
   {lw:"mai", en:"not (negation)", pos:"particle"},
-  {lw:"mai naiweli", en:"rarely (lit. not often)", pos:"phrase", note:"From mai (not) + naiweli (often) \u2014 rarely"},
-  {lw:"mai yauwi", en:"not yet", pos:"phrase", note:"From mai (not) + yauwi (still)"},
   {lw:"maihe", en:"message", pos:"n"},
   {lw:"maihi", en:"sent (as a message)", pos:"adj"},
   {lw:"maihu", en:"to send a message (or text, write to)", pos:"v"},
