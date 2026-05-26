@@ -6740,6 +6740,48 @@ const V = {
              v:"mamu", v_en:"to hug (or embrace)"},
      intro:"<p><em>Mame</em> is a hug or embrace. The verb <em>mamu</em> is &ldquo;to hug&rdquo; — transitive: <em>Ne wu mamu te</em> (I will hug you). The adjective <em>mami</em> describes someone affectionate by nature. Sits warmly in the lexicon alongside <em>nawe</em> (love) and <em>louhe</em> (respect).</p>"},
   ],
+
+  // ── Living Liru ──────────────────────────────────────────
+  // L259 — Late May 2026 Additions. Seven new root families and
+  // one in-place gloss refresh. Several are partial canvases
+  // (noun-only, noun+adj only, or adjective-only) — deliberate
+  // narrowings to avoid collisions with existing roots. The
+  // wauye gloss refresh (drop "or rightful" from the adjective)
+  // is NOT in this lesson — it's an in-place fix to core-course
+  // content and lives in its original lesson.
+  l259_living_late_may2026: [
+    {lw:"mahore", en:"a right (or entitlement)", pos:"n",
+     canvas:{adj:"mahori", adj_en:"rightful (or entitled)",
+             v:"mahoru", v_en:"to grant a right (or authorize)"},
+     intro:"<p><em>Mahore</em> is an abstract right or entitlement — the kind of thing a person has a claim to. The verb <em>mahoru</em> means &ldquo;to grant a right&rdquo; or &ldquo;to authorize&rdquo; — to give someone permission or standing to do something. Distinct from <em>wauye</em> (concrete belonging / ownership) and <em>hune</em> (right as in the direction, not the entitlement).</p>"},
+    {lw:"taware", en:"conscience (moral compass)", pos:"n",
+     canvas:{adj:"tawari", adj_en:"conscientious"},
+     intro:"<p><em>Taware</em> is conscience — the inner moral sense. The adjective <em>tawari</em> describes a person guided by careful moral weight. No verb form: conscience is something you have or follow, not something you actively do. To say someone &ldquo;is conscientious,&rdquo; use <em>su tawari</em>. Distinct from <em>nauhe</em> (the feeling of guilt or remorse) — <em>taware</em> is the faculty, <em>nauhe</em> is the feeling.</p>"},
+    {lw:"shinole", en:"dignity", pos:"n",
+     canvas:{adj:"shinoli", adj_en:"dignified (or honorable)",
+             v:"shinolu", v_en:"to dignify (or treat with worth)"},
+     intro:"<p><em>Shinole</em> is dignity — the inherent worth of a person. The verb <em>shinolu</em> is transitive: to dignify someone is to treat them with that inherent worth, to elevate or honor them. The adjective <em>shinoli</em> describes a person or action that carries that quality.</p>"},
+    {lw:"fime", en:"a fold (or crease)", pos:"n",
+     canvas:{adj:"fimi", adj_en:"folded",
+             v:"fimu", v_en:"to fold"},
+     intro:"<p><em>Fime</em> is a fold or crease — the noun for the act or its result. The verb <em>fimu</em> is &ldquo;to fold&rdquo; (paper, cloth, anything). Use it for the physical action: <em>Ne wu fimu loihe</em> (I will fold the paper).</p>"},
+    {lw:"nafe", en:"trash (or waste)", pos:"n",
+     intro:"<p><em>Nafe</em> is trash, waste, or garbage — the physical stuff you throw away. Noun only: the verb &ldquo;to throw away&rdquo; is <em>momehu</em> (already taught), and the adjective &ldquo;discarded&rdquo; is <em>momehi</em>. <em>Nafe</em> fills the noun-side gap that <em>momehe</em> (the act of discarding) doesn't cover.</p>"},
+    {lw:"washune", en:"travel (or a journey)", pos:"n",
+     canvas:{adj:"washuni", adj_en:"traveling (or nomadic)",
+             v:"washunu", v_en:"to travel"},
+     intro:"<p><em>Washune</em> is travel or a journey. The verb <em>washunu</em> is &ldquo;to travel&rdquo; — distinct from <em>halu</em> (the basic verb &ldquo;to go&rdquo;). <em>Washune</em> shares its onset with <em>washe</em> (movement) — travel is conceptually extended movement, and the sound family reinforces that. The agent form is <em>washunupue</em> &ldquo;traveler&rdquo; — someone who travels.</p>"},
+    {lw:"washunupue", en:"traveler", pos:"n",
+     intro:"<p><em>Washunupue</em> is a traveler — formed from <em>washunu</em> (to travel) + <em>-pue</em> (agent suffix). Same pattern as <em>mauhupue</em> (student, from <em>mauhu</em>) or <em>shaihupue</em> (sailor, from <em>shaihu</em>).</p>"},
+    {lw:"yashime", en:"logic", pos:"n",
+     canvas:{adj:"yashimi", adj_en:"logical",
+             v:"yashimu", v_en:"to reason (or deduce)"},
+     intro:"<p><em>Yashime</em> is logic — the faculty of reasoning. The verb <em>yashimu</em> is &ldquo;to reason&rdquo; or &ldquo;to deduce&rdquo; — to work something out by logical steps. The adjective <em>yashimi</em> describes a logical person, statement, or argument. The <em>mo-</em> prefix gives <em>moyashimi</em> &ldquo;illogical.&rdquo;</p>"},
+    {lw:"yashimepue", en:"logician", pos:"n",
+     intro:"<p><em>Yashimepue</em> is a logician — formed from <em>yashime</em> (logic) + <em>-pue</em> (agent suffix). Someone whose work or thinking is grounded in logic.</p>"},
+    {lw:"moyashimi", en:"illogical", pos:"adj",
+     intro:"<p><em>Moyashimi</em> is &ldquo;illogical&rdquo; — formed by adding the balancing prefix <em>mo-</em> to <em>yashimi</em>. Liru doesn't coin <em>moyashime</em> &ldquo;illogic&rdquo; or <em>moyashimu</em> &ldquo;to be illogical&rdquo; — the adjective is what's actually needed.</p>"},
+  ],
 };
 
 // Free-text writing prompts (used by free-text lessons when added).
@@ -6815,6 +6857,7 @@ const UNITS = [
   // represents a batch of new vocabulary added after the main course
   // shipped. See lesson_principles.md §14.
   {name:"May 2026 Additions", start:252, track:"living"},
+  {name:"Late May 2026 Additions", start:253, track:"living"},
 ];
 
 // LESSONS = flat array of lesson definitions. Each lesson has:
@@ -9349,6 +9392,14 @@ const LESSONS = [
    vocabKey:"l258_living_may2026",
    xp:20,
    unit:42,
+   track:"living"},
+  {id:"l259_living_late_may2026",
+   title:"Late May 2026 Additions",
+   desc:"Seven new root families: mahore (right), taware (conscience), shinole (dignity), fime (fold), nafe (trash), washune (travel), yashime (logic)",
+   icon:"\ud83c\udf31",
+   vocabKey:"l259_living_late_may2026",
+   xp:25,
+   unit:43,
    track:"living"},
 ];
 
@@ -14006,6 +14057,9 @@ const DICTIONARY_RAW = [
   {lw:"feyali", en:"red", pos:"adj"},
   {lw:"feyalu", en:"to redden", pos:"v"},
   {lw:"file", en:"until", pos:"conj"},
+  {lw:"fime", en:"fold", pos:"n"},
+  {lw:"fimi", en:"folded", pos:"adj"},
+  {lw:"fimu", en:"to fold", pos:"v"},
   {lw:"fiwe", en:"wind", pos:"n"},
   {lw:"fiwi", en:"windy", pos:"adj"},
   {lw:"fiwu", en:"to blow (as wind)", pos:"v"},
@@ -14376,6 +14430,9 @@ const DICTIONARY_RAW = [
   {lw:"luwe", en:"rabbit", pos:"n"},
   {lw:"luwi", en:"rabbit-related", pos:"adj", adj_tier:"mechanical"},
   {lw:"ma", en:"but", pos:"conj"},
+  {lw:"mahore", en:"right (entitlement)", pos:"n"},
+  {lw:"mahori", en:"rightful (or entitled)", pos:"adj"},
+  {lw:"mahoru", en:"to grant a right (or authorize)", pos:"v"},
   {lw:"mai", en:"not (negation)", pos:"particle"},
   {lw:"maihe", en:"message", pos:"n"},
   {lw:"maihi", en:"sent (as a message)", pos:"adj"},
@@ -14744,6 +14801,7 @@ const DICTIONARY_RAW = [
   {lw:"mowounu", en:"to lower (or set down)", pos:"v"},
   {lw:"moyashe", en:"foolishness", pos:"n"},
   {lw:"moyashi", en:"unwise", pos:"adj"},
+  {lw:"moyashimi", en:"illogical", pos:"adj"},
   {lw:"moyeihe", en:"confusion", pos:"n"},
   {lw:"moyeihi", en:"confused", pos:"adj"},
   {lw:"moyeihu", en:"to confuse (or bewilder)", pos:"v"},
@@ -14769,6 +14827,7 @@ const DICTIONARY_RAW = [
   {lw:"muyu", en:"to mix (or stir)", pos:"v"},
   {lw:"na", en:"for", pos:"prep"},
   {lw:"nae", en:"abundance", pos:"n"},
+  {lw:"nafe", en:"trash (or waste)", pos:"n"},
   {lw:"nahe", en:"kitchen", pos:"n"},
   {lw:"nahi", en:"cooking-related", pos:"adj"},
   {lw:"nahu", en:"to cook", pos:"v"},
@@ -15197,6 +15256,9 @@ const DICTIONARY_RAW = [
   {lw:"shihe", en:"obligation", pos:"n"},
   {lw:"shihi", en:"proper (or fitting)", pos:"adj"},
   {lw:"shihu", en:"to ought to (should)", pos:"v"},
+  {lw:"shinole", en:"dignity", pos:"n"},
+  {lw:"shinoli", en:"dignified (or honorable)", pos:"adj"},
+  {lw:"shinolu", en:"to dignify (or treat with worth)", pos:"v"},
   {lw:"shire", en:"creation", pos:"n"},
   {lw:"shiri", en:"creative (or creatively)", pos:"adj"},
   {lw:"shiru", en:"to make (or create)", pos:"v"},
@@ -15295,6 +15357,8 @@ const DICTIONARY_RAW = [
   {lw:"taupoyi", en:"window-related", pos:"adj"},
   {lw:"tauwe", en:"wall", pos:"n"},
   {lw:"tauwi", en:"wall-related", pos:"adj"},
+  {lw:"taware", en:"conscience (moral compass)", pos:"n"},
+  {lw:"tawari", en:"conscientious", pos:"adj"},
   {lw:"tawe", en:"push", pos:"n"},
   {lw:"tawi", en:"pushed", pos:"adj"},
   {lw:"tawu", en:"to push", pos:"v"},
@@ -15452,6 +15516,10 @@ const DICTIONARY_RAW = [
   {lw:"washe", en:"movement (or flow)", pos:"n"},
   {lw:"washi", en:"flowing (or mobile)", pos:"adj"},
   {lw:"washu", en:"to move (or flow)", pos:"v"},
+  {lw:"washune", en:"travel (or a journey)", pos:"n"},
+  {lw:"washuni", en:"traveling (or nomadic)", pos:"adj"},
+  {lw:"washunu", en:"to travel", pos:"v"},
+  {lw:"washunupue", en:"traveler", pos:"n"},
   {lw:"waule", en:"beauty", pos:"n"},
   {lw:"wauli", en:"beautiful/handsome (or beautifully)", pos:"adj"},
   {lw:"waulu", en:"to make beautiful (or beautify)", pos:"v"},
@@ -15464,7 +15532,7 @@ const DICTIONARY_RAW = [
   {lw:"wauwe", en:"basket", pos:"n"},
   {lw:"wauwi", en:"basket-related", pos:"adj"},
   {lw:"wauye", en:"belonging", pos:"n"},
-  {lw:"wauyi", en:"belonging (or rightful)", pos:"adj"},
+  {lw:"wauyi", en:"belonging", pos:"adj"},
   {lw:"wauyu", en:"to belong", pos:"v"},
   {lw:"weihe", en:"repetition", pos:"n"},
   {lw:"weihi", en:"again", pos:"adj"},
@@ -15519,6 +15587,10 @@ const DICTIONARY_RAW = [
   {lw:"yanini", en:"ninth", pos:"adj", note:"From yani (9) + -ni ordinal suffix"},
   {lw:"yashe", en:"cleverness", pos:"n"},
   {lw:"yashi", en:"smart (or clever)", pos:"adj"},
+  {lw:"yashime", en:"logic", pos:"n"},
+  {lw:"yashimi", en:"logical", pos:"adj"},
+  {lw:"yashimu", en:"to reason (or deduce)", pos:"v"},
+  {lw:"yashimepue", en:"logician", pos:"n"},
   {lw:"yauhe", en:"morning", pos:"n"},
   {lw:"yauhi", en:"of the morning", pos:"adj"},
   {lw:"yaume", en:"flavor", pos:"n"},
