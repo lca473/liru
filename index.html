@@ -10020,16 +10020,20 @@ async function finishLogin(name){
       // See DECISIONS.md "Cross-device SRS merge".
       {
         const stateFix=srsLoadState(user.username);
+        console.log("[SRS-DIAG] lastSyncBackfillDone flag at finishLogin =",stateFix.lastSyncBackfillDone,"local card count =",Object.keys(localCards).length);
         if(!stateFix.lastSyncBackfillDone){
-          let zeroed=0;
+          let zeroed=0,already=0;
           for(const id in localCards){
             if(localCards[id].lastSync==null){
               localCards[id].lastSync=0;
               zeroed++;
+            }else{
+              already++;
             }
           }
-          if(zeroed>0)console.log("[SRS] backfilled lastSync=0 on",zeroed,"legacy local cards for",user.username);
+          console.log("[SRS-DIAG] reconciliation: zeroed lastSync on",zeroed,"cards, left alone",already,"cards that already had lastSync");
           stateFix.lastSyncBackfillDone=true;
+          srsSaveCards(user.username,localCards);  // persist zeroed lastSync so it survives if anything throws later
           srsSaveState(user.username,stateFix);
           srsSyncState(user.username,stateFix);
         }
@@ -10262,23 +10266,51 @@ async function srsPullFromCloud(username){
 // during the one-time reconciliation pass for users with mixed-state decks.
 function srsMergeCloudCards(localCards,cloudCards){
   let changes=0;
+  // DIAGNOSTIC (2026-05-25 — remove once cross-device merge bug is verified fixed):
+  // Count how many cards on each side have a real lastSync, and tally merge outcomes.
+  let cloudWithSync=0,cloudWithoutSync=0,localWithSync=0,localWithoutSync=0;
+  let cloudWon=0,localWon=0,tiedNoChange=0,newFromCloud=0;
+  let sampleCloudWonId=null,sampleLocalWonId=null,sampleTiedId=null;
   for(const id in cloudCards){
     const cloud=cloudCards[id];
     const local=localCards[id];
+    if(cloud.lastSync!=null)cloudWithSync++;else cloudWithoutSync++;
     if(!local){
       // New from cloud — adopt directly
       localCards[id]=cloud;
       changes++;
+      newFromCloud++;
       continue;
     }
+    if(local.lastSync!=null)localWithSync++;else localWithoutSync++;
     // Both sides exist; pick the more recent
     const cloudT=cloud.lastSync||0;
     const localT=local.lastSync||0;
     if(cloudT>localT){
       localCards[id]=cloud;
       changes++;
+      cloudWon++;
+      if(!sampleCloudWonId)sampleCloudWonId=id;
+    }else if(localT>cloudT){
+      localWon++;
+      if(!sampleLocalWonId)sampleLocalWonId=id;
+    }else{
+      tiedNoChange++;
+      if(!sampleTiedId)sampleTiedId=id;
     }
   }
+  console.log("[SRS-DIAG] merge summary:",{
+    newFromCloud,cloudWon,localWon,tiedNoChange,
+    cloudWithSync,cloudWithoutSync,localWithSync,localWithoutSync
+  });
+  if(sampleCloudWonId)console.log("[SRS-DIAG] sample cloud-won card:",sampleCloudWonId,
+    "cloud=",JSON.stringify({lastSync:cloudCards[sampleCloudWonId].lastSync,interval:cloudCards[sampleCloudWonId].interval,due:cloudCards[sampleCloudWonId].due}));
+  if(sampleLocalWonId)console.log("[SRS-DIAG] sample local-won card:",sampleLocalWonId,
+    "cloud=",JSON.stringify({lastSync:cloudCards[sampleLocalWonId].lastSync,interval:cloudCards[sampleLocalWonId].interval}),
+    "local=",JSON.stringify({lastSync:localCards[sampleLocalWonId].lastSync,interval:localCards[sampleLocalWonId].interval}));
+  if(sampleTiedId)console.log("[SRS-DIAG] sample tied card:",sampleTiedId,
+    "cloud=",JSON.stringify({lastSync:cloudCards[sampleTiedId].lastSync,interval:cloudCards[sampleTiedId].interval}),
+    "local=",JSON.stringify({lastSync:localCards[sampleTiedId].lastSync,interval:localCards[sampleTiedId].interval}));
   return changes;
 }
 
