@@ -10007,6 +10007,33 @@ async function finishLogin(name){
         }
         if(dropped>0)console.log("[SRS] mirror dropped",dropped,"local cards missing from cloud for",user.username);
       }
+      // One-time merge-fix reconciliation (2026-05-25). Earlier versions of
+      // srsRate didn't stamp lastSync on the local card, so reviewed cards
+      // had only a future-dated `due` to compare during merge. The merge's
+      // `lastSync || due` fallback then made local stale cards beat cloud's
+      // newer updates, causing persistent cross-device divergence. The
+      // fallback is now gone and srsRate stamps lastSync locally, but legacy
+      // cards already in localStorage still lack the field. Zero out their
+      // lastSync so cloud (which has a real timestamp for every rate that
+      // ever synced) wins the upcoming merge on first post-fix login. After
+      // this one-time pass, both devices converge on cloud's canonical view.
+      // See DECISIONS.md "Cross-device SRS merge".
+      {
+        const stateFix=srsLoadState(user.username);
+        if(!stateFix.lastSyncBackfillDone){
+          let zeroed=0;
+          for(const id in localCards){
+            if(localCards[id].lastSync==null){
+              localCards[id].lastSync=0;
+              zeroed++;
+            }
+          }
+          if(zeroed>0)console.log("[SRS] backfilled lastSync=0 on",zeroed,"legacy local cards for",user.username);
+          stateFix.lastSyncBackfillDone=true;
+          srsSaveState(user.username,stateFix);
+          srsSyncState(user.username,stateFix);
+        }
+      }
       const merged=srsMergeCloudCards(localCards,cloud.cards||{});
       srsSaveCards(user.username,localCards);
       if(cloud.state){
@@ -10178,11 +10205,15 @@ function srsStateFbPath(username){
 }
 
 // Fire-and-forget sync of a single card (called after each rating).
+// Trusts card.lastSync (callers stamp it locally before calling); falls back
+// to Date.now() only if missing, e.g. for callers like srsRefreshAndSync
+// that don't represent a rating event.
 function srsSyncCard(username,cardId,card){
   if(!firebaseReady||!db||!username)return;
   try{
+    const payload={...card,lastSync:card.lastSync||Date.now()};
     db.ref(srsCardFbPath(username,cardId))
-      .set({...card,lastSync:Date.now()})
+      .set(payload)
       .catch(e=>console.warn("[SRS] sync card error:",e));
   }catch(e){console.warn("[SRS] sync card error:",e);}
 }
@@ -10216,7 +10247,19 @@ async function srsPullFromCloud(username){
 }
 
 // Merge cloud cards into the local deck. For each card, the side with the
-// later lastSync (or due, as fallback) wins. Returns count of cards updated.
+// later lastSync wins. Returns count of cards updated.
+//
+// IMPORTANT: this compares lastSync only. An earlier version of this function
+// fell back to `due` when lastSync was missing on either side, which caused
+// the cross-device merge bug: local reviewed cards have due = now + interval*day
+// (a future timestamp) and the cloud copy has lastSync = now (a current
+// timestamp), so the local stale card always beat the cloud's update. With
+// srsRate and srsMakeCard now stamping lastSync on every local write, and
+// finishLogin running a one-time normalization that backfills lastSync onto
+// pre-fix legacy cards, the fallback is no longer needed. Missing lastSync
+// on either side is treated as 0 (oldest possible), so cards that do have
+// lastSync win against cards that don't — which is the correct outcome
+// during the one-time reconciliation pass for users with mixed-state decks.
 function srsMergeCloudCards(localCards,cloudCards){
   let changes=0;
   for(const id in cloudCards){
@@ -10229,8 +10272,8 @@ function srsMergeCloudCards(localCards,cloudCards){
       continue;
     }
     // Both sides exist; pick the more recent
-    const cloudT=cloud.lastSync||cloud.due||0;
-    const localT=local.lastSync||local.due||0;
+    const cloudT=cloud.lastSync||0;
+    const localT=local.lastSync||0;
     if(cloudT>localT){
       localCards[id]=cloud;
       changes++;
@@ -10462,14 +10505,16 @@ async function srsResetAll(username){
 
 // ─── Card creation ──────────────────────────────────────────
 function srsMakeCard(lw,en,pos,dir){
+  const now=Date.now();
   return {
     lw,en,pos,dir,
     ease:SRS_INITIAL_EASE,
     interval:0,           // 0 = new, never reviewed
-    due:Date.now(),       // due immediately when new
+    due:now,              // due immediately when new
     reps:0,
     lapses:0,
-    addedAt:Date.now()
+    addedAt:now,
+    lastSync:now          // local write time — keeps cross-device merge honest
   };
 }
 function srsCardId(lw,dir){return lw+"::"+dir;}
@@ -10670,7 +10715,14 @@ function srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
     try{
       const stamped={};
       const now=Date.now();
-      for(const id in cards){stamped[id]={...cards[id],lastSync:cards[id].lastSync||now};}
+      let touched=false;
+      for(const id in cards){
+        // Backfill lastSync locally if missing; ensures local matches what
+        // we're about to write to cloud, keeping the cross-device merge honest.
+        if(cards[id].lastSync==null){cards[id].lastSync=now;touched=true;}
+        stamped[id]={...cards[id]};
+      }
+      if(touched)srsSaveCards(username,cards);
       // Only push if we have cards to push (don't wipe cloud with an empty deck)
       if(Object.keys(stamped).length>0){
         db.ref("users/"+fbKey(username)+"/srs/cards").update(stamped)
@@ -10721,7 +10773,12 @@ function srsMigrateAddedAtIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
     try{
       const stamped={};
       const now=Date.now();
-      for(const id in cards){stamped[id]={...cards[id],lastSync:cards[id].lastSync||now};}
+      let touched=false;
+      for(const id in cards){
+        if(cards[id].lastSync==null){cards[id].lastSync=now;touched=true;}
+        stamped[id]={...cards[id]};
+      }
+      if(touched)srsSaveCards(username,cards);
       if(Object.keys(stamped).length>0){
         db.ref("users/"+fbKey(username)+"/srs/cards").update(stamped)
           .catch(e=>console.warn("[SRS] migration sync error:",e));
@@ -11282,6 +11339,11 @@ function srsRate(card,rating){
     }
   }
   card.due=now+card.interval*dayMs;
+  // Stamp lastSync locally so the cross-device merge has a meaningful
+  // timestamp to compare. Without this, merge falls back to comparing `due`
+  // (a future time) against cloud's `lastSync` (a current time), and the
+  // local stale card always wins. See DECISIONS.md "Cross-device SRS merge".
+  card.lastSync=now;
   return card;
 }
 
@@ -12398,6 +12460,7 @@ function srsCloseSession(){
     stored.due=Date.now()+86400000;
     stored.reps=(stored.reps||0)+1;
     if((item.sessionLapses||0)>0)stored.lapses=(stored.lapses||0)+1;
+    stored.lastSync=Date.now();   // see srsRate — local timestamp keeps merge honest
     cards[item.card.id]=stored;
     srsSyncCard(username,item.card.id,stored);
     touched++;
