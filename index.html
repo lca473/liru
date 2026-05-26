@@ -10020,20 +10020,16 @@ async function finishLogin(name){
       // See DECISIONS.md "Cross-device SRS merge".
       {
         const stateFix=srsLoadState(user.username);
-        console.log("[SRS-DIAG] lastSyncBackfillDone flag at finishLogin =",stateFix.lastSyncBackfillDone,"local card count =",Object.keys(localCards).length);
         if(!stateFix.lastSyncBackfillDone){
-          let zeroed=0,already=0;
+          let zeroed=0;
           for(const id in localCards){
             if(localCards[id].lastSync==null){
               localCards[id].lastSync=0;
               zeroed++;
-            }else{
-              already++;
             }
           }
-          console.log("[SRS-DIAG] reconciliation: zeroed lastSync on",zeroed,"cards, left alone",already,"cards that already had lastSync");
+          if(zeroed>0)console.log("[SRS] backfilled lastSync=0 on",zeroed,"legacy local cards for",user.username);
           stateFix.lastSyncBackfillDone=true;
-          srsSaveCards(user.username,localCards);  // persist zeroed lastSync so it survives if anything throws later
           srsSaveState(user.username,stateFix);
           srsSyncState(user.username,stateFix);
         }
@@ -10266,51 +10262,23 @@ async function srsPullFromCloud(username){
 // during the one-time reconciliation pass for users with mixed-state decks.
 function srsMergeCloudCards(localCards,cloudCards){
   let changes=0;
-  // DIAGNOSTIC (2026-05-25 — remove once cross-device merge bug is verified fixed):
-  // Count how many cards on each side have a real lastSync, and tally merge outcomes.
-  let cloudWithSync=0,cloudWithoutSync=0,localWithSync=0,localWithoutSync=0;
-  let cloudWon=0,localWon=0,tiedNoChange=0,newFromCloud=0;
-  let sampleCloudWonId=null,sampleLocalWonId=null,sampleTiedId=null;
   for(const id in cloudCards){
     const cloud=cloudCards[id];
     const local=localCards[id];
-    if(cloud.lastSync!=null)cloudWithSync++;else cloudWithoutSync++;
     if(!local){
       // New from cloud — adopt directly
       localCards[id]=cloud;
       changes++;
-      newFromCloud++;
       continue;
     }
-    if(local.lastSync!=null)localWithSync++;else localWithoutSync++;
     // Both sides exist; pick the more recent
     const cloudT=cloud.lastSync||0;
     const localT=local.lastSync||0;
     if(cloudT>localT){
       localCards[id]=cloud;
       changes++;
-      cloudWon++;
-      if(!sampleCloudWonId)sampleCloudWonId=id;
-    }else if(localT>cloudT){
-      localWon++;
-      if(!sampleLocalWonId)sampleLocalWonId=id;
-    }else{
-      tiedNoChange++;
-      if(!sampleTiedId)sampleTiedId=id;
     }
   }
-  console.log("[SRS-DIAG] merge summary:",{
-    newFromCloud,cloudWon,localWon,tiedNoChange,
-    cloudWithSync,cloudWithoutSync,localWithSync,localWithoutSync
-  });
-  if(sampleCloudWonId)console.log("[SRS-DIAG] sample cloud-won card:",sampleCloudWonId,
-    "cloud=",JSON.stringify({lastSync:cloudCards[sampleCloudWonId].lastSync,interval:cloudCards[sampleCloudWonId].interval,due:cloudCards[sampleCloudWonId].due}));
-  if(sampleLocalWonId)console.log("[SRS-DIAG] sample local-won card:",sampleLocalWonId,
-    "cloud=",JSON.stringify({lastSync:cloudCards[sampleLocalWonId].lastSync,interval:cloudCards[sampleLocalWonId].interval}),
-    "local=",JSON.stringify({lastSync:localCards[sampleLocalWonId].lastSync,interval:localCards[sampleLocalWonId].interval}));
-  if(sampleTiedId)console.log("[SRS-DIAG] sample tied card:",sampleTiedId,
-    "cloud=",JSON.stringify({lastSync:cloudCards[sampleTiedId].lastSync,interval:cloudCards[sampleTiedId].interval}),
-    "local=",JSON.stringify({lastSync:localCards[sampleTiedId].lastSync,interval:localCards[sampleTiedId].interval}));
   return changes;
 }
 
@@ -10722,6 +10690,7 @@ function srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
     return 0;
   }
   const cards=srsLoadCards(username);
+  const addedIds=[];
   // Walk all completed lessons. Enroll any word that's missing from the deck.
   // This works whether the flag is set or not — if the deck is complete, no
   // additions happen; if it's incomplete, the missing words get enrolled.
@@ -10733,34 +10702,39 @@ function srsBackfillIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
     const baseTime=li*100000;  // deterministic per-lesson slot
     for(let i=0;i<words.length;i++){
       const w=words[i];
-      added+=srsAddWord(cards,w.lw,w.en,w.pos,baseTime+i);
+      // Snapshot which IDs existed before, so we can identify what gets added.
+      const lwEnId=w.lw+"::lw_en";
+      const enLwId=w.lw+"::en_lw";
+      const hadLwEn=!!cards[lwEnId];
+      const hadEnLw=!!cards[enLwId];
+      const a=srsAddWord(cards,w.lw,w.en,w.pos,baseTime+i);
+      if(a>0){
+        if(!hadLwEn&&cards[lwEnId])addedIds.push(lwEnId);
+        if(!hadEnLw&&cards[enLwId])addedIds.push(enLwId);
+      }
+      added+=a;
     }
   }
   if(added>0||!s.backfilled)srsSaveCards(username,cards);
   s.backfilled=true;
   srsSaveState(username,s);
-  // Cloud sync: push the entire deck to Firebase whenever backfill ran.
-  // We do this even if added=0 because the existing local deck might not be
-  // in cloud yet (e.g. user from before sync existed, or sync was never
-  // completed for fresh cards). Bulk write is one Firebase op.
-  if(firebaseReady&&db){
+  // Cloud sync: push ONLY the newly-added cards to Firebase. The old behavior
+  // (push the entire deck on every login) was destructive across devices —
+  // it overwrote cloud with the logging-in device's view of every card,
+  // destroying any progress another device had pushed via per-card sync.
+  // Existing cards stay in sync via srsSyncCard, called per-rate in the
+  // review flow. See DECISIONS.md "Cross-device SRS merge".
+  if(firebaseReady&&db&&addedIds.length>0){
     try{
       const stamped={};
-      const now=Date.now();
-      let touched=false;
-      for(const id in cards){
-        // Backfill lastSync locally if missing; ensures local matches what
-        // we're about to write to cloud, keeping the cross-device merge honest.
-        if(cards[id].lastSync==null){cards[id].lastSync=now;touched=true;}
-        stamped[id]={...cards[id]};
+      for(const id of addedIds){
+        if(cards[id])stamped[id]={...cards[id]};
       }
-      if(touched)srsSaveCards(username,cards);
-      // Only push if we have cards to push (don't wipe cloud with an empty deck)
       if(Object.keys(stamped).length>0){
         db.ref("users/"+fbKey(username)+"/srs/cards").update(stamped)
-          .catch(e=>console.warn("[SRS] bulk sync error:",e));
+          .catch(e=>console.warn("[SRS] new-card sync error:",e));
       }
-    }catch(e){console.warn("[SRS] bulk sync error:",e);}
+    }catch(e){console.warn("[SRS] new-card sync error:",e);}
   }
   srsSyncState(username,s);
   return added;
@@ -10787,7 +10761,9 @@ function srsMigrateAddedAtIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
       if(!map[words[i].lw])map[words[i].lw]={lessonIdx:li,wordIdx:i};
     }
   }
-  // Re-stamp every fresh card whose lw is in the map.
+  // Re-stamp every fresh card whose lw is in the map. Track which IDs were
+  // touched so the cloud push doesn't have to be a destructive whole-deck write.
+  const restampedIds=[];
   for(const id in cards){
     const c=cards[id];
     if(c.interval!==0)continue;          // don't disturb scheduled cards
@@ -10795,22 +10771,21 @@ function srsMigrateAddedAtIfNeeded(username,user,LESSONS,V,DICTIONARY_RAW){
     if(!m)continue;
     c.addedAt=m.lessonIdx*100000+m.wordIdx;
     restamped++;
+    restampedIds.push(id);
   }
   srsSaveCards(username,cards);
   s.addedAtMigrationDone=true;
   srsSaveState(username,s);
-  // Cloud sync: use .update() so we don't wipe cards the cloud might have
-  // that local doesn't know about.
-  if(firebaseReady&&db&&restamped>0){
+  // Cloud sync: push ONLY the restamped cards, not the entire deck.
+  // The old behavior (push whole deck) was destructive across devices —
+  // it overwrote cloud with this device's local view of every card. See
+  // DECISIONS.md "Cross-device SRS merge".
+  if(firebaseReady&&db&&restampedIds.length>0){
     try{
       const stamped={};
-      const now=Date.now();
-      let touched=false;
-      for(const id in cards){
-        if(cards[id].lastSync==null){cards[id].lastSync=now;touched=true;}
-        stamped[id]={...cards[id]};
+      for(const id of restampedIds){
+        if(cards[id])stamped[id]={...cards[id]};
       }
-      if(touched)srsSaveCards(username,cards);
       if(Object.keys(stamped).length>0){
         db.ref("users/"+fbKey(username)+"/srs/cards").update(stamped)
           .catch(e=>console.warn("[SRS] migration sync error:",e));
