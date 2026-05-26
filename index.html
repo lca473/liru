@@ -2485,20 +2485,20 @@ const V = {
     {lw:["Ne","wa","tahu","taiweli","wule","Yuna","vanu"],
      en:"I always ate after Yuna came.",
      cloze:{blanks:[3], bank:["taiweli","naiweli","saiweli","nuliweli","faiweli","mai"]}},
-    {lw:["Maya","koulu","wame'o","ne","naiweli"],
+    {lw:["Maya","koulu","naiweli","wame'o","ne"],
      en:"Maya often visits my friend.",
-     cloze:{blanks:[1,4], bank:["naiweli","saiweli","koulu","halu","ko","wa"]}},
-    {lw:["Ne","liru","ko","Yuna","saiweli"],
+     cloze:{blanks:[1,2], bank:["naiweli","saiweli","koulu","halu","ko","wa"]}},
+    {lw:["Ne","liru","saiweli","ko","Yuna"],
      en:"I sometimes speak with Yuna."},
-    {lw:["Ve","wa","liru","ko","ne","nuliweli"],
+    {lw:["Ve","wa","liru","nuliweli","ko","ne"],
      en:"She never spoke with me.",
-     cloze:{blanks:[5], bank:["nuliweli","naiweli","taiweli","mai","saiweli","faiweli"]}},
-    {lw:["Ki","te","wa","nahu","houme","faiweli"],
+     cloze:{blanks:[3], bank:["nuliweli","naiweli","taiweli","mai","saiweli","faiweli"]}},
+    {lw:["Ki","te","wa","nahu","faiweli","houme"],
      en:"Have you ever cooked bread?",
-     cloze:{blanks:[5], bank:["faiweli","taiweli","saiweli","nuliweli","naiweli","mai"]}},
-    {lw:["Ne","mai","halu","so","loya","naiweli"],
+     cloze:{blanks:[4], bank:["faiweli","taiweli","saiweli","nuliweli","naiweli","mai"]}},
+    {lw:["Ne","mai","halu","naiweli","so","loya"],
      en:"I rarely come here."},
-    {lw:["Yuna","mai","wa","tahu","houme","faiweli"],
+    {lw:["Yuna","mai","wa","tahu","faiweli","houme"],
      en:"Yuna has never eaten bread."},
   ],
 
@@ -2575,14 +2575,14 @@ const V = {
      en:"The dog ran away from the house.",
      cloze:{blanks:[3], bank:["moso","so","voi","niwa","mowo","wa"]}},
     {lw:["Iwuhe","washu","mouleyahe","taumi"],
-     en:"Water flows through the garden.",
+     en:"Water flows through the forest.",
      cloze:{blanks:[1,3], bank:["washu","halu","taumi","wo","ya","voi"]}},
     {lw:["Nea","su","niwa","Yuna","sho","Maya"],
      en:"We are between Yuna and Maya."},
     {lw:["Ve","wa","halu","moso","shawome"],
      en:"She went away from the ocean."},
     {lw:["Ne","halu","voi","mouleyahe"],
-     en:"I walk around the garden."},
+     en:"I walk around the forest."},
   ],
 
   // L106 — Unit 18 exam (checkpoint, sentence-based)
@@ -2599,20 +2599,20 @@ const V = {
   // 0 new roots — exam draws entirely on L100-L105 + already-taught
   // core vocabulary.
   l106_frequency_spatial_exam: [
-    {lw:["Ne","halu","voi","mouleyahe","taiweli"],
-     en:"I always walk around the garden.",
-     cloze:{blanks:[2,4], bank:["taiweli","naiweli","voi","niwa","moso","sho"]}},
-    {lw:["Yuna","wa","tasu","mouleyahe","naiweli"],
-     en:"Yuna often crossed the garden."},
+    {lw:["Ne","halu","taiweli","voi","mouleyahe"],
+     en:"I always walk around the forest.",
+     cloze:{blanks:[2,3], bank:["taiweli","naiweli","voi","niwa","moso","sho"]}},
+    {lw:["Yuna","wa","tasu","naiweli","mouleyahe"],
+     en:"Yuna often crossed the forest."},
     {lw:["Hiwe","su","niwa","moule","sho","senehiwe"],
      en:"The house is between the tree and the school.",
      cloze:{blanks:[2], bank:["niwa","voi","moso","wo","leu","ya"]}},
-    {lw:["Paipe","nianu","ne","saiweli"],
+    {lw:["Paipe","nianu","saiweli","ne"],
      en:"The dog sometimes approaches me."},
     {lw:["Ne","wa","halu","mohuni","nuliweli"],
      en:"I never went left.",
      cloze:{blanks:[3,4], bank:["nuliweli","naiweli","mohuni","huni","tasi","voi"]}},
-    {lw:["Ki","te","wa","koulu","Yuna","faiweli"],
+    {lw:["Ki","te","wa","koulu","faiweli","Yuna"],
      en:"Have you ever visited Yuna?"},
     {lw:["Ve","mai","wa","halu","huni","naiweli"],
      en:"She rarely went right."},
@@ -2620,7 +2620,7 @@ const V = {
      en:"Water flows away from the house.",
      cloze:{blanks:[1,2], bank:["washu","halu","moso","voi","wo","ya"]}},
     {lw:["Maya","halu","mouleyahe","taumi"],
-     en:"Maya goes through the garden."},
+     en:"Maya goes through the forest."},
     {lw:["Hiwe","su","moniani","ka","senehiwe"],
      en:"The house is far from the school."},
   ],
@@ -5120,7 +5120,7 @@ const V = {
   //     sacred (or holy). Slash-fusion gloss.
   //   oiseyahe — temple (or place of worship). Noun-only
   //     lexicalized compound (oise + yahe place), parallel to
-  //     mouleyahe (garden) and sheyahe (hospital).
+  //     mouleyahe (forest) and sheyahe (hospital).
   //   The intro card also surfaces the loiwe oimi "scripture"
   //     phrase compositionally (already-taught loiwe + oimi) — a
   //     pos:"phrase" entry, not a drilled root.
@@ -5132,7 +5132,7 @@ const V = {
      canvas:{adj:"oimi", adj_en:"sacred (or holy)"},
      note:"oi- religion family. Slash-fusion gloss."},
     {lw:"oiseyahe", en:"temple (or place of worship)", pos:"n",
-     note:"Lexicalized compound — oise (worship) + yahe (place). Parallel to mouleyahe (garden), sheyahe (hospital)."},
+     note:"Lexicalized compound — oise (worship) + yahe (place). Parallel to mouleyahe (forest), sheyahe (hospital)."},
   ],
 
   // L197 — Life, death, and what they mean (vocab)
@@ -7838,7 +7838,7 @@ const LESSONS = [
    vocabKey:"l100_vocab_frequency_basic",
    xp:22,
    unit:17,
-   intro:`<h3>🕒 Frequency adverbs</h3><p>How often does something happen? Liru builds frequency adverbs from a quantifier plus <em>weli</em> (\"times\"):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> (all) + <em>weli</em></td><td style="padding:4px 12px">→ <em>taiweli</em> — always</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nai</em> (many) + <em>weli</em></td><td style="padding:4px 12px">→ <em>naiweli</em> — often</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> (some) + <em>weli</em></td><td style="padding:4px 12px">→ <em>saiweli</em> — sometimes</td></tr></table><p>The pattern is regular: <strong>quantifier + weli = how-often word</strong>. You'll meet the two polar members (<em>nuliweli</em> never, <em>faiweli</em> ever) in the next lesson.</p><h3>📍 Where they sit in the sentence</h3><p>Frequency adverbs follow the verb and any object — the same position every adverb takes in Liru:</p><span class="example">Ne tahu taiweli. <span class="gloss">I always eat.</span></span><span class="example">Maya halu so mouleyahe naiweli. <span class="gloss">Maya often goes to the garden.</span></span><span class="example">Yuna liru ko ne saiweli. <span class="gloss">Yuna sometimes speaks with me.</span></span><p>With past or future tense particles (<em>wa</em>, <em>wu</em>), the tense particle stays right before the verb. The frequency adverb still sits at the end:</p><span class="example">Ne wa tahu taiweli. <span class="gloss">I always ate.</span></span>`,
+   intro:`<h3>🕒 Frequency adverbs</h3><p>How often does something happen? Liru builds frequency adverbs from a quantifier plus <em>weli</em> (\"times\"):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> (all) + <em>weli</em></td><td style="padding:4px 12px">→ <em>taiweli</em> — always</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nai</em> (many) + <em>weli</em></td><td style="padding:4px 12px">→ <em>naiweli</em> — often</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> (some) + <em>weli</em></td><td style="padding:4px 12px">→ <em>saiweli</em> — sometimes</td></tr></table><p>The pattern is regular: <strong>quantifier + weli = how-often word</strong>. You'll meet the two polar members (<em>nuliweli</em> never, <em>faiweli</em> ever) in the next lesson.</p><h3>📍 Where they sit in the sentence</h3><p>Frequency adverbs sit <strong>immediately after the verb</strong>, before any object or other phrase that follows the verb:</p><span class="example">Ne tahu taiweli. <span class="gloss">I always eat.</span></span><span class="example">Maya halu naiweli so mouleyahe. <span class="gloss">Maya often goes to the forest.</span></span><span class="example">Yuna liru saiweli ko ne. <span class="gloss">Yuna sometimes speaks with me.</span></span><p>With past or future tense particles (<em>wa</em>, <em>wu</em>), the tense particle stays right before the verb. The frequency adverb still sits right after the verb:</p><span class="example">Ne wa tahu taiweli. <span class="gloss">I always ate.</span></span><h3>🪜 When two adverbs share one verb</h3><p>Every adverb in Liru goes in the same slot — right after the verb. When two adverbs meet there, the frequency adverb always goes <strong>last</strong>:</p><span class="example">Yuna mauhu mosairi naiweli. <span class="gloss">Yuna often learns slowly.</span></span><p>The slow-ness sits closer to the verb; the often-ness wraps around the whole thing. That's the rule: frequency adverbs are outermost.</p>`,
    srsExtras:["weli"]},
 
   {id:"l101_vocab_frequency_polar",
@@ -7848,7 +7848,7 @@ const LESSONS = [
    vocabKey:"l101_vocab_frequency_polar",
    xp:24,
    unit:17,
-   intro:`<h3>🔁 The polar frequency adverbs</h3><p>Two more from the <em>quantifier + weli</em> pattern, at the two extremes:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> (zero) + <em>weli</em></td><td style="padding:4px 12px">→ <em>nuliweli</em> — never</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> (any) + <em>weli</em></td><td style="padding:4px 12px">→ <em>faiweli</em> — ever / at any time</td></tr></table><p><em>nuliweli</em> carries its own negation — you don't need <em>mai</em> with it. <em>faiweli</em> is the free-choice form most often seen in questions and after <em>mai</em>:</p><span class="example">Ne wa koulu Yuna nuliweli. <span class="gloss">I have never visited Yuna.</span></span><span class="example">Ki te wa koulu Maya faiweli? <span class="gloss">Have you ever visited Maya?</span></span><h3>📖 \"Rarely\" and emphatic \"never\"</h3><p>There's no single word for \"rarely\" in Liru. You build it by negating \"often\": <em>mai</em> sits right before the verb, <em>naiweli</em> sits at the end of the clause. The two pieces are not adjacent — you assemble \"rarely\" from both ends of the sentence:</p><span class="example">Ne mai halu so loya naiweli. <span class="gloss">I rarely come here. (lit. \"I do not come here often.\")</span></span><p>Emphatic \"never\" works the same way with <em>faiweli</em> — literally \"not at any time, ever\":</p><span class="example">Ve mai wa liru ko ne faiweli. <span class="gloss">She has never (ever) spoken with me.</span></span><h3>🆕 A verb that loves frequency: <em>koulu</em></h3><p>Visiting is the prototypical \"how often\" verb. Its full canvas:</p><ul><li><em>koule</em> (n.) — a visit</li><li><em>kouli</em> (adj.) — visited</li><li><em>koulu</em> (v.) — to visit</li></ul><p>You'll meet all three; the verb does most of the work in conversation.</p>`,
+   intro:`<h3>🔁 The polar frequency adverbs</h3><p>Two more from the <em>quantifier + weli</em> pattern, at the two extremes:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> (zero) + <em>weli</em></td><td style="padding:4px 12px">→ <em>nuliweli</em> — never</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> (any) + <em>weli</em></td><td style="padding:4px 12px">→ <em>faiweli</em> — ever / at any time</td></tr></table><p><em>nuliweli</em> carries its own negation — you don't need <em>mai</em> with it. <em>faiweli</em> is the free-choice form most often seen in questions and after <em>mai</em>:</p><span class="example">Ne wa koulu nuliweli Yuna. <span class="gloss">I have never visited Yuna.</span></span><span class="example">Ki te wa koulu faiweli Maya? <span class="gloss">Have you ever visited Maya?</span></span><h3>📖 \"Rarely\" and emphatic \"never\"</h3><p>There's no single word for \"rarely\" in Liru. You build it by negating \"often\": <em>mai</em> sits right before the verb, and <em>naiweli</em> sits right after the verb — the two flank the verb directly:</p><span class="example">Ne mai halu naiweli so loya. <span class="gloss">I rarely come here. (lit. \"I do not come here often.\")</span></span><p>Emphatic \"never\" works the same way with <em>faiweli</em> — literally \"not at any time, ever\":</p><span class="example">Ve mai wa liru faiweli ko ne. <span class="gloss">She has never (ever) spoken with me.</span></span><h3>🆕 A verb that loves frequency: <em>koulu</em></h3><p>Visiting is the prototypical \"how often\" verb. Its full canvas:</p><ul><li><em>koule</em> (n.) — a visit</li><li><em>kouli</em> (adj.) — visited</li><li><em>koulu</em> (v.) — to visit</li></ul><p>You'll meet all three; the verb does most of the work in conversation.</p>`,
    srsExtras:["fai"]},
 
   {id:"l102_frequency_sentences",
@@ -7859,7 +7859,7 @@ const LESSONS = [
    xp:24,
    unit:17,
    isSentence:true,
-   intro:`<h3>⏱️ All five together</h3><p>You now know the full set:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>taiweli</em></td><td style="padding:4px 12px">always</td></tr><tr><td style="padding:4px 12px"><em>naiweli</em></td><td style="padding:4px 12px">often</td></tr><tr><td style="padding:4px 12px"><em>saiweli</em></td><td style="padding:4px 12px">sometimes</td></tr><tr><td style="padding:4px 12px"><em>mai ... naiweli</em></td><td style="padding:4px 12px">rarely (split across the clause)</td></tr><tr><td style="padding:4px 12px"><em>nuliweli</em></td><td style="padding:4px 12px">never</td></tr><tr><td style="padding:4px 12px"><em>faiweli</em></td><td style="padding:4px 12px">ever (in questions, or paired with <em>mai</em>)</td></tr></table><p>This lesson drills placement and pairing. The frequency adverb sits at the <strong>end</strong> of the clause, after the verb and any object. When the sentence is negated, <em>mai</em> stays right before the verb and the adverb still goes at the end — \"rarely\" and emphatic \"never\" are discontinuous constructions, not adjacent phrases.</p>`},
+   intro:`<h3>⏱️ All five together</h3><p>You now know the full set:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>taiweli</em></td><td style="padding:4px 12px">always</td></tr><tr><td style="padding:4px 12px"><em>naiweli</em></td><td style="padding:4px 12px">often</td></tr><tr><td style="padding:4px 12px"><em>saiweli</em></td><td style="padding:4px 12px">sometimes</td></tr><tr><td style="padding:4px 12px"><em>mai ... naiweli</em></td><td style="padding:4px 12px">rarely (split across the clause)</td></tr><tr><td style="padding:4px 12px"><em>nuliweli</em></td><td style="padding:4px 12px">never</td></tr><tr><td style="padding:4px 12px"><em>faiweli</em></td><td style="padding:4px 12px">ever (in questions, or paired with <em>mai</em>)</td></tr></table><p>This lesson drills placement and pairing. The frequency adverb sits <strong>immediately after the verb</strong>, before any object or phrase. When the sentence is negated, <em>mai</em> stays right before the verb (or tense particle) and the frequency adverb still sits right after the verb — \"rarely\" and emphatic \"never\" are discontinuous constructions, with <em>mai</em> and the adverb flanking the verb directly.</p>`},
 
   {id:"l103_vocab_paths",
    title:"Paths — Through, Across, Near, Far",
@@ -7868,7 +7868,7 @@ const LESSONS = [
    vocabKey:"l103_vocab_paths",
    xp:26,
    unit:17,
-   intro:`<h3>🛤️ Path-shaped spatial adverbs</h3><p>Four spatial concepts, each a full canvas root: the noun names the abstract concept, the adjective/adverb describes manner, the verb names the action.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">noun</th><th style="padding:4px 8px;color:var(--dim)">adj./adv.</th><th style="padding:4px 8px;color:var(--dim)">verb</th><th style="padding:4px 8px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 8px"><em>taume</em></td><td style="padding:4px 8px"><em>taumi</em></td><td style="padding:4px 8px"><em>taumu</em></td><td style="padding:4px 8px">through / pass through</td></tr><tr><td style="padding:4px 8px"><em>tase</em></td><td style="padding:4px 8px"><em>tasi</em></td><td style="padding:4px 8px"><em>tasu</em></td><td style="padding:4px 8px">across / cross</td></tr><tr><td style="padding:4px 8px"><em>niane</em></td><td style="padding:4px 8px"><em>niani</em></td><td style="padding:4px 8px"><em>nianu</em></td><td style="padding:4px 8px">near / approach</td></tr><tr><td style="padding:4px 8px"><em>moniane</em></td><td style="padding:4px 8px"><em>moniani</em></td><td style="padding:4px 8px"><em>monianu</em></td><td style="padding:4px 8px">far / recede</td></tr></table><h3>⚖️ <em>niane</em> and <em>moniane</em> — a balancing pair</h3><p><em>moniane</em> is built from <em>niane</em> with the <em>mo-</em> prefix — the same balancing pattern you've seen with <em>nawu</em>/<em>monawu</em>, <em>houli</em>/<em>mohouli</em>, and many others.</p><h3>📝 In use</h3><span class="example">Ne taumu mouleyahe. <span class="gloss">I pass through the garden.</span></span><span class="example">Nea wa tasu mouleyahe. <span class="gloss">We crossed the garden.</span></span><span class="example">Ve wa nianu hiwe. <span class="gloss">She approached the house.</span></span><span class="example">Hiwe su moniani ka senehiwe. <span class="gloss">The house is far from the school.</span></span><p>The verb form pairs directly with an object — <em>tasu mouleyahe</em>, <em>nianu hiwe</em>, no preposition. The adjective/adverb form modifies a verb or noun.</p>`},
+   intro:`<h3>🛤️ Path-shaped spatial adverbs</h3><p>Four spatial concepts, each a full canvas root: the noun names the abstract concept, the adjective/adverb describes manner, the verb names the action.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 8px;color:var(--dim)">noun</th><th style="padding:4px 8px;color:var(--dim)">adj./adv.</th><th style="padding:4px 8px;color:var(--dim)">verb</th><th style="padding:4px 8px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 8px"><em>taume</em></td><td style="padding:4px 8px"><em>taumi</em></td><td style="padding:4px 8px"><em>taumu</em></td><td style="padding:4px 8px">through / pass through</td></tr><tr><td style="padding:4px 8px"><em>tase</em></td><td style="padding:4px 8px"><em>tasi</em></td><td style="padding:4px 8px"><em>tasu</em></td><td style="padding:4px 8px">across / cross</td></tr><tr><td style="padding:4px 8px"><em>niane</em></td><td style="padding:4px 8px"><em>niani</em></td><td style="padding:4px 8px"><em>nianu</em></td><td style="padding:4px 8px">near / approach</td></tr><tr><td style="padding:4px 8px"><em>moniane</em></td><td style="padding:4px 8px"><em>moniani</em></td><td style="padding:4px 8px"><em>monianu</em></td><td style="padding:4px 8px">far / recede</td></tr></table><h3>⚖️ <em>niane</em> and <em>moniane</em> — a balancing pair</h3><p><em>moniane</em> is built from <em>niane</em> with the <em>mo-</em> prefix — the same balancing pattern you've seen with <em>nawu</em>/<em>monawu</em>, <em>houli</em>/<em>mohouli</em>, and many others.</p><h3>📝 In use</h3><span class="example">Ne taumu mouleyahe. <span class="gloss">I pass through the forest.</span></span><span class="example">Nea wa tasu mouleyahe. <span class="gloss">We crossed the forest.</span></span><span class="example">Ve wa nianu hiwe. <span class="gloss">She approached the house.</span></span><span class="example">Hiwe su moniani ka senehiwe. <span class="gloss">The house is far from the school.</span></span><p>The verb form pairs directly with an object — <em>tasu mouleyahe</em>, <em>nianu hiwe</em>, no preposition. The adjective/adverb form modifies a verb or noun.</p>`},
 
   {id:"l104_vocab_position",
    title:"Position — Right, Left, Low, Side",
@@ -7887,7 +7887,7 @@ const LESSONS = [
    xp:24,
    unit:17,
    isSentence:true,
-   intro:`<h3>🌀 Three spatial particles</h3><p>Particles sit between phrases the way <em>wo</em> (in), <em>ya</em> (at), and <em>so</em> (to) do — they tell you a spatial relationship without naming a manner or action. Three new ones in this lesson:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>niwa</em></td><td style="padding:4px 12px">between</td></tr><tr><td style="padding:4px 12px"><em>voi</em></td><td style="padding:4px 12px">around</td></tr><tr><td style="padding:4px 12px"><em>moso</em></td><td style="padding:4px 12px">away from</td></tr></table><h3>📝 Usage notes</h3><p><strong><em>niwa</em></strong> takes two arguments joined by <em>sho</em>:</p><span class="example">Moule su niwa hiwe sho senehiwe. <span class="gloss">The tree is between the house and the school.</span></span><p><strong><em>voi</em></strong> takes a single argument — the thing being encircled:</p><span class="example">Ve halu voi moule. <span class="gloss">She walks around the tree.</span></span><p><strong><em>moso</em></strong> is the directional companion of already-taught <em>so</em> \"to.\" Where <em>so</em> marks motion toward, <em>moso</em> marks motion away from. (This is distinct from <em>ka</em> \"from / of,\" which marks static origin, not motion away.)</p><span class="example">Paipe wa hairu moso hiwe. <span class="gloss">The dog ran away from the house.</span></span><h3>🆕 A new verb: <em>washu</em></h3><p>Water and wind do it; people and ideas do it metaphorically. The verb <em>washu</em> \"to move / to flow\" is the natural partner of these spatial particles:</p><span class="example">Iwuhe washu mouleyahe taumi. <span class="gloss">Water flows through the garden.</span></span><p>Its full canvas — <em>washe</em> (movement/flow), <em>washi</em> (flowing/mobile), <em>washu</em> (to move/flow) — is in the dictionary for reference, but you'll only drill the verb here.</p>`},
+   intro:`<h3>🌀 Three spatial particles</h3><p>Particles sit between phrases the way <em>wo</em> (in), <em>ya</em> (at), and <em>so</em> (to) do — they tell you a spatial relationship without naming a manner or action. Three new ones in this lesson:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>niwa</em></td><td style="padding:4px 12px">between</td></tr><tr><td style="padding:4px 12px"><em>voi</em></td><td style="padding:4px 12px">around</td></tr><tr><td style="padding:4px 12px"><em>moso</em></td><td style="padding:4px 12px">away from</td></tr></table><h3>📝 Usage notes</h3><p><strong><em>niwa</em></strong> takes two arguments joined by <em>sho</em>:</p><span class="example">Moule su niwa hiwe sho senehiwe. <span class="gloss">The tree is between the house and the school.</span></span><p><strong><em>voi</em></strong> takes a single argument — the thing being encircled:</p><span class="example">Ve halu voi moule. <span class="gloss">She walks around the tree.</span></span><p><strong><em>moso</em></strong> is the directional companion of already-taught <em>so</em> \"to.\" Where <em>so</em> marks motion toward, <em>moso</em> marks motion away from. (This is distinct from <em>ka</em> \"from / of,\" which marks static origin, not motion away.)</p><span class="example">Paipe wa hairu moso hiwe. <span class="gloss">The dog ran away from the house.</span></span><h3>🆕 A new verb: <em>washu</em></h3><p>Water and wind do it; people and ideas do it metaphorically. The verb <em>washu</em> \"to move / to flow\" is the natural partner of these spatial particles:</p><span class="example">Iwuhe washu mouleyahe taumi. <span class="gloss">Water flows through the forest.</span></span><p>Its full canvas — <em>washe</em> (movement/flow), <em>washi</em> (flowing/mobile), <em>washu</em> (to move/flow) — is in the dictionary for reference, but you'll only drill the verb here.</p>`},
 
   {id:"l106_frequency_spatial_exam",
    title:"Unit 18 Exam — How Often & Where",
@@ -8805,7 +8805,7 @@ const LESSONS = [
    vocabKey:"l196_religion_practice",
    xp:18,
    unit:32,
-   intro:`<h3>🙏 Worship and the sacred</h3><p>The first lesson named the beings; this one names the practice and the quality.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>oise</em> (n.)</td><td style="padding:4px 12px">worship</td></tr><tr><td style="padding:4px 12px"><em>oisu</em> (v.)</td><td style="padding:4px 12px">to worship</td></tr><tr><td style="padding:4px 12px"><em>oime</em> (n.)</td><td style="padding:4px 12px">the sacred (or holiness)</td></tr><tr><td style="padding:4px 12px"><em>oimi</em> (adj.)</td><td style="padding:4px 12px">sacred (or holy)</td></tr><tr><td style="padding:4px 12px"><em>oiseyahe</em> (n.)</td><td style="padding:4px 12px">temple (or place of worship)</td></tr></table><p><em>oise</em> takes a noun and a verb, but no adjective — worship is a thing you do and a thing it is, not a quality.</p><h3>🏛️ Building from pieces you know</h3><p><em>oiseyahe</em> is <em>oise</em> (worship) + <em>yahe</em> (place) — a temple is a "worship-place," the same way <em>mouleyahe</em> is a garden ("tree-place") and <em>sheyahe</em> is a hospital. And a holy book has its own transparent phrase: <em>loiwe oimi</em> — literally "sacred book."</p><span class="example">Nea oisu wo oiseyahe. <span class="gloss">We worship in the temple.</span></span><span class="example">Ne loisu loiwe oimi. <span class="gloss">I read scripture.</span></span>`},
+   intro:`<h3>🙏 Worship and the sacred</h3><p>The first lesson named the beings; this one names the practice and the quality.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>oise</em> (n.)</td><td style="padding:4px 12px">worship</td></tr><tr><td style="padding:4px 12px"><em>oisu</em> (v.)</td><td style="padding:4px 12px">to worship</td></tr><tr><td style="padding:4px 12px"><em>oime</em> (n.)</td><td style="padding:4px 12px">the sacred (or holiness)</td></tr><tr><td style="padding:4px 12px"><em>oimi</em> (adj.)</td><td style="padding:4px 12px">sacred (or holy)</td></tr><tr><td style="padding:4px 12px"><em>oiseyahe</em> (n.)</td><td style="padding:4px 12px">temple (or place of worship)</td></tr></table><p><em>oise</em> takes a noun and a verb, but no adjective — worship is a thing you do and a thing it is, not a quality.</p><h3>🏛️ Building from pieces you know</h3><p><em>oiseyahe</em> is <em>oise</em> (worship) + <em>yahe</em> (place) — a temple is a "worship-place," the same way <em>mouleyahe</em> is a forest ("tree-place") and <em>sheyahe</em> is a hospital. And a holy book has its own transparent phrase: <em>loiwe oimi</em> — literally "sacred book."</p><span class="example">Nea oisu wo oiseyahe. <span class="gloss">We worship in the temple.</span></span><span class="example">Ne loisu loiwe oimi. <span class="gloss">I read scripture.</span></span>`},
 
   {id:"l197_life_and_death",
    title:"Life & Death",
