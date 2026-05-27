@@ -1592,7 +1592,7 @@ const V = {
   // kinai (how many / how much) decomposes as ki + nai, so it's transparent
   // to learners who have just learned nai.
   l60_buyingselling: [
-    {lw:["Kinai","tonea","su","houme","lo"],         en:"How much is this bread?"},
+    {lw:["Kinai","tonea","su","houme","lo"],         en:"How much money is this bread?"},
     {lw:["Houme","lo","su","tonea","hani"],         en:"This bread is ten monies."},
     {lw:["Ne","wanu","hoyu","shae","lo"],           en:"I want to buy this tea."},
     {lw:["Maya","hoyu","pomea","ka","Kai"],         en:"Maya buys fruits from Kai."},
@@ -1609,7 +1609,7 @@ const V = {
   l61_exam: [
     {lw:["Ne","wamu","kupe"],                       en:"I like coffee."},
     {lw:["Maya","nahu","tahe","wo","nahe"],         en:"Maya cooks food in the kitchen."},
-    {lw:["Kinai","tonea","su","shae","lo"],          en:"How much is this tea?"},
+    {lw:["Kinai","tonea","su","shae","lo"],          en:"How much money is this tea?"},
     {lw:["Ne","wa","hoyu","miawe","ka","tieme"],    en:"I bought milk from the store."},
     {lw:["Pome","lo","su","milali"],                en:"This fruit is sweet."},
     {lw:["Kai","mohoyu","houme","so","ne"],         en:"Kai sells bread to me."},
@@ -2003,7 +2003,7 @@ const V = {
     {lw:["Ki","te","ahu","loiwe","lo"],                                    en:"Do you have this book?"},
     {lw:["Ne","wu","halu","so","senehiwe"],                                en:"I will go to the school."},
     {lw:["Vea","wa","tiru","paipea","sho","mewea"],                        en:"They saw dogs and cats."},
-    {lw:["Maya","wa","tau","haiwea","hani"],                               en:"Maya is ten years old."},
+    {lw:["Maya","wa","tau","haiwea","hani"],                               en:"Maya is ten years old. (lit. Maya has completed ten years.)"},
     {lw:["Ne","mai","ahu","tonea","nai"],                                  en:"I don't have a lot of money."},
     {lw:["Laupe'o","ve","wa","kufu","lawe lo"],                             en:"Her foot hurt today."},
     {lw:["Haule","su","wo","laime","lawe lo"],                             en:"The sun is in the sky today."},
@@ -3235,8 +3235,8 @@ const V = {
      cloze:{blanks:[3,6], bank:["niwa","voi","moso","shaune","nouwe","shafane"]}},
     {lw:["Pouwe","lo","ahu","nulihue"],
      en:"This cave has nothing."},
-    {lw:["Mavi","nea","su","molianitowi","nea","nawu","pieme","lo"],
-     en:"Although we are southerners, we love this valley."},
+    {lw:["Mavi","nea","wa","halu","molianitowe","nea","mai","riku","pieme"],
+     en:"Although we went south, we didn't find a valley."},
   ],
 
   // ════════════════════════════════════════════════════════════════
@@ -7399,7 +7399,7 @@ const LESSONS = [
    xp:24,
    unit:9,
    isSentence:true,
-   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kinai</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kinai tonea su houme lo? <span class="gloss">How much is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Houme lo su tonea hani. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs — <em>hoyu</em> (to buy) and its <em>mo-</em> partner <em>mohoyu</em> (to sell):</p><span class="example">Ne hoyu shae lo. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea ka Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houme so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>ka</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun, following the noun like any other modifier:</p><span class="example">Ne ahu tonea nai. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu pomea nai ka pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span><p><strong>A note on <em>kinai</em>:</strong> now that you know <em>nai</em>, the question word <em>kinai</em> decomposes transparently — <em>ki</em> (question particle) + <em>nai</em> (many/much) = "how many / how much." Same with <em>kile</em> (when), which is <em>ki</em> + <em>-le</em> (the time-particle ending you see in <em>lole</em> "now" and <em>fale</em> "then").</p>`},
+   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kinai</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kinai tonea su houme lo? <span class="gloss">How much money is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Houme lo su tonea hani. <span class="gloss">This bread is ten monies.</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs — <em>hoyu</em> (to buy) and its <em>mo-</em> partner <em>mohoyu</em> (to sell):</p><span class="example">Ne hoyu shae lo. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea ka Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houme so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>ka</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun, following the noun like any other modifier:</p><span class="example">Ne ahu tonea nai. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu pomea nai ka pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span><p><strong>A note on <em>kinai</em>:</strong> now that you know <em>nai</em>, the question word <em>kinai</em> decomposes transparently — <em>ki</em> (question particle) + <em>nai</em> (many/much) = "how many / how much." Same with <em>kile</em> (when), which is <em>ki</em> + <em>-le</em> (the time-particle ending you see in <em>lole</em> "now" and <em>fale</em> "then").</p>`},
 
   {id:"l61_exam",
    title:"Unit 10 Exam: Food and Transactions",
@@ -8384,7 +8384,7 @@ const LESSONS = [
    vocabKey:"l153_vocab_bees_ants_honey",
    xp:18,
    unit:25,
-   intro:`<h3>🐝 Small creatures with stings and webs</h3><p>Three small invertebrates — and the iconic product of one of them.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>niliwe</em> (n.)</td><td style="padding:4px 12px">ant</td></tr><tr><td style="padding:4px 12px"><em>ninuwe</em> (n.)</td><td style="padding:4px 12px">bee</td></tr><tr><td style="padding:4px 12px"><em>paihe</em> (n.)</td><td style="padding:4px 12px">spider</td></tr></table><h3>🍯 Honey — what bees make</h3><p>The Liru word for honey is <em>nemue</em>, with adjective <em>nemui</em> "honeyed (adj.)" (used for honey-flavored or honey-colored things).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nemue</em> (n.)</td><td style="padding:4px 12px">honey</td></tr><tr><td style="padding:4px 12px"><em>nemui</em> (adj.)</td><td style="padding:4px 12px">honeyed (or honey-related)</td></tr></table><span class="example">Niliwea su piami. <span class="gloss">Ants are small.</span></span><span class="example">Ne wamu nemue. <span class="gloss">I want honey.</span></span><span class="example">Paihe lo su piami. <span class="gloss">This spider is small.</span></span>`},
+   intro:`<h3>🐝 Small creatures with stings and webs</h3><p>Three small invertebrates — and the iconic product of one of them.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>niliwe</em> (n.)</td><td style="padding:4px 12px">ant</td></tr><tr><td style="padding:4px 12px"><em>ninuwe</em> (n.)</td><td style="padding:4px 12px">bee</td></tr><tr><td style="padding:4px 12px"><em>paihe</em> (n.)</td><td style="padding:4px 12px">spider</td></tr></table><h3>🍯 Honey — what bees make</h3><p>The Liru word for honey is <em>nemue</em>, with adjective <em>nemui</em> "honeyed (adj.)" (used for honey-flavored or honey-colored things).</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>nemue</em> (n.)</td><td style="padding:4px 12px">honey</td></tr><tr><td style="padding:4px 12px"><em>nemui</em> (adj.)</td><td style="padding:4px 12px">honeyed (or honey-related)</td></tr></table><span class="example">Niliwea su piami. <span class="gloss">Ants are small.</span></span><span class="example">Ne wamu nemue. <span class="gloss">I like honey.</span></span><span class="example">Paihe lo su piami. <span class="gloss">This spider is small.</span></span>`},
 
   {id:"l154_vocab_insects_groups",
    title:"Butterflies, Insects & Groups",
