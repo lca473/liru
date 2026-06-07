@@ -16176,5 +16176,368 @@ function resetContact() {
 
 
 </script>
+
+<!-- ════════════════════════════════════════════════════════════════
+     FLAG / REPORT-AN-ERROR  (ported from index-local.html, themed for Liru)
+     A small flag button rides on every view. Tapping it captures a
+     screenshot of the current screen and opens a report modal. Reports
+     go to the maintainer inbox via FormSubmit ('formsubmit' mode), and
+     fall back to the reporter's mail app ('mailto') when a file can't be
+     attached (e.g. Safari). Independent of the contact form / its EmailJS.
+═══════════════════════════════════════════════════════════════════ -->
+<style>
+  /* discreet circular icon; expands to a labelled pill on hover */
+  #lwFlagFab{
+    position:fixed; right:16px;
+    bottom:calc(20px + env(safe-area-inset-bottom));
+    z-index:300; height:48px; width:48px; padding:0;
+    display:flex; align-items:center; justify-content:flex-start;
+    border-radius:999px; cursor:pointer; overflow:hidden; white-space:nowrap;
+    color:#fff; background:#4A7A9E; border:none;
+    box-shadow:0 5px 16px rgba(74,122,158,.45);
+    font-family:var(--font); font-weight:700;
+    transition:width .24s cubic-bezier(.4,0,.2,1), background .16s, box-shadow .16s, transform .16s;
+  }
+  #lwFlagFab .glyph{ flex:0 0 48px; display:flex; align-items:center; justify-content:center; font-size:19px; line-height:1; }
+  #lwFlagFab .label{
+    display:flex; flex-direction:column; justify-content:center; text-align:left;
+    padding-right:18px; opacity:0; transform:translateX(-6px);
+    transition:opacity .18s ease, transform .2s ease;
+  }
+  #lwFlagFab .label-lw{ font-size:14px; font-weight:700; line-height:1.15; white-space:nowrap; }
+  #lwFlagFab .label-en{ font-size:11px; font-weight:600; line-height:1.1; opacity:.82; white-space:nowrap; }
+  #lwFlagFab:hover, #lwFlagFab:focus-visible{
+    width:190px; outline:none;
+    background:#5E93B5;
+    box-shadow:0 8px 22px rgba(28,176,246,.40); transform:translateY(-1px);
+  }
+  #lwFlagFab:hover .label, #lwFlagFab:focus-visible .label{ opacity:1; transform:translateX(0); }
+  /* during a lesson exercise, lift it above the sticky Check bar */
+  #lwFlagFab.on-runner{ bottom:calc(96px + env(safe-area-inset-bottom)); }
+
+  #lwFlagOverlay{
+    position:fixed; inset:0; z-index:10000; display:none;
+    align-items:center; justify-content:center; padding:20px;
+    background:rgba(8,15,20,.62); backdrop-filter:blur(4px);
+    animation:fadeIn .2s ease-out;
+  }
+  #lwFlagOverlay.show{ display:flex; }
+  #lwFlagCard{
+    width:100%; max-width:430px; background:var(--card);
+    border:1.5px solid var(--border); border-radius:var(--radius);
+    box-shadow:0 20px 50px rgba(0,0,0,.50); overflow:hidden;
+    animation:pop .28s ease-out;
+  }
+  #lwFlagCard header{
+    padding:18px 20px 12px; background:var(--bg2);
+    border-bottom:1.5px solid var(--border);
+  }
+  #lwFlagCard h3{
+    margin:0; font-family:var(--display); font-weight:800;
+    font-size:20px; color:var(--text);
+  }
+  #lwFlagCard .ctx{
+    margin-top:4px; font-size:12.5px; color:var(--dim);
+    font-family:ui-monospace, 'SF Mono', Menlo, monospace;
+  }
+  #lwFlagBody{ padding:16px 20px 20px; }
+  #lwFlagShot{
+    width:100%; max-height:180px; object-fit:cover; object-position:top;
+    border-radius:10px; border:1px solid var(--border);
+    margin-bottom:14px; background:var(--input); display:block;
+  }
+  #lwFlagNote{
+    width:100%; min-height:84px; resize:vertical; padding:11px 13px;
+    border-radius:10px; border:1.5px solid var(--border);
+    background:var(--input); color:var(--text);
+    font-family:var(--font); font-size:14.5px; line-height:1.4;
+  }
+  #lwFlagNote:focus{ border-color:#5E93B5; }
+  #lwFlagEmail{
+    width:100%; box-sizing:border-box; padding:11px 13px; margin-top:10px;
+    border-radius:10px; border:1.5px solid var(--border);
+    background:var(--input); color:var(--text);
+    font-family:var(--font); font-size:14.5px;
+  }
+  #lwFlagEmail:focus{ border-color:#5E93B5; }
+  #lwFlagNote::placeholder, #lwFlagEmail::placeholder{ color:var(--dim); }
+  #lwFlagActions{ display:flex; gap:10px; margin-top:14px; }
+  #lwFlagActions button{
+    flex:1; padding:12px; border-radius:11px; font-weight:700; font-size:15px;
+    font-family:var(--font); cursor:pointer; transition:.15s;
+  }
+  #lwFlagSend{ background:#4A7A9E; color:#fff; border:1.5px solid #4A7A9E; }
+  #lwFlagSend:hover{ background:#5E93B5; }
+  #lwFlagSend:disabled{ opacity:.55; cursor:default; }
+  #lwFlagCancel{ background:none; color:var(--mid); border:1.5px solid var(--border); }
+  #lwFlagCancel:hover{ border-color:#5E93B5; }
+  #lwFlagToast{
+    position:fixed; left:50%; transform:translateX(-50%);
+    bottom:calc(26px + env(safe-area-inset-bottom)); z-index:10001;
+    background:#4A7A9E; color:#fff; font-weight:600; font-size:14px;
+    padding:12px 18px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,.40);
+    opacity:0; pointer-events:none; transition:opacity .25s, transform .25s;
+    font-family:var(--font); max-width:90vw; text-align:center;
+  }
+  #lwFlagToast.show{ opacity:1; transform:translateX(-50%) translateY(-4px); }
+</style>
+
+<button id="lwFlagFab" type="button" aria-label="Report an error on this page">
+  <span class="glyph">&#9873;</span><span class="label"><span class="label-lw">Liru monove</span><span class="label-en">Report Error</span></span>
+</button>
+
+<div id="lwFlagOverlay" role="dialog" aria-modal="true" aria-labelledby="lwFlagTitle">
+  <div id="lwFlagCard">
+    <header>
+      <h3 id="lwFlagTitle">Spot a mistake?</h3>
+      <div class="ctx" id="lwFlagCtx"></div>
+    </header>
+    <div id="lwFlagBody">
+      <img id="lwFlagShot" alt="Screenshot of what you're seeing">
+      <textarea id="lwFlagNote" placeholder="What looks wrong? e.g. the word X should mean Y… (optional)"></textarea>
+      <input id="lwFlagEmail" type="email" autocomplete="email" inputmode="email" aria-label="Your email, optional" placeholder="Your email (optional — only if you'd like a reply)">
+      <div id="lwFlagActions">
+        <button id="lwFlagCancel" type="button">Cancel</button>
+        <button id="lwFlagSend" type="button">Send report</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="lwFlagToast"></div>
+
+<script>
+(function(){
+  /* ─────────────── CONFIG ─────────────── */
+  const EMAIL = ['mijannijo','gmail.com'].join('@');   // maintainer inbox (assembled at runtime so scrapers don't catch the literal)
+  const MODE  = 'formsubmit';                          // 'mailto' | 'formsubmit' | 'emailjs'
+
+  const FORMSUBMIT_ENDPOINT = 'https://formsubmit.co/eb5ab4eaa94d922fdd9012b679e1a91b';  // FormSubmit alias → maintainer inbox; keeps the raw address off the automatic path
+
+  // Used only when MODE==='emailjs'. This is the *reporter's* optional path and
+  // is intentionally left unconfigured — Liru's contact form has its own separate
+  // EmailJS config elsewhere in this file. The reporter runs in 'formsubmit' mode.
+  const EMAILJS = {
+    publicKey:  'YOUR_PUBLIC_KEY',
+    serviceID:  'YOUR_SERVICE_ID',
+    templateID: 'YOUR_TEMPLATE_ID',
+    attachScreenshot: false      // true needs a paid EmailJS plan + a template attachment var
+  };
+  /* ─────────────────────────────────────── */
+
+  const fab     = document.getElementById('lwFlagFab');
+  const overlay = document.getElementById('lwFlagOverlay');
+  const shotImg = document.getElementById('lwFlagShot');
+  const noteEl  = document.getElementById('lwFlagNote');
+  const emailEl = document.getElementById('lwFlagEmail');
+  const ctxEl   = document.getElementById('lwFlagCtx');
+  const sendBtn = document.getElementById('lwFlagSend');
+  const cancelBtn = document.getElementById('lwFlagCancel');
+  const toast   = document.getElementById('lwFlagToast');
+
+  let pngBlob = null, jpgBlob = null;
+  const isEmail = v => { const a = v.indexOf('@'); return a > 0 && v.indexOf('.', a) > a + 1 && a === v.lastIndexOf('@'); };
+
+  // Liru's views: home / app (lessons) / dictionary / grammar / contact.
+  const VIEW_NAMES = {
+    'view-home':'Home', 'view-app':'Learn Liru',
+    'view-dictionary':'Dictionary', 'view-grammar':'Grammar', 'view-contact':'Contact'
+  };
+  function currentContext(){
+    const active = document.querySelector('.view.active');
+    const id = active ? active.id : '';
+    let page = VIEW_NAMES[id] || document.title || 'unknown';
+    // Inside the lessons view, distinguish an active exercise from the lesson tree.
+    if(id === 'view-app' && document.querySelector('#app .check-bar')) page = 'Lesson';
+    return {
+      page: page,
+      url: location.href,
+      time: new Date().toLocaleString(),
+      ua: navigator.userAgent
+    };
+  }
+
+  // Keep the icon clear of the sticky Check bar during a lesson/review exercise.
+  // Lessons and SRS review both render into #app; the check-bar is injected there.
+  function syncFabPosition(){
+    fab.classList.toggle('on-runner', !!document.querySelector('.check-bar'));
+  }
+  const mo = new MutationObserver(syncFabPosition);
+  const appEl = document.getElementById('app');
+  if(appEl) mo.observe(appEl, {childList:true, subtree:true});
+  document.querySelectorAll('.view').forEach(v => mo.observe(v, {attributes:true, attributeFilter:['class']}));
+  syncFabPosition();
+
+  function showToast(msg){
+    toast.textContent = msg; toast.classList.add('show');
+    setTimeout(()=>toast.classList.remove('show'), 2800);
+  }
+  function ensureH2C(){
+    return new Promise((res, rej)=>{
+      if(typeof html2canvas !== 'undefined') return res();
+      const s = document.createElement('script');
+      s.src = 'https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';
+      s.onload = res; s.onerror = ()=>rej(new Error('html2canvas failed to load'));
+      document.head.appendChild(s);
+    });
+  }
+
+  async function openFlag(){
+    shotImg.style.display = 'block';
+    shotImg.removeAttribute('src');
+    pngBlob = jpgBlob = null;
+    fab.style.visibility = 'hidden';               // keep the button out of the shot
+    try{
+      await ensureH2C();
+      const bg = getComputedStyle(document.body).backgroundColor || '#0F1A1F';
+      const canvas = await html2canvas(document.documentElement, {
+        x: window.scrollX, y: window.scrollY,
+        width: window.innerWidth, height: window.innerHeight,
+        backgroundColor: bg, useCORS: true, logging: false,
+        scale: Math.min(2, window.devicePixelRatio || 1)
+      });
+      shotImg.src = canvas.toDataURL('image/png');
+      pngBlob = await new Promise(r => canvas.toBlob(r, 'image/png'));
+      jpgBlob = await new Promise(r => canvas.toBlob(r, 'image/jpeg', 0.85));
+    }catch(err){
+      shotImg.style.display = 'none';               // capture failed → just skip the image
+    }finally{
+      fab.style.visibility = 'visible';
+    }
+    const c = currentContext();
+    ctxEl.textContent = c.page + ' · ' + c.time;
+    overlay.classList.add('show');
+    noteEl.focus();
+  }
+  function closeFlag(){
+    overlay.classList.remove('show');
+    noteEl.value = '';
+    emailEl.value = '';
+  }
+
+  function downloadBlob(blob, name){
+    if(!blob) return;
+    const u = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = u; a.download = name; document.body.appendChild(a); a.click();
+    a.remove(); setTimeout(()=>URL.revokeObjectURL(u), 4000);
+  }
+
+  function sendViaMailto(c, note, fname, email){
+    if(pngBlob) downloadBlob(pngBlob, fname);       // reporter attaches this one file
+    const subject = 'Liru error report — ' + c.page;
+    const body =
+      (note ? note + '\n\n' : '') +
+      '—\nPage: ' + c.page +
+      '\nURL: ' + c.url +
+      '\nTime: ' + c.time +
+      '\nBrowser: ' + c.ua +
+      (email ? '\nReply to: ' + email : '') +
+      (pngBlob ? '\n\n[Screenshot "' + fname + '" was just downloaded — please attach it to this email.]' : '');
+    window.location.href = 'mailto:' + encodeURIComponent(EMAIL) +
+      '?subject=' + encodeURIComponent(subject) +
+      '&body='   + encodeURIComponent(body);
+    showToast(pngBlob ? 'Email opened — attach the screenshot & send' : 'Email opened — just hit send');
+    closeFlag();
+  }
+
+  function canInjectFile(){
+    try{ new DataTransfer(); return true; }catch(e){ return false; }
+  }
+
+  function sendViaFormsubmit(c, note, fname, email){
+    if(!jpgBlob || !canInjectFile()){
+      sendViaMailto(c, note, fname, email);                // graceful fallback (e.g. Safari)
+      return;
+    }
+    const iframe = document.createElement('iframe');
+    iframe.name = 'lwFlagSink'; iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+
+    const form = document.createElement('form');
+    form.action = FORMSUBMIT_ENDPOINT; form.method = 'POST';
+    form.enctype = 'multipart/form-data'; form.target = 'lwFlagSink';
+    form.style.display = 'none';
+
+    const add = (n, v)=>{ const i = document.createElement('input'); i.type='hidden'; i.name=n; i.value=v; form.appendChild(i); };
+    add('_subject', 'Liru error report — ' + c.page);
+    add('_captcha', 'false');
+    add('_template', 'table');
+    if(isEmail(email)) add('_replyto', email);   // lets you reply straight to the reporter
+    add('Note', note || '(no note)');
+    if(email) add('Reply to', email);
+    add('Page', c.page);
+    add('URL', c.url);
+    add('Time', c.time);
+    add('Browser', c.ua);
+
+    const fileInput = document.createElement('input');
+    fileInput.type = 'file'; fileInput.name = 'attachment';
+    const dt = new DataTransfer();
+    dt.items.add(new File([jpgBlob], fname.replace(/\.png$/, '.jpg'), {type:'image/jpeg'}));
+    fileInput.files = dt.files;
+    form.appendChild(fileInput);
+
+    document.body.appendChild(form);
+    iframe.addEventListener('load', ()=>{ setTimeout(()=>{ form.remove(); iframe.remove(); }, 1500); });
+    form.submit();
+    showToast('Thanks — your report was sent');
+    closeFlag();
+  }
+
+  function ensureEmailJS(){
+    return new Promise((res, rej)=>{
+      if(window.emailjs) return res();
+      const s = document.createElement('script');
+      s.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+      s.onload = res; s.onerror = ()=>rej(new Error('EmailJS SDK failed to load'));
+      document.head.appendChild(s);
+    });
+  }
+  function blobToBase64(blob){
+    return new Promise((res, rej)=>{
+      const r = new FileReader();
+      r.onload = ()=> res(String(r.result).split(',')[1]);   // strip "data:...;base64,"
+      r.onerror = rej; r.readAsDataURL(blob);
+    });
+  }
+  async function sendViaEmailjs(c, note, fname, email){
+    try{
+      await ensureEmailJS();
+      emailjs.init({ publicKey: EMAILJS.publicKey });
+      const params = {
+        page: c.page, url: c.url, time: c.time, browser: c.ua,
+        note: note || '(no note)', to_email: EMAIL,
+        reply_to: email || ''
+      };
+      if(EMAILJS.attachScreenshot && jpgBlob){
+        params.screenshot = await blobToBase64(jpgBlob);
+        params.screenshot_name = fname.replace(/\.png$/, '.jpg');
+      }
+      await emailjs.send(EMAILJS.serviceID, EMAILJS.templateID, params);
+      showToast('Thanks — your report was sent');
+      closeFlag();
+    }catch(err){
+      sendViaMailto(c, note, fname, email);   // graceful fallback if the SDK or send fails
+    }
+  }
+
+  sendBtn.addEventListener('click', ()=>{
+    const c = currentContext();
+    const note = noteEl.value.trim();
+    const email = emailEl.value.trim();
+    const fname = 'liru-error-report-' + Date.now() + '.png';
+    if(MODE === 'formsubmit')   sendViaFormsubmit(c, note, fname, email);
+    else if(MODE === 'emailjs') sendViaEmailjs(c, note, fname, email);
+    else                        sendViaMailto(c, note, fname, email);
+  });
+
+  fab.addEventListener('click', openFlag);
+  cancelBtn.addEventListener('click', closeFlag);
+  overlay.addEventListener('click', e=>{ if(e.target === overlay) closeFlag(); });
+  document.addEventListener('keydown', e=>{ if(e.key === 'Escape' && overlay.classList.contains('show')) closeFlag(); });
+})();
+</script>
+
 </body>
 </html>
