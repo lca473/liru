@@ -2788,14 +2788,14 @@ const V = {
   ],
 
   // L114 — Vocab: tertiary / off-spectrum colors
-  // niwale pink, touhale brown, huyale orange. The three "off the
+  // niwale pink, toulale brown, huyale orange. The three "off the
   // rainbow" colors — pink (light red), brown (dark red-yellow blend),
   // orange (red-yellow blend).
   l114_vocab_color_tertiary: [
     {lw:"niwale", en:"pink (the color)", pos:"n",
      canvas:{adj:"niwali", adj_en:"pink"}},
-    {lw:"touhale", en:"brown (the color)", pos:"n",
-     canvas:{adj:"touhali", adj_en:"brown"}},
+    {lw:"toulale", en:"brown (the color)", pos:"n",
+     canvas:{adj:"toulali", adj_en:"brown"}},
     {lw:"huyale", en:"orange (the color)", pos:"n",
      canvas:{adj:"huyali", adj_en:"orange"}},
   ],
@@ -2818,13 +2818,13 @@ const V = {
      cloze:{blanks:[2], bank:["laumali","feyali","felali","lewali","foshali","roumali"]}},
     {lw:["Ne","wamu","moulea","foshali"],
      en:"I like green trees."},
-    {lw:["Kupe","lo","su","touhali"],
+    {lw:["Kupe","lo","su","toulali"],
      en:"This coffee is brown."},
     {lw:["Ne","wa","tiru","haule","huyali","sho","felume","lewali"],
      en:"I saw an orange sun and a white cloud."},
     {lw:["Felume","su","felali","apa","laime"],
      en:"The cloud is grayer than the sky.",
-     cloze:{blanks:[2], bank:["felali","noumali","lewali","laumali","huyali","touhali"]}},
+     cloze:{blanks:[2], bank:["felali","noumali","lewali","laumali","huyali","toulali"]}},
     {lw:["Ki","loiwe","lo","su","roumali"],
      en:"Is this book purple?"},
     {lw:["Loshea","haumali","su","apa","wauli"],
@@ -7977,12 +7977,12 @@ const LESSONS = [
 
   {id:"l114_vocab_color_tertiary",
    title:"Tertiary Colors",
-   desc:"Rounding out the palette: niwale (pink), touhale (brown), huyale (orange)",
+   desc:"Rounding out the palette: niwale (pink), toulale (brown), huyale (orange)",
    icon:"🟠",
    vocabKey:"l114_vocab_color_tertiary",
    xp:22,
    unit:19,
-   intro:`<h3>🟠 Three more colors — off the rainbow</h3><p>Pink, brown, and orange round out the color set. Same canvas pattern.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>niwale</em></td><td style="padding:4px 12px"><em>niwali</em> — pink</td></tr><tr><td style="padding:4px 12px"><em>touhale</em></td><td style="padding:4px 12px"><em>touhali</em> — brown</td></tr><tr><td style="padding:4px 12px"><em>huyale</em></td><td style="padding:4px 12px"><em>huyali</em> — orange</td></tr></table><h3>📝 In use</h3><span class="example">Maya wamu loshea niwali. <span class="gloss">Maya likes pink flowers.</span></span><span class="example">Ne wa tiru haule huyali. <span class="gloss">I saw an orange sun.</span></span><span class="example">Kupe lo su touhali. <span class="gloss">This coffee is brown.</span></span>`},
+   intro:`<h3>🟠 Three more colors — off the rainbow</h3><p>Pink, brown, and orange round out the color set. Same canvas pattern.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>niwale</em></td><td style="padding:4px 12px"><em>niwali</em> — pink</td></tr><tr><td style="padding:4px 12px"><em>toulale</em></td><td style="padding:4px 12px"><em>toulali</em> — brown</td></tr><tr><td style="padding:4px 12px"><em>huyale</em></td><td style="padding:4px 12px"><em>huyali</em> — orange</td></tr></table><h3>📝 In use</h3><span class="example">Maya wamu loshea niwali. <span class="gloss">Maya likes pink flowers.</span></span><span class="example">Ne wa tiru haule huyali. <span class="gloss">I saw an orange sun.</span></span><span class="example">Kupe lo su toulali. <span class="gloss">This coffee is brown.</span></span>`},
 
   {id:"l115_color_exam",
    title:"Unit 20 Exam — Colors",
@@ -11214,6 +11214,9 @@ const SRS_FORM_RENAMES={
   siehe:'pake',
   siehi:'paki',
   siehu:'paku',
+  touhale:'toulale',
+  touhali:'toulali',
+  touhalu:'toulalu',
 };
 function srsMigrateRenamedFormsIfNeeded(username){
   if(!username)return 0;
@@ -15447,12 +15450,12 @@ const DICTIONARY_RAW = [
   {lw:"tone", en:"money (or payment)", pos:"n"},
   {lw:"toni", en:"monetary", pos:"adj"},
   {lw:"tonu", en:"to pay", pos:"v"},
-  {lw:"touhale", en:"brown (the color)", pos:"n"},
-  {lw:"touhali", en:"brown", pos:"adj"},
-  {lw:"touhalu", en:"to turn brown", pos:"v"},
   {lw:"touhe", en:"shore (or coast, beach)", pos:"n"},
   {lw:"touhi", en:"coastal", pos:"adj"},
   {lw:"touhu", en:"to come ashore", pos:"v"},
+  {lw:"toulale", en:"brown (the color)", pos:"n"},
+  {lw:"toulali", en:"brown", pos:"adj"},
+  {lw:"toulalu", en:"to turn brown", pos:"v"},
   {lw:"toule", en:"ground (or earth)", pos:"n"},
   {lw:"touli", en:"earth-related", pos:"adj"},
   {lw:"toulimonauye", en:"jiu-jitsu", pos:"n", note:"From touli (ground) + monauye (fight) \u2014 ground fight"},
