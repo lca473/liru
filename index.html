@@ -15837,45 +15837,56 @@ function renderDictEnResults() {
   const STOPWORDS = new Set(['to','a','an','the','of','or','and','be','is']);
   const matches = [];
   DICTIONARY_RAW.forEach(e => {
-    // Split on slash or comma to get gloss pieces. Parentheticals are treated
-    // as separate alternate-sense pieces so "from (or of)" yields two pieces:
-    // "from" and "of" (with the leading "or"/"also" stripped). This lets a
-    // search for "of" rank-0 match ka's "(or of)" sense, while glosses that
-    // merely contain "of" as a connector ("afraid of") don't.
-    const rawPieces = e.en.split(/\s*\/\s*|,\s*/).map(g => g.trim());
+    // Extract parentheticals from the WHOLE gloss first, then split both the
+    // outside text and the parenthetical contents on slash/comma. Order
+    // matters: splitting on slash before pulling out parens shatters glosses
+    // like "at (or to/toward)" into "at (or to" + "toward)" — neither yields
+    // a clean "at" piece, so ya ranked 1 instead of 0 for the query "at".
+    // Done this way, "at (or to/toward)" → pieces ["at", "to", "toward"]
+    // (leading "or"/"also" stripped from parentheticals). A search for "of"
+    // rank-0 matches ka's "(or of)" sense, while glosses that merely contain
+    // "of" as a connector ("afraid of") don't.
     const pieces = [];
-    for (const raw of rawPieces) {
-      const parenMatches = [...raw.matchAll(/\(([^)]*)\)/g)];
-      const outside = raw.replace(/\s*\([^)]*\)\s*/g, ' ').trim();
-      if (outside) pieces.push(outside);
-      for (const m of parenMatches) {
-        const inner = m[1].trim().replace(/^(or|also)\s+/i, '').trim();
-        if (inner) pieces.push(inner);
+    const parenMatches = [...e.en.matchAll(/\(([^)]*)\)/g)];
+    const outside = e.en.replace(/\([^)]*\)/g, ' ');
+    for (const part of outside.split(/\s*\/\s*|,\s*/)) {
+      const t = part.trim();
+      if (t) pieces.push(t);
+    }
+    for (const m of parenMatches) {
+      const inner = m[1].trim().replace(/^(or|also)\s+/i, '').trim();
+      for (const part of inner.split(/\s*\/\s*|,\s*/)) {
+        const t = part.trim();
+        if (t) pieces.push(t);
       }
     }
-    let bestRank = Infinity;
+    // Track the length of the best-ranked matching piece so ties within a
+    // rank sort by directness: an entry whose whole gloss piece is the query
+    // beats one where the query is buried in a longer phrase.
+    let bestRank = Infinity, bestLen = Infinity;
     for (const piece of pieces) {
-      const clean = piece.toLowerCase().replace(/[()]/g, '').trim();
+      const clean = piece.toLowerCase().trim();
       if (!clean) continue;
 
-      if (clean === q) { bestRank = Math.min(bestRank, 0); continue; }
-
-      // Word-level scan — splits on spaces & punctuation
-      const words = clean.split(/[\s\-]+/).filter(w => w && !STOPWORDS.has(w));
-      for (const w of words) {
-        if (w === q) { bestRank = Math.min(bestRank, 1); break; }
+      let r = Infinity;
+      if (clean === q) {
+        r = 0;
+      } else {
+        // Word-level scan — splits on spaces & punctuation
+        const words = clean.split(/[\s\-]+/).filter(w => w && !STOPWORDS.has(w));
+        if (words.includes(q)) r = 1;
+        // Prefix match on any content word
+        else if (words.some(w => w.startsWith(q))) r = 2;
       }
-      if (bestRank === 1) continue;
-
-      // Prefix match on any content word
-      for (const w of words) {
-        if (w.startsWith(q)) { bestRank = Math.min(bestRank, 2); break; }
+      if (r < bestRank || (r === bestRank && clean.length < bestLen)) {
+        bestRank = r;
+        bestLen = clean.length;
       }
     }
-    if (bestRank !== Infinity) matches.push({ e, rank: bestRank });
+    if (bestRank !== Infinity) matches.push({ e, rank: bestRank, len: bestLen });
   });
 
-  matches.sort((a,b) => a.rank - b.rank || a.e.lw.localeCompare(b.e.lw));
+  matches.sort((a,b) => a.rank - b.rank || a.len - b.len || a.e.lw.localeCompare(b.e.lw));
   const shown = matches.slice(0, 30);
 
   if (shown.length === 0) {
