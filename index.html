@@ -1257,7 +1257,8 @@ const V = {
   // ════════════════════════════════════════════════════════════════
   // L39: l39_goingcoming — sentence-based; introduces halu, vanu, movanu
   // L40: l40_places      — vocab; hiwe (+hiwu), kewe, yahe, tieme, senehiwe, kupetieme
-  // L41: l41_locatives   — sentence-based; introduces ya, wo, mowo, so, ka
+  // L41: l41_locatives   — sentence-based; introduces ya, wo, mowo, ka
+  // (so was merged into ya 2026-06-10; ya covers at AND to/toward)
   //                        (leu, moleu deferred to Unit 12 where natural pairings exist)
   // L42: l42_herethere   — sentence-based; introduces loya, faloya, kiya
   // L43: l43_exam        — Unit 7 exam (isCheckpoint:true)
@@ -1299,23 +1300,24 @@ const V = {
   ],
 
   // L41 — Locative Particles (sentence-based)
-  // Five particles: ya (at), wo (in), mowo (out), so (to), ka (from).
+  // Four particles: ya (at / to), wo (in), mowo (out), ka (from). ya covers
+  // both static "at" and motion "to/toward" — the verb disambiguates.
   // *leu* and *moleu* deferred to Unit 12 (need tree/sky/etc. for natural
   // drill pairings). *mowo* is the mo- derivation of *wo*, taught together.
   l41_locatives: [
     {lw:["Ne","su","ya","hiwe"],                  en:"I am at the house."},
     {lw:["Maya","su","wo","kewe"],                en:"Maya is in the room."},
     {lw:["Kai","su","mowo","senehiwe"],           en:"Kai is outside the school."},
-    {lw:["Ne","halu","so","kupetieme"],           en:"I go to the café."},
+    {lw:["Ne","halu","ya","kupetieme"],           en:"I go to the café."},
     {lw:["Ve","wa","vanu","ka","hiwe"],           en:"She came from the house."},
     {lw:["Yuna","su","ya","tieme"],               en:"Yuna is at the store."},
-    {lw:["Nea","wa","halu","so","senehiwe"],      en:"We went to the school."},
+    {lw:["Nea","wa","halu","ya","senehiwe"],      en:"We went to the school."},
   ],
 
   // L42 — Here, There, and Where (sentence-based)
   // Locative-extended demonstratives loya/faloya plus the question word kiya.
   // Particle-drop in *kiya* questions is shown in the intro card and
-  // exercised in sentences 4, 7 (so/ka drop respectively).
+  // exercised in sentences 4, 7 (ya/ka drop respectively).
   l42_herethere: [
     {lw:["Ne","su","loya"],                      en:"I am here."},
     {lw:["Maya","su","faloya"],                  en:"Maya is there."},
@@ -1328,10 +1330,10 @@ const V = {
 
   // L43 — Unit 7 Exam (sentence-based, isCheckpoint:true)
   // Mixed practice across L39–L42 plus prior units. No new forms.
-  // 8 sentences covering all 5 particles, all motion verbs, and the
+  // 8 sentences covering all 4 particles, all motion verbs, and the
   // demonstrative + question-word pieces.
   l43_exam: [
-    {lw:["Ne","halu","so","hiwe"],                                en:"I go to the house."},
+    {lw:["Ne","halu","ya","hiwe"],                                en:"I go to the house."},
     {lw:["Maya","su","wo","kewe"],                                en:"Maya is in the room."},
     {lw:["Kiya","tea","wa","halu"],                               en:"Where did you all go?"},
     {lw:["Yuna","sho","Kai","wa","vanu","ka","kupetieme"],        en:"Yuna and Kai came from the café."},
@@ -1397,13 +1399,13 @@ const V = {
   ],
 
   // L48 — Verbs in Sentences II (sentence-based, no new forms)
-  // Drills L46 + L47 verbs. Sentences 4+5 deliberately pair feru/so and
+  // Drills L46 + L47 verbs. Sentences 4+5 deliberately pair feru/ya and
   // moferu/ka to reinforce the give/take + to/from symmetry.
   l48_routinesentences: [
     {lw:["Ne","rau","wo","kewe"],                       en:"I sleep in the room."},
     {lw:["Maya","wa","fasu","lawe lo"],                 en:"Maya worked today."},
     {lw:["Kiwa","te","ihu"],                            en:"What are you doing?"},
-    {lw:["Ne","feru","lo","so","Yuna"],                 en:"I give this to Yuna."},
+    {lw:["Ne","feru","lo","ya","Yuna"],                 en:"I give this to Yuna."},
     {lw:["Kai","wa","moferu","lo","ka","ne"],           en:"Kai took this from me."},
     {lw:["Ne","wa","riku","Maya","ya","senehiwe"],      en:"I met Maya at the school."},
     {lw:["Tea","wa","rau"],                             en:"You all slept."},
@@ -1583,7 +1585,7 @@ const V = {
   // Introduces nai (many/much) as a quantifier adjective. Drills the
   // canonical price-asking pattern (Kinai tonea X su?) per Grammar.md §12 —
   // uses productive grammar, not a new idiom. Reinforces L59 transactional
-  // verbs (hoyu, mohoyu) with so/ka locative particles from L41.
+  // verbs (hoyu, mohoyu) with ya/ka locative particles from L41.
   // Uses pometieme (productive compound, free in budget) for transactional
   // setting. Note: tone is a count noun and pluralizes regularly (tonea);
   // English mass-noun reflex is the key error pattern to drill against.
@@ -1596,7 +1598,7 @@ const V = {
     {lw:["Houme","lo","su","tonea","hani"],         en:"This bread is ten money (plural)."},
     {lw:["Ne","wanu","hoyu","shae","lo"],           en:"I want to buy this tea."},
     {lw:["Maya","hoyu","pomea","ka","Kai"],         en:"Maya buys fruits from Kai."},
-    {lw:["Kai","mohoyu","houme","so","Maya"],       en:"Kai sells bread to Maya."},
+    {lw:["Kai","mohoyu","houme","ya","Maya"],       en:"Kai sells bread to Maya."},
     {lw:["Ne","ahu","tonea","nai"],                 en:"I have a lot of money."},
     {lw:["Maya","hoyu","pomea","nai","ka","pometieme"], en:"Maya buys many fruits from the fruit store."},
   ],
@@ -1612,9 +1614,9 @@ const V = {
     {lw:["Kinai","tonea","shae","lo","su"],          en:"How much money is this tea?"},
     {lw:["Ne","wa","hoyu","miawe","ka","tieme"],    en:"I bought milk from the store."},
     {lw:["Pome","lo","su","milali"],                en:"This fruit is sweet."},
-    {lw:["Kai","mohoyu","houme","so","ne"],         en:"Kai sells bread to me."},
+    {lw:["Kai","mohoyu","houme","ya","ne"],         en:"Kai sells bread to me."},
     {lw:["Ki","te","ahu","tonea","nai"],            en:"Do you have a lot of money?"},
-    {lw:["Tenilawe","ne","wu","halu","so","kupetieme"], en:"Tuesday I will go to the café."},
+    {lw:["Tenilawe","ne","wu","halu","ya","kupetieme"], en:"Tuesday I will go to the café."},
   ],
 
   // ── UNIT 11: BODY, HEALTH, AND DAILY LIFE (L62–L67) ─────────────────
@@ -1719,7 +1721,7 @@ const V = {
     {lw:["Sheyupue","lo","ahu","mashe"],               en:"This nurse has medicine."},
     {lw:["Ne","wa","fauhu","fauhea","nai"],            en:"I told many stories. (lit. I story-told many stories.)"},
     {lw:["Ki","laupe'o","te","kufu"],                   en:"Does your foot hurt?"},
-    {lw:["Lawe wuli","ne","wu","hipu","so","hiwe"],    en:"Tomorrow, I will walk to the house."},
+    {lw:["Lawe wuli","ne","wu","hipu","ya","hiwe"],    en:"Tomorrow, I will walk to the house."},
   ],
 
   // ── UNIT 12: WEATHER AND NATURE (L68–L74) ──────────────────────────────
@@ -2001,7 +2003,7 @@ const V = {
     {lw:["Ne","wanu","mauhu"],                                             en:"I want to learn."},
     {lw:["Lawe wali","Kai","wa","tahu","houme"],                           en:"Yesterday, Kai ate bread."},
     {lw:["Ki","te","ahu","loiwe","lo"],                                    en:"Do you have this book?"},
-    {lw:["Ne","wu","halu","so","senehiwe"],                                en:"I will go to the school."},
+    {lw:["Ne","wu","halu","ya","senehiwe"],                                en:"I will go to the school."},
     {lw:["Vea","wa","tiru","paipea","sho","mewea"],                        en:"They saw dogs and cats."},
     {lw:["Maya","wa","tau","haiwea","hani"],                               en:"Maya is ten years old. (lit. Maya has completed ten years.)"},
     {lw:["Ne","mai","ahu","tonea","nai"],                                  en:"I don't have a lot of money."},
@@ -2253,7 +2255,7 @@ const V = {
      cloze:{blanks:[4,5], bank:["launu","kavu","leu","wo","ko","pahe"]}},
     {lw:["Hiwe","lai","ne","wa","rau","wo","su","nohi"],
      en:"The house that I slept in is new.",
-     cloze:{blanks:[1,5], bank:["lai","wa","wo","so","ka","ya"]}},
+     cloze:{blanks:[1,5], bank:["lai","wa","wo","leu","ka","ya"]}},
     {lw:["Pue","lai","ne","wa","liru","ko","wa","su","wame'o","ne"],
      en:"The person I spoke with was my friend."},
   ],
@@ -2428,7 +2430,7 @@ const V = {
   //          Grammar.md §16 — sheure is the separate "justice"
   //          reading and is not in this unit.
   //   L105 — Sentence-based: introduces 3 spatial particles (niwa,
-  //          voi, moso) plus 1 A20 verb form (washu "to move/flow")
+  //          voi, moya) plus 1 A20 verb form (washu "to move/flow")
   //          drilled sentence-only. 4 new items total.
   //   L106 — Unit 18 exam (isCheckpoint:true). 10 sentences,
   //          frequency + spatial mixed. Cloze on 3-4 sentences.
@@ -2496,7 +2498,7 @@ const V = {
     {lw:["Ki","te","wa","nahu","faiweli","houme"],
      en:"Have you ever cooked bread?",
      cloze:{blanks:[4], bank:["faiweli","taiweli","saiweli","nuliweli","naiweli","mai"]}},
-    {lw:["Ne","mai","vanu","naiweli","so","loya"],
+    {lw:["Ne","mai","vanu","naiweli","loya"],
      en:"I rarely come here."},
     {lw:["Yuna","mai","wa","tahu","faiweli","houme"],
      en:"Yuna has never eaten bread."},
@@ -2559,7 +2561,7 @@ const V = {
   ],
 
   // L105 — Sentence-based: spatial particles + washu
-  // Introduces the three spatial particles niwa, voi, moso, plus the
+  // Introduces the three spatial particles niwa, voi, moya, plus the
   // A20 verb form washu "to move / flow" (drilled sentence-only —
   // its canvas mates washe/washi appear in the intro card but aren't
   // exercised). 7 sentences covering each particle 2+ times.
@@ -2567,19 +2569,19 @@ const V = {
   l105_spatial_particles: [
     {lw:["Moule","su","niwa","hiwe","sho","senehiwe"],
      en:"The tree is between the house and the school.",
-     cloze:{blanks:[2,4], bank:["niwa","voi","moso","wo","sho","ko"]}},
+     cloze:{blanks:[2,4], bank:["niwa","voi","moya","wo","sho","ko"]}},
     {lw:["Ve","hipu","voi","moule"],
      en:"She walks around the tree.",
-     cloze:{blanks:[2], bank:["voi","niwa","moso","wo","ya","leu"]}},
-    {lw:["Paipe","wa","hairu","moso","hiwe"],
+     cloze:{blanks:[2], bank:["voi","niwa","moya","wo","ya","leu"]}},
+    {lw:["Paipe","wa","hairu","moya","hiwe"],
      en:"The dog ran away from the house.",
-     cloze:{blanks:[3], bank:["moso","so","voi","niwa","mowo","wa"]}},
+     cloze:{blanks:[3], bank:["moya","ya","voi","niwa","mowo","wa"]}},
     {lw:["Shawe","washu","taumu","mouleyahe"],
      en:"Water flows through the forest.",
      cloze:{blanks:[1,2], bank:["washu","taumu","halu","tasu","wo","voi"]}},
     {lw:["Nea","su","niwa","Yuna","sho","Maya"],
      en:"We are between Yuna and Maya."},
-    {lw:["Ve","wa","halu","moso","shawome"],
+    {lw:["Ve","wa","halu","moya","shawome"],
      en:"She went away from the ocean."},
     {lw:["Ne","hipu","voi","mouleyahe"],
      en:"I walk around the forest."},
@@ -2590,7 +2592,7 @@ const V = {
   // Each major construction tested at least once:
   //   - 5 frequency adverbs (each used at least once)
   //   - mai naiweli / mai faiweli phrase patterns
-  //   - 3 spatial particles (niwa, voi, moso)
+  //   - 3 spatial particles (niwa, voi, moya)
   //   - canvas-form spatial adverbs (taumi, tasi, niani, moniani,
   //     huni, mohuni, moliani, vaihi)
   //   - canvas verb forms (taumu, tasu, nianu, hunu, vaihu, washu)
@@ -2601,12 +2603,12 @@ const V = {
   l106_frequency_spatial_exam: [
     {lw:["Ne","hipu","taiweli","voi","mouleyahe"],
      en:"I always walk around the forest.",
-     cloze:{blanks:[2,3], bank:["taiweli","naiweli","voi","niwa","moso","sho"]}},
+     cloze:{blanks:[2,3], bank:["taiweli","naiweli","voi","niwa","moya","sho"]}},
     {lw:["Yuna","wa","tasu","naiweli","mouleyahe"],
      en:"Yuna often crossed the forest."},
     {lw:["Hiwe","su","niwa","moule","sho","senehiwe"],
      en:"The house is between the tree and the school.",
-     cloze:{blanks:[2], bank:["niwa","voi","moso","wo","leu","ya"]}},
+     cloze:{blanks:[2], bank:["niwa","voi","moya","wo","leu","ya"]}},
     {lw:["Paipe","nianu","saiweli","ne"],
      en:"The dog sometimes approaches me."},
     {lw:["Ne","wa","halu","mohuni","nuliweli"],
@@ -2616,9 +2618,9 @@ const V = {
      en:"Have you ever visited Yuna?"},
     {lw:["Ve","mai","wa","halu","huni","naiweli"],
      en:"She rarely went right."},
-    {lw:["Shawe","washu","moso","hiwe"],
+    {lw:["Shawe","washu","moya","hiwe"],
      en:"Water flows away from the house.",
-     cloze:{blanks:[1,2], bank:["washu","halu","moso","voi","wo","ya"]}},
+     cloze:{blanks:[1,2], bank:["washu","halu","moya","voi","wo","ya"]}},
     {lw:["Maya","taumu","mouleyahe"],
      en:"Maya goes through the forest."},
     {lw:["Hiwe","su","moniani","ka","senehiwe"],
@@ -3061,7 +3063,7 @@ const V = {
   // See preflight.js sentenceLessonNewForms for budget (no new forms
   // — all unit forms declared in V entries above).
   l127_high_freq_exam: [
-    {lw:["Ne","wa","feru","fere","lo","so","Maya"],
+    {lw:["Ne","wa","feru","fere","lo","ya","Maya"],
      en:"I gave this gift to Maya."},
     {lw:["Piwea","tai","ahu","houle"],
      en:"All children have joy.",
@@ -3071,7 +3073,7 @@ const V = {
      cloze:{blanks:[0], bank:["wane'o","hoye","pire","lire","mere","mihe","houle","nawe"]}},
     {lw:["Lire","lo","su","na","mawe'o","ne"],
      en:"This song is for my mother.",
-     cloze:{blanks:[3], bank:["na","ko","ka","la","so","wo","ya","leu"]}},
+     cloze:{blanks:[3], bank:["na","ko","ka","la","wo","ya","leu"]}},
     {lw:["Poye","lo","su","poyi"],
      en:"This door is open.",
      cloze:{blanks:[0,3], bank:["poye","poyi","taupoye","fere","fase","kaise","houle","muhe"]}},
@@ -3217,7 +3219,7 @@ const V = {
      en:"Those mountains are northern."},
     {lw:["Shaune'o","ne","su","leu","wouhile"],
      en:"My lake is on the hill."},
-    {lw:["Ne","wa","halu","taiweli","so","hunitowe"],
+    {lw:["Ne","wa","halu","taiweli","ya","hunitowe"],
      en:"I always went to the east.",
      cloze:{blanks:[3,5], bank:["taiweli","naiweli","hunitowe","mohunitowe","faiweli","saiweli"]}},
     {lw:["Wouhe","su","liani","apa","wouhile"],
@@ -3225,14 +3227,14 @@ const V = {
     {lw:["Ne","nawu","nouwe","lai","ahu","shafanea","sai"],
      en:"I love an island that has some rivers.",
      cloze:{blanks:[3,5], bank:["lai","vi","shafanea","shauni","nouwea","sho"]}},
-    {lw:["Vi","te","halu","so","foule","te","wu","tiru","loshea","sai"],
+    {lw:["Vi","te","halu","ya","foule","te","wu","tiru","loshea","sai"],
      en:"If you go to the field, you will see some flowers.",
      cloze:{blanks:[0,4], bank:["vi","mavi","foule","tauhe","nalai","na"]}},
     {lw:["Ne","tiru","tauhe","lai","su","apa","tauhi"],
      en:"I see a desert that is the most arid."},
     {lw:["Hiwe'o","ne","su","niwa","shafane","sho","shaune"],
      en:"My home is between the river and the lake.",
-     cloze:{blanks:[3,6], bank:["niwa","voi","moso","shaune","nouwe","shafane"]}},
+     cloze:{blanks:[3,6], bank:["niwa","voi","moya","shaune","nouwe","shafane"]}},
     {lw:["Pouwe","lo","ahu","nulihue"],
      en:"This cave has nothing."},
     {lw:["Mavi","nea","wa","halu","molianitowi","naiweli","nea","mai","wa","riku","pieme"],
@@ -3353,7 +3355,7 @@ const V = {
      en:"Your grandmother (paternal) is the oldest."},
     {lw:["Lawe lo","mawe'o","mawe","wa","nahu","na","nea"],
      en:"Today, grandmother (mother's mother) cooked for us.",
-     cloze:{blanks:[1,5], bank:["mawe'o","pawe'o","na","ko","ka","so"]}},
+     cloze:{blanks:[1,5], bank:["mawe'o","pawe'o","na","ko","ka","ya"]}},
     {lw:["Pawe'o","pawe'o","ne","liru","taiweli","ko","ne"],
      en:"My grandfather (paternal) always talks with me."},
     {lw:["Vi","te","wamu","pawe'o","mawe'o","te","ve","wu","su","houli"],
@@ -3468,7 +3470,7 @@ const V = {
     {lw:["Nowe'o","nowe'o","nea","koulu","taiweli","nea"],
      en:"Our grandson (via son) always visits us.",
      cloze:{blanks:[1,4], bank:["nowe'o","noye'o","taiweli","saiweli","naiweli","nuliweli"]}},
-    {lw:["Lawe lo","noye'o","nowe'o","ne","wa","vanu","so","hiwe'o","ne"],
+    {lw:["Lawe lo","noye'o","nowe'o","ne","wa","vanu","ya","hiwe'o","ne"],
      en:"Today, my granddaughter (via son) came to my house."},
     {lw:["Vi","ne","wa","ahu","wele","sai","ne","wu","liru","ko","nowe'o","noye'o","ne"],
      en:"If I had some time, I would talk with my grandson (via daughter).",
@@ -3508,7 +3510,7 @@ const V = {
     {lw:["Piwea","faloa","su","nowea'o","loyea'o","nea"],
      en:"Those children are our nephews (via brothers).",
      cloze:{blanks:[4,5], bank:["loyea'o","yoyea'o","nea","noyea","paurilea","piwea"]}},
-    {lw:["Mavi","mawe'o","pawe'o","ne","su","monohi","ve","wu","halu","so","touhe","lo"],
+    {lw:["Mavi","mawe'o","pawe'o","ne","su","monohi","ve","wu","halu","ya","touhe","lo"],
      en:"Although my grandmother (paternal) is old, she will go to this shore."},
   ],
 
@@ -5599,9 +5601,9 @@ const V = {
      en:"I pick up this book."},
     {lw:["Ve","wa","motoihu","maihe'o","ne"],
      en:"She dropped off my message."},
-    {lw:["Nea","muwu","houme","so","wame'o","ne"],
+    {lw:["Nea","muwu","houme","ya","wame'o","ne"],
      en:"We send bread to my friend.",
-     cloze:{blanks:[1,2], bank:["muwu","motoihu","houme","loiwe","so","nea"]}},
+     cloze:{blanks:[1,2], bank:["muwu","motoihu","houme","loiwe","ya","nea"]}},
     {lw:["Hiwe'o","ne","su","rumi"],
      en:"My house is locked."},
     {lw:["Ne","movehu","morume'o","ne"],
@@ -5620,10 +5622,10 @@ const V = {
      en:"She leads us and we follow her."},
     {lw:["Ne","mohesu","ko","wame'o","ne"],
      en:"I connect with my friend."},
-    {lw:["Ne","liohu","so","hiwe'o","ne"],
+    {lw:["Ne","liohu","ya","hiwe'o","ne"],
      en:"I step up to my house.",
-     cloze:{blanks:[1,3], bank:["liohu","pishu","hiwe'o","shalome","so","ne"]}},
-    {lw:["Shawe","pishu","so","shalome"],
+     cloze:{blanks:[1,3], bank:["liohu","pishu","hiwe'o","shalome","ya","ne"]}},
+    {lw:["Shawe","pishu","ya","shalome"],
      en:"Water drips into a puddle."},
     {lw:["Piwe","wa","pishawu","shawe"],
      en:"The child splashed water."},
@@ -6141,9 +6143,9 @@ const V = {
      en:"This food is spicy."},
     {lw:["Ne","tahu","miafe","sho","roine"],
      en:"I eat cheese and rice."},
-    {lw:["Ne","shaihu","so","shawome"],
+    {lw:["Ne","shaihu","ya","shawome"],
      en:"I sail to the sea.",
-     cloze:{blanks:[1,3], bank:["shaihu","shawome","shaihe","shawe","so","ne"]}},
+     cloze:{blanks:[1,3], bank:["shaihu","shawome","shaihe","shawe","ya","ne"]}},
     {lw:["Tahishawe'o","ne","su","nomai"],
      en:"My soup is full."},
     {lw:["Loune'o","ne","wa","awu"],
@@ -6398,7 +6400,7 @@ const V = {
      cloze:{blanks:[1,5], bank:["nomu","nome","poumu","poume","wo","ne"]}},
     {lw:["Shome","lo","su","wo","soime","lo"],
      en:"This bottle is on this shelf."},
-    {lw:["Ne","wu","halu","so","mashetieme"],
+    {lw:["Ne","wu","halu","ya","mashetieme"],
      en:"I will go to the pharmacy."},
     {lw:["Sheyahe","lo","su","ori","mopiami","sho","su","nohi"],
      en:"This hospital is very big and new.",
@@ -6464,9 +6466,9 @@ const V = {
     {lw:["Ne","wamu","luere","lo","nalai","ve","su","souni"],
      en:"I like this road because it is short.",
      cloze:{blanks:[2,7], bank:["luere","souni","heule","poime","nalai","su"]}},
-    {lw:["Ve","wa","halu","so","heule","ko","runipoime"],
+    {lw:["Ve","wa","halu","ya","heule","ko","runipoime"],
      en:"She went to the city by bicycle."},
-    {lw:["Nea","halu","so","meshe","ka","heule","lo"],
+    {lw:["Nea","halu","ya","meshe","ka","heule","lo"],
      en:"We go to the middle of this city."},
     {lw:["Roheme","su","mopiami","apa","meuhekoire"],
      en:"A train is bigger than a bus.",
@@ -6475,18 +6477,18 @@ const V = {
      en:"This wheel is small."},
     {lw:["Ne","wanu","wairu","eirupauwe"],
      en:"I want to ride an airplane."},
-    {lw:["Vea","wa","halu","so","shaune","ko","shaihile"],
+    {lw:["Vea","wa","halu","ya","shaune","ko","shaihile"],
      en:"They went to the lake by canoe."},
     {lw:["Luere","lo","touru","heule'o","ne"],
      en:"This road borders my city.",
      cloze:{blanks:[2,3], bank:["touru","heule'o","meshu","heulile","luere","ne"]}},
     {lw:["Ne","wa","tiru","poimea","nai","wo","koire","lo"],
      en:"I saw many wheels on this car."},
-    {lw:["Hale'o","ne","so","heule","su","souni"],
+    {lw:["Hale'o","ne","ya","heule","su","souni"],
      en:"My journey to the city is short."},
-    {lw:["Ne","wu","halu","so","heule","meshilawe"],
+    {lw:["Ne","wu","halu","ya","heule","meshilawe"],
      en:"I will go to the city at noon.",
-     cloze:{blanks:[4,5], bank:["heule","meshilawe","heulile","meshinone","so","wo"]}},
+     cloze:{blanks:[4,5], bank:["heule","meshilawe","heulile","meshinone","ya","wo"]}},
     {lw:["Vi","te","vanu","meshinone","ne","wu","su","loya"],
      en:"If you come at midnight, I will be here."},
   ],
@@ -6706,7 +6708,7 @@ const V = {
     {lw:["Ne","wa","shamu","sho","ne","wa","soilu","moteuhile","lo"],
      en:"I tried and I solved this problem.",
      cloze:{blanks:[2,6], bank:["shamu","seuhu","soilu","soile","moteuhile","rohe","wa","nalai"]}},
-    {lw:["Nea","wa","wairu","roheme","so","heule"],
+    {lw:["Nea","wa","wairu","roheme","ya","heule"],
      en:"We rode the train to the city."},
     {lw:["Nea","niohu","sho","nea","su","youmi"],
      en:"We agree and we are lucky."},
@@ -7212,13 +7214,13 @@ const LESSONS = [
 
   {id:"l41_locatives",
    title:"Locative Particles",
-   desc:"ya, wo, mowo, so, ka",
+   desc:"ya, wo, mowo, ka",
    icon:"📍",
    vocabKey:"l41_locatives",
    xp:22,
    unit:6,
    isSentence:true,
-   intro:`<h3>📍 Where things are</h3><p>Liru marks locations with small particles that go between the noun and the location. There's no equivalent of English <em>the</em> — just the noun and the particle.</p><h3>🧍 Static location: <em>ya</em>, <em>wo</em></h3><p>These say where something <strong>is.</strong></p><ul><li><em>ya</em> — at</li><li><em>wo</em> — in / inside</li></ul><span class="example">Ne su ya hiwe. <span class="gloss">I am at the house.</span></span><span class="example">Maya su wo kewe. <span class="gloss">Maya is in the room.</span></span><h3>🚪 <em>mowo</em> — outside</h3><p>Add <em>mo-</em> to <em>wo</em> and you flip it around — same productive <em>mo-</em> rule from Unit 4.</p><span class="example">Yuna su mowo hiwe. <span class="gloss">Yuna is outside the house.</span></span><h3>🏃 Motion: <em>so</em>, <em>ka</em></h3><p>These mark where motion is heading or coming from.</p><ul><li><em>so</em> — to / toward</li><li><em>ka</em> — from</li></ul><span class="example">Ne halu so kupetieme. <span class="gloss">I go to the café.</span></span><span class="example">Ve wa vanu ka hiwe. <span class="gloss">She came from the house.</span></span>`},
+   intro:`<h3>📍 Where things are</h3><p>Liru marks locations with small particles that go between the noun and the location. There's no equivalent of English <em>the</em> — just the noun and the particle.</p><h3>🧍 Location: <em>ya</em>, <em>wo</em></h3><p>These say where something <strong>is.</strong></p><ul><li><em>ya</em> — at</li><li><em>wo</em> — in / inside</li></ul><span class="example">Ne su ya hiwe. <span class="gloss">I am at the house.</span></span><span class="example">Maya su wo kewe. <span class="gloss">Maya is in the room.</span></span><h3>🚪 <em>mowo</em> — outside</h3><p>Add <em>mo-</em> to <em>wo</em> and you flip it around — same productive <em>mo-</em> rule from Unit 4.</p><span class="example">Yuna su mowo hiwe. <span class="gloss">Yuna is outside the house.</span></span><h3>🏃 Motion: <em>ya</em>, <em>ka</em></h3><p>With a motion verb, <em>ya</em> marks where the motion is heading — the verb tells you whether <em>ya</em> means "at" (being somewhere) or "to" (going somewhere). <em>ka</em> marks where it comes from.</p><ul><li><em>ya</em> — to / toward (with motion verbs)</li><li><em>ka</em> — from</li></ul><span class="example">Ne halu ya kupetieme. <span class="gloss">I go to the café.</span></span><span class="example">Ve wa vanu ka hiwe. <span class="gloss">She came from the house.</span></span>`},
 
   {id:"l42_herethere",
    title:"Here, There, and Where",
@@ -7228,7 +7230,7 @@ const LESSONS = [
    xp:22,
    unit:6,
    isSentence:true,
-   intro:`<h3>👉 Here, there, where</h3><p>Three more locative words — two adverbs and one question word. They build on words you already know.</p><h3>📍 <em>loya</em> — here / <em>faloya</em> — there</h3><p>Remember <em>lo</em> (this) and <em>falo</em> (that) from Unit 6? Add <em>-ya</em> (the locative particle) and you get the matching place adverb:</p><ul><li><em>lo</em> (this) → <em>loya</em> (here, at this place)</li><li><em>falo</em> (that) → <em>faloya</em> (there, at that place)</li></ul><span class="example">Ne su loya. <span class="gloss">I am here.</span></span><span class="example">Maya su faloya. <span class="gloss">Maya is there.</span></span><p>These work like English "here" and "there" — they don't need a separate locative particle.</p><h3>❓ <em>kiya</em> — where</h3><p><em>kiya</em> is the question word for "where" — it joins the WH-set you learned in Unit 6 (<em>kiwa</em>, <em>kipue</em>, <em>kile</em>, <em>kishe</em>, <em>kiwi</em>).</p><span class="example">Kiya te su? <span class="gloss">Where are you?</span></span><span class="example">Kiya Maya halu? <span class="gloss">Where is Maya going?</span></span><h3>✂️ Particle drop in <em>kiya</em> questions</h3><p>When you ask "where to?" or "where from?", the locative particle (<em>so</em>, <em>ka</em>, <em>ya</em>) <strong>drops</strong> in the question. Context tells the listener what was meant.</p><span class="example">Kiya te halu? <span class="gloss">Where are you going? (no <em>so</em> needed)</span></span><span class="example">Kiya ve wa vanu? <span class="gloss">Where did she come from? (no <em>ka</em> needed)</span></span>`},
+   intro:`<h3>👉 Here, there, where</h3><p>Three more locative words — two adverbs and one question word. They build on words you already know.</p><h3>📍 <em>loya</em> — here / <em>faloya</em> — there</h3><p>Remember <em>lo</em> (this) and <em>falo</em> (that) from Unit 6? Add <em>-ya</em> (the locative particle) and you get the matching place adverb:</p><ul><li><em>lo</em> (this) → <em>loya</em> (here, at this place)</li><li><em>falo</em> (that) → <em>faloya</em> (there, at that place)</li></ul><span class="example">Ne su loya. <span class="gloss">I am here.</span></span><span class="example">Maya su faloya. <span class="gloss">Maya is there.</span></span><p>These work like English "here" and "there" — they don't need a separate locative particle.</p><h3>❓ <em>kiya</em> — where</h3><p><em>kiya</em> is the question word for "where" — it joins the WH-set you learned in Unit 6 (<em>kiwa</em>, <em>kipue</em>, <em>kile</em>, <em>kishe</em>, <em>kiwi</em>).</p><span class="example">Kiya te su? <span class="gloss">Where are you?</span></span><span class="example">Kiya Maya halu? <span class="gloss">Where is Maya going?</span></span><h3>✂️ Particle drop in <em>kiya</em> questions</h3><p>When you ask "where to?" or "where from?", the locative particle (<em>ya</em>, <em>ka</em>) <strong>drops</strong> in the question. Context tells the listener what was meant.</p><span class="example">Kiya te halu? <span class="gloss">Where are you going? (no <em>ya</em> needed)</span></span><span class="example">Kiya ve wa vanu? <span class="gloss">Where did she come from? (no <em>ka</em> needed)</span></span>`},
 
   {id:"l43_exam",
    title:"Unit 7 Exam: Places and Going",
@@ -7287,7 +7289,7 @@ const LESSONS = [
    xp:22,
    unit:7,
    isSentence:true,
-   intro:`<h3>🛌 Drilling six more verbs</h3><p>You've got the routine verbs (<em>rau, fasu, ihu</em>) and the exchange verbs (<em>feru, moferu, riku</em>). <strong>No new words this lesson</strong> — just sentences.</p><h3>↔️ Give and take</h3><p>Watch for <em>feru</em> paired with <em>so</em> (to) and <em>moferu</em> paired with <em>ka</em> (from). Giving sends something <em>to</em> someone; taking pulls it <em>from</em> someone. The locatives match the direction.</p><span class="example">Ne feru lo so Yuna. <span class="gloss">I give this to Yuna.</span></span><span class="example">Kai wa moferu lo ka ne. <span class="gloss">Kai took this from me.</span></span>`},
+   intro:`<h3>🛌 Drilling six more verbs</h3><p>You've got the routine verbs (<em>rau, fasu, ihu</em>) and the exchange verbs (<em>feru, moferu, riku</em>). <strong>No new words this lesson</strong> — just sentences.</p><h3>↔️ Give and take</h3><p>Watch for <em>feru</em> paired with <em>ya</em> (to) and <em>moferu</em> paired with <em>ka</em> (from). Giving sends something <em>to</em> someone; taking pulls it <em>from</em> someone. The locatives match the direction.</p><span class="example">Ne feru lo ya Yuna. <span class="gloss">I give this to Yuna.</span></span><span class="example">Kai wa moferu lo ka ne. <span class="gloss">Kai took this from me.</span></span>`},
 
   {id:"l49_exam",
    title:"Unit 8 Exam: Action Verbs",
@@ -7399,7 +7401,7 @@ const LESSONS = [
    xp:24,
    unit:9,
    isSentence:true,
-   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kinai</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kinai tonea houme lo su? <span class="gloss">How much money is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Houme lo su tonea hani. <span class="gloss">This bread is ten money (plural).</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs — <em>hoyu</em> (to buy) and its <em>mo-</em> partner <em>mohoyu</em> (to sell):</p><span class="example">Ne hoyu shae lo. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea ka Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houme so Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>so</em> (to) and <em>ka</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun, following the noun like any other modifier:</p><span class="example">Ne ahu tonea nai. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu pomea nai ka pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span><p><strong>A note on <em>kinai</em>:</strong> now that you know <em>nai</em>, the question word <em>kinai</em> decomposes transparently — <em>ki</em> (question particle) + <em>nai</em> (many/much) = "how many / how much." Same with <em>kile</em> (when), which is <em>ki</em> + <em>-le</em> (the time-particle ending you see in <em>lole</em> "now" and <em>fale</em> "then").</p>`},
+   intro:`<h3>💰 Asking the price</h3><p>Liru asks "how much" using the same <em>kinai</em> pattern you learned in Unit 9 — the noun pluralizes:</p><span class="example">Kinai tonea houme lo su? <span class="gloss">How much money is this bread? (lit. how many monies is this bread?)</span></span><p>Notice <em>tone</em> ("money") pluralizes regularly to <em>tonea</em> — Liru treats money as a count noun, unlike English. The reply uses the same plural shape:</p><span class="example">Houme lo su tonea hani. <span class="gloss">This bread is ten money (plural).</span></span><h3>🛍️ Buying and selling</h3><p>Two verbs — <em>hoyu</em> (to buy) and its <em>mo-</em> partner <em>mohoyu</em> (to sell):</p><span class="example">Ne hoyu shae lo. <span class="gloss">I buy this tea.</span></span><span class="example">Maya hoyu pomea ka Kai. <span class="gloss">Maya buys fruits from Kai.</span></span><span class="example">Kai mohoyu houme ya Maya. <span class="gloss">Kai sells bread to Maya.</span></span><p>The locatives <em>ya</em> (to) and <em>ka</em> (from) from Unit 7 do the work English splits between "sell to" and "buy from."</p><h3>📦 A new quantifier: <em>nai</em></h3><p><em>nai</em> means "much" or "many" — used as an adjective with a plural noun, following the noun like any other modifier:</p><span class="example">Ne ahu tonea nai. <span class="gloss">I have a lot of money.</span></span><span class="example">Maya hoyu pomea nai ka pometieme. <span class="gloss">Maya buys many fruits from the fruit store.</span></span><p><strong>A note on <em>kinai</em>:</strong> now that you know <em>nai</em>, the question word <em>kinai</em> decomposes transparently — <em>ki</em> (question particle) + <em>nai</em> (many/much) = "how many / how much." Same with <em>kile</em> (when), which is <em>ki</em> + <em>-le</em> (the time-particle ending you see in <em>lole</em> "now" and <em>fale</em> "then").</p>`},
 
   {id:"l61_exam",
    title:"Unit 10 Exam: Food and Transactions",
@@ -7507,7 +7509,7 @@ const LESSONS = [
    xp:22,
    unit:11,
    isSentence:true,
-   intro:`<h3>⬆️ Where things are vertically</h3><p>Liru has two more locative particles for vertical position:</p><ul><li><em>leu</em> — above, on</li><li><em>moleu</em> — below, under</li></ul><p>Like the locatives you already know (<em>ya, wo, mowo, so, ka</em> from Unit 7), these come between the subject and the place noun:</p><ul><li><em>Loshe su leu moule.</em> — The flower is on the tree.</li><li><em>Foshe su moleu moule.</em> — The grass is below the tree.</li></ul><p>Notice that <em>moleu</em> is the <em>mo-</em> derivation of <em>leu</em> — they form a balancing pair, just like <em>mowo</em> (out) balances <em>wo</em> (in).</p><p>One thing to know: Liru uses <em>leu</em> for both English "above" (when not touching) and "on" (when contacting the surface). The English gloss adapts to context, but the Liru is one word.</p>`},
+   intro:`<h3>⬆️ Where things are vertically</h3><p>Liru has two more locative particles for vertical position:</p><ul><li><em>leu</em> — above, on</li><li><em>moleu</em> — below, under</li></ul><p>Like the locatives you already know (<em>ya, wo, mowo, ka</em> from Unit 7), these come between the subject and the place noun:</p><ul><li><em>Loshe su leu moule.</em> — The flower is on the tree.</li><li><em>Foshe su moleu moule.</em> — The grass is below the tree.</li></ul><p>Notice that <em>moleu</em> is the <em>mo-</em> derivation of <em>leu</em> — they form a balancing pair, just like <em>mowo</em> (out) balances <em>wo</em> (in).</p><p>One thing to know: Liru uses <em>leu</em> for both English "above" (when not touching) and "on" (when contacting the surface). The English gloss adapts to context, but the Liru is one word.</p>`},
 
   {id:"l72_dramaticweather",
    title:"Thunder, Lightning, Storm, Ocean",
@@ -7589,7 +7591,7 @@ const LESSONS = [
    xp:20,
    unit:12,
    srsExtras:["semu","koiru"],
-   intro:`<h3>🏠 Common Objects</h3><p>Six everyday things — three around your home, three modern devices.</p><p>Two of these roots have everyday verb forms worth knowing: <em>semu</em> — "to sit" (from <em>seme</em> "chair"), and <em>koiru</em> — "to drive" (from <em>koire</em> "car").</p><span class="example">Ne semu ya seme. <span class="gloss">I sit in the chair.</span></span><span class="example">Ve koiru so yahe. <span class="gloss">He drives to the place.</span></span>`},
+   intro:`<h3>🏠 Common Objects</h3><p>Six everyday things — three around your home, three modern devices.</p><p>Two of these roots have everyday verb forms worth knowing: <em>semu</em> — "to sit" (from <em>seme</em> "chair"), and <em>koiru</em> — "to drive" (from <em>koire</em> "car").</p><span class="example">Ne semu ya seme. <span class="gloss">I sit in the chair.</span></span><span class="example">Ve koiru ya yahe. <span class="gloss">He drives to the place.</span></span>`},
 
   {id:"l80_exam",
    title:"Unit 13 Exam: This and That",
@@ -7783,7 +7785,7 @@ const LESSONS = [
    xp:26,
    unit:16,
    isSentence:true,
-   intro:`<h3>🔗 Relative clauses with <em>lai</em></h3><p>The particle <em>lai</em> attaches a clause to a noun. The clause describes the noun — answering "which one?":</p><span class="example">pue lai wa liru <span class="gloss">the person who sang</span></span><p>The English glosses use <strong>who</strong>, <strong>that</strong>, and <strong>which</strong>; Liru uses just <em>lai</em> for all three.</p><h3>🧩 The gap</h3><p>Inside the clause, the noun's role is left empty — that empty slot is the <strong>gap</strong>. The gap tells you what role the noun plays inside the clause:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><strong>subject gap</strong></td><td style="padding:4px 12px"><em>pue lai wa liru</em> — the person who sang</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>object gap</strong></td><td style="padding:4px 12px"><em>loiwe lai ne wa loisu</em> — the book that I read</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>oblique gap</strong></td><td style="padding:4px 12px"><em>hiwe lai ne wa rau wo</em> — the house I slept in</td></tr></table><p>For oblique gaps — when the noun plays a role marked by a relational particle like <em>wo</em> "in," <em>ko</em> "with," <em>so</em> "to," <em>ya</em> "at" — the particle <strong>stays at the end of the clause</strong>. English does the same thing colloquially: "the house I slept <strong>in</strong>."</p><h3>🆕 Three new verbs</h3><p>Three workhorse action verbs to drill with:</p><ul><li><em>kave</em> (fracture, n.) → <em>kavi</em> (broken) → <em>kavu</em> (to break)</li><li><em>haire</em> (run, n.) → <em>hairi</em> (running, adj.) → <em>hairu</em> (to run)</li><li><em>laune</em> (placement, n.) → <em>launi</em> (placed, adj.) → <em>launu</em> (to put / to place)</li></ul><p>All three are concrete and picture-friendly — perfect for relative-clause practice. You'll see <em>launu</em> taking objects placed at locations: <em>ne wa launu loiwe leu pahe</em> "I put the book on the table."</p>`,
+   intro:`<h3>🔗 Relative clauses with <em>lai</em></h3><p>The particle <em>lai</em> attaches a clause to a noun. The clause describes the noun — answering "which one?":</p><span class="example">pue lai wa liru <span class="gloss">the person who sang</span></span><p>The English glosses use <strong>who</strong>, <strong>that</strong>, and <strong>which</strong>; Liru uses just <em>lai</em> for all three.</p><h3>🧩 The gap</h3><p>Inside the clause, the noun's role is left empty — that empty slot is the <strong>gap</strong>. The gap tells you what role the noun plays inside the clause:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><strong>subject gap</strong></td><td style="padding:4px 12px"><em>pue lai wa liru</em> — the person who sang</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>object gap</strong></td><td style="padding:4px 12px"><em>loiwe lai ne wa loisu</em> — the book that I read</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><strong>oblique gap</strong></td><td style="padding:4px 12px"><em>hiwe lai ne wa rau wo</em> — the house I slept in</td></tr></table><p>For oblique gaps — when the noun plays a role marked by a relational particle like <em>wo</em> "in," <em>ko</em> "with," <em>ya</em> "at / to" — the particle <strong>stays at the end of the clause</strong>. English does the same thing colloquially: "the house I slept <strong>in</strong>."</p><h3>🆕 Three new verbs</h3><p>Three workhorse action verbs to drill with:</p><ul><li><em>kave</em> (fracture, n.) → <em>kavi</em> (broken) → <em>kavu</em> (to break)</li><li><em>haire</em> (run, n.) → <em>hairi</em> (running, adj.) → <em>hairu</em> (to run)</li><li><em>laune</em> (placement, n.) → <em>launi</em> (placed, adj.) → <em>launu</em> (to put / to place)</li></ul><p>All three are concrete and picture-friendly — perfect for relative-clause practice. You'll see <em>launu</em> taking objects placed at locations: <em>ne wa launu loiwe leu pahe</em> "I put the book on the table."</p>`,
    srsExtras:["haire"]},
 
   {id:"l96_complement_clauses",
@@ -7838,7 +7840,7 @@ const LESSONS = [
    vocabKey:"l100_vocab_frequency_basic",
    xp:22,
    unit:17,
-   intro:`<h3>🕒 Frequency adverbs</h3><p>How often does something happen? Liru builds frequency adverbs from a quantifier plus <em>weli</em> (\"times\"):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> (all) + <em>weli</em></td><td style="padding:4px 12px">→ <em>taiweli</em> — always</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nai</em> (many) + <em>weli</em></td><td style="padding:4px 12px">→ <em>naiweli</em> — often</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> (some) + <em>weli</em></td><td style="padding:4px 12px">→ <em>saiweli</em> — sometimes</td></tr></table><p>The pattern is regular: <strong>quantifier + weli = how-often word</strong>. You'll meet the two polar members (<em>nuliweli</em> never, <em>faiweli</em> ever) in the next lesson.</p><h3>📍 Where they sit in the sentence</h3><p>Frequency adverbs sit <strong>immediately after the verb</strong>, before any object or other phrase that follows the verb:</p><span class="example">Ne tahu taiweli. <span class="gloss">I always eat.</span></span><span class="example">Maya halu naiweli so mouleyahe. <span class="gloss">Maya often goes to the forest.</span></span><span class="example">Yuna liru saiweli ko ne. <span class="gloss">Yuna sometimes speaks with me.</span></span><p>With past or future tense particles (<em>wa</em>, <em>wu</em>), the tense particle stays right before the verb. The frequency adverb still sits right after the verb:</p><span class="example">Ne wa tahu taiweli. <span class="gloss">I always ate.</span></span><h3>🪜 When two adverbs share one verb</h3><p>Every adverb in Liru goes in the same slot — right after the verb. When two adverbs meet there, the frequency adverb always goes <strong>last</strong>:</p><span class="example">Yuna mauhu mosairi naiweli. <span class="gloss">Yuna often learns slowly.</span></span><p>The slow-ness sits closer to the verb; the often-ness wraps around the whole thing. That's the rule: frequency adverbs are outermost.</p>`,
+   intro:`<h3>🕒 Frequency adverbs</h3><p>How often does something happen? Liru builds frequency adverbs from a quantifier plus <em>weli</em> (\"times\"):</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>tai</em> (all) + <em>weli</em></td><td style="padding:4px 12px">→ <em>taiweli</em> — always</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>nai</em> (many) + <em>weli</em></td><td style="padding:4px 12px">→ <em>naiweli</em> — often</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>sai</em> (some) + <em>weli</em></td><td style="padding:4px 12px">→ <em>saiweli</em> — sometimes</td></tr></table><p>The pattern is regular: <strong>quantifier + weli = how-often word</strong>. You'll meet the two polar members (<em>nuliweli</em> never, <em>faiweli</em> ever) in the next lesson.</p><h3>📍 Where they sit in the sentence</h3><p>Frequency adverbs sit <strong>immediately after the verb</strong>, before any object or other phrase that follows the verb:</p><span class="example">Ne tahu taiweli. <span class="gloss">I always eat.</span></span><span class="example">Maya halu naiweli ya mouleyahe. <span class="gloss">Maya often goes to the forest.</span></span><span class="example">Yuna liru saiweli ko ne. <span class="gloss">Yuna sometimes speaks with me.</span></span><p>With past or future tense particles (<em>wa</em>, <em>wu</em>), the tense particle stays right before the verb. The frequency adverb still sits right after the verb:</p><span class="example">Ne wa tahu taiweli. <span class="gloss">I always ate.</span></span><h3>🪜 When two adverbs share one verb</h3><p>Every adverb in Liru goes in the same slot — right after the verb. When two adverbs meet there, the frequency adverb always goes <strong>last</strong>:</p><span class="example">Yuna mauhu mosairi naiweli. <span class="gloss">Yuna often learns slowly.</span></span><p>The slow-ness sits closer to the verb; the often-ness wraps around the whole thing. That's the rule: frequency adverbs are outermost.</p>`,
    srsExtras:["weli"]},
 
   {id:"l101_vocab_frequency_polar",
@@ -7848,7 +7850,7 @@ const LESSONS = [
    vocabKey:"l101_vocab_frequency_polar",
    xp:24,
    unit:17,
-   intro:`<h3>🔁 The polar frequency adverbs</h3><p>Two more from the <em>quantifier + weli</em> pattern, at the two extremes:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> (zero) + <em>weli</em></td><td style="padding:4px 12px">→ <em>nuliweli</em> — never</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> (any) + <em>weli</em></td><td style="padding:4px 12px">→ <em>faiweli</em> — ever / at any time</td></tr></table><p><em>nuliweli</em> carries its own negation — you don't need <em>mai</em> with it. <em>faiweli</em> is the free-choice form most often seen in questions and after <em>mai</em>:</p><span class="example">Ne wa koulu nuliweli Yuna. <span class="gloss">I have never visited Yuna.</span></span><span class="example">Ki te wa koulu faiweli Maya? <span class="gloss">Have you ever visited Maya?</span></span><h3>📖 \"Rarely\" and emphatic \"never\"</h3><p>There's no single word for \"rarely\" in Liru. You build it by negating \"often\": <em>mai</em> sits right before the verb, and <em>naiweli</em> sits right after the verb — the two flank the verb directly:</p><span class="example">Ne mai vanu naiweli so loya. <span class="gloss">I rarely come here. (lit. \"I do not come here often.\")</span></span><p>Emphatic \"never\" works the same way with <em>faiweli</em> — literally \"not at any time, ever\":</p><span class="example">Ve mai wa liru faiweli ko ne. <span class="gloss">She has never (ever) spoken with me.</span></span><h3>🆕 A verb that loves frequency: <em>koulu</em></h3><p>Visiting is the prototypical \"how often\" verb. Its full canvas:</p><ul><li><em>koule</em> (n.) — a visit</li><li><em>kouli</em> (adj.) — visited</li><li><em>koulu</em> (v.) — to visit</li></ul><p>You'll meet all three; the verb does most of the work in conversation.</p>`,
+   intro:`<h3>🔁 The polar frequency adverbs</h3><p>Two more from the <em>quantifier + weli</em> pattern, at the two extremes:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px;color:var(--dim)"><em>nuli</em> (zero) + <em>weli</em></td><td style="padding:4px 12px">→ <em>nuliweli</em> — never</td></tr><tr><td style="padding:4px 12px;color:var(--dim)"><em>fai</em> (any) + <em>weli</em></td><td style="padding:4px 12px">→ <em>faiweli</em> — ever / at any time</td></tr></table><p><em>nuliweli</em> carries its own negation — you don't need <em>mai</em> with it. <em>faiweli</em> is the free-choice form most often seen in questions and after <em>mai</em>:</p><span class="example">Ne wa koulu nuliweli Yuna. <span class="gloss">I have never visited Yuna.</span></span><span class="example">Ki te wa koulu faiweli Maya? <span class="gloss">Have you ever visited Maya?</span></span><h3>📖 \"Rarely\" and emphatic \"never\"</h3><p>There's no single word for \"rarely\" in Liru. You build it by negating \"often\": <em>mai</em> sits right before the verb, and <em>naiweli</em> sits right after the verb — the two flank the verb directly:</p><span class="example">Ne mai vanu naiweli loya. <span class="gloss">I rarely come here. (lit. \"I do not come here often.\")</span></span><p>Emphatic \"never\" works the same way with <em>faiweli</em> — literally \"not at any time, ever\":</p><span class="example">Ve mai wa liru faiweli ko ne. <span class="gloss">She has never (ever) spoken with me.</span></span><h3>🆕 A verb that loves frequency: <em>koulu</em></h3><p>Visiting is the prototypical \"how often\" verb. Its full canvas:</p><ul><li><em>koule</em> (n.) — a visit</li><li><em>kouli</em> (adj.) — visited</li><li><em>koulu</em> (v.) — to visit</li></ul><p>You'll meet all three; the verb does most of the work in conversation.</p>`,
    srsExtras:["fai"]},
 
   {id:"l102_frequency_sentences",
@@ -7887,7 +7889,7 @@ const LESSONS = [
    xp:24,
    unit:17,
    isSentence:true,
-   intro:`<h3>🌀 Three spatial particles</h3><p>Particles sit between phrases the way <em>wo</em> (in), <em>ya</em> (at), and <em>so</em> (to) do — they tell you a spatial relationship without naming a manner or action. Three new ones in this lesson:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>niwa</em></td><td style="padding:4px 12px">between</td></tr><tr><td style="padding:4px 12px"><em>voi</em></td><td style="padding:4px 12px">around</td></tr><tr><td style="padding:4px 12px"><em>moso</em></td><td style="padding:4px 12px">away from</td></tr></table><h3>📝 Usage notes</h3><p><strong><em>niwa</em></strong> takes two arguments joined by <em>sho</em>:</p><span class="example">Moule su niwa hiwe sho senehiwe. <span class="gloss">The tree is between the house and the school.</span></span><p><strong><em>voi</em></strong> takes a single argument — the thing being encircled:</p><span class="example">Ve hipu voi moule. <span class="gloss">She walks around the tree.</span></span><p><strong><em>moso</em></strong> is the directional companion of already-taught <em>so</em> \"to.\" Where <em>so</em> marks motion toward, <em>moso</em> marks motion away from. (This is distinct from <em>ka</em> \"from / of,\" which marks static origin, not motion away.)</p><span class="example">Paipe wa hairu moso hiwe. <span class="gloss">The dog ran away from the house.</span></span><h3>🆕 A new verb: <em>washu</em></h3><p>Water and wind do it; people and ideas do it metaphorically. The verb <em>washu</em> \"to move / to flow\" is the natural partner of these spatial particles:</p><span class="example">Shawe washu taumu mouleyahe. <span class="gloss">Water flows through the forest.</span></span><p>See the two verbs next to each other — <em>washu</em> and <em>taumu</em>? <em>washu</em> is the flowing part, and <em>taumu</em> (the 'pass through' verb from last lesson) adds 'through the forest.' Liru lets you line verbs up like this, one right after the other.</p><p>Its full canvas — <em>washe</em> (movement/flow), <em>washi</em> (flowing/mobile), <em>washu</em> (to move/flow) — is in the dictionary for reference, but you'll only drill the verb here.</p>`},
+   intro:`<h3>🌀 Three spatial particles</h3><p>Particles sit between phrases the way <em>wo</em> (in) and <em>ya</em> (at / to) do — they tell you a spatial relationship without naming a manner or action. Three new ones in this lesson:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><td style="padding:4px 12px"><em>niwa</em></td><td style="padding:4px 12px">between</td></tr><tr><td style="padding:4px 12px"><em>voi</em></td><td style="padding:4px 12px">around</td></tr><tr><td style="padding:4px 12px"><em>moya</em></td><td style="padding:4px 12px">away from</td></tr></table><h3>📝 Usage notes</h3><p><strong><em>niwa</em></strong> takes two arguments joined by <em>sho</em>:</p><span class="example">Moule su niwa hiwe sho senehiwe. <span class="gloss">The tree is between the house and the school.</span></span><p><strong><em>voi</em></strong> takes a single argument — the thing being encircled:</p><span class="example">Ve hipu voi moule. <span class="gloss">She walks around the tree.</span></span><p><strong><em>moya</em></strong> is the <em>mo-</em> flip of already-taught <em>ya</em> — the same productive <em>mo-</em> rule you know from <em>wo</em> → <em>mowo</em>. Where <em>ya</em> marks motion toward, <em>moya</em> marks motion away from. (This is distinct from <em>ka</em> \"from / of,\" which marks static origin, not motion away.)</p><span class="example">Paipe wa hairu moya hiwe. <span class="gloss">The dog ran away from the house.</span></span><h3>🆕 A new verb: <em>washu</em></h3><p>Water and wind do it; people and ideas do it metaphorically. The verb <em>washu</em> \"to move / to flow\" is the natural partner of these spatial particles:</p><span class="example">Shawe washu taumu mouleyahe. <span class="gloss">Water flows through the forest.</span></span><p>See the two verbs next to each other — <em>washu</em> and <em>taumu</em>? <em>washu</em> is the flowing part, and <em>taumu</em> (the 'pass through' verb from last lesson) adds 'through the forest.' Liru lets you line verbs up like this, one right after the other.</p><p>Its full canvas — <em>washe</em> (movement/flow), <em>washi</em> (flowing/mobile), <em>washu</em> (to move/flow) — is in the dictionary for reference, but you'll only drill the verb here.</p>`},
 
   {id:"l106_frequency_spatial_exam",
    title:"Unit 18 Exam — How Often & Where",
@@ -8047,7 +8049,7 @@ const LESSONS = [
    vocabKey:"l120_vocab_particles_quantifiers",
    xp:14,
    unit:21,
-   intro:`<h3>🔗 The particle <em>na</em> — \"for\"</h3><p>Liru's relational particles (<em>ka</em>, <em>ko</em>, <em>wo</em>, <em>so</em>, <em>ya</em>) sit before a noun and show how it relates to the rest of the sentence. <em>na</em> means <strong>for</strong>:</p><span class="example">Loiwe lo su na te. <span class="gloss">This book is for you.</span></span><span class="example">Tahe lo su na piwe'o ne. <span class="gloss">This food is for my child.</span></span><p>Same position, same shape as the other particles.</p><h3>📊 The quantifier family</h3><p>You already know three of the five Liru quantifiers. Here's the full set:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>tai</em></td><td style="padding:4px 12px">all (or every)</td></tr><tr><td style="padding:4px 12px"><em>nai</em></td><td style="padding:4px 12px">many (or much) — known</td></tr><tr><td style="padding:4px 12px"><em>sai</em></td><td style="padding:4px 12px">some (or a few)</td></tr><tr><td style="padding:4px 12px"><em>fai</em></td><td style="padding:4px 12px">any — known via <em>faipue</em>/<em>faihue</em></td></tr><tr><td style="padding:4px 12px"><em>nuli</em></td><td style="padding:4px 12px">none — known via the number 0 and <em>nulipue</em>/<em>nulihue</em></td></tr></table><p>All five are adjectives — they sit after a noun:</p><span class="example">Piwea tai wa rau. <span class="gloss">All the children slept.</span></span><span class="example">Mewea sai su rai. <span class="gloss">Some cats are sleepy.</span></span><p>They can also sit <strong>after</strong> a verb as adverbs:</p><span class="example">Ne wa tahu sai. <span class="gloss">I ate some.</span></span><h3>🌐 The noun <em>tae</em> — \"the whole\"</h3><p><em>tai</em> (all) is the adjective form of root <em>tae</em>, which means <strong>the whole</strong> or <strong>totality</strong> as a noun. You already know its verb sibling <em>tau</em> \"to complete\" (from the age idiom).</p><span class="example">Lo su tae. <span class="gloss">This is the whole (of it).</span></span>`},
+   intro:`<h3>🔗 The particle <em>na</em> — \"for\"</h3><p>Liru's relational particles (<em>ka</em>, <em>ko</em>, <em>wo</em>, <em>ya</em>) sit before a noun and show how it relates to the rest of the sentence. <em>na</em> means <strong>for</strong>:</p><span class="example">Loiwe lo su na te. <span class="gloss">This book is for you.</span></span><span class="example">Tahe lo su na piwe'o ne. <span class="gloss">This food is for my child.</span></span><p>Same position, same shape as the other particles.</p><h3>📊 The quantifier family</h3><p>You already know three of the five Liru quantifiers. Here's the full set:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">word</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>tai</em></td><td style="padding:4px 12px">all (or every)</td></tr><tr><td style="padding:4px 12px"><em>nai</em></td><td style="padding:4px 12px">many (or much) — known</td></tr><tr><td style="padding:4px 12px"><em>sai</em></td><td style="padding:4px 12px">some (or a few)</td></tr><tr><td style="padding:4px 12px"><em>fai</em></td><td style="padding:4px 12px">any — known via <em>faipue</em>/<em>faihue</em></td></tr><tr><td style="padding:4px 12px"><em>nuli</em></td><td style="padding:4px 12px">none — known via the number 0 and <em>nulipue</em>/<em>nulihue</em></td></tr></table><p>All five are adjectives — they sit after a noun:</p><span class="example">Piwea tai wa rau. <span class="gloss">All the children slept.</span></span><span class="example">Mewea sai su rai. <span class="gloss">Some cats are sleepy.</span></span><p>They can also sit <strong>after</strong> a verb as adverbs:</p><span class="example">Ne wa tahu sai. <span class="gloss">I ate some.</span></span><h3>🌐 The noun <em>tae</em> — \"the whole\"</h3><p><em>tai</em> (all) is the adjective form of root <em>tae</em>, which means <strong>the whole</strong> or <strong>totality</strong> as a noun. You already know its verb sibling <em>tau</em> \"to complete\" (from the age idiom).</p><span class="example">Lo su tae. <span class="gloss">This is the whole (of it).</span></span>`},
 
   {id:"l121_vocab_concrete",
    title:"Door, Window, Gift, Work",
@@ -8056,7 +8058,7 @@ const LESSONS = [
    vocabKey:"l121_vocab_concrete",
    xp:18,
    unit:21,
-   intro:`<h3>🚪 Door and window</h3><p><em>poye</em> means <strong>door</strong> (or more abstractly, <em>opening</em>). Its adjective sibling <em>poyi</em> means <strong>open</strong>. You already know its verb form <em>poyu</em> (to open).</p><span class="example">Poye lo su poyi. <span class="gloss">This door is open.</span></span><p><strong>Window</strong> is built compositionally: <em>tauwe</em> (wall) + <em>poye</em> (opening) → <em>taupoye</em>. A window is literally a \"wall-opening\":</p><span class="example">Taupoye lo su piami. <span class="gloss">This window is small.</span></span><h3>🎁 Gift and work</h3><p>Two more useful nouns. Their verbs are already known: <em>feru</em> \"to give\" and <em>fasu</em> \"to work\". These are the noun siblings.</p><span class="example">Ne wa feru fere lo so te. <span class="gloss">I gave this gift to you.</span></span><span class="example">Fase'o ne su ori moteuhi. <span class="gloss">My job is very difficult.</span></span><p>A small naming note: <em>fase</em> covers both the abstract concept (\"work\") and the concrete sense (\"a job\") — Liru doesn't split them.</p>`},
+   intro:`<h3>🚪 Door and window</h3><p><em>poye</em> means <strong>door</strong> (or more abstractly, <em>opening</em>). Its adjective sibling <em>poyi</em> means <strong>open</strong>. You already know its verb form <em>poyu</em> (to open).</p><span class="example">Poye lo su poyi. <span class="gloss">This door is open.</span></span><p><strong>Window</strong> is built compositionally: <em>tauwe</em> (wall) + <em>poye</em> (opening) → <em>taupoye</em>. A window is literally a \"wall-opening\":</p><span class="example">Taupoye lo su piami. <span class="gloss">This window is small.</span></span><h3>🎁 Gift and work</h3><p>Two more useful nouns. Their verbs are already known: <em>feru</em> \"to give\" and <em>fasu</em> \"to work\". These are the noun siblings.</p><span class="example">Ne wa feru fere lo ya te. <span class="gloss">I gave this gift to you.</span></span><span class="example">Fase'o ne su ori moteuhi. <span class="gloss">My job is very difficult.</span></span><p>A small naming note: <em>fase</em> covers both the abstract concept (\"work\") and the concrete sense (\"a job\") — Liru doesn't split them.</p>`},
 
   {id:"l122_vocab_emotion_nouns",
    title:"Joy, Worry, Anger, Surprise",
@@ -8141,7 +8143,7 @@ const LESSONS = [
    xp:20,
    unit:22,
    srsExtras:["shafanile"],
-   intro:`<h3>🧭 South — completing the compass</h3><p><em>molianitowe</em> (south) closes the four-direction set started earlier. Same pattern: <em>moliani</em> (down) + <em>towe</em> (map) = "down-of-map."</p><span class="example">Nea wa halu so molianitowe. <span class="gloss">We went toward the south.</span></span><span class="example">Nea wa halu molianitowi. <span class="gloss">We went southward.</span></span><p>The compass words are nouns, so to <em>travel</em> in a direction use either <em>so</em> ("toward") + the noun, or the adjective form adverbially ("-ward") — both above are correct. A frequency adverb keeps its usual placement: right after the verb before the <em>so</em>-phrase (<em>halu <strong>taiweli</strong> so molianitowe</em>, "always toward the south"), but last after the adverb form (<em>halu molianitowi <strong>naiweli</strong></em>, "often southward").</p><p>The compass is now complete: <em>lianitowe</em> N, <em>hunitowe</em> E, <em>molianitowe</em> S, <em>mohunitowe</em> W.</p><h3>🌊 Water terrain — three nouns</h3><p>Three of the most basic water-related landform words. All take the noun + adjective canvas — no verb forms:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>nouwe</em> — island</td><td style="padding:4px 12px"><em>nouwi</em> — island-related</td></tr><tr><td style="padding:4px 12px"><em>shafane</em> — river</td><td style="padding:4px 12px"><em>shafani</em> — river-related</td></tr><tr><td style="padding:4px 12px"><em>shaune</em> — lake</td><td style="padding:4px 12px"><em>shauni</em> — lake-related</td></tr></table><h3>💧 The <em>-ile</em> diminutive — making things small</h3><p>Liru turns a noun into its "small version" with the suffix <em>-ile</em>. You've seen this before in core (<em>komile</em> "pebble" from <em>kome</em> "stone," <em>tohile</em> "minute" from <em>tohe</em> "hour"). Now with <em>shafane</em>:</p><span class="example">shafane (river) + <em>-ile</em> → <em>shafanile</em> <span class="gloss">stream — literally "little river"</span></span><span class="example">Shafanile lo su luhi. <span class="gloss">This stream is cold.</span></span><p>The <em>-ile</em> pattern is fully productive — you can apply it to most concrete nouns. The next lesson will show another example with <em>wouhe</em> "mountain" → <em>wouhile</em> "hill."</p>`},
+   intro:`<h3>🧭 South — completing the compass</h3><p><em>molianitowe</em> (south) closes the four-direction set started earlier. Same pattern: <em>moliani</em> (down) + <em>towe</em> (map) = "down-of-map."</p><span class="example">Nea wa halu ya molianitowe. <span class="gloss">We went toward the south.</span></span><span class="example">Nea wa halu molianitowi. <span class="gloss">We went southward.</span></span><p>The compass words are nouns, so to <em>travel</em> in a direction use either <em>ya</em> ("toward") + the noun, or the adjective form adverbially ("-ward") — both above are correct. A frequency adverb keeps its usual placement: right after the verb before the <em>ya</em>-phrase (<em>halu <strong>taiweli</strong> ya molianitowe</em>, "always toward the south"), but last after the adverb form (<em>halu molianitowi <strong>naiweli</strong></em>, "often southward").</p><p>The compass is now complete: <em>lianitowe</em> N, <em>hunitowe</em> E, <em>molianitowe</em> S, <em>mohunitowe</em> W.</p><h3>🌊 Water terrain — three nouns</h3><p>Three of the most basic water-related landform words. All take the noun + adjective canvas — no verb forms:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">noun</th><th style="padding:4px 12px;color:var(--dim)">adjective</th></tr><tr><td style="padding:4px 12px"><em>nouwe</em> — island</td><td style="padding:4px 12px"><em>nouwi</em> — island-related</td></tr><tr><td style="padding:4px 12px"><em>shafane</em> — river</td><td style="padding:4px 12px"><em>shafani</em> — river-related</td></tr><tr><td style="padding:4px 12px"><em>shaune</em> — lake</td><td style="padding:4px 12px"><em>shauni</em> — lake-related</td></tr></table><h3>💧 The <em>-ile</em> diminutive — making things small</h3><p>Liru turns a noun into its "small version" with the suffix <em>-ile</em>. You've seen this before in core (<em>komile</em> "pebble" from <em>kome</em> "stone," <em>tohile</em> "minute" from <em>tohe</em> "hour"). Now with <em>shafane</em>:</p><span class="example">shafane (river) + <em>-ile</em> → <em>shafanile</em> <span class="gloss">stream — literally "little river"</span></span><span class="example">Shafanile lo su luhi. <span class="gloss">This stream is cold.</span></span><p>The <em>-ile</em> pattern is fully productive — you can apply it to most concrete nouns. The next lesson will show another example with <em>wouhe</em> "mountain" → <em>wouhile</em> "hill."</p>`},
 
   {id:"l130_vocab_landform",
    title:"Ground, Mountain, Valley, Desert",
@@ -8731,7 +8733,7 @@ const LESSONS = [
    vocabKey:"l188_vocab_truth_honesty",
    xp:18,
    unit:31,
-   intro:`<h3>⚖️ Welcome to Cultural & Abstract Roots</h3><p>This unit moves from concrete things to ideas — the words a language needs to talk about right and wrong, justice and freedom, what people believe and value. The first lesson lands the truth cluster: truth and its opposite, honesty, and belief.</p><h3>✅ Truth and its opposite</h3><p>Liru builds abstract opposites with the <em>mo-</em> prefix you already know. The positive pole is the base root; the negative pole is the <em>mo-</em> form.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>noire</em> (n.)</td><td style="padding:4px 12px">truth</td></tr><tr><td style="padding:4px 12px"><em>noiri</em> (adj.)</td><td style="padding:4px 12px">true</td></tr><tr><td style="padding:4px 12px"><em>noiru</em> (v.)</td><td style="padding:4px 12px">to tell the truth</td></tr><tr><td style="padding:4px 12px"><em>monoire</em> (n.)</td><td style="padding:4px 12px">lie</td></tr><tr><td style="padding:4px 12px"><em>monoiri</em> (adj.)</td><td style="padding:4px 12px">false</td></tr><tr><td style="padding:4px 12px"><em>monoiru</em> (v.)</td><td style="padding:4px 12px">to lie (or deceive)</td></tr></table><p>The same pattern that gives you <em>luni</em> (bright) → <em>moluni</em> (dark) gives you <em>noiri</em> (true) → <em>monoiri</em> (false).</p><h3>🤝 Honesty and belief</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>peihe</em> (n.)</td><td style="padding:4px 12px">honesty</td></tr><tr><td style="padding:4px 12px"><em>peihi</em> (adj.)</td><td style="padding:4px 12px">honest</td></tr><tr><td style="padding:4px 12px"><em>peihu</em> (v.)</td><td style="padding:4px 12px">to be honest</td></tr><tr><td style="padding:4px 12px"><em>fele</em> (n.)</td><td style="padding:4px 12px">belief</td></tr><tr><td style="padding:4px 12px"><em>felu</em> (v.)</td><td style="padding:4px 12px">to believe</td></tr></table><p><em>peihe</em> is honesty as a quality — telling the truth as a habit. <em>noire</em> is the truth itself. The verb <em>felu</em> "to believe" often takes a <em>lai</em> complement clause: <em>Ne felu lai te su peihi</em> "I believe that you are honest."</p><span class="example">Ne liru noire so te. <span class="gloss">I speak the truth to you.</span></span><span class="example">Yuna wa noiru ma Kai wa monoiru. <span class="gloss">Yuna told the truth but Kai lied.</span></span><span class="example">Ne felu lai te su peihi. <span class="gloss">I believe that you are honest.</span></span>`},
+   intro:`<h3>⚖️ Welcome to Cultural & Abstract Roots</h3><p>This unit moves from concrete things to ideas — the words a language needs to talk about right and wrong, justice and freedom, what people believe and value. The first lesson lands the truth cluster: truth and its opposite, honesty, and belief.</p><h3>✅ Truth and its opposite</h3><p>Liru builds abstract opposites with the <em>mo-</em> prefix you already know. The positive pole is the base root; the negative pole is the <em>mo-</em> form.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>noire</em> (n.)</td><td style="padding:4px 12px">truth</td></tr><tr><td style="padding:4px 12px"><em>noiri</em> (adj.)</td><td style="padding:4px 12px">true</td></tr><tr><td style="padding:4px 12px"><em>noiru</em> (v.)</td><td style="padding:4px 12px">to tell the truth</td></tr><tr><td style="padding:4px 12px"><em>monoire</em> (n.)</td><td style="padding:4px 12px">lie</td></tr><tr><td style="padding:4px 12px"><em>monoiri</em> (adj.)</td><td style="padding:4px 12px">false</td></tr><tr><td style="padding:4px 12px"><em>monoiru</em> (v.)</td><td style="padding:4px 12px">to lie (or deceive)</td></tr></table><p>The same pattern that gives you <em>luni</em> (bright) → <em>moluni</em> (dark) gives you <em>noiri</em> (true) → <em>monoiri</em> (false).</p><h3>🤝 Honesty and belief</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>peihe</em> (n.)</td><td style="padding:4px 12px">honesty</td></tr><tr><td style="padding:4px 12px"><em>peihi</em> (adj.)</td><td style="padding:4px 12px">honest</td></tr><tr><td style="padding:4px 12px"><em>peihu</em> (v.)</td><td style="padding:4px 12px">to be honest</td></tr><tr><td style="padding:4px 12px"><em>fele</em> (n.)</td><td style="padding:4px 12px">belief</td></tr><tr><td style="padding:4px 12px"><em>felu</em> (v.)</td><td style="padding:4px 12px">to believe</td></tr></table><p><em>peihe</em> is honesty as a quality — telling the truth as a habit. <em>noire</em> is the truth itself. The verb <em>felu</em> "to believe" often takes a <em>lai</em> complement clause: <em>Ne felu lai te su peihi</em> "I believe that you are honest."</p><span class="example">Ne liru noire ya te. <span class="gloss">I speak the truth to you.</span></span><span class="example">Yuna wa noiru ma Kai wa monoiru. <span class="gloss">Yuna told the truth but Kai lied.</span></span><span class="example">Ne felu lai te su peihi. <span class="gloss">I believe that you are honest.</span></span>`},
 
   {id:"l189_vocab_good_bad",
    title:"Good, Bad, Balance & Foolishness",
@@ -9102,7 +9104,7 @@ const LESSONS = [
    vocabKey:"l227_vocab_foods_boat",
    xp:18,
    unit:37,
-   intro:`<h3>\ud83e\uddc0 More on the table</h3><p>Three everyday foods, plus one more root \u2014 the boat \u2014 to round out the lesson.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>miafe</em> (n.)</td><td style="padding:4px 12px">cheese</td></tr><tr><td style="padding:4px 12px"><em>miafi</em> (adj.)</td><td style="padding:4px 12px">cheesy (or cheese-related)</td></tr><tr><td style="padding:4px 12px"><em>roine</em> (n.)</td><td style="padding:4px 12px">rice</td></tr><tr><td style="padding:4px 12px"><em>tahishawe</em> (n.)</td><td style="padding:4px 12px">soup</td></tr><tr><td style="padding:4px 12px"><em>shaihe</em> (n.)</td><td style="padding:4px 12px">boat</td></tr><tr><td style="padding:4px 12px"><em>shaihu</em> (v.)</td><td style="padding:4px 12px">to sail</td></tr></table><p><em>tahishawe</em> (soup) is built transparently: <em>tahe</em> (food) + <em>shawe</em> (water) \u2014 food-water. And <em>shaihe</em> (boat) sits in the water-vocabulary family with its verb <em>shaihu</em>, to sail.</p><span class="example">Miafe lo su lomi. <span class="gloss">This cheese is good.</span></span><span class="example">Ne tahu roine. <span class="gloss">I eat rice.</span></span><span class="example">Ne shaihu so shawome. <span class="gloss">I sail to the sea.</span></span>`},
+   intro:`<h3>\ud83e\uddc0 More on the table</h3><p>Three everyday foods, plus one more root \u2014 the boat \u2014 to round out the lesson.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>miafe</em> (n.)</td><td style="padding:4px 12px">cheese</td></tr><tr><td style="padding:4px 12px"><em>miafi</em> (adj.)</td><td style="padding:4px 12px">cheesy (or cheese-related)</td></tr><tr><td style="padding:4px 12px"><em>roine</em> (n.)</td><td style="padding:4px 12px">rice</td></tr><tr><td style="padding:4px 12px"><em>tahishawe</em> (n.)</td><td style="padding:4px 12px">soup</td></tr><tr><td style="padding:4px 12px"><em>shaihe</em> (n.)</td><td style="padding:4px 12px">boat</td></tr><tr><td style="padding:4px 12px"><em>shaihu</em> (v.)</td><td style="padding:4px 12px">to sail</td></tr></table><p><em>tahishawe</em> (soup) is built transparently: <em>tahe</em> (food) + <em>shawe</em> (water) \u2014 food-water. And <em>shaihe</em> (boat) sits in the water-vocabulary family with its verb <em>shaihu</em>, to sail.</p><span class="example">Miafe lo su lomi. <span class="gloss">This cheese is good.</span></span><span class="example">Ne tahu roine. <span class="gloss">I eat rice.</span></span><span class="example">Ne shaihu ya shawome. <span class="gloss">I sail to the sea.</span></span>`},
 
   {id:"l228_vocab_more_less_full_empty",
    title:"Increase, Decrease, Full & Empty",
@@ -9120,7 +9122,7 @@ const LESSONS = [
    vocabKey:"l229_vocab_loss_world",
    xp:18,
    unit:37,
-   intro:`<h3>\ud83c\udf0d Losing, seeing, facing</h3><p>Four roots, a mix of the abstract and the concrete \u2014 losing something, not seeing, the world itself, and the face.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>morike</em> (n.)</td><td style="padding:4px 12px">loss</td></tr><tr><td style="padding:4px 12px"><em>moriku</em> (v.)</td><td style="padding:4px 12px">to lose (or misplace)</td></tr><tr><td style="padding:4px 12px"><em>motire</em> (n.)</td><td style="padding:4px 12px">blindness</td></tr><tr><td style="padding:4px 12px"><em>motiri</em> (adj.)</td><td style="padding:4px 12px">unseen (or invisible)</td></tr><tr><td style="padding:4px 12px"><em>motiru</em> (v.)</td><td style="padding:4px 12px">to not see</td></tr><tr><td style="padding:4px 12px"><em>mouhe</em> (n.)</td><td style="padding:4px 12px">world</td></tr><tr><td style="padding:4px 12px"><em>mouhi</em> (adj.)</td><td style="padding:4px 12px">worldly</td></tr><tr><td style="padding:4px 12px"><em>pohe</em> (n.)</td><td style="padding:4px 12px">face (or screen)</td></tr><tr><td style="padding:4px 12px"><em>pohi</em> (adj.)</td><td style="padding:4px 12px">forward-facing (or on-screen)</td></tr><tr><td style="padding:4px 12px"><em>pohu</em> (v.)</td><td style="padding:4px 12px">to face</td></tr></table><p><em>motire</em> is the <em>mo-</em> pair of <em>tire</em> (sight) \u2014 not-seeing. <em>pohe</em> covers both the face and a screen \u2014 the surface you look at.</p><span class="example">Ne wa moriku morume'o ne. <span class="gloss">I lost my key.</span></span><span class="example">Mouhe lo su mopiami. <span class="gloss">This world is big.</span></span><span class="example">Ne pohu so mawe'o ne. <span class="gloss">I face my mother.</span></span>`,
+   intro:`<h3>\ud83c\udf0d Losing, seeing, facing</h3><p>Four roots, a mix of the abstract and the concrete \u2014 losing something, not seeing, the world itself, and the face.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>morike</em> (n.)</td><td style="padding:4px 12px">loss</td></tr><tr><td style="padding:4px 12px"><em>moriku</em> (v.)</td><td style="padding:4px 12px">to lose (or misplace)</td></tr><tr><td style="padding:4px 12px"><em>motire</em> (n.)</td><td style="padding:4px 12px">blindness</td></tr><tr><td style="padding:4px 12px"><em>motiri</em> (adj.)</td><td style="padding:4px 12px">unseen (or invisible)</td></tr><tr><td style="padding:4px 12px"><em>motiru</em> (v.)</td><td style="padding:4px 12px">to not see</td></tr><tr><td style="padding:4px 12px"><em>mouhe</em> (n.)</td><td style="padding:4px 12px">world</td></tr><tr><td style="padding:4px 12px"><em>mouhi</em> (adj.)</td><td style="padding:4px 12px">worldly</td></tr><tr><td style="padding:4px 12px"><em>pohe</em> (n.)</td><td style="padding:4px 12px">face (or screen)</td></tr><tr><td style="padding:4px 12px"><em>pohi</em> (adj.)</td><td style="padding:4px 12px">forward-facing (or on-screen)</td></tr><tr><td style="padding:4px 12px"><em>pohu</em> (v.)</td><td style="padding:4px 12px">to face</td></tr></table><p><em>motire</em> is the <em>mo-</em> pair of <em>tire</em> (sight) \u2014 not-seeing. <em>pohe</em> covers both the face and a screen \u2014 the surface you look at.</p><span class="example">Ne wa moriku morume'o ne. <span class="gloss">I lost my key.</span></span><span class="example">Mouhe lo su mopiami. <span class="gloss">This world is big.</span></span><span class="example">Ne pohu ya mawe'o ne. <span class="gloss">I face my mother.</span></span>`,
    srsExtras:["tire"]},
 
   {id:"l230_vocab_continue_other",
@@ -9222,7 +9224,7 @@ const LESSONS = [
    vocabKey:"l240_vocab_house_places",
    xp:18,
    unit:38,
-   intro:`<h3>\ud83c\udfe5 Places around town</h3><p>Four place words, all compounds. Two patterns are at work: <em>-yahe</em> "place" (as in <em>sheyahe</em> "hospital," from <em>sheye</em> health) and <em>-tieme</em> "store" (as in <em>mashetieme</em> "pharmacy," from <em>mashe</em> medicine). Spot the pattern and you can read \u2014 and build \u2014 many more.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">place</th><th style="padding:4px 12px;color:var(--dim)">built from</th></tr><tr><td style="padding:4px 12px"><em>pokihiwe</em> backyard</td><td style="padding:4px 12px"><em>poki</em> (back) + <em>hiwe</em> (house)</td></tr><tr><td style="padding:4px 12px"><em>sheyahe</em> hospital</td><td style="padding:4px 12px"><em>sheye</em> (health) + <em>yahe</em> (place)</td></tr><tr><td style="padding:4px 12px"><em>mashetieme</em> pharmacy</td><td style="padding:4px 12px"><em>mashe</em> (medicine) + <em>-tieme</em> (store)</td></tr><tr><td style="padding:4px 12px"><em>loiwetieme</em> bookstore</td><td style="padding:4px 12px"><em>loiwe</em> (book) + <em>-tieme</em> (store)</td></tr></table><span class="example">Ne wu halu so sheyahe. <span class="gloss">I will go to the hospital.</span></span><span class="example">Mashetieme lo su piami. <span class="gloss">This pharmacy is small.</span></span><span class="example">Paipe'o ne su wo pokihiwe. <span class="gloss">My dog is in the backyard.</span></span>`},
+   intro:`<h3>\ud83c\udfe5 Places around town</h3><p>Four place words, all compounds. Two patterns are at work: <em>-yahe</em> "place" (as in <em>sheyahe</em> "hospital," from <em>sheye</em> health) and <em>-tieme</em> "store" (as in <em>mashetieme</em> "pharmacy," from <em>mashe</em> medicine). Spot the pattern and you can read \u2014 and build \u2014 many more.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">place</th><th style="padding:4px 12px;color:var(--dim)">built from</th></tr><tr><td style="padding:4px 12px"><em>pokihiwe</em> backyard</td><td style="padding:4px 12px"><em>poki</em> (back) + <em>hiwe</em> (house)</td></tr><tr><td style="padding:4px 12px"><em>sheyahe</em> hospital</td><td style="padding:4px 12px"><em>sheye</em> (health) + <em>yahe</em> (place)</td></tr><tr><td style="padding:4px 12px"><em>mashetieme</em> pharmacy</td><td style="padding:4px 12px"><em>mashe</em> (medicine) + <em>-tieme</em> (store)</td></tr><tr><td style="padding:4px 12px"><em>loiwetieme</em> bookstore</td><td style="padding:4px 12px"><em>loiwe</em> (book) + <em>-tieme</em> (store)</td></tr></table><span class="example">Ne wu halu ya sheyahe. <span class="gloss">I will go to the hospital.</span></span><span class="example">Mashetieme lo su piami. <span class="gloss">This pharmacy is small.</span></span><span class="example">Paipe'o ne su wo pokihiwe. <span class="gloss">My dog is in the backyard.</span></span>`},
 
   {id:"l241_vocab_media_time",
    title:"Media & Telling Time",
@@ -9292,7 +9294,7 @@ const LESSONS = [
    vocabKey:"l247_vocab_road_transport",
    xp:18,
    unit:39,
-   intro:`<h3>\ud83d\ude8c Four ways to get there</h3><p>Four vehicles, all compounds you can now read. <em>meuhekoire</em> "bus" is <em>meuhe</em> (group) + <em>koire</em> (car) \\u2014 a group car; <em>runipoime</em> "bicycle" is <em>runi</em> (two) + <em>poime</em> (wheel) \\u2014 a two-wheel; <em>eirupauwe</em> "airplane" is <em>eiru</em> (to fly) + <em>-pauwe</em> (device) \\u2014 a flying machine. <em>roheme</em> "train" is a plain root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meuhekoire</em> (n.)</td><td style="padding:4px 12px">bus</td></tr><tr><td style="padding:4px 12px"><em>runipoime</em> (n.)</td><td style="padding:4px 12px">bicycle</td></tr><tr><td style="padding:4px 12px"><em>roheme</em> (n.)</td><td style="padding:4px 12px">train</td></tr><tr><td style="padding:4px 12px"><em>eirupauwe</em> (n.)</td><td style="padding:4px 12px">airplane</td></tr></table><span class="example">Ne wairu meuhekoire so fase. <span class="gloss">I ride the bus to work.</span></span><span class="example">Roheme su mopiami apa meuhekoire. <span class="gloss">A train is bigger than a bus.</span></span><span class="example">Ne wanu wairu eirupauwe. <span class="gloss">I want to ride an airplane.</span></span>`},
+   intro:`<h3>\ud83d\ude8c Four ways to get there</h3><p>Four vehicles, all compounds you can now read. <em>meuhekoire</em> "bus" is <em>meuhe</em> (group) + <em>koire</em> (car) \\u2014 a group car; <em>runipoime</em> "bicycle" is <em>runi</em> (two) + <em>poime</em> (wheel) \\u2014 a two-wheel; <em>eirupauwe</em> "airplane" is <em>eiru</em> (to fly) + <em>-pauwe</em> (device) \\u2014 a flying machine. <em>roheme</em> "train" is a plain root.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meuhekoire</em> (n.)</td><td style="padding:4px 12px">bus</td></tr><tr><td style="padding:4px 12px"><em>runipoime</em> (n.)</td><td style="padding:4px 12px">bicycle</td></tr><tr><td style="padding:4px 12px"><em>roheme</em> (n.)</td><td style="padding:4px 12px">train</td></tr><tr><td style="padding:4px 12px"><em>eirupauwe</em> (n.)</td><td style="padding:4px 12px">airplane</td></tr></table><span class="example">Ne wairu meuhekoire ya fase. <span class="gloss">I ride the bus to work.</span></span><span class="example">Roheme su mopiami apa meuhekoire. <span class="gloss">A train is bigger than a bus.</span></span><span class="example">Ne wanu wairu eirupauwe. <span class="gloss">I want to ride an airplane.</span></span>`},
 
   {id:"l248_vocab_water_and_day",
    title:"By Water, and Points in the Day",
@@ -9852,7 +9854,7 @@ function generateParagraphExercises(lesson){
     const errSent=para.sentences[Math.min(1,para.sentences.length-1)];
     const errLw=[...errSent.lw];
     const errIdx=Math.max(1,Math.floor(Math.random()*(errLw.length-1)));
-    const sub=["ka","na","la","ko","wo","so","ya"].filter(w=>w!==errLw[errIdx].toLowerCase())[0]||"lo";
+    const sub=["ka","na","la","ko","wo","ya"].filter(w=>w!==errLw[errIdx].toLowerCase())[0]||"lo";
     errLw[errIdx]=sub;
     exercises.push({type:"errcorrect",prompt:`Is this sentence correct?\n"${errLw.join(" ")}"`,sentenceEn:errSent.en,isCorrect:false,correctSent:errSent.lw.join(" ")});
   });
@@ -10152,7 +10154,7 @@ const SRS_GLOSS_OVERRIDES = {
   // A4 (Unit 18): spatial particles — placement and pairing patterns.
   "niwa":  "between (two things, joined by sho)",
   "voi":   "around (surrounds one thing)",
-  "moso":  "away from (motion, not a fixed starting point)",
+  "moya":  "away from (motion, not a fixed starting point)",
   // A8 (Unit 22): relational particle "for".
   "na":    "for",
 };
@@ -11202,6 +11204,11 @@ function srsMigratePoniMolaweToOniNoneIfNeeded(username){
 // pass through the user's cards (typically < 200 entries) looking for
 // matches against a small map.
 const SRS_FORM_RENAMES={
+  // 2026-06-10 so→ya merge: so absorbed into ya; moso renamed moya.
+  // Collision guard in srsMigrateRenamedFormsIfNeeded keeps an existing ya
+  // card when a user holds both so and ya cards.
+  so:'ya',
+  moso:'moya',
   kime:'kile',
   kifa:'kinai',
   oihe:'houpe',
@@ -13521,7 +13528,7 @@ const GRAMMAR_SECTIONS = [
     </ul>
     <p>The negator <em>mai</em> keeps its own placement — right before the verb or tense particle. When you negate a frequency or temporal adverb to mean "rarely," "not yet," or emphatic "never," <em>mai</em> stays before the verb and the adverb sits immediately after the verb — the two flank the verb directly.</p>
     <ul>
-      <li><em>Ne mai vanu naiweli so loya.</em> — I rarely come here.</li>
+      <li><em>Ne mai vanu naiweli loya.</em> — I rarely come here.</li>
       <li><em>Ne mai wa loisu yauwi loiwe lo.</em> — I haven't read this book yet.</li>
     </ul>
     <p>The intensifier <em>ori</em> ("very") is different — it modifies adjectives, not verbs, and sits <strong>before</strong> the adjective: <em>Loshe lo su ori wauli</em> (this flower is very beautiful).</p>
@@ -13570,8 +13577,7 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>la</em></td><td>like / as</td><td><em>shawe la lune</em> — water like light</td></tr>
     <tr><td><em>ko</em></td><td>with</td><td><em>Ne halu ko te.</em> — I go with you.</td></tr>
     <tr><td><em>wo</em></td><td>in / inside</td><td><em>shoule wo shaune</em> — fish in the lake</td></tr>
-    <tr><td><em>so</em></td><td>to / toward</td><td><em>Nea halu so shawome.</em> — We go toward the sea.</td></tr>
-    <tr><td><em>ya</em></td><td>at</td><td><em>Ne su ya hiwe.</em> — I am at the house.</td></tr>
+    <tr><td><em>ya</em></td><td>at / to / toward</td><td><em>Ne su ya hiwe.</em> — I am at the house. / <em>Nea halu ya shawome.</em> — We go toward the sea.</td></tr>
     <tr><td><em>leu</em></td><td>above / on</td><td><em>yaihe leu moule</em> — bird above the tree</td></tr>
     <tr><td><em>moleu</em></td><td>below / under</td><td><em>loiwe moleu pahe</em> — book below the table</td></tr>
     <tr><td><em>niwa</em></td><td>between</td><td><em>Ve su niwa moule sho hiwe.</em> — She is between the tree and the house.</td></tr>
@@ -13580,7 +13586,7 @@ const GRAMMAR_SECTIONS = [
     <div class="grammar-sub-header"><em>mo-</em> variants</div>
     <ul>
       <li><em>mowo</em> — outside / out of</li>
-      <li><em>moso</em> — away from (<em>ka</em> = origin; <em>moso</em> = motion away)</li>
+      <li><em>moya</em> — away from (<em>ka</em> = origin; <em>moya</em> = motion away)</li>
       <li><em>moko</em> — without</li>
     </ul>
     <div class="grammar-callout"><strong>Together</strong> is expressed with <em>ko</em> + a plural pronoun: <em>ko nea</em> (with us / together). A plural subject alone often implies togetherness: <em>Nea wa liru.</em> (We sang — together, implied.)</div>`
@@ -13607,7 +13613,7 @@ const GRAMMAR_SECTIONS = [
       <li><em>Ne tiru loshe sho moule.</em> — I see a flower and a tree.</li>
       <li><em>Vi shaliru, ne mai halu.</em> — If it rains, I don't go.</li>
       <li><em>Ne rau nalai ne su kufi.</em> — I sleep because I am in pain.</li>
-      <li><em>Ne wu halu so fase wule.</em> — I will go to work later.</li>
+      <li><em>Ne wu halu ya fase wule.</em> — I will go to work later.</li>
     </ul>
     <div class="grammar-sub-header">Discourse adverbs</div>
     <ul>
@@ -13798,7 +13804,7 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>noihi</em></td><td>almost</td></tr>
     <tr><td><em>ori</em></td><td>very / really</td></tr>
     </tbody></table></div>
-    <p>"Rarely," "not yet," and emphatic "never" are <strong>discontinuous</strong> in Liru: <em>mai</em> sits before the verb and the adverb sits immediately after the verb. The two flank the verb directly — for example, "I rarely come here" is <em>Ne mai vanu naiweli so loya</em>, with <em>mai</em> and <em>naiweli</em> on either side of <em>vanu</em>. Same pattern for <em>mai ... yauwi</em> ("not yet") and <em>mai ... faiweli</em> (emphatic "never").</p>
+    <p>"Rarely," "not yet," and emphatic "never" are <strong>discontinuous</strong> in Liru: <em>mai</em> sits before the verb and the adverb sits immediately after the verb. The two flank the verb directly — for example, "I rarely come here" is <em>Ne mai vanu naiweli loya</em>, with <em>mai</em> and <em>naiweli</em> on either side of <em>vanu</em>. Same pattern for <em>mai ... yauwi</em> ("not yet") and <em>mai ... faiweli</em> (emphatic "never").</p>
     <p>"Early" and "late" are compositional: <em>wale houpi</em> (before expected) and <em>wule houpi</em> (after expected).</p>`
   },
   {
@@ -13820,7 +13826,7 @@ const GRAMMAR_SECTIONS = [
     <ul>
       <li><em>Ne hunu.</em> — I go right.</li>
       <li><em>Nea tasu shafane.</em> — We cross the river.</li>
-      <li><em>Paipe su ya poki ka hiwe.</em> — The dog is behind the house. (lit. "at the back of the house")</li>
+      <li><em>Paipe su ya poke ka hiwe.</em> — The dog is behind the house. (lit. "at the back of the house")</li>
     </ul>`
   },
   {
@@ -14775,7 +14781,6 @@ const DICTIONARY_RAW = [
   {lw:"moshouhe", en:"depth", pos:"n"},
   {lw:"moshouhi", en:"deep", pos:"adj"},
   {lw:"moshouhu", en:"to deepen", pos:"v"},
-  {lw:"moso", en:"away from", pos:"prep"},
   {lw:"mosoune", en:"length", pos:"n"},
   {lw:"mosouni", en:"long (or at length)", pos:"adj"},
   {lw:"mosounu", en:"to lengthen", pos:"v"},
@@ -14848,6 +14853,7 @@ const DICTIONARY_RAW = [
   {lw:"mowoune", en:"lowering", pos:"n"},
   {lw:"mowouni", en:"lowered", pos:"adj"},
   {lw:"mowounu", en:"to lower (or set down)", pos:"v"},
+  {lw:"moya", en:"away from", pos:"prep"},
   {lw:"moyashe", en:"foolishness", pos:"n"},
   {lw:"moyashi", en:"unwise", pos:"adj"},
   {lw:"moyashimi", en:"illogical", pos:"adj"},
@@ -15342,7 +15348,6 @@ const DICTIONARY_RAW = [
   {lw:"shuwe", en:"spouse", pos:"n"},
   {lw:"shuwi", en:"spousal", pos:"adj"},
   {lw:"shuwu", en:"to marry", pos:"v"},
-  {lw:"so", en:"to", pos:"prep"},
   {lw:"sohe", en:"other", pos:"n"},
   {lw:"sohi", en:"another", pos:"adj"},
   {lw:"soile", en:"solution", pos:"n"},
@@ -15622,7 +15627,7 @@ const DICTIONARY_RAW = [
   {lw:"wule meshilawe", en:"afternoon (lit. after midday)", pos:"phrase", note:"From wule (after) + meshilawe (midday) \u2014 afternoon"},
   {lw:"wule houpi", en:"late (after expected)", pos:"phrase", note:"From wule (after) + houpi (expected)"},
   {lw:"wuli", en:"next/upcoming (or subsequently)", pos:"adj"},
-  {lw:"ya", en:"at", pos:"prep"},
+  {lw:"ya", en:"at (or to/toward)", pos:"prep"},
   {lw:"yahe", en:"place (or location)", pos:"n"},
   {lw:"yahi", en:"local", pos:"adj"},
   {lw:"yahu", en:"to locate", pos:"v"},
