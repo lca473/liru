@@ -3539,7 +3539,7 @@ const V = {
     {lw:"haiwepiehe", en:"season", pos:"n",
      note:"From haiwe (year) + piehe (part) — meta-noun for season-as-a-category. The four specific seasons (foihe, hauwe, youhe, kaihe) are taught one per lesson across this unit."},
     {lw:"foihe", en:"spring (season)", pos:"n",
-     canvas:{adj:"foihi", adj_en:"spring-related"},
+     canvas:{adj:"foihi", adj_en:"spring-related", adj_tier:"mechanical"},
      note:"Sound-shape mnemonic: fo- onset of the flora family (foshe grass, fohe moss)."},
     {lw:"lime", en:"growth", pos:"n",
      canvas:{v:"limu", v_en:"to grow"}},
@@ -3553,7 +3553,7 @@ const V = {
   // already-taught hauhi (hot) and luhi (cold).
   l141_vocab_summer: [
     {lw:"hauwe", en:"summer", pos:"n",
-     canvas:{adj:"hauwi", adj_en:"summery"},
+     canvas:{adj:"hauwi", adj_en:"summery", adj_tier:"mechanical"},
      note:"Sound-shape mnemonic: hauwe echoes haule (sun) — both belong to the bright-season sound family."},
     {lw:"moluhe", en:"warmth", pos:"n",
      canvas:{adj:"moluhi", adj_en:"warm (or warmly)", v:"moluhu", v_en:"to warm (or heat)"},
@@ -3564,17 +3564,17 @@ const V = {
   ],
 
   // L142 — Autumn + leaves + falling + grain
-  // keye/keyi/keyu = physical "fall" (gravity, dropping). NOT the
+  // keye/keyi/keyu = physical "fall" (gravity). NOT the
   // season "fall" — that's youhe. Intro card calls out the false
   // friend explicitly.
   l142_vocab_autumn: [
     {lw:"youhe", en:"autumn (or fall)", pos:"n",
-     canvas:{adj:"youhi", adj_en:"autumnal"},
+     canvas:{adj:"youhi", adj_en:"autumnal", adj_tier:"mechanical"},
      note:"Sound-shape mnemonic: youhe associates with yole (branch) — the falling-leaves season."},
     {lw:"meile", en:"leaf", pos:"n",
      canvas:{adj:"meili", adj_en:"leafy"}},
-    {lw:"keye", en:"fall (a tumble) (n.)", pos:"n",
-     canvas:{adj:"keyi", adj_en:"fallen", v:"keyu", v_en:"to fall (drop, tumble)"},
+    {lw:"keye", en:"fall", pos:"n",
+     canvas:{adj:"keyi", adj_en:"fallen", adj_tier:"mechanical", v:"keyu", v_en:"to fall"},
      note:"Physical fall — NOT the season. The season \"fall\" is youhe."},
     {lw:"maune", en:"grain", pos:"n"},
   ],
@@ -3584,7 +3584,7 @@ const V = {
   // DesignNotes.md "Family: Seasons" — the cold-state sound cluster.
   l143_vocab_winter: [
     {lw:"kaihe", en:"winter", pos:"n",
-     canvas:{adj:"kaihi", adj_en:"wintry"},
+     canvas:{adj:"kaihi", adj_en:"wintry", adj_tier:"mechanical"},
      note:"Sound-shape mnemonic: kaihe shares its k- onset with the cold-state family (kawe ice, kawu to freeze)."},
     {lw:"kawe", en:"ice", pos:"n",
      canvas:{adj:"kawi", adj_en:"frozen", v:"kawu", v_en:"to freeze"}},
@@ -3615,12 +3615,12 @@ const V = {
   // follows seasonal change.
   l145_vocab_seasonal_change: [
     {lw:"molime", en:"decay", pos:"n",
-     canvas:{adj:"molimi", adj_en:"withered (adj.)", v:"molimu", v_en:"to wither"},
+     canvas:{adj:"molimi", adj_en:"withered (adj.)", adj_tier:"mechanical", v:"molimu", v_en:"to wither"},
      note:"The mo- pair of lime (growth). Together they cover the full life-cycle of growing things."},
     {lw:"monove", en:"mistake", pos:"n",
      canvas:{adj:"monovi", adj_en:"incorrect", v:"monovu", v_en:"to err (or make a mistake)"}},
     {lw:"eire", en:"flight", pos:"n",
-     canvas:{adj:"eiri", adj_en:"in flight (or flying)", v:"eiru", v_en:"to fly"}},
+     canvas:{adj:"eiri", adj_en:"in flight (or flying)", adj_tier:"mechanical", v:"eiru", v_en:"to fly"}},
     {lw:"nouhe", en:"peace (or calm)", pos:"n",
      canvas:{adj:"nouhi", adj_en:"peaceful (or calmly)"}},
   ],
@@ -3638,8 +3638,8 @@ const V = {
      en:"I swam in summer."},
     {lw:["Liumea","wu","limu","foihe"],
      en:"Plants will grow in spring."},
-    {lw:["Meilea","youhi","su","keyi"],
-     en:"The autumn leaves are fallen."},
+    {lw:["Meilea","wa","keyu","youhe"],
+     en:"Leaves fell in autumn."},
     {lw:["Kaihe","su","luhi","sho","nouhi"],
      en:"Winter is cold and peaceful."},
     {lw:["Ne","wa","niamu","maunea"],
@@ -8284,7 +8284,7 @@ const LESSONS = [
    vocabKey:"l142_vocab_autumn",
    xp:18,
    unit:24,
-   intro:`<h3>🍂 Autumn</h3><p>The third season: <em>youhe</em>. English uses the same word "fall" for both the season and the action of dropping; Liru keeps these separate. <em>youhe</em> is the season; <em>keyu</em> (taught below) is what leaves do when they drop from a branch.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>youhe</em> (n.)</td><td style="padding:4px 12px">autumn (or fall, the season)</td></tr><tr><td style="padding:4px 12px"><em>youhi</em> (adj.)</td><td style="padding:4px 12px">autumnal</td></tr></table><h3>🍃 Leaves, falling, harvest</h3><p>Three autumn-iconic concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meile</em> (n.)</td><td style="padding:4px 12px">leaf</td></tr><tr><td style="padding:4px 12px"><em>meili</em> (adj.)</td><td style="padding:4px 12px">leafy</td></tr><tr><td style="padding:4px 12px"><em>keye</em> (n.)</td><td style="padding:4px 12px">a fall (a tumble)</td></tr><tr><td style="padding:4px 12px"><em>keyi</em> (adj.)</td><td style="padding:4px 12px">fallen</td></tr><tr><td style="padding:4px 12px"><em>keyu</em> (v.)</td><td style="padding:4px 12px">to fall (drop, tumble)</td></tr><tr><td style="padding:4px 12px"><em>maune</em> (n.)</td><td style="padding:4px 12px">grain</td></tr></table><p><strong>Important:</strong> <em>keyu</em> is the physical action of falling — gravity, dropping, tumbling. It is <em>not</em> the season "fall." English uses one word for both meanings; Liru does not.</p><span class="example">Meilea wu keyu youhe. <span class="gloss">Leaves will fall in autumn.</span></span><span class="example">Meilea youhi su wauli. <span class="gloss">Autumn leaves are beautiful.</span></span><span class="example">Maune su tahe. <span class="gloss">Grain is food.</span></span>`},
+   intro:`<h3>🍂 Autumn</h3><p>The third season: <em>youhe</em>. English uses the same word "fall" for both the season and the action of falling; Liru keeps these separate. <em>youhe</em> is the season; <em>keyu</em> (taught below) is what leaves do when they fall from a branch.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>youhe</em> (n.)</td><td style="padding:4px 12px">autumn (or fall, the season)</td></tr><tr><td style="padding:4px 12px"><em>youhi</em> (adj.)</td><td style="padding:4px 12px">autumnal</td></tr></table><h3>🍃 Leaves, falling, harvest</h3><p>Three autumn-iconic concepts:</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>meile</em> (n.)</td><td style="padding:4px 12px">leaf</td></tr><tr><td style="padding:4px 12px"><em>meili</em> (adj.)</td><td style="padding:4px 12px">leafy</td></tr><tr><td style="padding:4px 12px"><em>keye</em> (n.)</td><td style="padding:4px 12px">a fall</td></tr><tr><td style="padding:4px 12px"><em>keyi</em> (adj.)</td><td style="padding:4px 12px">fallen</td></tr><tr><td style="padding:4px 12px"><em>keyu</em> (v.)</td><td style="padding:4px 12px">to fall</td></tr><tr><td style="padding:4px 12px"><em>maune</em> (n.)</td><td style="padding:4px 12px">grain</td></tr></table><p><strong>Important:</strong> <em>keyu</em> is the physical action of falling. It is <em>not</em> the season "fall." English uses one word for both meanings; Liru does not.</p><span class="example">Meilea wu keyu youhe. <span class="gloss">Leaves will fall in autumn.</span></span><span class="example">Meilea youhi su wauli. <span class="gloss">Autumn leaves are beautiful.</span></span><span class="example">Maune su tahe. <span class="gloss">Grain is food.</span></span>`},
 
   {id:"l143_vocab_winter",
    title:"Winter — Ice, Coat, Bear",
