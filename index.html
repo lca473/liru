@@ -2758,20 +2758,20 @@ const V = {
     {lw:"tinale", en:"color (n.)", pos:"n",
      canvas:{adj:"tinali", adj_en:"colored (or colorful)",
              v:"tinalu",   v_en:"to color (or tint)"}},
-    {lw:"feyale", en:"red (the color)", pos:"n",
+    {lw:"feyale", en:"red (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"feyali", adj_en:"red"}},
-    {lw:"haumale", en:"yellow (the color)", pos:"n",
+    {lw:"haumale", en:"yellow (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"haumali", adj_en:"yellow"}},
   ],
 
   // L112 — Vocab: cool colors
   // foshale green, laimale blue, roumale purple.
   l112_vocab_color_cool: [
-    {lw:"foshale", en:"green (the color)", pos:"n",
+    {lw:"foshale", en:"green (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"foshali", adj_en:"green"}},
-    {lw:"laimale", en:"blue (the color)", pos:"n",
+    {lw:"laimale", en:"blue (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"laimali", adj_en:"blue"}},
-    {lw:"roumale", en:"purple (the color)", pos:"n",
+    {lw:"roumale", en:"purple (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"roumali", adj_en:"purple"}},
   ],
 
@@ -2781,11 +2781,11 @@ const V = {
   // than a marked balanced opposite, so neither root carries the
   // mo- prefix.
   l113_vocab_color_neutral: [
-    {lw:"lewale", en:"white (the color)", pos:"n",
+    {lw:"lewale", en:"white (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"lewali", adj_en:"white"}},
-    {lw:"noumale", en:"black (the color)", pos:"n",
+    {lw:"noumale", en:"black (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"noumali", adj_en:"black"}},
-    {lw:"felale", en:"gray (the color)", pos:"n",
+    {lw:"felale", en:"gray (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"felali", adj_en:"gray"}},
   ],
 
@@ -2794,11 +2794,11 @@ const V = {
   // rainbow" colors — pink (light red), brown (dark red-yellow blend),
   // orange (red-yellow blend).
   l114_vocab_color_tertiary: [
-    {lw:"niwale", en:"pink (the color)", pos:"n",
+    {lw:"niwale", en:"pink (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"niwali", adj_en:"pink"}},
-    {lw:"toulale", en:"brown (the color)", pos:"n",
+    {lw:"toulale", en:"brown (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"toulali", adj_en:"brown"}},
-    {lw:"huyale", en:"orange (the color)", pos:"n",
+    {lw:"huyale", en:"orange (the color)", pos:"n", tier:"mechanical",
      canvas:{adj:"huyali", adj_en:"orange"}},
   ],
 
@@ -3143,7 +3143,7 @@ const V = {
   // behind lianitowe.
   l128_vocab_compass_anchor: [
     {lw:"towe", en:"map", pos:"n",
-     canvas:{adj:"towi", adj_en:"mapped (adj.)"}},
+     canvas:{adj:"towi", adj_en:"mapped (adj.)", adj_tier:"mechanical"}},
     {lw:"lianitowe", en:"north", pos:"n",
      canvas:{adj:"lianitowi", adj_en:"northern (or northward)"}},
     {lw:"hunitowe", en:"east", pos:"n",
@@ -3164,11 +3164,11 @@ const V = {
      canvas:{adj:"molianitowi", adj_en:"southern (or southward)"},
      pair:"lianitowe"},
     {lw:"nouwe", en:"island", pos:"n",
-     canvas:{adj:"nouwi", adj_en:"island-related"}},
+     canvas:{adj:"nouwi", adj_en:"island-related", adj_tier:"mechanical"}},
     {lw:"shafane", en:"river", pos:"n",
-     canvas:{adj:"shafani", adj_en:"river-related"}},
+     canvas:{adj:"shafani", adj_en:"river-related", adj_tier:"mechanical"}},
     {lw:"shaune", en:"lake", pos:"n",
-     canvas:{adj:"shauni", adj_en:"lake-related"}},
+     canvas:{adj:"shauni", adj_en:"lake-related", adj_tier:"mechanical"}},
   ],
 
   // L130 — Vocab: landform (ground/mountain/valley/desert)
@@ -3178,13 +3178,13 @@ const V = {
   // tauhe as a tour from "all dry land" down through specific terrain.
   l130_vocab_landform: [
     {lw:"toule", en:"ground (or earth)", pos:"n",
-     canvas:{adj:"touli", adj_en:"earth-related"}},
+     canvas:{adj:"touli", adj_en:"earth-related", adj_tier:"mechanical"}},
     {lw:"wouhe", en:"mountain", pos:"n",
      canvas:{adj:"wouhi", adj_en:"mountainous"}},
     {lw:"pieme", en:"valley", pos:"n",
-     canvas:{adj:"piemi", adj_en:"valley-related"}},
+     canvas:{adj:"piemi", adj_en:"valley-related", adj_tier:"mechanical"}},
     {lw:"tauhe", en:"desert", pos:"n",
-     canvas:{adj:"tauhi", adj_en:"arid"}},
+     canvas:{adj:"tauhi", adj_en:"arid", adj_tier:"mechanical"}},
   ],
 
   // L131 — Vocab: terrain features (shore/field/hill/cave)
@@ -3572,7 +3572,7 @@ const V = {
      canvas:{adj:"youhi", adj_en:"autumnal", adj_tier:"mechanical"},
      note:"Sound-shape mnemonic: youhe associates with yole (branch) — the falling-leaves season."},
     {lw:"meile", en:"leaf", pos:"n",
-     canvas:{adj:"meili", adj_en:"leafy"}},
+     canvas:{adj:"meili", adj_en:"leafy", adj_tier:"mechanical"}},
     {lw:"keye", en:"fall", pos:"n",
      canvas:{adj:"keyi", adj_en:"fallen", adj_tier:"mechanical", v:"keyu", v_en:"to fall"},
      note:"Physical fall — NOT the season. The season \"fall\" is youhe."},
@@ -3719,7 +3719,7 @@ const V = {
     {lw:"paipile", en:"puppy", pos:"n",
      note:"Diminutive of paipe (dog) via the -ile suffix. Pattern parallels piwile (baby)."},
     {lw:"owe", en:"egg", pos:"n",
-     canvas:{adj:"owi", adj_en:"egg-related", v:"owu", v_en:"to lay eggs"},
+     canvas:{adj:"owi", adj_en:"egg-related", adj_tier:"mechanical", v:"owu", v_en:"to lay eggs"},
      note:"Eggs are the iconic poultry product. The verb owu \"to lay eggs\" makes the natural sentence \"chickens lay eggs\" possible."},
   ],
 
@@ -3783,7 +3783,7 @@ const V = {
   l154_vocab_insects_groups: [
     {lw:"paiweme", en:"butterfly", pos:"n"},
     {lw:"seure", en:"insect", pos:"n",
-     canvas:{adj:"seuri", adj_en:"insect-related"},
+     canvas:{adj:"seuri", adj_en:"insect-related", adj_tier:"mechanical"},
      note:"Meta-noun for insects. Adj seuri kept because it carries the substantive \"insect-like\" sense (useful for descriptive sentences)."},
     {lw:"meuhe", en:"group (or team)", pos:"n",
      canvas:{adj:"meuhi", adj_en:"grouped (or together) (adj.)", v:"meuhu", v_en:"to gather (or assemble)"},
@@ -6210,7 +6210,7 @@ const V = {
      },
     {lw:"woulime", en:"dress", pos:"n"},
     {lw:"woile", en:"cloth (or blanket)", pos:"n",
-     canvas:{adj:"woili", adj_en:"cloth-related"}},
+     canvas:{adj:"woili", adj_en:"cloth-related", adj_tier:"mechanical"}},
   ],
 
   // L235 — Kitchen appliances: the -pauwe device family (vocab).
@@ -6722,11 +6722,11 @@ const V = {
   // in this lesson — it's an in-place fix to A19/L184 vocab.
   l258_living_may2026: [
     {lw:"shaise", en:"bathing vessel (tub or shower)", pos:"n",
-     canvas:{adj:"shaisi", adj_en:"bathing-related",
+     canvas:{adj:"shaisi", adj_en:"bathing-related", adj_tier:"mechanical",
              v:"shaisu", v_en:"to bathe (or shower)"},
      intro:"<p><em>Shaise</em> covers both a tub and a shower — Liru doesn't distinguish them. The verb <em>shaisu</em> means &ldquo;to bathe&rdquo; or &ldquo;to shower&rdquo; — cleaner than using <em>sayu</em> (the generic verb &ldquo;to wash/clean&rdquo;) for body-bathing.</p>"},
     {lw:"shase", en:"sink (or basin) (n.)", pos:"n",
-     canvas:{adj:"shasi", adj_en:"sink-related"},
+     canvas:{adj:"shasi", adj_en:"sink-related", adj_tier:"mechanical"},
      intro:"<p><em>Shase</em> is a sink — a kitchen sink, bathroom sink, or any basin. No verb form: actions involving a sink use the verbs that already cover them (<em>sayu</em> to wash, <em>shawe</em> for water, etc.). <em>Shase</em> joins the <em>sh-</em> water family (<em>shawe</em>, <em>shahe</em>, <em>shaihe</em>, <em>shafane</em>, <em>shauhe</em>) and is paired aesthetically with <em>shaise</em>.</p>"},
     {lw:"tape", en:"switch (or toggle, control)", pos:"n",
      canvas:{adj:"tapi", adj_en:"switchable (or toggleable)",
