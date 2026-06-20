@@ -876,7 +876,7 @@ const V = {
   l7_pronouns: [
     {lw:"ve",   en:"he / she / it / they (sg.)",  pos:"pronoun"},
     {lw:"nea",  en:"we (or us)",                 pos:"pronoun"},
-    {lw:"tea",  en:"you (pl.)",                   pos:"pronoun"},
+    {lw:"tea",  en:"you all (or y'all)",                   pos:"pronoun"},
     {lw:"vea",  en:"they / them (pl.)",          pos:"pronoun"},
   ],
 
@@ -2887,7 +2887,7 @@ const V = {
   // yaniluone, haniluone, hanifaniluone.
   l118_vocab_months: [
     {lw:"luone", en:"moon (or month)", pos:"n",
-     canvas:{adj:"luoni", adj_en:"lunar"},
+     canvas:{adj:"luoni", adj_en:"lunar", adj_tier:"mechanical"},
      note:"The morpheme behind every month name. Carries both 'moon' and 'month' — context disambiguates."},
     {lw:"faniluone", en:"January", pos:"n",
      note:"fani (one) + luone (moon/month)"},
@@ -3180,7 +3180,7 @@ const V = {
     {lw:"toule", en:"ground (or earth)", pos:"n",
      canvas:{adj:"touli", adj_en:"earth-related", adj_tier:"mechanical"}},
     {lw:"wouhe", en:"mountain", pos:"n",
-     canvas:{adj:"wouhi", adj_en:"mountainous"}},
+     canvas:{adj:"wouhi", adj_en:"mountainous", adj_tier:"mechanical"}},
     {lw:"pieme", en:"valley", pos:"n",
      canvas:{adj:"piemi", adj_en:"valley-related", adj_tier:"mechanical"}},
     {lw:"tauhe", en:"desert", pos:"n",
@@ -3200,7 +3200,7 @@ const V = {
     {lw:"touhe", en:"shore (or coast, beach)", pos:"n",
      canvas:{adj:"touhi", adj_en:"coastal"}},
     {lw:"foule", en:"field", pos:"n",
-     canvas:{adj:"fouli", adj_en:"field-related (or wide open)"}},
+     canvas:{adj:"fouli", adj_en:"field-related (or wide open)", adj_tier:"mechanical"}},
     {lw:"wouhile", en:"hill", pos:"n",
      note:"Diminutive of wouhe — little mountain"},
     {lw:"pouwe", en:"cave", pos:"n",
@@ -3684,11 +3684,11 @@ const V = {
   // is the unit's first selective-adj-kept example (per A6/A11).
   l147_vocab_farm_livestock: [
     {lw:"shiwane", en:"animal (or meat)", pos:"n",
-     canvas:{adj:"shiwani", adj_en:"animal-related (or meaty)"},
+     canvas:{adj:"shiwani", adj_en:"animal-related (or meaty)", adj_tier:"mechanical"},
      note:"Meta-noun for animals as a category. The adj form shiwani also covers the \"meaty\" sense (food vocabulary)."},
     {lw:"kouwe", en:"goat", pos:"n"},
     {lw:"louwe", en:"sheep", pos:"n",
-     canvas:{adj:"louwi", adj_en:"woolly (or sheep-related)"},
+     canvas:{adj:"louwi", adj_en:"woolly (or sheep-related)", adj_tier:"mechanical"},
      note:"The adj louwi carries the substantive \"woolly\" meaning — wool is the iconic sheep product."},
     {lw:"maluwe", en:"cow", pos:"n"},
   ],
@@ -3769,7 +3769,7 @@ const V = {
     {lw:"ninuwe", en:"bee", pos:"n"},
     {lw:"paihe", en:"spider", pos:"n"},
     {lw:"nemue", en:"honey", pos:"n",
-     canvas:{adj:"nemui", adj_en:"honeyed (or honey-related)"},
+     canvas:{adj:"nemui", adj_en:"honeyed (or honey-related)", adj_tier:"mechanical"},
      note:"Bees and honey are inseparable. Pairs with ninuwe directly."},
   ],
 
@@ -4409,7 +4409,7 @@ const V = {
   // muni, tami dropped (mechanical only). 4 roots / 6 forms.
   l173_vocab_body_torso: [
     {lw:"meiwe", en:"body", pos:"n",
-     canvas:{adj:"meiwi", adj_en:"bodily"}},
+     canvas:{adj:"meiwi", adj_en:"bodily", adj_tier:"mechanical"}},
     {lw:"mune", en:"chest", pos:"n",
      },
     {lw:"poke", en:"back (body part)", pos:"n",
@@ -4428,7 +4428,7 @@ const V = {
     {lw:"meve", en:"shoulder", pos:"n",
      },
     {lw:"kole", en:"bone", pos:"n",
-     canvas:{adj:"koli", adj_en:"bony (or bone-related)"}},
+     canvas:{adj:"koli", adj_en:"bony (or bone-related)", adj_tier:"mechanical"}},
     {lw:"shewe", en:"blood", pos:"n",
      canvas:{adj:"shewi", adj_en:"bloody (or blood-related)",
              v:"shewu", v_en:"to bleed"}},
@@ -4441,13 +4441,13 @@ const V = {
   // yami mechanical (drop). 4 roots / 10 forms.
   l175_vocab_face_features: [
     {lw:"laihe", en:"ear", pos:"n",
-     canvas:{adj:"laihi", adj_en:"aural",
+     canvas:{adj:"laihi", adj_en:"aural", adj_tier:"mechanical",
              v:"laihu", v_en:"to listen"}},
     {lw:"nuve", en:"nose", pos:"n",
-     canvas:{adj:"nuvi", adj_en:"nasal",
+     canvas:{adj:"nuvi", adj_en:"nasal", adj_tier:"mechanical",
              v:"nuvu", v_en:"to smell (or sniff)"}},
     {lw:"powe", en:"mouth", pos:"n",
-     canvas:{adj:"powi", adj_en:"oral"}},
+     canvas:{adj:"powi", adj_en:"oral", adj_tier:"mechanical"}},
     {lw:"yame", en:"tongue", pos:"n",
      canvas:{v:"yamu", v_en:"to lick (or taste)"},
      },
@@ -4702,7 +4702,7 @@ const V = {
      note:"Pairs naturally with pauwe (machine) — machines need pake to run."},
     {lw:"hoile", en:"oil", pos:"n",
      canvas:{adj:"hoili", adj_en:"oily (or oil-related)",
-             v:"hoilu", v_en:"to oil (or grease)"},
+             v:"hoilu", v_en:"to oil (or grease)", v_tier:"mechanical"},
      },
     {lw:"kahime", en:"metal", pos:"n",
      canvas:{adj:"kahimi", adj_en:"metallic (or metal-related)"},
@@ -4950,8 +4950,8 @@ const V = {
      canvas:{adj:"waiyi", adj_en:"protective",
              v:"waiyu", v_en:"to protect"}},
     {lw:"karuhe", en:"war", pos:"n",
-     canvas:{adj:"karuhi", adj_en:"warlike (or war-related)",
-             v:"karuhu", v_en:"to wage war"},
+     canvas:{adj:"karuhi", adj_en:"warlike (or war-related)", adj_tier:"mechanical",
+             v:"karuhu", v_en:"to wage war", v_tier:"mechanical"},
      },
   ],
 
@@ -5180,7 +5180,7 @@ const V = {
   //     everyday-form filter (mechanical X-related).
   l198_thought_and_dream: [
     {lw:"hiye", en:"dream (n.)", pos:"n",
-     canvas:{adj:"hiyi", adj_en:"dreamlike (or dream-related)",
+     canvas:{adj:"hiyi", adj_en:"dreamlike (or dream-related)", adj_tier:"mechanical",
              v:"hiyu", v_en:"to dream"}},
     {lw:"mopire", en:"thoughtlessness", pos:"n",
      canvas:{adj:"mopiri", adj_en:"thoughtless"},
@@ -5916,8 +5916,8 @@ const V = {
   ],
 
   // L224 — Stone & Darkness (vocab). 4 roots / 8 drilled forms.
-  //   kome (n) + komi (adj) + komu (v) — full canvas. Stone /
-  //     stony (or stone-related) / to make solid.
+  //   kome (n) + komi (adj). Stone / stony (or stone-related).
+  //   komu (v) retired 2026-06-20 (canvas filler verb, removed from lexicon).
   //   komile — pebble. Noun-only (diminutive of kome).
   //   komilele — grain of sand. Noun-only (double diminutive).
   //   molune (n) + moluni (adj) + molunu (v) — full canvas. The
@@ -5926,8 +5926,7 @@ const V = {
   //     surfaced in the intro card.
   l224_vocab_stone_darkness: [
     {lw:"kome", en:"stone", pos:"n",
-     canvas:{adj:"komi", adj_en:"stony (or stone-related)",
-             v:"komu", v_en:"to make solid"}},
+     canvas:{adj:"komi", adj_en:"stony (or stone-related)", adj_tier:"mechanical"}},
     {lw:"komile", en:"pebble", pos:"n",
      note:"Diminutive of kome (stone). Noun-only."},
     {lw:"komilele", en:"grain of sand", pos:"n",
@@ -5996,8 +5995,8 @@ const V = {
      canvas:{adj:"kuri", adj_en:"bitter",
              v:"kuru", v_en:"to turn bitter (or embitter)"}},
     {lw:"pike", en:"pepper", pos:"n",
-     canvas:{adj:"piki", adj_en:"peppery (or pepper-related)",
-             v:"piku", v_en:"to pepper"}},
+     canvas:{adj:"piki", adj_en:"peppery (or pepper-related)", adj_tier:"mechanical",
+             v:"piku", v_en:"to pepper", v_tier:"mechanical"}},
     {lw:"pikale", en:"spiciness", pos:"n",
      canvas:{adj:"pikali", adj_en:"spicy",
              v:"pikalu", v_en:"to make spicy"}},
@@ -6015,7 +6014,7 @@ const V = {
   //     "boat-related" dropped (mechanical).
   l227_vocab_foods_boat: [
     {lw:"miafe", en:"cheese", pos:"n",
-     canvas:{adj:"miafi", adj_en:"cheesy (or cheese-related)"}},
+     canvas:{adj:"miafi", adj_en:"cheesy (or cheese-related)", adj_tier:"mechanical"}},
     {lw:"roine", en:"rice", pos:"n",
      },
     {lw:"tahishawe", en:"soup", pos:"n",
@@ -6326,11 +6325,11 @@ const V = {
   //     waihe, A21 vouru precedent).
   l241_vocab_media_time: [
     {lw:"une", en:"movie", pos:"n",
-     canvas:{adj:"uni", adj_en:"cinematic (or movie-related)"}},
+     canvas:{adj:"uni", adj_en:"cinematic (or movie-related)", adj_tier:"mechanical"}},
     {lw:"unile", en:"TV show", pos:"n",
      note:"From une (movie) + -ile (diminutive)."},
     {lw:"wainoe", en:"internet", pos:"n",
-     canvas:{adj:"wainoi", adj_en:"online (or internet-related)"}},
+     canvas:{adj:"wainoi", adj_en:"online (or internet-related)", adj_tier:"mechanical"}},
     {lw:"weye", en:"clock (or timepiece)", pos:"n",
      canvas:{v:"weyu", v_en:"to check the time"},
      },
@@ -9074,7 +9073,7 @@ const LESSONS = [
    vocabKey:"l224_vocab_stone_darkness",
    xp:18,
    unit:36,
-   intro:`<h3>\ud83e\udea8 Stone, smaller and smaller</h3><p>The closing lesson of the property sub-unit. <em>kome</em> (stone) shows the diminutive suffix at work, twice over: a pebble is a little stone, a grain of sand is a little pebble.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kome</em> (n.)</td><td style="padding:4px 12px">stone</td></tr><tr><td style="padding:4px 12px"><em>komi</em> (adj.)</td><td style="padding:4px 12px">stony</td></tr><tr><td style="padding:4px 12px"><em>komu</em> (v.)</td><td style="padding:4px 12px">to make solid</td></tr><tr><td style="padding:4px 12px"><em>komile</em> (n.)</td><td style="padding:4px 12px">pebble</td></tr><tr><td style="padding:4px 12px"><em>komilele</em> (n.)</td><td style="padding:4px 12px">grain of sand</td></tr><tr><td style="padding:4px 12px"><em>molune</em> (n.)</td><td style="padding:4px 12px">darkness</td></tr><tr><td style="padding:4px 12px"><em>moluni</em> (adj.)</td><td style="padding:4px 12px">dark</td></tr><tr><td style="padding:4px 12px"><em>molunu</em> (v.)</td><td style="padding:4px 12px">to darken</td></tr></table><p><em>kome</em> \u2192 <em>komile</em> (pebble) \u2192 <em>komilele</em> (grain of sand): the <em>-ile</em> suffix stacks. And <em>molune</em> is the <em>mo-</em> pair of <em>lune</em> (light), a pairing you've known since the early lessons.</p><span class="example">Kome lo su mokauwi. <span class="gloss">This stone is heavy.</span></span><span class="example">Ne tiru komile. <span class="gloss">I see a pebble.</span></span><span class="example">None lo su moluni. <span class="gloss">This night is dark.</span></span>`},
+   intro:`<h3>\ud83e\udea8 Stone, smaller and smaller</h3><p>The closing lesson of the property sub-unit. <em>kome</em> (stone) shows the diminutive suffix at work, twice over: a pebble is a little stone, a grain of sand is a little pebble.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>kome</em> (n.)</td><td style="padding:4px 12px">stone</td></tr><tr><td style="padding:4px 12px"><em>komi</em> (adj.)</td><td style="padding:4px 12px">stony</td></tr><tr><td style="padding:4px 12px"><em>komile</em> (n.)</td><td style="padding:4px 12px">pebble</td></tr><tr><td style="padding:4px 12px"><em>komilele</em> (n.)</td><td style="padding:4px 12px">grain of sand</td></tr><tr><td style="padding:4px 12px"><em>molune</em> (n.)</td><td style="padding:4px 12px">darkness</td></tr><tr><td style="padding:4px 12px"><em>moluni</em> (adj.)</td><td style="padding:4px 12px">dark</td></tr><tr><td style="padding:4px 12px"><em>molunu</em> (v.)</td><td style="padding:4px 12px">to darken</td></tr></table><p><em>kome</em> \u2192 <em>komile</em> (pebble) \u2192 <em>komilele</em> (grain of sand): the <em>-ile</em> suffix stacks. And <em>molune</em> is the <em>mo-</em> pair of <em>lune</em> (light), a pairing you've known since the early lessons.</p><span class="example">Kome lo su mokauwi. <span class="gloss">This stone is heavy.</span></span><span class="example">Ne tiru komile. <span class="gloss">I see a pebble.</span></span><span class="example">None lo su moluni. <span class="gloss">This night is dark.</span></span>`},
 
   {id:"l225_dimension_texture_exam",
    title:"Unit 37 Exam \u2014 Size, Shape & Texture Roots",
@@ -14308,7 +14307,6 @@ const DICTIONARY_RAW = [
   {lw:"komi", en:"stony (or stone-related)", pos:"adj"},
   {lw:"komile", en:"pebble", pos:"n", note:"From kome (stone) + -ile \u2014 little stone"},
   {lw:"komilele", en:"grain of sand", pos:"n", note:"From kome (stone) + -ilele \u2014 tiny stone"},
-  {lw:"komu", en:"to make solid", pos:"v"},
   {lw:"kose", en:"acquisition", pos:"n"},
   {lw:"kosi", en:"obtained", pos:"adj"},
   {lw:"kosu", en:"to get (or obtain)", pos:"v"},
@@ -15238,7 +15236,7 @@ const DICTIONARY_RAW = [
   {lw:"seumu", en:"to whisper", pos:"v"},
   {lw:"seure", en:"insect", pos:"n"},
   {lw:"seuri", en:"insect-related", pos:"adj"},
-  {lw:"seuwe", en:"allowance", pos:"n"},
+  {lw:"seuwe", en:"permission (or allowance)", pos:"n"},
   {lw:"seuwi", en:"allowed (or permitted)", pos:"adj"},
   {lw:"seuwu", en:"to allow (or permit)", pos:"v"},
   {lw:"shae", en:"tea", pos:"n"},
@@ -15420,7 +15418,7 @@ const DICTIONARY_RAW = [
   {lw:"tawu", en:"to push", pos:"v"},
   {lw:"te", en:"you", pos:"pron"},
   {lw:"te'o", en:"yours (sg.)", pos:"pron"},
-  {lw:"tea", en:"you all", pos:"pron"},
+  {lw:"tea", en:"you all (or y'all)", pos:"pron"},
   {lw:"tea'o", en:"yours (pl.)", pos:"pron"},
   {lw:"teni", en:"three", pos:"num"},
   {lw:"tenilawe", en:"Tuesday", pos:"n", note:"From teni (3) + lawe (day)"},
