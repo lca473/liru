@@ -10103,6 +10103,15 @@ async function finishLogin(name){
     // See DECISIONS.md "*hoye* / *mohoye* nouns retired from the course".
     const prunedHoyeMohoye=srsPruneHoyeMohoyeNounsIfNeeded(user.username);
     if(prunedHoyeMohoye>0)console.log("[SRS] pruned",prunedHoyeMohoye,"retired hoye/mohoye noun cards for",user.username);
+    // One-shot pruner for *moshife/moshifi/moshifu* (catch) — removed from
+    // SRS for all users per Neal's direction (2026-06-21). Word stays in
+    // the course; this is SRS-only removal.
+    const prunedMoshife=srsPruneMoshifeIfNeeded(user.username);
+    if(prunedMoshife>0)console.log("[SRS] pruned",prunedMoshife,"moshife cards for",user.username);
+    // One-shot pruner for *naike/naiki/naiku* (climb) — removed from
+    // SRS for all users per Neal's direction (2026-06-21).
+    const prunedNaike=srsPruneNaikeIfNeeded(user.username);
+    if(prunedNaike>0)console.log("[SRS] pruned",prunedNaike,"naike cards for",user.username);
     // One-shot targeted reset for user "LondonGP" — wipes his deck and
     // re-enrolls from current LESSONS ∩ lessonsCompleted. No-op for everyone
     // else. See srsResetLondonGpIfNeeded for full rationale.
@@ -10912,6 +10921,85 @@ function srsPruneHoyeMohoyeNounsIfNeeded(username){
     console.log("[SRS] pruned",prunedIds.length,"retired hoye/mohoye noun cards for",username,prunedIds);
   }
   s.hoyeMohoyeNounsPruneDone=true;
+  srsSaveState(username,s);
+  srsSyncState(username,s);
+  return prunedIds.length;
+}
+
+// ─── One-time pruner for *moshife* family ────────────────────
+// *moshife/moshifi/moshifu* (catch) was removed from SRS for all users
+// per Neal's direction (2026-06-21). The forms remain in Dictionary.md
+// and DICTIONARY_RAW (the stale-card pruner won't touch them), and the
+// word stays in the course vocabulary — this is a deliberate SRS-only
+// exclusion, not a retirement.
+//
+// Targets all three canvas forms: moshife (n), moshifi (adj), moshifu (v),
+// in both card directions (lw_en and en_lw) — 6 card IDs maximum per user.
+//
+// Gated by state.moshifePruneDone; runs once per user on next login,
+// then never again. Safe to keep in the codebase indefinitely.
+function srsPruneMoshifeIfNeeded(username){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.moshifePruneDone)return 0;
+  const pruneSet=new Set(["moshife","moshifi","moshifu"]);
+  const cards=srsLoadCards(username);
+  const prunedIds=[];
+  for(const id in cards){
+    const c=cards[id];
+    if(c&&c.lw&&pruneSet.has(c.lw)){
+      prunedIds.push(id);
+      delete cards[id];
+    }
+  }
+  if(prunedIds.length>0){
+    srsSaveCards(username,cards);
+    if(firebaseReady&&db){
+      for(const id of prunedIds){
+        try{db.ref(srsCardFbPath(username,id)).remove();}
+        catch(e){/* ignore — local is authoritative until next sync */}
+      }
+    }
+    console.log("[SRS] pruned",prunedIds.length,"moshife cards for",username,prunedIds);
+  }
+  s.moshifePruneDone=true;
+  srsSaveState(username,s);
+  srsSyncState(username,s);
+  return prunedIds.length;
+}
+
+// ─── One-time pruner for *naike* family ──────────────────────
+// *naike/naiki/naiku* (climb) was removed from SRS for all users
+// per Neal's direction (2026-06-21). The forms remain in Dictionary.md
+// and DICTIONARY_RAW; this is SRS-only removal.
+//
+// Gated by state.naikePruneDone; runs once per user on next login,
+// then never again. Safe to keep in the codebase indefinitely.
+function srsPruneNaikeIfNeeded(username){
+  if(!username)return 0;
+  const s=srsLoadState(username);
+  if(s.naikePruneDone)return 0;
+  const pruneSet=new Set(["naike","naiki","naiku"]);
+  const cards=srsLoadCards(username);
+  const prunedIds=[];
+  for(const id in cards){
+    const c=cards[id];
+    if(c&&c.lw&&pruneSet.has(c.lw)){
+      prunedIds.push(id);
+      delete cards[id];
+    }
+  }
+  if(prunedIds.length>0){
+    srsSaveCards(username,cards);
+    if(firebaseReady&&db){
+      for(const id of prunedIds){
+        try{db.ref(srsCardFbPath(username,id)).remove();}
+        catch(e){/* ignore — local is authoritative until next sync */}
+      }
+    }
+    console.log("[SRS] pruned",prunedIds.length,"naike cards for",username,prunedIds);
+  }
+  s.naikePruneDone=true;
   srsSaveState(username,s);
   srsSyncState(username,s);
   return prunedIds.length;
