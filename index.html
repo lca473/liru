@@ -3993,21 +3993,21 @@ const V = {
   // Anchor: lewe (laugh), molewe (cry/tears), seiwe (smile). Weave-in
   // (1): moseiwe (frown) from A21 — mo-pair partner of seiwe.
   // 4 roots / 8 drilled forms.
-  //   lewe (n "laughter"/"a laugh"), lewu (v "to laugh") — drilled.
-  //   molewe (n "tears"), molewu (v "to cry") — drilled.
-  //   seiwe (n "a smile"), seiwu (v "to smile") — drilled.
-  //   moseiwe (n "a frown"), moseiwu (v "to frown") — drilled.
+  //   lewe (n "a laugh"), lewu (v "to laugh") — drilled. Noun tier:"mechanical" (SRS-excluded; verb only in SRS).
+  //   molewe (n "tear"), molewu (v "to cry") — drilled. molewe stays in SRS; plural "tears" = molewea.
+  //   seiwe (n "a smile"), seiwu (v "to smile") — drilled. Noun tier:"mechanical" (SRS-excluded; verb only in SRS).
+  //   moseiwe (n "a frown"), moseiwu (v "to frown") — drilled. Noun tier:"mechanical" (SRS-excluded; verb only in SRS).
   // Mechanical *-i adjs (lewi, molewi, seiwi, moseiwi) all DROPPED.
   l161_vocab_face_expressions: [
-    {lw:"lewe", en:"a laugh (or laughter)", pos:"n",
+    {lw:"lewe", en:"a laugh (or laughter)", pos:"n", tier:"mechanical",
      canvas:{v:"lewu", v_en:"to laugh"}},
-    {lw:"molewe", en:"tears", pos:"n",
+    {lw:"molewe", en:"tear", pos:"n",
      canvas:{v:"molewu", v_en:"to cry (or weep)"},
      pair:"lewe",
-     note:"The mo- pair of lewe (laughter) — laughter and tears as the balanced face-expression pair. molewe is naturally plural in English (\"tears\") but Liru treats it as a base noun."},
-    {lw:"seiwe", en:"a smile", pos:"n",
+     note:"The mo- pair of lewe (laughter) — laughter and tears as the balanced face-expression pair. molewe is a single tear; the plural \"tears\" is molewea."},
+    {lw:"seiwe", en:"a smile", pos:"n", tier:"mechanical",
      canvas:{v:"seiwu", v_en:"to smile"}},
-    {lw:"moseiwe", en:"a frown", pos:"n",
+    {lw:"moseiwe", en:"a frown", pos:"n", tier:"mechanical",
      canvas:{v:"moseiwu", v_en:"to frown"},
      pair:"seiwe",
      note:"The mo- pair of seiwe (smile) — smile and frown as the balanced face-expression pair."},
@@ -8460,17 +8460,17 @@ const LESSONS = [
    vocabKey:"l160_vocab_body_actions",
    xp:18,
    unit:27,
-   intro:`<h3>💃 The unit opens with body in motion</h3><p>This unit teaches a wide span of action verbs — what bodies do, what faces express, what voices call out, how objects are struck or moved, and how people feel. We open with four body-motion roots: dance, lift, bend, and cough.</p><h3>📝 A note on which forms you'll see</h3><p>For action-verb roots, Liru's canvas system gives three forms — noun, adjective, verb — but only one or two see everyday use. These lessons focus on the everyday forms.</p><p>For example, the root <em>faire</em> has all three forms (<em>faire</em> "a dance," <em>fairi</em> "dance-related," <em>fairu</em> "to dance"), but only <em>fairu</em> shows up in real conversation.</p><h3>🤸 The four roots</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>fairu</em> (v.)</td><td style="padding:4px 12px">to dance</td></tr><tr><td style="padding:4px 12px"><em>wounu</em> (v.)</td><td style="padding:4px 12px">to lift (or raise)</td></tr><tr><td style="padding:4px 12px"><em>hiehe</em> (n.)</td><td style="padding:4px 12px">joint (anatomical)</td></tr><tr><td style="padding:4px 12px"><em>hiehi</em> (adj.)</td><td style="padding:4px 12px">flexible</td></tr><tr><td style="padding:4px 12px"><em>hiehu</em> (v.)</td><td style="padding:4px 12px">to bend at a joint</td></tr><tr><td style="padding:4px 12px"><em>tuke</em> (n.)</td><td style="padding:4px 12px">a cough</td></tr><tr><td style="padding:4px 12px"><em>tuku</em> (v.)</td><td style="padding:4px 12px">to cough</td></tr></table><p><em>hiehe</em> is a full-canvas root because all three forms are everyday: the anatomical noun ("my joint hurts"), the property adjective ("she is flexible"), and the action verb ("the dancer bends at the knee").</p><span class="example">Maya fairu. <span class="gloss">Maya dances.</span></span><span class="example">Ne wu wounu loiwe lo. <span class="gloss">I will lift this book.</span></span><span class="example">Ve 'u hiehi. <span class="gloss">She is flexible.</span></span><span class="example">Piwile lo wa tuku. <span class="gloss">This baby coughed.</span></span>`,
+   intro:`<h3>💃 The unit opens with body in motion</h3><p>This unit teaches a wide span of action verbs — what bodies do, what faces express, what voices call out, how objects are struck or moved, and how people feel. We open with four body-motion roots: dance, lift, bend, and cough.</p><h3>🤸 The four roots</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>fairu</em> (v.)</td><td style="padding:4px 12px">to dance</td></tr><tr><td style="padding:4px 12px"><em>wounu</em> (v.)</td><td style="padding:4px 12px">to lift (or raise)</td></tr><tr><td style="padding:4px 12px"><em>hiehe</em> (n.)</td><td style="padding:4px 12px">joint (anatomical)</td></tr><tr><td style="padding:4px 12px"><em>hiehi</em> (adj.)</td><td style="padding:4px 12px">flexible</td></tr><tr><td style="padding:4px 12px"><em>hiehu</em> (v.)</td><td style="padding:4px 12px">to bend at a joint</td></tr><tr><td style="padding:4px 12px"><em>tuke</em> (n.)</td><td style="padding:4px 12px">a cough</td></tr><tr><td style="padding:4px 12px"><em>tuku</em> (v.)</td><td style="padding:4px 12px">to cough</td></tr></table><span class="example">Maya fairu. <span class="gloss">Maya dances.</span></span><span class="example">Ne wu wounu loiwe lo. <span class="gloss">I will lift this book.</span></span><span class="example">Ve 'u hiehi. <span class="gloss">She is flexible.</span></span><span class="example">Piwile lo wa tuku. <span class="gloss">This baby coughed.</span></span>`,
    srsExtras:["faire"]},
 
   {id:"l161_vocab_face_expressions",
    title:"Expressive Face — Laugh, Cry, Smile, Frown",
-   desc:"What faces do: lewe (laughter), molewe (tears), seiwe (smile), moseiwe (frown)",
+   desc:"What faces do: lewe (laughter), molewe (tear), seiwe (smile), moseiwe (frown)",
    icon:"😊",
    vocabKey:"l161_vocab_face_expressions",
    xp:18,
    unit:27,
-   intro:`<h3>😊 Two balanced face-expression pairs</h3><p>Four roots, arranged as two <em>mo-</em> pairs. Laughter and tears are the inverse pair of vocalized emotion; smile and frown are the inverse pair of facial-only emotion.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lewe</em> (n.)</td><td style="padding:4px 12px">a laugh (or laughter)</td></tr><tr><td style="padding:4px 12px"><em>lewu</em> (v.)</td><td style="padding:4px 12px">to laugh</td></tr><tr><td style="padding:4px 12px"><em>molewe</em> (n.)</td><td style="padding:4px 12px">tears</td></tr><tr><td style="padding:4px 12px"><em>molewu</em> (v.)</td><td style="padding:4px 12px">to cry (or weep)</td></tr></table><p>Like the temperature triad in Unit 25 (cold / warm / hot), the <em>mo-</em> prefix marks balance rather than mere opposition — but here both members are simply named members of the pair, with no third balancing form between them. Laughter and tears live as twins; one body, two expressions of feeling.</p><h3>🙂 Smile and frown</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>seiwe</em> (n.)</td><td style="padding:4px 12px">a smile</td></tr><tr><td style="padding:4px 12px"><em>seiwu</em> (v.)</td><td style="padding:4px 12px">to smile</td></tr><tr><td style="padding:4px 12px"><em>moseiwe</em> (n.)</td><td style="padding:4px 12px">a frown</td></tr><tr><td style="padding:4px 12px"><em>moseiwu</em> (v.)</td><td style="padding:4px 12px">to frown</td></tr></table><p>The adjective forms (<em>lewi</em>, <em>molewi</em>, <em>seiwi</em>, <em>moseiwi</em>) are rare in everyday speech.</p><span class="example">Yuna lewu. <span class="gloss">Yuna laughs.</span></span><span class="example">Piwile lo molewu. <span class="gloss">This baby cries.</span></span><span class="example">Ve wa seiwu. <span class="gloss">She smiled.</span></span><span class="example">Mawe wa moseiwu. <span class="gloss">The mother frowned.</span></span>`},
+   intro:`<h3>😊 Two balanced face-expression pairs</h3><p>Four roots, arranged as two <em>mo-</em> pairs. Laughter and tears are the inverse pair of vocalized emotion; smile and frown are the inverse pair of facial-only emotion.</p><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>lewe</em> (n.)</td><td style="padding:4px 12px">a laugh (or laughter)</td></tr><tr><td style="padding:4px 12px"><em>lewu</em> (v.)</td><td style="padding:4px 12px">to laugh</td></tr><tr><td style="padding:4px 12px"><em>molewe</em> (n.)</td><td style="padding:4px 12px">a tear</td></tr><tr><td style="padding:4px 12px"><em>molewu</em> (v.)</td><td style="padding:4px 12px">to cry (or weep)</td></tr></table><p>Like the temperature triad in Unit 25 (cold / warm / hot), the <em>mo-</em> prefix marks balance rather than mere opposition — but here both members are simply named members of the pair, with no third balancing form between them. Laughter and tears live as twins; one body, two expressions of feeling.</p><h3>🙂 Smile and frown</h3><table style="margin:10px auto;border-collapse:collapse;font-size:14px"><tr><th style="padding:4px 12px;color:var(--dim)">form</th><th style="padding:4px 12px;color:var(--dim)">meaning</th></tr><tr><td style="padding:4px 12px"><em>seiwe</em> (n.)</td><td style="padding:4px 12px">a smile</td></tr><tr><td style="padding:4px 12px"><em>seiwu</em> (v.)</td><td style="padding:4px 12px">to smile</td></tr><tr><td style="padding:4px 12px"><em>moseiwe</em> (n.)</td><td style="padding:4px 12px">a frown</td></tr><tr><td style="padding:4px 12px"><em>moseiwu</em> (v.)</td><td style="padding:4px 12px">to frown</td></tr></table><span class="example">Yuna lewu. <span class="gloss">Yuna laughs.</span></span><span class="example">Piwile lo molewu. <span class="gloss">This baby cries.</span></span><span class="example">Ve wa seiwu. <span class="gloss">She smiled.</span></span><span class="example">Mawe wa moseiwu. <span class="gloss">The mother frowned.</span></span>`},
 
   {id:"l162_vocab_voice_permission",
    title:"Voice & Permission — Shout, Whisper, Allow, Forbid",
@@ -14777,7 +14777,7 @@ const DICTIONARY_RAW = [
   {lw:"moleume", en:"flatness", pos:"n"},
   {lw:"moleumi", en:"flat", pos:"adj"},
   {lw:"moleumu", en:"to flatten", pos:"v"},
-  {lw:"molewe", en:"tears", pos:"n"},
+  {lw:"molewe", en:"tear", pos:"n"},
   {lw:"molewi", en:"crying", pos:"adj"},
   {lw:"molewu", en:"to cry (or weep)", pos:"v"},
   {lw:"moliane", en:"lowness", pos:"n"},
