@@ -12484,9 +12484,11 @@ function renderReview(){
   // queue items are session-wrapped: {card, streak, graduated, sessionLapses}
   const card=item.card||item;  // backward-compat with any old in-memory queue
   const username=state.user.username;
-  // Admin-only "drop from review" — not offered in cram/practice modes (those
-  // serve cram or throwaway cards, so dropping there is meaningless).
-  const showDrop=isAdminUser(username)&&!state.reviewCramMode;
+  // Admin-only "drop from review". Available in daily review AND Practice-deck
+  // (cram) sessions — both serve real deck cards, so a drop genuinely evicts.
+  // Hidden only for Practice-all cards (card._practiceAll), which are throwaway
+  // dictionary entries never added to the deck (nothing to evict).
+  const showDrop=isAdminUser(username)&&!card._practiceAll;
   // Progress: count graduated cards (numerator) out of distinct cards in the
   // session (denominator). Each card needs one correct (good/easy) rating to graduate;
   // bar fills only when a card is actually mastered. This matches the true
@@ -12573,7 +12575,7 @@ function dropCurrentReviewCard(){
   const card=item.card||item;
   const username=state.user.username;
   if(!isAdminUser(username))return;          // guard: admin only
-  if(state.reviewCramMode)return;            // guard: not in cram/practice
+  if(card._practiceAll)return;               // guard: skip Practice-all throwaway cards (not in deck)
   const lw=card.lw;
   if(!lw)return;
   // Persist the drop + evict from the durable deck (local + cloud).
