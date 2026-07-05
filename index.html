@@ -13718,7 +13718,15 @@ const GRAMMAR_SECTIONS = [
     <tr><td><em>nea'o</em></td><td>ours</td><td><em>Hiwe 'u nea'o.</em> — The house is ours.</td></tr>
     <tr><td><em>kea'o</em></td><td>yours (pl.)</td><td>—</td></tr>
     <tr><td><em>vea'o</em></td><td>theirs</td><td>—</td></tr>
-    </tbody></table></div>`
+    </tbody></table></div>
+    <div class="grammar-sub-header">Reflexive pronouns (-self)</div>
+    <p>When a verb's object is the same as its subject, the pronoun <strong>doubles</strong>. The plural adds the usual <em>-a</em> to the doubled form.</p>
+    <div class="grammar-table-wrap"><table class="grammar-table"><thead><tr><th>Person</th><th>Singular</th><th>Plural</th></tr></thead><tbody>
+    <tr><td>1st</td><td><em>nene</em> — myself</td><td><em>nenea</em> — ourselves</td></tr>
+    <tr><td>2nd</td><td><em>keke</em> — yourself</td><td><em>kekea</em> — yourselves</td></tr>
+    <tr><td>3rd</td><td><em>veve</em> — himself/herself/itself</td><td><em>vevea</em> — themselves</td></tr>
+    </tbody></table></div>
+    <div class="grammar-callout"><strong>The double is what tells you it's the same person.</strong> <em>Ve tiru veve</em> = "He sees himself"; <em>Ve tiru ve</em> = "He sees him (someone else)." The reflexive is an object form only — for "his own house" use the linker, <em>hiwe'o ve</em>.</div>`
   },
   {
     icon:"⚡", title:"Verbs & Tense",
@@ -13991,9 +13999,10 @@ const GRAMMAR_SECTIONS = [
     </tbody></table></div>
     <p>Use <em>fanini</em> for strict numerical first; use <em>poayi</em> for "the starting one."</p>
     <div class="grammar-sub-header">Quantifiers</div>
-    <p>The first five share the <em>-ai</em> rhyme and measure set-count (how much of a set is involved). Like other modifiers, they follow the noun.</p>
+    <p>The first six share the <em>-ai</em> rhyme and measure set-count (how much of a set is involved). Like other modifiers, they follow the noun.</p>
     <ul>
       <li><em>tai</em> — all · <em>Moulea tai 'u liani.</em> (All trees are tall.)</li>
+      <li><em>yai</em> — each (distributive: members one at a time) · <em>Moulea yai 'u liani.</em> (Each tree is tall.)</li>
       <li><em>sai</em> — some · <em>Puea sai wa halu.</em> (Some people went.)</li>
       <li><em>nai</em> — many</li>
       <li><em>fai</em> — any (free-choice) · <em>Pue fai sahu ihu lo.</em> (Anyone can do this.)</li>
@@ -15202,8 +15211,10 @@ const DICTIONARY_RAW = [
   {lw:"nawu", en:"to love", pos:"v"},
   {lw:"ne", en:"I (or me)", pos:"pron"},
   {lw:"ne'o", en:"mine", pos:"pron"},
+  {lw:"nene", en:"myself", pos:"pron"},
   {lw:"nea", en:"we (or us)", pos:"pron"},
   {lw:"nea'o", en:"ours", pos:"pron"},
+  {lw:"nenea", en:"ourselves", pos:"pron"},
   {lw:"nemue", en:"honey", pos:"n"},
   {lw:"nemui", en:"honeyed (or honey-related)", pos:"adj"},
   {lw:"neule", en:"television (or TV)", pos:"n"},
@@ -15712,8 +15723,10 @@ const DICTIONARY_RAW = [
   {lw:"tawu", en:"to push", pos:"v"},
   {lw:"ke", en:"you", pos:"pron"},
   {lw:"ke'o", en:"yours (sg.)", pos:"pron"},
+  {lw:"keke", en:"yourself", pos:"pron"},
   {lw:"kea", en:"you all (or y'all)", pos:"pron"},
   {lw:"kea'o", en:"yours (pl.)", pos:"pron"},
+  {lw:"kekea", en:"yourselves", pos:"pron"},
   {lw:"teni", en:"three", pos:"num"},
   {lw:"tenilawe", en:"Tuesday", pos:"n", note:"From teni (3) + lawe (day)"},
   {lw:"teniluone", en:"March", pos:"n", note:"From teni (3) + luone (month)"},
@@ -15819,8 +15832,10 @@ const DICTIONARY_RAW = [
   {lw:"vauhu", en:"to wear (or put on)", pos:"v"},
   {lw:"ve", en:"he/she/it/him/her/they/them sg.", pos:"pron"},
   {lw:"ve'o", en:"his / hers / its / theirs (sg.)", pos:"pron"},
+  {lw:"veve", en:"himself/herself/itself", pos:"pron"},
   {lw:"vea", en:"they/them", pos:"pron"},
   {lw:"vea'o", en:"theirs", pos:"pron"},
+  {lw:"vevea", en:"themselves", pos:"pron"},
   {lw:"vehe", en:"showing (n.)", pos:"n"},
   {lw:"vehi", en:"shown", pos:"adj"},
   {lw:"vehu", en:"to show (or display)", pos:"v"},
@@ -15929,6 +15944,7 @@ const DICTIONARY_RAW = [
   {lw:"yahe", en:"place (or location)", pos:"n"},
   {lw:"yahi", en:"local", pos:"adj"},
   {lw:"yahu", en:"to locate", pos:"v"},
+  {lw:"yai", en:"each", pos:"adj"},
   {lw:"yaihe", en:"bird", pos:"n"},
   {lw:"yaihi", en:"bird-related", pos:"adj"},
   {lw:"yame", en:"tongue", pos:"n"},
